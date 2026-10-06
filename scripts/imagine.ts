@@ -13,6 +13,8 @@ import { spawnSync } from "node:child_process"
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import path from "node:path"
 
+;(globalThis as { AI_SDK_LOG_WARNINGS?: boolean }).AI_SDK_LOG_WARNINGS = false
+
 type Job = {
   model: string
   prompt?: string
@@ -52,7 +54,7 @@ async function run(job: Job) {
   if (job.model.startsWith("google/")) {
     const r = await generateText({
       model: gateway(job.model),
-      messages: [{ role: "user", content: [...refs.map((r) => ({ type: "image" as const, image: r.data, mediaType: r.mediaType })), { type: "text" as const, text }] }],
+      messages: [{ role: "user", content: [...refs.map((r) => ({ type: "file" as const, data: r.data, mediaType: r.mediaType })), { type: "text" as const, text }] }],
       providerOptions: { google: { responseModalities: ["TEXT", "IMAGE"], imageConfig: { aspectRatio: job.aspect ?? "16:9", imageSize: "2K" } }, ...job.opt } as never,
     })
     files = r.files.filter((f) => f.mediaType.startsWith("image/")).map((f) => ({ bytes: f.uint8Array, mediaType: f.mediaType }))
