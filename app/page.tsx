@@ -1,5 +1,5 @@
-import { Canvas } from "@/components/canvas/canvas"
+import { Studio } from "@/components/studio/studio"
 
 export default function Page() {
-  return <Canvas />
+  return <Studio />
 }

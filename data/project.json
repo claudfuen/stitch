@@ -1,0 +1,2908 @@
+{
+  "title": "The Ministry",
+  "logline": "Henrick takes a founder to get SOC 2 the European way. It takes eleven years. Then Comp AI does it, and Henrick has to say the word.",
+  "runtimeTarget": 35,
+  "baselines": {
+    "face": 0.82,
+    "faceTarget": 0.75,
+    "voice": 0.71
+  },
+  "sections": [
+    {
+      "id": "hook",
+      "name": "Hook",
+      "color": "#f59e0b",
+      "purpose": "Henrick makes 'Friday' sound like a diagnosis."
+    },
+    {
+      "id": "ministry",
+      "name": "The Ministry",
+      "color": "#f43f5e",
+      "purpose": "Escalate the absurdity: queue, form, fax, eleven years."
+    },
+    {
+      "id": "turn",
+      "name": "Turn",
+      "color": "#38bdf8",
+      "purpose": "Hard contrast: bright, calm, done."
+    },
+    {
+      "id": "payoff",
+      "name": "Payoff",
+      "color": "#34d399",
+      "purpose": "Henrick has to say it."
+    },
+    {
+      "id": "cta",
+      "name": "Call to action",
+      "color": "#a78bfa",
+      "purpose": "The binder goes in the bin. One line, one logo."
+    }
+  ],
+  "characters": [
+    {
+      "id": "henrick",
+      "name": "Henrick",
+      "role": "lead",
+      "anchors": [
+        "hen-real-37",
+        "hen-real-38",
+        "hen-real-49",
+        "hen-real-53",
+        "hen-real-54",
+        "hen-real-56"
+      ],
+      "sheets": [
+        "hen-sheet",
+        "hen-faces",
+        "hen-poses"
+      ],
+      "voice": {
+        "engine": "Seedance native with voice reference",
+        "voiceId": "higgsfield:6a1cb9d8-eb8b-4c14-ae84-ed9a0988e8ce",
+        "ref": "voice-henrick",
+        "note": "Seedance native 0.70-0.86; Index TTS 2 0.76-0.85"
+      }
+    },
+    {
+      "id": "founder",
+      "name": "Founder",
+      "role": "supporting",
+      "anchors": [],
+      "sheets": [
+        "founder-sheet"
+      ],
+      "voice": {
+        "engine": "ElevenLabs v3 preset",
+        "voiceId": "Chris",
+        "note": "Stock voice, one take, never auditioned"
+      }
+    },
+    {
+      "id": "clerk",
+      "name": "Clerk",
+      "role": "supporting",
+      "anchors": [],
+      "sheets": [
+        "clerk-sheet"
+      ],
+      "voice": {
+        "engine": "ElevenLabs v3 preset",
+        "voiceId": "Alice",
+        "note": "Stock voice, one take, never auditioned"
+      }
+    },
+    {
+      "id": "narrator",
+      "name": "Narrator",
+      "role": "voice",
+      "anchors": [],
+      "sheets": [],
+      "voice": {
+        "engine": "ElevenLabs v3 preset",
+        "voiceId": "Sarah",
+        "note": "Says 'Comp AI' as 'cop AI'"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "study",
+      "name": "Henrick's study",
+      "style": [
+        "hen-real-56",
+        "hen-real-38"
+      ],
+      "gradeRef": [
+        "hen-real-49",
+        "hen-real-53",
+        "hen-real-56"
+      ],
+      "ambience": "sfx-amb_study",
+      "look": {
+        "palette": [
+          "#2a1810",
+          "#5a3520",
+          "#c08a4e",
+          "#1d2a3a"
+        ],
+        "light": "Warm practical lamps, soft key from camera left, dark falloff",
+        "lens": "50 to 85 mm, shallow depth of field, eye-level",
+        "contrast": "Low-key, rich blacks",
+        "grain": "Fine 35 mm grain",
+        "note": "Anchor look: Henrick's real Comp AI videos"
+      },
+      "room": "/Library/Audio/Impulse Responses/Apple/03 Small Spaces/07 Indoor Spaces/0.8s_Empty Dining Room.SDIR"
+    },
+    {
+      "id": "hall",
+      "name": "Ministry waiting hall",
+      "style": [
+        "style-hall",
+        "style-counter"
+      ],
+      "gradeRef": [
+        "style-hall",
+        "style-counter"
+      ],
+      "ambience": "sfx-amb_hall",
+      "look": {
+        "palette": [
+          "#8d9690",
+          "#5c6660",
+          "#c9d1c8",
+          "#3a403c"
+        ],
+        "light": "Flat overhead fluorescent, cold green-grey",
+        "lens": "Wide, locked-off, symmetrical",
+        "contrast": "Flat, lifted shadows",
+        "grain": "Fine grain",
+        "note": "Bureaucratic, still, Wes Anderson symmetry"
+      },
+      "props": [
+        "props-ministry"
+      ],
+      "room": "/Library/Audio/Impulse Responses/Apple/01 Large Spaces/07 Indoor Spaces/4.2s_Central Station.SDIR"
+    },
+    {
+      "id": "office",
+      "name": "Founder's office",
+      "style": [
+        "style-office"
+      ],
+      "gradeRef": [
+        "style-office"
+      ],
+      "ambience": "sfx-amb_office",
+      "look": {
+        "palette": [
+          "#f2efe8",
+          "#cfd8cf",
+          "#3f8f6a",
+          "#2b2b2b"
+        ],
+        "light": "Bright morning daylight",
+        "lens": "35 to 50 mm, handheld",
+        "contrast": "Soft, airy",
+        "grain": "Minimal"
+      },
+      "room": "/Library/Audio/Impulse Responses/Apple/03 Small Spaces/02 Halls/1.0s_Dynamic Hall.SDIR"
+    }
+  ],
+  "assets": [
+    {
+      "id": "hen-real-37",
+      "media": "image",
+      "path": "/characters/henrick/real/real-37.3.jpg",
+      "label": "Three-quarter right, gesturing",
+      "origin": "real"
+    },
+    {
+      "id": "hen-real-38",
+      "media": "image",
+      "path": "/characters/henrick/real/real-38.3.jpg",
+      "label": "Three-quarter right, seated",
+      "origin": "real"
+    },
+    {
+      "id": "hen-real-49",
+      "media": "image",
+      "path": "/characters/henrick/real/real-49.4.jpg",
+      "label": "Side-on, seated",
+      "origin": "real"
+    },
+    {
+      "id": "hen-real-53",
+      "media": "image",
+      "path": "/characters/henrick/real/real-53.5.jpg",
+      "label": "Close-up, eyes and glasses",
+      "origin": "real"
+    },
+    {
+      "id": "hen-real-54",
+      "media": "image",
+      "path": "/characters/henrick/real/real-54.5.jpg",
+      "label": "Close-up, angled",
+      "origin": "real"
+    },
+    {
+      "id": "hen-real-56",
+      "media": "image",
+      "path": "/characters/henrick/real/real-56.4.jpg",
+      "label": "Front, medium",
+      "origin": "real"
+    },
+    {
+      "id": "hen-sheet",
+      "media": "image",
+      "path": "/generated/hen-sheet2.jpg",
+      "label": "Turnaround sheet (real refs only, 4K)",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-real-37",
+          "hen-real-38",
+          "hen-real-49",
+          "hen-real-53",
+          "hen-real-54",
+          "hen-real-56"
+        ]
+      },
+      "scores": {
+        "face": 0.71
+      }
+    },
+    {
+      "id": "hen-faces",
+      "media": "image",
+      "path": "/generated/hen-faces2.jpg",
+      "label": "Face grid, 9 angles",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-real-37",
+          "hen-real-38",
+          "hen-real-49",
+          "hen-real-53",
+          "hen-real-54",
+          "hen-real-56"
+        ]
+      },
+      "scores": {
+        "face": 0.74
+      }
+    },
+    {
+      "id": "hen-poses",
+      "media": "image",
+      "path": "/generated/hen-poses-b23dcd.jpg",
+      "label": "Full-body poses",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-sheet",
+          "hen-real-37",
+          "hen-real-56"
+        ]
+      }
+    },
+    {
+      "id": "founder-sheet",
+      "media": "image",
+      "path": "/generated/ref-founder-e6c025.jpg",
+      "label": "Founder sheet (original character)",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": []
+      }
+    },
+    {
+      "id": "clerk-sheet",
+      "media": "image",
+      "path": "/generated/ref-clerk-7f519b.jpg",
+      "label": "Clerk sheet (original character)",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": []
+      }
+    },
+    {
+      "id": "k1-c7e01b",
+      "media": "image",
+      "path": "/generated/k1-c7e01b.jpg",
+      "label": "Two-shot, study",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-sheet",
+          "founder-sheet"
+        ]
+      },
+      "scores": {
+        "face": 0.6
+      }
+    },
+    {
+      "id": "k1-9729b5",
+      "media": "image",
+      "path": "/generated/k1-9729b5.jpg",
+      "label": "Two-shot, study (sheet only)",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-sheet"
+        ]
+      },
+      "scores": {}
+    },
+    {
+      "id": "hen-cu2-5dc6a6",
+      "media": "image",
+      "path": "/generated/hen-cu2-5dc6a6.jpg",
+      "label": "Henrick close-up, edit of real still",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-real-53"
+        ]
+      },
+      "scores": {
+        "face": 0.82
+      }
+    },
+    {
+      "id": "hen-cu-c08f9e",
+      "media": "image",
+      "path": "/generated/hen-cu-c08f9e.jpg",
+      "label": "Henrick close-up, from sheet",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-sheet",
+          "hen-real-37",
+          "hen-real-49",
+          "hen-real-56"
+        ]
+      },
+      "scores": {
+        "face": 0.67
+      }
+    },
+    {
+      "id": "k2-b1c03f",
+      "media": "image",
+      "path": "/generated/k2-b1c03f.jpg",
+      "label": "Waiting hall, edit of real still",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-real-56",
+          "founder-sheet"
+        ]
+      },
+      "scores": {
+        "face": 0.7
+      }
+    },
+    {
+      "id": "k2-f2b22d",
+      "media": "image",
+      "path": "/generated/k2-f2b22d.jpg",
+      "label": "Waiting hall, from sheets",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-sheet",
+          "founder-sheet"
+        ]
+      },
+      "scores": {
+        "face": 0.63
+      }
+    },
+    {
+      "id": "k2-0ffd5b",
+      "media": "image",
+      "path": "/generated/k2-0ffd5b.jpg",
+      "label": "Waiting hall, sheet only",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-sheet"
+        ]
+      },
+      "scores": {}
+    },
+    {
+      "id": "k3-ad4425",
+      "media": "image",
+      "path": "/generated/k3-ad4425.jpg",
+      "label": "Counter, clerk straight-on",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "clerk-sheet",
+          "founder-sheet",
+          "hen-sheet"
+        ]
+      },
+      "scores": {}
+    },
+    {
+      "id": "k3-ff0889",
+      "media": "image",
+      "path": "/generated/k3-ff0889.jpg",
+      "label": "Counter, clerk three-quarter",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-sheet",
+          "founder-sheet",
+          "clerk-sheet"
+        ]
+      },
+      "scores": {}
+    },
+    {
+      "id": "k3-88032e",
+      "media": "image",
+      "path": "/generated/k3-88032e.jpg",
+      "label": "Counter, clerk from behind",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-sheet",
+          "founder-sheet",
+          "clerk-sheet"
+        ]
+      },
+      "scores": {}
+    },
+    {
+      "id": "k4-392e0b",
+      "media": "image",
+      "path": "/generated/k4-392e0b.jpg",
+      "label": "Eleven years, edit of real still",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-real-56",
+          "founder-sheet"
+        ]
+      },
+      "scores": {
+        "face": 0.77
+      }
+    },
+    {
+      "id": "k4-17c017",
+      "media": "image",
+      "path": "/generated/k4-17c017.jpg",
+      "label": "Eleven years, from sheets",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-sheet",
+          "founder-sheet"
+        ]
+      },
+      "scores": {
+        "face": 0.58
+      }
+    },
+    {
+      "id": "k4-b7536a",
+      "media": "image",
+      "path": "/generated/k4-b7536a.jpg",
+      "label": "Eleven years, sheet only",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-sheet"
+        ]
+      },
+      "scores": {}
+    },
+    {
+      "id": "k5-9d532d",
+      "media": "image",
+      "path": "/generated/k5-9d532d.jpg",
+      "label": "Office, founder relieved",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "founder-sheet"
+        ]
+      },
+      "scores": {}
+    },
+    {
+      "id": "k6-edit-a",
+      "media": "image",
+      "path": "/generated/k6_edit_a.jpg",
+      "label": "Green glow close-up, edit of real still",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-real-53"
+        ]
+      },
+      "scores": {
+        "face": 0.77
+      }
+    },
+    {
+      "id": "kb6-5bef70",
+      "media": "image",
+      "path": "/generated/kb6-5bef70.jpg",
+      "label": "Green glow close-up, edit of real still (B)",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-real-53"
+        ]
+      },
+      "scores": {
+        "face": 0.78
+      }
+    },
+    {
+      "id": "k6-1a2339",
+      "media": "image",
+      "path": "/generated/k6-1a2339.jpg",
+      "label": "Green glow close-up, from sheet",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-sheet"
+        ]
+      },
+      "scores": {
+        "face": 0.5
+      }
+    },
+    {
+      "id": "kb6-061d2f",
+      "media": "image",
+      "path": "/generated/kb6-061d2f.jpg",
+      "label": "Green glow close-up, sheet + stills",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-sheet",
+          "hen-real-37",
+          "hen-real-49",
+          "hen-real-56"
+        ]
+      },
+      "scores": {}
+    },
+    {
+      "id": "k7-edit-a",
+      "media": "image",
+      "path": "/generated/k7_edit_a.jpg",
+      "label": "Binder in the bin, edit of real still",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-real-56"
+        ]
+      },
+      "scores": {
+        "face": 0.75
+      }
+    },
+    {
+      "id": "k7-27b9e4",
+      "media": "image",
+      "path": "/generated/k7-27b9e4.jpg",
+      "label": "Binder in the bin, edit of real still (B)",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-real-56"
+        ]
+      },
+      "scores": {
+        "face": 0.76
+      }
+    },
+    {
+      "id": "k7-5cda9e",
+      "media": "image",
+      "path": "/generated/k7-5cda9e.jpg",
+      "label": "Binder in the bin, from sheet",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-sheet"
+        ]
+      },
+      "scores": {
+        "face": 0.36
+      }
+    },
+    {
+      "id": "kb7-36c2bb",
+      "media": "image",
+      "path": "/generated/kb7-36c2bb.jpg",
+      "label": "Binder in the bin, sheet + stills",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5",
+        "inputs": [
+          "hen-sheet",
+          "hen-real-37",
+          "hen-real-49",
+          "hen-real-56"
+        ]
+      },
+      "scores": {}
+    },
+    {
+      "id": "voice-henrick",
+      "media": "audio",
+      "path": "/audio/voice/henrick-reference.mp3",
+      "label": "Henrick voice reference (4 real lines)",
+      "origin": "real"
+    },
+    {
+      "id": "v1-4d8d86",
+      "media": "video",
+      "path": "/generated/v1-4d8d86.mp4",
+      "label": "Two-shot, founder pleads",
+      "origin": "generated",
+      "gen": {
+        "model": "Kling 3.0 pro, first frame, silent",
+        "inputs": [
+          "k1-c7e01b"
+        ]
+      },
+      "scores": {
+        "face": 0.5
+      },
+      "qa": {
+        "verdict": "borderline",
+        "note": "Founder's line is laid over a silent clip"
+      }
+    },
+    {
+      "id": "s1b-friday",
+      "media": "video",
+      "path": "/generated/s1b-friday.mp4",
+      "label": "\"Friday.\"",
+      "origin": "generated",
+      "gen": {
+        "model": "Seedance 2.5 omni_reference 1080p, voice ref",
+        "inputs": [
+          "hen-cu2-5dc6a6",
+          "hen-real-53",
+          "hen-real-56",
+          "hen-real-37",
+          "voice-henrick"
+        ]
+      },
+      "scores": {
+        "face": 0.82,
+        "voice": 0.71
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Words exact, face at the real-footage ceiling"
+      }
+    },
+    {
+      "id": "s1b-europe",
+      "media": "video",
+      "path": "/generated/s1b-europe.mp4",
+      "label": "\"In Europe, we would begin by weeping.\"",
+      "origin": "generated",
+      "gen": {
+        "model": "Seedance 2.5 omni_reference 1080p, voice ref",
+        "inputs": [
+          "hen-cu2-5dc6a6",
+          "hen-real-53",
+          "hen-real-56",
+          "hen-real-37",
+          "voice-henrick"
+        ]
+      },
+      "scores": {
+        "face": 0.81,
+        "voice": 0.85
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Words exact"
+      }
+    },
+    {
+      "id": "hen-cu-402202",
+      "media": "video",
+      "path": "/generated/hen-cu-402202.mp4",
+      "label": "Seedance 480p draft, two lines",
+      "origin": "generated",
+      "gen": {
+        "model": "Seedance 2.5 draft 480p",
+        "inputs": [
+          "hen-cu-c08f9e",
+          "hen-sheet",
+          "hen-real-37",
+          "voice-henrick"
+        ]
+      },
+      "scores": {
+        "face": 0.67,
+        "voice": 0.86
+      },
+      "qa": {
+        "verdict": "fail",
+        "note": "Dropped 'Friday', freezes in the pauses"
+      }
+    },
+    {
+      "id": "v2-2c5729",
+      "media": "video",
+      "path": "/generated/v2-2c5729.mp4",
+      "label": "Waiting hall, ticket",
+      "origin": "generated",
+      "gen": {
+        "model": "Kling 3.0 pro, first frame, silent",
+        "inputs": [
+          "k2-f2b22d"
+        ]
+      },
+      "scores": {
+        "face": 0.63
+      },
+      "qa": {
+        "verdict": "borderline",
+        "note": "Built from the older keyframe; both lines laid"
+      }
+    },
+    {
+      "id": "v3-e0a898",
+      "media": "video",
+      "path": "/generated/v3-e0a898.mp4",
+      "label": "Counter, clerk straight-on (10 s)",
+      "origin": "generated",
+      "gen": {
+        "model": "Kling 3.0 pro, first frame, silent",
+        "inputs": [
+          "k3-ad4425"
+        ]
+      },
+      "scores": {},
+      "qa": {
+        "verdict": "borderline",
+        "note": "Clerk's mouth barely moves under her lines"
+      }
+    },
+    {
+      "id": "v4-093885",
+      "media": "video",
+      "path": "/generated/v4-093885.mp4",
+      "label": "Eleven years, light sweeps",
+      "origin": "generated",
+      "gen": {
+        "model": "Kling 3.0 pro, first frame, silent",
+        "inputs": [
+          "k4-17c017"
+        ]
+      },
+      "scores": {
+        "face": 0.57
+      },
+      "qa": {
+        "verdict": "borderline",
+        "note": "Built from the older keyframe"
+      }
+    },
+    {
+      "id": "v5-dd11a9",
+      "media": "video",
+      "path": "/generated/v5-dd11a9.mp4",
+      "label": "Office, relieved grin",
+      "origin": "generated",
+      "gen": {
+        "model": "Kling 3.0 pro, first frame, silent",
+        "inputs": [
+          "k5-9d532d"
+        ]
+      },
+      "scores": {},
+      "qa": {
+        "verdict": "pass",
+        "note": "Clean"
+      }
+    },
+    {
+      "id": "s6-line",
+      "media": "video",
+      "path": "/generated/s6-line.mp4",
+      "label": "\"In Europe, we would call this impossible.\"",
+      "origin": "generated",
+      "gen": {
+        "model": "Seedance 2.5 omni_reference 1080p, voice ref",
+        "inputs": [
+          "k6-edit-a",
+          "hen-real-53",
+          "hen-real-56",
+          "voice-henrick"
+        ]
+      },
+      "scores": {
+        "face": 0.77,
+        "voice": 0.85
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Words exact"
+      }
+    },
+    {
+      "id": "v6-3a28e5",
+      "media": "video",
+      "path": "/generated/v6-3a28e5.mp4",
+      "label": "Green glow close-up, wipes glasses",
+      "origin": "generated",
+      "gen": {
+        "model": "Kling 3.0 pro, first frame, silent",
+        "inputs": [
+          "kb6-061d2f"
+        ]
+      },
+      "scores": {
+        "face": 0.59
+      },
+      "qa": {
+        "verdict": "borderline",
+        "note": "One-frame glasses warp at 3.95 s"
+      }
+    },
+    {
+      "id": "s6-good",
+      "media": "video",
+      "path": "/generated/s6-good.mp4",
+      "label": "\"It is good.\"",
+      "origin": "generated",
+      "gen": {
+        "model": "Seedance 2.5 omni_reference 1080p, voice ref",
+        "inputs": [
+          "kb6-5bef70",
+          "hen-real-53",
+          "hen-real-56",
+          "voice-henrick"
+        ]
+      },
+      "scores": {
+        "face": 0.78,
+        "voice": 0.7
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Words exact"
+      }
+    },
+    {
+      "id": "s7-statement",
+      "media": "video",
+      "path": "/generated/s7-statement.mp4",
+      "label": "\"I have prepared a statement.\"",
+      "origin": "generated",
+      "gen": {
+        "model": "Seedance 2.5 omni_reference 1080p, voice ref",
+        "inputs": [
+          "k7-edit-a",
+          "hen-real-56",
+          "hen-real-53",
+          "voice-henrick"
+        ]
+      },
+      "scores": {
+        "face": 0.77,
+        "voice": 0.81
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Words exact"
+      }
+    },
+    {
+      "id": "v7-ec0bce",
+      "media": "video",
+      "path": "/generated/v7-ec0bce.mp4",
+      "label": "Binder in the bin",
+      "origin": "generated",
+      "gen": {
+        "model": "Kling 3.0 pro, first frame, silent",
+        "inputs": []
+      },
+      "scores": {
+        "face": 0.46
+      },
+      "qa": {
+        "verdict": "borderline",
+        "note": "Face small in frame"
+      }
+    },
+    {
+      "id": "dlg-f_friday.mp3",
+      "media": "audio",
+      "path": "/audio/dialogue/f_friday.mp3",
+      "label": "Founder (ElevenLabs Chris)",
+      "origin": "generated",
+      "text": "Henrick, I need SOC 2 by Friday.",
+      "scores": {}
+    },
+    {
+      "id": "dlg-f_number.mp3",
+      "media": "audio",
+      "path": "/audio/dialogue/f_number.mp3",
+      "label": "Founder (ElevenLabs Chris)",
+      "origin": "generated",
+      "text": "What number are they on?",
+      "scores": {}
+    },
+    {
+      "id": "dlg-f_portal.mp3",
+      "media": "audio",
+      "path": "/audio/dialogue/f_portal.mp3",
+      "label": "Founder (ElevenLabs Chris)",
+      "origin": "generated",
+      "text": "Is there a portal?",
+      "scores": {}
+    },
+    {
+      "id": "dlg-f_done.mp3",
+      "media": "audio",
+      "path": "/audio/dialogue/f_done.mp3",
+      "label": "Founder (ElevenLabs Chris)",
+      "origin": "generated",
+      "text": "It's done?",
+      "scores": {}
+    },
+    {
+      "id": "dlg-c_form.mp3",
+      "media": "audio",
+      "path": "/audio/dialogue/c_form.mp3",
+      "label": "Clerk (ElevenLabs Alice)",
+      "origin": "generated",
+      "text": "To apply for the form, you must first complete the form.",
+      "scores": {}
+    },
+    {
+      "id": "dlg-c_fax.mp3",
+      "media": "audio",
+      "path": "/audio/dialogue/c_fax.mp3",
+      "label": "Clerk (ElevenLabs Alice)",
+      "origin": "generated",
+      "text": "There is a fax.",
+      "scores": {}
+    },
+    {
+      "id": "dlg-n_comp.mp3",
+      "media": "audio",
+      "path": "/audio/dialogue/n_comp.mp3",
+      "label": "Narrator (ElevenLabs Sarah)",
+      "origin": "generated",
+      "text": "Comp AI. SOC 2, without the Ministry.",
+      "scores": {}
+    },
+    {
+      "id": "dlg-henrick_indextts2_h_seventeen.wav",
+      "media": "audio",
+      "path": "/audio/dialogue/henrick_indextts2_h_seventeen.wav",
+      "label": "Henrick (Index TTS 2 clone)",
+      "origin": "generated",
+      "text": "Seventeen.",
+      "scores": {
+        "voice": 0.81
+      }
+    },
+    {
+      "id": "dlg-henrick_indextts2_h_doingwell.wav",
+      "media": "audio",
+      "path": "/audio/dialogue/henrick_indextts2_h_doingwell.wav",
+      "label": "Henrick (Index TTS 2 clone)",
+      "origin": "generated",
+      "text": "You are doing very well.",
+      "scores": {
+        "voice": 0.76
+      }
+    },
+    {
+      "id": "dlg-henrick_indextts2_h_itisgood.wav",
+      "media": "audio",
+      "path": "/audio/dialogue/henrick_indextts2_h_itisgood.wav",
+      "label": "Henrick (Index TTS 2 clone)",
+      "origin": "generated",
+      "text": "It is good.",
+      "scores": {
+        "voice": 0.83
+      }
+    },
+    {
+      "id": "dlg-henrick_indextts2_h_statement.wav",
+      "media": "audio",
+      "path": "/audio/dialogue/henrick_indextts2_h_statement.wav",
+      "label": "Henrick (Index TTS 2 clone)",
+      "origin": "generated",
+      "text": "I have prepared a statement.",
+      "scores": {
+        "voice": 0.77
+      }
+    },
+    {
+      "id": "dlg-henrick_indextts2_h_weeping.wav",
+      "media": "audio",
+      "path": "/audio/dialogue/henrick_indextts2_h_weeping.wav",
+      "label": "Henrick (Index TTS 2 clone)",
+      "origin": "generated",
+      "text": "In Europe, we would begin by weeping.",
+      "scores": {
+        "voice": 0.85
+      }
+    },
+    {
+      "id": "dlg-henrick_indextts2_h_ministry.wav",
+      "media": "audio",
+      "path": "/audio/dialogue/henrick_indextts2_h_ministry.wav",
+      "label": "Henrick (Index TTS 2 clone)",
+      "origin": "generated",
+      "text": "First, the Ministry.",
+      "scores": {
+        "voice": 0.8
+      }
+    },
+    {
+      "id": "dlg-henrick_indextts2_h_friday.wav",
+      "media": "audio",
+      "path": "/audio/dialogue/henrick_indextts2_h_friday.wav",
+      "label": "Henrick (Index TTS 2 clone)",
+      "origin": "generated",
+      "text": "Friday.",
+      "scores": {
+        "voice": 0.69
+      }
+    },
+    {
+      "id": "sfx-ding",
+      "media": "audio",
+      "path": "/audio/sfx/ding.mp3",
+      "label": "Ticket ding",
+      "origin": "generated",
+      "gen": {
+        "model": "ElevenLabs SFX v2 (placeholder)"
+      }
+    },
+    {
+      "id": "sfx-stamp",
+      "media": "audio",
+      "path": "/audio/sfx/stamp.mp3",
+      "label": "Rubber stamp",
+      "origin": "generated",
+      "gen": {
+        "model": "ElevenLabs SFX v2 (placeholder)"
+      }
+    },
+    {
+      "id": "sfx-book",
+      "media": "audio",
+      "path": "/audio/sfx/book.mp3",
+      "label": "Book closing",
+      "origin": "generated",
+      "gen": {
+        "model": "ElevenLabs SFX v2 (placeholder)"
+      }
+    },
+    {
+      "id": "sfx-timelapse",
+      "media": "audio",
+      "path": "/audio/sfx/timelapse.mp3",
+      "label": "Time-lapse whoosh",
+      "origin": "generated",
+      "gen": {
+        "model": "ElevenLabs SFX v2 (placeholder)"
+      }
+    },
+    {
+      "id": "sfx-phone",
+      "media": "audio",
+      "path": "/audio/sfx/phone.mp3",
+      "label": "Phone buzz and chime",
+      "origin": "generated",
+      "gen": {
+        "model": "ElevenLabs SFX v2 (placeholder)"
+      }
+    },
+    {
+      "id": "sfx-ui",
+      "media": "audio",
+      "path": "/audio/sfx/ui.mp3",
+      "label": "UI ticks",
+      "origin": "generated",
+      "gen": {
+        "model": "ElevenLabs SFX v2 (placeholder)"
+      }
+    },
+    {
+      "id": "sfx-cloth",
+      "media": "audio",
+      "path": "/audio/sfx/cloth.mp3",
+      "label": "Pocket square rustle",
+      "origin": "generated",
+      "gen": {
+        "model": "ElevenLabs SFX v2 (placeholder)"
+      }
+    },
+    {
+      "id": "sfx-binder",
+      "media": "audio",
+      "path": "/audio/sfx/binder.mp3",
+      "label": "Binder into bin",
+      "origin": "generated",
+      "gen": {
+        "model": "ElevenLabs SFX v2 (placeholder)"
+      }
+    },
+    {
+      "id": "sfx-fax",
+      "media": "audio",
+      "path": "/audio/sfx/fax.mp3",
+      "label": "Fax handshake",
+      "origin": "generated",
+      "gen": {
+        "model": "ElevenLabs SFX v2 (placeholder)"
+      }
+    },
+    {
+      "id": "sfx-endhit",
+      "media": "audio",
+      "path": "/audio/sfx/endhit.mp3",
+      "label": "End-card hit",
+      "origin": "generated",
+      "gen": {
+        "model": "ElevenLabs SFX v2 (placeholder)"
+      }
+    },
+    {
+      "id": "sfx-amb_study",
+      "media": "audio",
+      "path": "/audio/sfx/amb_study.mp3",
+      "label": "Study room tone",
+      "origin": "generated",
+      "gen": {
+        "model": "ElevenLabs SFX v2 (placeholder)"
+      }
+    },
+    {
+      "id": "sfx-amb_hall",
+      "media": "audio",
+      "path": "/audio/sfx/amb_hall.mp3",
+      "label": "Ministry hall room tone",
+      "origin": "generated",
+      "gen": {
+        "model": "ElevenLabs SFX v2 (placeholder)"
+      }
+    },
+    {
+      "id": "sfx-amb_office",
+      "media": "audio",
+      "path": "/audio/sfx/amb_office.mp3",
+      "label": "Office room tone",
+      "origin": "generated",
+      "gen": {
+        "model": "ElevenLabs SFX v2 (placeholder)"
+      }
+    },
+    {
+      "id": "gfx-MinistrySign",
+      "media": "video",
+      "path": "/generated/motion/MinistrySign.webm",
+      "label": "Ministry sign lower third",
+      "origin": "rendered"
+    },
+    {
+      "id": "gfx-TicketDisplay",
+      "media": "video",
+      "path": "/generated/motion/TicketDisplay.webm",
+      "label": "Ticket LED panel",
+      "origin": "rendered"
+    },
+    {
+      "id": "gfx-FormStamp",
+      "media": "video",
+      "path": "/generated/motion/FormStamp.webm",
+      "label": "Form 27-B card",
+      "origin": "rendered"
+    },
+    {
+      "id": "gfx-CalendarFlip",
+      "media": "video",
+      "path": "/generated/motion/CalendarFlip.webm",
+      "label": "Eleven years later",
+      "origin": "rendered"
+    },
+    {
+      "id": "gfx-DashboardScore",
+      "media": "video",
+      "path": "/generated/motion/DashboardScore.webm",
+      "label": "Dashboard score card",
+      "origin": "rendered"
+    },
+    {
+      "id": "gfx-CaptionImpossible",
+      "media": "video",
+      "path": "/generated/motion/CaptionImpossible.webm",
+      "label": "Caption: impossible",
+      "origin": "rendered"
+    },
+    {
+      "id": "gfx-CaptionGood",
+      "media": "video",
+      "path": "/generated/motion/CaptionGood.webm",
+      "label": "Caption: it is good",
+      "origin": "rendered"
+    },
+    {
+      "id": "gfx-EndCard",
+      "media": "video",
+      "path": "/generated/motion/EndCard.webm",
+      "label": "End card",
+      "origin": "rendered"
+    },
+    {
+      "id": "cut-v2",
+      "media": "video",
+      "path": "/generated/rough-cut-v2.mp4",
+      "label": "Rough cut v2 (silent)",
+      "origin": "rendered"
+    },
+    {
+      "id": "cut-v3",
+      "media": "video",
+      "path": "/generated/final-cut-v3.mp4",
+      "label": "Final cut v3",
+      "origin": "rendered",
+      "scores": {
+        "lufs": -13.8
+      }
+    },
+    {
+      "id": "style-hall",
+      "media": "image",
+      "path": "/generated/style-hall.jpg",
+      "label": "Ministry hall, establishing plate (empty, LED blank)",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5 high 2k",
+        "prompt": "Empty symmetrical ministry waiting hall, LED board blank, no people, no text"
+      }
+    },
+    {
+      "id": "style-counter",
+      "media": "image",
+      "path": "/generated/style-counter.jpg",
+      "label": "Ministry counter plate (glass, fax, stamp)",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5 high 2k",
+        "prompt": "Empty service counter, glass partition, rotary fax, stamp, blank forms"
+      }
+    },
+    {
+      "id": "style-office",
+      "media": "image",
+      "path": "/generated/style-office.jpg",
+      "label": "Founder's office plate (laptop screen dark)",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5 high 2k",
+        "prompt": "Empty bright startup office, laptop with dark screen, morning light"
+      }
+    },
+    {
+      "id": "props-ministry",
+      "media": "image",
+      "path": "/generated/props-ministry.jpg",
+      "label": "Prop sheet: LED board, ticket, Form 27-B, fax, stamp, binder",
+      "origin": "generated",
+      "gen": {
+        "model": "gpt_image_2_5 high 2k",
+        "prompt": "Prop reference sheet on grey, blank LED board, ticket, form, fax, stamp, binder"
+      }
+    },
+    {
+      "id": "cut-v3.3",
+      "media": "video",
+      "path": "/generated/final-cut-v3.3.mp4",
+      "label": "Cut v3.3",
+      "origin": "rendered",
+      "duration": 45.456
+    }
+  ],
+  "graphics": [
+    {
+      "id": "MinistrySign",
+      "comp": "MinistrySign",
+      "label": "Ministry sign lower third",
+      "preview": "gfx-MinistrySign"
+    },
+    {
+      "id": "TicketDisplay",
+      "comp": "TicketDisplay",
+      "label": "Ticket LED panel",
+      "preview": "gfx-TicketDisplay"
+    },
+    {
+      "id": "FormStamp",
+      "comp": "FormStamp",
+      "label": "Form 27-B card",
+      "preview": "gfx-FormStamp"
+    },
+    {
+      "id": "CalendarFlip",
+      "comp": "CalendarFlip",
+      "label": "Eleven years later",
+      "preview": "gfx-CalendarFlip"
+    },
+    {
+      "id": "DashboardScore",
+      "comp": "DashboardScore",
+      "label": "Dashboard score card",
+      "preview": "gfx-DashboardScore"
+    },
+    {
+      "id": "CaptionImpossible",
+      "comp": "CaptionImpossible",
+      "label": "Caption: impossible",
+      "preview": "gfx-CaptionImpossible"
+    },
+    {
+      "id": "CaptionGood",
+      "comp": "CaptionGood",
+      "label": "Caption: it is good",
+      "preview": "gfx-CaptionGood"
+    },
+    {
+      "id": "EndCard",
+      "comp": "EndCard",
+      "label": "End card",
+      "preview": "gfx-EndCard"
+    }
+  ],
+  "shots": [
+    {
+      "characters": [
+        "henrick",
+        "founder"
+      ],
+      "status": "review",
+      "card": {},
+      "keyframes": [
+        {
+          "asset": "k1-c7e01b",
+          "verdict": "circled"
+        },
+        {
+          "asset": "k1-9729b5",
+          "verdict": "alt"
+        }
+      ],
+      "takes": [
+        {
+          "asset": "v1-4d8d86",
+          "verdict": "circled"
+        }
+      ],
+      "lines": [
+        {
+          "who": "founder",
+          "mode": "laid",
+          "audio": "dlg-f_friday.mp3",
+          "at": 0.45,
+          "text": "Henrick, I need SOC 2 by Friday."
+        }
+      ],
+      "graphics": [],
+      "sfx": [
+        {
+          "asset": "sfx-book",
+          "at": 1.5,
+          "gain": -8
+        }
+      ],
+      "edit": {
+        "in": "auto",
+        "out": 3.6
+      },
+      "checks": {
+        "lipsync": {
+          "ok": false,
+          "note": "Founder's line laid over a silent clip",
+          "by": "claude",
+          "at": "2026-10-06T16:33:04.021Z"
+        },
+        "cut": {
+          "ok": true,
+          "note": "v3.3: a 1.0 s beat before 'Friday.' (was 3 s of dead air)",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        },
+        "grade": {
+          "ok": true,
+          "note": "Study shots within 4 luma and 2 warmth points of each other (v3 spread: 15 and 6), matched to the real footage",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        }
+      },
+      "id": "1a",
+      "name": "The request",
+      "section": "hook",
+      "location": "study"
+    },
+    {
+      "characters": [
+        "henrick"
+      ],
+      "status": "review",
+      "card": {},
+      "keyframes": [
+        {
+          "asset": "hen-cu2-5dc6a6",
+          "verdict": "circled"
+        },
+        {
+          "asset": "hen-cu-c08f9e",
+          "verdict": "alt"
+        }
+      ],
+      "takes": [
+        {
+          "asset": "s1b-friday",
+          "verdict": "circled"
+        },
+        {
+          "asset": "hen-cu-402202",
+          "verdict": "reject",
+          "note": "480p draft dropped 'Friday'"
+        }
+      ],
+      "lines": [
+        {
+          "who": "henrick",
+          "mode": "native",
+          "text": "Friday."
+        }
+      ],
+      "graphics": [],
+      "sfx": [],
+      "edit": {
+        "in": "auto",
+        "out": "speech"
+      },
+      "checks": {
+        "lipsync": {
+          "ok": true,
+          "by": "claude",
+          "at": "2026-10-06T16:33:04.022Z"
+        },
+        "warmup": {
+          "ok": true,
+          "note": "0.65 s warm-up trimmed; the cut lands 0.35 s before the word",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        },
+        "grade": {
+          "ok": true,
+          "note": "Study shots within 4 luma and 2 warmth points of each other (v3 spread: 15 and 6), matched to the real footage",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        }
+      },
+      "id": "1b-friday",
+      "name": "\"Friday.\"",
+      "section": "hook",
+      "location": "study"
+    },
+    {
+      "characters": [
+        "henrick"
+      ],
+      "status": "review",
+      "card": {},
+      "keyframes": [
+        {
+          "asset": "hen-cu2-5dc6a6",
+          "verdict": "circled"
+        }
+      ],
+      "takes": [
+        {
+          "asset": "s1b-europe",
+          "verdict": "circled"
+        }
+      ],
+      "lines": [
+        {
+          "who": "henrick",
+          "mode": "native",
+          "text": "In Europe, we would begin by weeping."
+        }
+      ],
+      "graphics": [],
+      "sfx": [],
+      "edit": {
+        "in": "auto",
+        "out": "speech",
+        "punch": 1.18
+      },
+      "checks": {
+        "lipsync": {
+          "ok": true,
+          "by": "claude",
+          "at": "2026-10-06T16:33:04.022Z"
+        },
+        "cut": {
+          "ok": true,
+          "note": "18% punch-in motivates the cut from 'Friday.'",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        },
+        "warmup": {
+          "ok": true,
+          "note": "0.51 s warm-up trimmed",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        },
+        "grade": {
+          "ok": true,
+          "note": "Study shots within 4 luma and 2 warmth points of each other (v3 spread: 15 and 6), matched to the real footage",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        }
+      },
+      "id": "1b-europe",
+      "name": "Begin by weeping",
+      "section": "hook",
+      "location": "study"
+    },
+    {
+      "characters": [
+        "henrick",
+        "founder"
+      ],
+      "status": "review",
+      "card": {},
+      "keyframes": [
+        {
+          "asset": "k2-b1c03f",
+          "verdict": "circled"
+        },
+        {
+          "asset": "k2-f2b22d",
+          "verdict": "alt"
+        },
+        {
+          "asset": "k2-0ffd5b",
+          "verdict": "alt"
+        }
+      ],
+      "takes": [
+        {
+          "asset": "v2-2c5729",
+          "verdict": "circled",
+          "note": "Built from the older keyframe"
+        }
+      ],
+      "lines": [
+        {
+          "who": "founder",
+          "mode": "laid",
+          "audio": "dlg-f_number.mp3",
+          "at": 0.9,
+          "text": "What number are they on?"
+        },
+        {
+          "who": "henrick",
+          "mode": "laid",
+          "audio": "dlg-henrick_indextts2_h_seventeen.wav",
+          "at": 3.4,
+          "text": "Seventeen."
+        }
+      ],
+      "graphics": [
+        {
+          "graphic": "MinistrySign",
+          "at": 0.3,
+          "dur": 2
+        },
+        {
+          "graphic": "TicketDisplay",
+          "at": 0.8,
+          "dur": 4
+        }
+      ],
+      "sfx": [
+        {
+          "asset": "sfx-ding",
+          "at": 3,
+          "gain": -6
+        }
+      ],
+      "edit": {
+        "in": "auto"
+      },
+      "checks": {
+        "lipsync": {
+          "ok": false,
+          "note": "'Seventeen.' plays over a closed mouth",
+          "by": "claude",
+          "at": "2026-10-06T16:33:04.022Z"
+        },
+        "graphics": {
+          "ok": false,
+          "note": "Counter now ticks 16 to 17 before 'Seventeen.', but the plate's LED and Henrick's ticket still read B074. Needs a new clip on the blank-LED hall plate.",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        }
+      },
+      "id": "2",
+      "name": "The Ministry",
+      "section": "ministry",
+      "location": "hall"
+    },
+    {
+      "characters": [
+        "clerk",
+        "founder",
+        "henrick"
+      ],
+      "status": "review",
+      "card": {},
+      "keyframes": [
+        {
+          "asset": "k3-ad4425",
+          "verdict": "circled"
+        },
+        {
+          "asset": "k3-ff0889",
+          "verdict": "alt"
+        },
+        {
+          "asset": "k3-88032e",
+          "verdict": "alt"
+        }
+      ],
+      "takes": [
+        {
+          "asset": "v3-e0a898",
+          "verdict": "circled"
+        }
+      ],
+      "lines": [
+        {
+          "who": "clerk",
+          "mode": "laid",
+          "audio": "dlg-c_form.mp3",
+          "at": 0.4,
+          "text": "To apply for the form, you must first complete the form."
+        },
+        {
+          "who": "founder",
+          "mode": "vo",
+          "audio": "dlg-f_portal.mp3",
+          "at": 4.5,
+          "text": "Is there a portal?"
+        },
+        {
+          "who": "clerk",
+          "mode": "laid",
+          "audio": "dlg-c_fax.mp3",
+          "at": 6.6,
+          "text": "There is a fax."
+        }
+      ],
+      "graphics": [
+        {
+          "graphic": "FormStamp",
+          "at": 0.4,
+          "dur": 4.6
+        }
+      ],
+      "sfx": [
+        {
+          "asset": "sfx-stamp",
+          "at": 2.8,
+          "gain": -10
+        },
+        {
+          "asset": "sfx-stamp",
+          "at": 4.2,
+          "gain": -10
+        },
+        {
+          "asset": "sfx-stamp",
+          "at": 9,
+          "gain": -4
+        }
+      ],
+      "edit": {
+        "in": "auto"
+      },
+      "checks": {
+        "lipsync": {
+          "ok": false,
+          "note": "Clerk's lines laid over a near-closed mouth",
+          "by": "claude",
+          "at": "2026-10-06T16:33:04.022Z"
+        },
+        "graphics": {
+          "ok": true,
+          "note": "Form card lands on the form line, below the bug, stamps inside the card, no repeated sentence",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        }
+      },
+      "id": "3",
+      "name": "Form 27-B",
+      "section": "ministry",
+      "location": "hall"
+    },
+    {
+      "characters": [
+        "henrick",
+        "founder"
+      ],
+      "status": "review",
+      "card": {},
+      "keyframes": [
+        {
+          "asset": "k4-392e0b",
+          "verdict": "circled"
+        },
+        {
+          "asset": "k4-17c017",
+          "verdict": "alt"
+        },
+        {
+          "asset": "k4-b7536a",
+          "verdict": "alt"
+        }
+      ],
+      "takes": [
+        {
+          "asset": "v4-093885",
+          "verdict": "circled",
+          "note": "Built from the older keyframe"
+        }
+      ],
+      "lines": [
+        {
+          "who": "henrick",
+          "mode": "laid",
+          "audio": "dlg-henrick_indextts2_h_doingwell.wav",
+          "at": 1.4,
+          "text": "You are doing very well."
+        }
+      ],
+      "graphics": [
+        {
+          "graphic": "CalendarFlip",
+          "at": 0.5,
+          "dur": 4
+        }
+      ],
+      "sfx": [
+        {
+          "asset": "sfx-timelapse",
+          "at": 0.2,
+          "gain": -10
+        }
+      ],
+      "edit": {
+        "in": "auto"
+      },
+      "checks": {
+        "lipsync": {
+          "ok": false,
+          "note": "Line plays over a closed mouth",
+          "by": "claude",
+          "at": "2026-10-06T16:33:04.022Z"
+        },
+        "grade": {
+          "ok": false,
+          "note": "Matched to the hall plate but still cooler than shots 2 and 3 (warmth 124 vs 128)",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        }
+      },
+      "id": "4",
+      "name": "Eleven years",
+      "section": "ministry",
+      "location": "hall"
+    },
+    {
+      "characters": [
+        "founder"
+      ],
+      "status": "review",
+      "card": {},
+      "keyframes": [
+        {
+          "asset": "k5-9d532d",
+          "verdict": "circled"
+        }
+      ],
+      "takes": [
+        {
+          "asset": "v5-dd11a9",
+          "verdict": "circled"
+        }
+      ],
+      "lines": [
+        {
+          "who": "founder",
+          "mode": "laid",
+          "audio": "dlg-f_done.mp3",
+          "at": 0.9,
+          "text": "It's done?"
+        }
+      ],
+      "graphics": [
+        {
+          "graphic": "DashboardScore",
+          "at": 0,
+          "dur": 5
+        }
+      ],
+      "sfx": [
+        {
+          "asset": "sfx-phone",
+          "at": 0.1,
+          "gain": -8
+        },
+        {
+          "asset": "sfx-ui",
+          "at": 0.15,
+          "gain": -12
+        },
+        {
+          "asset": "sfx-stamp",
+          "at": 4,
+          "gain": -8
+        }
+      ],
+      "edit": {
+        "in": "auto"
+      },
+      "checks": {
+        "lipsync": {
+          "ok": false,
+          "note": "'It's done?' laid over a silent clip",
+          "by": "claude",
+          "at": "2026-10-06T16:33:04.022Z"
+        },
+        "sound": {
+          "ok": true,
+          "note": "Narrator cut (he said 'cop AI')",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        },
+        "graphics": {
+          "ok": false,
+          "note": "No longer collides with the bug, but the card floats beside the laptop instead of being on its screen",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        }
+      },
+      "id": "5",
+      "name": "Comp AI",
+      "section": "turn",
+      "location": "office"
+    },
+    {
+      "characters": [
+        "henrick"
+      ],
+      "status": "review",
+      "card": {},
+      "keyframes": [
+        {
+          "asset": "k6-edit-a",
+          "verdict": "circled"
+        },
+        {
+          "asset": "kb6-5bef70",
+          "verdict": "alt"
+        },
+        {
+          "asset": "k6-1a2339",
+          "verdict": "alt"
+        },
+        {
+          "asset": "kb6-061d2f",
+          "verdict": "alt"
+        }
+      ],
+      "takes": [
+        {
+          "asset": "s6-line",
+          "verdict": "circled"
+        },
+        {
+          "asset": "v6-3a28e5",
+          "verdict": "alt"
+        }
+      ],
+      "lines": [
+        {
+          "who": "henrick",
+          "mode": "native",
+          "text": "In Europe, we would call this impossible."
+        }
+      ],
+      "graphics": [],
+      "sfx": [],
+      "edit": {
+        "in": "auto",
+        "out": "speech"
+      },
+      "checks": {
+        "lipsync": {
+          "ok": true,
+          "by": "claude",
+          "at": "2026-10-06T16:33:04.022Z"
+        },
+        "grade": {
+          "ok": true,
+          "note": "Study shots within 4 luma and 2 warmth points of each other (v3 spread: 15 and 6), matched to the real footage",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        }
+      },
+      "id": "6a",
+      "name": "Impossible",
+      "section": "payoff",
+      "location": "study"
+    },
+    {
+      "characters": [
+        "henrick"
+      ],
+      "status": "review",
+      "card": {},
+      "keyframes": [
+        {
+          "asset": "kb6-5bef70",
+          "verdict": "circled"
+        }
+      ],
+      "takes": [
+        {
+          "asset": "s6-good",
+          "verdict": "circled"
+        }
+      ],
+      "lines": [
+        {
+          "who": "henrick",
+          "mode": "native",
+          "text": "It is good."
+        }
+      ],
+      "graphics": [],
+      "sfx": [],
+      "edit": {
+        "in": "auto",
+        "out": "speech"
+      },
+      "checks": {
+        "lipsync": {
+          "ok": true,
+          "by": "claude",
+          "at": "2026-10-06T16:33:04.022Z"
+        },
+        "grade": {
+          "ok": true,
+          "note": "Study shots within 4 luma and 2 warmth points of each other (v3 spread: 15 and 6), matched to the real footage",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        },
+        "warmup": {
+          "ok": true,
+          "note": "0.46 s trimmed",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        }
+      },
+      "id": "6b",
+      "name": "It is good",
+      "section": "payoff",
+      "location": "study"
+    },
+    {
+      "characters": [
+        "henrick"
+      ],
+      "status": "review",
+      "card": {},
+      "keyframes": [
+        {
+          "asset": "k7-edit-a",
+          "verdict": "circled"
+        },
+        {
+          "asset": "k7-27b9e4",
+          "verdict": "alt"
+        },
+        {
+          "asset": "k7-5cda9e",
+          "verdict": "alt"
+        },
+        {
+          "asset": "kb7-36c2bb",
+          "verdict": "alt"
+        }
+      ],
+      "takes": [
+        {
+          "asset": "s7-statement",
+          "verdict": "circled"
+        },
+        {
+          "asset": "v7-ec0bce",
+          "verdict": "alt"
+        }
+      ],
+      "lines": [
+        {
+          "who": "henrick",
+          "mode": "native",
+          "text": "I have prepared a statement."
+        }
+      ],
+      "graphics": [],
+      "sfx": [],
+      "edit": {
+        "in": "auto",
+        "out": "speech"
+      },
+      "checks": {
+        "lipsync": {
+          "ok": true,
+          "by": "claude",
+          "at": "2026-10-06T16:33:04.022Z"
+        },
+        "grade": {
+          "ok": true,
+          "note": "Study shots within 4 luma and 2 warmth points of each other (v3 spread: 15 and 6), matched to the real footage",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        },
+        "warmup": {
+          "ok": true,
+          "note": "0.58 s trimmed",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        }
+      },
+      "id": "7",
+      "name": "The statement",
+      "section": "cta",
+      "location": "study"
+    },
+    {
+      "characters": [],
+      "status": "review",
+      "card": {},
+      "keyframes": [],
+      "takes": [],
+      "lines": [],
+      "graphics": [],
+      "sfx": [
+        {
+          "asset": "sfx-endhit",
+          "at": 0.1,
+          "gain": -8
+        }
+      ],
+      "edit": {
+        "in": "auto"
+      },
+      "checks": {
+        "graphics": {
+          "ok": true,
+          "note": "Real Comp AI mark and Lausanne; dissolves in, no black flash",
+          "by": "claude",
+          "at": "2026-10-06T16:56:14.561Z"
+        }
+      },
+      "id": "end",
+      "name": "End card",
+      "section": "cta",
+      "card_graphic": {
+        "graphic": "EndCard",
+        "dur": 3
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "v3.3",
+      "version": "v3.3",
+      "date": "2026-10-06",
+      "asset": "cut-v3.3",
+      "duration": 45.456,
+      "timeline": [
+        {
+          "shot": "1a",
+          "start": 0,
+          "dur": 3.6,
+          "in": 0,
+          "asset": "v1-4d8d86",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "Henrick, I need SOC 2 by Friday.",
+              "mode": "laid",
+              "start": 0.45,
+              "end": 2.958
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "1b-friday",
+          "start": 3.6,
+          "dur": 1.217,
+          "in": 0.646,
+          "asset": "s1b-friday",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "Friday.",
+              "mode": "native",
+              "start": 3.95,
+              "end": 4.367
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "1b-europe",
+          "start": 4.817,
+          "dur": 4.234,
+          "in": 0.512,
+          "asset": "s1b-europe",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "In Europe, we would begin by weeping.",
+              "mode": "native",
+              "start": 5.167,
+              "end": 8.601
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "2",
+          "start": 9.051,
+          "dur": 5.042,
+          "in": 0,
+          "asset": "v2-2c5729",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "What number are they on?",
+              "mode": "laid",
+              "start": 9.951,
+              "end": 11.44
+            },
+            {
+              "who": "henrick",
+              "text": "Seventeen.",
+              "mode": "laid",
+              "start": 12.451,
+              "end": 13.728
+            }
+          ],
+          "graphics": [
+            {
+              "graphic": "MinistrySign",
+              "start": 9.351,
+              "end": 11.351
+            },
+            {
+              "graphic": "TicketDisplay",
+              "start": 9.851,
+              "end": 13.851
+            }
+          ]
+        },
+        {
+          "shot": "3",
+          "start": 14.093,
+          "dur": 9.792,
+          "in": 0.25,
+          "asset": "v3-e0a898",
+          "lines": [
+            {
+              "who": "clerk",
+              "text": "To apply for the form, you must first complete the form.",
+              "mode": "laid",
+              "start": 14.493,
+              "end": 18.046
+            },
+            {
+              "who": "founder",
+              "text": "Is there a portal?",
+              "mode": "vo",
+              "start": 18.593,
+              "end": 20.395
+            },
+            {
+              "who": "clerk",
+              "text": "There is a fax.",
+              "mode": "laid",
+              "start": 20.693,
+              "end": 23.122
+            }
+          ],
+          "graphics": [
+            {
+              "graphic": "FormStamp",
+              "start": 14.493,
+              "end": 19.093
+            }
+          ]
+        },
+        {
+          "shot": "4",
+          "start": 23.885,
+          "dur": 5.042,
+          "in": 0,
+          "asset": "v4-093885",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "You are doing very well.",
+              "mode": "laid",
+              "start": 25.285,
+              "end": 27.735
+            }
+          ],
+          "graphics": [
+            {
+              "graphic": "CalendarFlip",
+              "start": 24.385,
+              "end": 28.385
+            }
+          ]
+        },
+        {
+          "shot": "5",
+          "start": 28.927,
+          "dur": 5.042,
+          "in": 0,
+          "asset": "v5-dd11a9",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "It's done?",
+              "mode": "laid",
+              "start": 29.827,
+              "end": 31.133
+            }
+          ],
+          "graphics": [
+            {
+              "graphic": "DashboardScore",
+              "start": 28.927,
+              "end": 33.927
+            }
+          ]
+        },
+        {
+          "shot": "6a",
+          "start": 33.969,
+          "dur": 4.572,
+          "in": 0,
+          "asset": "s6-line",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "In Europe, we would call this impossible.",
+              "mode": "native",
+              "start": 33.969,
+              "end": 38.091
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "6b",
+          "start": 38.541,
+          "dur": 1.554,
+          "in": 0.46,
+          "asset": "s6-good",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "It is good.",
+              "mode": "native",
+              "start": 38.891,
+              "end": 39.645
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "7",
+          "start": 40.095,
+          "dur": 2.711,
+          "in": 0.582,
+          "asset": "s7-statement",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "I have prepared a statement.",
+              "mode": "native",
+              "start": 40.445,
+              "end": 42.356
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "end",
+          "start": 42.456,
+          "dur": 3,
+          "in": 0,
+          "asset": null,
+          "lines": [],
+          "graphics": []
+        }
+      ],
+      "notes": [
+        "Captions on every line, real logo, grade matched per location, recorded rooms on laid voices, 48 kHz"
+      ],
+      "audit": {
+        "lufs": -13.8,
+        "truePeak": -1.3,
+        "issues": [
+          "7 lines not lip-synced",
+          "Scene 2: plate LED and ticket read B074 against the 4,201,990 panel",
+          "Runtime 45.5 s against a 35 s target",
+          "Sound effects are generated placeholders"
+        ]
+      }
+    },
+    {
+      "id": "v3",
+      "version": "v3",
+      "date": "2026-10-06",
+      "asset": "cut-v3",
+      "duration": 51.35,
+      "notes": [
+        "Timeline reconstructed from the v3 cue sheet."
+      ],
+      "audit": {
+        "lufs": -13.8,
+        "truePeak": -1.4,
+        "issues": [
+          "8 lines not lip-synced",
+          "3 s dead air in the hook",
+          "4 px black bars on Kling shots",
+          "0.2 s black flash",
+          "96 kHz audio"
+        ]
+      },
+      "timeline": [
+        {
+          "shot": "1a",
+          "start": 0,
+          "dur": 5.04,
+          "in": 0,
+          "asset": "v1-4d8d86",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "Henrick, I need SOC 2 by Friday.",
+              "start": 0.45,
+              "end": 2.95,
+              "mode": "laid"
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "1b-friday",
+          "start": 5.04,
+          "dur": 1.94,
+          "in": 0,
+          "asset": "s1b-friday",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "Friday.",
+              "start": 5.99,
+              "end": 6.54,
+              "mode": "native"
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "1b-europe",
+          "start": 6.98,
+          "dur": 4.83,
+          "in": 0,
+          "asset": "s1b-europe",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "In Europe, we would begin by weeping.",
+              "start": 7.83,
+              "end": 11.43,
+              "mode": "native"
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "2",
+          "start": 11.81,
+          "dur": 5.04,
+          "in": 0,
+          "asset": "v2-2c5729",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "What number are they on?",
+              "start": 12.71,
+              "end": 14.2,
+              "mode": "laid"
+            },
+            {
+              "who": "henrick",
+              "text": "Seventeen.",
+              "start": 15.21,
+              "end": 16.33,
+              "mode": "laid"
+            }
+          ],
+          "graphics": [
+            {
+              "graphic": "MinistrySign",
+              "start": 12.11,
+              "end": 14.11
+            },
+            {
+              "graphic": "TicketDisplay",
+              "start": 12.61,
+              "end": 16.61
+            }
+          ]
+        },
+        {
+          "shot": "3",
+          "start": 16.85,
+          "dur": 10.04,
+          "in": 0,
+          "asset": "v3-e0a898",
+          "lines": [
+            {
+              "who": "clerk",
+              "text": "To apply for the form, you must first complete the form.",
+              "start": 17.25,
+              "end": 20.8,
+              "mode": "laid"
+            },
+            {
+              "who": "founder",
+              "text": "Is there a portal?",
+              "start": 21.35,
+              "end": 23.15,
+              "mode": "vo"
+            },
+            {
+              "who": "clerk",
+              "text": "There is a fax.",
+              "start": 23.45,
+              "end": 25.9,
+              "mode": "laid"
+            }
+          ],
+          "graphics": [
+            {
+              "graphic": "FormStamp",
+              "start": 23.45,
+              "end": 26.85
+            }
+          ]
+        },
+        {
+          "shot": "4",
+          "start": 26.89,
+          "dur": 5.04,
+          "in": 0,
+          "asset": "v4-093885",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "You are doing very well.",
+              "start": 28.29,
+              "end": 30.74,
+              "mode": "laid"
+            }
+          ],
+          "graphics": [
+            {
+              "graphic": "CalendarFlip",
+              "start": 27.39,
+              "end": 31.39
+            }
+          ]
+        },
+        {
+          "shot": "5",
+          "start": 31.93,
+          "dur": 5.04,
+          "in": 0,
+          "asset": "v5-dd11a9",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "It's done?",
+              "start": 32.83,
+              "end": 34.13,
+              "mode": "laid"
+            },
+            {
+              "who": "narrator",
+              "text": "Comp AI. SOC 2, without the Ministry.",
+              "start": 34.03,
+              "end": 36.92,
+              "mode": "vo"
+            }
+          ],
+          "graphics": [
+            {
+              "graphic": "DashboardScore",
+              "start": 31.93,
+              "end": 36.97
+            }
+          ]
+        },
+        {
+          "shot": "6a",
+          "start": 36.97,
+          "dur": 6.05,
+          "in": 0,
+          "asset": "s6-line",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "In Europe, we would call this impossible.",
+              "start": 36.97,
+              "end": 40.6,
+              "mode": "native"
+            }
+          ],
+          "graphics": [
+            {
+              "graphic": "CaptionImpossible",
+              "start": 36.97,
+              "end": 42.97
+            }
+          ]
+        },
+        {
+          "shot": "6b",
+          "start": 43.02,
+          "dur": 2.02,
+          "in": 0,
+          "asset": "s6-good",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "It is good.",
+              "start": 43.82,
+              "end": 44.9,
+              "mode": "native"
+            }
+          ],
+          "graphics": [
+            {
+              "graphic": "CaptionGood",
+              "start": 43.02,
+              "end": 45.04
+            }
+          ]
+        },
+        {
+          "shot": "7",
+          "start": 45.04,
+          "dur": 3.31,
+          "in": 0,
+          "asset": "s7-statement",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "I have prepared a statement.",
+              "start": 45.3,
+              "end": 47.9,
+              "mode": "native"
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "end",
+          "start": 48.35,
+          "dur": 3,
+          "in": 0,
+          "asset": null,
+          "lines": [],
+          "graphics": [
+            {
+              "graphic": "EndCard",
+              "start": 48.35,
+              "end": 51.35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2",
+      "version": "v2",
+      "date": "2026-10-06",
+      "asset": "cut-v2",
+      "duration": 37.75,
+      "notes": [
+        "Silent rough cut with motion graphics."
+      ],
+      "timeline": []
+    }
+  ],
+  "open": [
+    "Credits: Higgsfield has 12.15 left. Top up, or name the fal account to use (the connected one is Leap).",
+    "Restructure: Henrick narrates over silent cutaways; cut the narrator; one lip-synced clerk line.",
+    "Voices: audition 3 to 4 voices per supporting character for Claudio to pick."
+  ],
+  "activity": [
+    {
+      "t": "2026-10-06T15:10:26.973476+00:00",
+      "text": "Live activity feed is on. I'll post here as I work.",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-06T15:10:35.375523+00:00",
+      "text": "Auditing all 7 clips frame by frame with the av-review card (not 3 frames per clip).",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:12:48.678838+00:00",
+      "text": "Audit done. Scene 3 FAIL (clerk turns away, leaves frame), scene 5 FAIL (ends worried, not relieved), scene 4 borderline (too static). Rerolling 3 (x2), 4, 5.",
+      "kind": "warn"
+    },
+    {
+      "t": "2026-10-06T15:13:26.940184+00:00",
+      "text": "Setting up Remotion (motion graphics): ministry sign, ticket display, form stamp, calendar flip, dashboard score, captions, end card.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:14:20.398238+00:00",
+      "text": "Remotion compositions written (7). Rendering transparent overlays now.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:16:59.490002+00:00",
+      "text": "Reroll clips for scenes 3 (x2), 4, 5 downloaded; auditing them.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:17:43.883909+00:00",
+      "text": "Scene 4 and 5 rerolls pass the audit and are on the board. Scene 3 still fails twice (clerk turns away); changing the shot to a straight-on view of her.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T15:18:44.723747+00:00",
+      "text": "Scene 3: new straight-on keyframe done; 2 Kling attempts rendering.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:20:54.792547+00:00",
+      "text": "Motion graphics: moved the form (was covering a face) and the calendar title; re-rendered.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T15:22:49.769186+00:00",
+      "text": "Scene 3 fixed (clerk holds eye contact, 100% face). Assembled rough cut v2 with motion graphics + end card.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T15:23:39.198993+00:00",
+      "text": "Rough cut v2 is on the board: all 7 scenes passed audit, motion graphics composited, end card appended.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T15:24:26.753441+00:00",
+      "text": "Pushed to GitHub: audit fixes, motion graphics, assembly script.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T15:32:09.115698+00:00",
+      "text": "Building a distinct FINAL CUT player and showing the rendered motion graphics on their nodes. Then voices + sound.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:33:42.535139+00:00",
+      "text": "Voices: building Henrick clone from his 4 real isolated lines (Index TTS 2); casting founder, clerk, narrator on ElevenLabs v3.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:38:35.958299+00:00",
+      "text": "Voices done: Henrick cloned from his real lines (0.76-0.85 match, real-vs-real is 0.71), founder/clerk/narrator cast. All 14 lines pass speech-to-text. Dialogue does not fit current shot lengths, so regenerating scene 1 (new Henrick close-up), scene 3 (10s) and scene 6 (7s) to carry lip-sync.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:43:53.562357+00:00",
+      "text": "Seedance 2.5 test: accepts real-face reference images and a voice reference. Face held 100%, voice matched Henrick at 0.86 (best of all methods), lips move on each word. Flaws: dropped the first word, long freezes in pauses, 480p draft. This is the lead approach.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T15:44:08.289597+00:00",
+      "text": "Status: voices done and verified, Seedance is the lead for speaking shots. Next: real-resolution Seedance runs for dialogue shots, sound design, mix with -14 LUFS, assemble final cut v3 with audio.",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-06T15:50:30.734463+00:00",
+      "text": "Resemblance push: building a face-similarity scorer (ArcFace) calibrated on real Henrick footage, then optimizing face and voice against it.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:53:16.270296+00:00",
+      "text": "Resemblance baseline measured with ArcFace: real-vs-real 0.82; our keyframes 0.36-0.67, Kling clips 0.46-0.63, Seedance test 0.67. Testing three video-edit face replacements (Genjutsu, Kling Omni Edit, Seedance edit) on the weakest clip, plus full-res Seedance dialogue runs.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:56:41.928611+00:00",
+      "text": "Breakthrough: editing a single real still keeps the face at 0.80-0.82 (equals real-vs-real 0.82); generating from my sheet scored 0.67-0.72. Switching every Henrick keyframe to the edit method; 6 new candidates (scenes 2, 4, 6, 7) rendering, scored by ArcFace.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T15:58:57.430908+00:00",
+      "text": "Seedance 1080p: face 0.76 on video, voice 0.86, lips move on every word, but it mangled the two-line prompt (dropped Friday, 4s gap). Now generating each line as its own 1080p clip from the 0.82 edited keyframe (Friday, In Europe..., scene 6 line, scene 7 line). Face-replacement tools (Kling edit, Seedance edit) did NOT help: 0.44-0.45 vs 0.46.",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-06T16:00:08.029301+00:00",
+      "text": "All three video face-replacement tools failed (Genjutsu 0.46, Kling edit 0.45, Seedance edit 0.44; original 0.46). Fix the face at generation time instead. New edit-based keyframes on the board: scene 2 0.70, scene 4 0.77, scene 6 0.78, scene 7 0.76 (old: 0.63, 0.57, 0.50, 0.36). Older clips now flagged to regenerate.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T16:04:22.326960+00:00",
+      "text": "Sound: building the full mix now (dialogue + ambience + effects, -14 LUFS), cut v3 with audio. Not waiting on the remaining clips.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T16:05:05.767022+00:00",
+      "text": "SFX and ambience generated (13 files, ElevenLabs; recorded samples can replace them later). Building the mix script.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T16:06:41.662168+00:00",
+      "text": "Seedance single-line clips PASS: Friday (face 0.82, words exact), In Europe... (face 0.81, voice 0.85), scene 6 line (face 0.77, voice 0.85). Rendering: It is good, scene 4 and scene 2 from the new keyframes, scene 7 retry.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T16:07:39.509566+00:00",
+      "text": "BLOCKER: Higgsfield credits are nearly gone (12.15). Two Seedance jobs rejected; two already-accepted ones still finish. fal has Seedance 2.5 but its account is named Leap, so I am not spending there without Claudio's OK. Continuing with free work: mix, cut, audits.",
+      "kind": "warn"
+    },
+    {
+      "t": "2026-10-06T16:10:15.675413+00:00",
+      "text": "Cut v3 first audit: -13.7 LUFS, no clipping. Found scene 3 was still the 4.5s clip (9s of dialogue overran into scenes 4-5). Swapped in the 10s clerk clip; rebuilding.",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-06T16:10:53.484185+00:00",
+      "text": "Seedance scene 6 'It is good' (face 0.78) and scene 7 statement (face 0.77) pass with exact words. Rebuilt cut v3 with them.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T16:11:54.573593+00:00",
+      "text": "Final cut v3 is on the board with sound: all lines pass the speech check, -13.8 LUFS. Honest status: not publishable yet. Missing lip-sync on founder and clerk shots, scenes 2 and 4 on older low-resemblance clips, cut runs long. Needs credits (Higgsfield top-up or OK to use fal) to finish.",
+      "kind": "warn"
+    },
+    {
+      "t": "2026-10-06T16:25:08.560816+00:00",
+      "text": "Craft pass started (no credits needed): trim warm-ups, continuous room tone, J-cuts, fill not pad, grade matched to real footage, real logo, captions on every line, 48 kHz.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T16:42:57.539Z",
+      "text": "Look bible: hall, counter and office plates plus a prop sheet generated; study anchored on real footage; recorded room IR per location.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T16:44:54.520Z",
+      "text": "Edit decisions: hook tightened (1a ends 0.65 s after the line), punch-in on the second close-up, form card moved onto the form line with stamp sounds, narrator cut (said cop AI), one caption track for every line.",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-06T16:45:39.636Z",
+      "text": "Building cut v3.1: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T16:47:12.170Z",
+      "text": "Cut v3.1 built: 47.1 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T16:49:45.104Z",
+      "text": "Building cut v3.2: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T16:51:07.916Z",
+      "text": "Cut v3.2 built: 45.5 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T16:52:17.889Z",
+      "text": "Building cut v3.3: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T16:53:39.380Z",
+      "text": "Cut v3.3 built: 45.5 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T16:56:14.561Z",
+      "text": "Cut v3.3 audited: craft fixes verified; remaining issues need new generations (lip-sync, scene 2 plate) and the restructure (runtime).",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T16:56:48.633Z",
+      "text": "Removed intermediate builds v3.1 and v3.2; v3.3 is the current cut.",
+      "kind": "info"
+    }
+  ],
+  "ui": {
+    "positions": {}
+  }
+}

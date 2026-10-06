@@ -1,23 +1,22 @@
 import React from "react"
 import { interpolate, useCurrentFrame } from "remotion"
-import { EMERALD, FONT, MONO, useSpring } from "./ui"
+import { BRAND, Mark, useBrandFont } from "./ui"
 
+/** Restrained end card: the real Comp AI mark and wordmark in Lausanne. The cut dissolves into it. */
 export const EndCard: React.FC = () => {
+  useBrandFont()
   const frame = useCurrentFrame()
-  const logo = useSpring(0)
-  const tag = useSpring(10)
-  const url = interpolate(frame, [34, 46], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })
-  const glow = 0.5 + 0.5 * Math.sin(frame / 8)
+  const settle = interpolate(frame, [0, 20], [1.03, 1], { extrapolateRight: "clamp" })
+  const tag = interpolate(frame, [10, 22], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })
+  const url = interpolate(frame, [20, 32], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })
   return (
-    <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 50% 42%, #0f1f19 0%, #070a09 62%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", fontFamily: FONT }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 22, opacity: logo, transform: `scale(${0.9 + 0.1 * logo})` }}>
-        <div style={{ width: 88, height: 88, borderRadius: 44, background: EMERALD, boxShadow: `0 0 ${60 + glow * 40}px rgba(52,211,153,0.55)`, display: "grid", placeItems: "center" }}>
-          <div style={{ width: 34, height: 34, borderRadius: 17, background: "#06130d" }} />
-        </div>
-        <div style={{ fontSize: 96, fontWeight: 800, color: "#fff", letterSpacing: -2 }}>Comp AI</div>
+    <div style={{ position: "absolute", inset: 0, background: "#101113", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", fontFamily: BRAND, color: "#fff" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 26, transform: `scale(${settle})` }}>
+        <Mark size={92} />
+        <div style={{ fontSize: 96, fontWeight: 700, letterSpacing: -2.5 }}>Comp AI</div>
       </div>
-      <div style={{ marginTop: 44, fontSize: 64, color: "#e5e7eb", fontWeight: 600, opacity: tag, transform: `translateY(${(1 - tag) * 24}px)` }}>SOC 2, handled.</div>
-      <div style={{ marginTop: 26, fontFamily: MONO, fontSize: 30, color: "#6b7280", letterSpacing: 4, opacity: url }}>trycomp.ai</div>
+      <div style={{ marginTop: 40, fontSize: 50, fontWeight: 400, color: "#d9dadc", opacity: tag }}>SOC 2, handled.</div>
+      <div style={{ marginTop: 22, fontSize: 26, fontWeight: 400, color: "#8b8d93", letterSpacing: 1, opacity: url }}>trycomp.ai</div>
     </div>
   )
 }

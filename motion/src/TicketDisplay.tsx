@@ -5,7 +5,7 @@ import { MONO, Panel, RED, useFade } from "./ui"
 export const TicketDisplay: React.FC = () => {
   const frame = useCurrentFrame()
   const op = useFade(0, 96, 9)
-  const serving = frame < 52 ? "0000017" : "0000018"
+  const serving = frame < 52 ? "0000016" : "0000017"
   const flash = interpolate(frame, [52, 54, 62], [0, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })
   const led = (t: string, size: number, glow = 1) => (
     <div style={{ fontFamily: MONO, fontSize: size, color: RED, letterSpacing: 6, textShadow: `0 0 ${18 * glow}px rgba(255,69,58,0.8)` }}>{t}</div>

@@ -4,6 +4,7 @@ import { Captions, CaptionGood, CaptionImpossible } from "./Captions"
 import { CalendarFlip } from "./CalendarFlip"
 import { DashboardScore } from "./DashboardScore"
 import { EndCard } from "./EndCard"
+import { CaptionTrack, type CaptionProps } from "./CaptionTrack"
 import { FormStamp } from "./FormStamp"
 import { MinistrySign } from "./MinistrySign"
 import { TicketDisplay } from "./TicketDisplay"
@@ -21,10 +22,14 @@ export const COMPS = [
   { id: "EndCard", component: EndCard, durationInFrames: 72 },
 ]
 
+const captionDefaults: CaptionProps = { lines: [{ text: "In Europe, we would call this impossible.", from: 0.5, to: 3.5 }], bugUntil: 5, duration: 6 }
+
 export const Root: React.FC = () => (
   <>
     {COMPS.map((c) => (
       <Composition key={c.id} id={c.id} component={c.component} durationInFrames={c.durationInFrames} {...base} />
     ))}
+    <Composition id="CaptionTrack" component={CaptionTrack} durationInFrames={144} {...base} defaultProps={captionDefaults}
+      calculateMetadata={({ props }) => ({ durationInFrames: Math.max(1, Math.ceil(props.duration * base.fps)) })} />
   </>
 )
