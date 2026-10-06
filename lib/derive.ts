@@ -249,6 +249,16 @@ function dedupe(edges: CanvasEdge[]) {
 // ---------- Floor plans (cameras, marks and the 180-degree line) ----------
 
 /** Super 35 sensor width in mm, for horizontal field of view. */
+/** A light's colour from its colour temperature (Tanner Helland's fit), for glyphs on the plan and in the Rooms view. */
+export function kelvinColor(kelvin: number): string {
+  const t = kelvin / 100
+  const r = t <= 66 ? 255 : 329.698727446 * Math.pow(t - 60, -0.1332047592)
+  const g = t <= 66 ? 99.4708025861 * Math.log(t) - 161.1195681661 : 288.1221695283 * Math.pow(t - 60, -0.0755148492)
+  const b = t >= 66 ? 255 : t <= 19 ? 0 : 138.5177312231 * Math.log(t - 10) - 305.0447927307
+  const c = (v: number) => Math.round(Math.max(0, Math.min(255, v)))
+  return `rgb(${c(r)}, ${c(g)}, ${c(b)})`
+}
+
 export const SENSOR_MM = 24.9
 export const hfov = (lens: number) => (2 * Math.atan(SENSOR_MM / (2 * lens)) * 180) / Math.PI
 const rad = (d: number) => (d * Math.PI) / 180

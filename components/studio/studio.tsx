@@ -1,7 +1,8 @@
 "use client"
 
 import { ReactFlowProvider } from "@xyflow/react"
-import { LayoutGrid, Network, Play } from "lucide-react"
+import { Box, LayoutGrid, Network, Play } from "lucide-react"
+import dynamic from "next/dynamic"
 import { useEffect, useMemo, useState } from "react"
 import { indexProject, shotRows, summary, timeline } from "@/lib/derive"
 import { Button } from "@/components/ui/button"
@@ -10,7 +11,10 @@ import { ActivityPanel, FinalCutModal, TimelinePanel } from "./panels"
 import { ShotsView } from "./shots-view"
 import { useProject } from "./use-project"
 
-type View = "shots" | "canvas"
+// The 3D view loads three.js only in the browser, and only when Rooms is opened.
+const RoomsView = dynamic(() => import("./rooms-view").then((m) => m.RoomsView), { ssr: false })
+
+type View = "shots" | "canvas" | "rooms"
 
 export function Studio() {
   const { project, op, error } = useProject()
@@ -21,7 +25,7 @@ export function Studio() {
   useEffect(() => {
     try {
       const v = localStorage.getItem("stitch-view")
-      if (v === "shots" || v === "canvas") setView(v)
+      if (v === "shots" || v === "canvas" || v === "rooms") setView(v)
     } catch {}
   }, [])
   const choose = (v: View) => {
@@ -44,6 +48,8 @@ export function Studio() {
       <div className="relative min-h-0 flex-1">
         {view === "shots" ? (
           <ShotsView project={project} ix={d.ix} rows={d.rows} sum={d.sum} op={op} onWatch={() => setWatching(true)} onFocus={(id) => { setFocus(id); choose("canvas") }} />
+        ) : view === "rooms" ? (
+          <RoomsView project={project} ix={d.ix} />
         ) : (
           <div className="absolute inset-0">
             <ReactFlowProvider>
@@ -55,6 +61,7 @@ export function Studio() {
           <div className="pointer-events-auto flex gap-1 rounded-xl border bg-card p-1 shadow-lg">
             <Button size="sm" variant={view === "shots" ? "secondary" : "ghost"} onClick={() => choose("shots")}><LayoutGrid /> Shots</Button>
             <Button size="sm" variant={view === "canvas" ? "secondary" : "ghost"} onClick={() => choose("canvas")}><Network /> Canvas</Button>
+            <Button size="sm" variant={view === "rooms" ? "secondary" : "ghost"} onClick={() => choose("rooms")}><Box /> Rooms</Button>
           </div>
           {project.cuts[0] && (
             <Button size="sm" className="pointer-events-auto bg-emerald-400 text-emerald-950 hover:bg-emerald-300" onClick={() => setWatching(true)}><Play /> Watch final cut</Button>

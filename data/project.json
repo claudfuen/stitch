@@ -159,147 +159,77 @@
         "height": 3.2,
         "items": [
           {
-            "id": "panels",
-            "kind": "wall",
-            "label": "Glossy cherry lacquer panels with vertical grooves",
-            "at": [
-              2.6,
-              6.3
-            ],
-            "size": [
-              5.2,
-              0.15,
-              3.2
-            ]
-          },
-          {
-            "id": "charcoal",
-            "kind": "wall",
-            "label": "Matte charcoal wall: two small framed sketches, acoustic guitar",
-            "at": [
-              5.6,
-              5.2
-            ],
-            "size": [
-              0.15,
-              2.4,
-              3.2
-            ]
-          },
-          {
-            "id": "sketches",
-            "kind": "prop",
-            "label": "Two small framed sketches",
-            "at": [
-              5.5,
-              5.4
-            ],
-            "size": [
-              0.05,
-              0.5,
-              0.9
-            ],
-            "z": 1.1
-          },
-          {
             "id": "guitar",
             "kind": "prop",
-            "label": "Acoustic guitar hung on the wall",
+            "label": "Acoustic guitar hung on the charcoal wall",
             "at": [
-              5.5,
-              6
+              5.42,
+              6.17
             ],
             "size": [
+              0.42,
               0.1,
-              0.45,
               1
             ],
-            "z": 1.4
+            "z": 1
           },
           {
             "id": "chair",
             "kind": "furniture",
-            "label": "Henrick's armchair",
+            "label": "Henrick's green leather wing armchair",
             "at": [
               3.6,
               4.3
             ],
             "size": [
-              0.8,
-              0.8,
-              1
+              0.85,
+              0.85,
+              1.15
             ],
-            "rot": 225
+            "rot": 155
           },
           {
             "id": "bulb1",
             "kind": "light",
-            "label": "Warm practical bulb deep in the room",
+            "label": "Globe wall sconce on the back wall, warm",
             "at": [
               1,
-              5.8
+              6.15
             ],
             "size": [
               0.15,
               0.15,
               0.15
             ],
-            "z": 1.8,
+            "z": 1.75,
             "light": {
               "type": "point",
               "kelvin": 2700,
               "power": 45,
-              "radius": 0.05
+              "radius": 0.05,
+              "role": "practical"
             }
           },
           {
             "id": "bulb2",
             "kind": "light",
-            "label": "Warm practical bulb",
+            "label": "Globe wall sconce on the back wall, warm",
             "at": [
-              2.2,
-              6.1
+              2.35,
+              6.15
             ],
             "size": [
               0.15,
               0.15,
               0.15
             ],
-            "z": 2.1,
+            "z": 1.95,
             "light": {
               "type": "point",
               "kelvin": 2700,
               "power": 45,
-              "radius": 0.05
-            }
-          },
-          {
-            "id": "key",
-            "kind": "light",
-            "label": "Key: soft daylight through the left-wall window, sheers drawn",
-            "at": [
-              0.25,
-              3
-            ],
-            "size": [
-              0.1,
-              1.6,
-              2.4
-            ],
-            "z": 0.45,
-            "light": {
-              "type": "area",
-              "kelvin": 5200,
-              "power": 1400,
-              "size": [
-                1.6,
-                2.4
-              ],
-              "aim": [
-                3.6,
-                4.3,
-                1.1
-              ]
+              "radius": 0.05,
+              "role": "practical"
             }
           },
           {
@@ -317,27 +247,12 @@
             ]
           },
           {
-            "id": "left-window",
-            "kind": "window",
-            "label": "Tall window, sheer curtains, heavy charcoal drapes pulled to the sides",
-            "at": [
-              0.17,
-              3
-            ],
-            "size": [
-              0.12,
-              1.6,
-              2.4
-            ],
-            "z": 0.45
-          },
-          {
             "id": "left-sketches",
             "kind": "prop",
-            "label": "Two more framed ink sketches from the same series",
+            "label": "Two framed ink sketches from the same series, on the left wall",
             "at": [
               0.2,
-              4.9
+              3.4
             ],
             "size": [
               0.05,
@@ -349,7 +264,7 @@
           {
             "id": "left-bulb",
             "kind": "light",
-            "label": "Warm practical bulb",
+            "label": "Globe wall sconce on the left wall, warm",
             "at": [
               0.22,
               1.5
@@ -364,7 +279,8 @@
               "type": "point",
               "kelvin": 2700,
               "power": 35,
-              "radius": 0.05
+              "radius": 0.05,
+              "role": "practical"
             }
           },
           {
@@ -372,11 +288,11 @@
             "kind": "wall",
             "label": "Glossy cherry lacquer panels, front wall",
             "at": [
-              2.3,
+              3,
               0.08
             ],
             "size": [
-              4.6,
+              6,
               0.15,
               3.2
             ]
@@ -384,9 +300,9 @@
           {
             "id": "doorway",
             "kind": "door",
-            "label": "Open doorway into a dark corridor",
+            "label": "Open doorway to a dark corridor (the way in)",
             "at": [
-              5.15,
+              1.2,
               0.08
             ],
             "size": [
@@ -400,23 +316,23 @@
             "kind": "furniture",
             "label": "Walnut mid-century lounge chair, dark leather (the visitor's)",
             "at": [
-              2.6,
-              2.75
+              4.45,
+              2.6
             ],
             "size": [
               0.7,
               0.7,
               0.8
             ],
-            "rot": 35
+            "rot": 333
           },
           {
             "id": "side-table",
             "kind": "furniture",
-            "label": "Round dark wood side table, glass of water, folded newspaper",
+            "label": "Round dark wood side table: a small linen-shaded lamp and a glass of water",
             "at": [
-              3.05,
-              3.75
+              4.4,
+              3.65
             ],
             "size": [
               0.45,
@@ -456,8 +372,210 @@
               "type": "point",
               "kelvin": 2700,
               "power": 30,
-              "radius": 0.08
+              "radius": 0.08,
+              "role": "practical"
             }
+          },
+          {
+            "id": "panels",
+            "kind": "wall",
+            "label": "Glossy cherry lacquer panels with vertical grooves (back wall)",
+            "at": [
+              2.375,
+              6.3
+            ],
+            "size": [
+              4.75,
+              0.15,
+              3.2
+            ]
+          },
+          {
+            "id": "charcoal-back",
+            "kind": "wall",
+            "label": "Matte charcoal section of the back wall: two small backlit sketches, the acoustic guitar",
+            "at": [
+              5.375,
+              6.3
+            ],
+            "size": [
+              1.25,
+              0.15,
+              3.2
+            ]
+          },
+          {
+            "id": "charcoal",
+            "kind": "wall",
+            "label": "Matte charcoal right wall with the tall window",
+            "at": [
+              5.92,
+              3.2
+            ],
+            "size": [
+              0.15,
+              6.4,
+              3.2
+            ]
+          },
+          {
+            "id": "vitrine",
+            "kind": "furniture",
+            "label": "Tall dark glass-fronted cabinet, its glass reflecting the room",
+            "at": [
+              3.4,
+              6.1
+            ],
+            "size": [
+              0.64,
+              0.3,
+              2.2
+            ]
+          },
+          {
+            "id": "vitrine-bulb",
+            "kind": "light",
+            "label": "Small warm bulb inside the dark glass cabinet",
+            "at": [
+              3.2,
+              5.9
+            ],
+            "size": [
+              0.06,
+              0.06,
+              0.06
+            ],
+            "z": 1.33,
+            "light": {
+              "type": "point",
+              "kelvin": 2900,
+              "power": 6,
+              "radius": 0.02,
+              "role": "practical"
+            }
+          },
+          {
+            "id": "window",
+            "kind": "window",
+            "label": "Tall window in the right wall, sheer curtains drawn, heavy charcoal drapes pulled to the sides",
+            "at": [
+              5.82,
+              2.6
+            ],
+            "size": [
+              0.06,
+              1.6,
+              2.3
+            ],
+            "z": 0.5
+          },
+          {
+            "id": "key",
+            "kind": "light",
+            "label": "Key: soft daylight through the right-wall window, sheers drawn",
+            "at": [
+              5.76,
+              2.6
+            ],
+            "size": [
+              0.05,
+              1.6,
+              2.3
+            ],
+            "z": 0.5,
+            "light": {
+              "type": "area",
+              "kelvin": 5600,
+              "power": 1400,
+              "size": [
+                1.6,
+                2.3
+              ],
+              "aim": [
+                2,
+                2.6,
+                1.65
+              ],
+              "role": "key"
+            }
+          },
+          {
+            "id": "sketch-upper",
+            "kind": "light",
+            "label": "Small backlit sketch in a white frame (upper), red-brown ink figure",
+            "at": [
+              5.07,
+              6.2
+            ],
+            "size": [
+              0.19,
+              0.04,
+              0.36
+            ],
+            "z": 1.03,
+            "light": {
+              "type": "panel",
+              "kelvin": 4300,
+              "strength": 3,
+              "role": "practical"
+            }
+          },
+          {
+            "id": "sketch-lower",
+            "kind": "light",
+            "label": "Small backlit sketch in a white frame (lower), red-brown ink figure",
+            "at": [
+              5.07,
+              6.2
+            ],
+            "size": [
+              0.19,
+              0.04,
+              0.36
+            ],
+            "z": 0.5,
+            "light": {
+              "type": "panel",
+              "kelvin": 4300,
+              "strength": 3,
+              "role": "practical"
+            }
+          },
+          {
+            "id": "side-lamp",
+            "kind": "light",
+            "label": "Small table lamp with a linen shade on the side table, warm",
+            "at": [
+              4.4,
+              3.65
+            ],
+            "size": [
+              0.24,
+              0.24,
+              0.26
+            ],
+            "z": 0.62,
+            "light": {
+              "type": "point",
+              "kelvin": 2700,
+              "power": 40,
+              "radius": 0.1,
+              "role": "practical"
+            }
+          },
+          {
+            "id": "bookcase",
+            "kind": "furniture",
+            "label": "Tall dark wood bookcase against the right wall: old books, a few objects",
+            "at": [
+              5.62,
+              4.6
+            ],
+            "size": [
+              0.4,
+              1.2,
+              2.1
+            ]
           }
         ],
         "marks": [
@@ -468,19 +586,18 @@
               3.6,
               4.3
             ],
-            "facing": 215,
+            "facing": 155,
             "pose": "sit",
-            "beat": "interview",
-            "note": "Real interview: eyeline to the interviewer, camera left of A"
+            "note": "In his wing armchair, looking camera right of A at the interviewer (real-37, 38, 49)"
           },
           {
             "id": "interviewer",
             "who": "Interviewer (off camera)",
             "at": [
-              2.6,
-              2.9
+              4.45,
+              2.6
             ],
-            "facing": 35,
+            "facing": 333,
             "pose": "sit",
             "beat": "interview"
           },
@@ -488,13 +605,13 @@
             "id": "founder",
             "who": "founder",
             "at": [
-              2.6,
-              2.9
+              4.45,
+              2.6
             ],
-            "facing": 35,
+            "facing": 333,
             "pose": "sit",
             "beat": "1a",
-            "note": "The founder takes the interviewer's chair for the request"
+            "note": "Takes the interviewer's chair for the request: camera right of A, beside the window"
           }
         ],
         "axes": [
@@ -517,19 +634,19 @@
             "name": "A-cam three-quarter",
             "size": "MS",
             "lens": 50,
-            "height": 1.25,
+            "height": 1.05,
             "at": [
-              3.05,
-              2.55
+              2.82,
+              1.82
             ],
             "axis": "interview",
             "beat": "interview",
             "subjects": [
               "henrick"
             ],
-            "purpose": "The real A-cam: medium, eyeline just camera left (real-38)",
+            "purpose": "The real A-cam (real-38): medium, he looks camera right at the interviewer",
             "facing": 17.4,
-            "render": "grey-study-A",
+            "render": "grey-study-A-lit",
             "plates": [
               {
                 "asset": "study-A-real38",
@@ -591,83 +708,57 @@
             ]
           },
           {
-            "id": "R",
-            "name": "Reverse over Henrick's shoulder onto the founder",
+            "id": "W",
+            "name": "Master from the front-left: both of them, the charcoal corner and the window",
+            "size": "WS",
+            "lens": 24,
+            "height": 1.45,
+            "at": [
+              1,
+              0.9
+            ],
+            "facing": 48,
+            "axis": "request",
+            "beat": "1a",
+            "subjects": [
+              "founder",
+              "henrick"
+            ],
+            "purpose": "Establish the room and the request",
+            "render": "grey-study-W-lit",
+            "plates": [
+              {
+                "asset": "study-W-lit",
+                "verdict": "circled",
+                "note": "Plan conformance 97-100 (3 blind judges, questions from the visibility report): every planned piece in its third of the frame, nothing from behind the camera, daylight from the window."
+              }
+            ]
+          },
+          {
+            "id": "O",
+            "name": "Over Henrick's right shoulder onto the founder, the window between them",
             "size": "MS",
             "lens": 40,
-            "height": 1.3,
+            "height": 1.4,
             "at": [
-              4.15,
-              4.75
+              3,
+              4.85
             ],
-            "facing": 220,
+            "facing": 141,
             "axis": "request",
             "beat": "1a",
             "subjects": [
               "founder",
               "henrick"
             ],
-            "purpose": "Reverse for 1a: the founder's request, over Henrick's shoulder",
-            "render": "grey-study-R-lit",
+            "purpose": "The request: the founder's line",
+            "tilt": -4,
+            "render": "grey-study-O-lit",
             "plates": [
               {
-                "asset": "study-R-lit",
+                "asset": "study-O-lit",
                 "verdict": "circled",
-                "note": "Lit plate. Same room as the master 89 (as his real frame 60-64: the guitar and sketches are correctly behind this camera). Looks real 70. Furniture locked to the master."
-              }
-            ]
-          },
-          {
-            "id": "S",
-            "name": "Side two-shot",
-            "size": "MWS",
-            "lens": 24,
-            "height": 1.3,
-            "at": [
-              5.2,
-              2.6
-            ],
-            "facing": 295.5,
-            "axis": "request",
-            "beat": "1a",
-            "subjects": [
-              "founder",
-              "henrick"
-            ],
-            "purpose": "Side two-shot for 1a: both chairs, window light",
-            "render": "grey-study-S-lit",
-            "plates": [
-              {
-                "asset": "study-S-lit",
-                "verdict": "circled",
-                "note": "Lit plate. Same room as the master 96, as his real frame 80. Looks real 67. Two extra sketches at the right edge are not in the plan (fix next round)."
-              }
-            ]
-          },
-          {
-            "id": "M",
-            "name": "Master from the front-right corner",
-            "size": "WS",
-            "lens": 18,
-            "height": 1.6,
-            "at": [
-              5.45,
-              0.5
-            ],
-            "facing": 330,
-            "axis": "request",
-            "beat": "1a",
-            "subjects": [
-              "founder",
-              "henrick"
-            ],
-            "purpose": "Master for 1a: the whole room, window and charcoal corner",
-            "render": "grey-study-M-lit",
-            "plates": [
-              {
-                "asset": "study-M-lit",
-                "verdict": "circled",
-                "note": "Lit plate. Same room as his real frame 94; looks real 61-69 (his real A-cam frame 74 on the same panel). Window key left, practicals warm. Furniture reference for R and S."
+                "note": "Plan conformance 100: the window at left, the walnut chair right, nothing from the other walls; the chair faces Henrick."
               }
             ]
           }
@@ -2021,7 +2112,8 @@
             "render": "grey-hall-L"
           }
         ]
-      }
+      },
+      "model": "room-hall"
     },
     {
       "id": "office",
@@ -6131,6 +6223,194 @@
       "label": "Hall scene 4 (hall-s4-v2)",
       "origin": "rendered",
       "duration": 6.942
+    },
+    {
+      "id": "room-hall",
+      "media": "model",
+      "path": "/generated/room-hall.glb",
+      "label": "Ministry waiting hall in 3D",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/greybox glb",
+        "prompt": "13 x 20 x 4.2 m, 51 items, 7 marks, 12 cameras"
+      }
+    },
+    {
+      "id": "grey-study-A-lit",
+      "media": "image",
+      "path": "/generated/grey-study-A-lit.jpg",
+      "label": "Study A, lit grey box, plan v2 (camera solved from real-38; key window in the right wall)",
+      "origin": "rendered"
+    },
+    {
+      "id": "grey-study-W-lit",
+      "media": "image",
+      "path": "/generated/grey-study-W-lit.jpg",
+      "label": "Study W master, lit grey box (plan v2)",
+      "origin": "rendered"
+    },
+    {
+      "id": "grey-study-O-lit",
+      "media": "image",
+      "path": "/generated/grey-study-O-lit.jpg",
+      "label": "Study O over Henrick's shoulder, lit grey box (plan v2)",
+      "origin": "rendered"
+    },
+    {
+      "id": "study-W-lit",
+      "media": "image",
+      "path": "/generated/study-W-lit.jpg",
+      "label": "Study W plate: master, painted from the lit grey box (brief written from the visibility report)",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1: lit grey 3D layout of a real room from a new camera, already lit by the room's lighting plan. Images 2-3: real photos of this room from the interview camera. Image 4: these exact two chairs.\nMake Image 1 a real photograph of that room. Keep its camera, lens, framing, perspective and every wall, opening and piece of furniture where it is; keep its light exactly (where it comes from, how bright, where shadows fall). Materials and colour from the photos. No people.\nLight: the key is soft daylight from the tall window in the right wall; warm practicals glow (globe sconces, small lamps, the bulb in the glass cabinet, the two backlit sketches); nothing else; deep falloff into dark corners.\nMaterials: glossy cherry-red lacquer panelling, vertical moulded panels, mirror-like highlights; matte charcoal walls; dark wood; dark oak floor, worn rug.\nThis camera, left to right: the tall dark glass-fronted cabinet (far left); the glossy cherry lacquer back wall (left); Henrick's green leather wing armchair (empty) (left); two small backlit sketches in white frames, one above the other (left); the matte charcoal section of the back wall (left); the acoustic guitar on the charcoal wall (left); the round dark side table with a glass of water (centre); a small linen-shaded lamp glowing on it (centre); a tall dark bookcase on the charcoal right wall (centre); the matte charcoal right wall (right); the walnut lounge chair, dark leather (empty) (right); the tall window, sheers drawn, charcoal drapes pulled aside (far right). The daylight comes from that window. Not in this picture (out of shot or behind the camera): the doorway, the low cabinet, the parchment lamp, the globe sconces, the left wall's sketches.\nLived in: a navy jacket over the walnut chair, floor scuffs; no newspaper, no readable text. Real sensor grain in the shadows, slight edge softness.",
+        "inputs": [
+          "grey-study-W-lit",
+          "study-A-real38",
+          "hen-real-37",
+          "study-M-lit"
+        ]
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Plan conformance 97-100; old master was 76."
+      },
+      "scores": {}
+    },
+    {
+      "id": "study-O-lit",
+      "media": "image",
+      "path": "/generated/study-O-lit.jpg",
+      "label": "Study O plate: over Henrick's shoulder, the window between them",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1: lit grey 3D layout of a real room from a new camera, already lit by the room's lighting plan. Images 2-3: real photos of this room from the interview camera. Image 4: these exact two chairs.\nMake Image 1 a real photograph of that room. Keep its camera, lens, framing, perspective and every wall, opening and piece of furniture where it is; keep its light exactly (where it comes from, how bright, where shadows fall). Materials and colour from the photos. No people.\nLight: the key is soft daylight from the tall window in the right wall; warm practicals glow (globe sconces, small lamps, the bulb in the glass cabinet, the two backlit sketches); nothing else; deep falloff into dark corners.\nMaterials: glossy cherry-red lacquer panelling, vertical moulded panels, mirror-like highlights; matte charcoal walls; dark wood; dark oak floor, worn rug.\nThis camera, left to right: the tall window, sheers drawn, charcoal drapes pulled aside (left); the matte charcoal right wall (centre); the walnut lounge chair, dark leather (empty) (right); the cherry lacquer front wall (far right). The daylight comes from that window. Not in this picture (out of shot or behind the camera): the doorway, the acoustic guitar on the charcoal wall, two small backlit sketches in white frames, one above the other, the tall dark glass-fronted cabinet, the low cabinet, the parchment lamp, a tall dark bookcase on the charcoal right wall, the globe sconces, the left wall's sketches.\nLived in: a navy jacket over the walnut chair, floor scuffs; no newspaper, no readable text. Real sensor grain in the shadows, slight edge softness.",
+        "inputs": [
+          "grey-study-O-lit",
+          "study-A-real38",
+          "hen-real-37",
+          "study-M-lit"
+        ]
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Plan conformance 100; the old reverse was 38 (window and doorway mirrored, the back wall's cabinet pasted on the front wall, daylight from the wrong side)."
+      },
+      "scores": {}
+    },
+    {
+      "id": "kf-1.1-study-W",
+      "media": "image",
+      "path": "/generated/kf-1.1-study-W.jpg",
+      "label": "1.1 keyframe: master, Henrick left facing the window, the founder right",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1 is a real photograph of a room. Change only this: add two seated people; keep everything else exactly (room, furniture, light, framing, grain, colour). Image 2 shows where they sit and how this room's light falls on them: keep that light.\nIn the green wing armchair on the left: the older man from Images 4-5 (silver hair, short grey beard, round navy glasses, navy check suit, pale blue shirt, silver paisley tie, pink pocket square), turned toward the right, deadpan, listening, hands still. The window daylight from the right falls on his face.\nIn the walnut lounge chair on the right, in front of the window: the young founder from Image 3 (curly dark hair, stubble, grey zip hoodie, dark jeans, white sneakers), turned toward the older man on the left, leaning forward, elbows on knees, mid-sentence. The window behind him rims his hair and the right side of his face; the small lamp between them warms the front of his face.\nSame noise and softness as the photograph. A real candid moment; nobody looks at camera.",
+        "inputs": [
+          "study-W-lit",
+          "founder-sheet",
+          "hen-real-38",
+          "hen-real-53"
+        ]
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Henrick lit from frame right by the window, as in his real interview frames; the founder rimmed by the window, warm fill from the side lamp; jacket on the walnut chair."
+      },
+      "scores": {}
+    },
+    {
+      "id": "kf-1.2-study-O",
+      "media": "image",
+      "path": "/generated/kf-1.2-study-O.jpg",
+      "label": "1.2 keyframe: over Henrick's shoulder onto the founder",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1 is a real photograph of a room. Change only this: add two people; keep everything else exactly (room, furniture, light, framing, grain, colour). Image 2 shows where they are and how this room's light falls on them: keep that light.\nIn the walnut lounge chair on the right: the young founder from Image 3 (curly dark hair, stubble, grey zip hoodie), leaning forward toward the left of frame, looking just left of camera at the older man, mid-sentence, tired and urgent. The window on the left rims the left side of his face and his hair; a small lamp below the frame gives his face a soft warm fill; the right side of his face falls into shadow.\nIn the near left foreground, out of focus: the older man from Images 4-5 seen from behind his right shoulder: the back of his silver head, his ear, the arm of his round navy glasses, his navy suit shoulder, dark against the window.\nSame noise and softness as the photograph. A real candid moment; nobody looks into the lens.",
+        "inputs": [
+          "study-O-lit",
+          "founder-sheet",
+          "hen-real-38",
+          "hen-real-53"
+        ]
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Dirty single over Henrick's right shoulder; the founder cross-lit by the window (left) and the lamp; no light that is not in the plan."
+      },
+      "scores": {}
+    },
+    {
+      "id": "v-1.1-kling-w",
+      "media": "video",
+      "path": "/generated/v-1.1-kling-w.mp4",
+      "label": "1.1 master, Kling 3.0 (Leap): the founder leans in, Henrick waits",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "One continuous locked-off wide shot, no camera movement, no cuts. In a dark lacquer-panelled study, the young man in the grey hoodie on the right leans further forward in the walnut chair, rubs his hands together and draws a breath, about to speak. The older man in the navy suit in the green wing armchair on the left sits completely still, legs crossed, watching him, expressionless. No dialogue. Daylight from the window stays steady. Quiet room tone, a clock ticking softly.",
+        "inputs": [
+          "kf-1.1-study-W"
+        ]
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Frames consistent, Henrick reads as himself; quiet (room tone is laid in the mix)."
+      },
+      "scores": {}
+    },
+    {
+      "id": "v-1.2-kling-o",
+      "media": "video",
+      "path": "/generated/v-1.2-kling-o.mp4",
+      "label": "1.2 the request, Kling 3.0 (Leap), line in shot (S-O-C spelled out)",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "One continuous locked-off shot, no camera movement, no cuts. The young man in the grey hoodie in the walnut chair leans forward, looks at the older man just left of camera, and says in a tired, urgent American voice: \"Henrick, I need S-O-C 2 by Friday.\" (S-O-C spelled out as three letters, then the number two) Then he waits, hopeful. The older man in the near left foreground, seen from behind, does not move or speak. Natural small movements only, no exaggerated mouth movement. Quiet room tone.",
+        "inputs": [
+          "kf-1.2-study-O"
+        ]
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Line word-correct (Gemini: 'S O C 2'; whisper 'SOC2', a tokenizer split). The first roll said 'O S A C 2' and was rejected. Line 1.4-4.4 s, then a beat."
+      },
+      "scores": {}
+    },
+    {
+      "id": "v-1.3-kling-a",
+      "media": "video",
+      "path": "/generated/v-1.3-kling-a.mp4",
+      "label": "1.3 silence: Henrick's real A-cam frame (real-38) animated, Kling 3.0 (Leap)",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "One continuous locked-off shot, no camera movement, no cuts. The older man in the navy suit has just stopped talking. He closes his mouth and holds a completely deadpan stare at the person off-screen to the right, motionless, then one slow blink. He says nothing. Natural stillness, no smile, no nod. Only quiet room tone.",
+        "inputs": [
+          "study-A-real38"
+        ]
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "His real frame, animated: a word tail in the first second (trimmed, in 1.2), then a deadpan hold and one blink; face is his own."
+      },
+      "scores": {}
+    },
+    {
+      "id": "cut-study-s1-v3",
+      "media": "video",
+      "path": "/generated/final-cut-study-s1-v3.mp4",
+      "label": "Scene 1: The request (study-s1-v3)",
+      "origin": "rendered",
+      "duration": 9.842
     }
   ],
   "graphics": [
@@ -6284,33 +6564,43 @@
       "takes": [
         {
           "asset": "v-1.1-kling",
+          "verdict": "reject",
+          "note": "Superseded by plan v2: the old plan had the window key and the interviewer on camera left, mirrored against his real frames."
+        },
+        {
+          "asset": "v-1.1-kling-w",
           "verdict": "circled",
-          "note": "Founder leans in and breathes; Henrick still. Freeze 0-1.0 s is the warm-up: in at 1.0."
+          "note": "Plan v2 coverage."
         }
       ],
       "graphics": [],
       "sfx": [],
       "edit": {
-        "in": 1,
-        "out": 3.6
+        "in": 0.5,
+        "out": 3
       },
       "checks": {},
       "id": "1.1",
       "name": "The request: master",
-      "setup": "M",
+      "setup": "W",
       "lines": [],
       "keyframes": [
         {
           "asset": "kf-1.1-study-M",
+          "verdict": "reject",
+          "note": "Superseded by plan v2: the old plan had the window key and the interviewer on camera left, mirrored against his real frames."
+        },
+        {
+          "asset": "kf-1.1-study-W",
           "verdict": "circled",
-          "note": "Same room as his real frame 95; looks real 64. Screen direction matches the plan."
+          "note": "Plan v2 coverage."
         }
       ],
       "card": {
-        "framing": "Setup M: master from the front-right corner, 18 mm, 1.6 m. The window frame left, the founder left of centre, Henrick right of centre, the charcoal corner with his guitar and sketches at the right edge.",
-        "blocking": "The founder leans forward and draws breath. Henrick does not move.",
+        "framing": "Setup W: master from the front-left, 24 mm, 1.45 m. Henrick left in the green wing armchair, the founder right in the walnut chair in front of the window; between them the side table and lamp, the charcoal corner with the two backlit sketches and the guitar, the bookcase.",
+        "blocking": "The founder leans further in and rubs his hands; Henrick sits still, legs crossed, watching him.",
         "performance": "Founder: urgency building. Henrick: still, waiting, unreadable.",
-        "continuity": "Founder in the walnut lounge chair, frame left, his navy jacket over the back; Henrick in the green Chesterfield, frame right, navy check suit, paisley tie, pink pocket square. Window key from the left wall, warm practicals behind; the far side dark.",
+        "continuity": "Key: daylight from the window in the right wall, on Henrick's face from frame right (as in his real A-cam frames); the founder rim-lit by it, warm fill from the side lamp. Navy jacket over the walnut chair. Eyelines: Henrick looks frame right, the founder frame left.",
         "sound": "Room tone, a distant clock. No dialogue.",
         "cut": "Cut to 1.2 as he opens his mouth."
       }
@@ -6326,20 +6616,25 @@
       "takes": [
         {
           "asset": "v-1.2-kling",
+          "verdict": "reject",
+          "note": "Superseded by plan v2: the old plan had the window key and the interviewer on camera left, mirrored against his real frames."
+        },
+        {
+          "asset": "v-1.2-kling-o",
           "verdict": "circled",
-          "note": "Line in shot: 'Henrik, I need SOC2 by Friday' (words correct); speech 1.75-5.0 s; mouth open on the words; face steady."
+          "note": "Plan v2 coverage."
         }
       ],
       "graphics": [],
       "sfx": [],
       "edit": {
-        "in": 1.45,
-        "out": 4.65
+        "in": 1.1,
+        "out": "end"
       },
       "checks": {},
       "id": "1.2",
       "name": "The request",
-      "setup": "R",
+      "setup": "O",
       "lines": [
         {
           "who": "founder",
@@ -6350,15 +6645,20 @@
       "keyframes": [
         {
           "asset": "kf-1.2-study-R",
+          "verdict": "reject",
+          "note": "Superseded by plan v2: the old plan had the window key and the interviewer on camera left, mirrored against his real frames."
+        },
+        {
+          "asset": "kf-1.2-study-O",
           "verdict": "circled",
-          "note": "Same room 82; looks real 71 (his real A-cam frame 71). Founder lit from the window side."
+          "note": "Plan v2 coverage."
         }
       ],
       "card": {
-        "framing": "Setup R: over Henrick's shoulder onto the founder, 40 mm, 1.3 m. Henrick's silver head and shoulder soft in the near right foreground.",
-        "blocking": "The founder leans in, eyes on Henrick (frame right). Henrick never turns.",
+        "framing": "Setup O: over Henrick's right shoulder, 40 mm, 1.4 m, tilted down 4. The back of his silver head dark against the window at frame left; the founder centre-right against the charcoal wall and the lacquer front wall.",
+        "blocking": "The founder, leaning forward, says the line to Henrick just left of camera, then waits.",
         "performance": "Founder: tired, urgent, sure this is a reasonable request.",
-        "continuity": "Founder in the walnut lounge chair, frame left, his navy jacket over the back; Henrick in the green Chesterfield, frame right, navy check suit, paisley tie, pink pocket square. Window key from the left wall, warm practicals behind; the far side dark.",
+        "continuity": "Same side of the request line as the master and the A-cam. The window rims the left of the founder's face; the side lamp below frame fills it warm. Jacket on the chair behind him.",
         "sound": "The line in the clip; room tone continuous with 1.1.",
         "cut": "Hold half a beat after 'Friday.' then cut to 1.3."
       }
@@ -6374,8 +6674,13 @@
       "takes": [
         {
           "asset": "v-1.3-kling",
+          "verdict": "reject",
+          "note": "Superseded by plan v2: the old plan had the window key and the interviewer on camera left, mirrored against his real frames."
+        },
+        {
+          "asset": "v-1.3-kling-a",
           "verdict": "circled",
-          "note": "Silence, room tone only; Henrick holds still (deadpan), the founder waits."
+          "note": "Plan v2 coverage."
         }
       ],
       "graphics": [],
@@ -6387,26 +6692,31 @@
         }
       ],
       "edit": {
-        "in": 0.4,
-        "out": 1.8
+        "in": 1.2,
+        "out": 4.6
       },
       "checks": {},
       "id": "1.3",
       "name": "Silence",
-      "setup": "S",
+      "setup": "A",
       "lines": [],
       "keyframes": [
         {
           "asset": "kf-1.3-study-S",
+          "verdict": "reject",
+          "note": "Superseded by plan v2: the old plan had the window key and the interviewer on camera left, mirrored against his real frames."
+        },
+        {
+          "asset": "study-A-real38",
           "verdict": "circled",
-          "note": "Same room 86; looks real 64. Both faces lit from the window side."
+          "note": "Plan v2 coverage."
         }
       ],
       "card": {
-        "framing": "Setup S: side two-shot across both chairs, 24 mm, 1.3 m. The window with sheers frame left.",
-        "blocking": "Henrick stares at the founder, one slow blink. The founder waits.",
+        "framing": "Setup A: his real A-cam frame (real-38, 50 mm). With plan v2 the founder sits where the interviewer sat, so the real interview angle is the reverse of the request.",
+        "blocking": "Henrick has stopped talking; he holds a deadpan stare camera right at the founder, one slow blink. Nothing else.",
         "performance": "Henrick: deadpan, nothing moves. The joke is the length of the silence.",
-        "continuity": "Founder in the walnut lounge chair, frame left, his navy jacket over the back; Henrick in the green Chesterfield, frame right, navy check suit, paisley tie, pink pocket square. Window key from the left wall, warm practicals behind; the far side dark.",
+        "continuity": "His real light: the key from camera right, the window's highlight in the lacquer just right of his head. Eyeline camera right, matching 1.1 and 1.2.",
         "sound": "Silence and room tone only.",
         "cut": "Hold the silence; cut to 1b-friday (B-cam, real room) for 'Friday.'"
       }
@@ -8089,6 +8399,52 @@
     }
   ],
   "cuts": [
+    {
+      "id": "study-s1-v3",
+      "version": "study-s1-v3",
+      "scope": "Scene 1: The request",
+      "date": "2026-10-06",
+      "asset": "cut-study-s1-v3",
+      "duration": 9.842,
+      "timeline": [
+        {
+          "shot": "1.1",
+          "start": 0,
+          "dur": 2.5,
+          "in": 0.5,
+          "asset": "v-1.1-kling-w",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "1.2",
+          "start": 2.5,
+          "dur": 3.942,
+          "in": 1.1,
+          "asset": "v-1.2-kling-o",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "Henrick, I need SOC 2 by Friday.",
+              "mode": "native",
+              "start": 2.5,
+              "end": 6.442
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "1.3",
+          "start": 6.442,
+          "dur": 3.4,
+          "in": 1.2,
+          "asset": "v-1.3-kling-a",
+          "lines": [],
+          "graphics": []
+        }
+      ],
+      "notes": []
+    },
     {
       "id": "hall-s4-v2",
       "version": "hall-s4-v2",
@@ -10080,26 +10436,6 @@
   ],
   "activity": [
     {
-      "t": "2026-10-06T16:04:22.326960+00:00",
-      "text": "Sound: building the full mix now (dialogue + ambience + effects, -14 LUFS), cut v3 with audio. Not waiting on the remaining clips.",
-      "kind": "run"
-    },
-    {
-      "t": "2026-10-06T16:05:05.767022+00:00",
-      "text": "SFX and ambience generated (13 files, ElevenLabs; recorded samples can replace them later). Building the mix script.",
-      "kind": "done"
-    },
-    {
-      "t": "2026-10-06T16:06:41.662168+00:00",
-      "text": "Seedance single-line clips PASS: Friday (face 0.82, words exact), In Europe... (face 0.81, voice 0.85), scene 6 line (face 0.77, voice 0.85). Rendering: It is good, scene 4 and scene 2 from the new keyframes, scene 7 retry.",
-      "kind": "done"
-    },
-    {
-      "t": "2026-10-06T16:07:39.509566+00:00",
-      "text": "BLOCKER: Higgsfield credits are nearly gone (12.15). Two Seedance jobs rejected; two already-accepted ones still finish. fal has Seedance 2.5 but its account is named Leap, so I am not spending there without Claudio's OK. Continuing with free work: mix, cut, audits.",
-      "kind": "warn"
-    },
-    {
       "t": "2026-10-06T16:10:15.675413+00:00",
       "text": "Cut v3 first audit: -13.7 LUFS, no clipping. Found scene 3 was still the 4.5s clip (9s of dialogue overran into scenes 4-5). Swapped in the 10s clerk clip; rebuilding.",
       "kind": "info"
@@ -10477,6 +10813,26 @@
     {
       "t": "2026-10-06T22:16:16.326Z",
       "text": "Cut hall-s4-v2 built: 6.9 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T22:24:07.083Z",
+      "text": "Ministry waiting hall: 3D room exported (13 x 20 x 4.2 m, 51 items, 7 marks, 12 cameras) for the Rooms view",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T22:28:22.305Z",
+      "text": "Study plan v2: the room and its light solved from Henrick's real interview frames (key window in the right wall, interviewer and founder camera right of A, camera A re-solved). New coverage W (master) and O (over the shoulder) painted from lit grey boxes with briefs written from each camera's visibility report: plan conformance 97-100 against 38-76 for the old plates. 1.3 now uses his real A-cam frame.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T22:28:26.587Z",
+      "text": "Building cut study-s1-v3: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T22:28:50.186Z",
+      "text": "Cut study-s1-v3 built: 9.8 s.",
       "kind": "done"
     }
   ],

@@ -33,7 +33,7 @@ export const CARD_FIELDS = [
 export type CardKey = (typeof CARD_FIELDS)[number]["key"]
 export type ShotCard = Partial<Record<CardKey, string>>
 
-export type Media = "image" | "video" | "audio"
+export type Media = "image" | "video" | "audio" | "model"
 export type Origin = "real" | "generated" | "rendered" | "recorded"
 
 export type Asset = {
@@ -99,6 +99,20 @@ export type PlanItem = {
   rot?: number
   /** Openings cut through a wall item (service windows, doorways). */
   openings?: Opening[]
+  /** On a light item: what it emits. lightbox.py renders it; the floor plan and the Rooms view draw it. */
+  light?: Light
+}
+/** A light source in the plan. area: a window or soft source aimed at a point. point: a bulb or shaded lamp.
+ *  panel: a lit surface (a lightbox, a backlit print). `role` marks the key, the fill and the practicals. */
+export type Light = {
+  type: "area" | "point" | "panel"
+  kelvin: number
+  power?: number
+  size?: [number, number]
+  aim?: [number, number, number]
+  radius?: number
+  strength?: number
+  role?: "key" | "fill" | "practical"
 }
 /** Where a person stands or sits. `who` is a character id, or a short label for an extra. */
 export type Mark = {
@@ -145,6 +159,9 @@ export type Location = {
   id: Id
   name: string
   plan?: Plan
+  /** The room in 3D (a GLB asset) built from the plan by the same Blender script that renders its plates: every camera,
+   *  plan item and mark, tagged with their plan ids. The Rooms view loads it; `stitch room <loc>` rebuilds it. */
+  model?: Id
   /** Style frames that set the look for every keyframe shot here. */
   style: Id[]
   /** Images the post grade is matched to. Real footage where it exists. */

@@ -4,7 +4,7 @@
 // lines and every camera setup with its field of view. Drawn in metres from the plan in the project; the far wall is
 // at the top, the entrance at the bottom. Geometry (fov, sides, in-frame marks) comes from lib/derive.
 
-import { heading, type PlanView } from "@/lib/derive"
+import { heading, kelvinColor, type PlanView } from "@/lib/derive"
 import type { PlanItem } from "@/lib/model"
 
 const FILL: Record<PlanItem["kind"], string> = {
@@ -32,7 +32,41 @@ export function FloorPlan({ view, width = 360, selected, onSelect, className }: 
   const item = (it: PlanItem) => {
     const [w, d] = it.size
     const t = `rotate(${it.rot ?? 0} ${X(it.at[0])} ${Y(it.at[1])})`
-    if (it.kind === "light") return null
+    if (it.kind === "light") {
+      // A glyph per source, in its colour temperature: a bulb, a soft source with its throw toward the aim, a lit panel.
+      const l = it.light
+      const c = l ? kelvinColor(l.kelvin) : FILL.light
+      const cx = X(it.at[0])
+      const cy = Y(it.at[1])
+      const tip = `${it.label}${l ? `: ${l.type}, ${l.kelvin} K${l.role ? `, ${l.role}` : ""}` : ""}`
+      const key = l?.role === "key" && <text x={cx + 6} y={cy - 6} fontSize={10} fontWeight={800} fill={c}>KEY</text>
+      if (l?.type === "point")
+        return (
+          <g key={it.id}>
+            <circle cx={cx} cy={cy} r={9} fill={c} opacity={0.22} />
+            <circle cx={cx} cy={cy} r={3.5} fill={c} />
+            {key}
+            <title>{tip}</title>
+          </g>
+        )
+      const box = <rect transform={t} x={X(it.at[0] - w / 2)} y={Y(it.at[1] + d / 2)} width={Math.max(3, w * s)} height={Math.max(3, d * s)} fill={c} opacity={0.9} />
+      if (l?.type === "area" && l.aim) {
+        const [ax, ay] = l.aim
+        const len = Math.hypot(ax - it.at[0], ay - it.at[1]) || 1
+        const reach = Math.min(2.4, len)
+        const ex = it.at[0] + ((ax - it.at[0]) / len) * reach
+        const ey = it.at[1] + ((ay - it.at[1]) / len) * reach
+        return (
+          <g key={it.id}>
+            {box}
+            <line x1={cx} y1={cy} x2={X(ex)} y2={Y(ey)} stroke={c} strokeWidth={1.6} markerEnd="url(#throw)" />
+            {key}
+            <title>{tip}</title>
+          </g>
+        )
+      }
+      return <g key={it.id}>{box}{key}<title>{tip}</title></g>
+    }
     if (it.kind === "wall") {
       // Wall segments around its openings (offset along the wall from its left end).
       const x0 = it.at[0] - w / 2
@@ -60,8 +94,14 @@ export function FloorPlan({ view, width = 360, selected, onSelect, className }: 
 
   return (
     <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height} className={className} role="img" aria-label="Floor plan">
+      <defs>
+        <marker id="throw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="context-stroke" />
+        </marker>
+      </defs>
       <rect x={X(0)} y={Y(plan.depth)} width={plan.width * s} height={plan.depth * s} fill="#0f172a" stroke="#94a3b8" strokeWidth={2} />
-      {plan.items.map(item)}
+      {plan.items.filter((it) => it.kind !== "light").map(item)}
+      {plan.items.filter((it) => it.kind === "light").map(item)}
 
       {plan.axes.map((ax) => {
         const a = marks.get(ax.a)?.at

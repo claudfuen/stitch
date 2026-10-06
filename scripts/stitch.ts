@@ -19,6 +19,7 @@
 //   bun run stitch plan upsert <loc> items|marks|axes|setups '<json>'     bun run stitch plan remove <loc> <list> <id>
 //   bun run stitch plan plate <loc> <setup> <asset> [circle|alt|reject|pending] [--note ..]
 //   bun run stitch greybox <loc> [setup ...]                 render the grey box (Blender) and attach each render
+//   bun run stitch room <loc> [--builder greybox|lightbox]   export the room in 3D (GLB) for the Rooms view
 import { execFileSync } from "node:child_process"
 import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import path from "node:path"
@@ -62,7 +63,7 @@ async function importFile(id: string, from: string, media: Media): Promise<{ pat
     ext = "jpg"
   } else copyFileSync(tmp, `public/generated/${id}.${ext}`)
   const file = `public/generated/${id}.${ext}`
-  return { path: `/generated/${id}.${ext}`, duration: media === "image" ? undefined : probe(file) }
+  return { path: `/generated/${id}.${ext}`, duration: media === "image" || media === "model" ? undefined : probe(file) }
 }
 
 function score(asset: Asset, kinds: { face: boolean; voice: boolean }) {
@@ -227,6 +228,27 @@ async function main() {
       console.log(`rendered ${ids.join(", ")}`)
       return
     }
+    case "room": {
+      // The room as one 3D scene, exported by the Blender script that renders this room's plates.
+      const p = await load()
+      const l = p.locations.find((x) => x.id === sub)
+      if (!l?.plan) throw new Error(`no plan on ${sub}`)
+      const builder = flag("builder") ?? "greybox"
+      const dir = `work/${l.id}/room`
+      mkdirSync(dir, { recursive: true })
+      writeFileSync(`work/${l.id}/plan.json`, JSON.stringify(l.plan, null, 1))
+      execFileSync("/Applications/Blender.app/Contents/MacOS/Blender", ["-b", "-P", `scripts/${builder}.py`, "--", `work/${l.id}/plan.json`, dir, "--glb", `${dir}/${l.id}.glb`, "--glb-only"], { stdio: "ignore" })
+      const asset = `room-${l.id}`
+      const { path: ap } = await importFile(asset, `${dir}/${l.id}.glb`, "model")
+      const gen = { model: `blender/${builder} glb`, prompt: `${l.plan.width} x ${l.plan.depth} x ${l.plan.height} m, ${l.plan.items.length} items, ${l.plan.marks.length} marks, ${l.plan.setups.length} cameras` }
+      await run([
+        p.assets.some((x) => x.id === asset) ? { op: "asset.update", id: asset, patch: { path: ap, gen } } : { op: "asset.add", asset: { id: asset, media: "model", path: ap, label: `${l.name} in 3D`, origin: "rendered", gen } },
+        { op: "location.update", id: l.id, patch: { model: asset } },
+        { op: "log", text: `${l.name}: 3D room exported (${gen.prompt}) for the Rooms view`, kind: "done" },
+      ])
+      console.log(`exported ${ap}`)
+      return
+    }
     case "build": {
       const { build } = await import("./build")
       await build(flag("version"), { shots: flag("shots")?.split(",").filter(Boolean), scope: flag("scope") })
@@ -238,7 +260,7 @@ async function main() {
 }
 
 function readHelp() {
-  return "commands: show, log, asset add|qa|set, score, take add|circle|alt|reject|pending, card, shot set|add|move|remove, check, op, plan [set|upsert|remove|plate], greybox, build"
+  return "commands: show, log, asset add|qa|set, score, take add|circle|alt|reject|pending, card, shot set|add|move|remove, check, op, plan [set|upsert|remove|plate], greybox, room, build"
 }
 
 main().catch((e) => {

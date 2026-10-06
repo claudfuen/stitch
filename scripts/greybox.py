@@ -3,8 +3,11 @@
 # one camera per setup (Super 35, the setup's lens, height, facing and tilt).
 #
 #   /Applications/Blender.app/Contents/MacOS/Blender -b -P scripts/greybox.py -- <plan.json> <out_dir> [setup ...]
+#       [--glb room.glb] [--glb-only]
 #
 # `bun run stitch greybox <location>` writes the plan out, runs this and registers the renders on the board.
+# `--glb` also exports the built room (every camera, plan item and mark, tagged with their plan ids as glTF extras) for
+# the board's Rooms view, so the room you audit in the browser is the same scene the renders come from.
 import json
 import math
 import sys
@@ -12,6 +15,9 @@ import sys
 import bpy
 
 argv = sys.argv[sys.argv.index("--") + 1:]
+glb = argv[argv.index("--glb") + 1] if "--glb" in argv else None
+render = "--glb-only" not in argv
+argv = [a for i, a in enumerate(argv) if not a.startswith("--") and (i == 0 or argv[i - 1] != "--glb")]
 plan = json.load(open(argv[0]))
 out_dir = argv[1]
 only = set(argv[2:])
@@ -32,7 +38,12 @@ mats = {}
 def mat(name, rgb):
     if name not in mats:
         m = bpy.data.materials.new(name)
-        m.diffuse_color = (*rgb, 1.0)
+        m.diffuse_color = (*rgb, 1.0)  # what Workbench shows
+        m.use_nodes = True  # what glTF exports
+        bsdf = m.node_tree.nodes.get("Principled BSDF")
+        if bsdf:
+            bsdf.inputs["Base Color"].default_value = (*rgb, 1.0)
+            bsdf.inputs["Roughness"].default_value = 0.9
         mats[name] = m
     return mats[name]
 
@@ -56,7 +67,16 @@ box("wall:far", W / 2, D + T / 2, 0, W + 2 * T, T, H, GREY["wall"])
 box("wall:left", -T / 2, D / 2, 0, T, D, H, GREY["wall"])
 box("wall:right", W + T / 2, D / 2, 0, T, D, H, GREY["wall"])
 
+def tag(before, **props):
+    for name in set(bpy.data.objects.keys()) - before:
+        for k, v in props.items():
+            if v is not None:
+                bpy.data.objects[name][k] = v
+
+
+tag(set(), kind="room")
 for it in plan["items"]:
+    before_item = set(bpy.data.objects.keys())
     (x, y), (w, d, h), z, rot, kind = it["at"], it["size"], it.get("z", 0), it.get("rot", 0), it["kind"]
     rgb = GREY.get(kind, GREY["prop"])
     if kind == "seats":
@@ -101,6 +121,7 @@ for it in plan["items"]:
             o.data.materials[0] = mat("light-dead", (0.3, 0.3, 0.3))
     else:
         box(f"{kind}:{it['id']}", x, y, z, w, d, h, rgb, rot)
+    tag(before_item, item=it["id"], kind=kind, label=it["label"])
 
 beat_objects = {}
 for m in plan["marks"]:
@@ -132,6 +153,7 @@ for m in plan["marks"]:
         box(f"legs:{m['id']}", x + math.sin(f) * 0.22, y + math.cos(f) * 0.22, 0.45 + lift, 0.32, 0.42, 0.14, rgb, m["facing"])
     if lift:
         box(f"platform:{m['id']}", x, y, 0, 1.6, 1.4, lift, GREY["floor"])
+    tag(before, mark=m["id"], who=m["who"], beat=m.get("beat"), pose=m["pose"])
     if m.get("beat"):
         beat_objects.setdefault(m["beat"], []).extend(set(bpy.data.objects.keys()) - before)
 
@@ -151,9 +173,8 @@ scene.render.resolution_y = 1080
 scene.render.film_transparent = False
 scene.view_settings.view_transform = "Standard"
 
+cams = {}
 for s in plan["setups"]:
-    if only and s["id"] not in only:
-        continue
     cam_data = bpy.data.cameras.new(f"cam-{s['id']}")
     cam_data.lens = s["lens"]
     cam_data.sensor_fit = "HORIZONTAL"
@@ -164,7 +185,18 @@ for s in plan["setups"]:
     x, y = s["at"]
     cam.location = (x, y, s["height"])
     cam.rotation_euler = (math.radians(90 + s.get("tilt", 0)), 0, math.radians(-s["facing"]))
-    scene.camera = cam
+    cam["setup"] = s["id"]
+    cam["beat"] = s.get("beat") or ""
+    cams[s["id"]] = cam
+
+if glb:
+    bpy.ops.export_scene.gltf(filepath=glb, export_format="GLB", export_cameras=True, export_extras=True, export_apply=True, export_yup=True)
+    print(f"exported {glb}")
+
+for s in plan["setups"] if render else []:
+    if only and s["id"] not in only:
+        continue
+    scene.camera = cams[s["id"]]
     for beat, names in beat_objects.items():
         for name in names:
             bpy.data.objects[name].hide_render = bool(s.get("beat")) and beat != s.get("beat")
