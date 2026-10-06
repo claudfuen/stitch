@@ -47,7 +47,9 @@ async function leap(p: string, init: RequestInit & { raw?: boolean } = {}) {
       await new Promise((r) => setTimeout(r, Number(res.headers.get("retry-after") ?? 2 ** attempt) * 1000))
       continue
     }
-    const body = await res.json()
+    const text = await res.text()
+    let body: any
+    try { body = JSON.parse(text) } catch { throw new Error(`Leap ${res.status} ${p}: not JSON: ${text.slice(0, 160)}`) }
     if (!res.ok) {
       const e = body.error ?? {}
       throw new Error(`Leap ${res.status} ${e.type}/${e.code}: ${e.message}${e.param ? ` (${e.param})` : ""} [${e.request_id ?? res.headers.get("x-request-id")}]`)
@@ -68,7 +70,16 @@ async function upload(file: string): Promise<string> {
   const cache: Record<string, string> = existsSync(CACHE) ? JSON.parse(readFileSync(CACHE, "utf8")) : {}
   if (cache[hash]) return cache[hash]
   const type = MIME[path.extname(file).toLowerCase()] ?? "application/octet-stream"
-  const r = await leap("/v1/files", { method: "POST", raw: true, body: bytes, headers: { "content-type": type, "x-filename": path.basename(file) } })
+  let r: { id: string }
+  if (type.startsWith("image/")) {  // images go to /v1/files; keep them under ~5 MB (a 5.7 MB PNG came back as a non-JSON error)
+    r = await leap("/v1/files", { method: "POST", raw: true, body: bytes, headers: { "content-type": type, "x-filename": path.basename(file) } })
+  } else {
+    // Video and sound: start an upload, PUT the bytes to the signed URL, then complete it.
+    const u = await leap("/v1/uploads", { method: "POST", body: JSON.stringify({ filename: path.basename(file), content_type: type, bytes: bytes.length }) })
+    const put = await fetch(u.upload_url, { method: u.upload_method ?? "PUT", headers: { ...(u.upload_headers ?? {}), "content-type": type }, body: bytes })
+    if (!put.ok) throw new Error(`upload ${file}: ${put.status} ${(await put.text()).slice(0, 160)}`)
+    r = await leap(`/v1/uploads/${u.id}/complete`, { method: "POST", body: JSON.stringify({ filename: path.basename(file) }) })
+  }
   const fresh: Record<string, string> = existsSync(CACHE) ? JSON.parse(readFileSync(CACHE, "utf8")) : {}
   fresh[hash] = r.id
   mkdirSync(path.dirname(CACHE), { recursive: true })

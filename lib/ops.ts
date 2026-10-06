@@ -87,7 +87,8 @@ export function applyOp(p: Project, o: Op): Project {
       return { ...p, assets: [...p.assets, o.asset] }
     case "asset.update":
       need(p.assets.find((a) => a.id === o.id), `asset ${o.id}`)
-      return { ...p, assets: p.assets.map((a) => (a.id === o.id ? { ...a, ...o.patch, scores: { ...a.scores, ...o.patch.scores } } : a)) }
+      // A null in the patch removes that field.
+      return { ...p, assets: p.assets.map((a) => (a.id === o.id ? (Object.fromEntries(Object.entries({ ...a, ...o.patch, scores: { ...a.scores, ...o.patch.scores } }).filter(([, v]) => v !== null)) as Asset) : a)) }
     case "take.add": {
       need(p.assets.find((a) => a.id === o.asset), `asset ${o.asset}`)
       const list = o.list ?? (p.assets.find((a) => a.id === o.asset)!.media === "image" ? "keyframes" : "takes")

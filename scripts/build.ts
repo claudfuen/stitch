@@ -50,6 +50,18 @@ function speech(file: string): Span[] {
   return spans.filter((s) => s.end - s.start >= 0.12)
 }
 
+// A static gain for a clip's own audio. Single-pass loudnorm is an AGC: on a shot that is mostly room tone it pumps the
+// bed up to dialogue level, so a quiet line drowns and the bed jumps at the cut. Instead: a shot with speech gets its
+// loudest 400 ms window to -17 LUFS (where a line sits under I=-19); a shot without speech gets its room to -32.
+function clipGain(file: string, start: number, len: number, talks: boolean): number {
+  const out = err("ffmpeg", ["-hide_banner", "-ss", String(Math.max(0, start)), "-t", String(len), "-i", file, "-vn", "-af", "aresample=48000,highpass=f=80,ebur128", "-f", "null", "-"])
+  const ms = [...out.matchAll(/ M: *(-?[\d.]+)/g)].map((m) => Number(m[1])).filter((x) => x > -70)
+  const integ = Number(out.match(/I: *(-?[\d.]+) LUFS\s*\n\s*Threshold/)?.[1] ?? NaN)
+  if (talks && ms.length) return Math.max(-12, Math.min(24, -17 - Math.max(...ms)))
+  if (Number.isFinite(integ) && integ > -70) return Math.max(-20, Math.min(10, -32 - integ))
+  return 0
+}
+
 function headFreeze(file: string): number {
   const out = err("ffmpeg", ["-hide_banner", "-t", "2.5", "-i", file, "-vf", "freezedetect=n=-55dB:d=0.15", "-an", "-f", "null", "-"])
   const s = out.match(/freeze_start: ([\d.]+)/)
@@ -204,7 +216,7 @@ export async function build(version?: string, opts: { shots?: string[]; scope?: 
   for (const [i, s] of segs.entries()) {
     if (!s.native || !hasAudio(s.file)) continue
     const l = lab()
-    fc.push(`[${vi[i]}:a]atrim=start=${r3(s.in - s.lead)}:duration=${r3(s.dur + s.lead)},asetpts=PTS-STARTPTS,aresample=48000,highpass=f=80,loudnorm=I=-19:TP=-2:LRA=7,pan=stereo|c0=c0|c1=c0,afade=t=out:st=${r3(Math.max(0, s.dur + s.lead - 0.08))}:d=0.08,adelay=${ms(s.start - s.lead)}|${ms(s.start - s.lead)}[${l}];`)
+    fc.push(`[${vi[i]}:a]atrim=start=${r3(s.in - s.lead)}:duration=${r3(s.dur + s.lead)},asetpts=PTS-STARTPTS,aresample=48000,highpass=f=80,volume=${r3(clipGain(s.file, s.in - s.lead, s.dur + s.lead, s.speech.some((x) => x.end > s.in && x.start < s.in + s.dur)))}dB,pan=stereo|c0=c0|c1=c0,afade=t=out:st=${r3(Math.max(0, s.dur + s.lead - 0.08))}:d=0.08,adelay=${ms(s.start - s.lead)}|${ms(s.start - s.lead)}[${l}];`)
     a.push(l)
   }
   for (const s of segs) {
@@ -249,7 +261,7 @@ export async function build(version?: string, opts: { shots?: string[]; scope?: 
     const s0 = Math.max(0, r.start - 0.3)
     const L = r3(r.end + 0.3 - s0)
     const l = lab()
-    fc.push(`[${ai}:a]atrim=0:${L},asetpts=PTS-STARTPTS,aresample=48000,aformat=channel_layouts=stereo,loudnorm=I=-42:TP=-9:LRA=7,aresample=48000,afade=t=in:d=0.4,afade=t=out:st=${r3(L - 0.4)}:d=0.4,adelay=${ms(s0)}|${ms(s0)}[${l}];`)
+    fc.push(`[${ai}:a]atrim=0:${L},asetpts=PTS-STARTPTS,aresample=48000,aformat=channel_layouts=stereo,lowpass=f=9000,loudnorm=I=-42:TP=-9:LRA=7,aresample=48000,afade=t=in:d=0.4,afade=t=out:st=${r3(L - 0.4)}:d=0.4,adelay=${ms(s0)}|${ms(s0)}[${l}];`)
     a.push(l)
   }
   // The mix keeps its balance here; loudness is set afterwards with a measured, linear (non-pumping) gain.

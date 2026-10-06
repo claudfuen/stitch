@@ -6,6 +6,7 @@ import { DashboardScore } from "./DashboardScore"
 import { EndCard } from "./EndCard"
 import { CaptionTrack, type CaptionProps } from "./CaptionTrack"
 import { FormStamp } from "./FormStamp"
+import { LaptopScreen } from "./LaptopScreen"
 import { MinistrySign } from "./MinistrySign"
 import { TicketDisplay } from "./TicketDisplay"
 
@@ -29,6 +30,7 @@ export const Root: React.FC = () => (
     {COMPS.map((c) => (
       <Composition key={c.id} id={c.id} component={c.component} durationInFrames={c.durationInFrames} {...base} />
     ))}
+    <Composition id="LaptopScreen" component={LaptopScreen} durationInFrames={84} width={1440} height={900} fps={24} />
     <Composition id="CaptionTrack" component={CaptionTrack} durationInFrames={144} {...base} defaultProps={captionDefaults}
       calculateMetadata={({ props }) => ({ durationInFrames: Math.max(1, Math.ceil(props.duration * base.fps)) })} />
   </>

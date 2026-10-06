@@ -5172,6 +5172,736 @@
         "note": "Lit plate. Same room as the master 96, as his real frame 80. Looks real 67. Two extra sketches at the right edge are not in the plan (fix next round)."
       },
       "scores": {}
+    },
+    {
+      "id": "kf-5.1-clean",
+      "media": "image",
+      "path": "/generated/kf-5.1-clean.jpg",
+      "label": "5.1 keyframe, clean",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap), 3 passes: add founder, unbrand can, remove logo/fix ticket",
+        "prompt": "Image 1 is a real photograph of felt-lined one-person booths on a shared office floor. Change only this: in the left booth, the bearded young man from image 2 now sits on the bench, hunched over an open silver laptop on the small desk, his face lit faintly by the screen. He has a long untrimmed dark beard and messy curly hair, a faded grey zip hoodie and grey sneakers. On the desk beside the laptop: a paper cup of iced coffee sweating onto a napkin, a printed security questionnaire as thick as a phone book with coloured sticky tabs, and an energy drink can. The small framed notice on the back wall is replaced by a small faded pink paper ticket taped to the felt. Keep everything else in image 1 exactly as it is: the booths, curtains, lamps, clock, floor and the light. Match the photo's colour, softness and grain; the man looks photographed in the same light, with real, unretouched skin.",
+        "inputs": [
+          "office-W-commons",
+          "founder-sheet",
+          "kf-4.3-t2"
+        ]
+      }
+    },
+    {
+      "id": "kf-5.1-raw",
+      "media": "image",
+      "path": "/generated/kf-5.1-raw.jpg",
+      "label": "5.1 keyframe, raw",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1 is a real photograph of felt-lined one-person booths on a shared office floor. Change only this: in the left booth, the bearded young man from image 2 now sits on the bench, hunched over an open silver laptop on the small desk, his face lit faintly by the screen. He has a long untrimmed dark beard and messy curly hair, a faded grey zip hoodie and grey sneakers. On the desk beside the laptop: a paper cup of iced coffee sweating onto a napkin, a printed security questionnaire as thick as a phone book with coloured sticky tabs, and an energy drink can. The small framed notice on the back wall is replaced by a small faded pink paper ticket taped to the felt. Keep everything else in image 1 exactly as it is: the booths, curtains, lamps, clock, floor and the light. Match the photo's colour, softness and grain; the man looks photographed in the same light, with real, unretouched skin.",
+        "inputs": [
+          "office-W-commons",
+          "founder-sheet",
+          "kf-4.3-t2"
+        ]
+      }
+    },
+    {
+      "id": "kf-5.3-t2",
+      "media": "image",
+      "path": "/generated/kf-5.3-t2.jpg",
+      "label": "5.3 keyframe, t2",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1 is a real photograph of felt-lined one-person booths on a shared office floor. Make a new photograph inside the left booth: a medium close-up of the bearded young man from image 2, sitting on the bench, the grey felt panels behind him and the small round wall clock out of focus. He has a long untrimmed dark beard, messy curly hair and a faded grey zip hoodie. He stares at a laptop screen just below the camera, its cool light on his face, frozen in quiet disbelief, lips slightly parted as if about to ask a question. Same soft overhead light as image 1, muted colour, a 50 mm lens, fine grain, real unretouched skin.",
+        "inputs": [
+          "office-W-commons",
+          "founder-sheet",
+          "kf-4.3-t2"
+        ]
+      }
+    },
+    {
+      "id": "kf-5.3-t1",
+      "media": "image",
+      "path": "/generated/kf-5.3-t1.jpg",
+      "label": "5.3 keyframe, t1",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1 is a real photograph of felt-lined one-person booths on a shared office floor. Make a new photograph inside the left booth: a medium close-up of the bearded young man from image 2, sitting on the bench, the grey felt panels behind him and the small round wall clock out of focus. He has a long untrimmed dark beard, messy curly hair and a faded grey zip hoodie. He stares at a laptop screen just below the camera, its cool light on his face, frozen in quiet disbelief, lips slightly parted as if about to ask a question. Same soft overhead light as image 1, muted colour, a 50 mm lens, fine grain, real unretouched skin.",
+        "inputs": [
+          "office-W-commons",
+          "founder-sheet",
+          "kf-4.3-t2"
+        ]
+      }
+    },
+    {
+      "id": "kf-5.2-t1",
+      "media": "image",
+      "path": "/generated/kf-5.2-t1.jpg",
+      "label": "5.2 keyframe, t1",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1 is a real photograph of felt-lined one-person booths. Make a new photograph inside the left booth: an insert over a man's shoulder, looking straight at an open silver laptop on the small laminate desk. The laptop screen faces the camera squarely and fills the middle two thirds of the frame; the screen shows a plain, evenly lit white page with nothing on it. At the left edge, the out-of-focus shoulder of a faded grey hoodie and a few strands of long dark beard. On the desk: the corner of a thick printed questionnaire with coloured sticky tabs and a paper cup of iced coffee. Grey felt panel behind the laptop. Same soft light as image 1, muted colour, fine grain.",
+        "inputs": [
+          "office-W-commons",
+          "kf-4.3-t2"
+        ]
+      }
+    },
+    {
+      "id": "kf-5.2-t2",
+      "media": "image",
+      "path": "/generated/kf-5.2-t2.jpg",
+      "label": "5.2 keyframe, t2",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1 is a real photograph of felt-lined one-person booths. Make a new photograph inside the left booth: an insert over a man's shoulder, looking straight at an open silver laptop on the small laminate desk. The laptop screen faces the camera squarely and fills the middle two thirds of the frame; the screen shows a plain, evenly lit white page with nothing on it. At the left edge, the out-of-focus shoulder of a faded grey hoodie and a few strands of long dark beard. On the desk: the corner of a thick printed questionnaire with coloured sticky tabs and a paper cup of iced coffee. Grey felt panel behind the laptop. Same soft light as image 1, muted colour, fine grain.",
+        "inputs": [
+          "office-W-commons",
+          "kf-4.3-t2"
+        ]
+      }
+    },
+    {
+      "id": "v-5.1-k2",
+      "media": "video",
+      "path": "/generated/v-5.1-k2.mp4",
+      "label": "5.1 booth, Kling take 2",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "He types, stops, leans in; handheld-still",
+        "inputs": [
+          "kf-5.1-clean"
+        ],
+        "job": "gen_T7LsIDAu2vYmn5JlKXnRu5UV"
+      }
+    },
+    {
+      "id": "v-5.3-k1",
+      "media": "video",
+      "path": "/generated/v-5.3-k1.mp4",
+      "label": "5.3 It's done?, Kling take 1 (provisional voice)",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "MCU in the booth: It's done?",
+        "inputs": [
+          "kf-5.3-t2"
+        ],
+        "job": "gen_HszpztOy9PgJ581STvtpP9uG"
+      }
+    },
+    {
+      "id": "v-5.3-k2",
+      "media": "video",
+      "path": "/generated/v-5.3-k2.mp4",
+      "label": "5.3 It's done?, Kling take 2",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "MCU in the booth: It's done?",
+        "inputs": [
+          "kf-5.3-t2"
+        ],
+        "job": "gen_yg9Yw6FfC6m7lMq82Kb0GnQr"
+      }
+    },
+    {
+      "id": "v-5.2-pin",
+      "media": "video",
+      "path": "/generated/v-5.2-pin.mp4",
+      "label": "5.2 Comp AI on the laptop (screen composite)",
+      "origin": "rendered",
+      "duration": 3.5,
+      "gen": {
+        "model": "screenpin.py: LaptopScreen (Remotion) corner-pinned into kf-5.2-t1",
+        "inputs": [
+          "kf-5.2-t1"
+        ]
+      }
+    },
+    {
+      "id": "kf-4.3-c2",
+      "media": "image",
+      "path": "/generated/kf-4.3-c2.jpg",
+      "label": "4.3 keyframe: aged 2.4 frame, Henrick's pixels from 2.4 pasted back",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap) + feathered paste of Henrick from kf-2.4-flare-1",
+        "prompt": "Image 1 is a photograph of two men waiting in a hall. Change only what time has changed, and keep the camera, the room, the light, their seats, their poses and where they look exactly as in image 1. Eleven years have passed in this exact frame. The young man on the left now has a long, untrimmed dark beard and longer, messier hair; his grey hoodie is faded and his white sneakers are grey; the ticket in his hand has faded from pink to nearly white; he stares straight ahead, empty. The older man on the right keeps exactly the same face, glasses, blue suit and the same still, forward look past the camera as in images 1 and 2; his short white beard is a little fuller. The knitting woman's scarf is now enormous and spills across two rows of chairs. A fine layer of dust lies on the empty chairs.",
+        "inputs": [
+          "kf-2.4-flare-1",
+          "hen-real-53"
+        ]
+      },
+      "scores": {
+        "face": 0.7
+      }
+    },
+    {
+      "id": "v-3.2-k1",
+      "media": "video",
+      "path": "/generated/v-3.2-k1.mp4",
+      "label": "3.2 clerk: complete the form, take 1",
+      "origin": "generated",
+      "duration": 7.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro audio (Leap)",
+        "prompt": "Clerk OTS line (provisional voice)",
+        "inputs": [
+          "kf-3.2-flare"
+        ],
+        "job": "gen_DjNgn9mJekOyvDRf11CQ85YH"
+      }
+    },
+    {
+      "id": "v-3.2-k2",
+      "media": "video",
+      "path": "/generated/v-3.2-k2.mp4",
+      "label": "3.2 clerk: complete the form, take 2",
+      "origin": "generated",
+      "duration": 7.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro audio (Leap)",
+        "prompt": "Clerk OTS line (provisional voice)",
+        "inputs": [
+          "kf-3.2-flare"
+        ],
+        "job": "gen_YBIfD5K605R28GNzMGOUgfHY"
+      }
+    },
+    {
+      "id": "v-3.3-k1",
+      "media": "video",
+      "path": "/generated/v-3.3-k1.mp4",
+      "label": "3.3 founder: Is there a portal?, take 1",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro audio (Leap)",
+        "prompt": "Founder at the grille, Henrick behind",
+        "inputs": [
+          "kf-3.3-sunburst"
+        ],
+        "job": "gen_NDQY6OJfAWeKDyt1uyjSNQOe"
+      }
+    },
+    {
+      "id": "v-3.3-k2",
+      "media": "video",
+      "path": "/generated/v-3.3-k2.mp4",
+      "label": "3.3 founder: Is there a portal?, take 2",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro audio (Leap)",
+        "prompt": "Founder at the grille, Henrick behind",
+        "inputs": [
+          "kf-3.3-sunburst"
+        ],
+        "job": "gen_T8e3dYc5kUm3rRtOujA5HDqJ"
+      }
+    },
+    {
+      "id": "v-3.4-k1",
+      "media": "video",
+      "path": "/generated/v-3.4-k1.mp4",
+      "label": "3.4 clerk: There is a fax., take 1",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro audio (Leap)",
+        "prompt": "Clerk MCU, then the fax screech",
+        "inputs": [
+          "kf-3.4-b1"
+        ],
+        "job": "gen_mGxVu6WLwdNmgcds0L1mtro5"
+      }
+    },
+    {
+      "id": "v-3.4-k2",
+      "media": "video",
+      "path": "/generated/v-3.4-k2.mp4",
+      "label": "3.4 clerk: There is a fax., take 2",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro audio (Leap)",
+        "prompt": "Clerk MCU",
+        "inputs": [
+          "kf-3.4-b1"
+        ],
+        "job": "gen_WKUxZxac9ms7ya1xZQd2CTmm"
+      }
+    },
+    {
+      "id": "v-4.1-k1",
+      "media": "video",
+      "path": "/generated/v-4.1-k1.mp4",
+      "label": "4.1 eleven years later, take 1",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro audio (Leap)",
+        "prompt": "Tableau aged, silent",
+        "inputs": [
+          "kf-4.1-t1"
+        ],
+        "job": "gen_ST7QmdFPBlzI9kTEVclbV3hM"
+      }
+    },
+    {
+      "id": "v-4.1-k2",
+      "media": "video",
+      "path": "/generated/v-4.1-k2.mp4",
+      "label": "4.1 eleven years later, take 2",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro audio (Leap)",
+        "prompt": "Tableau aged, silent",
+        "inputs": [
+          "kf-4.1-t1"
+        ],
+        "job": "gen_tICN80g44MP9EwktYHqcyfK2"
+      }
+    },
+    {
+      "id": "kf-1.1-study-M",
+      "media": "image",
+      "path": "/generated/kf-1.1-study-M.jpg",
+      "label": "1.1 master: founder and Henrick in the lit study",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap), actors edit",
+        "prompt": "Image 1 is a real photograph of a room. Change only this: add two people; keep everything else exactly (room, furniture, light, framing, grain, colour). Image 2 shows where they sit and how this room's light falls on them: keep that light on their faces and bodies, the key coming from the window side, the far side in shadow.\nIn the walnut lounge chair left of centre: the young founder from Image 3 (curly dark hair, stubble, grey zip hoodie), leaning toward the right, mid-sentence, hands open. In the green Chesterfield armchair right of centre: the older man from Images 4-5 (silver hair, short grey beard, round navy glasses, navy check suit, pale blue shirt, silver paisley tie, pink pocket square), turned toward him, deadpan, listening. Window light from the left wall on both.\nSame noise and softness as the photograph. A real candid moment; nobody looks at camera.",
+        "inputs": [
+          "study-M-lit",
+          "grey-study-M-lit",
+          "founder-sheet",
+          "hen-real-38",
+          "hen-real-53"
+        ]
+      }
+    },
+    {
+      "id": "kf-1.2-study-R",
+      "media": "image",
+      "path": "/generated/kf-1.2-study-R.jpg",
+      "label": "1.2 reverse: the founder over Henrick's shoulder, lit study",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap), actors edit",
+        "prompt": "Image 1 is a real photograph of a room. Change only this: add two people; keep everything else exactly (room, furniture, light, framing, grain, colour). Image 2 shows where they sit and how this room's light falls on them: keep that light on their faces and bodies, the key coming from the window side, the far side in shadow.\nIn the walnut lounge chair in the middle: the young founder from Image 3 (curly dark hair, stubble, grey zip hoodie), leaning forward toward the right of frame, mid-sentence, window light on the left side of his face. In the near right foreground: the older man from Images 4-5 (silver hair, short grey beard, round navy glasses, navy check suit, pale blue shirt, silver paisley tie, pink pocket square) seen from behind in the green wing armchair, only his shoulder and the back of his silver head, out of focus and dark.\nSame noise and softness as the photograph. A real candid moment; nobody looks at camera.",
+        "inputs": [
+          "study-R-lit",
+          "grey-study-R-lit",
+          "founder-sheet",
+          "hen-real-38",
+          "hen-real-53"
+        ]
+      }
+    },
+    {
+      "id": "kf-1.3-study-S",
+      "media": "image",
+      "path": "/generated/kf-1.3-study-S.jpg",
+      "label": "1.3 side two-shot: Henrick's silence, lit study",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap), actors edit",
+        "prompt": "Image 1 is a real photograph of a room. Change only this: add two people; keep everything else exactly (room, furniture, light, framing, grain, colour). Image 2 shows where they sit and how this room's light falls on them: keep that light on their faces and bodies, the key coming from the window side, the far side in shadow.\nIn the walnut lounge chair on the left: the young founder from Image 3 (curly dark hair, stubble, grey zip hoodie), facing right, leaning forward, mid-sentence. In the green Chesterfield armchair on the right: the older man from Images 4-5 (silver hair, short grey beard, round navy glasses, navy check suit, pale blue shirt, silver paisley tie, pink pocket square), facing left toward him, deadpan, listening. Window light from the left on both.\nSame noise and softness as the photograph. A real candid moment; nobody looks at camera.",
+        "inputs": [
+          "study-S-lit",
+          "grey-study-S-lit",
+          "founder-sheet",
+          "hen-real-38",
+          "hen-real-53"
+        ]
+      }
+    },
+    {
+      "id": "v-6b-sync-p1",
+      "media": "video",
+      "path": "/generated/v-6b-sync-p1.mp4",
+      "label": "6b \"It is good.\" Kling + clone + lipsync-3",
+      "origin": "generated",
+      "duration": 5.042,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap) + Index TTS 2 Henrick clone (fal) + sync/lipsync-3 (Leap)",
+        "prompt": "A-cam single on the real study plate; his cloned read padded to 5 s",
+        "inputs": [
+          "kb6-5bef70",
+          "voice-henrick"
+        ],
+        "job": "gen_AD9c8lnjBJf2ZQ9nTR1mxmC0"
+      },
+      "scores": {
+        "face": 0.76,
+        "voice": 0.82
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "WER 0; mouth open on all three words; holds still after the line (deadpan), cut one beat after good."
+      }
+    },
+    {
+      "id": "v-4.3c-k1",
+      "media": "video",
+      "path": "/generated/v-4.3c-k1.mp4",
+      "label": "4.3 You are doing very well, Kling take 1 (pre-sync)",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro audio (Leap)",
+        "prompt": "Setup C front two-shot, Henrick stares ahead and says the line",
+        "inputs": [
+          "kf-4.3-c2"
+        ],
+        "job": "gen_w2HMSG749hifGCAuZ0t9QBG5"
+      }
+    },
+    {
+      "id": "v-4.3c-k2",
+      "media": "video",
+      "path": "/generated/v-4.3c-k2.mp4",
+      "label": "4.3 You are doing very well, Kling take 2 (pre-sync)",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro audio (Leap)",
+        "prompt": "Setup C front two-shot, Henrick stares ahead and says the line",
+        "inputs": [
+          "kf-4.3-c2"
+        ],
+        "job": "gen_p9Uv7I6vqEhmKwwgxvdnNOAq"
+      }
+    },
+    {
+      "id": "cut-hall-s3-v1",
+      "media": "video",
+      "path": "/generated/final-cut-hall-s3-v1.mp4",
+      "label": "Hall scene 3 (hall-s3-v1)",
+      "origin": "rendered",
+      "duration": 13.517
+    },
+    {
+      "id": "v-6a-sync-p1",
+      "media": "video",
+      "path": "/generated/v-6a-sync-p1.mp4",
+      "label": "6a \"In Europe, we would call this impossible.\" Kling + clone + lipsync-3",
+      "origin": "generated",
+      "duration": 5.042,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap) + Index TTS 2 Henrick clone (fal) + sync/lipsync-3 (Leap)",
+        "prompt": "B-cam ECU on the real study frame; his cloned read padded to 5 s",
+        "inputs": [
+          "voice-henrick"
+        ],
+        "job": "gen_MUJMNwKNjDfvmJR0UrR2BOmZ"
+      },
+      "scores": {
+        "face": 0.8,
+        "voice": 0.9
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "WER 0; mouth open on every word; line 0.07-2.9 s, then a still hold."
+      }
+    },
+    {
+      "id": "cut-booth-s5-v1",
+      "media": "video",
+      "path": "/generated/final-cut-booth-s5-v1.mp4",
+      "label": "Booth scene 5 (booth-s5-v1)",
+      "origin": "rendered",
+      "duration": 9.45
+    },
+    {
+      "id": "v-1.1-kling",
+      "media": "video",
+      "path": "/generated/v-1.1-kling.mp4",
+      "label": "1.1 master, Kling 3.0 (Leap)",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "One continuous locked-off wide shot, no camera movement, no cuts. In a dark wood-panelled study, the young man in the grey hoodie leans forward in the walnut chair, opens his hands and draws a breath, about to speak. The older man in the navy suit sits completely still in the green leather armchair, waiting, expressionless. No dialogue. Quiet room tone, a distant clock.",
+        "inputs": [
+          "kf-1.1-study-M"
+        ]
+      }
+    },
+    {
+      "id": "v-1.2-kling",
+      "media": "video",
+      "path": "/generated/v-1.2-kling.mp4",
+      "label": "1.2 the request, Kling 3.0 (Leap), line in shot",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "One continuous locked-off shot, no camera movement, no cuts. The young man in the grey hoodie sitting in the walnut chair leans forward, looks at the older man on the right of frame, and says in a tired, urgent American voice: \"Henrick, I need SOC 2 by Friday.\" Then he waits. The older man in the foreground right, seen from behind, does not move or speak. Natural small movements only, no exaggerated mouth movement. Quiet room tone.",
+        "inputs": [
+          "kf-1.2-study-R"
+        ]
+      }
+    },
+    {
+      "id": "v-1.3-kling",
+      "media": "video",
+      "path": "/generated/v-1.3-kling.mp4",
+      "label": "1.3 silence, Kling 3.0 (Leap)",
+      "origin": "generated",
+      "duration": 4.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "One continuous locked-off shot, no camera movement, no cuts. Complete silence. The older man in the navy suit in the green leather armchair stares at the young man without any expression, then one slow blink. The young man in the walnut chair waits, hopeful, motionless. Nobody speaks. Only quiet room tone.",
+        "inputs": [
+          "kf-1.3-study-S"
+        ]
+      }
+    },
+    {
+      "id": "cut-study-s1-v1",
+      "media": "video",
+      "path": "/generated/final-cut-study-s1-v1.mp4",
+      "label": "Scene 1: The request (study-s1-v1)",
+      "origin": "rendered",
+      "duration": 9.392
+    },
+    {
+      "id": "cut-booth-s5-v2",
+      "media": "video",
+      "path": "/generated/final-cut-booth-s5-v2.mp4",
+      "label": "Booth scene 5 (booth-s5-v2)",
+      "origin": "rendered",
+      "duration": 9.45
+    },
+    {
+      "id": "cut-study-s1-v2",
+      "media": "video",
+      "path": "/generated/final-cut-study-s1-v2.mp4",
+      "label": "Scene 1: The request (study-s1-v2)",
+      "origin": "rendered",
+      "duration": 8.392
+    },
+    {
+      "id": "v-3.1-k1",
+      "media": "video",
+      "path": "/generated/v-3.1-k1.mp4",
+      "label": "3.1 tableau at window 4, Kling take 1",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "Locked-off wide down the aisle; quiet background life (newspaper, cane), the two men still",
+        "inputs": [
+          "kf-3.1-flare"
+        ],
+        "job": "gen_icQ8eWdrqOSWhoFPAFcNIpsX"
+      }
+    },
+    {
+      "id": "v-3.1-k2",
+      "media": "video",
+      "path": "/generated/v-3.1-k2.mp4",
+      "label": "3.1 tableau at window 4, Kling take 2",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "Locked-off wide down the aisle; quiet background life (newspaper, cane), the two men still",
+        "inputs": [
+          "kf-3.1-flare"
+        ],
+        "job": "gen_nlKXsKMm3AE4CyPpvlWwk5he"
+      }
+    },
+    {
+      "id": "v-4.3-s2",
+      "media": "video",
+      "path": "/generated/v-4.3-s2.mp4",
+      "label": "4.3 \"You are doing very well.\" Kling + clone + lipsync-3",
+      "origin": "generated",
+      "duration": 5.042,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap) + Index TTS 2 Henrick clone (fal) + sync/lipsync-3 (Leap)",
+        "prompt": "Setup C front two-shot from kf-4.3-c2; his cloned read padded to 5 s",
+        "inputs": [
+          "kf-4.3-c2",
+          "voice-henrick",
+          "v-4.3c-k2"
+        ],
+        "job": "gen_8Hd8wEKkPIFOkzRg94Leflsn"
+      },
+      "scores": {
+        "face": 0.65,
+        "voice": 0.84
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "WER 0; his mouth moves on every word, the founder stays empty; two-shot so the face is small (2.4 scored 0.71)."
+      }
+    },
+    {
+      "id": "v-1b-europe-s2",
+      "media": "video",
+      "path": "/generated/v-1b-europe-s2.mp4",
+      "label": "1b \"In Europe, we would begin by weeping.\" Kling + clone + lipsync-3",
+      "origin": "generated",
+      "duration": 5.042,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap) + Index TTS 2 Henrick clone (fal) + sync/lipsync-3 (Leap)",
+        "prompt": "A-cam single on the real study plate; his cloned read padded to 5 s",
+        "inputs": [
+          "voice-henrick"
+        ],
+        "job": "gen_BqNFKJpc9oCdp3guRxCw0sMV"
+      },
+      "scores": {
+        "face": 0.79,
+        "voice": 0.85
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "WER 0; line 0.1-3.4 s."
+      }
+    },
+    {
+      "id": "cut-hall-s3-v2",
+      "media": "video",
+      "path": "/generated/final-cut-hall-s3-v2.mp4",
+      "label": "Hall scene 3 (hall-s3-v2)",
+      "origin": "rendered",
+      "duration": 11.95
+    },
+    {
+      "id": "cut-hall-s4-v1",
+      "media": "video",
+      "path": "/generated/final-cut-hall-s4-v1.mp4",
+      "label": "Hall scene 4 (hall-s4-v1)",
+      "origin": "rendered",
+      "duration": 7.142
+    },
+    {
+      "id": "sfx-clock",
+      "media": "audio",
+      "path": "/generated/sfx-clock.mp3",
+      "label": "Clock tick: real recording (Wikimedia Commons, public domain)",
+      "origin": "real",
+      "duration": 4,
+      "gen": {
+        "model": "real recording; first 4 s, mono; source public domain https://commons.wikimedia.org/wiki/File:Clock_ticking.ogg (natalie)"
+      },
+      "scores": {}
+    },
+    {
+      "id": "cut-v4-rough",
+      "media": "video",
+      "path": "/generated/final-cut-v4-rough.mp4",
+      "label": "Cut v4-rough",
+      "origin": "rendered",
+      "duration": 38.96
+    },
+    {
+      "id": "cut-v4",
+      "media": "video",
+      "path": "/generated/final-cut-v4.mp4",
+      "label": "Cut v4",
+      "origin": "rendered",
+      "duration": 35.26
+    },
+    {
+      "id": "v-7-sync-p1",
+      "media": "video",
+      "path": "/generated/v-7-sync-p1.mp4",
+      "label": "7 \"I have prepared a statement.\" Kling + clone + lipsync-3",
+      "origin": "generated",
+      "duration": 5.042,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap) + Index TTS 2 Henrick clone (fal) + sync/lipsync-3 (Leap)",
+        "prompt": "B-cam ECU on the real study frame; his cloned read padded to 5 s",
+        "inputs": [
+          "voice-henrick"
+        ],
+        "job": "gen_GhusWHVdQxths9DykqZ8ehKi"
+      },
+      "scores": {
+        "face": 0.81,
+        "voice": 0.78
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "WER 0; slightly thin (200-500 Hz only 3 dB over presence)."
+      }
+    },
+    {
+      "id": "v-4.3-s1",
+      "media": "video",
+      "path": "/generated/v-4.3-s1.mp4",
+      "label": "4.3 You are doing very well, lipsync on Kling take 1",
+      "origin": "generated",
+      "duration": 5.042,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap) + Index TTS 2 Henrick clone (fal) + sync/lipsync-3 (Leap)",
+        "prompt": "Setup C front two-shot; his cloned read padded to 5 s",
+        "inputs": [
+          "kf-4.3-c2",
+          "voice-henrick",
+          "v-4.3c-k1"
+        ],
+        "job": "gen_NNJrdHkqAv9FbfFmI8X5kcRZ"
+      },
+      "scores": {
+        "face": 0.64,
+        "voice": 0.84
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "WER 0; equal to s2."
+      }
+    },
+    {
+      "id": "v-4.1-b1",
+      "media": "video",
+      "path": "/generated/v-4.1-b1.mp4",
+      "label": "4.1 eleven years later, take b1 (micro motion)",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "Aged tableau; knitting needles move, one slow blink, dust in the light",
+        "inputs": [
+          "kf-4.1-t1"
+        ],
+        "job": "gen_sGa7n4UGH1w9YOxphvpNoD3I"
+      }
+    },
+    {
+      "id": "v-4.1-b2",
+      "media": "video",
+      "path": "/generated/v-4.1-b2.mp4",
+      "label": "4.1 eleven years later, take b2 (micro motion)",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "Aged tableau; knitting needles move, one slow blink, dust in the light",
+        "inputs": [
+          "kf-4.1-t1"
+        ],
+        "job": "gen_tmANsAe4jwa3mATUV2rR93td"
+      }
     }
   ],
   "graphics": [
@@ -5315,6 +6045,144 @@
       "location": "study"
     },
     {
+      "section": "hook",
+      "location": "study",
+      "characters": [
+        "founder",
+        "henrick"
+      ],
+      "status": "review",
+      "takes": [
+        {
+          "asset": "v-1.1-kling",
+          "verdict": "circled",
+          "note": "Founder leans in and breathes; Henrick still. Freeze 0-1.0 s is the warm-up: in at 1.0."
+        }
+      ],
+      "graphics": [],
+      "sfx": [],
+      "edit": {
+        "in": 1,
+        "out": 3.6
+      },
+      "checks": {},
+      "id": "1.1",
+      "name": "The request: master",
+      "setup": "M",
+      "lines": [],
+      "keyframes": [
+        {
+          "asset": "kf-1.1-study-M",
+          "verdict": "circled",
+          "note": "Same room as his real frame 95; looks real 64. Screen direction matches the plan."
+        }
+      ],
+      "card": {
+        "framing": "Setup M: master from the front-right corner, 18 mm, 1.6 m. The window frame left, the founder left of centre, Henrick right of centre, the charcoal corner with his guitar and sketches at the right edge.",
+        "blocking": "The founder leans forward and draws breath. Henrick does not move.",
+        "performance": "Founder: urgency building. Henrick: still, waiting, unreadable.",
+        "continuity": "Founder in the walnut lounge chair, frame left, his navy jacket over the back; Henrick in the green Chesterfield, frame right, navy check suit, paisley tie, pink pocket square. Window key from the left wall, warm practicals behind; the far side dark.",
+        "sound": "Room tone, a distant clock. No dialogue.",
+        "cut": "Cut to 1.2 as he opens his mouth."
+      }
+    },
+    {
+      "section": "hook",
+      "location": "study",
+      "characters": [
+        "founder",
+        "henrick"
+      ],
+      "status": "review",
+      "takes": [
+        {
+          "asset": "v-1.2-kling",
+          "verdict": "circled",
+          "note": "Line in shot: 'Henrik, I need SOC2 by Friday' (words correct); speech 1.75-5.0 s; mouth open on the words; face steady."
+        }
+      ],
+      "graphics": [],
+      "sfx": [],
+      "edit": {
+        "in": 1.45,
+        "out": 4.65
+      },
+      "checks": {},
+      "id": "1.2",
+      "name": "The request",
+      "setup": "R",
+      "lines": [
+        {
+          "who": "founder",
+          "text": "Henrick, I need SOC 2 by Friday.",
+          "mode": "native"
+        }
+      ],
+      "keyframes": [
+        {
+          "asset": "kf-1.2-study-R",
+          "verdict": "circled",
+          "note": "Same room 82; looks real 71 (his real A-cam frame 71). Founder lit from the window side."
+        }
+      ],
+      "card": {
+        "framing": "Setup R: over Henrick's shoulder onto the founder, 40 mm, 1.3 m. Henrick's silver head and shoulder soft in the near right foreground.",
+        "blocking": "The founder leans in, eyes on Henrick (frame right). Henrick never turns.",
+        "performance": "Founder: tired, urgent, sure this is a reasonable request.",
+        "continuity": "Founder in the walnut lounge chair, frame left, his navy jacket over the back; Henrick in the green Chesterfield, frame right, navy check suit, paisley tie, pink pocket square. Window key from the left wall, warm practicals behind; the far side dark.",
+        "sound": "The line in the clip; room tone continuous with 1.1.",
+        "cut": "Hold half a beat after 'Friday.' then cut to 1.3."
+      }
+    },
+    {
+      "section": "hook",
+      "location": "study",
+      "characters": [
+        "founder",
+        "henrick"
+      ],
+      "status": "review",
+      "takes": [
+        {
+          "asset": "v-1.3-kling",
+          "verdict": "circled",
+          "note": "Silence, room tone only; Henrick holds still (deadpan), the founder waits."
+        }
+      ],
+      "graphics": [],
+      "sfx": [
+        {
+          "asset": "sfx-clock",
+          "at": 0,
+          "gain": -6
+        }
+      ],
+      "edit": {
+        "in": 0.4,
+        "out": 1.8
+      },
+      "checks": {},
+      "id": "1.3",
+      "name": "Silence",
+      "setup": "S",
+      "lines": [],
+      "keyframes": [
+        {
+          "asset": "kf-1.3-study-S",
+          "verdict": "circled",
+          "note": "Same room 86; looks real 64. Both faces lit from the window side."
+        }
+      ],
+      "card": {
+        "framing": "Setup S: side two-shot across both chairs, 24 mm, 1.3 m. The window with sheers frame left.",
+        "blocking": "Henrick stares at the founder, one slow blink. The founder waits.",
+        "performance": "Henrick: deadpan, nothing moves. The joke is the length of the silence.",
+        "continuity": "Founder in the walnut lounge chair, frame left, his navy jacket over the back; Henrick in the green Chesterfield, frame right, navy check suit, paisley tie, pink pocket square. Window key from the left wall, warm practicals behind; the far side dark.",
+        "sound": "Silence and room tone only.",
+        "cut": "Hold the silence; cut to 1b-friday (B-cam, real room) for 'Friday.'"
+      }
+    },
+    {
       "characters": [
         "henrick"
       ],
@@ -5394,7 +6262,12 @@
       "takes": [
         {
           "asset": "s1b-europe",
-          "verdict": "circled"
+          "verdict": "alt"
+        },
+        {
+          "asset": "v-1b-europe-s2",
+          "verdict": "circled",
+          "note": "Voice 0.85 with his cloned read."
         }
       ],
       "lines": [
@@ -5407,9 +6280,8 @@
       "graphics": [],
       "sfx": [],
       "edit": {
-        "in": "auto",
-        "out": "speech",
-        "punch": 1.18
+        "in": 0,
+        "out": 3.6
       },
       "checks": {
         "lipsync": {
@@ -5591,7 +6463,7 @@
       "graphics": [],
       "sfx": [],
       "edit": {
-        "in": 3,
+        "in": 3.3,
         "out": 4.75
       },
       "checks": {}
@@ -5678,7 +6550,7 @@
       "sfx": [],
       "edit": {
         "in": 0.6,
-        "out": 4.6
+        "out": 2.5
       },
       "checks": {
         "artifacts": {
@@ -5754,7 +6626,7 @@
       "sfx": [],
       "edit": {
         "in": 0.5,
-        "out": 2.3
+        "out": 1.8
       },
       "checks": {
         "graphics": {
@@ -5805,16 +6677,25 @@
         },
         {
           "asset": "v-3.1-f1",
+          "verdict": "reject",
+          "note": "Frozen for the whole take: reads as a still."
+        },
+        {
+          "asset": "v-3.1-k1",
           "verdict": "circled",
-          "note": "1080p final of draft 2; use picture only."
+          "note": "Life in the hall: a woman turns her newspaper page at 1.8-2.4 s; the board holds 17; the two men stay still at window 4. Its generated PA line is not used (no native lines on this shot)."
+        },
+        {
+          "asset": "v-3.1-k2",
+          "verdict": "alt"
         }
       ],
       "lines": [],
       "graphics": [],
       "sfx": [],
       "edit": {
-        "in": 0.5,
-        "out": 2.5
+        "in": 1,
+        "out": 3
       },
       "checks": {}
     },
@@ -5828,7 +6709,7 @@
         "clerk",
         "founder"
       ],
-      "status": "planned",
+      "status": "review",
       "card": {
         "framing": "Setup H: over the founder's left shoulder through window 4, 35 mm, standing height. Clerk centre, framed by the window.",
         "blocking": "The clerk looks up from her papers to the founder (camera right, just past lens). She slides a form to the paper slot without looking at it.",
@@ -5849,7 +6730,18 @@
           "note": "Clerk further back; grille floats beside her face."
         }
       ],
-      "takes": [],
+      "takes": [
+        {
+          "asset": "v-3.2-k1",
+          "verdict": "alt",
+          "note": "Lifts the form mid-line."
+        },
+        {
+          "asset": "v-3.2-k2",
+          "verdict": "circled",
+          "note": "WER 0; she slides the form to the slot while speaking; smoother than take 1. Clerk voice provisional until cast."
+        }
+      ],
       "lines": [
         {
           "who": "clerk",
@@ -5859,7 +6751,10 @@
       ],
       "graphics": [],
       "sfx": [],
-      "edit": {},
+      "edit": {
+        "in": 1.8,
+        "out": 6.3
+      },
       "checks": {}
     },
     {
@@ -5872,7 +6767,7 @@
         "founder",
         "henrick"
       ],
-      "status": "planned",
+      "status": "review",
       "card": {
         "framing": "Setup J: from the clerk's chair through the glass, 40 mm. Founder frame left, Henrick behind him frame right, the hall beyond.",
         "blocking": "The founder leans into the grille. Henrick watches the clerk, not the founder.",
@@ -5893,7 +6788,17 @@
           "note": "Same blocking; Henrick face 0.61."
         }
       ],
-      "takes": [],
+      "takes": [
+        {
+          "asset": "v-3.3-k1",
+          "verdict": "circled",
+          "note": "WER 0; he leans into the grille, which covers his mouth on the words (allowed: covered speaker); Henrick still behind."
+        },
+        {
+          "asset": "v-3.3-k2",
+          "verdict": "alt"
+        }
+      ],
       "lines": [
         {
           "who": "founder",
@@ -5903,7 +6808,10 @@
       ],
       "graphics": [],
       "sfx": [],
-      "edit": {},
+      "edit": {
+        "in": 3.1,
+        "out": 4.95
+      },
       "checks": {}
     },
     {
@@ -5915,7 +6823,7 @@
       "characters": [
         "clerk"
       ],
-      "status": "planned",
+      "status": "review",
       "card": {
         "framing": "Setup I: clerk straight on through the clear upper glass, 50 mm, MCU. The speaking grille sits just under her chin.",
         "blocking": "She looks at him, not at us. A beat. She says it.",
@@ -5946,7 +6854,17 @@
           "note": "Same, less glass edge."
         }
       ],
-      "takes": [],
+      "takes": [
+        {
+          "asset": "v-3.4-k1",
+          "verdict": "circled",
+          "note": "WER 0; line 1.4-2.6 s, the fax screech at 3.8 s; the founder's shoulder enters soft at frame left at 0.9 s (a dirty single from his side)."
+        },
+        {
+          "asset": "v-3.4-k2",
+          "verdict": "alt"
+        }
+      ],
       "lines": [
         {
           "who": "clerk",
@@ -5956,7 +6874,10 @@
       ],
       "graphics": [],
       "sfx": [],
-      "edit": {},
+      "edit": {
+        "in": 1.3,
+        "out": 4.5
+      },
       "checks": {}
     },
     {
@@ -5969,7 +6890,7 @@
         "henrick",
         "founder"
       ],
-      "status": "planned",
+      "status": "review",
       "card": {
         "framing": "Setup B again, identical framing to 2.1: the same tableau eleven years on.",
         "blocking": "Same seats. The founder now has a long beard and the ticket has faded. The knitter's scarf fills two rows. The sleeper's seat is empty but for his hat.",
@@ -5990,11 +6911,33 @@
           "note": "Same, scarf less visible."
         }
       ],
-      "takes": [],
+      "takes": [
+        {
+          "asset": "v-4.1-k1",
+          "verdict": "circled",
+          "note": "Aged tableau holds; nobody moves."
+        },
+        {
+          "asset": "v-4.1-k2",
+          "verdict": "alt"
+        },
+        {
+          "asset": "v-4.1-b1",
+          "verdict": "alt",
+          "note": "Still reads frozen at card scale; the knitting is too small to register."
+        },
+        {
+          "asset": "v-4.1-b2",
+          "verdict": "alt"
+        }
+      ],
       "lines": [],
       "graphics": [],
       "sfx": [],
-      "edit": {},
+      "edit": {
+        "in": 0.4,
+        "out": 2.6
+      },
       "checks": {}
     },
     {
@@ -6058,10 +7001,10 @@
         "henrick",
         "founder"
       ],
-      "status": "planned",
+      "status": "review",
       "card": {
         "framing": "Setup C again: the front two-shot, 32 mm.",
-        "blocking": "Henrick turns his head to the founder for the first time.",
+        "blocking": "Henrick does NOT turn: he stares ahead past camera, exactly as in 2.4, and says the line. The founder stares ahead, empty.",
         "performance": "Warm, encouraging, sincere. The founder does not react at all.",
         "continuity": "Beards and fading as 4.1.",
         "sound": "Henrick's voice in the clip.",
@@ -6070,16 +7013,41 @@
       "keyframes": [
         {
           "asset": "kf-4.3-t2",
-          "verdict": "circled",
+          "verdict": "alt",
           "note": "Henrick turns to the founder for the first time; founder stares ahead, bearded; face 0.47 in three-quarter."
         },
         {
           "asset": "kf-4.3-t1",
           "verdict": "alt",
           "note": "Face 0.34."
+        },
+        {
+          "asset": "kf-4.3-c2",
+          "verdict": "circled",
+          "note": "Same frame as 2.4 eleven years on; Henrick literally unchanged (face 0.70), the founder feral, the scarf enormous. Deadpan: Henrick stares ahead as he says the line."
         }
       ],
-      "takes": [],
+      "takes": [
+        {
+          "asset": "v-4.3c-k1",
+          "verdict": "alt",
+          "note": "Calm, a faint smile; Kling voice is not Henrick, lipsync-3 with his cloned read in flight."
+        },
+        {
+          "asset": "v-4.3c-k2",
+          "verdict": "alt",
+          "note": "Mouth more animated; lipsync in flight."
+        },
+        {
+          "asset": "v-4.3-s2",
+          "verdict": "circled",
+          "note": "Henrick unchanged after eleven years, says it to the air; founder does not react."
+        },
+        {
+          "asset": "v-4.3-s1",
+          "verdict": "alt"
+        }
+      ],
       "lines": [
         {
           "who": "henrick",
@@ -6089,7 +7057,166 @@
       ],
       "graphics": [],
       "sfx": [],
-      "edit": {},
+      "edit": {
+        "in": 0,
+        "out": 3.1
+      },
+      "checks": {}
+    },
+    {
+      "id": "5.1",
+      "name": "The booth",
+      "section": "payoff",
+      "location": "office",
+      "setup": "W",
+      "characters": [
+        "founder"
+      ],
+      "status": "review",
+      "card": {
+        "framing": "Setup W: the felt booth from the coworking floor, 24 mm, handheld-still. A real photograph (CC0) is the plate.",
+        "blocking": "The bearded founder hunched at his laptop in the left booth; the faded ticket 4201990 taped to the felt.",
+        "performance": "He types, stops, leans in.",
+        "continuity": "Beard, faded hoodie, grey sneakers from 4.1/4.3. Iced coffee, unbranded can, blank questionnaire with tabs.",
+        "sound": "Coworking floor: distant keyboards, a coffee machine, an HVAC hum.",
+        "cut": "2.0 s; cut as he stops typing."
+      },
+      "keyframes": [
+        {
+          "asset": "kf-5.1-clean",
+          "verdict": "circled",
+          "note": "Real CC0 booth photo with the bearded founder added; ticket 4201990, no logos, blank cover, unbranded can."
+        },
+        {
+          "asset": "kf-5.1-raw",
+          "verdict": "reject",
+          "note": "Branded energy can, Apple logo, ticket read B12, garbled cover text."
+        }
+      ],
+      "takes": [
+        {
+          "asset": "v-5.1-k2",
+          "verdict": "circled",
+          "note": "Types, stops, leans in. (Take 1 was blocked by Leap as a possible minor: false positive, nondeterministic.)"
+        }
+      ],
+      "lines": [],
+      "graphics": [],
+      "sfx": [],
+      "edit": {
+        "in": 0.8,
+        "out": 3.2
+      },
+      "checks": {}
+    },
+    {
+      "id": "5.2",
+      "name": "Comp AI",
+      "section": "payoff",
+      "location": "office",
+      "setup": "I",
+      "characters": [
+        "founder"
+      ],
+      "status": "review",
+      "card": {
+        "framing": "Setup I: over his shoulder, the laptop screen square-on.",
+        "blocking": "The Comp AI result on the screen itself (screen replacement), never a floating card.",
+        "performance": "-",
+        "continuity": "Same laptop, coffee, questionnaire tabs as 5.1.",
+        "sound": "One soft notification chime.",
+        "cut": "1.5 s; the result must be readable for a full second."
+      },
+      "keyframes": [
+        {
+          "asset": "kf-5.2-t1",
+          "verdict": "circled",
+          "note": "Square-on white screen for the Comp AI screen replacement; beard at frame left."
+        },
+        {
+          "asset": "kf-5.2-t2",
+          "verdict": "alt",
+          "note": "Same, less of him in frame."
+        }
+      ],
+      "takes": [
+        {
+          "asset": "v-5.2-pin",
+          "verdict": "circled",
+          "note": "The product UI is on the laptop's own screen (corner-pinned per frame), integrations tick to 100% and Ready for audit. Fixes v3.3's floating card."
+        }
+      ],
+      "lines": [],
+      "graphics": [],
+      "sfx": [],
+      "edit": {
+        "in": 0.4,
+        "out": 2.6
+      },
+      "checks": {
+        "graphics": {
+          "ok": true,
+          "note": "Comp AI UI composited onto the laptop screen itself, not floating; real mark and Lausanne; every label agrees with the story (SOC 2 Type II, 100%, Ready for audit).",
+          "by": "claude",
+          "at": "2026-10-06T21:22:38.857Z"
+        }
+      }
+    },
+    {
+      "id": "5.3",
+      "name": "It's done?",
+      "section": "payoff",
+      "location": "office",
+      "setup": "M",
+      "characters": [
+        "founder"
+      ],
+      "status": "review",
+      "card": {
+        "framing": "Setup M: MCU inside the booth, 50 mm, laptop lid in the foreground, felt and clock behind.",
+        "blocking": "He stares at the screen just below camera.",
+        "performance": "Quiet disbelief after eleven years. Two words, almost a whisper.",
+        "continuity": "Laptop glow on his face; beard and hoodie as 5.1.",
+        "sound": "His voice close and dry in the felt booth (dead acoustic).",
+        "cut": "Hold one beat after the question, then cut to Henrick."
+      },
+      "keyframes": [
+        {
+          "asset": "kf-5.3-t2",
+          "verdict": "circled",
+          "note": "MCU in the felt booth: beard matches 4.x, laptop lid foreground with no logo, quiet disbelief."
+        },
+        {
+          "asset": "kf-5.3-t1",
+          "verdict": "alt",
+          "note": "Lighter beard than 4.x."
+        }
+      ],
+      "takes": [
+        {
+          "asset": "v-5.3-k1",
+          "verdict": "circled",
+          "note": "WER 0, one line, disbelieving half-smile after. Voice provisional until the founder is cast."
+        },
+        {
+          "asset": "v-5.3-k2",
+          "verdict": "reject",
+          "note": "Says the line twice."
+        }
+      ],
+      "lines": [
+        {
+          "who": "founder",
+          "text": "It's done?",
+          "mode": "native"
+        }
+      ],
+      "graphics": [],
+      "sfx": [],
+      "edit": {
+        "in": 2.7,
+        "out": "speech"
+      },
       "checks": {}
     },
     {
@@ -6427,7 +7554,8 @@
       "id": "5",
       "name": "Comp AI",
       "section": "turn",
-      "location": "office"
+      "location": "office",
+      "note": "Superseded by the booth coverage 5.1 to 5.3 (real-photo plate)."
     },
     {
       "characters": [
@@ -6456,11 +7584,16 @@
       "takes": [
         {
           "asset": "s6-line",
-          "verdict": "circled"
+          "verdict": "alt"
         },
         {
           "asset": "v6-3a28e5",
           "verdict": "alt"
+        },
+        {
+          "asset": "v-6a-sync-p1",
+          "verdict": "circled",
+          "note": "Voice 0.90, face 0.80: the best Henrick line so far."
         }
       ],
       "lines": [
@@ -6473,8 +7606,8 @@
       "graphics": [],
       "sfx": [],
       "edit": {
-        "in": "auto",
-        "out": "speech"
+        "in": 0,
+        "out": 3.4
       },
       "checks": {
         "lipsync": {
@@ -6511,7 +7644,12 @@
       "takes": [
         {
           "asset": "s6-good",
-          "verdict": "circled"
+          "verdict": "alt"
+        },
+        {
+          "asset": "v-6b-sync-p1",
+          "verdict": "circled",
+          "note": "Voice 0.82 against 0.70 for the Seedance take; face 0.76."
         }
       ],
       "lines": [
@@ -6524,8 +7662,8 @@
       "graphics": [],
       "sfx": [],
       "edit": {
-        "in": "auto",
-        "out": "speech"
+        "in": 0,
+        "out": 2
       },
       "checks": {
         "lipsync": {
@@ -6580,11 +7718,17 @@
       "takes": [
         {
           "asset": "s7-statement",
-          "verdict": "circled"
+          "verdict": "circled",
+          "note": "Voice 0.81 against 0.78 for the lipsync take."
         },
         {
           "asset": "v7-ec0bce",
           "verdict": "alt"
+        },
+        {
+          "asset": "v-7-sync-p1",
+          "verdict": "alt",
+          "note": "Face 0.81, voice 0.78, a little thin."
         }
       ],
       "lines": [
@@ -6657,11 +7801,867 @@
       "section": "cta",
       "card_graphic": {
         "graphic": "EndCard",
-        "dur": 3
+        "dur": 2.5
       }
     }
   ],
   "cuts": [
+    {
+      "id": "v4",
+      "version": "v4",
+      "date": "2026-10-06",
+      "asset": "cut-v4",
+      "duration": 35.26,
+      "timeline": [
+        {
+          "shot": "1.2",
+          "start": 0,
+          "dur": 3.2,
+          "in": 1.45,
+          "asset": "v-1.2-kling",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "Henrick, I need SOC 2 by Friday.",
+              "mode": "native",
+              "start": 0.195,
+              "end": 3.025
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "1.3",
+          "start": 3.2,
+          "dur": 1.4,
+          "in": 0.4,
+          "asset": "v-1.3-kling",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "1b-friday",
+          "start": 4.6,
+          "dur": 1.118,
+          "in": 0.682,
+          "asset": "s1b-friday",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "Friday.",
+              "mode": "native",
+              "start": 4.95,
+              "end": 5.268
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "1b-europe",
+          "start": 5.718,
+          "dur": 3.6,
+          "in": 0,
+          "asset": "v-1b-europe-s2",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "In Europe, we would begin by weeping.",
+              "mode": "native",
+              "start": 5.718,
+              "end": 8.974
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "2.3",
+          "start": 9.318,
+          "dur": 1.45,
+          "in": 3.3,
+          "asset": "v-2.3-k1",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "What number are they on?",
+              "mode": "native",
+              "start": 9.684,
+              "end": 10.362
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "2.4",
+          "start": 10.768,
+          "dur": 1.9,
+          "in": 0.6,
+          "asset": "v-2.4-f1",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "Seventeen.",
+              "mode": "native",
+              "start": 11.271,
+              "end": 11.874
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "2.5",
+          "start": 12.668,
+          "dur": 1.3,
+          "in": 0.5,
+          "asset": "v-2.5-k1",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "3.3",
+          "start": 13.968,
+          "dur": 1.85,
+          "in": 3.1,
+          "asset": "v-3.3-k1",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "Is there a portal?",
+              "mode": "native",
+              "start": 14.53,
+              "end": 15.26
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "3.4",
+          "start": 15.818,
+          "dur": 3.2,
+          "in": 1.3,
+          "asset": "v-3.4-k1",
+          "lines": [
+            {
+              "who": "clerk",
+              "text": "There is a fax.",
+              "mode": "native",
+              "start": 16.197,
+              "end": 19.018
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "4.2",
+          "start": 19.018,
+          "dur": 1.642,
+          "in": 1.4,
+          "asset": "v-4.2-k1",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "4.3",
+          "start": 20.66,
+          "dur": 3.1,
+          "in": 0,
+          "asset": "v-4.3-s2",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "You are doing very well.",
+              "mode": "native",
+              "start": 20.66,
+              "end": 22.952
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "5.2",
+          "start": 23.76,
+          "dur": 2.2,
+          "in": 0.4,
+          "asset": "v-5.2-pin",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "5.3",
+          "start": 25.96,
+          "dur": 1.75,
+          "in": 2.7,
+          "asset": "v-5.3-k1",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "It's done?",
+              "mode": "native",
+              "start": 26.715,
+              "end": 27.26
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "6a",
+          "start": 27.71,
+          "dur": 3.4,
+          "in": 0,
+          "asset": "v-6a-sync-p1",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "In Europe, we would call this impossible.",
+              "mode": "native",
+              "start": 27.71,
+              "end": 30.624
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "6b",
+          "start": 31.11,
+          "dur": 2,
+          "in": 0,
+          "asset": "v-6b-sync-p1",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "It is good.",
+              "mode": "native",
+              "start": 31.11,
+              "end": 32.57
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "end",
+          "start": 32.76,
+          "dur": 2.5,
+          "in": 0,
+          "asset": null,
+          "lines": [],
+          "graphics": []
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "v4-rough",
+      "version": "v4-rough",
+      "date": "2026-10-06",
+      "asset": "cut-v4-rough",
+      "duration": 38.96,
+      "timeline": [
+        {
+          "shot": "1.2",
+          "start": 0,
+          "dur": 3.5,
+          "in": 1.45,
+          "asset": "v-1.2-kling",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "Henrick, I need SOC 2 by Friday.",
+              "mode": "native",
+              "start": 0.195,
+              "end": 3.025
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "1.3",
+          "start": 3.5,
+          "dur": 2.2,
+          "in": 0.4,
+          "asset": "v-1.3-kling",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "1b-friday",
+          "start": 5.7,
+          "dur": 1.118,
+          "in": 0.682,
+          "asset": "s1b-friday",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "Friday.",
+              "mode": "native",
+              "start": 6.05,
+              "end": 6.368
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "1b-europe",
+          "start": 6.818,
+          "dur": 3.9,
+          "in": 0,
+          "asset": "v-1b-europe-s2",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "In Europe, we would begin by weeping.",
+              "mode": "native",
+              "start": 6.818,
+              "end": 10.074
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "2.3",
+          "start": 10.718,
+          "dur": 1.75,
+          "in": 3,
+          "asset": "v-2.3-k1",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "What number are they on?",
+              "mode": "native",
+              "start": 11.384,
+              "end": 12.062
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "2.4",
+          "start": 12.468,
+          "dur": 2.1,
+          "in": 0.6,
+          "asset": "v-2.4-f1",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "Seventeen.",
+              "mode": "native",
+              "start": 12.971,
+              "end": 13.574
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "2.5",
+          "start": 14.568,
+          "dur": 1.3,
+          "in": 0.5,
+          "asset": "v-2.5-k1",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "3.3",
+          "start": 15.868,
+          "dur": 1.85,
+          "in": 3.1,
+          "asset": "v-3.3-k1",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "Is there a portal?",
+              "mode": "native",
+              "start": 16.43,
+              "end": 17.16
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "3.4",
+          "start": 17.718,
+          "dur": 3.2,
+          "in": 1.3,
+          "asset": "v-3.4-k1",
+          "lines": [
+            {
+              "who": "clerk",
+              "text": "There is a fax.",
+              "mode": "native",
+              "start": 18.097,
+              "end": 20.918
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "4.2",
+          "start": 20.918,
+          "dur": 1.642,
+          "in": 1.4,
+          "asset": "v-4.2-k1",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "4.3",
+          "start": 22.56,
+          "dur": 3.3,
+          "in": 0,
+          "asset": "v-4.3-s2",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "You are doing very well.",
+              "mode": "native",
+              "start": 22.56,
+              "end": 24.852
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "5.2",
+          "start": 25.86,
+          "dur": 2.6,
+          "in": 0.4,
+          "asset": "v-5.2-pin",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "5.3",
+          "start": 28.46,
+          "dur": 2.15,
+          "in": 2.3,
+          "asset": "v-5.3-k1",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "It's done?",
+              "mode": "native",
+              "start": 29.615,
+              "end": 30.16
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "6a",
+          "start": 30.61,
+          "dur": 3.4,
+          "in": 0,
+          "asset": "v-6a-sync-p1",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "In Europe, we would call this impossible.",
+              "mode": "native",
+              "start": 30.61,
+              "end": 33.524
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "6b",
+          "start": 34.01,
+          "dur": 2.3,
+          "in": 0,
+          "asset": "v-6b-sync-p1",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "It is good.",
+              "mode": "native",
+              "start": 34.01,
+              "end": 35.47
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "end",
+          "start": 35.96,
+          "dur": 3,
+          "in": 0,
+          "asset": null,
+          "lines": [],
+          "graphics": []
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "hall-s4-v1",
+      "version": "hall-s4-v1",
+      "scope": "Hall scene 4",
+      "date": "2026-10-06",
+      "asset": "cut-hall-s4-v1",
+      "duration": 7.142,
+      "timeline": [
+        {
+          "shot": "4.1",
+          "start": 0,
+          "dur": 2.2,
+          "in": 0.4,
+          "asset": "v-4.1-k1",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "4.2",
+          "start": 2.2,
+          "dur": 1.642,
+          "in": 1.4,
+          "asset": "v-4.2-k1",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "4.3",
+          "start": 3.842,
+          "dur": 3.3,
+          "in": 0,
+          "asset": "v-4.3-s2",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "You are doing very well.",
+              "mode": "native",
+              "start": 3.842,
+              "end": 6.134
+            }
+          ],
+          "graphics": []
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "hall-s3-v2",
+      "version": "hall-s3-v2",
+      "scope": "Hall scene 3",
+      "date": "2026-10-06",
+      "asset": "cut-hall-s3-v2",
+      "duration": 11.95,
+      "timeline": [
+        {
+          "shot": "3.1",
+          "start": 0,
+          "dur": 2,
+          "in": 1,
+          "asset": "v-3.1-k1",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "3.2",
+          "start": 2,
+          "dur": 4.5,
+          "in": 1.8,
+          "asset": "v-3.2-k2",
+          "lines": [
+            {
+              "who": "clerk",
+              "text": "To apply for the form, you must first complete the form.",
+              "mode": "native",
+              "start": 2.386,
+              "end": 6.08
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "3.3",
+          "start": 6.5,
+          "dur": 1.85,
+          "in": 3.1,
+          "asset": "v-3.3-k1",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "Is there a portal?",
+              "mode": "native",
+              "start": 7.062,
+              "end": 7.792
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "3.4",
+          "start": 8.35,
+          "dur": 3.6,
+          "in": 1,
+          "asset": "v-3.4-k1",
+          "lines": [
+            {
+              "who": "clerk",
+              "text": "There is a fax.",
+              "mode": "native",
+              "start": 9.029,
+              "end": 11.95
+            }
+          ],
+          "graphics": []
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "study-s1-v2",
+      "version": "study-s1-v2",
+      "scope": "Scene 1: The request",
+      "date": "2026-10-06",
+      "asset": "cut-study-s1-v2",
+      "duration": 8.392,
+      "timeline": [
+        {
+          "shot": "1.1",
+          "start": 0,
+          "dur": 2.6,
+          "in": 1,
+          "asset": "v-1.1-kling",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "1.2",
+          "start": 2.6,
+          "dur": 3.592,
+          "in": 1.45,
+          "asset": "v-1.2-kling",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "Henrick, I need SOC 2 by Friday.",
+              "mode": "native",
+              "start": 2.795,
+              "end": 5.625
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "1.3",
+          "start": 6.192,
+          "dur": 2.2,
+          "in": 0.4,
+          "asset": "v-1.3-kling",
+          "lines": [],
+          "graphics": []
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "booth-s5-v2",
+      "version": "booth-s5-v2",
+      "scope": "Booth scene 5",
+      "date": "2026-10-06",
+      "asset": "cut-booth-s5-v2",
+      "duration": 9.45,
+      "timeline": [
+        {
+          "shot": "5.1",
+          "start": 0,
+          "dur": 2.4,
+          "in": 0.8,
+          "asset": "v-5.1-k2",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "5.2",
+          "start": 2.4,
+          "dur": 3,
+          "in": 0.4,
+          "asset": "v-5.2-pin",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "5.3",
+          "start": 5.4,
+          "dur": 4.05,
+          "in": 0.4,
+          "asset": "v-5.3-k1",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "It's done?",
+              "mode": "native",
+              "start": 8.455,
+              "end": 9
+            }
+          ],
+          "graphics": []
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "study-s1-v1",
+      "version": "study-s1-v1",
+      "scope": "Scene 1: The request",
+      "date": "2026-10-06",
+      "asset": "cut-study-s1-v1",
+      "duration": 9.392,
+      "timeline": [
+        {
+          "shot": "1.1",
+          "start": 0,
+          "dur": 2.6,
+          "in": 1,
+          "asset": "v-1.1-kling",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "1.2",
+          "start": 2.6,
+          "dur": 3.592,
+          "in": 1.45,
+          "asset": "v-1.2-kling",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "Henrick, I need SOC 2 by Friday.",
+              "mode": "native",
+              "start": 2.795,
+              "end": 5.625
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "1.3",
+          "start": 6.192,
+          "dur": 3.2,
+          "in": 0.4,
+          "asset": "v-1.3-kling",
+          "lines": [],
+          "graphics": []
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "booth-s5-v1",
+      "version": "booth-s5-v1",
+      "scope": "Booth scene 5",
+      "date": "2026-10-06",
+      "asset": "cut-booth-s5-v1",
+      "duration": 9.45,
+      "timeline": [
+        {
+          "shot": "5.1",
+          "start": 0,
+          "dur": 2.4,
+          "in": 0.8,
+          "asset": "v-5.1-k2",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "5.2",
+          "start": 2.4,
+          "dur": 3,
+          "in": 0.4,
+          "asset": "v-5.2-pin",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "5.3",
+          "start": 5.4,
+          "dur": 4.05,
+          "in": 0.4,
+          "asset": "v-5.3-k1",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "It's done?",
+              "mode": "native",
+              "start": 8.455,
+              "end": 9
+            }
+          ],
+          "graphics": []
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "hall-s3-v1",
+      "version": "hall-s3-v1",
+      "scope": "Hall scene 3",
+      "date": "2026-10-06",
+      "asset": "cut-hall-s3-v1",
+      "duration": 13.517,
+      "timeline": [
+        {
+          "shot": "3.1",
+          "start": 0,
+          "dur": 2,
+          "in": 0.5,
+          "asset": "v-3.1-f1",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "3.2",
+          "start": 2,
+          "dur": 6.386,
+          "in": 0.656,
+          "asset": "v-3.2-k2",
+          "lines": [
+            {
+              "who": "clerk",
+              "text": "To apply for the form, you must first complete the form.",
+              "mode": "native",
+              "start": 2.35,
+              "end": 8.386
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "3.3",
+          "start": 8.386,
+          "dur": 1.531,
+          "in": 3.312,
+          "asset": "v-3.3-k1",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "Is there a portal?",
+              "mode": "native",
+              "start": 8.736,
+              "end": 9.466
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "3.4",
+          "start": 9.917,
+          "dur": 3.6,
+          "in": 1,
+          "asset": "v-3.4-k1",
+          "lines": [
+            {
+              "who": "clerk",
+              "text": "There is a fax.",
+              "mode": "native",
+              "start": 10.596,
+              "end": 13.517
+            }
+          ],
+          "graphics": []
+        }
+      ],
+      "notes": []
+    },
     {
       "id": "hall-s2-v3",
       "version": "hall-s2-v3",
@@ -7437,76 +9437,6 @@
   ],
   "activity": [
     {
-      "t": "2026-10-06T15:10:26.973476+00:00",
-      "text": "Live activity feed is on. I'll post here as I work.",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-06T15:10:35.375523+00:00",
-      "text": "Auditing all 7 clips frame by frame with the av-review card (not 3 frames per clip).",
-      "kind": "run"
-    },
-    {
-      "t": "2026-10-06T15:12:48.678838+00:00",
-      "text": "Audit done. Scene 3 FAIL (clerk turns away, leaves frame), scene 5 FAIL (ends worried, not relieved), scene 4 borderline (too static). Rerolling 3 (x2), 4, 5.",
-      "kind": "warn"
-    },
-    {
-      "t": "2026-10-06T15:13:26.940184+00:00",
-      "text": "Setting up Remotion (motion graphics): ministry sign, ticket display, form stamp, calendar flip, dashboard score, captions, end card.",
-      "kind": "run"
-    },
-    {
-      "t": "2026-10-06T15:14:20.398238+00:00",
-      "text": "Remotion compositions written (7). Rendering transparent overlays now.",
-      "kind": "run"
-    },
-    {
-      "t": "2026-10-06T15:16:59.490002+00:00",
-      "text": "Reroll clips for scenes 3 (x2), 4, 5 downloaded; auditing them.",
-      "kind": "run"
-    },
-    {
-      "t": "2026-10-06T15:17:43.883909+00:00",
-      "text": "Scene 4 and 5 rerolls pass the audit and are on the board. Scene 3 still fails twice (clerk turns away); changing the shot to a straight-on view of her.",
-      "kind": "done"
-    },
-    {
-      "t": "2026-10-06T15:18:44.723747+00:00",
-      "text": "Scene 3: new straight-on keyframe done; 2 Kling attempts rendering.",
-      "kind": "run"
-    },
-    {
-      "t": "2026-10-06T15:20:54.792547+00:00",
-      "text": "Motion graphics: moved the form (was covering a face) and the calendar title; re-rendered.",
-      "kind": "done"
-    },
-    {
-      "t": "2026-10-06T15:22:49.769186+00:00",
-      "text": "Scene 3 fixed (clerk holds eye contact, 100% face). Assembled rough cut v2 with motion graphics + end card.",
-      "kind": "done"
-    },
-    {
-      "t": "2026-10-06T15:23:39.198993+00:00",
-      "text": "Rough cut v2 is on the board: all 7 scenes passed audit, motion graphics composited, end card appended.",
-      "kind": "done"
-    },
-    {
-      "t": "2026-10-06T15:24:26.753441+00:00",
-      "text": "Pushed to GitHub: audit fixes, motion graphics, assembly script.",
-      "kind": "done"
-    },
-    {
-      "t": "2026-10-06T15:32:09.115698+00:00",
-      "text": "Building a distinct FINAL CUT player and showing the rendered motion graphics on their nodes. Then voices + sound.",
-      "kind": "run"
-    },
-    {
-      "t": "2026-10-06T15:33:42.535139+00:00",
-      "text": "Voices: building Henrick clone from his 4 real isolated lines (Index TTS 2); casting founder, clerk, narrator on ElevenLabs v3.",
-      "kind": "run"
-    },
-    {
       "t": "2026-10-06T15:38:35.958299+00:00",
       "text": "Voices done: Henrick cloned from his real lines (0.76-0.85 match, real-vs-real is 0.71), founder/clerk/narrator cast. All 14 lines pass speech-to-text. Dialogue does not fit current shot lengths, so regenerating scene 1 (new Henrick close-up), scene 3 (10s) and scene 6 (7s) to carry lip-sync.",
       "kind": "run"
@@ -7799,6 +9729,111 @@
     {
       "t": "2026-10-06T21:15:30.174Z",
       "text": "Study lighting plan: window key from the left wall (5200K, soft), warm 2700K practicals, dark falloff. Lit grey box (Cycles) for R, S, M; plates keep the same light and furniture across angles. Set consistency 89-96 against the master; same room as his real frame up to 94.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T21:26:32.045Z",
+      "text": "Hall scenes 3 and 4 on Kling 3.0 Pro via Leap ($9.36): all dialogue takes WER 0; picks circled with cut points. Supporting voices provisional until Claudio casts them.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T21:28:19.299Z",
+      "text": "Scene 1 coverage in the lit study: 1.1 master (M), 1.2 the request (R), 1.3 silence (S); keyframes keep one lighting plan and screen direction. Clips rendering on Kling 3.0 via Leap.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T21:30:29.234Z",
+      "text": "Building cut hall-s3-v1: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T21:30:58.802Z",
+      "text": "Cut hall-s3-v1 built: 13.5 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T21:33:19.038Z",
+      "text": "Building cut booth-s5-v1: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T21:33:40.537Z",
+      "text": "Cut booth-s5-v1 built: 9.4 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T21:34:02.667Z",
+      "text": "Building cut study-s1-v1: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T21:34:24.066Z",
+      "text": "Cut study-s1-v1 built: 9.4 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T21:35:01.739Z",
+      "text": "Building cut booth-s5-v2: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T21:35:22.991Z",
+      "text": "Cut booth-s5-v2 built: 9.4 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T21:35:32.687Z",
+      "text": "Building cut study-s1-v2: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T21:35:51.218Z",
+      "text": "Cut study-s1-v2 built: 8.4 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T21:36:53.078Z",
+      "text": "Scene 1 cut study-s1-v2 (8.4 s): master, the request (line in shot, Kling 3.0 via Leap), silence. Reviewed at the joins: words correct, screen direction and lighting hold, -15 LUFS. Room tone is quiet in the silence; a clock tick is a sound-pass note.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T21:37:17.935Z",
+      "text": "Building cut hall-s3-v2: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T21:37:45.566Z",
+      "text": "Cut hall-s3-v2 built: 11.9 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T21:37:45.588Z",
+      "text": "Building cut hall-s4-v1: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T21:38:03.961Z",
+      "text": "Cut hall-s4-v1 built: 7.1 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T21:41:59.165Z",
+      "text": "Building cut v4-rough: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T21:43:40.523Z",
+      "text": "Cut v4-rough built: 39.0 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T21:43:55.339Z",
+      "text": "Building cut v4: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T21:45:08.298Z",
+      "text": "Cut v4 built: 35.3 s.",
       "kind": "done"
     }
   ],
