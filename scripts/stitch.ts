@@ -3,7 +3,7 @@
 //   bun run stitch show [shot]
 //   bun run stitch log "text" [--kind run|done|info|warn]
 //   bun run stitch asset add <id> --media image|video|audio --from <url|file> [--label ..] [--origin generated]
-//                            [--model ..] [--prompt ..] [--inputs a,b] [--job ..] [--text ..]
+//                            [--model ..] [--prompt ..|--prompt-file f] [--inputs a,b] [--job ..] [--text ..]
 //   bun run stitch asset qa <id> pass|borderline|fail "note"
 //   bun run stitch asset set <id> '<json patch>'
 //   bun run stitch score <asset> [--face] [--voice]
@@ -14,13 +14,19 @@
 //   bun run stitch check <shot> <key> ok|fail|clear [--note ..] [--by ..]
 //   bun run stitch op '<op json or array>'
 //   bun run stitch build [--version v3.1]
+//   bun run stitch plan <loc>                                print the floor plan: setups, marks, line checks
+//   bun run stitch plan set <loc> <plan.json>                replace the plan (dimensions, items, marks, axes, setups)
+//   bun run stitch plan upsert <loc> items|marks|axes|setups '<json>'     bun run stitch plan remove <loc> <list> <id>
+//   bun run stitch plan plate <loc> <setup> <asset> [circle|alt|reject|pending] [--note ..]
+//   bun run stitch greybox <loc> [setup ...]                 render the grey box (Blender) and attach each render
 import { execFileSync } from "node:child_process"
-import { copyFileSync, mkdirSync } from "node:fs"
+import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import path from "node:path"
 import { CHECKS, type Asset, type CheckKey, type Media, type TakeVerdict } from "../lib/model"
 import type { Op } from "../lib/ops"
 import { load, mutate } from "../lib/store"
-import { pick, shotRows } from "../lib/derive"
+import { pick, planView, shotRows } from "../lib/derive"
+import type { PlanList } from "../lib/ops"
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..")
 process.chdir(root)
@@ -118,7 +124,7 @@ async function main() {
         const inputs = flag("inputs")?.split(",").filter(Boolean)
         const asset: Asset = {
           id, media, path: p, label: flag("label") ?? id, origin: (flag("origin") as Asset["origin"]) ?? "generated", duration,
-          ...(flag("model") ? { gen: { model: flag("model")!, prompt: flag("prompt"), inputs, job: flag("job") } } : {}),
+          ...(flag("model") ? { gen: { model: flag("model")!, prompt: flag("prompt") ?? (flag("prompt-file") ? readFileSync(flag("prompt-file")!, "utf8").trim() : undefined), inputs, job: flag("job") } } : {}),
           ...(flag("text") ? { text: flag("text") } : {}),
         }
         await run([{ op: "asset.add", asset }])
@@ -176,6 +182,51 @@ async function main() {
       await run([{ op: "check.set", shot: sub, key: key as CheckKey, ok, note: flag("note"), by: flag("by") }])
       return
     }
+    case "plan": {
+      const verdicts: Record<string, TakeVerdict> = { circle: "circled", alt: "alt", reject: "reject", pending: "pending" }
+      if (sub === "set") return void (await run([{ op: "plan.set", location: rest[0], plan: JSON.parse(readFileSync(rest[1], "utf8")) }]))
+      if (sub === "upsert") return void (await run([{ op: "plan.upsert", location: rest[0], list: rest[1] as keyof PlanList, value: JSON.parse(rest[2]) } as Op]))
+      if (sub === "remove") return void (await run([{ op: "plan.remove", location: rest[0], list: rest[1] as keyof PlanList, id: rest[2] }]))
+      if (sub === "plate") {
+        const [loc, setup, asset, v] = rest
+        return void (await run([{ op: "plan.plate", location: loc, setup, asset, verdict: v ? verdicts[v] : undefined, note: flag("note") }]))
+      }
+      const p = await load()
+      const l = p.locations.find((x) => x.id === sub)
+      const v = l && planView(l)
+      if (!v) throw new Error(`no plan on ${sub}`)
+      console.log(`${l!.name}: ${v.plan.width} x ${v.plan.depth} x ${v.plan.height} m, ${v.plan.items.length} items, ${v.plan.marks.length} marks`)
+      for (const u of v.setups) {
+        const frame = u.inFrame.map((m) => `${m.mark.id}@${m.x.toFixed(2)}`).join(" ")
+        const plate = pick(u.plates ?? [])
+        console.log(`  ${u.id.padEnd(3)} ${u.name.padEnd(32)} ${u.size.padEnd(4)} ${String(u.lens).padStart(3)}mm h${u.height} fov ${u.fov.toFixed(0)} ${u.beat ?? ""} ${u.axis ? `line ${u.axis}${u.side === 1 ? "+" : u.side === -1 ? "-" : "0"}` : ""}  [${frame}]  render=${u.render ?? "-"} plate=${plate?.asset ?? "-"}`)
+      }
+      for (const i of v.issues) console.log(`  ${i.level.toUpperCase()} ${i.text}`)
+      return
+    }
+    case "greybox": {
+      const p = await load()
+      const l = p.locations.find((x) => x.id === sub)
+      if (!l?.plan) throw new Error(`no plan on ${sub}`)
+      const dir = `work/${l.id}/grey`
+      mkdirSync(dir, { recursive: true })
+      writeFileSync(`work/${l.id}/plan.json`, JSON.stringify(l.plan, null, 1))
+      const ids = rest.length ? rest : l.plan.setups.map((u) => u.id)
+      execFileSync("/Applications/Blender.app/Contents/MacOS/Blender", ["-b", "-P", "scripts/greybox.py", "--", `work/${l.id}/plan.json`, dir, ...ids], { stdio: "ignore" })
+      const ops: Op[] = []
+      for (const id of ids) {
+        const u = l.plan.setups.find((x) => x.id === id)!
+        const asset = `grey-${l.id}-${id}`
+        const { path: ap } = await importFile(asset, `${dir}/${id}.png`, "image")
+        const a: Asset = { id: asset, media: "image", path: ap, label: `Grey box ${id}: ${u.name}`, origin: "rendered", gen: { model: "blender/greybox", prompt: `${u.lens} mm, ${u.height} m, facing ${u.facing}${u.tilt ? `, tilt ${u.tilt}` : ""}` } }
+        ops.push(p.assets.some((x) => x.id === asset) ? { op: "asset.update", id: asset, patch: { path: ap, gen: a.gen, label: a.label } } : { op: "asset.add", asset: a })
+        ops.push({ op: "plan.patch", location: l.id, list: "setups", id, patch: { render: asset } })
+      }
+      ops.push({ op: "log", text: `Grey box for ${l.name}: rendered ${ids.length} setups from the floor plan`, kind: "done" })
+      await run(ops)
+      console.log(`rendered ${ids.join(", ")}`)
+      return
+    }
     case "build": {
       const { build } = await import("./build")
       await build(flag("version"))
@@ -187,7 +238,7 @@ async function main() {
 }
 
 function readHelp() {
-  return "commands: show, log, asset add|qa|set, score, take add|circle|alt|reject|pending, card, shot set|add|move|remove, check, op, build"
+  return "commands: show, log, asset add|qa|set, score, take add|circle|alt|reject|pending, card, shot set|add|move|remove, check, op, plan [set|upsert|remove|plate], greybox, build"
 }
 
 main().catch((e) => {

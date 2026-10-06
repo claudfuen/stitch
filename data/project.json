@@ -206,7 +206,1159 @@
       "props": [
         "props-ministry"
       ],
-      "room": "/Library/Audio/Impulse Responses/Apple/01 Large Spaces/07 Indoor Spaces/4.2s_Central Station.SDIR"
+      "room": "/Library/Audio/Impulse Responses/Apple/01 Large Spaces/07 Indoor Spaces/4.2s_Central Station.SDIR",
+      "plan": {
+        "width": 13,
+        "depth": 20,
+        "height": 4.2,
+        "items": [
+          {
+            "id": "win-l1",
+            "kind": "window",
+            "label": "Tall steel window 1, net curtain",
+            "at": [
+              0.05,
+              5
+            ],
+            "size": [
+              0.2,
+              1.6,
+              2.6
+            ],
+            "z": 1
+          },
+          {
+            "id": "win-l2",
+            "kind": "window",
+            "label": "Tall steel window 2, net curtain",
+            "at": [
+              0.05,
+              9
+            ],
+            "size": [
+              0.2,
+              1.6,
+              2.6
+            ],
+            "z": 1
+          },
+          {
+            "id": "win-l3",
+            "kind": "window",
+            "label": "Tall steel window 3, net curtain",
+            "at": [
+              0.05,
+              13
+            ],
+            "size": [
+              0.2,
+              1.6,
+              2.6
+            ],
+            "z": 1
+          },
+          {
+            "id": "door-entrance",
+            "kind": "door",
+            "label": "Double entrance doors, wired glass",
+            "at": [
+              6.5,
+              0.05
+            ],
+            "size": [
+              2,
+              0.2,
+              2.4
+            ]
+          },
+          {
+            "id": "row1-left",
+            "kind": "seats",
+            "label": "Row 4 (back), left bank: 7 mustard shell chairs",
+            "at": [
+              3.6,
+              8
+            ],
+            "size": [
+              3.64,
+              0.6,
+              0.85
+            ]
+          },
+          {
+            "id": "row1-right",
+            "kind": "seats",
+            "label": "Row 4 (back), right bank: 7 mustard shell chairs",
+            "at": [
+              9.4,
+              8
+            ],
+            "size": [
+              3.64,
+              0.6,
+              0.85
+            ]
+          },
+          {
+            "id": "row2-left",
+            "kind": "seats",
+            "label": "Row 3 (middle), left bank: 7 mustard shell chairs",
+            "at": [
+              3.6,
+              9.6
+            ],
+            "size": [
+              3.64,
+              0.6,
+              0.85
+            ]
+          },
+          {
+            "id": "row2-right",
+            "kind": "seats",
+            "label": "Row 3 (middle), right bank: 7 mustard shell chairs",
+            "at": [
+              9.4,
+              9.6
+            ],
+            "size": [
+              3.64,
+              0.6,
+              0.85
+            ]
+          },
+          {
+            "id": "row3-left",
+            "kind": "seats",
+            "label": "Row 2 (middle), left bank: 7 mustard shell chairs",
+            "at": [
+              3.6,
+              11.2
+            ],
+            "size": [
+              3.64,
+              0.6,
+              0.85
+            ]
+          },
+          {
+            "id": "row3-right",
+            "kind": "seats",
+            "label": "Row 2 (middle), right bank: 7 mustard shell chairs",
+            "at": [
+              9.4,
+              11.2
+            ],
+            "size": [
+              3.64,
+              0.6,
+              0.85
+            ]
+          },
+          {
+            "id": "row4-left",
+            "kind": "seats",
+            "label": "Row 1 (front), left bank: 7 mustard shell chairs",
+            "at": [
+              3.6,
+              12.8
+            ],
+            "size": [
+              3.64,
+              0.6,
+              0.85
+            ]
+          },
+          {
+            "id": "row4-right",
+            "kind": "seats",
+            "label": "Row 1 (front), right bank: 7 mustard shell chairs",
+            "at": [
+              9.4,
+              12.8
+            ],
+            "size": [
+              3.64,
+              0.6,
+              0.85
+            ]
+          },
+          {
+            "id": "dispenser",
+            "kind": "prop",
+            "label": "Red ticket dispenser on chrome pole",
+            "at": [
+              4.2,
+              2.2
+            ],
+            "size": [
+              0.3,
+              0.3,
+              1.3
+            ]
+          },
+          {
+            "id": "plant",
+            "kind": "prop",
+            "label": "Half-dead rubber plant",
+            "at": [
+              0.7,
+              6.6
+            ],
+            "size": [
+              0.7,
+              0.7,
+              1.6
+            ]
+          },
+          {
+            "id": "clock",
+            "kind": "prop",
+            "label": "Round wall clock",
+            "at": [
+              12.95,
+              9
+            ],
+            "size": [
+              0.05,
+              0.4,
+              0.4
+            ],
+            "z": 2.6
+          },
+          {
+            "id": "radiator",
+            "kind": "prop",
+            "label": "Cast-iron radiator",
+            "at": [
+              12.9,
+              11.5
+            ],
+            "size": [
+              0.12,
+              1.2,
+              0.7
+            ],
+            "z": 0.15
+          },
+          {
+            "id": "hooks",
+            "kind": "prop",
+            "label": "Coat hooks",
+            "at": [
+              10.5,
+              0.08
+            ],
+            "size": [
+              2,
+              0.1,
+              0.2
+            ],
+            "z": 1.7
+          },
+          {
+            "id": "notices",
+            "kind": "prop",
+            "label": "Noticeboard, faded papers",
+            "at": [
+              2.6,
+              0.06
+            ],
+            "size": [
+              1.6,
+              0.05,
+              1
+            ],
+            "z": 1.2
+          },
+          {
+            "id": "tube-3.5-4",
+            "kind": "light",
+            "label": "Fluorescent fitting",
+            "at": [
+              3.5,
+              4
+            ],
+            "size": [
+              1.5,
+              0.25,
+              0.06
+            ],
+            "z": 4.12
+          },
+          {
+            "id": "tube-3.5-8",
+            "kind": "light",
+            "label": "Fluorescent fitting",
+            "at": [
+              3.5,
+              8
+            ],
+            "size": [
+              1.5,
+              0.25,
+              0.06
+            ],
+            "z": 4.12
+          },
+          {
+            "id": "tube-3.5-12",
+            "kind": "light",
+            "label": "Fluorescent fitting",
+            "at": [
+              3.5,
+              12
+            ],
+            "size": [
+              1.5,
+              0.25,
+              0.06
+            ],
+            "z": 4.12
+          },
+          {
+            "id": "tube-3.5-16",
+            "kind": "light",
+            "label": "Fluorescent fitting",
+            "at": [
+              3.5,
+              16
+            ],
+            "size": [
+              1.5,
+              0.25,
+              0.06
+            ],
+            "z": 4.12
+          },
+          {
+            "id": "tube-6.5-4",
+            "kind": "light",
+            "label": "Fluorescent fitting",
+            "at": [
+              6.5,
+              4
+            ],
+            "size": [
+              1.5,
+              0.25,
+              0.06
+            ],
+            "z": 4.12
+          },
+          {
+            "id": "tube-6.5-8",
+            "kind": "light",
+            "label": "Fluorescent fitting",
+            "at": [
+              6.5,
+              8
+            ],
+            "size": [
+              1.5,
+              0.25,
+              0.06
+            ],
+            "z": 4.12
+          },
+          {
+            "id": "tube-6.5-12",
+            "kind": "light",
+            "label": "Fluorescent fitting",
+            "at": [
+              6.5,
+              12
+            ],
+            "size": [
+              1.5,
+              0.25,
+              0.06
+            ],
+            "z": 4.12
+          },
+          {
+            "id": "tube-6.5-16",
+            "kind": "light",
+            "label": "Fluorescent fitting",
+            "at": [
+              6.5,
+              16
+            ],
+            "size": [
+              1.5,
+              0.25,
+              0.06
+            ],
+            "z": 4.12
+          },
+          {
+            "id": "tube-9.5-4",
+            "kind": "light",
+            "label": "Fluorescent fitting",
+            "at": [
+              9.5,
+              4
+            ],
+            "size": [
+              1.5,
+              0.25,
+              0.06
+            ],
+            "z": 4.12
+          },
+          {
+            "id": "tube-9.5-8",
+            "kind": "light",
+            "label": "Fluorescent fitting (dead)",
+            "at": [
+              9.5,
+              8
+            ],
+            "size": [
+              1.5,
+              0.25,
+              0.06
+            ],
+            "z": 4.12
+          },
+          {
+            "id": "tube-9.5-12",
+            "kind": "light",
+            "label": "Fluorescent fitting",
+            "at": [
+              9.5,
+              12
+            ],
+            "size": [
+              1.5,
+              0.25,
+              0.06
+            ],
+            "z": 4.12
+          },
+          {
+            "id": "tube-9.5-16",
+            "kind": "light",
+            "label": "Fluorescent fitting",
+            "at": [
+              9.5,
+              16
+            ],
+            "size": [
+              1.5,
+              0.25,
+              0.06
+            ],
+            "z": 4.12
+          },
+          {
+            "id": "partition",
+            "kind": "wall",
+            "label": "Partition: counter wall with six service windows",
+            "at": [
+              6.5,
+              18
+            ],
+            "size": [
+              13,
+              0.2,
+              4.2
+            ],
+            "openings": [
+              [
+                1.5,
+                1.5,
+                1.05,
+                1.25
+              ],
+              [
+                3.2,
+                1.5,
+                1.05,
+                1.25
+              ],
+              [
+                4.9,
+                1.5,
+                1.05,
+                1.25
+              ],
+              [
+                6.6,
+                1.5,
+                1.05,
+                1.25
+              ],
+              [
+                8.3,
+                1.5,
+                1.05,
+                1.25
+              ],
+              [
+                10,
+                1.5,
+                1.05,
+                1.25
+              ]
+            ]
+          },
+          {
+            "id": "counter",
+            "kind": "counter",
+            "label": "Teak-veneer counter, hall side",
+            "at": [
+              6.5,
+              17.55
+            ],
+            "size": [
+              10.4,
+              0.7,
+              1.05
+            ]
+          },
+          {
+            "id": "svc-1",
+            "kind": "window",
+            "label": "Service window 1: blind down",
+            "at": [
+              2.25,
+              18
+            ],
+            "size": [
+              1.5,
+              0.06,
+              1.25
+            ],
+            "z": 1.05
+          },
+          {
+            "id": "numbox-1",
+            "kind": "board",
+            "label": "Number box 1 (shows 1)",
+            "at": [
+              2.25,
+              17.88
+            ],
+            "size": [
+              0.36,
+              0.1,
+              0.24
+            ],
+            "z": 2.5
+          },
+          {
+            "id": "svc-2",
+            "kind": "window",
+            "label": "Service window 2: blind down",
+            "at": [
+              3.95,
+              18
+            ],
+            "size": [
+              1.5,
+              0.06,
+              1.25
+            ],
+            "z": 1.05
+          },
+          {
+            "id": "numbox-2",
+            "kind": "board",
+            "label": "Number box 2 (shows 2)",
+            "at": [
+              3.95,
+              17.88
+            ],
+            "size": [
+              0.36,
+              0.1,
+              0.24
+            ],
+            "z": 2.5
+          },
+          {
+            "id": "svc-3",
+            "kind": "window",
+            "label": "Service window 3: blind down",
+            "at": [
+              5.65,
+              18
+            ],
+            "size": [
+              1.5,
+              0.06,
+              1.25
+            ],
+            "z": 1.05
+          },
+          {
+            "id": "numbox-3",
+            "kind": "board",
+            "label": "Number box 3 (shows 3)",
+            "at": [
+              5.65,
+              17.88
+            ],
+            "size": [
+              0.36,
+              0.1,
+              0.24
+            ],
+            "z": 2.5
+          },
+          {
+            "id": "svc-4",
+            "kind": "window",
+            "label": "Service window 4: open, lit, clerk behind",
+            "at": [
+              7.35,
+              18
+            ],
+            "size": [
+              1.5,
+              0.06,
+              1.25
+            ],
+            "z": 1.05
+          },
+          {
+            "id": "numbox-4",
+            "kind": "board",
+            "label": "Number box 4 (shows 4)",
+            "at": [
+              7.35,
+              17.88
+            ],
+            "size": [
+              0.36,
+              0.1,
+              0.24
+            ],
+            "z": 2.5
+          },
+          {
+            "id": "svc-5",
+            "kind": "window",
+            "label": "Service window 5: blind down",
+            "at": [
+              9.05,
+              18
+            ],
+            "size": [
+              1.5,
+              0.06,
+              1.25
+            ],
+            "z": 1.05
+          },
+          {
+            "id": "numbox-5",
+            "kind": "board",
+            "label": "Number box 5 (shows 5)",
+            "at": [
+              9.05,
+              17.88
+            ],
+            "size": [
+              0.36,
+              0.1,
+              0.24
+            ],
+            "z": 2.5
+          },
+          {
+            "id": "svc-6",
+            "kind": "window",
+            "label": "Service window 6: blind down",
+            "at": [
+              10.75,
+              18
+            ],
+            "size": [
+              1.5,
+              0.06,
+              1.25
+            ],
+            "z": 1.05
+          },
+          {
+            "id": "numbox-6",
+            "kind": "board",
+            "label": "Number box 6 (shows 6)",
+            "at": [
+              10.75,
+              17.88
+            ],
+            "size": [
+              0.36,
+              0.1,
+              0.24
+            ],
+            "z": 2.5
+          },
+          {
+            "id": "board",
+            "kind": "board",
+            "label": "Split-flap board: 17",
+            "at": [
+              6.5,
+              17.88
+            ],
+            "size": [
+              2,
+              0.15,
+              0.9
+            ],
+            "z": 2.95
+          },
+          {
+            "id": "door-staff",
+            "kind": "door",
+            "label": "Plain staff door",
+            "at": [
+              12.95,
+              15.5
+            ],
+            "size": [
+              0.2,
+              1,
+              2.1
+            ]
+          },
+          {
+            "id": "desk-clerk",
+            "kind": "furniture",
+            "label": "Clerk's desk behind window 4",
+            "at": [
+              7.35,
+              18.75
+            ],
+            "size": [
+              1.4,
+              0.7,
+              0.75
+            ]
+          },
+          {
+            "id": "fax",
+            "kind": "prop",
+            "label": "Beige fax machine on the clerk's desk",
+            "at": [
+              7.8,
+              18.85
+            ],
+            "size": [
+              0.45,
+              0.4,
+              0.22
+            ],
+            "z": 0.75
+          },
+          {
+            "id": "stamp",
+            "kind": "prop",
+            "label": "Rubber stamp and ink pad",
+            "at": [
+              6.95,
+              18.6
+            ],
+            "size": [
+              0.15,
+              0.1,
+              0.1
+            ],
+            "z": 0.75
+          },
+          {
+            "id": "files",
+            "kind": "furniture",
+            "label": "Grey filing cabinets",
+            "at": [
+              7.55,
+              19.65
+            ],
+            "size": [
+              2.4,
+              0.5,
+              1.3
+            ]
+          },
+          {
+            "id": "forms",
+            "kind": "furniture",
+            "label": "Pigeonhole rack of forms",
+            "at": [
+              6.05,
+              19.75
+            ],
+            "size": [
+              1,
+              0.35,
+              1.8
+            ]
+          }
+        ],
+        "marks": [
+          {
+            "id": "henrick",
+            "who": "henrick",
+            "at": [
+              4.64,
+              12.8
+            ],
+            "facing": 0,
+            "pose": "sit",
+            "note": "Front row, left bank, second seat from the aisle",
+            "beat": "seats"
+          },
+          {
+            "id": "founder",
+            "who": "founder",
+            "at": [
+              5.16,
+              12.8
+            ],
+            "facing": 0,
+            "pose": "sit",
+            "note": "Front row, left bank, aisle seat, holds ticket 4816",
+            "beat": "seats"
+          },
+          {
+            "id": "knitter",
+            "who": "Knitting woman",
+            "at": [
+              3.08,
+              9.6
+            ],
+            "facing": 0,
+            "pose": "sit",
+            "note": "Scarf trails along the floor under the rows"
+          },
+          {
+            "id": "sleeper",
+            "who": "Old man asleep",
+            "at": [
+              9.4,
+              8
+            ],
+            "facing": 0,
+            "pose": "sit",
+            "note": "Upright, white beard grown long"
+          },
+          {
+            "id": "clerk",
+            "who": "clerk",
+            "at": [
+              7.35,
+              18.5
+            ],
+            "facing": 180,
+            "pose": "sit",
+            "note": "Behind window 4, on the raised floor behind the counter, eyes level with the speaking grille",
+            "z": 0.3
+          },
+          {
+            "id": "founder-window",
+            "who": "founder",
+            "at": [
+              7.35,
+              16.75
+            ],
+            "facing": 0,
+            "pose": "stand",
+            "note": "At window 4",
+            "beat": "window"
+          },
+          {
+            "id": "henrick-window",
+            "who": "henrick",
+            "at": [
+              6.55,
+              16.1
+            ],
+            "facing": 15,
+            "pose": "stand",
+            "note": "A step behind the founder, to his left, watching",
+            "beat": "window"
+          }
+        ],
+        "axes": [
+          {
+            "id": "seats",
+            "label": "the line between Henrick and the founder in the front row",
+            "a": "henrick",
+            "b": "founder"
+          },
+          {
+            "id": "window",
+            "label": "the line between the founder and the clerk at window 4",
+            "a": "founder-window",
+            "b": "clerk"
+          }
+        ],
+        "setups": [
+          {
+            "id": "A",
+            "name": "Tableau from the entrance",
+            "size": "EWS",
+            "lens": 25,
+            "height": 1.5,
+            "at": [
+              6.5,
+              0.6
+            ],
+            "facing": 0,
+            "axis": "window",
+            "subjects": [
+              "founder-window",
+              "clerk"
+            ],
+            "purpose": "Scene 3 master: the whole hall, the founder at window 4, Henrick waiting behind",
+            "beat": "window",
+            "render": "grey-hall-A",
+            "plates": [
+              {
+                "asset": "hall-A-r4-sunburst",
+                "verdict": "circled",
+                "note": "Hero look. Reads as a photograph: flat window light, worn terrazzo, extras on their marks, window 4 lit, digits only. Weak: slight green cast, counter windows a little uniform."
+              },
+              {
+                "asset": "hall-A-r4-flare",
+                "verdict": "alt",
+                "note": "Close second; deeper room, a little cleaner and more staged than Sunburst."
+              },
+              {
+                "asset": "hall-A-r4-nbp-a",
+                "verdict": "reject",
+                "note": "Windows 5 and 6 lit instead of only 4; HDR floor; old man slumped against the wall."
+              },
+              {
+                "asset": "hall-A-r4-nbp-b",
+                "verdict": "reject",
+                "note": "Fake rounded film-frame corners; extras face camera instead of the counter; staged symmetry."
+              },
+              {
+                "asset": "hall-A-r4-grok",
+                "verdict": "reject",
+                "note": "Overexposed, new-looking chairs, CG-clean; stagey."
+              },
+              {
+                "asset": "hall-A-r4-seedream-a",
+                "verdict": "reject",
+                "note": "Clean CG look, extras tiny; stock-photo staging."
+              },
+              {
+                "asset": "hall-A-r4-seedream-b",
+                "verdict": "reject",
+                "note": "Old man lying across chairs is a fun gag but the room is CG-clean."
+              }
+            ]
+          },
+          {
+            "id": "B",
+            "name": "Reverse tableau from the counter",
+            "size": "WS",
+            "lens": 25,
+            "height": 1.35,
+            "at": [
+              5.6,
+              16.6
+            ],
+            "facing": 184,
+            "axis": "seats",
+            "subjects": [
+              "henrick",
+              "founder"
+            ],
+            "purpose": "Scenes 2 and 4 establishing: the waiting room faces camera; repeated unchanged after the eleven-year cut",
+            "beat": "seats",
+            "render": "grey-hall-B"
+          },
+          {
+            "id": "C",
+            "name": "Front two-shot",
+            "size": "MS",
+            "lens": 32,
+            "height": 1.15,
+            "at": [
+              4.8999999999999995,
+              15
+            ],
+            "facing": 180,
+            "axis": "seats",
+            "subjects": [
+              "henrick",
+              "founder"
+            ],
+            "purpose": "Scenes 2 and 4 dialogue: both faces, deadpan",
+            "beat": "seats",
+            "render": "grey-hall-C"
+          },
+          {
+            "id": "D",
+            "name": "Henrick single",
+            "size": "MCU",
+            "lens": 65,
+            "height": 1.15,
+            "at": [
+              5.7,
+              14.7
+            ],
+            "facing": 209.2,
+            "axis": "seats",
+            "subjects": [
+              "henrick"
+            ],
+            "purpose": "Henrick's line in close, his reaction",
+            "beat": "seats",
+            "render": "grey-hall-D"
+          },
+          {
+            "id": "E",
+            "name": "Founder single",
+            "size": "MCU",
+            "lens": 65,
+            "height": 1.15,
+            "at": [
+              4.1,
+              14.7
+            ],
+            "facing": 150.8,
+            "axis": "seats",
+            "subjects": [
+              "founder"
+            ],
+            "purpose": "The founder's question and reaction",
+            "beat": "seats",
+            "render": "grey-hall-E"
+          },
+          {
+            "id": "F",
+            "name": "Ticket insert",
+            "size": "INS",
+            "lens": 50,
+            "height": 1,
+            "at": [
+              5.61,
+              13.45
+            ],
+            "facing": 232.1,
+            "tilt": -33.7,
+            "purpose": "Ticket 4816 in the founder's hand",
+            "beat": "seats",
+            "render": "grey-hall-F"
+          },
+          {
+            "id": "G",
+            "name": "Board insert",
+            "size": "INS",
+            "lens": 50,
+            "height": 1.2,
+            "at": [
+              5.3,
+              12.9
+            ],
+            "facing": 13.2,
+            "tilt": 22.8,
+            "purpose": "The split-flap board reads 17 (18 after the time cut)",
+            "beat": "seats",
+            "render": "grey-hall-G"
+          },
+          {
+            "id": "H",
+            "name": "OTS onto the clerk",
+            "size": "MS",
+            "lens": 35,
+            "height": 1.6,
+            "at": [
+              7.1,
+              16.15
+            ],
+            "facing": 6.1,
+            "axis": "window",
+            "subjects": [
+              "clerk"
+            ],
+            "purpose": "Clerk's lines over the founder's left shoulder",
+            "beat": "window",
+            "tilt": -2.5,
+            "render": "grey-hall-H"
+          },
+          {
+            "id": "I",
+            "name": "Clerk through the glass",
+            "size": "MCU",
+            "lens": 50,
+            "height": 1.45,
+            "at": [
+              7.2,
+              16.95
+            ],
+            "facing": 5.5,
+            "axis": "window",
+            "subjects": [
+              "clerk"
+            ],
+            "purpose": "Clerk's punchline straight on, the founder's eye view",
+            "beat": "window",
+            "tilt": 1.8,
+            "render": "grey-hall-I"
+          },
+          {
+            "id": "J",
+            "name": "Founder from inside the booth",
+            "size": "MS",
+            "lens": 40,
+            "height": 1.45,
+            "at": [
+              7.05,
+              18.85
+            ],
+            "facing": 181,
+            "axis": "window",
+            "subjects": [
+              "founder-window",
+              "henrick-window"
+            ],
+            "purpose": "The founder's question and reaction, Henrick behind him",
+            "beat": "window",
+            "render": "grey-hall-J"
+          },
+          {
+            "id": "K",
+            "name": "Form 27-B insert",
+            "size": "INS",
+            "lens": 50,
+            "height": 1.45,
+            "at": [
+              7.15,
+              17.05
+            ],
+            "facing": 20,
+            "tilt": -34.4,
+            "purpose": "Form 27-B in triplicate slid through the paper slot",
+            "beat": "window",
+            "render": "grey-hall-K"
+          },
+          {
+            "id": "L",
+            "name": "Stamp insert",
+            "size": "INS",
+            "lens": 65,
+            "height": 1.25,
+            "at": [
+              6.45,
+              18.35
+            ],
+            "facing": 63.4,
+            "tilt": -40.1,
+            "purpose": "The clerk stamps the form; the fax machine beside it",
+            "beat": "window",
+            "render": "grey-hall-L"
+          }
+        ]
+      }
     },
     {
       "id": "office",
@@ -393,6 +1545,10 @@
       },
       "scores": {
         "face": 0.6
+      },
+      "qa": {
+        "verdict": "fail",
+        "note": "Old process. Realism 5/100 (all three judges called it AI), face 0.60. Claudio: \"this is totally artificial looking\"."
       }
     },
     {
@@ -1477,6 +2633,343 @@
         "note": "Too derelict: reads as an abandoned building rather than a working office, and it ignored the 16:9 aspect."
       },
       "scores": {}
+    },
+    {
+      "id": "k1-plate-flare",
+      "media": "image",
+      "path": "/generated/k1-plate-flare.jpg",
+      "label": "1a two-shot: real plate + GPT Image 2.5 Flare edit",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5/flare/edit (fal, Leap)",
+        "prompt": "Edit this photograph. Change only one thing: add a second person in the near foreground on the left side of the frame, seated in a low chair facing the man, seen from behind and slightly to the side over his right shoulder, so his back, the side of his face and his curly dark hair are visible and soft, a little out of focus. He is a tired startup founder in his early thirties wearing a grey zip hoodie, leaning forward with his forearms on his knees, mid-sentence. Use the second image only for his face, hair and clothes.\n\nKeep everything else in the photograph exactly the same: the seated man in the navy suit, his face, expression, glasses and hands, the wood-panelled room, the lamps, the framing, the colour, the grain and the light. The new person is lit by the same warm light from the room, with the same noise and softness as the rest of the photo.",
+        "inputs": [
+          "hen-real-56",
+          "founder-sheet"
+        ]
+      },
+      "scores": {
+        "face": 0.78
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Blind realism panel 94/100 (Opus 88, Gemini 100, GPT-5.5 94), above the real frames (84 and 91). Henrick face 0.78. His real frame (real-56) as the plate; only the founder was added, out of focus, back to camera."
+      }
+    },
+    {
+      "id": "k1-tmpl-flare",
+      "media": "image",
+      "path": "/generated/k1-tmpl-flare.jpg",
+      "label": "1a two-shot: research template + GPT Image 2.5 Flare",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5/flare/edit (fal, Leap)",
+        "prompt": "MEDIUM: an unretouched frame from a single-camera documentary comedy, shot on location in this man's real study (the first and second reference photos show the room and the man; the third shows his face up close; the fourth shows the visitor).\n\nCAMERA: a two-shot from eye level, 35 mm lens, slightly off-centre. The older man sits on the right in a worn dark-green leather armchair, in three-quarter view, listening. The visitor sits on the left in a low chair facing him, seen in three-quarter back view, leaning forward, mid-sentence. Both are reasonably sharp; the room stays readable behind them.\n\nSET: the room exactly as in the reference photos: glossy cherry-red lacquered panelling with vertical grooves, a matte charcoal wall with two small framed sketches and an acoustic guitar hanging on it, small warm practical bulbs in the dark depth of the room, a small round side table with a glass of water, dark oak floor with an old rug.\n\nLIGHT: one large soft light from the left side of the room, the same documentary interview light as the reference photos, falling off into darkness on the right; the practical bulbs glow warm in the background; neutral white balance; real, unfilled shadows.\n\nPEOPLE: the older man is the man in the reference photos: silver hair, short grey beard, round navy glasses, navy check suit, pale blue shirt, silver paisley tie, pink pocket square; pores, wrinkles and creased fabric. The visitor is the founder from the fourth reference: early thirties, curly dark hair, stubble, grey zip hoodie with pilled fabric. Neither looks at the camera. Their poses are relaxed and asymmetric, like a real conversation.\n\nCOLOR: natural colour balance, muted, as the reference photos; fine film grain.\n\nNo glamorization, no heavy retouching.",
+        "inputs": [
+          "hen-real-38",
+          "hen-real-56",
+          "hen-real-53",
+          "founder-sheet"
+        ]
+      },
+      "scores": {
+        "face": 0.59
+      },
+      "qa": {
+        "verdict": "borderline",
+        "note": "Realism 68/100 (Opus 22, Gemini 100, GPT-5.5 82). Right room and staging, but Henrick drifts (face 0.59) and the output is only 1088x608."
+      }
+    },
+    {
+      "id": "k1-tmpl-nbp",
+      "media": "image",
+      "path": "/generated/k1-tmpl-nbp.jpg",
+      "label": "1a two-shot: research template + Nano Banana Pro",
+      "origin": "generated",
+      "gen": {
+        "model": "fal-ai/nano-banana-pro/edit (fal, Leap)",
+        "prompt": "MEDIUM: an unretouched frame from a single-camera documentary comedy, shot on location in this man's real study (the first and second reference photos show the room and the man; the third shows his face up close; the fourth shows the visitor).\n\nCAMERA: a two-shot from eye level, 35 mm lens, slightly off-centre. The older man sits on the right in a worn dark-green leather armchair, in three-quarter view, listening. The visitor sits on the left in a low chair facing him, seen in three-quarter back view, leaning forward, mid-sentence. Both are reasonably sharp; the room stays readable behind them.\n\nSET: the room exactly as in the reference photos: glossy cherry-red lacquered panelling with vertical grooves, a matte charcoal wall with two small framed sketches and an acoustic guitar hanging on it, small warm practical bulbs in the dark depth of the room, a small round side table with a glass of water, dark oak floor with an old rug.\n\nLIGHT: one large soft light from the left side of the room, the same documentary interview light as the reference photos, falling off into darkness on the right; the practical bulbs glow warm in the background; neutral white balance; real, unfilled shadows.\n\nPEOPLE: the older man is the man in the reference photos: silver hair, short grey beard, round navy glasses, navy check suit, pale blue shirt, silver paisley tie, pink pocket square; pores, wrinkles and creased fabric. The visitor is the founder from the fourth reference: early thirties, curly dark hair, stubble, grey zip hoodie with pilled fabric. Neither looks at the camera. Their poses are relaxed and asymmetric, like a real conversation.\n\nCOLOR: natural colour balance, muted, as the reference photos; fine film grain.",
+        "inputs": [
+          "hen-real-38",
+          "hen-real-56",
+          "hen-real-53",
+          "founder-sheet"
+        ]
+      },
+      "scores": {
+        "face": 0.58
+      },
+      "qa": {
+        "verdict": "fail",
+        "note": "Realism 30/100 (Gemini 2, likely reading its own SynthID watermark; Opus 10; GPT-5.5 78). Over-saturated red lacquer, a crew softbox in frame, face 0.58."
+      }
+    },
+    {
+      "id": "k1-plate-nbp",
+      "media": "image",
+      "path": "/generated/k1-plate-nbp.jpg",
+      "label": "1a two-shot: real plate + Nano Banana Pro edit",
+      "origin": "generated",
+      "gen": {
+        "model": "fal-ai/nano-banana-pro/edit (fal, Leap)",
+        "prompt": "Edit this photograph. Change only one thing: add a second person in the near foreground on the left side of the frame, seated in a low chair facing the man, seen from behind and slightly to the side over his right shoulder, so his back, the side of his face and his curly dark hair are visible and soft, a little out of focus. He is a tired startup founder in his early thirties wearing a grey zip hoodie, leaning forward with his forearms on his knees, mid-sentence. Use the second image only for his face, hair and clothes.\n\nKeep everything else in the photograph exactly the same: the seated man in the navy suit, his face, expression, glasses and hands, the wood-panelled room, the lamps, the framing, the colour, the grain and the light. The new person is lit by the same warm light from the room, with the same noise and softness as the rest of the photo.",
+        "inputs": [
+          "hen-real-56",
+          "founder-sheet"
+        ]
+      },
+      "scores": {
+        "face": 0.78
+      },
+      "qa": {
+        "verdict": "fail",
+        "note": "Realism 24/100 (Gemini 1, Opus 8, GPT-5.5 62). Re-rendered the whole frame square at 2048x2048 instead of editing the plate; face held at 0.78."
+      }
+    },
+    {
+      "id": "grey-hall-A",
+      "media": "image",
+      "path": "/generated/grey-hall-A.jpg",
+      "label": "Grey box A: Tableau from the entrance",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/greybox",
+        "prompt": "25 mm, 1.5 m, facing 0"
+      }
+    },
+    {
+      "id": "grey-hall-B",
+      "media": "image",
+      "path": "/generated/grey-hall-B.jpg",
+      "label": "Grey box B: Reverse tableau from the counter",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/greybox",
+        "prompt": "25 mm, 1.35 m, facing 184"
+      }
+    },
+    {
+      "id": "grey-hall-C",
+      "media": "image",
+      "path": "/generated/grey-hall-C.jpg",
+      "label": "Grey box C: Front two-shot",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/greybox",
+        "prompt": "32 mm, 1.15 m, facing 180"
+      }
+    },
+    {
+      "id": "grey-hall-D",
+      "media": "image",
+      "path": "/generated/grey-hall-D.jpg",
+      "label": "Grey box D: Henrick single",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/greybox",
+        "prompt": "65 mm, 1.15 m, facing 209.2"
+      }
+    },
+    {
+      "id": "grey-hall-E",
+      "media": "image",
+      "path": "/generated/grey-hall-E.jpg",
+      "label": "Grey box E: Founder single",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/greybox",
+        "prompt": "65 mm, 1.15 m, facing 150.8"
+      }
+    },
+    {
+      "id": "grey-hall-F",
+      "media": "image",
+      "path": "/generated/grey-hall-F.jpg",
+      "label": "Grey box F: Ticket insert",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/greybox",
+        "prompt": "50 mm, 1 m, facing 232.1, tilt -33.7"
+      }
+    },
+    {
+      "id": "grey-hall-G",
+      "media": "image",
+      "path": "/generated/grey-hall-G.jpg",
+      "label": "Grey box G: Board insert",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/greybox",
+        "prompt": "50 mm, 1.2 m, facing 13.2, tilt 22.8"
+      }
+    },
+    {
+      "id": "grey-hall-H",
+      "media": "image",
+      "path": "/generated/grey-hall-H.jpg",
+      "label": "Grey box H: OTS onto the clerk",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/greybox",
+        "prompt": "35 mm, 1.6 m, facing 6.1, tilt -2.5"
+      }
+    },
+    {
+      "id": "grey-hall-I",
+      "media": "image",
+      "path": "/generated/grey-hall-I.jpg",
+      "label": "Grey box I: Clerk through the glass",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/greybox",
+        "prompt": "50 mm, 1.45 m, facing 5.5, tilt 1.8"
+      }
+    },
+    {
+      "id": "grey-hall-J",
+      "media": "image",
+      "path": "/generated/grey-hall-J.jpg",
+      "label": "Grey box J: Founder from inside the booth",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/greybox",
+        "prompt": "40 mm, 1.45 m, facing 181"
+      },
+      "scores": {}
+    },
+    {
+      "id": "grey-hall-K",
+      "media": "image",
+      "path": "/generated/grey-hall-K.jpg",
+      "label": "Grey box K: Form 27-B insert",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/greybox",
+        "prompt": "50 mm, 1.45 m, facing 20, tilt -34.4"
+      }
+    },
+    {
+      "id": "grey-hall-L",
+      "media": "image",
+      "path": "/generated/grey-hall-L.jpg",
+      "label": "Grey box L: Stamp insert",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/greybox",
+        "prompt": "65 mm, 1.25 m, facing 63.4, tilt -40.1"
+      }
+    },
+    {
+      "id": "hall-A-r4-sunburst",
+      "media": "image",
+      "path": "/generated/hall-A-r4-sunburst.jpg",
+      "label": "Hall master r4, GPT Image 2.5 Sunburst",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-sunburst (fal, Leap account)",
+        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board."
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Hero candidate"
+      },
+      "scores": {}
+    },
+    {
+      "id": "hall-A-r4-flare",
+      "media": "image",
+      "path": "/generated/hall-A-r4-flare.jpg",
+      "label": "Hall master r4, GPT Image 2.5 Flare",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (fal, Leap account)",
+        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board."
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Alt"
+      },
+      "scores": {}
+    },
+    {
+      "id": "hall-A-r4-nbp-a",
+      "media": "image",
+      "path": "/generated/hall-A-r4-nbp-a.jpg",
+      "label": "Hall master r4, Nano Banana Pro (a)",
+      "origin": "generated",
+      "gen": {
+        "model": "google/nano-banana-pro (Leap)",
+        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board."
+      },
+      "qa": {
+        "verdict": "fail",
+        "note": "Wrong windows lit, HDR"
+      },
+      "scores": {}
+    },
+    {
+      "id": "hall-A-r4-nbp-b",
+      "media": "image",
+      "path": "/generated/hall-A-r4-nbp-b.jpg",
+      "label": "Hall master r4, Nano Banana Pro (b)",
+      "origin": "generated",
+      "gen": {
+        "model": "google/nano-banana-pro (Leap)",
+        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board."
+      },
+      "qa": {
+        "verdict": "fail",
+        "note": "Fake film-frame corners, extras face camera"
+      },
+      "scores": {}
+    },
+    {
+      "id": "hall-A-r4-grok",
+      "media": "image",
+      "path": "/generated/hall-A-r4-grok.jpg",
+      "label": "Hall master r4, Grok Imagine 2.0",
+      "origin": "generated",
+      "gen": {
+        "model": "xai/grok-imagine-image-2.0 (Leap)",
+        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board."
+      },
+      "qa": {
+        "verdict": "fail",
+        "note": "CG-clean"
+      },
+      "scores": {}
+    },
+    {
+      "id": "hall-A-r4-seedream-a",
+      "media": "image",
+      "path": "/generated/hall-A-r4-seedream-a.jpg",
+      "label": "Hall master r4, Seedream 5 Pro (a)",
+      "origin": "generated",
+      "gen": {
+        "model": "bytedance/seedream-5.0-pro (Leap)",
+        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board."
+      },
+      "qa": {
+        "verdict": "fail",
+        "note": "CG-clean"
+      },
+      "scores": {}
+    },
+    {
+      "id": "hall-A-r4-seedream-b",
+      "media": "image",
+      "path": "/generated/hall-A-r4-seedream-b.jpg",
+      "label": "Hall master r4, Seedream 5 Pro (b)",
+      "origin": "generated",
+      "gen": {
+        "model": "bytedance/seedream-5.0-pro (Leap)",
+        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board."
+      },
+      "qa": {
+        "verdict": "borderline",
+        "note": "CG-clean, good gag"
+      },
+      "scores": {}
     }
   ],
   "graphics": [
@@ -1540,11 +3033,31 @@
       "keyframes": [
         {
           "asset": "k1-c7e01b",
-          "verdict": "circled"
+          "verdict": "alt"
         },
         {
           "asset": "k1-9729b5",
           "verdict": "alt"
+        },
+        {
+          "asset": "k1-plate-flare",
+          "verdict": "circled",
+          "note": "A/B winner: real plate + Flare edit, realism 94, face 0.78"
+        },
+        {
+          "asset": "k1-tmpl-flare",
+          "verdict": "pending",
+          "note": "template + Flare, realism 68"
+        },
+        {
+          "asset": "k1-tmpl-nbp",
+          "verdict": "pending",
+          "note": "template + Nano Banana Pro, realism 30"
+        },
+        {
+          "asset": "k1-plate-nbp",
+          "verdict": "pending",
+          "note": "plate + Nano Banana Pro, realism 24"
         }
       ],
       "takes": [
@@ -3048,6 +4561,31 @@
       "t": "2026-10-06T18:03:49.025Z",
       "text": "Research lanes done: dialogue, sets and coverage, cinema-grade pipelines (raw reports in work/research/). Photoreal stills still running.",
       "kind": "info"
+    },
+    {
+      "t": "2026-10-06T18:06:55.485Z",
+      "text": "Research lanes all done (4 of 4): dialogue, sets and coverage, pipelines, photoreal stills. Raw reports in work/research/; the set-design session owns the synthesis.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T18:12:05.065Z",
+      "text": "Shot 1a A/B: the real-plate edit (his real frame + GPT Image 2.5 Flare) scored 94/100 on the blind realism panel against 5 for the old still, above the real frames; Henrick's face 0.78. Animating it in Seedance 2.5 next.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T18:16:32.497Z",
+      "text": "Grey box for Ministry waiting hall: rendered 12 setups from the floor plan",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T18:16:42.322Z",
+      "text": "Grey box for Ministry waiting hall: rendered 1 setups from the floor plan",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T18:17:03.313Z",
+      "text": "Hall master round 4 (positive brief, 5 models): GPT Image 2.5 Sunburst circled as the hero look, Flare alt; NBP, Grok and Seedream rejected for CG-clean or staged frames",
+      "kind": "done"
     }
   ],
   "ui": {

@@ -80,9 +80,71 @@ export type Look = {
   grain: string
   note?: string
 }
+/** A point on a floor plan in metres. x runs left to right as seen from the entrance, y from the entrance (0)
+ * toward the far wall. Facing is in degrees: 0 looks toward the far wall (+y), 90 toward the right wall (+x). */
+export type Pt = [number, number]
+export type PlanItemKind = "wall" | "window" | "door" | "counter" | "seats" | "furniture" | "prop" | "light" | "board"
+/** A gap in a wall item, measured along the wall from its left end: [offset, width, sill height, opening height]. */
+export type Opening = [number, number, number, number]
+export type PlanItem = {
+  id: Id
+  kind: PlanItemKind
+  label: string
+  /** Centre of the footprint. */
+  at: Pt
+  /** Footprint [width along x, depth along y] before rotation, and height. */
+  size: [number, number, number]
+  /** Height of the base above the floor (a board on the wall, a window sill). */
+  z?: number
+  rot?: number
+  /** Openings cut through a wall item (service windows, doorways). */
+  openings?: Opening[]
+}
+/** Where a person stands or sits. `who` is a character id, or a short label for an extra. */
+export type Mark = {
+  id: Id
+  who: string
+  at: Pt
+  facing: number
+  pose: "sit" | "stand"
+  /** Height of the floor they are on, in metres (a raised platform behind a counter). */
+  z?: number
+  /** The scene beat this mark belongs to; marks without one are always present (extras, the clerk). */
+  beat?: string
+  note?: string
+}
+/** A 180-degree line between two marks. Setups that name it must all stay on one side. */
+export type Axis = { id: Id; label: string; a: Id; b: Id }
+export type ShotSize = "EWS" | "WS" | "MWS" | "MS" | "MCU" | "CU" | "ECU" | "INS"
+export type Setup = {
+  id: Id
+  name: string
+  size: ShotSize
+  /** Focal length in mm on a Super 35 sensor (24.9 mm wide). */
+  lens: number
+  /** Lens height above the floor in metres. */
+  height: number
+  at: Pt
+  facing: number
+  /** Degrees up (positive) or down. */
+  tilt?: number
+  axis?: Id
+  /** The scene beat this camera covers; only that beat's marks (and the always-present ones) are on set. */
+  beat?: string
+  /** Which marks the frame is about, for screen-side checks. */
+  subjects?: Id[]
+  purpose?: string
+  /** Grey-box render from this camera (geometry and blocking). */
+  render?: Id
+  /** Set plates from this camera (the look), circled like takes. */
+  plates?: Take[]
+}
+export type Plan = { width: number; depth: number; height: number; items: PlanItem[]; marks: Mark[]; axes: Axis[]; setups: Setup[] }
+
 export type Location = {
   id: Id
   name: string
+  plan?: Plan
   /** Style frames that set the look for every keyframe shot here. */
   style: Id[]
   /** Images the post grade is matched to. Real footage where it exists. */
@@ -120,6 +182,8 @@ export type Shot = {
   name: string
   section: Id
   location?: Id
+  /** Camera setup on the location's floor plan. */
+  setup?: Id
   characters: Id[]
   status: ShotStatus
   card: ShotCard

@@ -2,8 +2,12 @@
 // the CLI (scripts/stitch.ts) applies the same functions. Pure: (project, op) -> project.
 
 import type {
-  ActivityKind, Asset, CardKey, Character, CheckKey, Cut, Graphic, Id, Location, Project, Section, Shot, TakeVerdict,
+  ActivityKind, Asset, Axis, CardKey, Character, CheckKey, Cut, Graphic, Id, Location, Mark, Plan, PlanItem, Project, Section,
+  Setup, Shot, Take, TakeVerdict,
 } from "./model"
+
+/** The editable lists on a floor plan, and the element type each holds. */
+export type PlanList = { items: PlanItem; marks: Mark; axes: Axis; setups: Setup }
 
 export type Op =
   | { op: "log"; text: string; kind?: ActivityKind }
@@ -25,6 +29,12 @@ export type Op =
   | { op: "character.upsert"; character: Character }
   | { op: "location.upsert"; location: Location }
   | { op: "location.update"; id: Id; patch: Partial<Omit<Location, "id">> }
+  | { op: "plan.set"; location: Id; plan: Plan }
+  | { op: "plan.resize"; location: Id; width: number; depth: number; height: number }
+  | { [K in keyof PlanList]: { op: "plan.upsert"; location: Id; list: K; value: PlanList[K] } }[keyof PlanList]
+  | { op: "plan.patch"; location: Id; list: keyof PlanList; id: Id; patch: Record<string, unknown> }
+  | { op: "plan.remove"; location: Id; list: keyof PlanList; id: Id }
+  | { op: "plan.plate"; location: Id; setup: Id; asset: Id; verdict?: TakeVerdict; note?: string }
   | { op: "character.update"; id: Id; patch: Partial<Omit<Character, "id">> }
   | { op: "graphic.upsert"; graphic: Graphic }
   | { op: "section.upsert"; section: Section }
@@ -43,20 +53,29 @@ function mapShot(p: Project, id: Id, f: (s: Shot) => Shot): Project {
   return { ...p, shots: p.shots.map((s) => (s.id === id ? f(s) : s)) }
 }
 
+function mapPlan(p: Project, loc: Id, f: (plan: Plan) => Plan): Project {
+  const l = need(p.locations.find((x) => x.id === loc), `location ${loc}`)
+  const plan = need(l.plan, `plan on ${loc}`)
+  return { ...p, locations: p.locations.map((x) => (x.id === loc ? { ...x, plan: f(plan) } : x)) }
+}
+
 function upsert<T extends { id: Id }>(list: T[], item: T): T[] {
   return list.some((x) => x.id === item.id) ? list.map((x) => (x.id === item.id ? item : x)) : [...list, item]
 }
 
 /** Circling a take demotes any other circled take in the same list to "alt". */
-function setVerdict(s: Shot, asset: Id, verdict: TakeVerdict, note?: string): Shot {
-  const inKey = s.keyframes.some((t) => t.asset === asset) ? "keyframes" : s.takes.some((t) => t.asset === asset) ? "takes" : null
-  if (!inKey) throw new Error(`asset ${asset} is not a take of shot ${s.id}`)
-  const list = s[inKey].map((t) => {
+function circle(list: Take[], asset: Id, verdict: TakeVerdict, note?: string): Take[] {
+  return list.map((t) => {
     if (t.asset === asset) return { ...t, verdict, note: note ?? t.note }
     if (verdict === "circled" && t.verdict === "circled") return { ...t, verdict: "alt" as const }
     return t
   })
-  return { ...s, [inKey]: list }
+}
+
+function setVerdict(s: Shot, asset: Id, verdict: TakeVerdict, note?: string): Shot {
+  const inKey = s.keyframes.some((t) => t.asset === asset) ? "keyframes" : s.takes.some((t) => t.asset === asset) ? "takes" : null
+  if (!inKey) throw new Error(`asset ${asset} is not a take of shot ${s.id}`)
+  return { ...s, [inKey]: circle(s[inKey], asset, verdict, note) }
 }
 
 export function applyOp(p: Project, o: Op): Project {
@@ -113,7 +132,7 @@ export function applyOp(p: Project, o: Op): Project {
       const used =
         p.shots.some((s) => [...s.keyframes, ...s.takes].some((t) => t.asset === o.id) || s.lines.some((l) => l.audio === o.id) || s.sfx.some((c) => c.asset === o.id)) ||
         p.characters.some((c) => c.anchors.includes(o.id) || c.sheets.includes(o.id) || c.voice?.ref === o.id) ||
-        p.locations.some((l) => l.style.includes(o.id) || l.gradeRef.includes(o.id) || l.props?.includes(o.id) || l.ambience === o.id) ||
+        p.locations.some((l) => l.style.includes(o.id) || l.gradeRef.includes(o.id) || l.props?.includes(o.id) || l.ambience === o.id || l.plan?.setups.some((u) => u.render === o.id || u.plates?.some((t) => t.asset === o.id))) ||
         p.graphics.some((g) => g.preview === o.id) ||
         p.cuts.some((c) => c.asset === o.id) ||
         p.assets.some((a) => a.gen?.inputs?.includes(o.id))
@@ -129,6 +148,39 @@ export function applyOp(p: Project, o: Op): Project {
     case "location.update":
       need(p.locations.find((l) => l.id === o.id), `location ${o.id}`)
       return { ...p, locations: p.locations.map((l) => (l.id === o.id ? { ...l, ...o.patch } : l)) }
+    case "plan.set":
+      need(p.locations.find((l) => l.id === o.location), `location ${o.location}`)
+      return { ...p, locations: p.locations.map((l) => (l.id === o.location ? { ...l, plan: o.plan } : l)) }
+    case "plan.resize":
+      return mapPlan(p, o.location, (plan) => ({ ...plan, width: o.width, depth: o.depth, height: o.height }))
+    case "plan.upsert":
+      return mapPlan(p, o.location, (plan) => ({ ...plan, [o.list]: upsert(plan[o.list] as { id: Id }[], o.value) }))
+    case "plan.patch":
+      return mapPlan(p, o.location, (plan) => {
+        const list = plan[o.list] as { id: Id }[]
+        need(list.find((x) => x.id === o.id), `${o.list} ${o.id}`)
+        return { ...plan, [o.list]: list.map((x) => (x.id === o.id ? { ...x, ...o.patch } : x)) }
+      })
+    case "plan.remove":
+      return mapPlan(p, o.location, (plan) => {
+        const list = plan[o.list] as { id: Id }[]
+        need(list.find((x) => x.id === o.id), `${o.list} ${o.id}`)
+        if (o.list === "setups" && p.shots.some((s) => s.location === o.location && s.setup === o.id)) throw new Error(`setup ${o.id} is used by a shot`)
+        return { ...plan, [o.list]: list.filter((x) => x.id !== o.id) }
+      })
+    case "plan.plate": {
+      need(p.assets.find((a) => a.id === o.asset), `asset ${o.asset}`)
+      return mapPlan(p, o.location, (plan) => {
+        need(plan.setups.find((u) => u.id === o.setup), `setup ${o.setup}`)
+        const setups = plan.setups.map((u) => {
+          if (u.id !== o.setup) return u
+          const list = u.plates ?? []
+          const added = list.some((t) => t.asset === o.asset) ? list : [...list, { asset: o.asset, verdict: "pending" as TakeVerdict, note: o.note }]
+          return { ...u, plates: o.verdict ? circle(added, o.asset, o.verdict, o.note) : added }
+        })
+        return { ...plan, setups }
+      })
+    }
     case "character.update":
       need(p.characters.find((c) => c.id === o.id), `character ${o.id}`)
       return { ...p, characters: p.characters.map((c) => (c.id === o.id ? { ...c, ...o.patch } : c)) }

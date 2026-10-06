@@ -7,6 +7,7 @@ import { canvasGraph, type CanvasEdge, type CanvasNode, type Index, type ShotRow
 import type { ProjectWithRev } from "@/lib/model"
 import type { Op } from "@/lib/ops"
 import { cn } from "@/lib/utils"
+import { FloorPlan } from "./floor-plan"
 import { Chip, FaceChip, ModeChip, Thumb, VerdictChip, VoiceChip, fmt } from "./media"
 
 type Data<K extends CanvasNode["kind"]> = Extract<CanvasNode, { kind: K }>["data"] & { baselines: ProjectWithRev["baselines"] }
@@ -101,14 +102,53 @@ function CharacterNode({ data }: NodeProps<Node<Data<"character">>>) {
 function LocationNode({ data }: NodeProps<Node<Data<"location">>>) {
   const l = data.location
   return (
-    <div className="w-[260px] rounded-xl border bg-card p-3 shadow-lg">
+    <div className={cn("rounded-xl border bg-card p-3 shadow-lg", data.plan ? "w-[340px]" : "w-[260px]")}>
       <div className="text-[10px] tracking-widest text-muted-foreground uppercase">Location · look</div>
       <div className="mt-0.5 text-base font-semibold">{l.name}</div>
       {l.look.concept && <div className="mt-1 text-[12px] leading-snug">{l.look.concept}</div>}
       <div className="mt-1.5 flex gap-1">{l.look.palette.map((c) => <span key={c} className="size-4 rounded-sm border" style={{ background: c }} />)}</div>
       <div className="mt-1.5 text-[11px] leading-snug text-muted-foreground">{l.look.light}. {l.look.lens}.</div>
-      {data.style.length === 0 && <div className="mt-1.5"><Chip tone="warn">no set plate yet</Chip></div>}
+      {data.style.length === 0 && !data.plan && <div className="mt-1.5"><Chip tone="warn">no set plate yet</Chip></div>}
+      {data.plan && (
+        <div className="mt-2">
+          <div className="mb-1 text-[10px] tracking-widest text-muted-foreground uppercase">Floor plan · {data.plan.setups.length} setups</div>
+          <FloorPlan view={data.plan} width={314} className="rounded-md" />
+          {data.plan.issues.map((i) => <div key={i.text} className={cn("mt-1 text-[11px]", i.level === "fail" ? "text-rose-300" : "text-amber-300")}>{i.text}</div>)}
+        </div>
+      )}
       <Handle id="r" type="source" position={Position.Right} className={dot} />
+    </div>
+  )
+}
+
+function SetupNode({ data }: NodeProps<Node<Data<"setup">>>) {
+  const u = data.setup
+  const subjects = u.inFrame.filter((m) => !u.subjects || u.subjects.includes(m.mark.id))
+  return (
+    <div className="w-[300px] rounded-xl border border-violet-400/40 bg-card p-2 shadow-lg">
+      <Handle id="l" type="target" position={Position.Left} className="!size-2 !border-0 !bg-violet-400" />
+      <div className="mb-1.5 flex items-baseline gap-1.5 text-[11px]">
+        <span className="font-mono text-sm font-semibold text-violet-300">{u.id}</span>
+        <span className="truncate font-medium">{u.name}</span>
+        <span className="ml-auto shrink-0 font-mono text-muted-foreground">{u.size} {u.lens}mm</span>
+      </div>
+      <div className="grid grid-cols-2 gap-1">
+        <div>
+          <Thumb asset={data.render} className="aspect-video w-full rounded" />
+          <div className="mt-0.5 text-[10px] text-muted-foreground">grey box</div>
+        </div>
+        <div>
+          <Thumb asset={data.plate} className="aspect-video w-full rounded" />
+          <div className="mt-0.5 text-[10px] text-muted-foreground">{data.plate ? `plate · ${data.takes} take${data.takes === 1 ? "" : "s"}` : "no plate yet"}</div>
+        </div>
+      </div>
+      <div className="mt-1 flex flex-wrap gap-1">
+        {subjects.map((m) => <Chip key={m.mark.id} tone="muted">{m.mark.who} {m.x < 0.4 ? "left" : m.x > 0.6 ? "right" : "centre"}</Chip>)}
+        {u.axis && <Chip tone="muted" title="All setups on this line stay on one side">line {u.axis}</Chip>}
+        {data.shots.map((sh) => <Chip key={sh} tone="good">shot {sh}</Chip>)}
+      </div>
+      {u.purpose && <div className="mt-1 text-[11px] leading-snug text-muted-foreground">{u.purpose}</div>}
+      <Handle id="s" type="source" position={Position.Bottom} className={dot} />
     </div>
   )
 }
@@ -129,7 +169,7 @@ function FinalNode({ data }: NodeProps<Node<Data<"final">>>) {
   )
 }
 
-const nodeTypes = { asset: AssetNode, shot: ShotNode, lines: LinesNode, graphic: GraphicNode, character: CharacterNode, location: LocationNode, final: FinalNode }
+const nodeTypes = { asset: AssetNode, shot: ShotNode, lines: LinesNode, graphic: GraphicNode, character: CharacterNode, location: LocationNode, setup: SetupNode, final: FinalNode }
 
 const edgeStyle: Record<CanvasEdge["kind"], React.CSSProperties> = {
   input: { stroke: "#60a5fa", strokeWidth: 1.4, opacity: 0.55 },

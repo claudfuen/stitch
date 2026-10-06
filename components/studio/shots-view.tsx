@@ -3,9 +3,10 @@
 import { Play } from "lucide-react"
 import { useEffect, useState } from "react"
 import { CARD_FIELDS, type CardKey, type Check, type ProjectWithRev, type ShotStatus } from "@/lib/model"
-import type { Index, ShotRow, Summary } from "@/lib/derive"
+import { pick, planView, type Index, type ShotRow, type Summary } from "@/lib/derive"
 import type { Op } from "@/lib/ops"
 import { cn } from "@/lib/utils"
+import { FloorPlan } from "./floor-plan"
 import { Chip, FaceChip, ModeChip, TakeChip, Thumb, VerdictChip, VoiceChip, fmt } from "./media"
 
 type Props = { project: ProjectWithRev; ix: Index; rows: ShotRow[]; sum: Summary; op: (...o: Op[]) => Promise<void>; onWatch: () => void; onFocus: (nodeId: string) => void }
@@ -86,6 +87,7 @@ export function ShotsView({ project: p, ix, rows, sum, op, onWatch, onFocus }: P
                       {l.gradeRef.length > 0 && <span className="ml-1">grade matched to</span>}
                       {l.gradeRef.map((a) => <Thumb key={a} asset={ix.assets.get(a)} className="h-10 w-16 rounded" />)}
                     </div>
+                    <PlanStrip l={l} ix={ix} onFocus={onFocus} />
                   </div>
                 </div>
               ))}
@@ -101,6 +103,29 @@ export function ShotsView({ project: p, ix, rows, sum, op, onWatch, onFocus }: P
   )
 }
 
+/** The location's floor plan beside its camera setups (plate if picked, else the grey-box render). */
+function PlanStrip({ l, ix, onFocus }: { l: ProjectWithRev["locations"][number]; ix: Index; onFocus: Props["onFocus"] }) {
+  const view = planView(l)
+  if (!view) return null
+  return (
+    <div className="mt-2 flex gap-3">
+      <FloorPlan view={view} width={150} className="shrink-0 rounded" />
+      <div className="grid min-w-0 flex-1 grid-cols-3 content-start gap-1.5">
+        {view.setups.map((u) => {
+          const plate = pick(u.plates ?? [])
+          const a = ix.assets.get(plate?.asset ?? u.render ?? "")
+          return (
+            <button key={u.id} onClick={() => onFocus(`setup:${l.id}:${u.id}`)} className="text-left" title={`${u.name}: ${u.size}, ${u.lens} mm${u.purpose ? `. ${u.purpose}` : ""}`}>
+              <Thumb asset={a} className="aspect-video w-full rounded" />
+              <div className="mt-0.5 truncate text-[10px]"><b className="text-violet-300">{u.id}</b> {u.name}{!plate && <span className="text-amber-300"> · grey</span>}</div>
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
 function ShotCardRow({ r, p, op, onFocus }: { r: ShotRow; p: ProjectWithRev; op: Props["op"]; onFocus: Props["onFocus"] }) {
   const color = r.section?.color ?? "#64748b"
   const b = p.baselines
@@ -111,6 +136,7 @@ function ShotCardRow({ r, p, op, onFocus }: { r: ShotRow; p: ProjectWithRev; op:
         <span className="text-sm font-medium">{r.shot.name}</span>
         <span className="text-[11px] tracking-wide uppercase" style={{ color }}>{r.section?.name}</span>
         {r.location && <span className="text-[11px] text-muted-foreground">{r.location.name}</span>}
+        {r.setup && <Chip tone="muted" title={r.setup.purpose}>setup {r.setup.id} · {r.setup.name} · {r.setup.size} {r.setup.lens}mm</Chip>}
         {r.timing && <span className="font-mono text-[11px] text-muted-foreground">{fmt(r.timing.start)} to {fmt(r.timing.start + r.timing.dur)} in {p.cuts[0]?.version}</span>}
         <select value={r.shot.status} onChange={(e) => op({ op: "shot.update", id: r.shot.id, patch: { status: e.target.value as ShotStatus } })} className="ml-auto rounded-md border bg-background px-2 py-1 text-xs">
           {STATUSES.map((s) => <option key={s}>{s}</option>)}
