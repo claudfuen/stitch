@@ -258,27 +258,6 @@
       }
     },
     {
-      "id": "k5",
-      "type": "generation",
-      "position": {
-        "x": 1915.0489241538526,
-        "y": 253.76223103846314
-      },
-      "data": {
-        "title": "Keyframe \u00b7 Scene 5",
-        "kind": "image",
-        "model": "TBD (Higgsfield)",
-        "status": "idle",
-        "hue": 0
-      },
-      "measured": {
-        "width": 208,
-        "height": 259
-      },
-      "selected": false,
-      "dragging": false
-    },
-    {
       "id": "mp5",
       "type": "prompt",
       "position": {
@@ -680,168 +659,6 @@
       }
     },
     {
-      "id": "hen-t1",
-      "type": "generation",
-      "position": {
-        "x": -1598.8137877637112,
-        "y": 801.483098779049
-      },
-      "data": {
-        "title": "Identity test 1 \u00b7 office, three-quarter (v1: used 3 AI-derived refs, superseded)",
-        "kind": "image",
-        "model": "GPT Image 2.5 (high, 4 refs)",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/hen-k-office-34.jpg",
-        "job": "7f0dfb68-5038-4b0e-997f-15008647f009",
-        "prompt": "Same man as references, startup office at dusk, medium 3/4, arms folded, deadpan."
-      },
-      "measured": {
-        "width": 208,
-        "height": 303
-      },
-      "selected": false,
-      "dragging": false
-    },
-    {
-      "id": "hen-t2",
-      "type": "generation",
-      "position": {
-        "x": -1051.686579303102,
-        "y": 825.1930299853321
-      },
-      "data": {
-        "title": "Identity test 2 \u00b7 close-up, study (v1: used 3 AI-derived refs, superseded)",
-        "kind": "image",
-        "model": "GPT Image 2.5 (high, 4 refs)",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/hen-t2.jpg",
-        "job": "5d1a20a1-441e-4a83-9ef1-e9986ff64219"
-      },
-      "measured": {
-        "width": 208,
-        "height": 303
-      },
-      "selected": false,
-      "dragging": false
-    },
-    {
-      "id": "hen-t3",
-      "type": "generation",
-      "position": {
-        "x": -1334.1799346325158,
-        "y": 827.8762780456518
-      },
-      "data": {
-        "title": "Identity test 3 \u00b7 wide, corridor (v1: used 3 AI-derived refs, superseded)",
-        "kind": "image",
-        "model": "GPT Image 2.5 (high, 4 refs)",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/hen-t3.jpg",
-        "job": "1e35e659-f3d3-4598-b090-b2521978646f"
-      },
-      "measured": {
-        "width": 208,
-        "height": 303
-      },
-      "selected": false,
-      "dragging": false
-    },
-    {
-      "id": "hen-sheet",
-      "type": "generation",
-      "position": {
-        "x": -440,
-        "y": -60
-      },
-      "data": {
-        "title": "Character sheet \u00b7 Henrick turnaround (one-pass sheet) (v1: used 3 AI-derived refs, superseded)",
-        "kind": "image",
-        "model": "GPT Image 2.5 (high, 5 refs)",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/hen-sheet.jpg",
-        "job": "b2f15ee2-4056-4196-a73a-f909949a2cde"
-      },
-      "measured": {
-        "width": 208,
-        "height": 319
-      },
-      "selected": false,
-      "dragging": false
-    },
-    {
-      "id": "hen-t4",
-      "type": "generation",
-      "position": {
-        "x": -759.4699784002275,
-        "y": 847.3410548188564
-      },
-      "data": {
-        "title": "Identity test 4 \u00b7 profile, seated (v1: used 3 AI-derived refs, superseded)",
-        "kind": "image",
-        "model": "GPT Image 2.5 (high, 4 refs)",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/hen-t4.jpg",
-        "job": "8c44565e-ee50-4b87-9e41-b10d54e8e217"
-      },
-      "measured": {
-        "width": 208,
-        "height": 303
-      },
-      "selected": false,
-      "dragging": false
-    },
-    {
-      "id": "kb3",
-      "type": "generation",
-      "position": {
-        "x": 1332.6504577129972,
-        "y": 238.25174181300974
-      },
-      "data": {
-        "title": "Keyframe B v1 \u00b7 Scene 3 (sheet + stills)",
-        "kind": "image",
-        "model": "GPT Image 2.5 (v1 refs, superseded)",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/kb3.jpg",
-        "job": "ba3efdb5-b54a-420c-bd0b-e3e9b6d7747a"
-      },
-      "measured": {
-        "width": 208,
-        "height": 304
-      },
-      "selected": false,
-      "dragging": false
-    },
-    {
-      "id": "kb7",
-      "type": "generation",
-      "position": {
-        "x": 2817.797211201921,
-        "y": 236.55944224038421
-      },
-      "data": {
-        "title": "Keyframe B v1 \u00b7 Scene 7 (sheet + stills)",
-        "kind": "image",
-        "model": "GPT Image 2.5 (v1 refs, superseded)",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/kb7.jpg",
-        "job": "f771b015-afb5-4b69-bd6c-08dc70eba222"
-      },
-      "measured": {
-        "width": 208,
-        "height": 304
-      },
-      "selected": false,
-      "dragging": false
-    },
-    {
       "id": "hen-r38",
       "type": "asset",
       "data": {
@@ -920,73 +737,6 @@
         "width": 208,
         "height": 304
       }
-    },
-    {
-      "id": "k1",
-      "type": "generation",
-      "position": {
-        "x": 340,
-        "y": 240
-      },
-      "data": {
-        "title": "Keyframe A \u00b7 Scene 1 (v2 sheet only)",
-        "kind": "image",
-        "model": "GPT Image 2.5 (v2 sheet only)",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/k1-9729b5.jpg",
-        "job": "9729b5b3-afa4-4d30-acf8-f55af66fd65f"
-      },
-      "measured": {
-        "width": 208,
-        "height": 287
-      }
-    },
-    {
-      "id": "k2",
-      "type": "generation",
-      "position": {
-        "x": 676.331472631812,
-        "y": 230.29588280706935
-      },
-      "data": {
-        "title": "Keyframe A \u00b7 Scene 2 (v2 sheet only)",
-        "kind": "image",
-        "model": "GPT Image 2.5 (v2 sheet only)",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/k2-0ffd5b.jpg",
-        "job": "0ffd5b50-b798-4c57-b7f3-a410740c8849"
-      },
-      "measured": {
-        "width": 208,
-        "height": 287
-      },
-      "selected": true,
-      "dragging": false
-    },
-    {
-      "id": "k4",
-      "type": "generation",
-      "position": {
-        "x": 1635.4157819345817,
-        "y": 243.00339707418925
-      },
-      "data": {
-        "title": "Keyframe A \u00b7 Scene 4 (v2 sheet only)",
-        "kind": "image",
-        "model": "GPT Image 2.5 (v2 sheet only)",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/k4-b7536a.jpg",
-        "job": "b7536a5a-26c8-4418-98c1-02de85cc5dea"
-      },
-      "measured": {
-        "width": 208,
-        "height": 287
-      },
-      "selected": false,
-      "dragging": false
     },
     {
       "id": "k6",
@@ -1084,8 +834,8 @@
       "id": "hen-poses",
       "type": "generation",
       "position": {
-        "x": -440.0,
-        "y": 1060.0
+        "x": -440,
+        "y": 1060
       },
       "data": {
         "title": "Full-body action poses \u00b7 Henrick (6 poses)",
@@ -1095,14 +845,19 @@
         "hue": 0,
         "url": "/generated/hen-poses-b23dcd.jpg",
         "job": "b23dcd8d-13a8-444f-a363-d1912ff0c913"
-      }
+      },
+      "measured": {
+        "width": 208,
+        "height": 320
+      },
+      "selected": true
     },
     {
       "id": "k3",
       "type": "generation",
       "position": {
-        "x": 1100.0,
-        "y": 240.0
+        "x": 1100,
+        "y": 240
       },
       "data": {
         "title": "Keyframe A \u00b7 Scene 3 (v2, fictional ministry, no flags)",
@@ -1112,6 +867,112 @@
         "hue": 0,
         "url": "/generated/k3-88032e.jpg",
         "job": "88032e83-6f23-4ff6-a5be-f9e7b8b783e4"
+      },
+      "measured": {
+        "width": 208,
+        "height": 320
+      }
+    },
+    {
+      "id": "k1",
+      "type": "generation",
+      "position": {
+        "x": 340.0,
+        "y": 240.0
+      },
+      "data": {
+        "title": "Keyframe A \u00b7 Scene 1 (sheet + founder sheet)",
+        "kind": "image",
+        "model": "GPT Image 2.5",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/k1-c7e01b.jpg",
+        "job": "c7e01b1e-18b0-4db8-9c66-90f0ed8f1960"
+      }
+    },
+    {
+      "id": "k2",
+      "type": "generation",
+      "position": {
+        "x": 720.0,
+        "y": 240.0
+      },
+      "data": {
+        "title": "Keyframe A \u00b7 Scene 2 (sheet + founder sheet)",
+        "kind": "image",
+        "model": "GPT Image 2.5",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/k2-f2b22d.jpg",
+        "job": "f2b22d80-e99e-47e9-aea4-2bfb6770508e"
+      }
+    },
+    {
+      "id": "k4",
+      "type": "generation",
+      "position": {
+        "x": 1480.0,
+        "y": 240.0
+      },
+      "data": {
+        "title": "Keyframe A \u00b7 Scene 4 (sheet + founder sheet)",
+        "kind": "image",
+        "model": "GPT Image 2.5",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/k4-17c017.jpg",
+        "job": "17c017ff-c5fe-4de6-9f7b-7b7bece87663"
+      }
+    },
+    {
+      "id": "k5",
+      "type": "generation",
+      "position": {
+        "x": 1860.0,
+        "y": 240.0
+      },
+      "data": {
+        "title": "Keyframe A \u00b7 Scene 5 (founder sheet)",
+        "kind": "image",
+        "model": "GPT Image 2.5",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/k5-9d532d.jpg",
+        "job": "9d532d4b-66ca-442e-9713-d4254518f439"
+      }
+    },
+    {
+      "id": "kb6",
+      "type": "generation",
+      "position": {
+        "x": 2455.0,
+        "y": 240.0
+      },
+      "data": {
+        "title": "Keyframe B \u00b7 Scene 6 (sheet + 3 real stills)",
+        "kind": "image",
+        "model": "GPT Image 2.5",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/kb6-061d2f.jpg",
+        "job": "061d2fb3-f95b-4841-9930-845d3d926720"
+      }
+    },
+    {
+      "id": "kb7",
+      "type": "generation",
+      "position": {
+        "x": 2835.0,
+        "y": 240.0
+      },
+      "data": {
+        "title": "Keyframe B \u00b7 Scene 7 (sheet + 3 real stills)",
+        "kind": "image",
+        "model": "GPT Image 2.5",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/kb7-36c2bb.jpg",
+        "job": "36c2bb73-d45d-4806-b933-3720c785c75c"
       }
     }
   ],
@@ -1252,46 +1113,6 @@
       "target": "k4"
     },
     {
-      "id": "hen-side-hen-sheet",
-      "source": "hen-side",
-      "target": "hen-sheet"
-    },
-    {
-      "id": "hen-gesture-hen-sheet",
-      "source": "hen-gesture",
-      "target": "hen-sheet"
-    },
-    {
-      "id": "hen-close-hen-sheet",
-      "source": "hen-close",
-      "target": "hen-sheet"
-    },
-    {
-      "id": "hen-study-hen-sheet",
-      "source": "hen-study",
-      "target": "hen-sheet"
-    },
-    {
-      "id": "hen-sheet-k1",
-      "source": "hen-sheet",
-      "target": "k1"
-    },
-    {
-      "id": "hen-sheet-k2",
-      "source": "hen-sheet",
-      "target": "k2"
-    },
-    {
-      "id": "hen-sheet-k3",
-      "source": "hen-sheet",
-      "target": "k3"
-    },
-    {
-      "id": "hen-sheet-k5",
-      "source": "hen-sheet",
-      "target": "k5"
-    },
-    {
       "id": "mg1-v1",
       "source": "mg1",
       "target": "v1",
@@ -1350,51 +1171,6 @@
         "strokeDasharray": "4 4",
         "stroke": "#fbbf24"
       }
-    },
-    {
-      "id": "hen-side-hen-t1",
-      "source": "hen-side",
-      "target": "hen-t1"
-    },
-    {
-      "id": "hen-close-hen-t1",
-      "source": "hen-close",
-      "target": "hen-t1"
-    },
-    {
-      "id": "hen-side-hen-t2",
-      "source": "hen-side",
-      "target": "hen-t2"
-    },
-    {
-      "id": "hen-close-hen-t2",
-      "source": "hen-close",
-      "target": "hen-t2"
-    },
-    {
-      "id": "hen-side-hen-t3",
-      "source": "hen-side",
-      "target": "hen-t3"
-    },
-    {
-      "id": "hen-side-hen-t4",
-      "source": "hen-side",
-      "target": "hen-t4"
-    },
-    {
-      "id": "hen-close-hen-t4",
-      "source": "hen-close",
-      "target": "hen-t4"
-    },
-    {
-      "id": "kp3-kb3",
-      "source": "kp3",
-      "target": "kb3"
-    },
-    {
-      "id": "kp7-kb7",
-      "source": "kp7",
-      "target": "kb7"
     },
     {
       "id": "hen-gesture-hen-sheet2",
@@ -1485,6 +1261,126 @@
       "id": "hen-sheet2-k3",
       "source": "hen-sheet2",
       "target": "k3"
+    },
+    {
+      "id": "hen-sheet2-k1",
+      "source": "hen-sheet2",
+      "target": "k1"
+    },
+    {
+      "id": "hen-sheet2-k2",
+      "source": "hen-sheet2",
+      "target": "k2"
+    },
+    {
+      "id": "hen-sheet2-k4",
+      "source": "hen-sheet2",
+      "target": "k4"
+    },
+    {
+      "id": "hen-sheet2-k6",
+      "source": "hen-sheet2",
+      "target": "k6"
+    },
+    {
+      "id": "hen-sheet2-k7",
+      "source": "hen-sheet2",
+      "target": "k7"
+    },
+    {
+      "id": "hen-poses-k1",
+      "source": "hen-poses",
+      "target": "k1"
+    },
+    {
+      "id": "hen-poses-k2",
+      "source": "hen-poses",
+      "target": "k2"
+    },
+    {
+      "id": "hen-poses-k3",
+      "source": "hen-poses",
+      "target": "k3"
+    },
+    {
+      "id": "hen-poses-k4",
+      "source": "hen-poses",
+      "target": "k4"
+    },
+    {
+      "id": "hen-poses-k7",
+      "source": "hen-poses",
+      "target": "k7"
+    },
+    {
+      "id": "ref-founder-k1",
+      "source": "ref-founder",
+      "target": "k1"
+    },
+    {
+      "id": "ref-founder-k2",
+      "source": "ref-founder",
+      "target": "k2"
+    },
+    {
+      "id": "ref-founder-k4",
+      "source": "ref-founder",
+      "target": "k4"
+    },
+    {
+      "id": "ref-founder-k5",
+      "source": "ref-founder",
+      "target": "k5"
+    },
+    {
+      "id": "kp6-kb6",
+      "source": "kp6",
+      "target": "kb6"
+    },
+    {
+      "id": "hen-sheet2-kb6",
+      "source": "hen-sheet2",
+      "target": "kb6"
+    },
+    {
+      "id": "hen-gesture-kb6",
+      "source": "hen-gesture",
+      "target": "kb6"
+    },
+    {
+      "id": "hen-side-kb6",
+      "source": "hen-side",
+      "target": "kb6"
+    },
+    {
+      "id": "hen-study-kb6",
+      "source": "hen-study",
+      "target": "kb6"
+    },
+    {
+      "id": "kp7-kb7",
+      "source": "kp7",
+      "target": "kb7"
+    },
+    {
+      "id": "hen-sheet2-kb7",
+      "source": "hen-sheet2",
+      "target": "kb7"
+    },
+    {
+      "id": "hen-gesture-kb7",
+      "source": "hen-gesture",
+      "target": "kb7"
+    },
+    {
+      "id": "hen-side-kb7",
+      "source": "hen-side",
+      "target": "kb7"
+    },
+    {
+      "id": "hen-study-kb7",
+      "source": "hen-study",
+      "target": "kb7"
     }
   ],
   "story": {
