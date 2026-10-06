@@ -1,0 +1,19 @@
+scripts/realism.ts
+  s_b38a0af13bcba5::t_674c4cc3f75e0e 1-66
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "1bbcb78570ab59d15902987fef35b1a37e1c4663",
+  "prompts": {},
+  "sessions": {
+    "s_b38a0af13bcba5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bcfe1483-6f44-42eb-9165-3984f8e6ac81",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Claudio Fuentes <imclaudfuen@gmail.com>"
+    }
+  }
+}
