@@ -31,6 +31,8 @@ export type SectionData = { name: string; range: string; color: string; why: str
 export type SectionNode = Node<SectionData, "section">
 export type AppNode = PromptNode | AssetNode | GenNode | SectionNode | MotionNode
 
+export type Activity = { t: string; text: string; kind?: "run" | "done" | "info" | "warn" }
+
 export type Story = {
   title: string
   runtime: number

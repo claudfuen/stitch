@@ -25,5 +25,5 @@ have = {e["id"] for e in g["edges"]}
 for s in srcs:
     eid = f"{s}-{nid}"
     if eid not in have: g["edges"].append({"id": eid, "source": s, "target": nid})
-json.dump(g, open(p, "w"), indent=2)
+json.dump(g, open(p + ".tmp", "w"), indent=2); os.replace(p + ".tmp", p)
 print("placed", nid, fn)

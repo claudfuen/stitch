@@ -8,19 +8,27 @@ import {
 import "@xyflow/react/dist/style.css"
 import { ImageIcon, Maximize, Type, Video } from "lucide-react"
 import { nodeTypes } from "./nodes"
-import type { AppNode, Story } from "@/lib/graph"
+import type { Activity, AppNode, Story } from "@/lib/graph"
+import { ActivityPanel } from "./activity"
 import { Timeline } from "./timeline"
 import { Button } from "@/components/ui/button"
 
 let counter = 0
 
-type Remote = { nodes: AppNode[]; edges: Edge[]; story?: Story; rev: number }
+// What we persist: no measurements, selection or drag state.
+const strip = (nodes: AppNode[]) =>
+  nodes.map((n) => ({ id: n.id, type: n.type, position: n.position, data: n.data, ...(n.type === "section" ? { width: n.width, draggable: false, selectable: false, connectable: false } : {}) }))
+const sig = (nodes: AppNode[], edges: Edge[]) => JSON.stringify([strip(nodes), edges])
+
+type Remote = { nodes: AppNode[]; edges: Edge[]; story?: Story; activity?: Activity[]; rev: number }
 
 function Inner() {
   const [nodes, setNodes, onNodesChange] = useNodesState<AppNode>([])
   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([])
   const { screenToFlowPosition, fitView } = useReactFlow()
   const [story, setStory] = useState<Story | null>(null)
+  const [activity, setActivity] = useState<Activity[]>([])
+  const synced = useRef("")
   const rev = useRef(0)
   const loaded = useRef(false)
   const fromRemote = useRef(false)
@@ -37,6 +45,8 @@ function Inner() {
         setNodes(r.nodes)
         setEdges(r.edges)
         setStory(r.story ?? null)
+        setActivity(r.activity ?? [])
+        synced.current = sig(r.nodes, r.edges)
         if (!loaded.current) {
           loaded.current = true
           setTimeout(() => fitView({ padding: 0.1 }), 100)
@@ -48,14 +58,18 @@ function Inner() {
     return () => { stop = true; clearInterval(t) }
   }, [setNodes, setEdges, fitView])
 
-  // Local edits (drag, type, connect) are written back to the same file.
+  // Local edits (drag, type, connect) are written back to the same file, only when something real changed.
   useEffect(() => {
     if (!loaded.current) return
     if (fromRemote.current) { fromRemote.current = false; return }
+    if (sig(nodes, edges) === synced.current) return
     const t = setTimeout(async () => {
       try {
-        const r = await fetch("/api/graph", { method: "PUT", body: JSON.stringify({ nodes, edges }) })
-        rev.current = (await r.json()).rev
+        const r = await fetch("/api/graph", { method: "PUT", body: JSON.stringify({ nodes: strip(nodes), edges, baseRev: rev.current }) })
+        const j = await r.json()
+        if (r.status === 409) { rev.current = 0; return } // file moved under us: next poll re-syncs
+        rev.current = j.rev
+        synced.current = sig(nodes, edges)
       } catch {}
     }, 400)
     return () => clearTimeout(t)
@@ -97,6 +111,7 @@ function Inner() {
         </div>
       </div>
       </div>
+      <ActivityPanel items={activity} />
       {story && <Timeline story={story} nodes={nodes} onFocus={(n) => fitView({ nodes: [`kp${n}`, `k${n}`, `mp${n}`, `v${n}`].map((id) => ({ id })), padding: 0.4, duration: 500 })} />}
     </div>
   )

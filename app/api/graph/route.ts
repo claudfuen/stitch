@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic"
 const FILE = path.join(process.cwd(), "data", "graph.json")
 const EXAMPLE = path.join(process.cwd(), "data", "graph.example.json")
 
-// data/graph.json is your working board and is gitignored. First run copies the example.
+// data/graph.json is the working board. First run copies the example.
 async function ensure() {
   try {
     await fs.access(FILE)
@@ -25,11 +25,17 @@ export async function GET() {
   return Response.json(await read())
 }
 
-// The browser owns nodes and edges; everything else in the file (story) is preserved.
+// The browser owns nodes and edges; everything else in the file (story, activity) is preserved.
+// A write based on a stale revision is refused, so the browser can never overwrite an agent's edit.
 export async function PUT(req: Request) {
-  const { nodes, edges } = await req.json()
-  const { rev: _rev, ...current } = await read()
-  await fs.writeFile(FILE, JSON.stringify({ ...current, nodes, edges }, null, 2))
+  const { nodes, edges, baseRev } = await req.json()
+  const { rev: current, ...rest } = await read()
+  if (typeof baseRev === "number" && Math.abs(current - baseRev) > 0.5) {
+    return Response.json({ conflict: true, rev: current }, { status: 409 })
+  }
+  const tmp = FILE + ".tmp"
+  await fs.writeFile(tmp, JSON.stringify({ ...rest, nodes, edges }, null, 2))
+  await fs.rename(tmp, FILE)
   const { rev } = await read()
   return Response.json({ rev })
 }

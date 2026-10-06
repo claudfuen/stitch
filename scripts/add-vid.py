@@ -18,5 +18,5 @@ for n in g["nodes"]:
         break
 else:
     sys.exit(f"no node {nid}")
-json.dump(g, open(p, "w"), indent=2)
+json.dump(g, open(p + ".tmp", "w"), indent=2); os.replace(p + ".tmp", p)
 print("attached", fn)

@@ -88,7 +88,7 @@
         "width": 320,
         "height": 254
       },
-      "selected": false
+      "selected": true
     },
     {
       "id": "kp2",
@@ -140,7 +140,7 @@
       },
       "measured": {
         "width": 320,
-        "height": 242
+        "height": 254
       }
     },
     {
@@ -183,17 +183,17 @@
         "y": 800
       },
       "data": {
-        "title": "Video \u00b7 Scene 3",
+        "title": "Video \u00b7 Scene 3 (v3: straight-on, trimmed freeze)",
         "kind": "video",
         "model": "Kling 3.0 pro (first frame, silent)",
         "status": "done",
         "hue": 0,
-        "video": "/generated/v3-bca45e.mp4",
-        "job": "bca45e21-3cd4-4095-aaba-89c9179f6b03"
+        "video": "/generated/v3-a12e40.mp4",
+        "job": "a12e40c8-1cd4-4660-b50a-d0c6405c97bf"
       },
       "measured": {
         "width": 320,
-        "height": 242
+        "height": 254
       }
     },
     {
@@ -236,17 +236,17 @@
         "y": 800
       },
       "data": {
-        "title": "Video \u00b7 Scene 4",
+        "title": "Video \u00b7 Scene 4 (v2: light sweeps day to night to dawn)",
         "kind": "video",
         "model": "Kling 3.0 pro (first frame, silent)",
         "status": "done",
         "hue": 0,
-        "video": "/generated/v4-67e8b8.mp4",
-        "job": "67e8b813-a2d3-4591-a093-02bbfe7ff5b4"
+        "video": "/generated/v4-093885.mp4",
+        "job": "093885d5-7f97-4a26-aff4-9061b7077e17"
       },
       "measured": {
         "width": 320,
-        "height": 242
+        "height": 254
       }
     },
     {
@@ -289,13 +289,13 @@
         "y": 800
       },
       "data": {
-        "title": "Video \u00b7 Scene 5",
+        "title": "Video \u00b7 Scene 5 (v2: relieved grin)",
         "kind": "video",
         "model": "Kling 3.0 pro (first frame, silent)",
         "status": "done",
         "hue": 0,
-        "video": "/generated/v5-390094.mp4",
-        "job": "390094ed-47d7-462b-9b2d-5f655d43eb2d"
+        "video": "/generated/v5-dd11a9.mp4",
+        "job": "dd11a9a7-44a2-482f-8a00-a583616ba56d"
       },
       "measured": {
         "width": 320,
@@ -993,27 +993,6 @@
       "dragging": false
     },
     {
-      "id": "k3",
-      "type": "generation",
-      "position": {
-        "x": 1100,
-        "y": 240
-      },
-      "data": {
-        "title": "Keyframe A \u00b7 Scene 3 (clerk facing, all 3 sheets)",
-        "kind": "image",
-        "model": "GPT Image 2.5",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/k3-ff0889.jpg",
-        "job": "ff088973-4c0d-4973-b725-56bd5c951fc4"
-      },
-      "measured": {
-        "width": 208,
-        "height": 275
-      }
-    },
-    {
       "id": "kp7",
       "type": "prompt",
       "position": {
@@ -1095,13 +1074,34 @@
         "y": 800
       },
       "data": {
-        "title": "Rough cut v1 \u00b7 7 scenes, silent, ~35s",
+        "title": "Rough cut v2 \u00b7 audited clips + motion graphics + end card, silent, 37.8s",
         "kind": "video",
-        "model": "ffmpeg concat of Kling clips",
+        "model": "scripts/assemble.py (ffmpeg + Remotion)",
         "status": "done",
         "hue": 0,
-        "video": "/generated/rough-cut-v1.mp4",
+        "video": "/generated/rough-cut-v2.mp4",
         "url": "/generated/k6-1a2339.jpg"
+      },
+      "measured": {
+        "width": 320,
+        "height": 242
+      }
+    },
+    {
+      "id": "k3",
+      "type": "generation",
+      "position": {
+        "x": 1100.0,
+        "y": 240.0
+      },
+      "data": {
+        "title": "Keyframe A \u00b7 Scene 3 (straight-on clerk, OTS)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (3 sheets)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/k3-ad4425.jpg",
+        "job": "ad4425b0-31a5-4972-8223-38a8c7118e17"
       }
     }
   ],
@@ -1469,7 +1469,8 @@
     {
       "id": "hen-sheet2-kb6",
       "source": "hen-sheet2",
-      "target": "kb6"
+      "target": "kb6",
+      "selected": false
     },
     {
       "id": "hen-gesture-kb6",
@@ -1903,5 +1904,62 @@
       "Keep the Ministry fictional. No real regulators, agencies or flags. Parody a type of bureaucracy, not a country's institution.",
       "40s is long for a social cut. Cut 15s version: scenes 1, 2 (ticket gag), 5, 6, 7."
     ]
-  }
+  },
+  "activity": [
+    {
+      "t": "2026-10-06T15:10:26.973476+00:00",
+      "text": "Live activity feed is on. I'll post here as I work.",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-06T15:10:35.375523+00:00",
+      "text": "Auditing all 7 clips frame by frame with the av-review card (not 3 frames per clip).",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:12:48.678838+00:00",
+      "text": "Audit done. Scene 3 FAIL (clerk turns away, leaves frame), scene 5 FAIL (ends worried, not relieved), scene 4 borderline (too static). Rerolling 3 (x2), 4, 5.",
+      "kind": "warn"
+    },
+    {
+      "t": "2026-10-06T15:13:26.940184+00:00",
+      "text": "Setting up Remotion (motion graphics): ministry sign, ticket display, form stamp, calendar flip, dashboard score, captions, end card.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:14:20.398238+00:00",
+      "text": "Remotion compositions written (7). Rendering transparent overlays now.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:16:59.490002+00:00",
+      "text": "Reroll clips for scenes 3 (x2), 4, 5 downloaded; auditing them.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:17:43.883909+00:00",
+      "text": "Scene 4 and 5 rerolls pass the audit and are on the board. Scene 3 still fails twice (clerk turns away); changing the shot to a straight-on view of her.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T15:18:44.723747+00:00",
+      "text": "Scene 3: new straight-on keyframe done; 2 Kling attempts rendering.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:20:54.792547+00:00",
+      "text": "Motion graphics: moved the form (was covering a face) and the calendar title; re-rendered.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T15:22:49.769186+00:00",
+      "text": "Scene 3 fixed (clerk holds eye contact, 100% face). Assembled rough cut v2 with motion graphics + end card.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T15:23:39.198993+00:00",
+      "text": "Rough cut v2 is on the board: all 7 scenes passed audit, motion graphics composited, end card appended.",
+      "kind": "done"
+    }
+  ]
 }
