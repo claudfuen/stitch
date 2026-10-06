@@ -13,6 +13,7 @@ export const CHECKS = [
   { key: "lipsync", label: "Lip-sync", hint: "Every visible speaking mouth matches its words. Audio laid over a silent clip fails." },
   { key: "warmup", label: "No warm-up", hint: "The cut starts after the model starts moving. No frozen head frames." },
   { key: "continuity", label: "Continuity", hint: "Hands, props, eyeline and light direction match the neighbouring shots." },
+  { key: "room", label: "Room fit", hint: "People stand where the room's 3D camera puts them: position and size of every face (stitch fit)." },
   { key: "grade", label: "Grade", hint: "Matches the location look and the real footage." },
   { key: "cut", label: "Cut point", hint: "Cuts on action or dialogue. No jump cut between identical framings." },
   { key: "sound", label: "Sound", hint: "Room tone continuous, the voice sits in the room, perspective matches the picture." },

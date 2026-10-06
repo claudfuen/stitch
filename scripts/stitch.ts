@@ -20,13 +20,14 @@
 //   bun run stitch plan plate <loc> <setup> <asset> [circle|alt|reject|pending] [--note ..]
 //   bun run stitch greybox <loc> [setup ...]                 render the grey box (Blender) and attach each render
 //   bun run stitch room <loc> [--builder greybox|lightbox]   export the room in 3D (GLB) for the Rooms view
+//   bun run stitch fit <shot> [asset]                        do the faces land where the room's camera puts the marks?
 import { execFileSync } from "node:child_process"
 import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import path from "node:path"
 import { CHECKS, type Asset, type CheckKey, type Media, type TakeVerdict } from "../lib/model"
 import type { Op } from "../lib/ops"
 import { load, mutate } from "../lib/store"
-import { latestCut, pick, planView, shotRows } from "../lib/derive"
+import { latestCut, pick, planView, projectHead, shotRows } from "../lib/derive"
 import type { PlanList } from "../lib/ops"
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..")
@@ -249,6 +250,57 @@ async function main() {
       console.log(`exported ${ap}`)
       return
     }
+    case "fit": {
+      // The room as the judge: every mark the shot's camera sees is projected into the frame (pinhole, the setup's lens,
+      // height and tilt) and matched to the faces Apple Vision finds. A face more than a third too big or too small, or
+      // off by more than 6% of the frame, means the frame was not made from this camera. Records the Room fit check.
+      const p = await load()
+      const shot = p.shots.find((s) => s.id === sub)
+      if (!shot) throw new Error(`no shot ${sub}`)
+      const plan = p.locations.find((l) => l.id === shot.location)?.plan
+      const u = plan?.setups.find((x) => x.id === shot.setup)
+      if (!plan || !u) throw new Error(`${sub} has no setup in its room's plan`)
+      const asset = p.assets.find((a) => a.id === (rest[0] ?? pick(shot.keyframes ?? [])?.asset))
+      if (!asset) throw new Error(`${sub}: no keyframe to fit (pass an asset id)`)
+      let file = path.join("public", asset.path)
+      if (asset.media === "video") {
+        file = `work/fit-${asset.id}.jpg`
+        sh("ffmpeg", ["-v", "error", "-y", "-ss", String(typeof shot.edit.in === "number" ? shot.edit.in : 0.5), "-i", path.join("public", asset.path), "-frames:v", "1", "-q:v", "2", file])
+      }
+      const faces = (JSON.parse(execFileSync("swift", ["scripts/faces.swift", file], { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] })) as { x: number; y: number; w: number; h: number }[])
+        .map((f) => ({ x: f.x + f.w / 2, y: f.y + f.h / 2, h: f.h }))
+      const want = plan.marks
+        .filter((m) => !m.beat || m.beat === u.beat)
+        .map((m) => ({ m, e: projectHead(u, m) }))
+        .filter((x): x is { m: (typeof plan.marks)[number]; e: NonNullable<ReturnType<typeof projectHead>> } => !!x.e)
+        .sort((a, b) => a.e.depth - b.e.depth)
+      const used = new Set<number>()
+      const lines: string[] = []
+      let ok = true
+      for (const { m, e } of want) {
+        let best = -1
+        let bestD = Infinity
+        faces.forEach((f, i) => {
+          const d = Math.hypot(f.x - e.x, (f.y - e.y) * (9 / 16))
+          if (!used.has(i) && d < bestD) [best, bestD] = [i, d]
+        })
+        if (best < 0 || bestD > 0.25) {
+          lines.push(`${m.who}: no face near where the room puts it (x ${e.x.toFixed(2)}, y ${e.y.toFixed(2)}); turned away or missing`)
+          continue
+        }
+        used.add(best)
+        const f = faces[best]
+        const r = f.h / e.h
+        const good = r >= 0.75 && r <= 1.33 && bestD <= 0.06
+        ok &&= good
+        lines.push(`${good ? "ok  " : "FAIL"} ${m.who}: face ${(r * 100).toFixed(0)}% of the size the camera gives at ${e.depth.toFixed(1)} m, ${(bestD * 100).toFixed(0)}% of the frame off`)
+      }
+      for (const [i] of faces.entries()) if (!used.has(i)) lines.push(`extra face at x ${faces[i].x.toFixed(2)}, y ${faces[i].y.toFixed(2)}: nobody is on a mark there`)
+      const verdict = want.length === 0 ? null : ok
+      console.log(`${sub} ${asset.id} through ${u.id} (${u.lens} mm):\n${lines.map((l) => `  ${l}`).join("\n")}`)
+      await run([{ op: "check.set", shot: sub, key: "room", ok: verdict, note: `${asset.id}: ${lines.join("; ")}`, by: "fit" }])
+      return
+    }
     case "build": {
       const { build } = await import("./build")
       await build(flag("version"), { shots: flag("shots")?.split(",").filter(Boolean), scope: flag("scope") })
@@ -260,7 +312,7 @@ async function main() {
 }
 
 function readHelp() {
-  return "commands: show, log, asset add|qa|set, score, take add|circle|alt|reject|pending, card, shot set|add|move|remove, check, op, plan [set|upsert|remove|plate], greybox, room, build"
+  return "commands: show, log, asset add|qa|set, score, take add|circle|alt|reject|pending, card, shot set|add|move|remove, check, op, plan [set|upsert|remove|plate], greybox, room, fit, build"
 }
 
 main().catch((e) => {

@@ -295,6 +295,33 @@ export function screenX(setup: Setup, at: [number, number]): number | undefined 
   return 0.5 + Math.tan(rad(rel)) / (2 * Math.tan(rad(half)))
 }
 
+/** Head height of a mark's stand-in above the floor, as the Blender builders seat and stand them. */
+export const headZ = (m: Mark) => (m.z ?? 0) + (m.pose === "sit" ? 1.2 : 1.58)
+/** Height of an Apple Vision face box (brow to chin) in metres: 0.158 on Henrick's real A-cam frame through its solved
+ *  camera (head within 1% of where the plan puts it). Sets the face size a camera should give. */
+export const FACE_M = 0.16
+
+/** Where a mark's head lands in a setup's 16:9 frame: centre from the left and top (0 to 1), the face's height as a share
+ *  of the frame height, and its depth along the lens axis. Pinhole on the Super 35 sensor, with the setup's tilt (positive
+ *  looks up). undefined when the head is behind the lens or outside the frame. */
+export function projectHead(u: Setup, m: Mark): { x: number; y: number; h: number; depth: number } | undefined {
+  const [fx, fy] = heading(u.facing)
+  const dx = m.at[0] - u.at[0]
+  const dy = m.at[1] - u.at[1]
+  const ahead = dx * fx + dy * fy
+  const right = dx * fy - dy * fx
+  const up = headZ(m) - u.height
+  const t = rad(u.tilt ?? 0)
+  const depth = ahead * Math.cos(t) + up * Math.sin(t)
+  const rise = up * Math.cos(t) - ahead * Math.sin(t)
+  if (depth < 0.3) return undefined
+  const k = u.lens / SENSOR_MM
+  const x = 0.5 + (right / depth) * k
+  const y = 0.5 - (rise / depth) * k * (16 / 9)
+  if (x < -0.05 || x > 1.05 || y < -0.05 || y > 1.05) return undefined
+  return { x, y, h: (FACE_M / depth) * k * (16 / 9), depth }
+}
+
 export type SetupView = Setup & {
   fov: number
   /** Marks inside the frame, left to right, with their screen position. */

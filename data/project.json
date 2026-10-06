@@ -763,7 +763,8 @@
             ]
           }
         ]
-      }
+      },
+      "model": "room-study"
     },
     {
       "id": "hall",
@@ -6411,6 +6412,17 @@
       "label": "Scene 1: The request (study-s1-v3)",
       "origin": "rendered",
       "duration": 9.842
+    },
+    {
+      "id": "room-study",
+      "media": "model",
+      "path": "/generated/room-study.glb",
+      "label": "Henrick's study in 3D",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/lightbox glb",
+        "prompt": "6 x 6.5 x 3.2 m, 24 items, 3 marks, 5 cameras"
+      }
     }
   ],
   "graphics": [
@@ -6579,7 +6591,14 @@
         "in": 0.5,
         "out": 3
       },
-      "checks": {},
+      "checks": {
+        "room": {
+          "ok": false,
+          "note": "kf-1.1-study-W: founder: no face near where the room puts it (x 0.77, y 0.62); turned away or missing; FAIL henrick: face 102% of the size the camera gives at 4.2 m, 11% of the frame off",
+          "by": "fit",
+          "at": "2026-10-06T22:32:29.243Z"
+        }
+      },
       "id": "1.1",
       "name": "The request: master",
       "setup": "W",
@@ -6631,7 +6650,14 @@
         "in": 1.1,
         "out": "end"
       },
-      "checks": {},
+      "checks": {
+        "room": {
+          "ok": false,
+          "note": "kf-1.2-study-O: henrick: no face near where the room puts it (x 0.26, y 1.00); turned away or missing; FAIL founder: face 118% of the size the camera gives at 2.7 m, 11% of the frame off",
+          "by": "fit",
+          "at": "2026-10-06T22:32:29.601Z"
+        }
+      },
       "id": "1.2",
       "name": "The request",
       "setup": "O",
@@ -6695,7 +6721,14 @@
         "in": 1.2,
         "out": 4.6
       },
-      "checks": {},
+      "checks": {
+        "room": {
+          "ok": true,
+          "note": "study-A-real38: ok   henrick: face 99% of the size the camera gives at 2.6 m, 1% of the frame off",
+          "by": "fit",
+          "at": "2026-10-06T22:32:29.961Z"
+        }
+      },
       "id": "1.3",
       "name": "Silence",
       "setup": "A",
@@ -6778,6 +6811,12 @@
           "note": "Study shots within 4 luma and 2 warmth points of each other (v3 spread: 15 and 6), matched to the real footage",
           "by": "claude",
           "at": "2026-10-06T16:56:14.561Z"
+        },
+        "room": {
+          "ok": false,
+          "note": "hen-cu2-5dc6a6: FAIL henrick: face 271% of the size the camera gives at 2.1 m, 11% of the frame off",
+          "by": "fit",
+          "at": "2026-10-06T22:32:30.333Z"
         }
       },
       "id": "1b-friday",
@@ -6845,6 +6884,12 @@
           "note": "Study shots within 4 luma and 2 warmth points of each other (v3 spread: 15 and 6), matched to the real footage",
           "by": "claude",
           "at": "2026-10-06T16:56:14.561Z"
+        },
+        "room": {
+          "ok": false,
+          "note": "hen-cu2-5dc6a6: FAIL henrick: face 234% of the size the camera gives at 2.6 m, 8% of the frame off",
+          "by": "fit",
+          "at": "2026-10-06T22:32:30.713Z"
         }
       },
       "id": "1b-europe",
@@ -6914,7 +6959,14 @@
         "in": 0.6,
         "out": 3.2
       },
-      "checks": {}
+      "checks": {
+        "room": {
+          "ok": false,
+          "note": "kf-2.1-b1: FAIL founder: face 114% of the size the camera gives at 3.8 m, 16% of the frame off; FAIL henrick: face 112% of the size the camera gives at 3.9 m, 20% of the frame off; Knitting woman: no face near where the room puts it (x 0.78, y 0.54); turned away or missing; Old man asleep: no face near where the room puts it (x -0.03, y 0.53); turned away or missing",
+          "by": "fit",
+          "at": "2026-10-06T22:32:31.120Z"
+        }
+      }
     },
     {
       "id": "2.2",
@@ -6953,7 +7005,14 @@
         "in": 0,
         "out": 1.3
       },
-      "checks": {}
+      "checks": {
+        "room": {
+          "ok": null,
+          "note": "hall-G-r1-sunburst: ",
+          "by": "fit",
+          "at": "2026-10-06T22:32:31.489Z"
+        }
+      }
     },
     {
       "id": "2.3",
@@ -7010,7 +7069,14 @@
         "in": 3.3,
         "out": "end"
       },
-      "checks": {}
+      "checks": {
+        "room": {
+          "ok": true,
+          "note": "kf-2.3-flare: ok   founder: face 85% of the size the camera gives at 2.2 m, 3% of the frame off; Old man asleep: no face near where the room puts it (x 0.08, y 0.47); turned away or missing",
+          "by": "fit",
+          "at": "2026-10-06T22:32:31.867Z"
+        }
+      }
     },
     {
       "id": "2.4",
@@ -7146,6 +7212,12 @@
           "note": "Founder frame left, Henrick frame right (setup C, line 'seats' +side, matches 2.3 eyeline frame right). Ticket in right hand, knitter behind.",
           "by": "claude",
           "at": "2026-10-06T18:41:00.096Z"
+        },
+        "room": {
+          "ok": false,
+          "note": "kf-2.4-fix: FAIL henrick: face 72% of the size the camera gives at 2.2 m, 12% of the frame off; FAIL founder: face 56% of the size the camera gives at 2.2 m, 11% of the frame off; FAIL Knitting woman: face 106% of the size the camera gives at 5.4 m, 19% of the frame off",
+          "by": "fit",
+          "at": "2026-10-06T22:32:32.255Z"
         }
       }
     },
@@ -7198,6 +7270,12 @@
           "note": "The only text is the printed ticket number 4201990, stable across the clip (OCR lane).",
           "by": "claude",
           "at": "2026-10-06T18:51:32.551Z"
+        },
+        "room": {
+          "ok": null,
+          "note": "kf-2.5-flare: ",
+          "by": "fit",
+          "at": "2026-10-06T22:32:32.638Z"
         }
       }
     },
@@ -7261,7 +7339,14 @@
         "in": 1,
         "out": 3
       },
-      "checks": {}
+      "checks": {
+        "room": {
+          "ok": true,
+          "note": "kf-3.1-flare: Old man asleep: no face near where the room puts it (x 0.89, y 0.57); turned away or missing; Knitting woman: no face near where the room puts it (x 0.12, y 0.56); turned away or missing; henrick: no face near where the room puts it (x 0.50, y 0.49); turned away or missing; founder: no face near where the room puts it (x 0.55, y 0.49); turned away or missing; clerk: no face near where the room puts it (x 0.55, y 0.50); turned away or missing",
+          "by": "fit",
+          "at": "2026-10-06T22:32:33.016Z"
+        }
+      }
     },
     {
       "id": "3.2",
@@ -7319,7 +7404,14 @@
         "in": 1.8,
         "out": 6.3
       },
-      "checks": {}
+      "checks": {
+        "room": {
+          "ok": false,
+          "note": "kf-3.2-flare: founder: no face near where the room puts it (x 0.92, y 0.47); turned away or missing; FAIL clerk: face 67% of the size the camera gives at 2.4 m, 7% of the frame off",
+          "by": "fit",
+          "at": "2026-10-06T22:32:33.397Z"
+        }
+      }
     },
     {
       "id": "3.3",
@@ -7381,7 +7473,14 @@
         "in": 3.1,
         "out": "end"
       },
-      "checks": {}
+      "checks": {
+        "room": {
+          "ok": false,
+          "note": "kf-3.3-sunburst: FAIL founder: face 77% of the size the camera gives at 2.1 m, 20% of the frame off; FAIL henrick: face 75% of the size the camera gives at 2.8 m, 13% of the frame off; Old man asleep: no face near where the room puts it (x 0.12, y 0.57); turned away or missing",
+          "by": "fit",
+          "at": "2026-10-06T22:32:33.789Z"
+        }
+      }
     },
     {
       "id": "3.4",
@@ -7447,7 +7546,14 @@
         "in": 1.3,
         "out": 4.5
       },
-      "checks": {}
+      "checks": {
+        "room": {
+          "ok": false,
+          "note": "kf-3.4-b1: FAIL clerk: face 83% of the size the camera gives at 1.6 m, 9% of the frame off",
+          "by": "fit",
+          "at": "2026-10-06T22:32:34.173Z"
+        }
+      }
     },
     {
       "id": "4.1",
@@ -7507,7 +7613,14 @@
         "in": 0.4,
         "out": 2.6
       },
-      "checks": {}
+      "checks": {
+        "room": {
+          "ok": false,
+          "note": "kf-4.1-t1: FAIL founder: face 113% of the size the camera gives at 3.8 m, 16% of the frame off; FAIL henrick: face 120% of the size the camera gives at 3.9 m, 19% of the frame off; Knitting woman: no face near where the room puts it (x 0.78, y 0.54); turned away or missing; Old man asleep: no face near where the room puts it (x -0.03, y 0.53); turned away or missing",
+          "by": "fit",
+          "at": "2026-10-06T22:32:34.638Z"
+        }
+      }
     },
     {
       "id": "4.2",
@@ -7557,6 +7670,12 @@
           "note": "Kling take 1: clean single flap drop, no digit morph (checked at 10 fps over the last 1.2 s).",
           "by": "claude",
           "at": "2026-10-06T18:51:32.551Z"
+        },
+        "room": {
+          "ok": null,
+          "note": "kf-4.2-flare: ",
+          "by": "fit",
+          "at": "2026-10-06T22:32:35.029Z"
         }
       }
     },
@@ -7649,7 +7768,14 @@
         "in": 0,
         "out": 3.1
       },
-      "checks": {}
+      "checks": {
+        "room": {
+          "ok": false,
+          "note": "kf-4.3-fix: FAIL henrick: face 76% of the size the camera gives at 2.2 m, 12% of the frame off; FAIL founder: face 68% of the size the camera gives at 2.2 m, 11% of the frame off; FAIL Knitting woman: face 107% of the size the camera gives at 5.4 m, 19% of the frame off",
+          "by": "fit",
+          "at": "2026-10-06T22:32:35.387Z"
+        }
+      }
     },
     {
       "id": "5.1",
@@ -7695,7 +7821,14 @@
         "in": 0.8,
         "out": 3.2
       },
-      "checks": {}
+      "checks": {
+        "room": {
+          "ok": false,
+          "note": "kf-5.1-clean: FAIL founder: face 60% of the size the camera gives at 3.0 m, 13% of the frame off",
+          "by": "fit",
+          "at": "2026-10-06T22:32:35.764Z"
+        }
+      }
     },
     {
       "id": "5.2",
@@ -7747,6 +7880,12 @@
           "note": "Comp AI UI composited onto the laptop screen itself, not floating; real mark and Lausanne; every label agrees with the story (SOC 2 Type II, 100%, Ready for audit).",
           "by": "claude",
           "at": "2026-10-06T21:22:38.857Z"
+        },
+        "room": {
+          "ok": null,
+          "note": "kf-5.2-t1: ",
+          "by": "fit",
+          "at": "2026-10-06T22:32:36.131Z"
         }
       }
     },
@@ -7810,7 +7949,14 @@
         "in": 2.4,
         "out": "end"
       },
-      "checks": {}
+      "checks": {
+        "room": {
+          "ok": false,
+          "note": "kf-5.3-t2: FAIL founder: face 59% of the size the camera gives at 1.0 m, 19% of the frame off",
+          "by": "fit",
+          "at": "2026-10-06T22:32:36.503Z"
+        }
+      }
     },
     {
       "characters": [
@@ -8213,6 +8359,12 @@
           "note": "Study shots within 4 luma and 2 warmth points of each other (v3 spread: 15 and 6), matched to the real footage",
           "by": "claude",
           "at": "2026-10-06T16:56:14.561Z"
+        },
+        "room": {
+          "ok": false,
+          "note": "k6-edit-a: FAIL henrick: face 175% of the size the camera gives at 3.0 m, 12% of the frame off",
+          "by": "fit",
+          "at": "2026-10-06T22:32:36.915Z"
         }
       },
       "id": "6a",
@@ -8275,6 +8427,12 @@
           "note": "0.46 s trimmed",
           "by": "claude",
           "at": "2026-10-06T16:56:14.561Z"
+        },
+        "room": {
+          "ok": false,
+          "note": "kb6-5bef70: FAIL henrick: face 278% of the size the camera gives at 2.6 m, 13% of the frame off",
+          "by": "fit",
+          "at": "2026-10-06T22:32:37.302Z"
         }
       },
       "id": "6b",
@@ -8354,6 +8512,12 @@
           "note": "0.58 s trimmed",
           "by": "claude",
           "at": "2026-10-06T16:56:14.561Z"
+        },
+        "room": {
+          "ok": true,
+          "note": "k7-edit-a: henrick: no face near where the room puts it (x 0.50, y 0.74); turned away or missing; extra face at x 0.61, y 0.21: nobody is on a mark there",
+          "by": "fit",
+          "at": "2026-10-06T22:32:37.679Z"
         }
       },
       "id": "7",
@@ -10436,11 +10600,6 @@
   ],
   "activity": [
     {
-      "t": "2026-10-06T16:10:15.675413+00:00",
-      "text": "Cut v3 first audit: -13.7 LUFS, no clipping. Found scene 3 was still the 4.5s clip (9s of dialogue overran into scenes 4-5). Swapped in the 10s clerk clip; rebuilding.",
-      "kind": "info"
-    },
-    {
       "t": "2026-10-06T16:10:53.484185+00:00",
       "text": "Seedance scene 6 'It is good' (face 0.78) and scene 7 statement (face 0.77) pass with exact words. Rebuilt cut v3 with them.",
       "kind": "done"
@@ -10833,6 +10992,11 @@
     {
       "t": "2026-10-06T22:28:50.186Z",
       "text": "Cut study-s1-v3 built: 9.8 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T22:30:41.021Z",
+      "text": "Henrick's study: 3D room exported (6 x 6.5 x 3.2 m, 24 items, 3 marks, 5 cameras) for the Rooms view",
       "kind": "done"
     }
   ],

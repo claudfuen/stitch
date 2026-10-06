@@ -9,7 +9,7 @@ import { Canvas } from "@react-three/fiber"
 import { Camera, Orbit } from "lucide-react"
 import { Suspense, useEffect, useMemo, useRef, useState } from "react"
 import * as THREE from "three"
-import { kelvinColor, pick, planView, type Index, type SetupView } from "@/lib/derive"
+import { kelvinColor, pick, planView, projectHead, type Index, type SetupView } from "@/lib/derive"
 import type { Asset, Location, Plan, PlanItem, Project, Shot } from "@/lib/model"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -146,6 +146,7 @@ export function RoomsView({ project, ix }: { project: Project; ix: Index }) {
                   <img src={shown.asset.path} alt={shown.asset.label} className="pointer-events-none absolute inset-0 h-full w-full object-cover" style={{ opacity }} />
                 ) : null
               )}
+              {look && setup && <HeadMarks plan={loc.plan} setup={setup} />}
             </div>
             {look && (
               <div className="mt-3 flex w-full max-w-xl items-center gap-3 text-xs text-muted-foreground">
@@ -206,6 +207,28 @@ export function RoomsView({ project, ix }: { project: Project; ix: Index }) {
         )}
       </aside>
     </div>
+  )
+}
+
+/** Where each person's face must land through this camera (the projection `stitch fit` checks frames against). */
+function HeadMarks({ plan, setup }: { plan: Plan; setup: SetupView }) {
+  const heads = plan.marks
+    .filter((m) => !m.beat || m.beat === setup.beat)
+    .map((m) => ({ m, e: projectHead(setup, m) }))
+    .filter((x) => x.e)
+  return (
+    <svg viewBox="0 0 160 90" preserveAspectRatio="none" className="pointer-events-none absolute inset-0 h-full w-full">
+      {heads.map(({ m, e }) => {
+        const c = WHO_COLOR[m.who] ?? "#cbd5e1"
+        const h = e!.h * 90
+        return (
+          <g key={m.id}>
+            <rect x={e!.x * 160 - h * 0.36} y={e!.y * 90 - h / 2} width={h * 0.72} height={h} rx={h * 0.3} fill="none" stroke={c} strokeWidth={0.35} strokeDasharray="1.2 0.8" />
+            <text x={e!.x * 160} y={e!.y * 90 - h / 2 - 0.8} fontSize={2.4} textAnchor="middle" fill={c} fontWeight={700}>{m.who}</text>
+          </g>
+        )
+      })}
+    </svg>
   )
 }
 
