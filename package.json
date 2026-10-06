@@ -15,7 +15,8 @@
     "leap": "bun scripts/leap.ts",
     "realism": "bun scripts/realism.ts",
     "sameroom": "bun scripts/sameroom.ts",
-    "conform": "bun scripts/conform.ts"
+    "conform": "bun scripts/conform.ts",
+    "plate-brief": "bun scripts/plate-brief.ts"
   },
   "dependencies": {
     "@ai-sdk/gateway": "^4.0.104",

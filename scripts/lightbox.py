@@ -2,7 +2,7 @@
 # light falls and where shadows go from every camera, so every plate inherits one lighting plan.
 #
 #   /Applications/Blender.app/Contents/MacOS/Blender -b -P scripts/lightbox.py -- <plan.json> <out_dir>
-#       [--marks] [--ids] [--exposure -2.5] [--size 1920x1080] [--samples 96] [--glb room.glb [--glb-only]] [--top plot.png] [setup ...]
+#       [--marks] [--ids] [--geo] [--exposure -2.5] [--size 1920x1080] [--samples 96] [--glb room.glb [--glb-only]] [--top plot.png] [setup ...]
 #
 # Light items carry a block:
 #   {"type": "area", "kelvin": 5600, "power": 1400, "size": [w, h], "aim": [x, y, z]}   a window or another soft source
@@ -22,6 +22,10 @@
 # as a camera named by its id, point lights as glTF punctual lights, and extras on every node: {"item", "kind", "label"} on
 # the set, {"light": {...}} on an empty per light (the plan's light block, since glTF has no area lights), {"mark", "who",
 # "beat"} on each stand-in and its parent empty, {"setup", "name", "lens", "beat"} on each camera. glTF is y-up.
+#
+# --geo also writes <setup>.geo.png: the same camera evenly lit with outlines and cavity shading, every edge visible. Pass
+# it next to the lit render: the lit render alone is too dark to pin down geometry, and the paint pass re-composed the
+# study master as if from a lower camera (the guitar and sketches up 25% of the frame, the people 14%).
 #
 # --top renders the lighting plot: the room from straight above with the ceiling off, lit only by the plan's lights, every
 # mark on set. The far wall is at the top. Scale: the image height covers the depth plus 1 m; the room's centre is the
@@ -130,9 +134,30 @@ def chair(it, mat):
     part("arm-l", -(w - 0.12) / 2, 0.04, 0.12, d - back_t, 0, arm_h)
     part("arm-r", (w - 0.12) / 2, 0.04, 0.12, d - back_t, 0, arm_h)
 
+def boards(name, rgb, rough):
+    """Floorboards (1.2 x 0.14 m, staggered, thin dark seams): converging lines that pin down the camera's height and
+    tilt for the paint pass. A flat grey floor let the model re-compose the master as if from a lower camera."""
+    m = material(name, rgb, rough)
+    nt = m.node_tree
+    tex = nt.nodes.new("ShaderNodeTexBrick")
+    tex.offset, tex.offset_frequency, tex.squash, tex.squash_frequency = 0.5, 2, 1.0, 1
+    tex.inputs["Color1"].default_value = (*[c * 1.12 for c in rgb], 1)
+    tex.inputs["Color2"].default_value = (*[c * 0.88 for c in rgb], 1)
+    tex.inputs["Mortar"].default_value = (rgb[0] * 0.25, rgb[1] * 0.25, rgb[2] * 0.25, 1)
+    tex.inputs["Scale"].default_value = 1.0
+    tex.inputs["Mortar Size"].default_value = 0.006
+    tex.inputs["Brick Width"].default_value = 1.2
+    tex.inputs["Row Height"].default_value = 0.14
+    coord = nt.nodes.new("ShaderNodeTexCoord")
+    nt.links.new(coord.outputs["Object"], tex.inputs["Vector"])
+    nt.links.new(tex.outputs["Color"], nt.nodes["Principled BSDF"].inputs["Base Color"])
+    return m
+
+
+GREY["boards"] = boards("boards", (0.09, 0.09, 0.085), 0.55)
 W, D, H = plan["width"], plan["depth"], plan["height"]
 T = 0.15
-box("floor", "floor", W / 2, D / 2, -0.05, W, D, 0.05, GREY["floor"])
+box("floor", "floor", W / 2, D / 2, -0.05, W, D, 0.05, GREY["boards"])
 box("ceiling", "ceiling", W / 2, D / 2, H, W, D, 0.05, GREY["ceiling"])
 for side, cx, cy, w, d in (("front", W / 2, -T / 2, W + 2 * T, T), ("back", W / 2, D + T / 2, W + 2 * T, T), ("left", -T / 2, D / 2, T, D), ("right", W + T / 2, D / 2, T, D)):
     box(f"shell:{side}", f"wall:{side}", cx, cy, 0, w, d, H, GREY["wall"])
@@ -319,6 +344,22 @@ def id_pass(cam, setup, on_set):
     return seen
 
 
+def geo_pass(setup):
+    scene.render.engine = "BLENDER_WORKBENCH"
+    sh = scene.display.shading
+    sh.light, sh.color_type = "STUDIO", "SINGLE"
+    sh.single_color = (0.62, 0.62, 0.6)
+    sh.show_shadows, sh.show_cavity, sh.show_object_outline, sh.show_specular_highlight = False, True, True, False
+    sh.cavity_type = "BOTH"
+    scene.display.render_aa = "8"
+    scene.view_settings.view_transform = "Standard"
+    scene.view_settings.exposure = 0
+    scene.render.resolution_x, scene.render.resolution_y = res_x, res_y
+    scene.render.filepath = f"{out_dir}/{setup['id']}.geo.png"
+    bpy.ops.render.render(write_still=True)
+    print(f"rendered geometry {setup['id']} -> {scene.render.filepath}")
+
+
 def where(cx, cy):
     hpos = "far left" if cx < 0.15 else "left" if cx < 0.38 else "centre" if cx <= 0.62 else "right" if cx <= 0.85 else "far right"
     vpos = "top" if cy < 0.33 else "middle" if cy <= 0.67 else "bottom"
@@ -436,6 +477,8 @@ for s in ([] if "--glb-only" in flags or flags.get("--top") else plan["setups"])
     scene.render.filepath = f"{out_dir}/{s['id']}{'-blocking' if with_marks else ''}.png"
     bpy.ops.render.render(write_still=True)
     print(f"rendered {s['id']} -> {scene.render.filepath}")
+    if "--geo" in flags:
+        geo_pass(s)
     if with_ids:
         for mid, parts in stand_ins.items():
             for o in parts:
