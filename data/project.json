@@ -120,17 +120,36 @@
       ],
       "ambience": "sfx-amb_study",
       "look": {
-        "palette": [
-          "#2a1810",
-          "#5a3520",
-          "#c08a4e",
-          "#1d2a3a"
+        "concept": "Henrick's real interview room, extended into a full set, not a library: dark, intimate, lacquered cherry and charcoal, shot like a prestige documentary interview.",
+        "references": "His own @compliantvc videos (public/characters/henrick/real); documentary interview lighting",
+        "storyProps": [
+          "glossy cherry-lacquer panels with vertical grooves",
+          "matte charcoal wall with two small framed sketches",
+          "acoustic guitar hung on the wall",
+          "warm practical bulbs deep in the dark",
+          "his worn leather armchair (off-axis to camera left)",
+          "a glass of water"
         ],
-        "light": "Warm practical lamps, soft key from camera left, dark falloff",
-        "lens": "50 to 85 mm, shallow depth of field, eye-level",
+        "never": [
+          "bookshelves of leather tomes",
+          "globes",
+          "gold-framed landscape paintings",
+          "brass desk lamps or green banker's lamps",
+          "a mahogany desk",
+          "rim or hair light"
+        ],
+        "palette": [
+          "#141414",
+          "#6e2a17",
+          "#d08a3c",
+          "#1f2c44",
+          "#e59ab1"
+        ],
+        "light": "One large soft key from camera left, darkness falling off to the right, warm practicals in the background",
+        "lens": "A-cam medium about 50 mm with his eyeline to camera left; B-cam extreme close-up 85 to 100 mm; shallow depth of field; framed about 2.3:1 like his videos",
         "contrast": "Low-key, rich blacks",
         "grain": "Fine 35 mm grain",
-        "note": "Anchor look: Henrick's real Comp AI videos"
+        "note": "The generated library study (shots 1a, 1b, 6a, 7) drifted from this room; that drift is why the stills read fake and off-brand."
       },
       "room": "/Library/Audio/Impulse Responses/Apple/03 Small Spaces/07 Indoor Spaces/0.8s_Empty Dining Room.SDIR"
     },
@@ -138,8 +157,9 @@
       "id": "hall",
       "name": "Ministry waiting hall",
       "style": [
-        "style-hall",
-        "style-counter"
+        "hall-look-grok",
+        "hall-look-nbp",
+        "hall-look-flash"
       ],
       "gradeRef": [
         "style-hall",
@@ -147,17 +167,41 @@
       ],
       "ambience": "sfx-amb_hall",
       "look": {
-        "palette": [
-          "#8d9690",
-          "#5c6660",
-          "#c9d1c8",
-          "#3a403c"
+        "concept": "A provincial European ministry that has not changed since 1974. The joke lives in the system: the board says 17, the ticket says 4,201,990, and the people waiting have been here for years.",
+        "references": "Roy Andersson's pale, static deadpan tableaux; observational documentary realism; real 1970s Central European public offices",
+        "storyProps": [
+          "mechanical split-flap number board (digits only)",
+          "red ticket dispenser on a chrome pole",
+          "reeded frosted-glass service windows with speaking grilles",
+          "Form 27-B in triplicate",
+          "fax machine",
+          "rubber stamp and ink pad",
+          "mustard fibreglass chairs on steel beams",
+          "the old man with a waist-length beard, asleep",
+          "the woman knitting an endless scarf",
+          "a cobweb between two front-row seats"
         ],
-        "light": "Flat overhead fluorescent, cold green-grey",
-        "lens": "Wide, locked-off, symmetrical",
-        "contrast": "Flat, lifted shadows",
-        "grain": "Fine grain",
-        "note": "Bureaucratic, still, Wes Anderson symmetry"
+        "never": [
+          "a modern council office",
+          "LED screens",
+          "blue government signage",
+          "readable words (digits only, text goes in post)",
+          "god rays or haze",
+          "Wes Anderson pastel symmetry",
+          "teal and orange grade"
+        ],
+        "palette": [
+          "#9fbfa9",
+          "#d9d2bc",
+          "#c9a227",
+          "#a7a59d",
+          "#6b4a2f"
+        ],
+        "light": "Overcast window daylight mixed with greenish fluorescent tubes, two dead; flat and soft, real shadows",
+        "lens": "24 to 32 mm, deep focus, locked-off wide tableau at eye level; 50 mm for the clerk's window",
+        "contrast": "Low, pale, nothing crushed",
+        "grain": "Fine organic grain",
+        "note": "Look test 1 (Oct 6): the brief, not the model, made it read real. Grok gave the best staging, Nano Banana Pro the most photographic texture."
       },
       "props": [
         "props-ministry"
@@ -166,7 +210,7 @@
     },
     {
       "id": "office",
-      "name": "Founder's office",
+      "name": "Founder's space",
       "style": [
         "style-office"
       ],
@@ -175,16 +219,39 @@
       ],
       "ambience": "sfx-amb_office",
       "look": {
+        "concept": "Proposal: the founder's whole company is a one-person phone booth on a cheap coworking floor. A glass box that rhymes with the ministry's service window, but alive.",
+        "references": "Observational documentary; real 2020s coworking floors in converted 1980s office buildings",
+        "storyProps": [
+          "white-framed glass phone booth lined with grey felt",
+          "birch plywood shelf as a desk",
+          "open laptop (Comp AI on screen in the payoff)",
+          "iced coffee sweating onto a napkin",
+          "a printed security questionnaire as thick as a phone book, with sticky tabs",
+          "an energy drink can",
+          "a dying succulent",
+          "a hoodie on the door handle",
+          "the ministry ticket taped to the glass"
+        ],
+        "never": [
+          "a city skyline",
+          "plants everywhere",
+          "neon signs",
+          "exposed brick",
+          "golden sunlight",
+          "a stock-photo smiling founder"
+        ],
         "palette": [
-          "#f2efe8",
-          "#cfd8cf",
-          "#3f8f6a",
+          "#8a8d8f",
+          "#e9e9e6",
+          "#d8c39a",
+          "#cfd8dc",
           "#2b2b2b"
         ],
-        "light": "Bright morning daylight",
-        "lens": "35 to 50 mm, handheld",
-        "contrast": "Soft, airy",
-        "grain": "Minimal"
+        "light": "Cool overcast window light and flat fluorescent panels, a faint laptop glow",
+        "lens": "35 mm handheld documentary; through the glass for the wide, inside the booth for the close-up",
+        "contrast": "Soft, natural",
+        "grain": "Fine grain",
+        "note": "The brief (work/look/prompts/booth-r1.txt) is written and not yet generated. The current plate (style-office) is the generic one Claudio rejected."
       },
       "room": "/Library/Audio/Impulse Responses/Apple/03 Small Spaces/02 Halls/1.0s_Dynamic Hall.SDIR"
     }
@@ -1346,6 +1413,70 @@
       "label": "Cut v3.3",
       "origin": "rendered",
       "duration": 45.456
+    },
+    {
+      "id": "hall-look-nbp",
+      "media": "image",
+      "path": "/generated/hall-look-nbp.jpg",
+      "label": "Ministry hall master, look test 1: Nano Banana Pro",
+      "origin": "generated",
+      "gen": {
+        "model": "google/gemini-3-pro-image (AI Gateway)",
+        "prompt": "A documentary film still. Wide shot, eye level, camera slightly off-centre, locked off: the main waiting hall of a provincial European government ministry that has not been renovated since 1974, looking down the length of the hall toward the service counter.\n\nThe room: board-marked concrete walls painted institutional mint green up to shoulder height and dirty cream above, the paint scuffed and chipped where chair backs have hit it for fifty years. Grey and white terrazzo floor with brass divider strips, worn dull along the path to the counter. Four rows of moulded mustard-yellow fibreglass chairs bolted to steel beams, one chair cracked. At the far end a long brown wood-veneer counter with six service windows of reeded frosted glass, each with a small round speaking grille and a slot for papers, and a small mechanical number box above each window. High on the end wall a large mechanical split-flap \"now serving\" board. A red ticket dispenser on a chrome pole near the entrance. A rubber plant in a pot, half dead. A plain wall clock. Tall steel-framed windows on the left with yellowed net curtains. Ceiling of fluorescent tube fittings, two tubes dead. Nearly empty: an old man asleep upright in the third row, a woman knitting at the end of a row.\n\nPhotographic qualities: available light only, flat overcast daylight from the windows mixed with greenish fluorescent light, low contrast, soft shadows, deep focus so the whole room is sharp, slight lens vignetting, fine film grain, muted desaturated colour. A real location that has been used every day for decades: dust, wear, mismatched repairs. Shot on an ARRI Alexa with a 32 mm prime. The deadpan tableau framing of Roy Andersson.\n\nAvoid: readable text, signage or logos anywhere; LED screens; blue government signage; glossy or polished surfaces; god rays, haze or dramatic light; rim light; shallow depth of field or bokeh; teal-and-orange grade; HDR look; anything new or clean."
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Plate candidate. Most photographic: worn terrazzo, chipped mint paint, reeded glass windows, red ticket dispenser, overcast plus fluorescent light. Fix: the board shows a readable 'now serving' label; digits only."
+      },
+      "scores": {}
+    },
+    {
+      "id": "hall-look-grok",
+      "media": "image",
+      "path": "/generated/hall-look-grok.jpg",
+      "label": "Ministry hall master, look test 1: Grok Imagine 2.0",
+      "origin": "generated",
+      "gen": {
+        "model": "spacexai/grok-imagine-image-2.0 (AI Gateway)",
+        "prompt": "A documentary film still. Wide shot, eye level, camera slightly off-centre, locked off: the main waiting hall of a provincial European government ministry that has not been renovated since 1974, looking down the length of the hall toward the service counter.\n\nThe room: board-marked concrete walls painted institutional mint green up to shoulder height and dirty cream above, the paint scuffed and chipped where chair backs have hit it for fifty years. Grey and white terrazzo floor with brass divider strips, worn dull along the path to the counter. Four rows of moulded mustard-yellow fibreglass chairs bolted to steel beams, one chair cracked. At the far end a long brown wood-veneer counter with six service windows of reeded frosted glass, each with a small round speaking grille and a slot for papers, and a small mechanical number box above each window. High on the end wall a large mechanical split-flap \"now serving\" board. A red ticket dispenser on a chrome pole near the entrance. A rubber plant in a pot, half dead. A plain wall clock. Tall steel-framed windows on the left with yellowed net curtains. Ceiling of fluorescent tube fittings, two tubes dead. Nearly empty: an old man asleep upright in the third row, a woman knitting at the end of a row.\n\nPhotographic qualities: available light only, flat overcast daylight from the windows mixed with greenish fluorescent light, low contrast, soft shadows, deep focus so the whole room is sharp, slight lens vignetting, fine film grain, muted desaturated colour. A real location that has been used every day for decades: dust, wear, mismatched repairs. Shot on an ARRI Alexa with a 32 mm prime. The deadpan tableau framing of Roy Andersson.\n\nAvoid: readable text, signage or logos anywhere; LED screens; blue government signage; glossy or polished surfaces; god rays, haze or dramatic light; rim light; shallow depth of field or bokeh; teal-and-orange grade; HDR look; anything new or clean."
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Plate candidate. Frontal Roy Andersson tableau: counter faces camera, pale flat light, deep focus, the sleeping man and the knitting woman. Reads as a real photograph. Slightly clean; add wear."
+      },
+      "scores": {}
+    },
+    {
+      "id": "hall-look-flash",
+      "media": "image",
+      "path": "/generated/hall-look-flash.jpg",
+      "label": "Ministry hall master, look test 1: Gemini 3.1 Flash Image",
+      "origin": "generated",
+      "gen": {
+        "model": "google/gemini-3.1-flash-image (AI Gateway)",
+        "prompt": "A documentary film still. Wide shot, eye level, camera slightly off-centre, locked off: the main waiting hall of a provincial European government ministry that has not been renovated since 1974, looking down the length of the hall toward the service counter.\n\nThe room: board-marked concrete walls painted institutional mint green up to shoulder height and dirty cream above, the paint scuffed and chipped where chair backs have hit it for fifty years. Grey and white terrazzo floor with brass divider strips, worn dull along the path to the counter. Four rows of moulded mustard-yellow fibreglass chairs bolted to steel beams, one chair cracked. At the far end a long brown wood-veneer counter with six service windows of reeded frosted glass, each with a small round speaking grille and a slot for papers, and a small mechanical number box above each window. High on the end wall a large mechanical split-flap \"now serving\" board. A red ticket dispenser on a chrome pole near the entrance. A rubber plant in a pot, half dead. A plain wall clock. Tall steel-framed windows on the left with yellowed net curtains. Ceiling of fluorescent tube fittings, two tubes dead. Nearly empty: an old man asleep upright in the third row, a woman knitting at the end of a row.\n\nPhotographic qualities: available light only, flat overcast daylight from the windows mixed with greenish fluorescent light, low contrast, soft shadows, deep focus so the whole room is sharp, slight lens vignetting, fine film grain, muted desaturated colour. A real location that has been used every day for decades: dust, wear, mismatched repairs. Shot on an ARRI Alexa with a 32 mm prime. The deadpan tableau framing of Roy Andersson.\n\nAvoid: readable text, signage or logos anywhere; LED screens; blue government signage; glossy or polished surfaces; god rays, haze or dramatic light; rim light; shallow depth of field or bokeh; teal-and-orange grade; HDR look; anything new or clean."
+      },
+      "qa": {
+        "verdict": "borderline",
+        "note": "Real-looking, but it invented readable 'NOW SERVING 52 A' text and the wide lens stretches the right-hand chairs."
+      },
+      "scores": {}
+    },
+    {
+      "id": "hall-look-muse",
+      "media": "image",
+      "path": "/generated/hall-look-muse.jpg",
+      "label": "Ministry hall master, look test 1: Meta Muse Image",
+      "origin": "generated",
+      "gen": {
+        "model": "meta/muse-image-1.0 (AI Gateway)",
+        "prompt": "A documentary film still. Wide shot, eye level, camera slightly off-centre, locked off: the main waiting hall of a provincial European government ministry that has not been renovated since 1974, looking down the length of the hall toward the service counter.\n\nThe room: board-marked concrete walls painted institutional mint green up to shoulder height and dirty cream above, the paint scuffed and chipped where chair backs have hit it for fifty years. Grey and white terrazzo floor with brass divider strips, worn dull along the path to the counter. Four rows of moulded mustard-yellow fibreglass chairs bolted to steel beams, one chair cracked. At the far end a long brown wood-veneer counter with six service windows of reeded frosted glass, each with a small round speaking grille and a slot for papers, and a small mechanical number box above each window. High on the end wall a large mechanical split-flap \"now serving\" board. A red ticket dispenser on a chrome pole near the entrance. A rubber plant in a pot, half dead. A plain wall clock. Tall steel-framed windows on the left with yellowed net curtains. Ceiling of fluorescent tube fittings, two tubes dead. Nearly empty: an old man asleep upright in the third row, a woman knitting at the end of a row.\n\nPhotographic qualities: available light only, flat overcast daylight from the windows mixed with greenish fluorescent light, low contrast, soft shadows, deep focus so the whole room is sharp, slight lens vignetting, fine film grain, muted desaturated colour. A real location that has been used every day for decades: dust, wear, mismatched repairs. Shot on an ARRI Alexa with a 32 mm prime. The deadpan tableau framing of Roy Andersson.\n\nAvoid: readable text, signage or logos anywhere; LED screens; blue government signage; glossy or polished surfaces; god rays, haze or dramatic light; rim light; shallow depth of field or bokeh; teal-and-orange grade; HDR look; anything new or clean."
+      },
+      "qa": {
+        "verdict": "fail",
+        "note": "Too derelict: reads as an abandoned building rather than a working office, and it ignored the 16:9 aspect."
+      },
+      "scores": {}
     }
   ],
   "graphics": [
@@ -2906,6 +3037,16 @@
     {
       "t": "2026-10-06T17:54:42.988Z",
       "text": "Handoff: set pieces on the canvas, art direction fields, multi-model still generator (scripts/imagine.ts); Ministry hall look test across 4 models",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-06T18:03:49.025Z",
+      "text": "Look test 1: the Ministry hall brief on 4 image models (Nano Banana Pro, Grok Imagine 2.0, Gemini 3.1 Flash, Muse). The specific brief made it read real; Grok and Nano Banana Pro are the plate candidates. Art direction filled in for all three locations.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T18:03:49.025Z",
+      "text": "Research lanes done: dialogue, sets and coverage, cinema-grade pipelines (raw reports in work/research/). Photoreal stills still running.",
       "kind": "info"
     }
   ],
