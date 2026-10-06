@@ -6,9 +6,9 @@ import {
   useEdgesState, useNodesState, useReactFlow, type Connection, type Edge,
 } from "@xyflow/react"
 import "@xyflow/react/dist/style.css"
-import { ImageIcon, Maximize, Type, Video } from "lucide-react"
+import { ImageIcon, Maximize, Play, Type, Video, X } from "lucide-react"
 import { nodeTypes } from "./nodes"
-import type { Activity, AppNode, Story } from "@/lib/graph"
+import type { Activity, AppNode, FinalNode, Story } from "@/lib/graph"
 import { ActivityPanel } from "./activity"
 import { Timeline } from "./timeline"
 import { Button } from "@/components/ui/button"
@@ -26,9 +26,13 @@ function Inner() {
   const [nodes, setNodes, onNodesChange] = useNodesState<AppNode>([])
   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([])
   const { screenToFlowPosition, fitView } = useReactFlow()
+  const finalNode = nodes.find((n) => n.type === "final") as FinalNode | undefined
+  const vers = finalNode ? [{ label: finalNode.data.version + " (latest)", video: finalNode.data.video, date: "", note: finalNode.data.title }, ...finalNode.data.versions.filter((v) => v.video !== finalNode.data.video)] : []
   const [story, setStory] = useState<Story | null>(null)
   const [activity, setActivity] = useState<Activity[]>([])
   const synced = useRef("")
+  const [watching, setWatching] = useState(false)
+  const [vi, setVi] = useState(0)
   const rev = useRef(0)
   const loaded = useRef(false)
   const fromRemote = useRef(false)
@@ -106,12 +110,31 @@ function Inner() {
           <Button size="sm" variant="ghost" onClick={() => add("prompt")}><Type /> Prompt</Button>
           <Button size="sm" variant="ghost" onClick={() => add("asset")}><ImageIcon /> Reference</Button>
           <Button size="sm" variant="ghost" onClick={() => add("generation")}><Video /> Generation</Button>
+          {finalNode && <Button size="sm" className="bg-emerald-400 text-emerald-950 hover:bg-emerald-300" onClick={() => { setVi(0); setWatching(true) }}><Play /> Watch final cut</Button>}
           <Button size="sm" variant="ghost" onClick={() => fitView({ padding: 0.1, duration: 400 })}><Maximize /> Fit</Button>
           
         </div>
       </div>
       </div>
       <ActivityPanel items={activity} />
+      {watching && finalNode && (
+        <div className="absolute inset-0 z-50 grid place-items-center bg-black/80 p-6 backdrop-blur-sm" onClick={() => setWatching(false)}>
+          <div className="w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
+            <div className="mb-3 flex items-center gap-3 text-sm">
+              <span className="rounded-md bg-emerald-400 px-2.5 py-1 text-xs font-extrabold tracking-widest text-emerald-950 uppercase">Final cut</span>
+              <span className="font-mono text-emerald-300">{vers[vi]?.label}</span>
+              <span className="text-muted-foreground">{vers[vi]?.note}</span>
+              <button onClick={() => setWatching(false)} className="ml-auto rounded-md p-1 text-muted-foreground hover:text-foreground"><X className="size-5" /></button>
+            </div>
+            <video key={vers[vi]?.video} src={vers[vi]?.video} controls autoPlay playsInline className="aspect-video w-full rounded-xl bg-black" />
+            <div className="mt-3 flex flex-wrap gap-2">
+              {vers.map((v, i) => (
+                <button key={v.label} onClick={() => setVi(i)} className={"rounded-md border px-3 py-1.5 text-xs " + (i === vi ? "border-emerald-400 bg-emerald-400/15 text-emerald-200" : "text-muted-foreground hover:text-foreground")}>{v.label}<span className="ml-2 opacity-60">{v.date}</span></button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
       {story && <Timeline story={story} nodes={nodes} onFocus={(n) => fitView({ nodes: [`kp${n}`, `k${n}`, `mp${n}`, `v${n}`].map((id) => ({ id })), padding: 0.4, duration: 500 })} />}
     </div>
   )

@@ -25,11 +25,15 @@ export type MotionData = {
   tool: string
   note: string
   status: "idea" | "designed" | "rendered"
+  video?: string
 }
 export type MotionNode = Node<MotionData, "motion">
+export type FinalVersion = { label: string; video: string; date: string; note: string }
+export type FinalData = { title: string; version: string; video: string; poster?: string; has: { footage: boolean; motion: boolean; sound: boolean; voice: boolean }; notes: string[]; versions: FinalVersion[] }
+export type FinalNode = Node<FinalData, "final">
 export type SectionData = { name: string; range: string; color: string; why: string }
 export type SectionNode = Node<SectionData, "section">
-export type AppNode = PromptNode | AssetNode | GenNode | SectionNode | MotionNode
+export type AppNode = PromptNode | AssetNode | GenNode | SectionNode | MotionNode | FinalNode
 
 export type Activity = { t: string; text: string; kind?: "run" | "done" | "info" | "warn" }
 

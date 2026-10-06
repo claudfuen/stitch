@@ -12,10 +12,6 @@
         "label": "comp-ai-logo.svg",
         "kind": "image",
         "hue": 150
-      },
-      "measured": {
-        "width": 240,
-        "height": 169
       }
     },
     {
@@ -30,10 +26,6 @@
         "label": "dashboard-screenshot.png",
         "kind": "image",
         "hue": 170
-      },
-      "measured": {
-        "width": 240,
-        "height": 169
       }
     },
     {
@@ -46,10 +38,6 @@
       "data": {
         "title": "Keyframe prompt \u00b7 1 \u00b7 The ping \u00b7 0-5s",
         "text": "Cinematic night shot, a tired startup founder at a kitchen-table desk at 11pm, laptop glow on his face, a Slack notification on screen reading 'Can you send your SOC 2 report?' from a huge enterprise logo. Cold blue light, shallow depth of field."
-      },
-      "measured": {
-        "width": 288,
-        "height": 192
       }
     },
     {
@@ -62,10 +50,6 @@
       "data": {
         "title": "Motion + VO \u00b7 Scene 1",
         "text": "Slow push-in on his face as the notification pops. His eyes widen, a beat of dread. Camera drifts to the screen. SFX: ping. VO: 'The biggest deal of your life just asked one question.'"
-      },
-      "measured": {
-        "width": 288,
-        "height": 192
       }
     },
     {
@@ -83,12 +67,7 @@
         "hue": 0,
         "video": "/generated/v1-4d8d86.mp4",
         "job": "4d8d8686-1f72-4e20-8e46-e601375010ae"
-      },
-      "measured": {
-        "width": 320,
-        "height": 254
-      },
-      "selected": true
+      }
     },
     {
       "id": "kp2",
@@ -100,10 +79,6 @@
       "data": {
         "title": "Keyframe prompt \u00b7 2 \u00b7 The old way \u00b7 5-10s",
         "text": "Absurd comedic wide shot: the same founder buried in towers of paper binders, sticky notes and screenshots, a consultant in a suit pointing at an invoice, a wall calendar flipping through months. Warm flat office light, wry tone."
-      },
-      "measured": {
-        "width": 288,
-        "height": 192
       }
     },
     {
@@ -116,10 +91,6 @@
       "data": {
         "title": "Motion + VO \u00b7 Scene 2",
         "text": "Fast whip-pans between the chaos: pages flying, invoice stamping, calendar pages flipping to 'NINE MONTHS LATER'. VO: 'SOC 2 used to mean spreadsheets, consultants, and a very long year.'"
-      },
-      "measured": {
-        "width": 288,
-        "height": 192
       }
     },
     {
@@ -137,10 +108,6 @@
         "hue": 0,
         "video": "/generated/v2-2c5729.mp4",
         "job": "2c57297f-14b8-44f1-b9c2-1cd50eac2933"
-      },
-      "measured": {
-        "width": 320,
-        "height": 254
       }
     },
     {
@@ -153,10 +120,6 @@
       "data": {
         "title": "Keyframe prompt \u00b7 3 \u00b7 Enter Comp AI \u00b7 10-16s",
         "text": "Clean macro shot of a laptop screen, the Comp AI app connecting integrations: AWS, GitHub, Okta, Google Workspace as glowing tiles snapping into place. Bright, calm, confident. Founder's relieved face reflected in the screen."
-      },
-      "measured": {
-        "width": 288,
-        "height": 208
       }
     },
     {
@@ -169,10 +132,6 @@
       "data": {
         "title": "Motion + VO \u00b7 Scene 3",
         "text": "Tiles snap in one by one with checkmark cascades, camera glides across the screen. The mess from scene 2 dissolves away behind. VO: 'Comp AI connects to your stack and does the work for you.'"
-      },
-      "measured": {
-        "width": 288,
-        "height": 192
       }
     },
     {
@@ -190,10 +149,6 @@
         "hue": 0,
         "video": "/generated/v3-a12e40.mp4",
         "job": "a12e40c8-1cd4-4660-b50a-d0c6405c97bf"
-      },
-      "measured": {
-        "width": 320,
-        "height": 254
       }
     },
     {
@@ -206,10 +161,6 @@
       "data": {
         "title": "Keyframe prompt \u00b7 4 \u00b7 Green across the board \u00b7 16-22s",
         "text": "Hero shot of the Comp AI dashboard, hundreds of controls flipping from red to green, a big compliance score climbing, an auditor's approval stamp landing. Crisp product UI, soft light."
-      },
-      "measured": {
-        "width": 288,
-        "height": 208
       }
     },
     {
@@ -222,10 +173,6 @@
       "data": {
         "title": "Motion + VO \u00b7 Scene 4",
         "text": "Time-lapse: reds sweeping to green like a wave, score counting up to 100%, a stamp slams down with a satisfying thud. VO: 'Evidence collected. Policies written. Audit-ready, automatically.'"
-      },
-      "measured": {
-        "width": 288,
-        "height": 192
       }
     },
     {
@@ -243,10 +190,6 @@
         "hue": 0,
         "video": "/generated/v4-093885.mp4",
         "job": "093885d5-7f97-4a26-aff4-9061b7077e17"
-      },
-      "measured": {
-        "width": 320,
-        "height": 254
       }
     },
     {
@@ -259,10 +202,6 @@
       "data": {
         "title": "Keyframe prompt \u00b7 5 \u00b7 The close \u00b7 22-27s",
         "text": "Bright morning, the founder and two teammates around a laptop, an email on screen from the same enterprise logo reading 'Signed.' Everyone erupts in a quiet, real celebration. Golden light through office windows."
-      },
-      "measured": {
-        "width": 288,
-        "height": 192
       }
     },
     {
@@ -275,10 +214,6 @@
       "data": {
         "title": "Motion + VO \u00b7 Scene 5",
         "text": "Handheld, warm. The founder reads the email, exhales, high-fives a teammate, closes the laptop with a smile. VO: 'Your next deal is a yes.'"
-      },
-      "measured": {
-        "width": 288,
-        "height": 192
       }
     },
     {
@@ -296,10 +231,6 @@
         "hue": 0,
         "video": "/generated/v5-dd11a9.mp4",
         "job": "dd11a9a7-44a2-482f-8a00-a583616ba56d"
-      },
-      "measured": {
-        "width": 320,
-        "height": 254
       }
     },
     {
@@ -312,10 +243,6 @@
       "data": {
         "title": "Keyframe prompt \u00b7 6 \u00b7 End card \u00b7 27-30s",
         "text": "Minimal end card: deep dark background, the Comp AI logo centered with a soft emerald glow, tagline 'SOC 2, handled.' in clean white type, trycomp.ai underneath."
-      },
-      "measured": {
-        "width": 288,
-        "height": 192
       }
     },
     {
@@ -328,10 +255,6 @@
       "data": {
         "title": "Motion + VO \u00b7 Scene 6",
         "text": "Logo resolves out of the last frame's light, tagline fades in, subtle glow pulse. VO: 'Comp AI. SOC 2, handled.'"
-      },
-      "measured": {
-        "width": 288,
-        "height": 192
       }
     },
     {
@@ -349,10 +272,6 @@
         "hue": 0,
         "video": "/generated/v6-3a28e5.mp4",
         "job": "3a28e51f-a1c9-4451-b08e-5e8125de2413"
-      },
-      "measured": {
-        "width": 320,
-        "height": 254
       }
     },
     {
@@ -368,12 +287,7 @@
         "kind": "image",
         "hue": 0,
         "url": "/characters/henrick/real/real-49.4.jpg"
-      },
-      "measured": {
-        "width": 240,
-        "height": 201
-      },
-      "selected": false
+      }
     },
     {
       "id": "hen-gesture",
@@ -388,12 +302,7 @@
         "kind": "image",
         "hue": 0,
         "url": "/characters/henrick/real/real-37.3.jpg"
-      },
-      "measured": {
-        "width": 240,
-        "height": 201
-      },
-      "selected": false
+      }
     },
     {
       "id": "hen-close",
@@ -408,12 +317,7 @@
         "kind": "image",
         "hue": 0,
         "url": "/characters/henrick/real/real-54.5.jpg"
-      },
-      "measured": {
-        "width": 240,
-        "height": 201
-      },
-      "selected": false
+      }
     },
     {
       "id": "hen-study",
@@ -428,10 +332,6 @@
         "kind": "image",
         "hue": 0,
         "url": "/characters/henrick/real/real-56.4.jpg"
-      },
-      "measured": {
-        "width": 240,
-        "height": 201
       }
     },
     {
@@ -441,20 +341,16 @@
         "x": 340,
         "y": -110
       },
-      "width": 320,
-      "draggable": false,
-      "selectable": false,
-      "connectable": false,
       "data": {
         "name": "Hook",
         "range": "0-5s",
         "color": "#f59e0b",
         "why": "Stakes in 3 seconds: the deal depends on one question."
       },
-      "measured": {
-        "width": 320,
-        "height": 80
-      }
+      "width": 320,
+      "draggable": false,
+      "selectable": false,
+      "connectable": false
     },
     {
       "id": "sec-problem",
@@ -463,20 +359,16 @@
         "x": 720,
         "y": -110
       },
-      "width": 320,
-      "draggable": false,
-      "selectable": false,
-      "connectable": false,
       "data": {
         "name": "Problem",
         "range": "5-10s",
         "color": "#f43f5e",
         "why": "Make the old way feel absurd, not scary."
       },
-      "measured": {
-        "width": 320,
-        "height": 64
-      }
+      "width": 320,
+      "draggable": false,
+      "selectable": false,
+      "connectable": false
     },
     {
       "id": "sec-turn",
@@ -485,20 +377,16 @@
         "x": 1100,
         "y": -110
       },
-      "width": 320,
-      "draggable": false,
-      "selectable": false,
-      "connectable": false,
       "data": {
         "name": "Turn",
         "range": "10-16s",
         "color": "#38bdf8",
         "why": "Comp AI enters. Calm replaces chaos."
       },
-      "measured": {
-        "width": 320,
-        "height": 64
-      }
+      "width": 320,
+      "draggable": false,
+      "selectable": false,
+      "connectable": false
     },
     {
       "id": "sec-payoff",
@@ -507,20 +395,16 @@
         "x": 1480,
         "y": -110
       },
-      "width": 700,
-      "draggable": false,
-      "selectable": false,
-      "connectable": false,
       "data": {
         "name": "Payoff",
         "range": "16-27s",
         "color": "#34d399",
         "why": "Proof (green board), then the human win (signed)."
       },
-      "measured": {
-        "width": 700,
-        "height": 64
-      }
+      "width": 700,
+      "draggable": false,
+      "selectable": false,
+      "connectable": false
     },
     {
       "id": "sec-cta",
@@ -529,20 +413,16 @@
         "x": 2240,
         "y": -110
       },
-      "width": 320,
-      "draggable": false,
-      "selectable": false,
-      "connectable": false,
       "data": {
         "name": "Call to action",
         "range": "27-30s",
         "color": "#a78bfa",
         "why": "One line, one logo."
       },
-      "measured": {
-        "width": 320,
-        "height": 64
-      }
+      "width": 320,
+      "draggable": false,
+      "selectable": false,
+      "connectable": false
     },
     {
       "id": "mg1",
@@ -556,13 +436,10 @@
         "kind": "ui",
         "start": 1,
         "end": 3.5,
-        "tool": "Remotion",
+        "tool": "Remotion (rendered)",
         "note": "Recreated message UI slides in over the laptop screen: 'Can you send your SOC 2 report?' from the enterprise logo.",
-        "status": "idea"
-      },
-      "measured": {
-        "width": 240,
-        "height": 159
+        "status": "rendered",
+        "video": "/generated/motion/MinistrySign.webm"
       }
     },
     {
@@ -577,13 +454,10 @@
         "kind": "stamp",
         "start": 7.5,
         "end": 10,
-        "tool": "Remotion",
+        "tool": "Remotion (rendered)",
         "note": "Hard-cut title card, typewriter font, over the calendar flipping.",
-        "status": "idea"
-      },
-      "measured": {
-        "width": 240,
-        "height": 126
+        "status": "rendered",
+        "video": "/generated/motion/TicketDisplay.webm"
       }
     },
     {
@@ -598,13 +472,10 @@
         "kind": "ui",
         "start": 11,
         "end": 15,
-        "tool": "Remotion + product screenshots",
+        "tool": "Remotion (rendered)",
         "note": "AWS, GitHub, Okta, Google Workspace tiles slam into a grid with checkmark cascades. Matches real product UI.",
-        "status": "idea"
-      },
-      "measured": {
-        "width": 240,
-        "height": 159
+        "status": "rendered",
+        "video": "/generated/motion/FormStamp.webm"
       }
     },
     {
@@ -619,13 +490,10 @@
         "kind": "stat",
         "start": 17,
         "end": 22,
-        "tool": "Remotion",
+        "tool": "Remotion (rendered)",
         "note": "Compliance score counts up while controls flip red to green, ends on an approval stamp.",
-        "status": "idea"
-      },
-      "measured": {
-        "width": 240,
-        "height": 143
+        "status": "rendered",
+        "video": "/generated/motion/CalendarFlip.webm"
       }
     },
     {
@@ -640,13 +508,10 @@
         "kind": "ui",
         "start": 23,
         "end": 25,
-        "tool": "Remotion",
+        "tool": "Remotion (rendered)",
         "note": "Email UI from the enterprise logo, single word 'Signed.' with a soft pulse.",
-        "status": "idea"
-      },
-      "measured": {
-        "width": 240,
-        "height": 143
+        "status": "rendered",
+        "video": "/generated/motion/DashboardScore.webm"
       }
     },
     {
@@ -661,51 +526,40 @@
         "kind": "end-card",
         "start": 27,
         "end": 30,
-        "tool": "Remotion",
+        "tool": "Remotion (rendered)",
         "note": "Logo resolve, tagline 'SOC 2, handled.', trycomp.ai. Locked brand type.",
-        "status": "idea"
-      },
-      "measured": {
-        "width": 240,
-        "height": 158
+        "status": "rendered",
+        "video": "/generated/motion/Captions.webm"
       }
     },
     {
       "id": "hen-r38",
       "type": "asset",
+      "position": {
+        "x": -800,
+        "y": 40
+      },
       "data": {
         "kind": "image",
         "hue": 0,
         "title": "Reference \u00b7 Henrick (real X footage)",
         "label": "3/4 right, seated (study)",
         "url": "/characters/henrick/real/real-38.3.jpg"
-      },
-      "position": {
-        "x": -800,
-        "y": 40
-      },
-      "measured": {
-        "width": 240,
-        "height": 201
       }
     },
     {
       "id": "hen-r53",
       "type": "asset",
+      "position": {
+        "x": -800,
+        "y": 240
+      },
       "data": {
         "kind": "image",
         "hue": 0,
         "title": "Reference \u00b7 Henrick (real X footage)",
         "label": "Close-up, eyes + glasses",
         "url": "/characters/henrick/real/real-53.5.jpg"
-      },
-      "position": {
-        "x": -800,
-        "y": 240
-      },
-      "measured": {
-        "width": 240,
-        "height": 201
       }
     },
     {
@@ -723,10 +577,6 @@
         "hue": 0,
         "url": "/generated/hen-sheet2.jpg",
         "job": "57f23cff-b560-47a6-bb4f-a1fb36bb47c2"
-      },
-      "measured": {
-        "width": 208,
-        "height": 304
       }
     },
     {
@@ -744,10 +594,6 @@
         "hue": 0,
         "url": "/generated/hen-faces2.jpg",
         "job": "5fd7895c-45ca-46c0-b526-b6a94a0d14ef"
-      },
-      "measured": {
-        "width": 208,
-        "height": 304
       }
     },
     {
@@ -765,13 +611,7 @@
         "hue": 0,
         "url": "/generated/k6-1a2339.jpg",
         "job": "1a233986-a54f-4360-acec-050d9c4db093"
-      },
-      "measured": {
-        "width": 208,
-        "height": 287
-      },
-      "selected": false,
-      "dragging": false
+      }
     },
     {
       "id": "k7",
@@ -788,13 +628,7 @@
         "hue": 0,
         "url": "/generated/k7-5cda9e.jpg",
         "job": "5cda9e54-9478-4a1f-8299-fd8a670be3c5"
-      },
-      "measured": {
-        "width": 208,
-        "height": 287
-      },
-      "selected": false,
-      "dragging": false
+      }
     },
     {
       "id": "ref-founder",
@@ -811,13 +645,7 @@
         "hue": 0,
         "url": "/generated/ref-founder-e6c025.jpg",
         "job": "e6c025bd-5524-446c-98da-6b0d9e5917f6"
-      },
-      "measured": {
-        "width": 208,
-        "height": 304
-      },
-      "selected": false,
-      "dragging": false
+      }
     },
     {
       "id": "ref-clerk",
@@ -834,13 +662,7 @@
         "hue": 0,
         "url": "/generated/ref-clerk-7f519b.jpg",
         "job": "7f519b51-100d-4521-91b9-60d3be4295bb"
-      },
-      "measured": {
-        "width": 208,
-        "height": 304
-      },
-      "selected": false,
-      "dragging": false
+      }
     },
     {
       "id": "hen-poses",
@@ -857,12 +679,7 @@
         "hue": 0,
         "url": "/generated/hen-poses-b23dcd.jpg",
         "job": "b23dcd8d-13a8-444f-a363-d1912ff0c913"
-      },
-      "measured": {
-        "width": 208,
-        "height": 320
-      },
-      "selected": false
+      }
     },
     {
       "id": "k1",
@@ -879,10 +696,6 @@
         "hue": 0,
         "url": "/generated/k1-c7e01b.jpg",
         "job": "c7e01b1e-18b0-4db8-9c66-90f0ed8f1960"
-      },
-      "measured": {
-        "width": 208,
-        "height": 275
       }
     },
     {
@@ -900,10 +713,6 @@
         "hue": 0,
         "url": "/generated/k2-f2b22d.jpg",
         "job": "f2b22d80-e99e-47e9-aea4-2bfb6770508e"
-      },
-      "measured": {
-        "width": 208,
-        "height": 275
       }
     },
     {
@@ -921,10 +730,6 @@
         "hue": 0,
         "url": "/generated/k4-17c017.jpg",
         "job": "17c017ff-c5fe-4de6-9f7b-7b7bece87663"
-      },
-      "measured": {
-        "width": 208,
-        "height": 275
       }
     },
     {
@@ -942,10 +747,6 @@
         "hue": 0,
         "url": "/generated/k5-9d532d.jpg",
         "job": "9d532d4b-66ca-442e-9713-d4254518f439"
-      },
-      "measured": {
-        "width": 208,
-        "height": 275
       }
     },
     {
@@ -963,10 +764,6 @@
         "hue": 0,
         "url": "/generated/kb6-061d2f.jpg",
         "job": "061d2fb3-f95b-4841-9930-845d3d926720"
-      },
-      "measured": {
-        "width": 208,
-        "height": 275
       }
     },
     {
@@ -984,13 +781,7 @@
         "hue": 0,
         "url": "/generated/kb7-36c2bb.jpg",
         "job": "36c2bb73-d45d-4806-b933-3720c785c75c"
-      },
-      "measured": {
-        "width": 208,
-        "height": 275
-      },
-      "selected": false,
-      "dragging": false
+      }
     },
     {
       "id": "kp7",
@@ -1002,10 +793,6 @@
       "data": {
         "title": "Keyframe prompt \u00b7 7 \u00b7 The statement \u00b7 36-40s",
         "text": "Medium shot, the silver-haired man from the character sheet, in his study, dropping a three-inch binder into a wastepaper bin. Warm lamp light, clean composition with space for a logo, no text."
-      },
-      "measured": {
-        "width": 288,
-        "height": 208
       }
     },
     {
@@ -1018,10 +805,6 @@
       "data": {
         "title": "Motion + dialogue \u00b7 Scene 7",
         "text": "He drops the binder in the bin. 'I have prepared a statement.' Cut to black. Comp AI logo resolves, tagline 'SOC 2, handled.' trycomp.ai."
-      },
-      "measured": {
-        "width": 288,
-        "height": 192
       }
     },
     {
@@ -1039,10 +822,6 @@
         "hue": 0,
         "video": "/generated/v7-ec0bce.mp4",
         "job": "ec0bce3c-680d-4e95-92f2-cb139527f999"
-      },
-      "measured": {
-        "width": 320,
-        "height": 254
       }
     },
     {
@@ -1057,42 +836,18 @@
         "kind": "end-card",
         "start": 37,
         "end": 40,
-        "tool": "Remotion",
+        "tool": "Remotion (rendered)",
         "note": "Logo resolve, 'SOC 2, handled.', trycomp.ai. Locked brand type.",
-        "status": "idea"
-      },
-      "measured": {
-        "width": 240,
-        "height": 141
-      }
-    },
-    {
-      "id": "rough-cut",
-      "type": "generation",
-      "position": {
-        "x": 3000,
-        "y": 800
-      },
-      "data": {
-        "title": "Rough cut v2 \u00b7 audited clips + motion graphics + end card, silent, 37.8s",
-        "kind": "video",
-        "model": "scripts/assemble.py (ffmpeg + Remotion)",
-        "status": "done",
-        "hue": 0,
-        "video": "/generated/rough-cut-v2.mp4",
-        "url": "/generated/k6-1a2339.jpg"
-      },
-      "measured": {
-        "width": 320,
-        "height": 242
+        "status": "rendered",
+        "video": "/generated/motion/EndCard.webm"
       }
     },
     {
       "id": "k3",
       "type": "generation",
       "position": {
-        "x": 1100.0,
-        "y": 240.0
+        "x": 1100,
+        "y": 240
       },
       "data": {
         "title": "Keyframe A \u00b7 Scene 3 (straight-on clerk, OTS)",
@@ -1102,6 +857,57 @@
         "hue": 0,
         "url": "/generated/k3-ad4425.jpg",
         "job": "ad4425b0-31a5-4972-8223-38a8c7118e17"
+      }
+    },
+    {
+      "id": "final",
+      "type": "final",
+      "position": {
+        "x": 3150,
+        "y": 300
+      },
+      "data": {
+        "title": "The Ministry \u00b7 37.8s",
+        "version": "v2",
+        "video": "/generated/rough-cut-v2.mp4",
+        "poster": "/generated/k6-1a2339.jpg",
+        "has": {
+          "footage": true,
+          "motion": true,
+          "sound": false,
+          "voice": false
+        },
+        "notes": [
+          "Seven audited scene clips, motion graphics composited, end card appended.",
+          "No audio yet: voices and sound design are next.",
+          "Render: scripts/assemble.py (ffmpeg + Remotion overlays)."
+        ],
+        "versions": [
+          {
+            "label": "v2",
+            "video": "/generated/rough-cut-v2.mp4",
+            "date": "Oct 6",
+            "note": "audited clips + motion graphics + end card, silent"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hen-cu",
+      "type": "generation",
+      "position": {
+        "x": 340.0,
+        "y": -420.0
+      },
+      "data": {
+        "title": "Scene 1b TEST \u00b7 Seedance 2.5 (real-face refs + Henrick voice ref, 480p draft)",
+        "kind": "image",
+        "model": "Seedance 2.5 omni_reference",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/hen-cu-c08f9e.jpg",
+        "job": "40220254-9b79-455c-bc10-3c1d03deb33b",
+        "video": "/generated/hen-cu-402202.mp4"
       }
     }
   ],
@@ -1548,39 +1354,59 @@
       }
     },
     {
-      "id": "v1-rough-cut",
+      "id": "v1-final",
       "source": "v1",
-      "target": "rough-cut"
+      "target": "final"
     },
     {
-      "id": "v2-rough-cut",
+      "id": "v2-final",
       "source": "v2",
-      "target": "rough-cut"
+      "target": "final"
     },
     {
-      "id": "v3-rough-cut",
+      "id": "v3-final",
       "source": "v3",
-      "target": "rough-cut"
+      "target": "final"
     },
     {
-      "id": "v4-rough-cut",
+      "id": "v4-final",
       "source": "v4",
-      "target": "rough-cut"
+      "target": "final"
     },
     {
-      "id": "v5-rough-cut",
+      "id": "v5-final",
       "source": "v5",
-      "target": "rough-cut"
+      "target": "final"
     },
     {
-      "id": "v6-rough-cut",
+      "id": "v6-final",
       "source": "v6",
-      "target": "rough-cut"
+      "target": "final"
     },
     {
-      "id": "v7-rough-cut",
+      "id": "v7-final",
       "source": "v7",
-      "target": "rough-cut"
+      "target": "final"
+    },
+    {
+      "id": "hen-sheet2-hen-cu",
+      "source": "hen-sheet2",
+      "target": "hen-cu"
+    },
+    {
+      "id": "hen-gesture-hen-cu",
+      "source": "hen-gesture",
+      "target": "hen-cu"
+    },
+    {
+      "id": "hen-side-hen-cu",
+      "source": "hen-side",
+      "target": "hen-cu"
+    },
+    {
+      "id": "hen-study-hen-cu",
+      "source": "hen-study",
+      "target": "hen-cu"
     }
   ],
   "story": {
@@ -1959,6 +1785,31 @@
     {
       "t": "2026-10-06T15:23:39.198993+00:00",
       "text": "Rough cut v2 is on the board: all 7 scenes passed audit, motion graphics composited, end card appended.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T15:24:26.753441+00:00",
+      "text": "Pushed to GitHub: audit fixes, motion graphics, assembly script.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T15:32:09.115698+00:00",
+      "text": "Building a distinct FINAL CUT player and showing the rendered motion graphics on their nodes. Then voices + sound.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:33:42.535139+00:00",
+      "text": "Voices: building Henrick clone from his 4 real isolated lines (Index TTS 2); casting founder, clerk, narrator on ElevenLabs v3.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:38:35.958299+00:00",
+      "text": "Voices done: Henrick cloned from his real lines (0.76-0.85 match, real-vs-real is 0.71), founder/clerk/narrator cast. All 14 lines pass speech-to-text. Dialogue does not fit current shot lengths, so regenerating scene 1 (new Henrick close-up), scene 3 (10s) and scene 6 (7s) to carry lip-sync.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:43:53.562357+00:00",
+      "text": "Seedance 2.5 test: accepts real-face reference images and a voice reference. Face held 100%, voice matched Henrick at 0.86 (best of all methods), lips move on each word. Flaws: dropped the first word, long freezes in pauses, 480p draft. This is the lead approach.",
       "kind": "done"
     }
   ]
