@@ -1,0 +1,21 @@
+scripts/conform.ts
+  s_5a1077fe9cdfe4::t_d7d26e80f6498b 55-58,62
+scripts/reproject.py
+  s_5a1077fe9cdfe4::t_1b8225d55395da 1-162
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "4b6fb2f2b8e105248e131570a46f04eec174cdfd",
+  "prompts": {},
+  "sessions": {
+    "s_5a1077fe9cdfe4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "28a02c07-58a0-4f9c-93c0-78a15428aaa0",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Claudio Fuentes <imclaudfuen@gmail.com>"
+    }
+  }
+}
