@@ -17,6 +17,11 @@ Read README.md for the architecture.
   shows progress.
 - A shot is not done until its checklist passes. Checks are judgments with evidence in the note. Do not mark a
   check from a metric alone, and do not grade your own take as approved: status `approved` is Claudio's call.
+- Make scenes in the playbook order in README.md: floor plan, grey box, hero plate, set plates, keyframes, voices,
+  video, cut. Never prompt a shot from scratch, and never put a second camera on the far side of a 180-degree line.
+- Every camera is a setup on its location's plan, and every shot names its setup. Plan edits go through the plan ops.
+- Route generation through Leap first (`bun run leap`); Henrick's real likeness goes to video through Higgsfield.
+- Show Claudio a contact sheet (`scripts/sheet.py`) for every round, with the critique on the board as take notes.
 - Build cuts with `bun run stitch build --version vN`. Audit every cut frame by frame (the av-review card) before
   calling it better than the last one.
 - Never commit licensed files: Apple impulse responses, the Lausanne font, or anything under `work/`.

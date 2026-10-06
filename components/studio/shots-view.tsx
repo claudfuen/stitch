@@ -3,7 +3,7 @@
 import { Play } from "lucide-react"
 import { useEffect, useState } from "react"
 import { CARD_FIELDS, type CardKey, type Check, type ProjectWithRev, type ShotStatus } from "@/lib/model"
-import { pick, planView, type Index, type ShotRow, type Summary } from "@/lib/derive"
+import { latestCut, pick, planView, type Index, type ShotRow, type Summary } from "@/lib/derive"
 import type { Op } from "@/lib/ops"
 import { cn } from "@/lib/utils"
 import { FloorPlan } from "./floor-plan"
@@ -137,7 +137,7 @@ function ShotCardRow({ r, p, op, onFocus }: { r: ShotRow; p: ProjectWithRev; op:
         <span className="text-[11px] tracking-wide uppercase" style={{ color }}>{r.section?.name}</span>
         {r.location && <span className="text-[11px] text-muted-foreground">{r.location.name}</span>}
         {r.setup && <Chip tone="muted" title={r.setup.purpose}>setup {r.setup.id} · {r.setup.name} · {r.setup.size} {r.setup.lens}mm</Chip>}
-        {r.timing && <span className="font-mono text-[11px] text-muted-foreground">{fmt(r.timing.start)} to {fmt(r.timing.start + r.timing.dur)} in {p.cuts[0]?.version}</span>}
+        {r.timing && <span className="font-mono text-[11px] text-muted-foreground">{fmt(r.timing.start)} to {fmt(r.timing.start + r.timing.dur)} in {latestCut(p)?.version}</span>}
         <select value={r.shot.status} onChange={(e) => op({ op: "shot.update", id: r.shot.id, patch: { status: e.target.value as ShotStatus } })} className="ml-auto rounded-md border bg-background px-2 py-1 text-xs">
           {STATUSES.map((s) => <option key={s}>{s}</option>)}
         </select>

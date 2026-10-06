@@ -13,7 +13,7 @@
 //   bun run stitch shot set <shot> '<json patch>'      bun run stitch shot add '<json shot>' [--after id]
 //   bun run stitch check <shot> <key> ok|fail|clear [--note ..] [--by ..]
 //   bun run stitch op '<op json or array>'
-//   bun run stitch build [--version v3.1]
+//   bun run stitch build [--version v3.1] [--shots 2.1,2.2 --scope "Scene 2"]
 //   bun run stitch plan <loc>                                print the floor plan: setups, marks, line checks
 //   bun run stitch plan set <loc> <plan.json>                replace the plan (dimensions, items, marks, axes, setups)
 //   bun run stitch plan upsert <loc> items|marks|axes|setups '<json>'     bun run stitch plan remove <loc> <list> <id>
@@ -25,7 +25,7 @@ import path from "node:path"
 import { CHECKS, type Asset, type CheckKey, type Media, type TakeVerdict } from "../lib/model"
 import type { Op } from "../lib/ops"
 import { load, mutate } from "../lib/store"
-import { pick, planView, shotRows } from "../lib/derive"
+import { latestCut, pick, planView, shotRows } from "../lib/derive"
 import type { PlanList } from "../lib/ops"
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..")
@@ -97,7 +97,7 @@ async function show(shotId?: string) {
       for (const [k, v] of Object.entries(r.shot.card)) console.log(`   card.${k}: ${v}`)
     }
   }
-  const cut = p.cuts[0]
+  const cut = latestCut(p)
   if (!shotId && cut) console.log(`\nlatest cut ${cut.version}: ${cut.duration.toFixed(1)} s (target ${p.runtimeTarget} s)`)
 }
 
@@ -229,7 +229,7 @@ async function main() {
     }
     case "build": {
       const { build } = await import("./build")
-      await build(flag("version"))
+      await build(flag("version"), { shots: flag("shots")?.split(",").filter(Boolean), scope: flag("scope") })
       return
     }
     default:

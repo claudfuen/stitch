@@ -1,11 +1,12 @@
 // Renders the cut straight from data/project.json: picture, grade, graphics, captions and a mixed track.
 //   bun run stitch build --version v3.1
+//   bun run stitch build --version hall-s2-v1 --shots 2.1,2.2,2.3,2.4,2.5 --scope "Scene 2"   (a scene cut)
 // Craft rules it enforces, so they never depend on memory:
 //   - head trims skip the model warm-up and keep ~0.35 s before speech; "speech" tails end 0.45 s after the last word
 //   - frames are scaled to fill and cropped (never padded), optional punch-in for same-framing cuts
 //   - every shot is colour-matched to its location's look (real footage for the study)
 //   - one continuous room-tone bed per location run; laid voices are convolved with a recorded room
-//   - captions on every line with the series bug; a dissolve into the end card; 48 kHz, -14 LUFS
+//   - captions on every line with the series bug; a dissolve into the end card; 48 kHz, -14 LUFS by a measured linear gain
 import { execFileSync, spawnSync } from "node:child_process"
 import { existsSync, mkdirSync, writeFileSync } from "node:fs"
 import path from "node:path"
@@ -31,10 +32,12 @@ type Seg = {
 function speech(file: string): Span[] {
   if (!hasAudio(file)) return []
   const d = dur(file)
-  // Threshold 25 dB under the clip's own peak: room tone in generated clips sits well above a fixed -38 dB.
-  const peak = Number(err("ffmpeg", ["-hide_banner", "-i", file, "-vn", "-af", "volumedetect", "-f", "null", "-"]).match(/max_volume: (-?[\d.]+) dB/)?.[1] ?? -10)
-  const thr = Math.max(-45, Math.min(-22, peak - 25))
-  const out = err("ffmpeg", ["-hide_banner", "-i", file, "-vn", "-af", `silencedetect=noise=${thr}dB:d=0.3`, "-f", "null", "-"])
+  // Listen in the voice band only, so a generated room bed is not read as speech; threshold 22 dB under that band's
+  // own peak (room tone in generated clips sits well above a fixed -38 dB).
+  const band = "highpass=f=250,lowpass=f=3500"
+  const peak = Number(err("ffmpeg", ["-hide_banner", "-i", file, "-vn", "-af", `${band},volumedetect`, "-f", "null", "-"]).match(/max_volume: (-?[\d.]+) dB/)?.[1] ?? -10)
+  const thr = Math.max(-45, Math.min(-20, peak - 22))
+  const out = err("ffmpeg", ["-hide_banner", "-i", file, "-vn", "-af", `${band},silencedetect=noise=${thr}dB:d=0.3`, "-f", "null", "-"])
   const starts = [...out.matchAll(/silence_start: ([\d.]+)/g)].map((m) => Number(m[1]))
   const ends = [...out.matchAll(/silence_end: ([\d.]+)/g)].map((m) => Number(m[1]))
   const spans: Span[] = []
@@ -63,8 +66,10 @@ function irFile(room: string): string | null {
   return out
 }
 
-export async function build(version?: string) {
-  const p = await load()
+export async function build(version?: string, opts: { shots?: string[]; scope?: string } = {}) {
+  const p0 = await load()
+  // A scene cut renders only the named shots, in board order, and is registered with a scope.
+  const p = opts.shots?.length ? { ...p0, shots: p0.shots.filter((s) => opts.shots!.includes(s.id)) } : p0
   const ix = indexProject(p)
   const v = version ?? `v${p.cuts.length + 2}`
   const name = `final-cut-${v.replace(/[^a-z0-9.]+/gi, "-")}`
@@ -154,7 +159,11 @@ export async function build(version?: string) {
   const card = segs.find((s) => s.card)
   const captions = timeline.flatMap((c) => c.lines).filter((l) => l.end > l.start).map((l) => ({ text: l.text, from: l.start, to: l.end }))
   writeFileSync(path.join(root, "work/captions.json"), JSON.stringify({ lines: captions, bugUntil: card ? card.start : total, duration: total }))
-  sh("bun", ["run", "render.mjs", "CaptionTrack", "--props", "../work/captions.json"], path.join(root, "motion"))
+  // Remotion's headless Chrome can stall on a frame seek when the machine is busy; retry before failing the build.
+  for (let attempt = 1; ; attempt++) {
+    try { sh("bun", ["run", "render.mjs", "CaptionTrack", "--props", "../work/captions.json"], path.join(root, "motion")); break }
+    catch (e) { if (attempt >= 3) throw e; console.log(`caption render failed (attempt ${attempt}), retrying`) }
+  }
 
   // 4. ffmpeg graph.
   const inputs: string[] = []
@@ -240,21 +249,31 @@ export async function build(version?: string) {
     const s0 = Math.max(0, r.start - 0.3)
     const L = r3(r.end + 0.3 - s0)
     const l = lab()
-    fc.push(`[${ai}:a]atrim=0:${L},asetpts=PTS-STARTPTS,aresample=48000,aformat=channel_layouts=stereo,volume=-26dB,afade=t=in:d=0.4,afade=t=out:st=${r3(L - 0.4)}:d=0.4,adelay=${ms(s0)}|${ms(s0)}[${l}];`)
+    fc.push(`[${ai}:a]atrim=0:${L},asetpts=PTS-STARTPTS,aresample=48000,aformat=channel_layouts=stereo,loudnorm=I=-42:TP=-9:LRA=7,aresample=48000,afade=t=in:d=0.4,afade=t=out:st=${r3(L - 0.4)}:d=0.4,adelay=${ms(s0)}|${ms(s0)}[${l}];`)
     a.push(l)
   }
-  fc.push(`${a.map((x) => `[${x}]`).join("")}amix=inputs=${a.length}:normalize=0:dropout_transition=0,loudnorm=I=-14:TP=-1.5:LRA=9,aresample=48000,atrim=0:${total}[outa]`)
+  // The mix keeps its balance here; loudness is set afterwards with a measured, linear (non-pumping) gain.
+  fc.push(`${a.map((x) => `[${x}]`).join("")}amix=inputs=${a.length}:normalize=0:dropout_transition=0,aresample=48000,atrim=0:${total}[outa]`)
 
   const outFile = pub(`/generated/${name}.mp4`)
   const filter = fc.join("")
   writeFileSync(path.join(root, "work/last-filter.txt"), filter)
-  sh("ffmpeg", ["-v", "error", "-y", ...inputs, "-filter_complex", filter, "-map", "[outv]", "-map", "[outa]", "-c:v", "libx264", "-crf", "18", "-preset", "medium", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-t", String(total), outFile])
+  const rawFile = path.join(root, "work", `${name}.raw.mkv`)
+  sh("ffmpeg", ["-v", "error", "-y", ...inputs, "-filter_complex", filter, "-map", "[outv]", "-map", "[outa]", "-c:v", "libx264", "-crf", "18", "-preset", "medium", "-pix_fmt", "yuv420p", "-c:a", "pcm_s24le", "-ar", "48000", "-t", String(total), rawFile])
+  // Two-pass loudness: measure the whole mix, then apply one linear gain to -14 LUFS (true peak -1.5), so room tone
+  // stays under the dialogue instead of being pumped up in quiet stretches.
+  const LN = "I=-14:TP=-1.5:LRA=11"
+  const m = JSON.parse(err("ffmpeg", ["-hide_banner", "-i", rawFile, "-vn", "-af", `loudnorm=${LN}:print_format=json`, "-f", "null", "-"]).match(/\{[^{}]*"input_i"[^{}]*\}/)![0])
+  const lin = `loudnorm=${LN}:measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true`
+  sh("ffmpeg", ["-v", "error", "-y", "-i", rawFile, "-c:v", "copy", "-af", `${lin},aresample=48000`, "-c:a", "aac", "-b:a", "192k", "-ar", "48000", outFile])
 
   // 5. Register.
   const assetId = `cut-${v}`
-  const cut: Cut = { id: v, version: v, date: new Date().toISOString().slice(0, 10), asset: assetId, duration: total, timeline, notes: warnings }
+  const cut: Cut = { id: v, version: v, ...(opts.scope ? { scope: opts.scope } : {}), date: new Date().toISOString().slice(0, 10), asset: assetId, duration: total, timeline, notes: warnings }
   await mutate([
-    { op: "asset.add", asset: { id: assetId, media: "video", path: `/generated/${name}.mp4`, label: `Cut ${v}`, origin: "rendered", duration: total } },
+    p.assets.some((x) => x.id === assetId)
+      ? { op: "asset.update", id: assetId, patch: { path: `/generated/${name}.mp4`, duration: total } }
+      : { op: "asset.add", asset: { id: assetId, media: "video", path: `/generated/${name}.mp4`, label: opts.scope ? `${opts.scope} (${v})` : `Cut ${v}`, origin: "rendered", duration: total } },
     { op: "cut.add", cut },
     { op: "log", text: `Cut ${v} built: ${total.toFixed(1)} s${warnings.length ? `, ${warnings.length} warnings` : ""}.`, kind: "done" },
   ])

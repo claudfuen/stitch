@@ -22,6 +22,9 @@ bun run stitch show         # the same project, from the terminal
 | UI | `components/studio` | Shots view, Canvas view, timeline, activity, final-cut player |
 | CLI | `scripts/stitch.ts` | The agent's way in. Same ops as the UI |
 | Renderer | `scripts/build.ts` | Builds a cut straight from the project and registers it |
+| Grey box | `scripts/greybox.py` | Builds a location in Blender from its floor plan and renders every camera setup |
+| Leap | `scripts/leap.ts` | Leap API runner: uploads cached by hash, batches, a provenance sidecar per output |
+| Review | `scripts/sheet.py`, `scripts/realism.ts` | Labelled contact sheets per round; a blind three-judge realism panel with real frames as controls |
 
 The UI and agents never write the file directly: both send named ops (`take.set`, `shot.card`, `check.set`,
 `location.update`, ...). That keeps every change auditable in the activity feed and identical whether a person or
@@ -49,8 +52,50 @@ bun run stitch take circle|alt|reject <shot> <asset> [--note ..]
 bun run stitch card <shot> <field> "<text>"
 bun run stitch check <shot> <key> ok|fail|clear --note ".."
 bun run stitch op '<op json or array>'
+bun run stitch plan <loc> | plan set <loc> plan.json | plan plate <loc> <setup> <asset> circle|alt|reject
+bun run stitch greybox <loc> [setup ...]
 bun run stitch build --version v4
+bun run leap batch jobs.json            # generations on Leap; see scripts/leap.ts
+bun run realism label=path ...          # blind realism panel; include real frames as controls
 ```
+
+## How a scene is made (the playbook)
+
+Measured on the Ministry hall pilot (2026-10-06). The research and the numbers are in the Assistant research note
+`domains/research/notes/2026-10-06-cinema-grade-ai-film-pipeline.md`. Never prompt a shot from scratch.
+
+1. **Floor plan.** Put `Location.plan` on the board: walls, openings, furniture, marks (with a scene `beat`), the
+   180-degree `axes`, and one `setup` per camera (size, lens on Super 35, height, position, facing, tilt). `stitch plan
+   <loc>` prints each setup's field of view and the screen position of each mark. Derived checks flag setups on both
+   sides of a line, and shots that cross it from the previous shot. Establish a seated exchange from the side its
+   coverage is shot from; a master from behind flips the pair.
+2. **Grey box.** `stitch greybox <loc>` renders every setup in Blender from the plan and attaches the renders. Look at
+   them before spending: they find cameras inside heads, actors behind walls and marks leaking between scenes.
+3. **Hero plate.** One master still per location from a written production brief, run on 3 to 5 models. Write the
+   positive version of everything (no "Avoid" list): what the place is, what is in it from near to far, the light, and
+   the photographic qualities (stock, lens, available light, deep focus).
+4. **Set plates.** For each setup: the grey render as image 1 (layout) and the hero as image 2 (look), with a short brief
+   for that angle. State what the wall in view holds and what is behind the camera; otherwise signage drifts onto the
+   reverse wall. Circle plates as takes on the setup (`stitch plan plate`).
+5. **Keyframes.** Edit the circled plate with "change only: add these people", passing real frames (Henrick) or
+   character sheets as references. Gate every still against the AI tells (rim light, HDR micro-contrast, gloss, fake
+   bokeh, uniform grade, stock staging, generic props, garbled text), the face score, and `bun run realism` with real
+   frames as controls. Later states of a scene (eleven years later) are edits of the circled keyframe, so the frame
+   stays identical.
+6. **Voices.** Cast supporting characters from 3 to 4 auditions put in front of Claudio, loudness-matched. The picked
+   read becomes the audio reference for every shot of that character.
+7. **Video.** One line and one face per clip, with the keyframe as the start image, real references and the voice
+   reference. Write the timing and a positive restraint clause ("keeps his head still while he speaks"). Draft at
+   480p (several takes), review each on the av-review card, and finalize the circled take at 1080p.
+8. **Cut.** Cut from the coverage. Hold one beat after a punchline, cut the dead air, replace generated room sound
+   with one continuous bed, and audit the cut on the card.
+
+**Routing.** Leap first for every model it carries (`bun run leap`; key in the Keychain service `LEAP_API_KEY`). The
+fal MCP runs on Leap's fal account. Seedance with Henrick's real likeness is refused by fal and the Vercel gateway, so it
+goes through Higgsfield `seedance_2_5` (`omni_reference`: start image, image references, audio references). Image
+models that worked: GPT Image 2.5 Sunburst and Flare (plates and keyframes, realism 91 to 94 against a real control of
+92). Nano Banana Pro scored 5 to 7 and lost Henrick's likeness. Inserts with no people work on Kling 3.0 Pro on Leap
+(first and last frame for a state change).
 
 ## The renderer enforces the craft rules
 
@@ -83,6 +128,8 @@ The Henrick images and voice are the actor's likeness, used with signed permissi
 - Seedance 2.5 with real stills and a voice reference: face 0.76 to 0.82, voice up to 0.86.
 - Face replacement after the fact did not move the score.
 - Laid voices over silent clips read as cheap. Generate on-camera lines inside the shot.
+- Hall shot 2.4 (Seedance 2.5 on Higgsfield, keyframe + 2 real frames + founder sheet + voice reference): face 0.71 in a
+  32 mm two-shot, voice 0.74 (real vs real 0.71), the word on the mouth. Drafts cost 5 credits, the 1080p final 60.
 
 ## Stack
 

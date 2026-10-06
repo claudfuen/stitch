@@ -20,7 +20,7 @@ const ids = only.length ? only : all
 for (const id of ids) {
   const composition = await selectComposition({ serveUrl, id, browserExecutable: chrome, inputProps })
   const out = `out/${id}.mov`
-  await renderMedia({ composition, serveUrl, inputProps, codec: "prores", proResProfile: "4444", pixelFormat: "yuva444p10le", imageFormat: "png", outputLocation: out, browserExecutable: chrome })
+  await renderMedia({ composition, serveUrl, inputProps, codec: "prores", proResProfile: "4444", pixelFormat: "yuva444p10le", imageFormat: "png", outputLocation: out, browserExecutable: chrome, timeoutInMilliseconds: 120000 })
   if (!inputProps) execFileSync("ffmpeg", ["-v", "error", "-y", "-i", out, "-c:v", "libvpx-vp9", "-pix_fmt", "yuva420p", "-b:v", "0", "-crf", "34", "-an", `../public/generated/motion/${id}.webm`])
   console.log("rendered", id)
 }

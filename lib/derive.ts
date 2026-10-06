@@ -21,7 +21,8 @@ export function pick(list: Take[]): Take | undefined {
   return list.find((t) => t.verdict === "circled") ?? list.find((t) => t.verdict !== "reject")
 }
 
-export const latestCut = (p: Project): Cut | undefined => p.cuts[0]
+/** The latest full cut of the film; scene cuts (with a scope) never stand in for it. */
+export const latestCut = (p: Project): Cut | undefined => p.cuts.find((c) => !c.scope)
 
 export type LineView = Line & { speaker?: Character; audioAsset?: Asset; risk?: string }
 export type GraphicView = GraphicUse & { g?: Graphic; preview?: Asset }

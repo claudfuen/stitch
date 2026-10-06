@@ -215,6 +215,8 @@ export type CutShot = {
 export type Cut = {
   id: Id
   version: string
+  /** Set for a partial cut (one scene or a few shots); unset for a full cut of the film. */
+  scope?: string
   date: string
   asset: Id
   duration: number
