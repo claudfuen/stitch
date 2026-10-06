@@ -1,6 +1,6 @@
 import React from "react"
 import { Composition } from "remotion"
-import { Captions } from "./Captions"
+import { Captions, CaptionGood, CaptionImpossible } from "./Captions"
 import { CalendarFlip } from "./CalendarFlip"
 import { DashboardScore } from "./DashboardScore"
 import { EndCard } from "./EndCard"
@@ -16,6 +16,8 @@ export const COMPS = [
   { id: "CalendarFlip", component: CalendarFlip, durationInFrames: 96 },
   { id: "DashboardScore", component: DashboardScore, durationInFrames: 120 },
   { id: "Captions", component: Captions, durationInFrames: 132 },
+  { id: "CaptionImpossible", component: CaptionImpossible, durationInFrames: 144 },
+  { id: "CaptionGood", component: CaptionGood, durationInFrames: 96 },
   { id: "EndCard", component: EndCard, durationInFrames: 72 },
 ]
 

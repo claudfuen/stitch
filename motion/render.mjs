@@ -10,7 +10,7 @@ const chrome = process.env.CHROME || "/Applications/Google Chrome.app/Contents/M
 mkdirSync("out", { recursive: true })
 mkdirSync("../public/generated/motion", { recursive: true })
 const serveUrl = await bundle({ entryPoint: "./src/index.ts" })
-const ids = ["MinistrySign", "TicketDisplay", "FormStamp", "CalendarFlip", "DashboardScore", "Captions", "EndCard"].filter((i) => !only.length || only.includes(i))
+const ids = ["MinistrySign", "TicketDisplay", "FormStamp", "CalendarFlip", "DashboardScore", "Captions", "CaptionImpossible", "CaptionGood", "EndCard"].filter((i) => !only.length || only.includes(i))
 for (const id of ids) {
   const composition = await selectComposition({ serveUrl, id, browserExecutable: chrome })
   const out = `out/${id}.mov`

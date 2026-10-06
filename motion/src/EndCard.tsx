@@ -4,8 +4,8 @@ import { EMERALD, FONT, MONO, useSpring } from "./ui"
 
 export const EndCard: React.FC = () => {
   const frame = useCurrentFrame()
-  const logo = useSpring(4)
-  const tag = useSpring(18)
+  const logo = useSpring(0)
+  const tag = useSpring(10)
   const url = interpolate(frame, [34, 46], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })
   const glow = 0.5 + 0.5 * Math.sin(frame / 8)
   return (
