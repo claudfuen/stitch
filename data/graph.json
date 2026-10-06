@@ -8,7 +8,7 @@
         "y": 470
       },
       "data": {
-        "title": "Reference · Brand",
+        "title": "Reference \u00b7 Brand",
         "label": "comp-ai-logo.svg",
         "kind": "image",
         "hue": 150
@@ -26,7 +26,7 @@
         "y": 700
       },
       "data": {
-        "title": "Reference · Product UI",
+        "title": "Reference \u00b7 Product UI",
         "label": "dashboard-screenshot.png",
         "kind": "image",
         "hue": 170
@@ -44,7 +44,7 @@
         "y": 0
       },
       "data": {
-        "title": "Keyframe prompt · 1 · The ping · 0-5s",
+        "title": "Keyframe prompt \u00b7 1 \u00b7 The ping \u00b7 0-5s",
         "text": "Cinematic night shot, a tired startup founder at a kitchen-table desk at 11pm, laptop glow on his face, a Slack notification on screen reading 'Can you send your SOC 2 report?' from a huge enterprise logo. Cold blue light, shallow depth of field."
       },
       "measured": {
@@ -60,7 +60,7 @@
         "y": 560
       },
       "data": {
-        "title": "Motion + VO · Scene 1",
+        "title": "Motion + VO \u00b7 Scene 1",
         "text": "Slow push-in on his face as the notification pops. His eyes widen, a beat of dread. Camera drifts to the screen. SFX: ping. VO: 'The biggest deal of your life just asked one question.'"
       },
       "measured": {
@@ -76,7 +76,7 @@
         "y": 800
       },
       "data": {
-        "title": "Video · Scene 1",
+        "title": "Video \u00b7 Scene 1",
         "kind": "video",
         "model": "TBD (Higgsfield)",
         "status": "idle",
@@ -96,7 +96,7 @@
         "y": 0
       },
       "data": {
-        "title": "Keyframe prompt · 2 · The old way · 5-10s",
+        "title": "Keyframe prompt \u00b7 2 \u00b7 The old way \u00b7 5-10s",
         "text": "Absurd comedic wide shot: the same founder buried in towers of paper binders, sticky notes and screenshots, a consultant in a suit pointing at an invoice, a wall calendar flipping through months. Warm flat office light, wry tone."
       },
       "measured": {
@@ -112,7 +112,7 @@
         "y": 560
       },
       "data": {
-        "title": "Motion + VO · Scene 2",
+        "title": "Motion + VO \u00b7 Scene 2",
         "text": "Fast whip-pans between the chaos: pages flying, invoice stamping, calendar pages flipping to 'NINE MONTHS LATER'. VO: 'SOC 2 used to mean spreadsheets, consultants, and a very long year.'"
       },
       "measured": {
@@ -128,7 +128,7 @@
         "y": 800
       },
       "data": {
-        "title": "Video · Scene 2",
+        "title": "Video \u00b7 Scene 2",
         "kind": "video",
         "model": "TBD (Higgsfield)",
         "status": "idle",
@@ -147,7 +147,7 @@
         "y": 0
       },
       "data": {
-        "title": "Keyframe prompt · 3 · Enter Comp AI · 10-16s",
+        "title": "Keyframe prompt \u00b7 3 \u00b7 Enter Comp AI \u00b7 10-16s",
         "text": "Clean macro shot of a laptop screen, the Comp AI app connecting integrations: AWS, GitHub, Okta, Google Workspace as glowing tiles snapping into place. Bright, calm, confident. Founder's relieved face reflected in the screen."
       },
       "measured": {
@@ -163,7 +163,7 @@
         "y": 560
       },
       "data": {
-        "title": "Motion + VO · Scene 3",
+        "title": "Motion + VO \u00b7 Scene 3",
         "text": "Tiles snap in one by one with checkmark cascades, camera glides across the screen. The mess from scene 2 dissolves away behind. VO: 'Comp AI connects to your stack and does the work for you.'"
       },
       "measured": {
@@ -179,7 +179,7 @@
         "y": 800
       },
       "data": {
-        "title": "Video · Scene 3",
+        "title": "Video \u00b7 Scene 3",
         "kind": "video",
         "model": "TBD (Higgsfield)",
         "status": "idle",
@@ -198,7 +198,7 @@
         "y": 0
       },
       "data": {
-        "title": "Keyframe prompt · 4 · Green across the board · 16-22s",
+        "title": "Keyframe prompt \u00b7 4 \u00b7 Green across the board \u00b7 16-22s",
         "text": "Hero shot of the Comp AI dashboard, hundreds of controls flipping from red to green, a big compliance score climbing, an auditor's approval stamp landing. Crisp product UI, soft light."
       },
       "measured": {
@@ -214,7 +214,7 @@
         "y": 560
       },
       "data": {
-        "title": "Motion + VO · Scene 4",
+        "title": "Motion + VO \u00b7 Scene 4",
         "text": "Time-lapse: reds sweeping to green like a wave, score counting up to 100%, a stamp slams down with a satisfying thud. VO: 'Evidence collected. Policies written. Audit-ready, automatically.'"
       },
       "measured": {
@@ -230,7 +230,7 @@
         "y": 800
       },
       "data": {
-        "title": "Video · Scene 4",
+        "title": "Video \u00b7 Scene 4",
         "kind": "video",
         "model": "TBD (Higgsfield)",
         "status": "idle",
@@ -249,7 +249,7 @@
         "y": 0
       },
       "data": {
-        "title": "Keyframe prompt · 5 · The close · 22-27s",
+        "title": "Keyframe prompt \u00b7 5 \u00b7 The close \u00b7 22-27s",
         "text": "Bright morning, the founder and two teammates around a laptop, an email on screen from the same enterprise logo reading 'Signed.' Everyone erupts in a quiet, real celebration. Golden light through office windows."
       },
       "measured": {
@@ -265,7 +265,7 @@
         "y": 253.76223103846314
       },
       "data": {
-        "title": "Keyframe · Scene 5",
+        "title": "Keyframe \u00b7 Scene 5",
         "kind": "image",
         "model": "TBD (Higgsfield)",
         "status": "idle",
@@ -286,7 +286,7 @@
         "y": 560
       },
       "data": {
-        "title": "Motion + VO · Scene 5",
+        "title": "Motion + VO \u00b7 Scene 5",
         "text": "Handheld, warm. The founder reads the email, exhales, high-fives a teammate, closes the laptop with a smile. VO: 'Your next deal is a yes.'"
       },
       "measured": {
@@ -302,7 +302,7 @@
         "y": 800
       },
       "data": {
-        "title": "Video · Scene 5",
+        "title": "Video \u00b7 Scene 5",
         "kind": "video",
         "model": "TBD (Higgsfield)",
         "status": "idle",
@@ -321,7 +321,7 @@
         "y": 0
       },
       "data": {
-        "title": "Keyframe prompt · 6 · End card · 27-30s",
+        "title": "Keyframe prompt \u00b7 6 \u00b7 End card \u00b7 27-30s",
         "text": "Minimal end card: deep dark background, the Comp AI logo centered with a soft emerald glow, tagline 'SOC 2, handled.' in clean white type, trycomp.ai underneath."
       },
       "measured": {
@@ -337,7 +337,7 @@
         "y": 560
       },
       "data": {
-        "title": "Motion + VO · Scene 6",
+        "title": "Motion + VO \u00b7 Scene 6",
         "text": "Logo resolves out of the last frame's light, tagline fades in, subtle glow pulse. VO: 'Comp AI. SOC 2, handled.'"
       },
       "measured": {
@@ -353,7 +353,7 @@
         "y": 800
       },
       "data": {
-        "title": "Video · Scene 6",
+        "title": "Video \u00b7 Scene 6",
         "kind": "video",
         "model": "TBD (Higgsfield)",
         "status": "idle",
@@ -372,7 +372,7 @@
         "y": 240
       },
       "data": {
-        "title": "Reference · Henrick (real X footage)",
+        "title": "Reference \u00b7 Henrick (real X footage)",
         "label": "Side-on, seated (study)",
         "kind": "image",
         "hue": 0,
@@ -392,7 +392,7 @@
         "y": 40
       },
       "data": {
-        "title": "Reference · Henrick (real X footage)",
+        "title": "Reference \u00b7 Henrick (real X footage)",
         "label": "3/4 right, gesturing (study)",
         "kind": "image",
         "hue": 0,
@@ -412,7 +412,7 @@
         "y": 440
       },
       "data": {
-        "title": "Reference · Henrick (real X footage)",
+        "title": "Reference \u00b7 Henrick (real X footage)",
         "label": "Close-up, angled",
         "kind": "image",
         "hue": 0,
@@ -432,7 +432,7 @@
         "y": 440
       },
       "data": {
-        "title": "Reference · Henrick (real X footage)",
+        "title": "Reference \u00b7 Henrick (real X footage)",
         "label": "Front, medium (red study)",
         "kind": "image",
         "hue": 0,
@@ -687,7 +687,7 @@
         "y": 801.483098779049
       },
       "data": {
-        "title": "Identity test 1 · office, three-quarter (v1: used 3 AI-derived refs, superseded)",
+        "title": "Identity test 1 \u00b7 office, three-quarter (v1: used 3 AI-derived refs, superseded)",
         "kind": "image",
         "model": "GPT Image 2.5 (high, 4 refs)",
         "status": "done",
@@ -711,7 +711,7 @@
         "y": 825.1930299853321
       },
       "data": {
-        "title": "Identity test 2 · close-up, study (v1: used 3 AI-derived refs, superseded)",
+        "title": "Identity test 2 \u00b7 close-up, study (v1: used 3 AI-derived refs, superseded)",
         "kind": "image",
         "model": "GPT Image 2.5 (high, 4 refs)",
         "status": "done",
@@ -734,7 +734,7 @@
         "y": 827.8762780456518
       },
       "data": {
-        "title": "Identity test 3 · wide, corridor (v1: used 3 AI-derived refs, superseded)",
+        "title": "Identity test 3 \u00b7 wide, corridor (v1: used 3 AI-derived refs, superseded)",
         "kind": "image",
         "model": "GPT Image 2.5 (high, 4 refs)",
         "status": "done",
@@ -757,7 +757,7 @@
         "y": -60
       },
       "data": {
-        "title": "Character sheet · Henrick turnaround (one-pass sheet) (v1: used 3 AI-derived refs, superseded)",
+        "title": "Character sheet \u00b7 Henrick turnaround (one-pass sheet) (v1: used 3 AI-derived refs, superseded)",
         "kind": "image",
         "model": "GPT Image 2.5 (high, 5 refs)",
         "status": "done",
@@ -780,7 +780,7 @@
         "y": 847.3410548188564
       },
       "data": {
-        "title": "Identity test 4 · profile, seated (v1: used 3 AI-derived refs, superseded)",
+        "title": "Identity test 4 \u00b7 profile, seated (v1: used 3 AI-derived refs, superseded)",
         "kind": "image",
         "model": "GPT Image 2.5 (high, 4 refs)",
         "status": "done",
@@ -803,7 +803,7 @@
         "y": 238.25174181300974
       },
       "data": {
-        "title": "Keyframe B v1 · Scene 3 (sheet + stills)",
+        "title": "Keyframe B v1 \u00b7 Scene 3 (sheet + stills)",
         "kind": "image",
         "model": "GPT Image 2.5 (v1 refs, superseded)",
         "status": "done",
@@ -826,7 +826,7 @@
         "y": 236.55944224038421
       },
       "data": {
-        "title": "Keyframe B v1 · Scene 7 (sheet + stills)",
+        "title": "Keyframe B v1 \u00b7 Scene 7 (sheet + stills)",
         "kind": "image",
         "model": "GPT Image 2.5 (v1 refs, superseded)",
         "status": "done",
@@ -847,7 +847,7 @@
       "data": {
         "kind": "image",
         "hue": 0,
-        "title": "Reference · Henrick (real X footage)",
+        "title": "Reference \u00b7 Henrick (real X footage)",
         "label": "3/4 right, seated (study)",
         "url": "/characters/henrick/real/real-38.3.jpg"
       },
@@ -866,7 +866,7 @@
       "data": {
         "kind": "image",
         "hue": 0,
-        "title": "Reference · Henrick (real X footage)",
+        "title": "Reference \u00b7 Henrick (real X footage)",
         "label": "Close-up, eyes + glasses",
         "url": "/characters/henrick/real/real-53.5.jpg"
       },
@@ -887,7 +887,7 @@
         "y": 330
       },
       "data": {
-        "title": "Character sheet v2 · real refs only, 4K max",
+        "title": "Character sheet v2 \u00b7 real refs only, 4K max",
         "kind": "image",
         "model": "GPT Image 2.5 (max, 4K, 6 real refs)",
         "status": "done",
@@ -908,7 +908,7 @@
         "y": 700
       },
       "data": {
-        "title": "Face grid v2 · 9 angles, real refs only",
+        "title": "Face grid v2 \u00b7 9 angles, real refs only",
         "kind": "image",
         "model": "GPT Image 2.5 (max, 4K, 6 real refs)",
         "status": "done",
@@ -929,7 +929,7 @@
         "y": 240
       },
       "data": {
-        "title": "Keyframe A · Scene 1 (v2 sheet only)",
+        "title": "Keyframe A \u00b7 Scene 1 (v2 sheet only)",
         "kind": "image",
         "model": "GPT Image 2.5 (v2 sheet only)",
         "status": "done",
@@ -946,11 +946,11 @@
       "id": "k2",
       "type": "generation",
       "position": {
-        "x": 720,
-        "y": 240
+        "x": 676.331472631812,
+        "y": 230.29588280706935
       },
       "data": {
-        "title": "Keyframe A · Scene 2 (v2 sheet only)",
+        "title": "Keyframe A \u00b7 Scene 2 (v2 sheet only)",
         "kind": "image",
         "model": "GPT Image 2.5 (v2 sheet only)",
         "status": "done",
@@ -961,29 +961,8 @@
       "measured": {
         "width": 208,
         "height": 287
-      }
-    },
-    {
-      "id": "k3",
-      "type": "generation",
-      "position": {
-        "x": 1017.4266137692211,
-        "y": 240
       },
-      "data": {
-        "title": "Keyframe A · Scene 3 (v2 sheet only)",
-        "kind": "image",
-        "model": "GPT Image 2.5 (v2 sheet only)",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/k3-1f2d10.jpg",
-        "job": "1f2d108a-41a0-4abe-8ba6-fc84d2a07276"
-      },
-      "measured": {
-        "width": 208,
-        "height": 287
-      },
-      "selected": false,
+      "selected": true,
       "dragging": false
     },
     {
@@ -994,7 +973,7 @@
         "y": 243.00339707418925
       },
       "data": {
-        "title": "Keyframe A · Scene 4 (v2 sheet only)",
+        "title": "Keyframe A \u00b7 Scene 4 (v2 sheet only)",
         "kind": "image",
         "model": "GPT Image 2.5 (v2 sheet only)",
         "status": "done",
@@ -1017,7 +996,7 @@
         "y": 240
       },
       "data": {
-        "title": "Keyframe A · Scene 6 (v2 sheet only)",
+        "title": "Keyframe A \u00b7 Scene 6 (v2 sheet only)",
         "kind": "image",
         "model": "GPT Image 2.5 (v2 sheet only)",
         "status": "done",
@@ -1040,7 +1019,7 @@
         "y": 240
       },
       "data": {
-        "title": "Keyframe A · Scene 7 (v2 sheet only)",
+        "title": "Keyframe A \u00b7 Scene 7 (v2 sheet only)",
         "kind": "image",
         "model": "GPT Image 2.5 (v2 sheet only)",
         "status": "done",
@@ -1063,7 +1042,7 @@
         "y": -203.23455333008204
       },
       "data": {
-        "title": "Character sheet · Founder (original)",
+        "title": "Character sheet \u00b7 Founder (original)",
         "kind": "image",
         "model": "GPT Image 2.5 (max, 4K, text only)",
         "status": "done",
@@ -1086,7 +1065,7 @@
         "y": 156.24468540644318
       },
       "data": {
-        "title": "Character sheet · The Clerk (original)",
+        "title": "Character sheet \u00b7 The Clerk (original)",
         "kind": "image",
         "model": "GPT Image 2.5 (max, 4K, text only)",
         "status": "done",
@@ -1100,6 +1079,40 @@
       },
       "selected": false,
       "dragging": false
+    },
+    {
+      "id": "hen-poses",
+      "type": "generation",
+      "position": {
+        "x": -440.0,
+        "y": 1060.0
+      },
+      "data": {
+        "title": "Full-body action poses \u00b7 Henrick (6 poses)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (xhigh, 4K, sheet + 2 real refs)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/hen-poses-b23dcd.jpg",
+        "job": "b23dcd8d-13a8-444f-a363-d1912ff0c913"
+      }
+    },
+    {
+      "id": "k3",
+      "type": "generation",
+      "position": {
+        "x": 1100.0,
+        "y": 240.0
+      },
+      "data": {
+        "title": "Keyframe A \u00b7 Scene 3 (v2, fictional ministry, no flags)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (v2 sheet + founder + clerk sheets)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/k3-88032e.jpg",
+        "job": "88032e83-6f23-4ff6-a5be-f9e7b8b783e4"
+      }
     }
   ],
   "edges": [
@@ -1442,6 +1455,36 @@
       "id": "hen-study-hen-faces2",
       "source": "hen-study",
       "target": "hen-faces2"
+    },
+    {
+      "id": "hen-sheet2-hen-poses",
+      "source": "hen-sheet2",
+      "target": "hen-poses"
+    },
+    {
+      "id": "hen-gesture-hen-poses",
+      "source": "hen-gesture",
+      "target": "hen-poses"
+    },
+    {
+      "id": "hen-study-hen-poses",
+      "source": "hen-study",
+      "target": "hen-poses"
+    },
+    {
+      "id": "ref-founder-k3",
+      "source": "ref-founder",
+      "target": "k3"
+    },
+    {
+      "id": "ref-clerk-k3",
+      "source": "ref-clerk",
+      "target": "k3"
+    },
+    {
+      "id": "hen-sheet2-k3",
+      "source": "hen-sheet2",
+      "target": "k3"
     }
   ],
   "story": {
