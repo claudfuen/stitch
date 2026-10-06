@@ -148,8 +148,8 @@ def boards(name, rgb, rough):
     tex.inputs["Mortar Size"].default_value = 0.006
     tex.inputs["Brick Width"].default_value = 1.2
     tex.inputs["Row Height"].default_value = 0.14
-    coord = nt.nodes.new("ShaderNodeTexCoord")
-    nt.links.new(coord.outputs["Object"], tex.inputs["Vector"])
+    geo = nt.nodes.new("ShaderNodeNewGeometry")  # world position: object coordinates stretch with the floor's scale
+    nt.links.new(geo.outputs["Position"], tex.inputs["Vector"])
     nt.links.new(tex.outputs["Color"], nt.nodes["Principled BSDF"].inputs["Base Color"])
     return m
 
