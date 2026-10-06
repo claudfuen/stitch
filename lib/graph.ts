@@ -6,6 +6,8 @@ export type GenData = {
   title?: string
   url?: string
   video?: string
+  qa?: { verdict: "pass" | "borderline" | "fail"; note: string }
+  face?: number
   prompt?: string
   job?: string
   kind: "image" | "video"
@@ -44,7 +46,16 @@ export type Story = {
   sections: { id: string; name: string; color: string; start: number; end: number; purpose: string }[]
   beats: { scene: number; name: string; start: number; end: number; section: string; vo: string }[]
   open: string[]
+  shots?: Shot[]
+  metrics?: { faceBaseline: number; faceTarget: number; voiceBaseline: number }
   tracks?: { id: string; name: string; items: TrackItem[] }[]
+}
+
+export type Shot = {
+  id: string; name: string; time: string; section: string
+  keyframe: string; clip: string; alts?: string[]; refs: string[]; graphics?: string[]
+  lines: { who: string; text: string; kind?: "real" | "clone" | "preset" | "seedance" }[]
+  note?: string
 }
 
 export type TrackItem = { id: string; start: number; end: number; label: string; kind: string; row?: number; note?: string }

@@ -66,7 +66,12 @@
         "status": "done",
         "hue": 0,
         "video": "/generated/v1-4d8d86.mp4",
-        "job": "4d8d8686-1f72-4e20-8e46-e601375010ae"
+        "job": "4d8d8686-1f72-4e20-8e46-e601375010ae",
+        "qa": {
+          "verdict": "pass",
+          "note": "Clean. Founder lip-sync pending."
+        },
+        "face": 0.5
       }
     },
     {
@@ -107,7 +112,12 @@
         "status": "done",
         "hue": 0,
         "video": "/generated/v2-2c5729.mp4",
-        "job": "2c57297f-14b8-44f1-b9c2-1cd50eac2933"
+        "job": "2c57297f-14b8-44f1-b9c2-1cd50eac2933",
+        "qa": {
+          "verdict": "borderline",
+          "note": "Built from the OLDER keyframe (face 0.63). Regenerate from the new keyframe."
+        },
+        "face": 0.63
       }
     },
     {
@@ -148,7 +158,11 @@
         "status": "done",
         "hue": 0,
         "video": "/generated/v3-a12e40.mp4",
-        "job": "a12e40c8-1cd4-4660-b50a-d0c6405c97bf"
+        "job": "a12e40c8-1cd4-4660-b50a-d0c6405c97bf",
+        "qa": {
+          "verdict": "pass",
+          "note": "Straight-on; clerk holds eye contact."
+        }
       }
     },
     {
@@ -189,7 +203,12 @@
         "status": "done",
         "hue": 0,
         "video": "/generated/v4-093885.mp4",
-        "job": "093885d5-7f97-4a26-aff4-9061b7077e17"
+        "job": "093885d5-7f97-4a26-aff4-9061b7077e17",
+        "qa": {
+          "verdict": "borderline",
+          "note": "Built from the OLDER keyframe (face 0.57). Regenerate from the new keyframe."
+        },
+        "face": 0.57
       }
     },
     {
@@ -230,7 +249,11 @@
         "status": "done",
         "hue": 0,
         "video": "/generated/v5-dd11a9.mp4",
-        "job": "dd11a9a7-44a2-482f-8a00-a583616ba56d"
+        "job": "dd11a9a7-44a2-482f-8a00-a583616ba56d",
+        "qa": {
+          "verdict": "pass",
+          "note": "Ends on relieved grin."
+        }
       }
     },
     {
@@ -271,7 +294,12 @@
         "status": "done",
         "hue": 0,
         "video": "/generated/v6-3a28e5.mp4",
-        "job": "3a28e51f-a1c9-4451-b08e-5e8125de2413"
+        "job": "3a28e51f-a1c9-4451-b08e-5e8125de2413",
+        "qa": {
+          "verdict": "borderline",
+          "note": "Built from the OLDER keyframe (face 0.59). Regenerate from the new keyframe."
+        },
+        "face": 0.59
       }
     },
     {
@@ -614,23 +642,6 @@
       }
     },
     {
-      "id": "k7",
-      "type": "generation",
-      "position": {
-        "x": 2773.4027573660364,
-        "y": 236.64900929420867
-      },
-      "data": {
-        "title": "Keyframe A \u00b7 Scene 7 (v2 sheet only)",
-        "kind": "image",
-        "model": "GPT Image 2.5 (v2 sheet only)",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/k7-5cda9e.jpg",
-        "job": "5cda9e54-9478-4a1f-8299-fd8a670be3c5"
-      }
-    },
-    {
       "id": "ref-founder",
       "type": "generation",
       "position": {
@@ -699,40 +710,6 @@
       }
     },
     {
-      "id": "k2",
-      "type": "generation",
-      "position": {
-        "x": 720,
-        "y": 240
-      },
-      "data": {
-        "title": "Keyframe A \u00b7 Scene 2 (sheet + founder sheet)",
-        "kind": "image",
-        "model": "GPT Image 2.5",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/k2-f2b22d.jpg",
-        "job": "f2b22d80-e99e-47e9-aea4-2bfb6770508e"
-      }
-    },
-    {
-      "id": "k4",
-      "type": "generation",
-      "position": {
-        "x": 1480,
-        "y": 240
-      },
-      "data": {
-        "title": "Keyframe A \u00b7 Scene 4 (sheet + founder sheet)",
-        "kind": "image",
-        "model": "GPT Image 2.5",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/k4-17c017.jpg",
-        "job": "17c017ff-c5fe-4de6-9f7b-7b7bece87663"
-      }
-    },
-    {
       "id": "k5",
       "type": "generation",
       "position": {
@@ -747,23 +724,6 @@
         "hue": 0,
         "url": "/generated/k5-9d532d.jpg",
         "job": "9d532d4b-66ca-442e-9713-d4254518f439"
-      }
-    },
-    {
-      "id": "kb6",
-      "type": "generation",
-      "position": {
-        "x": 2455,
-        "y": 240
-      },
-      "data": {
-        "title": "Keyframe B \u00b7 Scene 6 (sheet + 3 real stills)",
-        "kind": "image",
-        "model": "GPT Image 2.5",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/kb6-061d2f.jpg",
-        "job": "061d2fb3-f95b-4841-9930-845d3d926720"
       }
     },
     {
@@ -821,7 +781,12 @@
         "status": "done",
         "hue": 0,
         "video": "/generated/v7-ec0bce.mp4",
-        "job": "ec0bce3c-680d-4e95-92f2-cb139527f999"
+        "job": "ec0bce3c-680d-4e95-92f2-cb139527f999",
+        "qa": {
+          "verdict": "borderline",
+          "note": "Built from the OLDER keyframe (face 0.46). Regenerate from the new keyframe."
+        },
+        "face": 0.46
       }
     },
     {
@@ -903,11 +868,126 @@
         "title": "Scene 1b TEST \u00b7 Seedance 2.5 (real-face refs + Henrick voice ref, 480p draft)",
         "kind": "image",
         "model": "Seedance 2.5 omni_reference",
-        "status": "done",
+        "status": "running",
         "hue": 0,
         "url": "/generated/hen-cu-c08f9e.jpg",
         "job": "40220254-9b79-455c-bc10-3c1d03deb33b",
-        "video": "/generated/hen-cu-402202.mp4"
+        "video": "/generated/hen-cu-402202.mp4",
+        "qa": {
+          "verdict": "borderline",
+          "note": "Seedance 480p draft: dropped first word, freezes in pauses."
+        },
+        "face": 0.67
+      }
+    },
+    {
+      "id": "hen-cu2",
+      "type": "generation",
+      "position": {
+        "x": 720.0,
+        "y": -420.0
+      },
+      "data": {
+        "title": "Keyframe 1b v2 \u00b7 edit of real still (face 0.82)",
+        "kind": "image",
+        "model": "GPT Image 2.5 edit of real still",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/hen-cu2-5dc6a6.jpg",
+        "job": "5dc6a68d-b8cf-4f34-96d5-8a1c884a8bb0",
+        "face": 0.82,
+        "qa": {
+          "verdict": "pass",
+          "note": "Matches real-vs-real baseline (0.82)."
+        }
+      }
+    },
+    {
+      "id": "k2",
+      "type": "generation",
+      "position": {
+        "x": 720.0,
+        "y": 240.0
+      },
+      "data": {
+        "title": "Keyframe \u00b7 Scene 2 (edit of real still)",
+        "kind": "image",
+        "model": "GPT Image 2.5 edit of real still",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/k2-b1c03f.jpg",
+        "job": "b1c03f3e-069e-4777-9ec0-7022c22f6679",
+        "face": 0.7,
+        "qa": {
+          "verdict": "borderline",
+          "note": "Face scored by ArcFace vs real Henrick. Replaces the older sheet-based keyframe (0.36-0.63)."
+        }
+      }
+    },
+    {
+      "id": "k4",
+      "type": "generation",
+      "position": {
+        "x": 1480.0,
+        "y": 240.0
+      },
+      "data": {
+        "title": "Keyframe \u00b7 Scene 4 (edit of real still)",
+        "kind": "image",
+        "model": "GPT Image 2.5 edit of real still",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/k4-392e0b.jpg",
+        "job": "392e0bd7-4279-435f-b17b-25ca01073f3c",
+        "face": 0.77,
+        "qa": {
+          "verdict": "pass",
+          "note": "Face scored by ArcFace vs real Henrick. Replaces the older sheet-based keyframe (0.36-0.63)."
+        }
+      }
+    },
+    {
+      "id": "kb6",
+      "type": "generation",
+      "position": {
+        "x": 2455.0,
+        "y": 240.0
+      },
+      "data": {
+        "title": "Keyframe \u00b7 Scene 6 (edit of real still)",
+        "kind": "image",
+        "model": "GPT Image 2.5 edit of real still",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/kb6-5bef70.jpg",
+        "job": "5bef70ba-1b82-465a-818d-94602884bece",
+        "face": 0.78,
+        "qa": {
+          "verdict": "pass",
+          "note": "Face scored by ArcFace vs real Henrick. Replaces the older sheet-based keyframe (0.36-0.63)."
+        }
+      }
+    },
+    {
+      "id": "k7",
+      "type": "generation",
+      "position": {
+        "x": 2620.0,
+        "y": 240.0
+      },
+      "data": {
+        "title": "Keyframe \u00b7 Scene 7 (edit of real still)",
+        "kind": "image",
+        "model": "GPT Image 2.5 edit of real still",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/k7-27b9e4.jpg",
+        "job": "27b9e4b9-3da3-482f-a38d-20357884d358",
+        "face": 0.76,
+        "qa": {
+          "verdict": "pass",
+          "note": "Face scored by ArcFace vs real Henrick. Replaces the older sheet-based keyframe (0.36-0.63)."
+        }
       }
     }
   ],
@@ -1407,6 +1487,11 @@
       "id": "hen-study-hen-cu",
       "source": "hen-study",
       "target": "hen-cu"
+    },
+    {
+      "id": "hen-close-hen-cu2",
+      "source": "hen-close",
+      "target": "hen-cu2"
     }
   ],
   "story": {
@@ -1729,7 +1814,227 @@
       "Scene 6 and the 'It is good' line are real Henrick footage. Scene 1, 2, 3, 4, 7 lines need lip-sync or his cloned voice: his sign-off on the clone is still outstanding.",
       "Keep the Ministry fictional. No real regulators, agencies or flags. Parody a type of bureaucracy, not a country's institution.",
       "40s is long for a social cut. Cut 15s version: scenes 1, 2 (ticket gag), 5, 6, 7."
-    ]
+    ],
+    "shots": [
+      {
+        "id": "1",
+        "name": "The request",
+        "time": "0-5s",
+        "section": "hook",
+        "keyframe": "k1",
+        "clip": "v1",
+        "refs": [
+          "hen-sheet2",
+          "ref-founder"
+        ],
+        "graphics": [],
+        "lines": [
+          {
+            "who": "Founder",
+            "text": "Henrick, I need SOC 2 by Friday.",
+            "kind": "preset"
+          }
+        ],
+        "note": "Two-shot. Founder line needs a lip-sync pass."
+      },
+      {
+        "id": "1b",
+        "name": "Henrick close-up",
+        "time": "new",
+        "section": "hook",
+        "keyframe": "hen-cu",
+        "clip": "hen-cu",
+        "refs": [
+          "hen-sheet2",
+          "hen-gesture",
+          "hen-study"
+        ],
+        "graphics": [],
+        "lines": [
+          {
+            "who": "Henrick",
+            "text": "Friday.",
+            "kind": "seedance"
+          },
+          {
+            "who": "Henrick",
+            "text": "In Europe, we would begin by weeping.",
+            "kind": "seedance"
+          }
+        ],
+        "note": "Seedance 2.5 with real-face and voice references. Full-res runs rendering."
+      },
+      {
+        "id": "2",
+        "name": "The Ministry",
+        "time": "5-10s",
+        "section": "ministry",
+        "keyframe": "k2",
+        "clip": "v2",
+        "refs": [
+          "hen-sheet2",
+          "ref-founder"
+        ],
+        "graphics": [
+          "mg1",
+          "mg2"
+        ],
+        "lines": [
+          {
+            "who": "Founder",
+            "text": "What number are they on?",
+            "kind": "preset"
+          },
+          {
+            "who": "Henrick",
+            "text": "Seventeen.",
+            "kind": "clone"
+          }
+        ],
+        "note": ""
+      },
+      {
+        "id": "3",
+        "name": "Form 27-B",
+        "time": "10-15s",
+        "section": "ministry",
+        "keyframe": "k3",
+        "clip": "v3",
+        "refs": [
+          "ref-clerk",
+          "ref-founder",
+          "hen-sheet2"
+        ],
+        "graphics": [
+          "mg3"
+        ],
+        "lines": [
+          {
+            "who": "Clerk",
+            "text": "To apply for the form, you must first complete the form.",
+            "kind": "preset"
+          },
+          {
+            "who": "Founder",
+            "text": "Is there a portal?",
+            "kind": "preset"
+          },
+          {
+            "who": "Clerk",
+            "text": "There is a fax.",
+            "kind": "preset"
+          }
+        ],
+        "note": "Dialogue needs 9s; a 10s straight-on clip is rendering."
+      },
+      {
+        "id": "4",
+        "name": "Eleven years",
+        "time": "15-20s",
+        "section": "ministry",
+        "keyframe": "k4",
+        "clip": "v4",
+        "refs": [
+          "hen-sheet2",
+          "ref-founder"
+        ],
+        "graphics": [
+          "mg4"
+        ],
+        "lines": [
+          {
+            "who": "Henrick",
+            "text": "You are doing very well.",
+            "kind": "clone"
+          }
+        ],
+        "note": "Henrick never moves: voice over his still face is the gag."
+      },
+      {
+        "id": "5",
+        "name": "Comp AI",
+        "time": "20-25s",
+        "section": "turn",
+        "keyframe": "k5",
+        "clip": "v5",
+        "refs": [
+          "ref-founder"
+        ],
+        "graphics": [
+          "mg5"
+        ],
+        "lines": [
+          {
+            "who": "Founder",
+            "text": "It's done?",
+            "kind": "preset"
+          },
+          {
+            "who": "Narrator",
+            "text": "Comp AI. SOC 2, without the Ministry.",
+            "kind": "preset"
+          }
+        ],
+        "note": ""
+      },
+      {
+        "id": "6",
+        "name": "It is good",
+        "time": "25-30s",
+        "section": "payoff",
+        "keyframe": "kb6",
+        "clip": "v6",
+        "refs": [
+          "hen-sheet2",
+          "hen-gesture",
+          "hen-study"
+        ],
+        "graphics": [
+          "mg6"
+        ],
+        "lines": [
+          {
+            "who": "Henrick",
+            "text": "In Europe, we would call this impossible.",
+            "kind": "real"
+          },
+          {
+            "who": "Henrick",
+            "text": "It is good.",
+            "kind": "clone"
+          }
+        ],
+        "note": "Real recorded line over the generated shot; 7s clip rendering."
+      },
+      {
+        "id": "7",
+        "name": "The statement",
+        "time": "30-35s",
+        "section": "cta",
+        "keyframe": "k7",
+        "clip": "v7",
+        "refs": [
+          "hen-sheet2",
+          "hen-poses"
+        ],
+        "graphics": [
+          "mg7"
+        ],
+        "lines": [
+          {
+            "who": "Henrick",
+            "text": "I have prepared a statement.",
+            "kind": "clone"
+          }
+        ],
+        "note": "Face is small in frame: weakest resemblance."
+      }
+    ],
+    "metrics": {
+      "faceBaseline": 0.82,
+      "faceTarget": 0.75,
+      "voiceBaseline": 0.71
+    }
   },
   "activity": [
     {
@@ -1810,6 +2115,36 @@
     {
       "t": "2026-10-06T15:43:53.562357+00:00",
       "text": "Seedance 2.5 test: accepts real-face reference images and a voice reference. Face held 100%, voice matched Henrick at 0.86 (best of all methods), lips move on each word. Flaws: dropped the first word, long freezes in pauses, 480p draft. This is the lead approach.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T15:44:08.289597+00:00",
+      "text": "Status: voices done and verified, Seedance is the lead for speaking shots. Next: real-resolution Seedance runs for dialogue shots, sound design, mix with -14 LUFS, assemble final cut v3 with audio.",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-06T15:50:30.734463+00:00",
+      "text": "Resemblance push: building a face-similarity scorer (ArcFace) calibrated on real Henrick footage, then optimizing face and voice against it.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:53:16.270296+00:00",
+      "text": "Resemblance baseline measured with ArcFace: real-vs-real 0.82; our keyframes 0.36-0.67, Kling clips 0.46-0.63, Seedance test 0.67. Testing three video-edit face replacements (Genjutsu, Kling Omni Edit, Seedance edit) on the weakest clip, plus full-res Seedance dialogue runs.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T15:56:41.928611+00:00",
+      "text": "Breakthrough: editing a single real still keeps the face at 0.80-0.82 (equals real-vs-real 0.82); generating from my sheet scored 0.67-0.72. Switching every Henrick keyframe to the edit method; 6 new candidates (scenes 2, 4, 6, 7) rendering, scored by ArcFace.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T15:58:57.430908+00:00",
+      "text": "Seedance 1080p: face 0.76 on video, voice 0.86, lips move on every word, but it mangled the two-line prompt (dropped Friday, 4s gap). Now generating each line as its own 1080p clip from the 0.82 edited keyframe (Friday, In Europe..., scene 6 line, scene 7 line). Face-replacement tools (Kling edit, Seedance edit) did NOT help: 0.44-0.45 vs 0.46.",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-06T16:00:08.029301+00:00",
+      "text": "All three video face-replacement tools failed (Genjutsu 0.46, Kling edit 0.45, Seedance edit 0.44; original 0.46). Fix the face at generation time instead. New edit-based keyframes on the board: scene 2 0.70, scene 4 0.77, scene 6 0.78, scene 7 0.76 (old: 0.63, 0.57, 0.50, 0.36). Older clips now flagged to regenerate.",
       "kind": "done"
     }
   ]

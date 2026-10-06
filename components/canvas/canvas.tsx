@@ -6,11 +6,12 @@ import {
   useEdgesState, useNodesState, useReactFlow, type Connection, type Edge,
 } from "@xyflow/react"
 import "@xyflow/react/dist/style.css"
-import { ImageIcon, Maximize, Play, Type, Video, X } from "lucide-react"
+import { ImageIcon, LayoutGrid, Maximize, Network, Play, Type, Video, X } from "lucide-react"
 import { nodeTypes } from "./nodes"
 import type { Activity, AppNode, FinalNode, Story } from "@/lib/graph"
 import { ActivityPanel } from "./activity"
 import { Timeline } from "./timeline"
+import { ShotBoard } from "./shotboard"
 import { Button } from "@/components/ui/button"
 
 let counter = 0
@@ -32,6 +33,7 @@ function Inner() {
   const [activity, setActivity] = useState<Activity[]>([])
   const synced = useRef("")
   const [watching, setWatching] = useState(false)
+  const [view, setView] = useState<"shots" | "canvas">("shots")
   const [vi, setVi] = useState(0)
   const rev = useRef(0)
   const loaded = useRef(false)
@@ -94,6 +96,8 @@ function Inner() {
   return (
     <div className="flex h-svh w-svw flex-col">
       <div className="relative min-h-0 flex-1">
+      {view === "shots" && story && <ShotBoard story={story} nodes={nodes} edges={edges} onWatch={() => { setVi(0); setWatching(true) }} onFocus={(id) => { setView("canvas"); setTimeout(() => fitView({ nodes: [{ id }], padding: 0.6, duration: 400 }), 80) }} />}
+      <div className={view === "shots" && story ? "hidden" : "absolute inset-0"}>
       <ReactFlow
         nodes={nodes} edges={edges} nodeTypes={nodeTypes}
         onNodesChange={onNodesChange} onEdgesChange={onEdgesChange} onConnect={onConnect}
@@ -104,8 +108,12 @@ function Inner() {
         <Controls showInteractive={false} />
         <MiniMap pannable zoomable className="!bg-card" maskColor="rgba(0,0,0,0.6)" />
       </ReactFlow>
+      </div>
       <div className="pointer-events-none absolute top-4 left-4 flex items-center gap-2">
-        <div className="pointer-events-auto rounded-xl border bg-card px-4 py-2 text-sm font-medium shadow-lg">Stitch</div>
+        <div className="pointer-events-auto flex gap-1 rounded-xl border bg-card p-1 shadow-lg">
+          <Button size="sm" variant={view === "shots" ? "secondary" : "ghost"} onClick={() => setView("shots")}><LayoutGrid /> Shots</Button>
+          <Button size="sm" variant={view === "canvas" ? "secondary" : "ghost"} onClick={() => { setView("canvas"); setTimeout(() => fitView({ padding: 0.1 }), 80) }}><Network /> Canvas</Button>
+        </div>
         <div className="pointer-events-auto flex gap-1 rounded-xl border bg-card p-1 shadow-lg">
           <Button size="sm" variant="ghost" onClick={() => add("prompt")}><Type /> Prompt</Button>
           <Button size="sm" variant="ghost" onClick={() => add("asset")}><ImageIcon /> Reference</Button>
@@ -135,7 +143,7 @@ function Inner() {
           </div>
         </div>
       )}
-      {story && <Timeline story={story} nodes={nodes} onFocus={(n) => fitView({ nodes: [`kp${n}`, `k${n}`, `mp${n}`, `v${n}`].map((id) => ({ id })), padding: 0.4, duration: 500 })} />}
+      {story && view === "canvas" && <Timeline story={story} nodes={nodes} onFocus={(n) => fitView({ nodes: [`kp${n}`, `k${n}`, `mp${n}`, `v${n}`].map((id) => ({ id })), padding: 0.4, duration: 500 })} />}
     </div>
   )
 }
