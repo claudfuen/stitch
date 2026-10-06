@@ -1,0 +1,19 @@
+components/studio/rooms-view.tsx
+  s_5a1077fe9cdfe4::t_2c1a5b9a419636 1-8,10-354
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "63d0e78bdd7ec5a37d42ab7b00e5f45ebb2f5d91",
+  "prompts": {},
+  "sessions": {
+    "s_5a1077fe9cdfe4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "28a02c07-58a0-4f9c-93c0-78a15428aaa0",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Claudio Fuentes <imclaudfuen@gmail.com>"
+    }
+  }
+}
