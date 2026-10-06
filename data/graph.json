@@ -1,0 +1,1769 @@
+{
+  "nodes": [
+    {
+      "id": "ref-logo",
+      "type": "asset",
+      "position": {
+        "x": 0,
+        "y": 470
+      },
+      "data": {
+        "title": "Reference · Brand",
+        "label": "comp-ai-logo.svg",
+        "kind": "image",
+        "hue": 150
+      },
+      "measured": {
+        "width": 240,
+        "height": 169
+      }
+    },
+    {
+      "id": "ref-ui",
+      "type": "asset",
+      "position": {
+        "x": 0,
+        "y": 700
+      },
+      "data": {
+        "title": "Reference · Product UI",
+        "label": "dashboard-screenshot.png",
+        "kind": "image",
+        "hue": 170
+      },
+      "measured": {
+        "width": 240,
+        "height": 169
+      }
+    },
+    {
+      "id": "kp1",
+      "type": "prompt",
+      "position": {
+        "x": 340,
+        "y": 0
+      },
+      "data": {
+        "title": "Keyframe prompt · 1 · The ping · 0-5s",
+        "text": "Cinematic night shot, a tired startup founder at a kitchen-table desk at 11pm, laptop glow on his face, a Slack notification on screen reading 'Can you send your SOC 2 report?' from a huge enterprise logo. Cold blue light, shallow depth of field."
+      },
+      "measured": {
+        "width": 288,
+        "height": 192
+      }
+    },
+    {
+      "id": "mp1",
+      "type": "prompt",
+      "position": {
+        "x": 340,
+        "y": 560
+      },
+      "data": {
+        "title": "Motion + VO · Scene 1",
+        "text": "Slow push-in on his face as the notification pops. His eyes widen, a beat of dread. Camera drifts to the screen. SFX: ping. VO: 'The biggest deal of your life just asked one question.'"
+      },
+      "measured": {
+        "width": 288,
+        "height": 192
+      }
+    },
+    {
+      "id": "v1",
+      "type": "generation",
+      "position": {
+        "x": 340,
+        "y": 800
+      },
+      "data": {
+        "title": "Video · Scene 1",
+        "kind": "video",
+        "model": "TBD (Higgsfield)",
+        "status": "idle",
+        "hue": 0
+      },
+      "measured": {
+        "width": 320,
+        "height": 242
+      },
+      "selected": false
+    },
+    {
+      "id": "kp2",
+      "type": "prompt",
+      "position": {
+        "x": 720,
+        "y": 0
+      },
+      "data": {
+        "title": "Keyframe prompt · 2 · The old way · 5-10s",
+        "text": "Absurd comedic wide shot: the same founder buried in towers of paper binders, sticky notes and screenshots, a consultant in a suit pointing at an invoice, a wall calendar flipping through months. Warm flat office light, wry tone."
+      },
+      "measured": {
+        "width": 288,
+        "height": 192
+      }
+    },
+    {
+      "id": "mp2",
+      "type": "prompt",
+      "position": {
+        "x": 720,
+        "y": 560
+      },
+      "data": {
+        "title": "Motion + VO · Scene 2",
+        "text": "Fast whip-pans between the chaos: pages flying, invoice stamping, calendar pages flipping to 'NINE MONTHS LATER'. VO: 'SOC 2 used to mean spreadsheets, consultants, and a very long year.'"
+      },
+      "measured": {
+        "width": 288,
+        "height": 192
+      }
+    },
+    {
+      "id": "v2",
+      "type": "generation",
+      "position": {
+        "x": 720,
+        "y": 800
+      },
+      "data": {
+        "title": "Video · Scene 2",
+        "kind": "video",
+        "model": "TBD (Higgsfield)",
+        "status": "idle",
+        "hue": 0
+      },
+      "measured": {
+        "width": 320,
+        "height": 242
+      }
+    },
+    {
+      "id": "kp3",
+      "type": "prompt",
+      "position": {
+        "x": 1100,
+        "y": 0
+      },
+      "data": {
+        "title": "Keyframe prompt · 3 · Enter Comp AI · 10-16s",
+        "text": "Clean macro shot of a laptop screen, the Comp AI app connecting integrations: AWS, GitHub, Okta, Google Workspace as glowing tiles snapping into place. Bright, calm, confident. Founder's relieved face reflected in the screen."
+      },
+      "measured": {
+        "width": 288,
+        "height": 208
+      }
+    },
+    {
+      "id": "mp3",
+      "type": "prompt",
+      "position": {
+        "x": 1100,
+        "y": 560
+      },
+      "data": {
+        "title": "Motion + VO · Scene 3",
+        "text": "Tiles snap in one by one with checkmark cascades, camera glides across the screen. The mess from scene 2 dissolves away behind. VO: 'Comp AI connects to your stack and does the work for you.'"
+      },
+      "measured": {
+        "width": 288,
+        "height": 192
+      }
+    },
+    {
+      "id": "v3",
+      "type": "generation",
+      "position": {
+        "x": 1100,
+        "y": 800
+      },
+      "data": {
+        "title": "Video · Scene 3",
+        "kind": "video",
+        "model": "TBD (Higgsfield)",
+        "status": "idle",
+        "hue": 0
+      },
+      "measured": {
+        "width": 320,
+        "height": 242
+      }
+    },
+    {
+      "id": "kp4",
+      "type": "prompt",
+      "position": {
+        "x": 1480,
+        "y": 0
+      },
+      "data": {
+        "title": "Keyframe prompt · 4 · Green across the board · 16-22s",
+        "text": "Hero shot of the Comp AI dashboard, hundreds of controls flipping from red to green, a big compliance score climbing, an auditor's approval stamp landing. Crisp product UI, soft light."
+      },
+      "measured": {
+        "width": 288,
+        "height": 208
+      }
+    },
+    {
+      "id": "mp4",
+      "type": "prompt",
+      "position": {
+        "x": 1480,
+        "y": 560
+      },
+      "data": {
+        "title": "Motion + VO · Scene 4",
+        "text": "Time-lapse: reds sweeping to green like a wave, score counting up to 100%, a stamp slams down with a satisfying thud. VO: 'Evidence collected. Policies written. Audit-ready, automatically.'"
+      },
+      "measured": {
+        "width": 288,
+        "height": 192
+      }
+    },
+    {
+      "id": "v4",
+      "type": "generation",
+      "position": {
+        "x": 1480,
+        "y": 800
+      },
+      "data": {
+        "title": "Video · Scene 4",
+        "kind": "video",
+        "model": "TBD (Higgsfield)",
+        "status": "idle",
+        "hue": 0
+      },
+      "measured": {
+        "width": 320,
+        "height": 242
+      }
+    },
+    {
+      "id": "kp5",
+      "type": "prompt",
+      "position": {
+        "x": 1860,
+        "y": 0
+      },
+      "data": {
+        "title": "Keyframe prompt · 5 · The close · 22-27s",
+        "text": "Bright morning, the founder and two teammates around a laptop, an email on screen from the same enterprise logo reading 'Signed.' Everyone erupts in a quiet, real celebration. Golden light through office windows."
+      },
+      "measured": {
+        "width": 288,
+        "height": 192
+      }
+    },
+    {
+      "id": "k5",
+      "type": "generation",
+      "position": {
+        "x": 1915.0489241538526,
+        "y": 253.76223103846314
+      },
+      "data": {
+        "title": "Keyframe · Scene 5",
+        "kind": "image",
+        "model": "TBD (Higgsfield)",
+        "status": "idle",
+        "hue": 0
+      },
+      "measured": {
+        "width": 208,
+        "height": 259
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "mp5",
+      "type": "prompt",
+      "position": {
+        "x": 1860,
+        "y": 560
+      },
+      "data": {
+        "title": "Motion + VO · Scene 5",
+        "text": "Handheld, warm. The founder reads the email, exhales, high-fives a teammate, closes the laptop with a smile. VO: 'Your next deal is a yes.'"
+      },
+      "measured": {
+        "width": 288,
+        "height": 192
+      }
+    },
+    {
+      "id": "v5",
+      "type": "generation",
+      "position": {
+        "x": 1860,
+        "y": 800
+      },
+      "data": {
+        "title": "Video · Scene 5",
+        "kind": "video",
+        "model": "TBD (Higgsfield)",
+        "status": "idle",
+        "hue": 0
+      },
+      "measured": {
+        "width": 320,
+        "height": 242
+      }
+    },
+    {
+      "id": "kp6",
+      "type": "prompt",
+      "position": {
+        "x": 2240,
+        "y": 0
+      },
+      "data": {
+        "title": "Keyframe prompt · 6 · End card · 27-30s",
+        "text": "Minimal end card: deep dark background, the Comp AI logo centered with a soft emerald glow, tagline 'SOC 2, handled.' in clean white type, trycomp.ai underneath."
+      },
+      "measured": {
+        "width": 288,
+        "height": 192
+      }
+    },
+    {
+      "id": "mp6",
+      "type": "prompt",
+      "position": {
+        "x": 2240,
+        "y": 560
+      },
+      "data": {
+        "title": "Motion + VO · Scene 6",
+        "text": "Logo resolves out of the last frame's light, tagline fades in, subtle glow pulse. VO: 'Comp AI. SOC 2, handled.'"
+      },
+      "measured": {
+        "width": 288,
+        "height": 192
+      }
+    },
+    {
+      "id": "v6",
+      "type": "generation",
+      "position": {
+        "x": 2240,
+        "y": 800
+      },
+      "data": {
+        "title": "Video · Scene 6",
+        "kind": "video",
+        "model": "TBD (Higgsfield)",
+        "status": "idle",
+        "hue": 0
+      },
+      "measured": {
+        "width": 320,
+        "height": 242
+      }
+    },
+    {
+      "id": "hen-side",
+      "type": "asset",
+      "position": {
+        "x": -1080,
+        "y": 240
+      },
+      "data": {
+        "title": "Reference · Henrick (real X footage)",
+        "label": "Side-on, seated (study)",
+        "kind": "image",
+        "hue": 0,
+        "url": "/characters/henrick/real/real-49.4.jpg"
+      },
+      "measured": {
+        "width": 240,
+        "height": 201
+      },
+      "selected": false
+    },
+    {
+      "id": "hen-gesture",
+      "type": "asset",
+      "position": {
+        "x": -1080,
+        "y": 40
+      },
+      "data": {
+        "title": "Reference · Henrick (real X footage)",
+        "label": "3/4 right, gesturing (study)",
+        "kind": "image",
+        "hue": 0,
+        "url": "/characters/henrick/real/real-37.3.jpg"
+      },
+      "measured": {
+        "width": 240,
+        "height": 201
+      },
+      "selected": false
+    },
+    {
+      "id": "hen-close",
+      "type": "asset",
+      "position": {
+        "x": -1080,
+        "y": 440
+      },
+      "data": {
+        "title": "Reference · Henrick (real X footage)",
+        "label": "Close-up, angled",
+        "kind": "image",
+        "hue": 0,
+        "url": "/characters/henrick/real/real-54.5.jpg"
+      },
+      "measured": {
+        "width": 240,
+        "height": 201
+      },
+      "selected": false
+    },
+    {
+      "id": "hen-study",
+      "type": "asset",
+      "position": {
+        "x": -800,
+        "y": 440
+      },
+      "data": {
+        "title": "Reference · Henrick (real X footage)",
+        "label": "Front, medium (red study)",
+        "kind": "image",
+        "hue": 0,
+        "url": "/characters/henrick/real/real-56.4.jpg"
+      },
+      "measured": {
+        "width": 240,
+        "height": 201
+      }
+    },
+    {
+      "id": "sec-hook",
+      "type": "section",
+      "position": {
+        "x": 340,
+        "y": -110
+      },
+      "width": 320,
+      "draggable": false,
+      "selectable": false,
+      "connectable": false,
+      "data": {
+        "name": "Hook",
+        "range": "0-5s",
+        "color": "#f59e0b",
+        "why": "Stakes in 3 seconds: the deal depends on one question."
+      },
+      "measured": {
+        "width": 320,
+        "height": 80
+      }
+    },
+    {
+      "id": "sec-problem",
+      "type": "section",
+      "position": {
+        "x": 720,
+        "y": -110
+      },
+      "width": 320,
+      "draggable": false,
+      "selectable": false,
+      "connectable": false,
+      "data": {
+        "name": "Problem",
+        "range": "5-10s",
+        "color": "#f43f5e",
+        "why": "Make the old way feel absurd, not scary."
+      },
+      "measured": {
+        "width": 320,
+        "height": 64
+      }
+    },
+    {
+      "id": "sec-turn",
+      "type": "section",
+      "position": {
+        "x": 1100,
+        "y": -110
+      },
+      "width": 320,
+      "draggable": false,
+      "selectable": false,
+      "connectable": false,
+      "data": {
+        "name": "Turn",
+        "range": "10-16s",
+        "color": "#38bdf8",
+        "why": "Comp AI enters. Calm replaces chaos."
+      },
+      "measured": {
+        "width": 320,
+        "height": 64
+      }
+    },
+    {
+      "id": "sec-payoff",
+      "type": "section",
+      "position": {
+        "x": 1480,
+        "y": -110
+      },
+      "width": 700,
+      "draggable": false,
+      "selectable": false,
+      "connectable": false,
+      "data": {
+        "name": "Payoff",
+        "range": "16-27s",
+        "color": "#34d399",
+        "why": "Proof (green board), then the human win (signed)."
+      },
+      "measured": {
+        "width": 700,
+        "height": 64
+      }
+    },
+    {
+      "id": "sec-cta",
+      "type": "section",
+      "position": {
+        "x": 2240,
+        "y": -110
+      },
+      "width": 320,
+      "draggable": false,
+      "selectable": false,
+      "connectable": false,
+      "data": {
+        "name": "Call to action",
+        "range": "27-30s",
+        "color": "#a78bfa",
+        "why": "One line, one logo."
+      },
+      "measured": {
+        "width": 320,
+        "height": 64
+      }
+    },
+    {
+      "id": "mg1",
+      "type": "motion",
+      "position": {
+        "x": 340,
+        "y": 1130
+      },
+      "data": {
+        "title": "Slack notification pop",
+        "kind": "ui",
+        "start": 1,
+        "end": 3.5,
+        "tool": "Remotion",
+        "note": "Recreated message UI slides in over the laptop screen: 'Can you send your SOC 2 report?' from the enterprise logo.",
+        "status": "idea"
+      },
+      "measured": {
+        "width": 240,
+        "height": 159
+      }
+    },
+    {
+      "id": "mg2",
+      "type": "motion",
+      "position": {
+        "x": 720,
+        "y": 1130
+      },
+      "data": {
+        "title": "'NINE MONTHS LATER'",
+        "kind": "stamp",
+        "start": 7.5,
+        "end": 10,
+        "tool": "Remotion",
+        "note": "Hard-cut title card, typewriter font, over the calendar flipping.",
+        "status": "idea"
+      },
+      "measured": {
+        "width": 240,
+        "height": 126
+      }
+    },
+    {
+      "id": "mg3",
+      "type": "motion",
+      "position": {
+        "x": 1100,
+        "y": 1130
+      },
+      "data": {
+        "title": "Integration tiles snap-in",
+        "kind": "ui",
+        "start": 11,
+        "end": 15,
+        "tool": "Remotion + product screenshots",
+        "note": "AWS, GitHub, Okta, Google Workspace tiles slam into a grid with checkmark cascades. Matches real product UI.",
+        "status": "idea"
+      },
+      "measured": {
+        "width": 240,
+        "height": 159
+      }
+    },
+    {
+      "id": "mg4",
+      "type": "motion",
+      "position": {
+        "x": 1480,
+        "y": 1130
+      },
+      "data": {
+        "title": "Score counter to 100%",
+        "kind": "stat",
+        "start": 17,
+        "end": 22,
+        "tool": "Remotion",
+        "note": "Compliance score counts up while controls flip red to green, ends on an approval stamp.",
+        "status": "idea"
+      },
+      "measured": {
+        "width": 240,
+        "height": 143
+      }
+    },
+    {
+      "id": "mg5",
+      "type": "motion",
+      "position": {
+        "x": 1860,
+        "y": 1130
+      },
+      "data": {
+        "title": "'Signed.' email reveal",
+        "kind": "ui",
+        "start": 23,
+        "end": 25,
+        "tool": "Remotion",
+        "note": "Email UI from the enterprise logo, single word 'Signed.' with a soft pulse.",
+        "status": "idea"
+      },
+      "measured": {
+        "width": 240,
+        "height": 143
+      }
+    },
+    {
+      "id": "mg6",
+      "type": "motion",
+      "position": {
+        "x": 2240,
+        "y": 1130
+      },
+      "data": {
+        "title": "End card",
+        "kind": "end-card",
+        "start": 27,
+        "end": 30,
+        "tool": "Remotion",
+        "note": "Logo resolve, tagline 'SOC 2, handled.', trycomp.ai. Locked brand type.",
+        "status": "idea"
+      },
+      "measured": {
+        "width": 240,
+        "height": 158
+      }
+    },
+    {
+      "id": "hen-t1",
+      "type": "generation",
+      "position": {
+        "x": -1598.8137877637112,
+        "y": 801.483098779049
+      },
+      "data": {
+        "title": "Identity test 1 · office, three-quarter (v1: used 3 AI-derived refs, superseded)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (high, 4 refs)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/hen-k-office-34.jpg",
+        "job": "7f0dfb68-5038-4b0e-997f-15008647f009",
+        "prompt": "Same man as references, startup office at dusk, medium 3/4, arms folded, deadpan."
+      },
+      "measured": {
+        "width": 208,
+        "height": 303
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "hen-t2",
+      "type": "generation",
+      "position": {
+        "x": -1051.686579303102,
+        "y": 825.1930299853321
+      },
+      "data": {
+        "title": "Identity test 2 · close-up, study (v1: used 3 AI-derived refs, superseded)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (high, 4 refs)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/hen-t2.jpg",
+        "job": "5d1a20a1-441e-4a83-9ef1-e9986ff64219"
+      },
+      "measured": {
+        "width": 208,
+        "height": 303
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "hen-t3",
+      "type": "generation",
+      "position": {
+        "x": -1334.1799346325158,
+        "y": 827.8762780456518
+      },
+      "data": {
+        "title": "Identity test 3 · wide, corridor (v1: used 3 AI-derived refs, superseded)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (high, 4 refs)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/hen-t3.jpg",
+        "job": "1e35e659-f3d3-4598-b090-b2521978646f"
+      },
+      "measured": {
+        "width": 208,
+        "height": 303
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "hen-sheet",
+      "type": "generation",
+      "position": {
+        "x": -440,
+        "y": -60
+      },
+      "data": {
+        "title": "Character sheet · Henrick turnaround (one-pass sheet) (v1: used 3 AI-derived refs, superseded)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (high, 5 refs)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/hen-sheet.jpg",
+        "job": "b2f15ee2-4056-4196-a73a-f909949a2cde"
+      },
+      "measured": {
+        "width": 208,
+        "height": 319
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "hen-t4",
+      "type": "generation",
+      "position": {
+        "x": -759.4699784002275,
+        "y": 847.3410548188564
+      },
+      "data": {
+        "title": "Identity test 4 · profile, seated (v1: used 3 AI-derived refs, superseded)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (high, 4 refs)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/hen-t4.jpg",
+        "job": "8c44565e-ee50-4b87-9e41-b10d54e8e217"
+      },
+      "measured": {
+        "width": 208,
+        "height": 303
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "kb3",
+      "type": "generation",
+      "position": {
+        "x": 1332.6504577129972,
+        "y": 238.25174181300974
+      },
+      "data": {
+        "title": "Keyframe B v1 · Scene 3 (sheet + stills)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (v1 refs, superseded)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/kb3.jpg",
+        "job": "ba3efdb5-b54a-420c-bd0b-e3e9b6d7747a"
+      },
+      "measured": {
+        "width": 208,
+        "height": 304
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "kb7",
+      "type": "generation",
+      "position": {
+        "x": 2817.797211201921,
+        "y": 236.55944224038421
+      },
+      "data": {
+        "title": "Keyframe B v1 · Scene 7 (sheet + stills)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (v1 refs, superseded)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/kb7.jpg",
+        "job": "f771b015-afb5-4b69-bd6c-08dc70eba222"
+      },
+      "measured": {
+        "width": 208,
+        "height": 304
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "hen-r38",
+      "type": "asset",
+      "data": {
+        "kind": "image",
+        "hue": 0,
+        "title": "Reference · Henrick (real X footage)",
+        "label": "3/4 right, seated (study)",
+        "url": "/characters/henrick/real/real-38.3.jpg"
+      },
+      "position": {
+        "x": -800,
+        "y": 40
+      },
+      "measured": {
+        "width": 240,
+        "height": 201
+      }
+    },
+    {
+      "id": "hen-r53",
+      "type": "asset",
+      "data": {
+        "kind": "image",
+        "hue": 0,
+        "title": "Reference · Henrick (real X footage)",
+        "label": "Close-up, eyes + glasses",
+        "url": "/characters/henrick/real/real-53.5.jpg"
+      },
+      "position": {
+        "x": -800,
+        "y": 240
+      },
+      "measured": {
+        "width": 240,
+        "height": 201
+      }
+    },
+    {
+      "id": "hen-sheet2",
+      "type": "generation",
+      "position": {
+        "x": -440,
+        "y": 330
+      },
+      "data": {
+        "title": "Character sheet v2 · real refs only, 4K max",
+        "kind": "image",
+        "model": "GPT Image 2.5 (max, 4K, 6 real refs)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/hen-sheet2.jpg",
+        "job": "57f23cff-b560-47a6-bb4f-a1fb36bb47c2"
+      },
+      "measured": {
+        "width": 208,
+        "height": 304
+      }
+    },
+    {
+      "id": "hen-faces2",
+      "type": "generation",
+      "position": {
+        "x": -440,
+        "y": 700
+      },
+      "data": {
+        "title": "Face grid v2 · 9 angles, real refs only",
+        "kind": "image",
+        "model": "GPT Image 2.5 (max, 4K, 6 real refs)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/hen-faces2.jpg",
+        "job": "5fd7895c-45ca-46c0-b526-b6a94a0d14ef"
+      },
+      "measured": {
+        "width": 208,
+        "height": 304
+      }
+    },
+    {
+      "id": "k1",
+      "type": "generation",
+      "position": {
+        "x": 340,
+        "y": 240
+      },
+      "data": {
+        "title": "Keyframe A · Scene 1 (v2 sheet only)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (v2 sheet only)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/k1-9729b5.jpg",
+        "job": "9729b5b3-afa4-4d30-acf8-f55af66fd65f"
+      },
+      "measured": {
+        "width": 208,
+        "height": 287
+      }
+    },
+    {
+      "id": "k2",
+      "type": "generation",
+      "position": {
+        "x": 720,
+        "y": 240
+      },
+      "data": {
+        "title": "Keyframe A · Scene 2 (v2 sheet only)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (v2 sheet only)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/k2-0ffd5b.jpg",
+        "job": "0ffd5b50-b798-4c57-b7f3-a410740c8849"
+      },
+      "measured": {
+        "width": 208,
+        "height": 287
+      }
+    },
+    {
+      "id": "k3",
+      "type": "generation",
+      "position": {
+        "x": 1017.4266137692211,
+        "y": 240
+      },
+      "data": {
+        "title": "Keyframe A · Scene 3 (v2 sheet only)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (v2 sheet only)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/k3-1f2d10.jpg",
+        "job": "1f2d108a-41a0-4abe-8ba6-fc84d2a07276"
+      },
+      "measured": {
+        "width": 208,
+        "height": 287
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "k4",
+      "type": "generation",
+      "position": {
+        "x": 1635.4157819345817,
+        "y": 243.00339707418925
+      },
+      "data": {
+        "title": "Keyframe A · Scene 4 (v2 sheet only)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (v2 sheet only)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/k4-b7536a.jpg",
+        "job": "b7536a5a-26c8-4418-98c1-02de85cc5dea"
+      },
+      "measured": {
+        "width": 208,
+        "height": 287
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "k6",
+      "type": "generation",
+      "position": {
+        "x": 2215.9160956826895,
+        "y": 240
+      },
+      "data": {
+        "title": "Keyframe A · Scene 6 (v2 sheet only)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (v2 sheet only)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/k6-1a2339.jpg",
+        "job": "1a233986-a54f-4360-acec-050d9c4db093"
+      },
+      "measured": {
+        "width": 208,
+        "height": 287
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "k7",
+      "type": "generation",
+      "position": {
+        "x": 2527.104940490374,
+        "y": 240
+      },
+      "data": {
+        "title": "Keyframe A · Scene 7 (v2 sheet only)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (v2 sheet only)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/k7-5cda9e.jpg",
+        "job": "5cda9e54-9478-4a1f-8299-fd8a670be3c5"
+      },
+      "measured": {
+        "width": 208,
+        "height": 287
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "ref-founder",
+      "type": "generation",
+      "position": {
+        "x": -103.94227838532004,
+        "y": -203.23455333008204
+      },
+      "data": {
+        "title": "Character sheet · Founder (original)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (max, 4K, text only)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/ref-founder-e6c025.jpg",
+        "job": "e6c025bd-5524-446c-98da-6b0d9e5917f6"
+      },
+      "measured": {
+        "width": 208,
+        "height": 304
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "ref-clerk",
+      "type": "generation",
+      "position": {
+        "x": -99.71759870767178,
+        "y": 156.24468540644318
+      },
+      "data": {
+        "title": "Character sheet · The Clerk (original)",
+        "kind": "image",
+        "model": "GPT Image 2.5 (max, 4K, text only)",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/ref-clerk-7f519b.jpg",
+        "job": "7f519b51-100d-4521-91b9-60d3be4295bb"
+      },
+      "measured": {
+        "width": 208,
+        "height": 304
+      },
+      "selected": false,
+      "dragging": false
+    }
+  ],
+  "edges": [
+    {
+      "id": "kp1-k1",
+      "source": "kp1",
+      "target": "k1"
+    },
+    {
+      "id": "k1-v1",
+      "source": "k1",
+      "target": "v1"
+    },
+    {
+      "id": "mp1-v1",
+      "source": "mp1",
+      "target": "v1"
+    },
+    {
+      "id": "kp2-k2",
+      "source": "kp2",
+      "target": "k2"
+    },
+    {
+      "id": "k2-v2",
+      "source": "k2",
+      "target": "v2"
+    },
+    {
+      "id": "mp2-v2",
+      "source": "mp2",
+      "target": "v2"
+    },
+    {
+      "id": "v1-v2",
+      "source": "v1",
+      "target": "v2"
+    },
+    {
+      "id": "kp3-k3",
+      "source": "kp3",
+      "target": "k3"
+    },
+    {
+      "id": "k3-v3",
+      "source": "k3",
+      "target": "v3"
+    },
+    {
+      "id": "mp3-v3",
+      "source": "mp3",
+      "target": "v3"
+    },
+    {
+      "id": "v2-v3",
+      "source": "v2",
+      "target": "v3"
+    },
+    {
+      "id": "kp4-k4",
+      "source": "kp4",
+      "target": "k4"
+    },
+    {
+      "id": "k4-v4",
+      "source": "k4",
+      "target": "v4"
+    },
+    {
+      "id": "mp4-v4",
+      "source": "mp4",
+      "target": "v4"
+    },
+    {
+      "id": "v3-v4",
+      "source": "v3",
+      "target": "v4"
+    },
+    {
+      "id": "kp5-k5",
+      "source": "kp5",
+      "target": "k5"
+    },
+    {
+      "id": "k5-v5",
+      "source": "k5",
+      "target": "v5"
+    },
+    {
+      "id": "mp5-v5",
+      "source": "mp5",
+      "target": "v5"
+    },
+    {
+      "id": "v4-v5",
+      "source": "v4",
+      "target": "v5"
+    },
+    {
+      "id": "kp6-k6",
+      "source": "kp6",
+      "target": "k6"
+    },
+    {
+      "id": "k6-v6",
+      "source": "k6",
+      "target": "v6"
+    },
+    {
+      "id": "mp6-v6",
+      "source": "mp6",
+      "target": "v6"
+    },
+    {
+      "id": "v5-v6",
+      "source": "v5",
+      "target": "v6"
+    },
+    {
+      "id": "ref-logo-k3",
+      "source": "ref-logo",
+      "target": "k3"
+    },
+    {
+      "id": "ref-logo-k6",
+      "source": "ref-logo",
+      "target": "k6"
+    },
+    {
+      "id": "ref-ui-k3",
+      "source": "ref-ui",
+      "target": "k3"
+    },
+    {
+      "id": "ref-ui-k4",
+      "source": "ref-ui",
+      "target": "k4"
+    },
+    {
+      "id": "hen-side-hen-sheet",
+      "source": "hen-side",
+      "target": "hen-sheet"
+    },
+    {
+      "id": "hen-gesture-hen-sheet",
+      "source": "hen-gesture",
+      "target": "hen-sheet"
+    },
+    {
+      "id": "hen-close-hen-sheet",
+      "source": "hen-close",
+      "target": "hen-sheet"
+    },
+    {
+      "id": "hen-study-hen-sheet",
+      "source": "hen-study",
+      "target": "hen-sheet"
+    },
+    {
+      "id": "hen-sheet-k1",
+      "source": "hen-sheet",
+      "target": "k1"
+    },
+    {
+      "id": "hen-sheet-k2",
+      "source": "hen-sheet",
+      "target": "k2"
+    },
+    {
+      "id": "hen-sheet-k3",
+      "source": "hen-sheet",
+      "target": "k3"
+    },
+    {
+      "id": "hen-sheet-k5",
+      "source": "hen-sheet",
+      "target": "k5"
+    },
+    {
+      "id": "mg1-v1",
+      "source": "mg1",
+      "target": "v1",
+      "targetHandle": "overlay",
+      "style": {
+        "strokeDasharray": "4 4",
+        "stroke": "#fbbf24"
+      }
+    },
+    {
+      "id": "mg2-v2",
+      "source": "mg2",
+      "target": "v2",
+      "targetHandle": "overlay",
+      "style": {
+        "strokeDasharray": "4 4",
+        "stroke": "#fbbf24"
+      }
+    },
+    {
+      "id": "mg3-v3",
+      "source": "mg3",
+      "target": "v3",
+      "targetHandle": "overlay",
+      "style": {
+        "strokeDasharray": "4 4",
+        "stroke": "#fbbf24"
+      }
+    },
+    {
+      "id": "mg4-v4",
+      "source": "mg4",
+      "target": "v4",
+      "targetHandle": "overlay",
+      "style": {
+        "strokeDasharray": "4 4",
+        "stroke": "#fbbf24"
+      }
+    },
+    {
+      "id": "mg5-v5",
+      "source": "mg5",
+      "target": "v5",
+      "targetHandle": "overlay",
+      "style": {
+        "strokeDasharray": "4 4",
+        "stroke": "#fbbf24"
+      }
+    },
+    {
+      "id": "mg6-v6",
+      "source": "mg6",
+      "target": "v6",
+      "targetHandle": "overlay",
+      "style": {
+        "strokeDasharray": "4 4",
+        "stroke": "#fbbf24"
+      }
+    },
+    {
+      "id": "hen-side-hen-t1",
+      "source": "hen-side",
+      "target": "hen-t1"
+    },
+    {
+      "id": "hen-close-hen-t1",
+      "source": "hen-close",
+      "target": "hen-t1"
+    },
+    {
+      "id": "hen-side-hen-t2",
+      "source": "hen-side",
+      "target": "hen-t2"
+    },
+    {
+      "id": "hen-close-hen-t2",
+      "source": "hen-close",
+      "target": "hen-t2"
+    },
+    {
+      "id": "hen-side-hen-t3",
+      "source": "hen-side",
+      "target": "hen-t3"
+    },
+    {
+      "id": "hen-side-hen-t4",
+      "source": "hen-side",
+      "target": "hen-t4"
+    },
+    {
+      "id": "hen-close-hen-t4",
+      "source": "hen-close",
+      "target": "hen-t4"
+    },
+    {
+      "id": "kp3-kb3",
+      "source": "kp3",
+      "target": "kb3"
+    },
+    {
+      "id": "kp7-kb7",
+      "source": "kp7",
+      "target": "kb7"
+    },
+    {
+      "id": "hen-gesture-hen-sheet2",
+      "source": "hen-gesture",
+      "target": "hen-sheet2"
+    },
+    {
+      "id": "hen-gesture-hen-faces2",
+      "source": "hen-gesture",
+      "target": "hen-faces2"
+    },
+    {
+      "id": "hen-r38-hen-sheet2",
+      "source": "hen-r38",
+      "target": "hen-sheet2"
+    },
+    {
+      "id": "hen-r38-hen-faces2",
+      "source": "hen-r38",
+      "target": "hen-faces2"
+    },
+    {
+      "id": "hen-side-hen-sheet2",
+      "source": "hen-side",
+      "target": "hen-sheet2"
+    },
+    {
+      "id": "hen-side-hen-faces2",
+      "source": "hen-side",
+      "target": "hen-faces2"
+    },
+    {
+      "id": "hen-r53-hen-sheet2",
+      "source": "hen-r53",
+      "target": "hen-sheet2"
+    },
+    {
+      "id": "hen-r53-hen-faces2",
+      "source": "hen-r53",
+      "target": "hen-faces2"
+    },
+    {
+      "id": "hen-close-hen-sheet2",
+      "source": "hen-close",
+      "target": "hen-sheet2"
+    },
+    {
+      "id": "hen-close-hen-faces2",
+      "source": "hen-close",
+      "target": "hen-faces2"
+    },
+    {
+      "id": "hen-study-hen-sheet2",
+      "source": "hen-study",
+      "target": "hen-sheet2"
+    },
+    {
+      "id": "hen-study-hen-faces2",
+      "source": "hen-study",
+      "target": "hen-faces2"
+    }
+  ],
+  "story": {
+    "title": "The Ministry",
+    "runtime": 40,
+    "logline": "Henrick takes a founder to get SOC 2 the European way. It takes eleven years. Then Comp AI does it in six seconds, and Henrick has to say the word.",
+    "sections": [
+      {
+        "id": "hook",
+        "name": "Hook",
+        "color": "#f59e0b",
+        "start": 0,
+        "end": 5,
+        "purpose": "Henrick makes 'Friday' sound like a diagnosis."
+      },
+      {
+        "id": "ministry",
+        "name": "The Ministry",
+        "color": "#f43f5e",
+        "start": 5,
+        "end": 24,
+        "purpose": "Escalate the absurdity: queue, form, fax, eleven years."
+      },
+      {
+        "id": "turn",
+        "name": "Turn",
+        "color": "#38bdf8",
+        "start": 24,
+        "end": 30,
+        "purpose": "Hard contrast: bright, calm, six seconds."
+      },
+      {
+        "id": "payoff",
+        "name": "Payoff",
+        "color": "#34d399",
+        "start": 30,
+        "end": 36,
+        "purpose": "Henrick has to say it. Real footage."
+      },
+      {
+        "id": "cta",
+        "name": "Call to action",
+        "color": "#a78bfa",
+        "start": 36,
+        "end": 40,
+        "purpose": "The binder goes in the bin. One line, one logo."
+      }
+    ],
+    "beats": [
+      {
+        "scene": 1,
+        "name": "The request",
+        "start": 0,
+        "end": 5,
+        "section": "hook",
+        "vo": "Static locked-off two-shot. Founder: 'Henrick, I need SOC 2 by Friday.' Long pause. Henrick closes the book: 'Friday.' Beat. 'In Europe, we "
+      },
+      {
+        "scene": 2,
+        "name": "The Ministry",
+        "start": 5,
+        "end": 12,
+        "section": "ministry",
+        "vo": "Slow dolly through the hall. Ticket machine ding. Founder: 'What number are they on?' Henrick, calm: 'Seventeen.' LED reads 4,201,990. An el"
+      },
+      {
+        "scene": 3,
+        "name": "Form 27-B",
+        "start": 12,
+        "end": 19,
+        "section": "ministry",
+        "vo": "Clerk: 'To apply for the form, you must first complete the form.' Founder: 'Is there a portal?' Clerk, reverent: 'There is a fax.' She stamp"
+      },
+      {
+        "scene": 4,
+        "name": "Eleven years",
+        "start": 19,
+        "end": 24,
+        "section": "ministry",
+        "vo": "Time-lapse calendar flips, dust gathers, founder ages in two seconds while Henrick does not move. Henrick, gently: 'You are doing very well."
+      },
+      {
+        "scene": 5,
+        "name": "Comp AI",
+        "start": 24,
+        "end": 30,
+        "section": "turn",
+        "vo": "Phone buzzes: 'Comp AI: SOC 2 evidence collected. 100% ready.' Integration tiles slam in, the board flips red to green in six seconds. Found"
+      },
+      {
+        "scene": 6,
+        "name": "It is good",
+        "start": 30,
+        "end": 36,
+        "section": "payoff",
+        "vo": "REAL FOOTAGE. Slow push-in. He removes his glasses, wipes them. 'In Europe, we would call this impossible.' Long beat. 'It is good.' Burned-"
+      },
+      {
+        "scene": 7,
+        "name": "The statement",
+        "start": 36,
+        "end": 40,
+        "section": "cta",
+        "vo": "He drops the binder in the bin. 'I have prepared a statement.' "
+      }
+    ],
+    "tracks": [
+      {
+        "id": "mograph",
+        "name": "Motion graphics",
+        "items": [
+          {
+            "id": "mg1",
+            "start": 5,
+            "end": 7,
+            "label": "'MINISTRY OF COMPLIANCE' sign",
+            "kind": "title",
+            "row": 0
+          },
+          {
+            "id": "mg2",
+            "start": 7.5,
+            "end": 11.5,
+            "label": "Ticket display",
+            "kind": "ui",
+            "row": 1
+          },
+          {
+            "id": "mg3",
+            "start": 13,
+            "end": 18,
+            "label": "Form 27-B + stamps",
+            "kind": "stamp",
+            "row": 0
+          },
+          {
+            "id": "mg4",
+            "start": 19,
+            "end": 23,
+            "label": "Calendar flip: ELEVEN YEARS LATER",
+            "kind": "title",
+            "row": 0
+          },
+          {
+            "id": "mg5",
+            "start": 25,
+            "end": 29,
+            "label": "Tiles + score to 100%",
+            "kind": "stat",
+            "row": 0
+          },
+          {
+            "id": "mg6",
+            "start": 31,
+            "end": 35.5,
+            "label": "Burned-in captions + Comp AI bug",
+            "kind": "caption",
+            "row": 0
+          },
+          {
+            "id": "mg7",
+            "start": 37,
+            "end": 40,
+            "label": "End card",
+            "kind": "end-card",
+            "row": 0
+          }
+        ]
+      },
+      {
+        "id": "sound",
+        "name": "Sound",
+        "items": [
+          {
+            "id": "d1",
+            "start": 0.5,
+            "end": 2,
+            "label": "Founder: SOC 2 by Friday",
+            "kind": "vo"
+          },
+          {
+            "id": "d2",
+            "start": 2.2,
+            "end": 4.8,
+            "label": "Henrick: Friday. ...begin by weeping.",
+            "kind": "vo"
+          },
+          {
+            "id": "d3",
+            "start": 6,
+            "end": 8,
+            "label": "Henrick VO: First, the Ministry.",
+            "kind": "vo"
+          },
+          {
+            "id": "d4",
+            "start": 9.5,
+            "end": 11.5,
+            "label": "'They are on seventeen.'",
+            "kind": "vo"
+          },
+          {
+            "id": "d5",
+            "start": 12.5,
+            "end": 15,
+            "label": "Clerk: apply for the form",
+            "kind": "vo"
+          },
+          {
+            "id": "d6",
+            "start": 15.5,
+            "end": 18,
+            "label": "Clerk: There is a fax.",
+            "kind": "vo"
+          },
+          {
+            "id": "d7",
+            "start": 21,
+            "end": 23.5,
+            "label": "Henrick: You are doing very well.",
+            "kind": "vo"
+          },
+          {
+            "id": "d8",
+            "start": 26.5,
+            "end": 29,
+            "label": "Narrator: SOC 2 without the Ministry",
+            "kind": "vo"
+          },
+          {
+            "id": "d9",
+            "start": 31,
+            "end": 34,
+            "label": "REAL: In Europe, we would call this impossible.",
+            "kind": "real"
+          },
+          {
+            "id": "d10",
+            "start": 34.3,
+            "end": 35.8,
+            "label": "REAL: It is good.",
+            "kind": "real"
+          },
+          {
+            "id": "d11",
+            "start": 37,
+            "end": 39,
+            "label": "Henrick: I have prepared a statement.",
+            "kind": "vo"
+          },
+          {
+            "id": "x1",
+            "start": 9.5,
+            "end": 10,
+            "label": "ticket ding",
+            "kind": "sfx",
+            "row": 1
+          },
+          {
+            "id": "x2",
+            "start": 14.5,
+            "end": 15,
+            "label": "stamp",
+            "kind": "sfx",
+            "row": 1
+          },
+          {
+            "id": "x3",
+            "start": 16.6,
+            "end": 17.4,
+            "label": "stamp",
+            "kind": "sfx",
+            "row": 1
+          },
+          {
+            "id": "x4",
+            "start": 17.6,
+            "end": 19,
+            "label": "fax screech",
+            "kind": "sfx",
+            "row": 1
+          },
+          {
+            "id": "x5",
+            "start": 19.2,
+            "end": 22,
+            "label": "clock whoosh",
+            "kind": "sfx",
+            "row": 1
+          },
+          {
+            "id": "x6",
+            "start": 25,
+            "end": 25.7,
+            "label": "phone buzz + chime",
+            "kind": "sfx",
+            "row": 1
+          },
+          {
+            "id": "x7",
+            "start": 38.2,
+            "end": 38.8,
+            "label": "binder thud",
+            "kind": "sfx",
+            "row": 1
+          },
+          {
+            "id": "m1",
+            "start": 5,
+            "end": 24,
+            "label": "Waiting-room hum, no music (recorded)",
+            "kind": "music",
+            "row": 2
+          }
+        ]
+      }
+    ],
+    "open": [
+      "Founder and Clerk need character sheets too (same one-pass sheet method) before any keyframes.",
+      "Scene 6 and the 'It is good' line are real Henrick footage. Scene 1, 2, 3, 4, 7 lines need lip-sync or his cloned voice: his sign-off on the clone is still outstanding.",
+      "Keep the Ministry fictional. No real regulators, agencies or flags. Parody a type of bureaucracy, not a country's institution.",
+      "40s is long for a social cut. Cut 15s version: scenes 1, 2 (ticket gag), 5, 6, 7."
+    ]
+  }
+}
