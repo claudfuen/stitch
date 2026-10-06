@@ -1,0 +1,23 @@
+scripts/pasteback.py
+  s_5a1077fe9cdfe4::t_3faf13a5322d32 1-74
+scripts/screenpin.py
+  s_5a1077fe9cdfe4::t_463e6999e59cf4 1-68
+motion/src/LaptopScreen.tsx
+  s_5a1077fe9cdfe4::t_d4b2f803e05887 1-58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "8bd6cbea13971e7e8857dbdd50ededd9164f8dbf",
+  "prompts": {},
+  "sessions": {
+    "s_5a1077fe9cdfe4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "28a02c07-58a0-4f9c-93c0-78a15428aaa0",
+        "model": "unknown"
+      },
+      "human_author": "Claudio Fuentes <imclaudfuen@gmail.com>"
+    }
+  }
+}
