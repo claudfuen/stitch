@@ -2,7 +2,7 @@
 # light falls and where shadows go from every camera, so every plate inherits one lighting plan.
 #
 #   /Applications/Blender.app/Contents/MacOS/Blender -b -P scripts/lightbox.py -- <plan.json> <out_dir>
-#       [--marks] [--ids] [--exposure -2.5] [--size 1920x1080] [--samples 96] [--glb room.glb [--glb-only]] [setup ...]
+#       [--marks] [--ids] [--exposure -2.5] [--size 1920x1080] [--samples 96] [--glb room.glb [--glb-only]] [--top plot.png] [setup ...]
 #
 # Light items carry a block:
 #   {"type": "area", "kelvin": 5600, "power": 1400, "size": [w, h], "aim": [x, y, z]}   a window or another soft source
@@ -22,6 +22,10 @@
 # as a camera named by its id, point lights as glTF punctual lights, and extras on every node: {"item", "kind", "label"} on
 # the set, {"light": {...}} on an empty per light (the plan's light block, since glTF has no area lights), {"mark", "who",
 # "beat"} on each stand-in and its parent empty, {"setup", "name", "lens", "beat"} on each camera. glTF is y-up.
+#
+# --top renders the lighting plot: the room from straight above with the ceiling off, lit only by the plan's lights, every
+# mark on set. The far wall is at the top. Scale: the image height covers the depth plus 1 m; the room's centre is the
+# image centre, so pixel = centre + (x - W/2, D/2 - y) * height / (D + 1).
 import json
 import math
 import sys
@@ -34,7 +38,7 @@ argv = sys.argv[sys.argv.index("--") + 1:]
 plan = json.load(open(argv[0]))
 out_dir = argv[1]
 rest = argv[2:]
-VALUED = {"--exposure", "--size", "--samples", "--glb"}
+VALUED = {"--exposure", "--size", "--samples", "--glb", "--top"}
 flags, only = {}, set()
 i = 0
 while i < len(rest):
@@ -236,7 +240,7 @@ for m in plan["marks"]:
         for k, val in props.items():
             o[k] = val
         o.parent = root
-        o.matrix_parent_inverse = root.matrix_world.inverted()
+        o.matrix_parent_inverse = root.matrix_basis.inverted()  # matrix_world is stale until the depsgraph updates
     stand_ins[m["id"]] = parts
 
 world = bpy.data.worlds.new("dark")
@@ -399,7 +403,27 @@ if glb:
     bpy.ops.export_scene.gltf(filepath=glb, export_format="GLB", export_cameras=True, export_lights=True, export_extras=True, export_apply=True)
     print(f"exported {glb}")
 
-for s in ([] if "--glb-only" in flags else plan["setups"]):
+if flags.get("--top"):
+    top = bpy.data.cameras.new("top")
+    top.type = "ORTHO"
+    top.sensor_fit = "VERTICAL"
+    top.ortho_scale = D + 1.0
+    tcam = bpy.data.objects.new("top", top)
+    scene.collection.objects.link(tcam)
+    tcam.location = (W / 2, D / 2, H + 6)
+    scene.camera = tcam
+    bpy.data.objects["ceiling"].hide_render = True
+    for parts in stand_ins.values():
+        for o in parts:
+            o.hide_render = False
+    cycles()
+    scene.render.resolution_x, scene.render.resolution_y = round(1300 * (W + 1) / (D + 1)), 1300
+    scene.render.filepath = flags["--top"]
+    bpy.ops.render.render(write_still=True)
+    bpy.data.objects["ceiling"].hide_render = False
+    print(f"rendered the lighting plot -> {flags['--top']}")
+
+for s in ([] if "--glb-only" in flags or flags.get("--top") else plan["setups"]):
     if only and s["id"] not in only:
         continue
     on_set = {m["id"] for m in plan["marks"] if not m.get("beat") or not s.get("beat") or m["beat"] == s["beat"]}
