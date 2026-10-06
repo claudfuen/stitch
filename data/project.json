@@ -110,8 +110,9 @@
       "id": "study",
       "name": "Henrick's study",
       "style": [
-        "hen-real-56",
-        "hen-real-38"
+        "study-C-real56",
+        "study-A-real38",
+        "study-B-real53"
       ],
       "gradeRef": [
         "hen-real-49",
@@ -151,7 +152,527 @@
         "grain": "Fine 35 mm grain",
         "note": "The generated library study (shots 1a, 1b, 6a, 7) drifted from this room; that drift is why the stills read fake and off-brand."
       },
-      "room": "/Library/Audio/Impulse Responses/Apple/03 Small Spaces/07 Indoor Spaces/0.8s_Empty Dining Room.SDIR"
+      "room": "/Library/Audio/Impulse Responses/Apple/03 Small Spaces/07 Indoor Spaces/0.8s_Empty Dining Room.SDIR",
+      "plan": {
+        "width": 6,
+        "depth": 6.5,
+        "height": 3.2,
+        "items": [
+          {
+            "id": "panels",
+            "kind": "wall",
+            "label": "Glossy cherry lacquer panels with vertical grooves",
+            "at": [
+              2.6,
+              6.3
+            ],
+            "size": [
+              5.2,
+              0.15,
+              3.2
+            ]
+          },
+          {
+            "id": "charcoal",
+            "kind": "wall",
+            "label": "Matte charcoal wall: two small framed sketches, acoustic guitar",
+            "at": [
+              5.6,
+              5.2
+            ],
+            "size": [
+              0.15,
+              2.4,
+              3.2
+            ]
+          },
+          {
+            "id": "sketches",
+            "kind": "prop",
+            "label": "Two small framed sketches",
+            "at": [
+              5.5,
+              5.4
+            ],
+            "size": [
+              0.05,
+              0.5,
+              0.9
+            ],
+            "z": 1.1
+          },
+          {
+            "id": "guitar",
+            "kind": "prop",
+            "label": "Acoustic guitar hung on the wall",
+            "at": [
+              5.5,
+              6
+            ],
+            "size": [
+              0.1,
+              0.45,
+              1
+            ],
+            "z": 1.4
+          },
+          {
+            "id": "chair",
+            "kind": "furniture",
+            "label": "Henrick's armchair",
+            "at": [
+              3.6,
+              4.3
+            ],
+            "size": [
+              0.8,
+              0.8,
+              1
+            ],
+            "rot": 225
+          },
+          {
+            "id": "bulb1",
+            "kind": "light",
+            "label": "Warm practical bulb deep in the room",
+            "at": [
+              1,
+              5.8
+            ],
+            "size": [
+              0.15,
+              0.15,
+              0.15
+            ],
+            "z": 1.8,
+            "light": {
+              "type": "point",
+              "kelvin": 2700,
+              "power": 45,
+              "radius": 0.05
+            }
+          },
+          {
+            "id": "bulb2",
+            "kind": "light",
+            "label": "Warm practical bulb",
+            "at": [
+              2.2,
+              6.1
+            ],
+            "size": [
+              0.15,
+              0.15,
+              0.15
+            ],
+            "z": 2.1,
+            "light": {
+              "type": "point",
+              "kelvin": 2700,
+              "power": 45,
+              "radius": 0.05
+            }
+          },
+          {
+            "id": "key",
+            "kind": "light",
+            "label": "Key: soft daylight through the left-wall window, sheers drawn",
+            "at": [
+              0.25,
+              3
+            ],
+            "size": [
+              0.1,
+              1.6,
+              2.4
+            ],
+            "z": 0.45,
+            "light": {
+              "type": "area",
+              "kelvin": 5200,
+              "power": 1400,
+              "size": [
+                1.6,
+                2.4
+              ],
+              "aim": [
+                3.6,
+                4.3,
+                1.1
+              ]
+            }
+          },
+          {
+            "id": "left-panels",
+            "kind": "wall",
+            "label": "Glossy cherry lacquer panels, left wall",
+            "at": [
+              0.08,
+              3.2
+            ],
+            "size": [
+              0.15,
+              6.4,
+              3.2
+            ]
+          },
+          {
+            "id": "left-window",
+            "kind": "window",
+            "label": "Tall window, sheer curtains, heavy charcoal drapes pulled to the sides",
+            "at": [
+              0.17,
+              3
+            ],
+            "size": [
+              0.12,
+              1.6,
+              2.4
+            ],
+            "z": 0.45
+          },
+          {
+            "id": "left-sketches",
+            "kind": "prop",
+            "label": "Two more framed ink sketches from the same series",
+            "at": [
+              0.2,
+              4.9
+            ],
+            "size": [
+              0.05,
+              0.5,
+              0.9
+            ],
+            "z": 1.1
+          },
+          {
+            "id": "left-bulb",
+            "kind": "light",
+            "label": "Warm practical bulb",
+            "at": [
+              0.22,
+              1.5
+            ],
+            "size": [
+              0.12,
+              0.12,
+              0.12
+            ],
+            "z": 1.7,
+            "light": {
+              "type": "point",
+              "kelvin": 2700,
+              "power": 35,
+              "radius": 0.05
+            }
+          },
+          {
+            "id": "front-panels",
+            "kind": "wall",
+            "label": "Glossy cherry lacquer panels, front wall",
+            "at": [
+              2.3,
+              0.08
+            ],
+            "size": [
+              4.6,
+              0.15,
+              3.2
+            ]
+          },
+          {
+            "id": "doorway",
+            "kind": "door",
+            "label": "Open doorway into a dark corridor",
+            "at": [
+              5.15,
+              0.08
+            ],
+            "size": [
+              1,
+              0.15,
+              2.3
+            ]
+          },
+          {
+            "id": "visitor-chair",
+            "kind": "furniture",
+            "label": "Walnut mid-century lounge chair, dark leather (the visitor's)",
+            "at": [
+              2.6,
+              2.75
+            ],
+            "size": [
+              0.7,
+              0.7,
+              0.8
+            ],
+            "rot": 35
+          },
+          {
+            "id": "side-table",
+            "kind": "furniture",
+            "label": "Round dark wood side table, glass of water, folded newspaper",
+            "at": [
+              3.05,
+              3.75
+            ],
+            "size": [
+              0.45,
+              0.45,
+              0.55
+            ]
+          },
+          {
+            "id": "cabinet",
+            "kind": "furniture",
+            "label": "Low dark wood cabinet, a few books",
+            "at": [
+              1.3,
+              6
+            ],
+            "size": [
+              1.6,
+              0.45,
+              0.85
+            ]
+          },
+          {
+            "id": "lamp",
+            "kind": "light",
+            "label": "Small table lamp with a parchment shade",
+            "at": [
+              1.55,
+              6
+            ],
+            "size": [
+              0.25,
+              0.25,
+              0.35
+            ],
+            "z": 0.85,
+            "light": {
+              "type": "point",
+              "kelvin": 2700,
+              "power": 30,
+              "radius": 0.08
+            }
+          }
+        ],
+        "marks": [
+          {
+            "id": "henrick",
+            "who": "henrick",
+            "at": [
+              3.6,
+              4.3
+            ],
+            "facing": 215,
+            "pose": "sit",
+            "beat": "interview",
+            "note": "Real interview: eyeline to the interviewer, camera left of A"
+          },
+          {
+            "id": "interviewer",
+            "who": "Interviewer (off camera)",
+            "at": [
+              2.6,
+              2.9
+            ],
+            "facing": 35,
+            "pose": "sit",
+            "beat": "interview"
+          },
+          {
+            "id": "founder",
+            "who": "founder",
+            "at": [
+              2.6,
+              2.9
+            ],
+            "facing": 35,
+            "pose": "sit",
+            "beat": "1a",
+            "note": "The founder takes the interviewer's chair for the request"
+          }
+        ],
+        "axes": [
+          {
+            "id": "interview",
+            "label": "the line between Henrick and the interviewer",
+            "a": "henrick",
+            "b": "interviewer"
+          },
+          {
+            "id": "request",
+            "label": "the line between Henrick and the founder",
+            "a": "henrick",
+            "b": "founder"
+          }
+        ],
+        "setups": [
+          {
+            "id": "A",
+            "name": "A-cam three-quarter",
+            "size": "MS",
+            "lens": 50,
+            "height": 1.25,
+            "at": [
+              3.05,
+              2.55
+            ],
+            "axis": "interview",
+            "beat": "interview",
+            "subjects": [
+              "henrick"
+            ],
+            "purpose": "The real A-cam: medium, eyeline just camera left (real-38)",
+            "facing": 17.4,
+            "render": "grey-study-A",
+            "plates": [
+              {
+                "asset": "study-A-real38",
+                "verdict": "circled",
+                "note": "His real frame (real-38) in the middle; Ideogram reframe extends the room above and the hand and table below; take 2 has no stray cyan light."
+              }
+            ]
+          },
+          {
+            "id": "B",
+            "name": "B-cam extreme close-up",
+            "size": "ECU",
+            "lens": 100,
+            "height": 1.3,
+            "at": [
+              3.2,
+              1.3
+            ],
+            "axis": "interview",
+            "beat": "interview",
+            "subjects": [
+              "henrick"
+            ],
+            "purpose": "The real B-cam: face fills frame (real-53), for the punchlines",
+            "facing": 7.6,
+            "render": "grey-study-B",
+            "plates": [
+              {
+                "asset": "study-B-real53",
+                "verdict": "circled",
+                "note": "A 16:9 crop of real-53: an extreme close-up made only of real pixels (outpainting an ECU redrew his head)."
+              }
+            ]
+          },
+          {
+            "id": "C",
+            "name": "Frontal medium wide",
+            "size": "MWS",
+            "lens": 35,
+            "height": 1.3,
+            "at": [
+              3.75,
+              2.2
+            ],
+            "axis": "interview",
+            "beat": "interview",
+            "subjects": [
+              "henrick"
+            ],
+            "purpose": "The frontal setup from real-56: hands in frame, for the opener",
+            "facing": 355.9,
+            "render": "grey-study-C",
+            "plates": [
+              {
+                "asset": "study-C-real56",
+                "verdict": "circled",
+                "note": "Real-56 with the grey bands filled by GPT Flare and the real pixels pasted back at the known offset: seamless."
+              }
+            ]
+          },
+          {
+            "id": "R",
+            "name": "Reverse over Henrick's shoulder onto the founder",
+            "size": "MS",
+            "lens": 40,
+            "height": 1.3,
+            "at": [
+              4.15,
+              4.75
+            ],
+            "facing": 220,
+            "axis": "request",
+            "beat": "1a",
+            "subjects": [
+              "founder",
+              "henrick"
+            ],
+            "purpose": "Reverse for 1a: the founder's request, over Henrick's shoulder",
+            "render": "grey-study-R-lit",
+            "plates": [
+              {
+                "asset": "study-R-lit",
+                "verdict": "circled",
+                "note": "Lit plate. Same room as the master 89 (as his real frame 60-64: the guitar and sketches are correctly behind this camera). Looks real 70. Furniture locked to the master."
+              }
+            ]
+          },
+          {
+            "id": "S",
+            "name": "Side two-shot",
+            "size": "MWS",
+            "lens": 24,
+            "height": 1.3,
+            "at": [
+              5.2,
+              2.6
+            ],
+            "facing": 295.5,
+            "axis": "request",
+            "beat": "1a",
+            "subjects": [
+              "founder",
+              "henrick"
+            ],
+            "purpose": "Side two-shot for 1a: both chairs, window light",
+            "render": "grey-study-S-lit",
+            "plates": [
+              {
+                "asset": "study-S-lit",
+                "verdict": "circled",
+                "note": "Lit plate. Same room as the master 96, as his real frame 80. Looks real 67. Two extra sketches at the right edge are not in the plan (fix next round)."
+              }
+            ]
+          },
+          {
+            "id": "M",
+            "name": "Master from the front-right corner",
+            "size": "WS",
+            "lens": 18,
+            "height": 1.6,
+            "at": [
+              5.45,
+              0.5
+            ],
+            "facing": 330,
+            "axis": "request",
+            "beat": "1a",
+            "subjects": [
+              "founder",
+              "henrick"
+            ],
+            "purpose": "Master for 1a: the whole room, window and charcoal corner",
+            "render": "grey-study-M-lit",
+            "plates": [
+              {
+                "asset": "study-M-lit",
+                "verdict": "circled",
+                "note": "Lit plate. Same room as his real frame 94; looks real 61-69 (his real A-cam frame 74 on the same panel). Window key left, practicals warm. Furniture reference for R and S."
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "hall",
@@ -1506,10 +2027,10 @@
       "id": "office",
       "name": "Founder's space",
       "style": [
-        "style-office"
+        "office-W-commons"
       ],
       "gradeRef": [
-        "style-office"
+        "office-W-commons"
       ],
       "ambience": "sfx-amb_office",
       "look": {
@@ -1547,7 +2068,143 @@
         "grain": "Fine grain",
         "note": "The brief (work/look/prompts/booth-r1.txt) is written and not yet generated. The current plate (style-office) is the generic one Claudio rejected."
       },
-      "room": "/Library/Audio/Impulse Responses/Apple/03 Small Spaces/02 Halls/1.0s_Dynamic Hall.SDIR"
+      "room": "/Library/Audio/Impulse Responses/Apple/03 Small Spaces/02 Halls/1.0s_Dynamic Hall.SDIR",
+      "plan": {
+        "width": 4.5,
+        "depth": 4.5,
+        "height": 2.8,
+        "items": [
+          {
+            "id": "booth1",
+            "kind": "furniture",
+            "label": "Felt booth 1 (the founder's): bench, small desk, lamp, wall clock, curtain",
+            "at": [
+              1.2,
+              3
+            ],
+            "size": [
+              1.6,
+              1.6,
+              2.3
+            ]
+          },
+          {
+            "id": "booth2",
+            "kind": "furniture",
+            "label": "Felt booth 2 (empty)",
+            "at": [
+              2.9,
+              3
+            ],
+            "size": [
+              1.6,
+              1.6,
+              2.3
+            ]
+          },
+          {
+            "id": "desk1",
+            "kind": "furniture",
+            "label": "Small laminate desk with the laptop",
+            "at": [
+              1.45,
+              3.25
+            ],
+            "size": [
+              0.9,
+              0.55,
+              0.75
+            ]
+          },
+          {
+            "id": "floor",
+            "kind": "prop",
+            "label": "Dark wood floor of the coworking floor",
+            "at": [
+              2,
+              1
+            ],
+            "size": [
+              4,
+              2,
+              0.01
+            ]
+          }
+        ],
+        "marks": [
+          {
+            "id": "founder",
+            "who": "founder",
+            "at": [
+              1.05,
+              3
+            ],
+            "facing": 110,
+            "pose": "sit",
+            "beat": "done",
+            "note": "On the bench, hunched at the laptop, bearded (after the eleven years)"
+          }
+        ],
+        "axes": [],
+        "setups": [
+          {
+            "id": "W",
+            "name": "Booth from the floor",
+            "size": "WS",
+            "lens": 24,
+            "height": 1.45,
+            "at": [
+              2.4,
+              0.3
+            ],
+            "beat": "done",
+            "subjects": [
+              "founder"
+            ],
+            "purpose": "The founder's whole company: a felt booth on a shared floor (real CC0 photo)",
+            "facing": 343.5,
+            "plates": [
+              {
+                "asset": "office-W-commons",
+                "verdict": "circled",
+                "note": "A real photograph (CC0, no attribution needed) of felt one-person booths on a shared floor; Ideogram extends the sides, the real pixels are pasted back. Replace the framed notice with the ticket in the keyframe."
+              }
+            ]
+          },
+          {
+            "id": "I",
+            "name": "Laptop screen insert",
+            "size": "INS",
+            "lens": 50,
+            "height": 1.2,
+            "at": [
+              1.2,
+              2.75
+            ],
+            "tilt": -20,
+            "beat": "done",
+            "purpose": "Over his shoulder: Comp AI on the laptop screen, composited onto the screen",
+            "facing": 24.4
+          },
+          {
+            "id": "M",
+            "name": "Founder close-up in the booth",
+            "size": "MCU",
+            "lens": 50,
+            "height": 1.1,
+            "at": [
+              2,
+              3.2
+            ],
+            "beat": "done",
+            "subjects": [
+              "founder"
+            ],
+            "purpose": "His reaction: 'It's done?'",
+            "facing": 258.1
+          }
+        ]
+      }
     }
   ],
   "assets": [
@@ -4334,6 +4991,187 @@
       "label": "Hall scene 2: Seventeen (hall-s2-v3)",
       "origin": "rendered",
       "duration": 11.45
+    },
+    {
+      "id": "grey-study-A",
+      "media": "image",
+      "path": "/generated/grey-study-A.jpg",
+      "label": "Grey box A: A-cam three-quarter",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/greybox",
+        "prompt": "50 mm, 1.25 m, facing 17.4"
+      }
+    },
+    {
+      "id": "grey-study-B",
+      "media": "image",
+      "path": "/generated/grey-study-B.jpg",
+      "label": "Grey box B: B-cam extreme close-up",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/greybox",
+        "prompt": "100 mm, 1.3 m, facing 7.6"
+      }
+    },
+    {
+      "id": "grey-study-C",
+      "media": "image",
+      "path": "/generated/grey-study-C.jpg",
+      "label": "Grey box C: Frontal medium wide",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/greybox",
+        "prompt": "35 mm, 1.3 m, facing 355.9"
+      }
+    },
+    {
+      "id": "study-A-real38",
+      "media": "image",
+      "path": "/generated/study-A-real38.jpg",
+      "label": "Study A-cam: real-38, outpainted to 16:9, real pixels pasted back",
+      "origin": "generated",
+      "gen": {
+        "model": "ideogram/ideogram-v3-reframe (Leap) + pasteback.py",
+        "prompt": "Image 1 is a frame from a real documentary interview, cropped to a wide letterbox. Make it a full 16:9 frame by extending the picture above and below only. Above: the rest of the dark room continues, the same glossy cherry lacquer panels and matte charcoal wall falling into darkness, the same warm practical bulbs. Below: his suit, shirt and tie continue naturally to the bottom of the frame. Change nothing that is already in image 1: the same man, face, glasses, expression, pose, light, colour, focus and grain. No text anywhere.",
+        "inputs": [
+          "hen-real-38"
+        ]
+      }
+    },
+    {
+      "id": "study-C-real56",
+      "media": "image",
+      "path": "/generated/study-C-real56.jpg",
+      "label": "Study C: real-56, bands filled, real pixels pasted back",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare band fill (Leap) + pasteback.py",
+        "prompt": "Image 1 is a frame from a real documentary interview placed on a taller canvas: the flat grey bands above and below are empty. Fill only the two grey bands, continuing the picture naturally so it becomes one seamless 16:9 frame. Above: the same dark room continues, with the glossy cherry lacquer panels and charcoal wall falling into darkness. Below: his body continues. He wears the same blue suit, light shirt, grey paisley tie and pink pocket square as in image 2. Keep every pixel outside the grey bands exactly as it is: the same man, face, glasses, expression, light, colour, focus and grain. No text anywhere.",
+        "inputs": [
+          "hen-real-56",
+          "hen-real-38"
+        ]
+      }
+    },
+    {
+      "id": "study-B-real53",
+      "media": "image",
+      "path": "/generated/study-B-real53.jpg",
+      "label": "Study B-cam: real-53, 16:9 crop (all real pixels)",
+      "origin": "generated",
+      "gen": {
+        "model": "crop (ffmpeg)",
+        "prompt": "Image 1 is a frame from a real documentary interview, cropped to a wide letterbox. Make it a full 16:9 frame by extending the picture above and below only. Above: the rest of the dark room continues, the same glossy cherry lacquer panels and matte charcoal wall falling into darkness, the same warm practical bulbs. Below: his suit, shirt and tie continue naturally to the bottom of the frame. Change nothing that is already in image 1: the same man, face, glasses, expression, pose, light, colour, focus and grain. No text anywhere.",
+        "inputs": [
+          "hen-real-53"
+        ]
+      }
+    },
+    {
+      "id": "office-W-commons",
+      "media": "image",
+      "path": "/generated/office-W-commons.jpg",
+      "label": "Founder's booth: real CC0 photo (Wikimedia Commons, 'Coworking space 2026-09-27'), outpainted to 16:9, real pixels pasted back",
+      "origin": "real",
+      "gen": {
+        "model": "ideogram/ideogram-v3-reframe (Leap) + pasteback.py; source CC0 https://commons.wikimedia.org/wiki/File:Coworking_space_2026-09-27.jpg"
+      }
+    },
+    {
+      "id": "grey-study-R-lit",
+      "media": "image",
+      "path": "/generated/grey-study-R-lit.jpg",
+      "label": "Study lit grey box, setup R (lighting plan)",
+      "origin": "generated",
+      "gen": {
+        "model": "Blender 5.2 Cycles, lightbox.py (plan geometry + plan lights)"
+      }
+    },
+    {
+      "id": "grey-study-S-lit",
+      "media": "image",
+      "path": "/generated/grey-study-S-lit.jpg",
+      "label": "Study lit grey box, setup S (lighting plan)",
+      "origin": "generated",
+      "gen": {
+        "model": "Blender 5.2 Cycles, lightbox.py (plan geometry + plan lights)"
+      }
+    },
+    {
+      "id": "grey-study-M-lit",
+      "media": "image",
+      "path": "/generated/grey-study-M-lit.jpg",
+      "label": "Study lit grey box, setup M (lighting plan)",
+      "origin": "generated",
+      "gen": {
+        "model": "Blender 5.2 Cycles, lightbox.py (plan geometry + plan lights)"
+      }
+    },
+    {
+      "id": "study-M-lit",
+      "media": "image",
+      "path": "/generated/study-M-lit.jpg",
+      "label": "Study master from the corner, lit plate",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1: lit grey 3D layout of a real room from a new camera; it already holds the room's lighting plan. Images 2-3: real photos of that room from the interview camera.\nMake Image 1 a real photograph of that room. Keep its camera, lens, framing, perspective, every wall, opening, panel and piece of furniture, and keep its light exactly: where light comes from, how bright, where shadows fall. Take materials and colour from the photos. No people.\nLight: the only key is soft cool daylight through the tall window on the left wall (sheer curtains, heavy charcoal drapes pulled to the sides); warm practical bulbs and a small parchment lamp glow in the dark; nothing else; deep falloff, the far side stays dark.\nMaterials: glossy cherry-red lacquer panelling with vertical moulded panels; a matte charcoal wall; dark wood furniture; dark oak floor, old rug.\nThis camera: from the front-right corner: the window on the left wall; the cherry lacquer back wall with a low cabinet, a parchment lamp and warm bulbs; the walnut lounge chair left of centre, the green Chesterfield wing armchair right of centre, the side table between; at the right edge the matte charcoal wall with two framed sketches and the guitar.\nLived in: a folded newspaper, a jacket over the visitor's chair, a few books on the cabinet, floor scuffs. Real sensor noise, slight edge softness.",
+        "inputs": [
+          "grey-study-M-lit",
+          "hen-real-38",
+          "hen-real-37"
+        ]
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Lit plate. Same room as his real frame 94; looks real 61-69 (his real A-cam frame 74 on the same panel). Window key left, practicals warm. Furniture reference for R and S."
+      },
+      "scores": {}
+    },
+    {
+      "id": "study-R-lit",
+      "media": "image",
+      "path": "/generated/study-R-lit.jpg",
+      "label": "Study reverse over Henrick's shoulder, lit plate",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1: lit grey 3D layout of a real room from a new camera; it already holds the room's lighting plan. Images 2-3: real photos of that room from the interview camera. Image 4: this same room from the corner: the chairs, side table, cabinet and lamp are these exact objects.\nMake Image 1 a real photograph of that room. Keep its camera, lens, framing, perspective, every wall, opening, panel and piece of furniture, and keep its light exactly: where light comes from, how bright, where shadows fall. Take materials and colour from the photos. No people.\nLight: the only key is soft cool daylight through the tall window on the left wall (sheer curtains, heavy charcoal drapes pulled to the sides); warm practical bulbs and a small parchment lamp glow in the dark; nothing else; deep falloff, the far side stays dark.\nMaterials: glossy cherry-red lacquer panelling with vertical moulded panels; a matte charcoal wall; dark wood furniture; dark oak floor, old rug.\nThis camera: over the back of Henrick's green leather wing armchair (near right, soft) onto the empty walnut lounge chair from Image 4; behind it the front wall of cherry lacquer panelling and, right, an open doorway to a dark corridor; daylight from a window just out of frame on the left grazes the lacquer. Behind this camera, so not visible: the window, the charcoal wall, the sketches and the guitar.\nLived in, imperfect: a jacket over the visitor's chair, a few books on the cabinet, a glass of water, floor scuffs; no newspaper and no readable text anywhere. Real sensor grain in the shadows, slight edge softness.",
+        "inputs": [
+          "grey-study-R-lit",
+          "hen-real-38",
+          "hen-real-37",
+          "study-M-lit"
+        ]
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Lit plate. Same room as the master 89 (as his real frame 60-64: the guitar and sketches are correctly behind this camera). Looks real 70. Furniture locked to the master."
+      },
+      "scores": {}
+    },
+    {
+      "id": "study-S-lit",
+      "media": "image",
+      "path": "/generated/study-S-lit.jpg",
+      "label": "Study side two-shot, lit plate",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1: lit grey 3D layout of a real room from a new camera; it already holds the room's lighting plan. Images 2-3: real photos of that room from the interview camera. Image 4: this same room from the corner: the chairs, side table, cabinet and lamp are these exact objects.\nMake Image 1 a real photograph of that room. Keep its camera, lens, framing, perspective, every wall, opening, panel and piece of furniture, and keep its light exactly: where light comes from, how bright, where shadows fall. Take materials and colour from the photos. No people.\nLight: the only key is soft cool daylight through the tall window on the left wall (sheer curtains, heavy charcoal drapes pulled to the sides); warm practical bulbs and a small parchment lamp glow in the dark; nothing else; deep falloff, the far side stays dark.\nMaterials: glossy cherry-red lacquer panelling with vertical moulded panels; a matte charcoal wall; dark wood furniture; dark oak floor, old rug.\nThis camera: across both chairs to the left wall: the tall window with sheers and pulled-back charcoal drapes, two framed ink sketches on the lacquer panelling, a warm bulb; the walnut lounge chair on the left, the green Chesterfield wing armchair on the right, the round side table with a glass of water between them, all as in Image 4. Behind this camera, so not visible: the charcoal wall and the guitar.\nLived in, imperfect: a jacket over the visitor's chair, a few books on the cabinet, a glass of water, floor scuffs; no newspaper and no readable text anywhere. Real sensor grain in the shadows, slight edge softness.",
+        "inputs": [
+          "grey-study-S-lit",
+          "hen-real-38",
+          "hen-real-37",
+          "study-M-lit"
+        ]
+      },
+      "qa": {
+        "verdict": "borderline",
+        "note": "Lit plate. Same room as the master 96, as his real frame 80. Looks real 67. Two extra sketches at the right edge are not in the plan (fix next round)."
+      },
+      "scores": {}
     }
   ],
   "graphics": [
@@ -4538,7 +5376,8 @@
       "id": "1b-friday",
       "name": "\"Friday.\"",
       "section": "hook",
-      "location": "study"
+      "location": "study",
+      "setup": "C"
     },
     {
       "characters": [
@@ -4600,7 +5439,9 @@
       "id": "1b-europe",
       "name": "Begin by weeping",
       "section": "hook",
-      "location": "study"
+      "location": "study",
+      "setup": "A",
+      "note": "Re-shoot in the real room: v3.3 take is in the stock library set. Start image study-A-real38 + voice ref (Higgsfield)."
     },
     {
       "id": "2.1",
@@ -5651,7 +6492,9 @@
       "id": "6a",
       "name": "Impossible",
       "section": "payoff",
-      "location": "study"
+      "location": "study",
+      "setup": "B",
+      "note": "Re-shoot in the real room: v3.3 take is in the stock library set. Start image study-B-real53 + voice ref (Higgsfield)."
     },
     {
       "characters": [
@@ -5706,7 +6549,9 @@
       "id": "6b",
       "name": "It is good",
       "section": "payoff",
-      "location": "study"
+      "location": "study",
+      "setup": "A",
+      "note": "Re-shoot in the real room (library set in v3.3)."
     },
     {
       "characters": [
@@ -5777,7 +6622,9 @@
       "id": "7",
       "name": "The statement",
       "section": "cta",
-      "location": "study"
+      "location": "study",
+      "setup": "B",
+      "note": "Re-shoot in the real room (library set in v3.3)."
     },
     {
       "characters": [],
@@ -6932,6 +7779,26 @@
     {
       "t": "2026-10-06T20:11:32.092Z",
       "text": "Hall scene 2 cut v3 (11.5 s): passes the av-card (-14.5 LUFS, WER 0, captions on the words, continuous bed). 2.3 voice provisional until cast.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T20:59:01.348Z",
+      "text": "Grey box for Henrick's study: rendered 3 setups from the floor plan",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T20:59:01.434Z",
+      "text": "Study locked from his real frames: plan with A-cam, B-cam and a frontal C; plates are real pixels outpainted to 16:9 (paste-back) or cropped. Interview shots 1b-europe, 6a, 6b, 7 need re-shooting in the real room (they were in the library set).",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T21:07:39.681Z",
+      "text": "Founder's space: real CC0 photo of a felt booth row (Wikimedia Commons) as the plate, per Claudio's real-room approach; plan with W, M and a laptop insert",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T21:15:30.174Z",
+      "text": "Study lighting plan: window key from the left wall (5200K, soft), warm 2700K practicals, dark falloff. Lit grey box (Cycles) for R, S, M; plates keep the same light and furniture across angles. Set consistency 89-96 against the master; same room as his real frame up to 94.",
       "kind": "done"
     }
   ],

@@ -13,7 +13,8 @@
     "stitch": "bun scripts/stitch.ts",
     "imagine": "bun scripts/imagine.ts",
     "leap": "bun scripts/leap.ts",
-    "realism": "bun scripts/realism.ts"
+    "realism": "bun scripts/realism.ts",
+    "sameroom": "bun scripts/sameroom.ts"
   },
   "dependencies": {
     "@ai-sdk/gateway": "^4.0.104",
