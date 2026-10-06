@@ -78,13 +78,15 @@
       "data": {
         "title": "Video \u00b7 Scene 1",
         "kind": "video",
-        "model": "TBD (Higgsfield)",
-        "status": "idle",
-        "hue": 0
+        "model": "Kling 3.0 pro (first frame, silent)",
+        "status": "done",
+        "hue": 0,
+        "video": "/generated/v1-4d8d86.mp4",
+        "job": "4d8d8686-1f72-4e20-8e46-e601375010ae"
       },
       "measured": {
         "width": 320,
-        "height": 242
+        "height": 254
       },
       "selected": false
     },
@@ -130,9 +132,11 @@
       "data": {
         "title": "Video \u00b7 Scene 2",
         "kind": "video",
-        "model": "TBD (Higgsfield)",
-        "status": "idle",
-        "hue": 0
+        "model": "Kling 3.0 pro (first frame, silent)",
+        "status": "done",
+        "hue": 0,
+        "video": "/generated/v2-2c5729.mp4",
+        "job": "2c57297f-14b8-44f1-b9c2-1cd50eac2933"
       },
       "measured": {
         "width": 320,
@@ -181,9 +185,11 @@
       "data": {
         "title": "Video \u00b7 Scene 3",
         "kind": "video",
-        "model": "TBD (Higgsfield)",
-        "status": "idle",
-        "hue": 0
+        "model": "Kling 3.0 pro (first frame, silent)",
+        "status": "done",
+        "hue": 0,
+        "video": "/generated/v3-bca45e.mp4",
+        "job": "bca45e21-3cd4-4095-aaba-89c9179f6b03"
       },
       "measured": {
         "width": 320,
@@ -232,9 +238,11 @@
       "data": {
         "title": "Video \u00b7 Scene 4",
         "kind": "video",
-        "model": "TBD (Higgsfield)",
-        "status": "idle",
-        "hue": 0
+        "model": "Kling 3.0 pro (first frame, silent)",
+        "status": "done",
+        "hue": 0,
+        "video": "/generated/v4-67e8b8.mp4",
+        "job": "67e8b813-a2d3-4591-a093-02bbfe7ff5b4"
       },
       "measured": {
         "width": 320,
@@ -283,13 +291,15 @@
       "data": {
         "title": "Video \u00b7 Scene 5",
         "kind": "video",
-        "model": "TBD (Higgsfield)",
-        "status": "idle",
-        "hue": 0
+        "model": "Kling 3.0 pro (first frame, silent)",
+        "status": "done",
+        "hue": 0,
+        "video": "/generated/v5-390094.mp4",
+        "job": "390094ed-47d7-462b-9b2d-5f655d43eb2d"
       },
       "measured": {
         "width": 320,
-        "height": 242
+        "height": 254
       }
     },
     {
@@ -334,13 +344,15 @@
       "data": {
         "title": "Video \u00b7 Scene 6",
         "kind": "video",
-        "model": "TBD (Higgsfield)",
-        "status": "idle",
-        "hue": 0
+        "model": "Kling 3.0 pro (first frame, silent)",
+        "status": "done",
+        "hue": 0,
+        "video": "/generated/v6-3a28e5.mp4",
+        "job": "3a28e51f-a1c9-4451-b08e-5e8125de2413"
       },
       "measured": {
         "width": 320,
-        "height": 242
+        "height": 254
       }
     },
     {
@@ -742,7 +754,7 @@
       "id": "k6",
       "type": "generation",
       "position": {
-        "x": 2215.9160956826895,
+        "x": 2150.5717769197586,
         "y": 240
       },
       "data": {
@@ -765,8 +777,8 @@
       "id": "k7",
       "type": "generation",
       "position": {
-        "x": 2527.104940490374,
-        "y": 240
+        "x": 2773.4027573660364,
+        "y": 236.64900929420867
       },
       "data": {
         "title": "Keyframe A \u00b7 Scene 7 (v2 sheet only)",
@@ -850,35 +862,14 @@
         "width": 208,
         "height": 320
       },
-      "selected": true
-    },
-    {
-      "id": "k3",
-      "type": "generation",
-      "position": {
-        "x": 1100,
-        "y": 240
-      },
-      "data": {
-        "title": "Keyframe A \u00b7 Scene 3 (v2, fictional ministry, no flags)",
-        "kind": "image",
-        "model": "GPT Image 2.5 (v2 sheet + founder + clerk sheets)",
-        "status": "done",
-        "hue": 0,
-        "url": "/generated/k3-88032e.jpg",
-        "job": "88032e83-6f23-4ff6-a5be-f9e7b8b783e4"
-      },
-      "measured": {
-        "width": 208,
-        "height": 320
-      }
+      "selected": false
     },
     {
       "id": "k1",
       "type": "generation",
       "position": {
-        "x": 340.0,
-        "y": 240.0
+        "x": 340,
+        "y": 240
       },
       "data": {
         "title": "Keyframe A \u00b7 Scene 1 (sheet + founder sheet)",
@@ -888,14 +879,18 @@
         "hue": 0,
         "url": "/generated/k1-c7e01b.jpg",
         "job": "c7e01b1e-18b0-4db8-9c66-90f0ed8f1960"
+      },
+      "measured": {
+        "width": 208,
+        "height": 275
       }
     },
     {
       "id": "k2",
       "type": "generation",
       "position": {
-        "x": 720.0,
-        "y": 240.0
+        "x": 720,
+        "y": 240
       },
       "data": {
         "title": "Keyframe A \u00b7 Scene 2 (sheet + founder sheet)",
@@ -905,14 +900,18 @@
         "hue": 0,
         "url": "/generated/k2-f2b22d.jpg",
         "job": "f2b22d80-e99e-47e9-aea4-2bfb6770508e"
+      },
+      "measured": {
+        "width": 208,
+        "height": 275
       }
     },
     {
       "id": "k4",
       "type": "generation",
       "position": {
-        "x": 1480.0,
-        "y": 240.0
+        "x": 1480,
+        "y": 240
       },
       "data": {
         "title": "Keyframe A \u00b7 Scene 4 (sheet + founder sheet)",
@@ -922,14 +921,18 @@
         "hue": 0,
         "url": "/generated/k4-17c017.jpg",
         "job": "17c017ff-c5fe-4de6-9f7b-7b7bece87663"
+      },
+      "measured": {
+        "width": 208,
+        "height": 275
       }
     },
     {
       "id": "k5",
       "type": "generation",
       "position": {
-        "x": 1860.0,
-        "y": 240.0
+        "x": 1860,
+        "y": 240
       },
       "data": {
         "title": "Keyframe A \u00b7 Scene 5 (founder sheet)",
@@ -939,14 +942,18 @@
         "hue": 0,
         "url": "/generated/k5-9d532d.jpg",
         "job": "9d532d4b-66ca-442e-9713-d4254518f439"
+      },
+      "measured": {
+        "width": 208,
+        "height": 275
       }
     },
     {
       "id": "kb6",
       "type": "generation",
       "position": {
-        "x": 2455.0,
-        "y": 240.0
+        "x": 2455,
+        "y": 240
       },
       "data": {
         "title": "Keyframe B \u00b7 Scene 6 (sheet + 3 real stills)",
@@ -956,14 +963,18 @@
         "hue": 0,
         "url": "/generated/kb6-061d2f.jpg",
         "job": "061d2fb3-f95b-4841-9930-845d3d926720"
+      },
+      "measured": {
+        "width": 208,
+        "height": 275
       }
     },
     {
       "id": "kb7",
       "type": "generation",
       "position": {
-        "x": 2835.0,
-        "y": 240.0
+        "x": 3143.9194556901384,
+        "y": 240
       },
       "data": {
         "title": "Keyframe B \u00b7 Scene 7 (sheet + 3 real stills)",
@@ -973,6 +984,124 @@
         "hue": 0,
         "url": "/generated/kb7-36c2bb.jpg",
         "job": "36c2bb73-d45d-4806-b933-3720c785c75c"
+      },
+      "measured": {
+        "width": 208,
+        "height": 275
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "k3",
+      "type": "generation",
+      "position": {
+        "x": 1100,
+        "y": 240
+      },
+      "data": {
+        "title": "Keyframe A \u00b7 Scene 3 (clerk facing, all 3 sheets)",
+        "kind": "image",
+        "model": "GPT Image 2.5",
+        "status": "done",
+        "hue": 0,
+        "url": "/generated/k3-ff0889.jpg",
+        "job": "ff088973-4c0d-4973-b725-56bd5c951fc4"
+      },
+      "measured": {
+        "width": 208,
+        "height": 275
+      }
+    },
+    {
+      "id": "kp7",
+      "type": "prompt",
+      "position": {
+        "x": 2620,
+        "y": 0
+      },
+      "data": {
+        "title": "Keyframe prompt \u00b7 7 \u00b7 The statement \u00b7 36-40s",
+        "text": "Medium shot, the silver-haired man from the character sheet, in his study, dropping a three-inch binder into a wastepaper bin. Warm lamp light, clean composition with space for a logo, no text."
+      },
+      "measured": {
+        "width": 288,
+        "height": 208
+      }
+    },
+    {
+      "id": "mp7",
+      "type": "prompt",
+      "position": {
+        "x": 2620,
+        "y": 560
+      },
+      "data": {
+        "title": "Motion + dialogue \u00b7 Scene 7",
+        "text": "He drops the binder in the bin. 'I have prepared a statement.' Cut to black. Comp AI logo resolves, tagline 'SOC 2, handled.' trycomp.ai."
+      },
+      "measured": {
+        "width": 288,
+        "height": 192
+      }
+    },
+    {
+      "id": "v7",
+      "type": "generation",
+      "position": {
+        "x": 2620,
+        "y": 800
+      },
+      "data": {
+        "title": "Video \u00b7 Scene 7",
+        "kind": "video",
+        "model": "Kling 3.0 pro (first frame, silent)",
+        "status": "done",
+        "hue": 0,
+        "video": "/generated/v7-ec0bce.mp4",
+        "job": "ec0bce3c-680d-4e95-92f2-cb139527f999"
+      },
+      "measured": {
+        "width": 320,
+        "height": 254
+      }
+    },
+    {
+      "id": "mg7",
+      "type": "motion",
+      "position": {
+        "x": 2620,
+        "y": 1130
+      },
+      "data": {
+        "title": "End card",
+        "kind": "end-card",
+        "start": 37,
+        "end": 40,
+        "tool": "Remotion",
+        "note": "Logo resolve, 'SOC 2, handled.', trycomp.ai. Locked brand type.",
+        "status": "idea"
+      },
+      "measured": {
+        "width": 240,
+        "height": 141
+      }
+    },
+    {
+      "id": "rough-cut",
+      "type": "generation",
+      "position": {
+        "x": 3000,
+        "y": 800
+      },
+      "data": {
+        "title": "Rough cut v1 \u00b7 7 scenes, silent, ~35s",
+        "kind": "video",
+        "model": "ffmpeg concat of Kling clips",
+        "status": "done",
+        "hue": 0,
+        "video": "/generated/rough-cut-v1.mp4",
+        "url": "/generated/k6-1a2339.jpg"
       }
     }
   ],
@@ -1381,6 +1510,76 @@
       "id": "hen-study-kb7",
       "source": "hen-study",
       "target": "kb7"
+    },
+    {
+      "id": "kp7-k7",
+      "source": "kp7",
+      "target": "k7"
+    },
+    {
+      "id": "k7-v7",
+      "source": "k7",
+      "target": "v7"
+    },
+    {
+      "id": "kb7-v7",
+      "source": "kb7",
+      "target": "v7"
+    },
+    {
+      "id": "mp7-v7",
+      "source": "mp7",
+      "target": "v7"
+    },
+    {
+      "id": "v6-v7",
+      "source": "v6",
+      "target": "v7"
+    },
+    {
+      "id": "mg7-v7",
+      "source": "mg7",
+      "target": "v7",
+      "targetHandle": "overlay",
+      "style": {
+        "strokeDasharray": "4 4",
+        "stroke": "#fbbf24"
+      }
+    },
+    {
+      "id": "v1-rough-cut",
+      "source": "v1",
+      "target": "rough-cut"
+    },
+    {
+      "id": "v2-rough-cut",
+      "source": "v2",
+      "target": "rough-cut"
+    },
+    {
+      "id": "v3-rough-cut",
+      "source": "v3",
+      "target": "rough-cut"
+    },
+    {
+      "id": "v4-rough-cut",
+      "source": "v4",
+      "target": "rough-cut"
+    },
+    {
+      "id": "v5-rough-cut",
+      "source": "v5",
+      "target": "rough-cut"
+    },
+    {
+      "id": "v6-rough-cut",
+      "source": "v6",
+      "target": "rough-cut"
+    },
+    {
+      "id": "v7-rough-cut",
+      "source": "v7",
+      "target": "rough-cut"
     }
   ],
   "story": {

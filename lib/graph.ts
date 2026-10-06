@@ -5,6 +5,7 @@ export type AssetData = { title?: string; label: string; kind: "image" | "video"
 export type GenData = {
   title?: string
   url?: string
+  video?: string
   prompt?: string
   job?: string
   kind: "image" | "video"

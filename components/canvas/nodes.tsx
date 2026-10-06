@@ -61,9 +61,13 @@ export function GenerationNodeView({ id, data, selected }: NodeProps<GenNode>) {
         className={cn("relative mx-3 grid place-items-center overflow-hidden rounded-md", isVideo ? "aspect-video" : "aspect-square")}
         style={{ background: data.url ? "#000" : data.status === "done" ? `linear-gradient(135deg, hsl(${data.hue} 55% 35%), hsl(${data.hue + 50} 60% 10%))` : "var(--muted)" }}
       >
-        {data.url && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={data.url} alt={data.title ?? "generation"} className="absolute inset-0 size-full object-cover" />
+        {data.video ? (
+          <video src={data.video} poster={data.url} className="nodrag absolute inset-0 size-full object-cover" controls muted loop playsInline preload="metadata" />
+        ) : (
+          data.url && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={data.url} alt={data.title ?? "generation"} className="absolute inset-0 size-full object-cover" />
+          )
         )}
         {data.status === "running" && <Loader2 className="size-5 animate-spin text-muted-foreground" />}
         {data.status === "idle" && <span className="text-[11px] text-muted-foreground">not generated</span>}
