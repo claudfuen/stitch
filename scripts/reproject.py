@@ -40,6 +40,11 @@ meshes = [o for o in scene.objects if o.type == "MESH" and not o.name.startswith
 for o in scene.objects:
     if o.type == "MESH" and o not in meshes:
         o.hide_render = True
+# Wild walls of the destination setup: the new camera sees through them, but they still hide what the source camera
+# could not see (so they keep casting the visibility pass's shadows).
+for o in meshes:
+    if o.get("item") in set(dst.get("wild", [])):
+        o.visible_camera = False
 
 
 def axes(s):
