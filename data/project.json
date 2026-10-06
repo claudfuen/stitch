@@ -5902,6 +5902,235 @@
         ],
         "job": "gen_tmANsAe4jwa3mATUV2rR93td"
       }
+    },
+    {
+      "id": "voice-founder-clone",
+      "media": "audio",
+      "path": "/generated/voice-founder-clone.wav",
+      "label": "Founder voice reference: his line from 1.2 (provisional until cast)",
+      "origin": "generated",
+      "duration": 3.2
+    },
+    {
+      "id": "v-2.3-sf",
+      "media": "video",
+      "path": "/generated/v-2.3-sf.mp4",
+      "label": "2.3 What number are they on?, founder clone + lipsync-3",
+      "origin": "generated",
+      "duration": 5.042,
+      "gen": {
+        "model": "Index TTS 2 clone of the 1.2 founder voice (fal) + sync/lipsync-3 (Leap)",
+        "prompt": "Kling take v-2.3-k1 re-voiced so the founder keeps one voice",
+        "inputs": [
+          "v-2.3-k1",
+          "voice-founder-clone"
+        ],
+        "job": "gen_ajTir04gX8nUgKXu5XgKSQlA"
+      }
+    },
+    {
+      "id": "v-3.3-dub",
+      "media": "video",
+      "path": "/generated/v-3.3-dub.mp4",
+      "label": "3.3 Is there a portal?, founder clone dubbed (mouth behind the grille)",
+      "origin": "generated",
+      "duration": 5.04,
+      "gen": {
+        "model": "Index TTS 2 clone of the 1.2 founder voice (fal), muxed",
+        "prompt": "Kling take v-3.3-k1 with the cloned line at 3.4 s; the grille covers his mouth",
+        "inputs": [
+          "v-3.3-k1",
+          "voice-founder-clone"
+        ]
+      }
+    },
+    {
+      "id": "v-5.3-sf",
+      "media": "video",
+      "path": "/generated/v-5.3-sf.mp4",
+      "label": "5.3 It's done?, founder clone + lipsync-3",
+      "origin": "generated",
+      "duration": 5.042,
+      "gen": {
+        "model": "Index TTS 2 clone of the 1.2 founder voice (fal) + sync/lipsync-3 (Leap)",
+        "prompt": "Kling take v-5.3-k1 re-voiced; the read rises on done",
+        "inputs": [
+          "v-5.3-k1",
+          "voice-founder-clone"
+        ],
+        "job": "gen_d62gyGcyThlzbmVV0jJ8sqEn"
+      }
+    },
+    {
+      "id": "kf-2.4-fix",
+      "media": "image",
+      "path": "/generated/kf-2.4-fix.jpg",
+      "label": "2.4 keyframe, chairs and back wall fixed to match the wide",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap) change-only edit + maskpaste.py (actors' original pixels)",
+        "prompt": "This is a film still. Keep the camera, the framing and the two seated men exactly as they are: same size in frame, same faces, hair, glasses, expressions, clothes, hands, posture and ticket. Change only the following, so this two-shot matches the wide shot of the same room.\n\n1. The row they sit on: the two men are in the front row. Their seats sit on one straight black steel beam. To the right of the man in the suit there is exactly one empty mustard plastic shell chair on that same beam, at the same height and the same distance from the camera as his seat. Beyond it, at the right edge of the ",
+        "inputs": [
+          "kf-2.4-flare-1"
+        ],
+        "job": "gen_8yTi71mXeANJysLM2RytL4eB"
+      }
+    },
+    {
+      "id": "kf-4.3-fix",
+      "media": "image",
+      "path": "/generated/kf-4.3-fix.jpg",
+      "label": "4.3 keyframe on the fixed 2.4 frame, eleven years later",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap) aging edit of kf-2.4-fix + maskpaste.py (Henrick's pixels from kf-2.4-fix)",
+        "prompt": "Image 1 is a film still. Make it the same shot eleven years later. Keep the camera, the framing, the room, every chair and the light exactly as in image 1. Keep the man in the blue suit exactly as he is: same face, glasses, hair, suit, posture and hands; he has not aged at all.\n\nChange only these things:\n1. The young man in the grey hoodie has waited eleven years. He now looks like the man in image 2: a long, untrimmed dark beard and wild, matted curly hair, his hoodie faded and pilled, his jeans worn, his sneakers grey with dirt. He sits upright and stares straight ahead past the camera, empty. The pink ticket in his hand has faded to almost white.\n2. The knitting woman behind them is in th",
+        "inputs": [
+          "kf-2.4-fix",
+          "kf-4.3-c2"
+        ],
+        "job": "gen_mNIVjB8L9yKbomEVWbMTwyzP"
+      }
+    },
+    {
+      "id": "v-2.4-fix-k1",
+      "media": "video",
+      "path": "/generated/v-2.4-fix-k1.mp4",
+      "label": "2.4 Seventeen, Kling take 1 on the fixed keyframe (pre-sync)",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "Front two-shot; Henrick says Seventeen flatly, the founder looks at him",
+        "inputs": [
+          "kf-2.4-fix"
+        ],
+        "job": "gen_Feyb7XVjkj2RqLx9L7NoRCFz"
+      }
+    },
+    {
+      "id": "v-2.4-fix-k2",
+      "media": "video",
+      "path": "/generated/v-2.4-fix-k2.mp4",
+      "label": "2.4 Seventeen, Kling take 2 on the fixed keyframe (pre-sync)",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "Front two-shot; Henrick says Seventeen flatly, the founder looks at him",
+        "inputs": [
+          "kf-2.4-fix"
+        ],
+        "job": "gen_dZZNaAtWYO0HkEoRcRWMld9L"
+      }
+    },
+    {
+      "id": "v-2.4-fix-s1",
+      "media": "video",
+      "path": "/generated/v-2.4-fix-s1.mp4",
+      "label": "2.4 \"Seventeen.\" on the fixed row: Kling + clone + lipsync-3",
+      "origin": "generated",
+      "duration": 5.042,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap) + Index TTS 2 Henrick clone (fal) + sync/lipsync-3 (Leap)",
+        "prompt": "Fixed keyframe; his cloned read padded so the word lands at 1.1 s",
+        "inputs": [
+          "kf-2.4-fix",
+          "v-2.4-fix-k1",
+          "voice-henrick"
+        ],
+        "job": "gen_FtGSde9PxH4rFF4KtpvpDKya"
+      },
+      "scores": {
+        "face": 0.62,
+        "voice": 0.8
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Seventeen at 1.1-2.2 s, slow and flat; WER 0 (confidence 0.46). Row straight, empty seat on his beam."
+      }
+    },
+    {
+      "id": "v-4.3-fix-k1",
+      "media": "video",
+      "path": "/generated/v-4.3-fix-k1.mp4",
+      "label": "4.3 You are doing very well, Kling take 1 on the fixed keyframe (pre-sync)",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "Front two-shot eleven years on; Henrick says the line to the air",
+        "inputs": [
+          "kf-4.3-fix"
+        ],
+        "job": "gen_fgYuv6sBbLh4g4sNQGqsHO9Y"
+      }
+    },
+    {
+      "id": "v-4.3-fix-k2",
+      "media": "video",
+      "path": "/generated/v-4.3-fix-k2.mp4",
+      "label": "4.3 You are doing very well, Kling take 2 on the fixed keyframe (pre-sync)",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "Front two-shot eleven years on; Henrick says the line to the air",
+        "inputs": [
+          "kf-4.3-fix"
+        ],
+        "job": "gen_qI8h0MNXHUKu3PLBZ6iQ5YMu"
+      }
+    },
+    {
+      "id": "v-4.3-fix-s2",
+      "media": "video",
+      "path": "/generated/v-4.3-fix-s2.mp4",
+      "label": "4.3 \"You are doing very well.\" on the fixed row: Kling + clone + lipsync-3",
+      "origin": "generated",
+      "duration": 5.042,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap) + Index TTS 2 Henrick clone (fal) + sync/lipsync-3 (Leap)",
+        "prompt": "Fixed keyframe eleven years on; his cloned read padded to 5 s",
+        "inputs": [
+          "kf-4.3-fix",
+          "v-4.3-fix-k2",
+          "voice-henrick"
+        ],
+        "job": "gen_oseyuHd0SfVmIScg3kyEy0G3"
+      },
+      "scores": {
+        "face": 0.65,
+        "voice": 0.84
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "WER 0; mouth open on every word; founder still. Noticeboard heading is garbled lettering (small)."
+      }
+    },
+    {
+      "id": "cut-v5",
+      "media": "video",
+      "path": "/generated/final-cut-v5.mp4",
+      "label": "Cut v5",
+      "origin": "rendered",
+      "duration": 36.684
+    },
+    {
+      "id": "cut-hall-s2-v4",
+      "media": "video",
+      "path": "/generated/final-cut-hall-s2-v4.mp4",
+      "label": "Hall scene 2: Seventeen (hall-s2-v4)",
+      "origin": "rendered",
+      "duration": 8.992
+    },
+    {
+      "id": "cut-hall-s4-v2",
+      "media": "video",
+      "path": "/generated/final-cut-hall-s4-v2.mp4",
+      "label": "Hall scene 4 (hall-s4-v2)",
+      "origin": "rendered",
+      "duration": 6.942
     }
   ],
   "graphics": [
@@ -6449,8 +6678,13 @@
       "takes": [
         {
           "asset": "v-2.3-k1",
-          "verdict": "circled",
+          "verdict": "alt",
           "note": "Provisional until the founder voice is cast. Leap Seedance and Veo both refused this frame (photoreal-person filter)."
+        },
+        {
+          "asset": "v-2.3-sf",
+          "verdict": "circled",
+          "note": "Founder in one voice: cloned from his 1.2 line (0.74 match; the Kling voices matched 0.55-0.58). Provisional until cast."
         }
       ],
       "lines": [
@@ -6464,7 +6698,7 @@
       "sfx": [],
       "edit": {
         "in": 3.3,
-        "out": 4.75
+        "out": "end"
       },
       "checks": {}
     },
@@ -6489,24 +6723,29 @@
       },
       "keyframes": [
         {
-          "asset": "kf-2.4-flare-1",
+          "asset": "kf-2.4-fix",
           "verdict": "circled",
-          "note": "Founder turns to Henrick, Henrick still and upright: the card blocking. Realism 93 (real control 92), face 0.71 at ~90 px."
+          "note": "Chairs and back wall fixed to match the wide: one straight front row, the empty seat beside Henrick on his beam, no chairs in front of them; transom and alarm box as in 2.1; actors pasted back from kf-2.4-flare-1."
+        },
+        {
+          "asset": "kf-2.4-flare-1",
+          "verdict": "reject",
+          "note": "Broken row from plate C: the seats to Henrick's right step forward onto their own beam; coat rack and doors differ from the wide. Was: Founder turns to Henrick, Henrick still and upright: the card blocking. Realism 93 (real control 92), face 0.71 at ~90 px."
         },
         {
           "asset": "kf-2.4-flare-2",
           "verdict": "alt",
-          "note": "Realism 91, face 0.69; Henrick almost smiles."
+          "note": "Realism 91, face 0.69; Henrick almost smiles. Same plate C row break."
         },
         {
           "asset": "kf-2.4-sunburst-1",
           "verdict": "alt",
-          "note": "Realism 94, face 0.66."
+          "note": "Realism 94, face 0.66. Same plate C row break."
         },
         {
           "asset": "kf-2.4-sunburst-2",
           "verdict": "alt",
-          "note": "Realism 94, face 0.71; founder less clearly turned."
+          "note": "Realism 94, face 0.71; founder less clearly turned. Same plate C row break."
         },
         {
           "asset": "kf-2.4-nbp-1",
@@ -6535,8 +6774,23 @@
         },
         {
           "asset": "v-2.4-f1",
+          "verdict": "reject",
+          "note": "Broken chair row from plate C (seats right of Henrick step forward)."
+        },
+        {
+          "asset": "v-2.4-fix-k1",
+          "verdict": "alt",
+          "note": "Straight row holds; lipsync with his cloned Seventeen in flight."
+        },
+        {
+          "asset": "v-2.4-fix-k2",
+          "verdict": "reject",
+          "note": "Says the word twice."
+        },
+        {
+          "asset": "v-2.4-fix-s1",
           "verdict": "circled",
-          "note": "1080p final of draft 2."
+          "note": "Chair row fixed. Face 0.62 against 0.71 for the old Seedance take, voice 0.80 against 0.74."
         }
       ],
       "lines": [
@@ -6549,8 +6803,8 @@
       "graphics": [],
       "sfx": [],
       "edit": {
-        "in": 0.6,
-        "out": 2.5
+        "in": 0.7,
+        "out": 2.75
       },
       "checks": {
         "artifacts": {
@@ -6791,12 +7045,17 @@
       "takes": [
         {
           "asset": "v-3.3-k1",
-          "verdict": "circled",
+          "verdict": "alt",
           "note": "WER 0; he leans into the grille, which covers his mouth on the words (allowed: covered speaker); Henrick still behind."
         },
         {
           "asset": "v-3.3-k2",
           "verdict": "alt"
+        },
+        {
+          "asset": "v-3.3-dub",
+          "verdict": "circled",
+          "note": "Cloned founder voice (0.79 match)."
         }
       ],
       "lines": [
@@ -6810,7 +7069,7 @@
       "sfx": [],
       "edit": {
         "in": 3.1,
-        "out": 4.95
+        "out": "end"
       },
       "checks": {}
     },
@@ -7012,6 +7271,11 @@
       },
       "keyframes": [
         {
+          "asset": "kf-4.3-fix",
+          "verdict": "circled",
+          "note": "Built on kf-2.4-fix: the same corrected frame eleven years on (aging edit), Henrick's pixels pasted back (face 0.70). Scarf spills over the empty seat to the floor."
+        },
+        {
           "asset": "kf-4.3-t2",
           "verdict": "alt",
           "note": "Henrick turns to the founder for the first time; founder stares ahead, bearded; face 0.47 in three-quarter."
@@ -7023,8 +7287,8 @@
         },
         {
           "asset": "kf-4.3-c2",
-          "verdict": "circled",
-          "note": "Same frame as 2.4 eleven years on; Henrick literally unchanged (face 0.70), the founder feral, the scarf enormous. Deadpan: Henrick stares ahead as he says the line."
+          "verdict": "reject",
+          "note": "Broken row from plate C (see 2.4). Was: Same frame as 2.4 eleven years on; Henrick literally unchanged (face 0.70), the founder feral, the scarf enormous. Deadpan: Henrick stares ahead as he says the line."
         }
       ],
       "takes": [
@@ -7040,12 +7304,26 @@
         },
         {
           "asset": "v-4.3-s2",
-          "verdict": "circled",
-          "note": "Henrick unchanged after eleven years, says it to the air; founder does not react."
+          "verdict": "reject",
+          "note": "Broken chair row from plate C."
         },
         {
           "asset": "v-4.3-s1",
-          "verdict": "alt"
+          "verdict": "reject",
+          "note": "Broken chair row from plate C."
+        },
+        {
+          "asset": "v-4.3-fix-k1",
+          "verdict": "pending"
+        },
+        {
+          "asset": "v-4.3-fix-k2",
+          "verdict": "pending"
+        },
+        {
+          "asset": "v-4.3-fix-s2",
+          "verdict": "circled",
+          "note": "Chair row fixed (built on kf-2.4-fix)."
         }
       ],
       "lines": [
@@ -7195,13 +7473,18 @@
       "takes": [
         {
           "asset": "v-5.3-k1",
-          "verdict": "circled",
+          "verdict": "alt",
           "note": "WER 0, one line, disbelieving half-smile after. Voice provisional until the founder is cast."
         },
         {
           "asset": "v-5.3-k2",
           "verdict": "reject",
           "note": "Says the line twice."
+        },
+        {
+          "asset": "v-5.3-sf",
+          "verdict": "circled",
+          "note": "Cloned founder voice; pitch rises on done (132 to 163 Hz)."
         }
       ],
       "lines": [
@@ -7214,8 +7497,8 @@
       "graphics": [],
       "sfx": [],
       "edit": {
-        "in": 2.7,
-        "out": "speech"
+        "in": 2.4,
+        "out": "end"
       },
       "checks": {}
     },
@@ -7806,6 +8089,366 @@
     }
   ],
   "cuts": [
+    {
+      "id": "hall-s4-v2",
+      "version": "hall-s4-v2",
+      "scope": "Hall scene 4",
+      "date": "2026-10-06",
+      "asset": "cut-hall-s4-v2",
+      "duration": 6.942,
+      "timeline": [
+        {
+          "shot": "4.1",
+          "start": 0,
+          "dur": 2.2,
+          "in": 0.4,
+          "asset": "v-4.1-k1",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "4.2",
+          "start": 2.2,
+          "dur": 1.642,
+          "in": 1.4,
+          "asset": "v-4.2-k1",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "4.3",
+          "start": 3.842,
+          "dur": 3.1,
+          "in": 0,
+          "asset": "v-4.3-fix-s2",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "You are doing very well.",
+              "mode": "native",
+              "start": 3.842,
+              "end": 6.134
+            }
+          ],
+          "graphics": []
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "hall-s2-v4",
+      "version": "hall-s2-v4",
+      "scope": "Hall scene 2: Seventeen",
+      "date": "2026-10-06",
+      "asset": "cut-hall-s2-v4",
+      "duration": 8.992,
+      "timeline": [
+        {
+          "shot": "2.1",
+          "start": 0,
+          "dur": 2.6,
+          "in": 0.6,
+          "asset": "v-2.1-f1",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "2.2",
+          "start": 2.6,
+          "dur": 1.3,
+          "in": 0,
+          "asset": "v-4.2-k1",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "2.3",
+          "start": 3.9,
+          "dur": 1.742,
+          "in": 3.3,
+          "asset": "v-2.3-sf",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "What number are they on?",
+              "mode": "native",
+              "start": 4.277,
+              "end": 5.355
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "2.4",
+          "start": 5.642,
+          "dur": 2.05,
+          "in": 0.7,
+          "asset": "v-2.4-fix-s1",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "Seventeen.",
+              "mode": "native",
+              "start": 6.058,
+              "end": 6.756
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "2.5",
+          "start": 7.692,
+          "dur": 1.3,
+          "in": 0.5,
+          "asset": "v-2.5-k1",
+          "lines": [],
+          "graphics": []
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "v5",
+      "version": "v5",
+      "date": "2026-10-06",
+      "asset": "cut-v5",
+      "duration": 36.684,
+      "timeline": [
+        {
+          "shot": "1.2",
+          "start": 0,
+          "dur": 3.2,
+          "in": 1.45,
+          "asset": "v-1.2-kling",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "Henrick, I need SOC 2 by Friday.",
+              "mode": "native",
+              "start": 0.195,
+              "end": 3.025
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "1.3",
+          "start": 3.2,
+          "dur": 1.4,
+          "in": 0.4,
+          "asset": "v-1.3-kling",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "1b-friday",
+          "start": 4.6,
+          "dur": 1.118,
+          "in": 0.682,
+          "asset": "s1b-friday",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "Friday.",
+              "mode": "native",
+              "start": 4.95,
+              "end": 5.268
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "1b-europe",
+          "start": 5.718,
+          "dur": 3.6,
+          "in": 0,
+          "asset": "v-1b-europe-s2",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "In Europe, we would begin by weeping.",
+              "mode": "native",
+              "start": 5.718,
+              "end": 8.974
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "2.3",
+          "start": 9.318,
+          "dur": 1.742,
+          "in": 3.3,
+          "asset": "v-2.3-sf",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "What number are they on?",
+              "mode": "native",
+              "start": 9.695,
+              "end": 10.773
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "2.4",
+          "start": 11.06,
+          "dur": 2.05,
+          "in": 0.7,
+          "asset": "v-2.4-fix-s1",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "Seventeen.",
+              "mode": "native",
+              "start": 11.476,
+              "end": 12.174
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "2.5",
+          "start": 13.11,
+          "dur": 1.3,
+          "in": 0.5,
+          "asset": "v-2.5-k1",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "3.3",
+          "start": 14.41,
+          "dur": 1.94,
+          "in": 3.1,
+          "asset": "v-3.3-dub",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "Is there a portal?",
+              "mode": "native",
+              "start": 14.752,
+              "end": 16.35
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "3.4",
+          "start": 16.35,
+          "dur": 3.2,
+          "in": 1.3,
+          "asset": "v-3.4-k1",
+          "lines": [
+            {
+              "who": "clerk",
+              "text": "There is a fax.",
+              "mode": "native",
+              "start": 16.729,
+              "end": 19.55
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "4.2",
+          "start": 19.55,
+          "dur": 1.642,
+          "in": 1.4,
+          "asset": "v-4.2-k1",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "4.3",
+          "start": 21.192,
+          "dur": 3.1,
+          "in": 0,
+          "asset": "v-4.3-fix-s2",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "You are doing very well.",
+              "mode": "native",
+              "start": 21.192,
+              "end": 23.484
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "5.2",
+          "start": 24.292,
+          "dur": 2.2,
+          "in": 0.4,
+          "asset": "v-5.2-pin",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "5.3",
+          "start": 26.492,
+          "dur": 2.642,
+          "in": 2.4,
+          "asset": "v-5.3-sf",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "It's done?",
+              "mode": "native",
+              "start": 28.011,
+              "end": 28.825
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "6a",
+          "start": 29.134,
+          "dur": 3.4,
+          "in": 0,
+          "asset": "v-6a-sync-p1",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "In Europe, we would call this impossible.",
+              "mode": "native",
+              "start": 29.134,
+              "end": 32.048
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "6b",
+          "start": 32.534,
+          "dur": 2,
+          "in": 0,
+          "asset": "v-6b-sync-p1",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "It is good.",
+              "mode": "native",
+              "start": 32.534,
+              "end": 33.994
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "end",
+          "start": 34.184,
+          "dur": 2.5,
+          "in": 0,
+          "asset": null,
+          "lines": [],
+          "graphics": []
+        }
+      ],
+      "notes": []
+    },
     {
       "id": "v4",
       "version": "v4",
@@ -9437,46 +10080,6 @@
   ],
   "activity": [
     {
-      "t": "2026-10-06T15:38:35.958299+00:00",
-      "text": "Voices done: Henrick cloned from his real lines (0.76-0.85 match, real-vs-real is 0.71), founder/clerk/narrator cast. All 14 lines pass speech-to-text. Dialogue does not fit current shot lengths, so regenerating scene 1 (new Henrick close-up), scene 3 (10s) and scene 6 (7s) to carry lip-sync.",
-      "kind": "run"
-    },
-    {
-      "t": "2026-10-06T15:43:53.562357+00:00",
-      "text": "Seedance 2.5 test: accepts real-face reference images and a voice reference. Face held 100%, voice matched Henrick at 0.86 (best of all methods), lips move on each word. Flaws: dropped the first word, long freezes in pauses, 480p draft. This is the lead approach.",
-      "kind": "done"
-    },
-    {
-      "t": "2026-10-06T15:44:08.289597+00:00",
-      "text": "Status: voices done and verified, Seedance is the lead for speaking shots. Next: real-resolution Seedance runs for dialogue shots, sound design, mix with -14 LUFS, assemble final cut v3 with audio.",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-06T15:50:30.734463+00:00",
-      "text": "Resemblance push: building a face-similarity scorer (ArcFace) calibrated on real Henrick footage, then optimizing face and voice against it.",
-      "kind": "run"
-    },
-    {
-      "t": "2026-10-06T15:53:16.270296+00:00",
-      "text": "Resemblance baseline measured with ArcFace: real-vs-real 0.82; our keyframes 0.36-0.67, Kling clips 0.46-0.63, Seedance test 0.67. Testing three video-edit face replacements (Genjutsu, Kling Omni Edit, Seedance edit) on the weakest clip, plus full-res Seedance dialogue runs.",
-      "kind": "run"
-    },
-    {
-      "t": "2026-10-06T15:56:41.928611+00:00",
-      "text": "Breakthrough: editing a single real still keeps the face at 0.80-0.82 (equals real-vs-real 0.82); generating from my sheet scored 0.67-0.72. Switching every Henrick keyframe to the edit method; 6 new candidates (scenes 2, 4, 6, 7) rendering, scored by ArcFace.",
-      "kind": "done"
-    },
-    {
-      "t": "2026-10-06T15:58:57.430908+00:00",
-      "text": "Seedance 1080p: face 0.76 on video, voice 0.86, lips move on every word, but it mangled the two-line prompt (dropped Friday, 4s gap). Now generating each line as its own 1080p clip from the 0.82 edited keyframe (Friday, In Europe..., scene 6 line, scene 7 line). Face-replacement tools (Kling edit, Seedance edit) did NOT help: 0.44-0.45 vs 0.46.",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-06T16:00:08.029301+00:00",
-      "text": "All three video face-replacement tools failed (Genjutsu 0.46, Kling edit 0.45, Seedance edit 0.44; original 0.46). Fix the face at generation time instead. New edit-based keyframes on the board: scene 2 0.70, scene 4 0.77, scene 6 0.78, scene 7 0.76 (old: 0.63, 0.57, 0.50, 0.36). Older clips now flagged to regenerate.",
-      "kind": "done"
-    },
-    {
       "t": "2026-10-06T16:04:22.326960+00:00",
       "text": "Sound: building the full mix now (dialogue + ambience + effects, -14 LUFS), cut v3 with audio. Not waiting on the remaining clips.",
       "kind": "run"
@@ -9834,6 +10437,46 @@
     {
       "t": "2026-10-06T21:45:08.298Z",
       "text": "Cut v4 built: 35.3 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T22:00:04.919Z",
+      "text": "Founder re-voiced in one voice across 2.3, 3.3 and 5.3: Index TTS 2 clone of his 1.2 line (match 0.68-0.79 vs 0.55-0.58 for the separate Kling voices), lipsync-3 where his mouth shows. Provisional until Claudio casts.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T22:08:40.476Z",
+      "text": "Chair QA (Claudio): plate C broke the front row (seats right of Henrick stepped forward onto their own beam) and moved the coat rack; 2.4 and 4.3 inherited it. Fixed with a change-only GPT edit plus maskpaste.py (actors kept pixel-exact), 4.3 rebuilt as the fixed 2.4 frame eleven years on. Still open: the B wides seat the knitter between the two men while C has her behind Henrick right.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T22:13:48.410Z",
+      "text": "Building cut v5: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T22:15:03.400Z",
+      "text": "Cut v5 built: 36.7 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T22:15:42.761Z",
+      "text": "Building cut hall-s2-v4: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T22:16:01.502Z",
+      "text": "Cut hall-s2-v4 built: 9.0 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T22:16:01.522Z",
+      "text": "Building cut hall-s4-v2: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T22:16:16.326Z",
+      "text": "Cut hall-s4-v2 built: 6.9 s.",
       "kind": "done"
     }
   ],
