@@ -611,7 +611,8 @@
             "facing": 333,
             "pose": "sit",
             "beat": "1a",
-            "note": "Takes the interviewer's chair for the request: camera right of A, beside the window"
+            "note": "Takes the interviewer's chair for the request: camera right of A, beside the window. Leans in, elbows on knees (0.49 m, solved from the W and O keyframes).",
+            "lean": 0.49
           }
         ],
         "axes": [
@@ -660,17 +661,17 @@
             "name": "B-cam extreme close-up",
             "size": "ECU",
             "lens": 100,
-            "height": 1.3,
+            "height": 1.2,
             "at": [
-              3.2,
-              1.3
+              3.42,
+              2.95
             ],
             "axis": "interview",
             "beat": "interview",
             "subjects": [
               "henrick"
             ],
-            "purpose": "The real B-cam: face fills frame (real-53), for the punchlines",
+            "purpose": "The real B-cam (real-53): extreme close-up. Solved from real-53 with Vision: 100 mm at 1.36 m (the plan had 3.03 m, so his face came out 222% of the projection).",
             "facing": 7.6,
             "render": "grey-study-B",
             "plates": [
@@ -679,7 +680,8 @@
                 "verdict": "circled",
                 "note": "A 16:9 crop of real-53: an extreme close-up made only of real pixels (outpainting an ECU redrew his head)."
               }
-            ]
+            ],
+            "tilt": 1
           },
           {
             "id": "C",
@@ -725,12 +727,17 @@
               "henrick"
             ],
             "purpose": "Establish the room and the request",
-            "render": "grey-study-W-lit",
+            "render": "grey-study-W2-lit",
             "plates": [
               {
                 "asset": "study-W-lit",
+                "verdict": "reject",
+                "note": "Bookcase (the look bans bookshelves); painted from a level 1.45 m camera the model re-framed (guitar and sketches 25% higher than the plan)."
+              },
+              {
+                "asset": "study-W2-lit",
                 "verdict": "circled",
-                "note": "Plan conformance 97-100 (3 blind judges, questions from the visibility report): every planned piece in its third of the frame, nothing from behind the camera, daylight from the window."
+                "note": "Plan conformance 97; overlays the shape render after the camera re-plan. No bookcase (never-list)."
               }
             ],
             "tilt": -2
@@ -745,15 +752,15 @@
               3,
               4.85
             ],
-            "facing": 144,
+            "facing": 142.75,
             "axis": "request",
             "beat": "1a",
             "subjects": [
               "founder",
               "henrick"
             ],
-            "purpose": "The request: the founder's line. As shot: facing and tilt re-solved from the approved plate (Vision face fit), 3 degrees right and 2.75 degrees lower than planned.",
-            "tilt": -6.75,
+            "purpose": "The request: the founder's line. As shot: facing and tilt re-solved from the approved plate with the founder's solved lean (Vision face fit, 0.3% residual).",
+            "tilt": -11.25,
             "render": "grey-study-O-lit",
             "plates": [
               {
@@ -1117,7 +1124,13 @@
               0.25,
               0.06
             ],
-            "z": 4.12
+            "z": 4.12,
+            "light": {
+              "type": "panel",
+              "kelvin": 4100,
+              "strength": 2.5,
+              "role": "fill"
+            }
           },
           {
             "id": "tube-3.5-8",
@@ -1132,7 +1145,13 @@
               0.25,
               0.06
             ],
-            "z": 4.12
+            "z": 4.12,
+            "light": {
+              "type": "panel",
+              "kelvin": 4100,
+              "strength": 2.5,
+              "role": "fill"
+            }
           },
           {
             "id": "tube-3.5-12",
@@ -1147,7 +1166,13 @@
               0.25,
               0.06
             ],
-            "z": 4.12
+            "z": 4.12,
+            "light": {
+              "type": "panel",
+              "kelvin": 4100,
+              "strength": 2.5,
+              "role": "fill"
+            }
           },
           {
             "id": "tube-3.5-16",
@@ -1162,7 +1187,13 @@
               0.25,
               0.06
             ],
-            "z": 4.12
+            "z": 4.12,
+            "light": {
+              "type": "panel",
+              "kelvin": 4100,
+              "strength": 2.5,
+              "role": "fill"
+            }
           },
           {
             "id": "tube-6.5-4",
@@ -1177,7 +1208,13 @@
               0.25,
               0.06
             ],
-            "z": 4.12
+            "z": 4.12,
+            "light": {
+              "type": "panel",
+              "kelvin": 4100,
+              "strength": 2.5,
+              "role": "fill"
+            }
           },
           {
             "id": "tube-6.5-8",
@@ -1192,7 +1229,13 @@
               0.25,
               0.06
             ],
-            "z": 4.12
+            "z": 4.12,
+            "light": {
+              "type": "panel",
+              "kelvin": 4100,
+              "strength": 2.5,
+              "role": "fill"
+            }
           },
           {
             "id": "tube-6.5-12",
@@ -1207,7 +1250,13 @@
               0.25,
               0.06
             ],
-            "z": 4.12
+            "z": 4.12,
+            "light": {
+              "type": "panel",
+              "kelvin": 4100,
+              "strength": 2.5,
+              "role": "fill"
+            }
           },
           {
             "id": "tube-6.5-16",
@@ -1222,7 +1271,13 @@
               0.25,
               0.06
             ],
-            "z": 4.12
+            "z": 4.12,
+            "light": {
+              "type": "panel",
+              "kelvin": 4100,
+              "strength": 2.5,
+              "role": "fill"
+            }
           },
           {
             "id": "tube-9.5-4",
@@ -1237,7 +1292,13 @@
               0.25,
               0.06
             ],
-            "z": 4.12
+            "z": 4.12,
+            "light": {
+              "type": "panel",
+              "kelvin": 4100,
+              "strength": 2.5,
+              "role": "fill"
+            }
           },
           {
             "id": "tube-9.5-8",
@@ -1252,7 +1313,13 @@
               0.25,
               0.06
             ],
-            "z": 4.12
+            "z": 4.12,
+            "light": {
+              "type": "panel",
+              "kelvin": 4100,
+              "strength": 0,
+              "role": "fill"
+            }
           },
           {
             "id": "tube-9.5-12",
@@ -1267,7 +1334,13 @@
               0.25,
               0.06
             ],
-            "z": 4.12
+            "z": 4.12,
+            "light": {
+              "type": "panel",
+              "kelvin": 4100,
+              "strength": 2.5,
+              "role": "fill"
+            }
           },
           {
             "id": "tube-9.5-16",
@@ -1282,7 +1355,13 @@
               0.25,
               0.06
             ],
-            "z": 4.12
+            "z": 4.12,
+            "light": {
+              "type": "panel",
+              "kelvin": 4100,
+              "strength": 2.5,
+              "role": "fill"
+            }
           },
           {
             "id": "partition",
@@ -1630,6 +1709,118 @@
               0.35,
               1.8
             ]
+          },
+          {
+            "id": "day-l1",
+            "kind": "light",
+            "label": "overcast daylight through tall steel window 1, net curtain",
+            "at": [
+              0.15,
+              5
+            ],
+            "size": [
+              0.05,
+              1.6,
+              2.6
+            ],
+            "z": 1,
+            "light": {
+              "type": "area",
+              "kelvin": 6200,
+              "power": 1200,
+              "size": [
+                1.6,
+                2.6
+              ],
+              "aim": [
+                5,
+                5,
+                1
+              ],
+              "role": "fill"
+            }
+          },
+          {
+            "id": "day-l2",
+            "kind": "light",
+            "label": "overcast daylight through tall steel window 2, net curtain",
+            "at": [
+              0.15,
+              9
+            ],
+            "size": [
+              0.05,
+              1.6,
+              2.6
+            ],
+            "z": 1,
+            "light": {
+              "type": "area",
+              "kelvin": 6200,
+              "power": 1200,
+              "size": [
+                1.6,
+                2.6
+              ],
+              "aim": [
+                5,
+                9,
+                1
+              ],
+              "role": "fill"
+            }
+          },
+          {
+            "id": "day-l3",
+            "kind": "light",
+            "label": "Key: overcast daylight through tall steel window 3, net curtain",
+            "at": [
+              0.15,
+              13
+            ],
+            "size": [
+              0.05,
+              1.6,
+              2.6
+            ],
+            "z": 1,
+            "light": {
+              "type": "area",
+              "kelvin": 6200,
+              "power": 1600,
+              "size": [
+                1.6,
+                2.6
+              ],
+              "aim": [
+                4.9,
+                13,
+                1
+              ],
+              "role": "key"
+            }
+          },
+          {
+            "id": "clerk-lamp",
+            "kind": "light",
+            "label": "Warm desk lamp behind service window 4",
+            "at": [
+              7.35,
+              18.7
+            ],
+            "size": [
+              0.2,
+              0.2,
+              0.3
+            ],
+            "z": 1,
+            "light": {
+              "type": "point",
+              "kelvin": 3200,
+              "power": 40,
+              "radius": 0.06,
+              "role": "practical"
+            }
           }
         ],
         "marks": [
@@ -1810,7 +2001,7 @@
             "plates": [
               {
                 "asset": "hall-B-r1-flare",
-                "verdict": "circled",
+                "verdict": "alt",
                 "note": "Holds the hero room from the reverse: windows frame right, doors, hooks, noticeboard and dispenser where the plan puts them; extras on their marks; front row empty."
               },
               {
@@ -1822,6 +2013,11 @@
                 "asset": "hall-B-r1-nbp",
                 "verdict": "reject",
                 "note": "Counter edge in the foreground; washed out; door frames wrong colour."
+              },
+              {
+                "asset": "hall-B-r2-lit",
+                "verdict": "circled",
+                "note": "From the lit 3D room; conform 83-89 with the shared-name fix (only miss: judges call the overhead tubes the main light)."
               }
             ]
           },
@@ -1862,15 +2058,21 @@
               },
               {
                 "asset": "hall-C-r2-sunburst",
-                "verdict": "circled",
+                "verdict": "alt",
                 "note": "Signage fixed by naming what the back wall holds. Two empty front-row seats centred for the leads; knitter two rows back right; light from the right. Clean the near-readable noticeboard header in the keyframe."
               },
               {
                 "asset": "hall-C-r2-flare",
                 "verdict": "alt",
                 "note": "Correct wall; knitter sits too close behind the seats."
+              },
+              {
+                "asset": "hall-C-r3-proj",
+                "verdict": "circled",
+                "note": "Projected from hall-B-r2-lit through the room's geometry: within 4 px of the projection; conform 92, no misses."
               }
-            ]
+            ],
+            "tilt": -4
           },
           {
             "id": "D",
@@ -2146,18 +2348,17 @@
       ],
       "ambience": "sfx-amb_office",
       "look": {
-        "concept": "Proposal: the founder's whole company is a one-person phone booth on a cheap coworking floor. A glass box that rhymes with the ministry's service window, but alive.",
+        "concept": "The founder's whole company is one curtained felt booth on a cheap coworking floor: a cubby that rhymes with the ministry's service window, but alive.",
         "references": "Observational documentary; real 2020s coworking floors in converted 1980s office buildings",
         "storyProps": [
-          "white-framed glass phone booth lined with grey felt",
-          "birch plywood shelf as a desk",
+          "a curtained one-person booth lined with grey felt upholstered panels",
+          "light grey laminate desk with a birch edge",
           "open laptop (Comp AI on screen in the payoff)",
           "iced coffee sweating onto a napkin",
           "a printed security questionnaire as thick as a phone book, with sticky tabs",
           "an energy drink can",
           "a dying succulent",
-          "a hoodie on the door handle",
-          "the ministry ticket taped to the glass"
+          "the ministry ticket taped to the back wall"
         ],
         "never": [
           "a city skyline",
@@ -2178,69 +2379,649 @@
         "lens": "35 mm handheld documentary; through the glass for the wide, inside the booth for the close-up",
         "contrast": "Soft, natural",
         "grain": "Fine grain",
-        "note": "The brief (work/look/prompts/booth-r1.txt) is written and not yet generated. The current plate (style-office) is the generic one Claudio rejected."
+        "note": "Built on the real CC0 booth photo (office-W-commons); plan v2 solved from it (camera W, 13 landmarks, 5.3 px RMS)."
       },
       "room": "/Library/Audio/Impulse Responses/Apple/03 Small Spaces/02 Halls/1.0s_Dynamic Hall.SDIR",
       "plan": {
-        "width": 4.5,
-        "depth": 4.5,
+        "width": 5,
+        "depth": 4.6,
         "height": 2.8,
         "items": [
           {
-            "id": "booth1",
-            "kind": "furniture",
-            "label": "Felt booth 1 (the founder's): bench, small desk, lamp, wall clock, curtain",
+            "id": "b1-back",
+            "kind": "wall",
+            "label": "Light grey painted back wall of booth 1: a thin round wall clock, a small black-framed sign",
             "at": [
-              1.2,
-              3
+              1.4,
+              4.08
             ],
             "size": [
-              1.6,
-              1.6,
-              2.3
+              1.42,
+              0.15,
+              1.9
             ]
           },
           {
-            "id": "booth2",
-            "kind": "furniture",
-            "label": "Felt booth 2 (empty)",
+            "id": "b1-left",
+            "kind": "wall",
+            "label": "Grey felt upholstered left wall of booth 1: the bench backrest, stacked rectangular cushions with horizontal seams",
             "at": [
-              2.9,
-              3
+              0.62,
+              3.125
             ],
             "size": [
-              1.6,
-              1.6,
-              2.3
+              0.15,
+              1.75,
+              1.9
+            ]
+          },
+          {
+            "id": "b1-ceiling",
+            "kind": "wall",
+            "label": "Light grey booth ceiling with exposed pipes",
+            "at": [
+              1.4,
+              3.125
+            ],
+            "size": [
+              1.42,
+              1.75,
+              0.08
+            ],
+            "z": 1.86
+          },
+          {
+            "id": "partition",
+            "kind": "wall",
+            "label": "Grey felt upholstered partition between the two booths",
+            "at": [
+              2.21,
+              3.125
+            ],
+            "size": [
+              0.2,
+              1.75,
+              1.9
+            ]
+          },
+          {
+            "id": "b2-back",
+            "kind": "wall",
+            "label": "Light grey painted back wall of booth 2",
+            "at": [
+              3.01,
+              4.08
+            ],
+            "size": [
+              1.4,
+              0.15,
+              1.9
+            ]
+          },
+          {
+            "id": "b2-ceiling",
+            "kind": "wall",
+            "label": "Light grey booth ceiling",
+            "at": [
+              3.01,
+              3.125
+            ],
+            "size": [
+              1.4,
+              1.75,
+              0.08
+            ],
+            "z": 1.86
+          },
+          {
+            "id": "b2-right",
+            "kind": "wall",
+            "label": "Grey felt upholstered right wall of booth 2",
+            "at": [
+              3.78,
+              3.125
+            ],
+            "size": [
+              0.15,
+              1.75,
+              1.9
+            ]
+          },
+          {
+            "id": "soffit",
+            "kind": "wall",
+            "label": "Light grey booth frame above the openings",
+            "at": [
+              2.2,
+              2.2
+            ],
+            "size": [
+              3.4,
+              0.12,
+              0.35
+            ],
+            "z": 1.91
+          },
+          {
+            "id": "jamb-left",
+            "kind": "wall",
+            "label": "Light grey booth frame, left jamb",
+            "at": [
+              0.48,
+              2.2
+            ],
+            "size": [
+              0.2,
+              0.12,
+              2.26
+            ]
+          },
+          {
+            "id": "jamb-right",
+            "kind": "wall",
+            "label": "Light grey booth frame, right jamb",
+            "at": [
+              3.92,
+              2.2
+            ],
+            "size": [
+              0.2,
+              0.12,
+              2.26
+            ]
+          },
+          {
+            "id": "b1-carpet",
+            "kind": "prop",
+            "label": "Grey carpet floor inside booth 1",
+            "at": [
+              1.4,
+              3.125
+            ],
+            "size": [
+              1.42,
+              1.75,
+              0.01
+            ]
+          },
+          {
+            "id": "b2-carpet",
+            "kind": "prop",
+            "label": "Grey carpet floor inside booth 2",
+            "at": [
+              3.01,
+              3.125
+            ],
+            "size": [
+              1.4,
+              1.75,
+              0.01
+            ]
+          },
+          {
+            "id": "bench",
+            "kind": "furniture",
+            "label": "Grey felt upholstered bench along booth 1's left wall, birch base",
+            "at": [
+              1,
+              3.125
+            ],
+            "size": [
+              0.5,
+              1.75,
+              0.45
             ]
           },
           {
             "id": "desk1",
             "kind": "furniture",
-            "label": "Small laminate desk with the laptop",
+            "label": "Light grey laminate desk with a birch edge, one black steel leg at the front",
             "at": [
-              1.45,
-              3.25
+              1.754,
+              3.21
             ],
             "size": [
-              0.9,
-              0.55,
-              0.75
+              0.707,
+              1.58,
+              0.03
+            ],
+            "z": 0.71
+          },
+          {
+            "id": "leg1",
+            "kind": "furniture",
+            "label": "Black steel desk leg",
+            "at": [
+              1.737,
+              2.48
+            ],
+            "size": [
+              0.04,
+              0.04,
+              0.71
             ]
           },
           {
-            "id": "floor",
+            "id": "clock",
             "kind": "prop",
-            "label": "Dark wood floor of the coworking floor",
+            "label": "Thin round wall clock, white face, steel rim",
             "at": [
-              2,
-              1
+              1.43,
+              3.99
             ],
             "size": [
-              4,
-              2,
-              0.01
+              0.2,
+              0.02,
+              0.2
+            ],
+            "z": 1.44
+          },
+          {
+            "id": "sign",
+            "kind": "prop",
+            "label": "Small black-framed sign on the back wall (the ministry ticket gets taped beside it)",
+            "at": [
+              1.695,
+              3.99
+            ],
+            "size": [
+              0.39,
+              0.02,
+              0.28
+            ],
+            "z": 0.87
+          },
+          {
+            "id": "laptop",
+            "kind": "prop",
+            "label": "Open silver laptop on the desk, screen toward the bench",
+            "at": [
+              1.7,
+              3
+            ],
+            "size": [
+              0.3,
+              0.22,
+              0.02
+            ],
+            "z": 0.74
+          },
+          {
+            "id": "laptop-screen",
+            "kind": "light",
+            "label": "Laptop screen glow",
+            "at": [
+              1.6,
+              3
+            ],
+            "size": [
+              0.01,
+              0.3,
+              0.2
+            ],
+            "z": 0.75,
+            "light": {
+              "type": "panel",
+              "kelvin": 6500,
+              "strength": 1.6,
+              "role": "practical"
+            }
+          },
+          {
+            "id": "edison-lamp",
+            "kind": "prop",
+            "label": "Clear globe Edison bulb on a black square base (off)",
+            "at": [
+              2.01,
+              2.64
+            ],
+            "size": [
+              0.13,
+              0.13,
+              0.28
+            ],
+            "z": 0.74
+          },
+          {
+            "id": "spot-lamp",
+            "kind": "prop",
+            "label": "Small black desk spot lamp (off)",
+            "at": [
+              2.04,
+              3.79
+            ],
+            "size": [
+              0.08,
+              0.08,
+              0.25
+            ],
+            "z": 0.74
+          },
+          {
+            "id": "coffee",
+            "kind": "prop",
+            "label": "Iced coffee in a plastic cup, sweating onto a napkin",
+            "at": [
+              1.95,
+              2.85
+            ],
+            "size": [
+              0.09,
+              0.09,
+              0.16
+            ],
+            "z": 0.74
+          },
+          {
+            "id": "questionnaire",
+            "kind": "prop",
+            "label": "A printed security questionnaire as thick as a phone book, sticky tabs",
+            "at": [
+              1.86,
+              2.62
+            ],
+            "size": [
+              0.22,
+              0.3,
+              0.06
+            ],
+            "z": 0.74
+          },
+          {
+            "id": "desk2",
+            "kind": "furniture",
+            "label": "Light grey laminate desk with a birch edge (booth 2)",
+            "at": [
+              3.33,
+              3.28
+            ],
+            "size": [
+              0.77,
+              1.45,
+              0.03
+            ],
+            "z": 0.71
+          },
+          {
+            "id": "globe-lamp",
+            "kind": "prop",
+            "label": "White globe bulb lamp on a black base (off)",
+            "at": [
+              3.65,
+              2.74
+            ],
+            "size": [
+              0.13,
+              0.13,
+              0.3
+            ],
+            "z": 0.74
+          },
+          {
+            "id": "curtain-left",
+            "kind": "prop",
+            "label": "Grey linen curtain, gathered open, left of booth 1",
+            "at": [
+              0.6,
+              2.1
+            ],
+            "size": [
+              0.6,
+              0.12,
+              2.15
             ]
+          },
+          {
+            "id": "curtain-mid",
+            "kind": "prop",
+            "label": "Grey linen curtain, gathered open, between the booths",
+            "at": [
+              2.47,
+              2.1
+            ],
+            "size": [
+              0.63,
+              0.12,
+              2.15
+            ]
+          },
+          {
+            "id": "curtain-right",
+            "kind": "prop",
+            "label": "Grey linen curtain, gathered open, right of booth 2",
+            "at": [
+              4,
+              2.1
+            ],
+            "size": [
+              0.25,
+              0.12,
+              2.15
+            ]
+          },
+          {
+            "id": "floor-walls",
+            "kind": "wall",
+            "label": "White painted walls of the coworking floor",
+            "at": [
+              0.08,
+              2.3
+            ],
+            "size": [
+              0.15,
+              4.6,
+              2.8
+            ]
+          },
+          {
+            "id": "panel-1",
+            "kind": "light",
+            "label": "Flush fluorescent ceiling panel over the floor in front of booth 1",
+            "at": [
+              1.4,
+              1.6
+            ],
+            "size": [
+              1.2,
+              0.6,
+              0.02
+            ],
+            "z": 2.76,
+            "light": {
+              "type": "area",
+              "kelvin": 4300,
+              "power": 260,
+              "size": [
+                1.2,
+                0.6
+              ],
+              "aim": [
+                1.4,
+                2.6,
+                0
+              ],
+              "role": "key"
+            }
+          },
+          {
+            "id": "panel-2",
+            "kind": "light",
+            "label": "Flush fluorescent ceiling panel over the floor in front of booth 2",
+            "at": [
+              3.1,
+              1.6
+            ],
+            "size": [
+              1.2,
+              0.6,
+              0.02
+            ],
+            "z": 2.76,
+            "light": {
+              "type": "area",
+              "kelvin": 4300,
+              "power": 260,
+              "size": [
+                1.2,
+                0.6
+              ],
+              "aim": [
+                3.1,
+                2.6,
+                0
+              ],
+              "role": "fill"
+            }
+          },
+          {
+            "id": "window",
+            "kind": "window",
+            "label": "Window on the coworking floor's left wall, overcast daylight",
+            "at": [
+              0.1,
+              1.2
+            ],
+            "size": [
+              0.06,
+              1.6,
+              1.6
+            ],
+            "z": 0.8
+          },
+          {
+            "id": "daylight",
+            "kind": "light",
+            "label": "Overcast daylight through the floor's window",
+            "at": [
+              0.2,
+              1.2
+            ],
+            "size": [
+              0.05,
+              1.6,
+              1.6
+            ],
+            "z": 0.8,
+            "light": {
+              "type": "area",
+              "kelvin": 6200,
+              "power": 180,
+              "size": [
+                1.6,
+                1.6
+              ],
+              "aim": [
+                3,
+                2,
+                1
+              ],
+              "role": "fill"
+            }
+          },
+          {
+            "id": "cushion-L1",
+            "kind": "furniture",
+            "label": "Grey felt upholstered cushion panel (bench backrest)",
+            "at": [
+              0.85,
+              3.125
+            ],
+            "size": [
+              0.08,
+              1.71,
+              0.415
+            ],
+            "z": 0.45
+          },
+          {
+            "id": "cushion-L2",
+            "kind": "furniture",
+            "label": "Grey felt upholstered cushion panel (bench backrest)",
+            "at": [
+              0.85,
+              3.125
+            ],
+            "size": [
+              0.08,
+              1.71,
+              0.41500000000000004
+            ],
+            "z": 0.88
+          },
+          {
+            "id": "cushion-L3",
+            "kind": "furniture",
+            "label": "Grey felt upholstered cushion panel (bench backrest)",
+            "at": [
+              0.85,
+              3.125
+            ],
+            "size": [
+              0.08,
+              1.71,
+              0.4149999999999999
+            ],
+            "z": 1.31
+          },
+          {
+            "id": "cushion-R1",
+            "kind": "furniture",
+            "label": "Grey felt upholstered cushion panel (partition)",
+            "at": [
+              2.07,
+              3.125
+            ],
+            "size": [
+              0.08,
+              1.71,
+              0.40499999999999997
+            ],
+            "z": 0.05
+          },
+          {
+            "id": "cushion-R2",
+            "kind": "furniture",
+            "label": "Grey felt upholstered cushion panel (partition)",
+            "at": [
+              2.07,
+              3.125
+            ],
+            "size": [
+              0.08,
+              1.71,
+              0.405
+            ],
+            "z": 0.47
+          },
+          {
+            "id": "cushion-R3",
+            "kind": "furniture",
+            "label": "Grey felt upholstered cushion panel (partition)",
+            "at": [
+              2.07,
+              3.125
+            ],
+            "size": [
+              0.08,
+              1.71,
+              0.405
+            ],
+            "z": 0.89
+          },
+          {
+            "id": "cushion-R4",
+            "kind": "furniture",
+            "label": "Grey felt upholstered cushion panel (partition)",
+            "at": [
+              2.07,
+              3.125
+            ],
+            "size": [
+              0.08,
+              1.71,
+              0.4049999999999999
+            ],
+            "z": 1.31
           }
         ],
         "marks": [
@@ -2248,33 +3029,35 @@
             "id": "founder",
             "who": "founder",
             "at": [
-              1.05,
-              3
+              1.08,
+              3.05
             ],
-            "facing": 110,
+            "facing": 92,
             "pose": "sit",
             "beat": "done",
-            "note": "On the bench, hunched at the laptop, bearded (after the eleven years)"
+            "lean": 0.25,
+            "note": "On the bench, hunched at the laptop, bearded (after the eleven years). Solved from the booth photo."
           }
         ],
         "axes": [],
         "setups": [
           {
             "id": "W",
-            "name": "Booth from the floor",
+            "name": "Booth from the floor (the real photo's camera)",
             "size": "WS",
-            "lens": 24,
-            "height": 1.45,
+            "lens": 12.8,
+            "height": 1.4,
             "at": [
-              2.4,
-              0.3
+              1.4,
+              0.41
             ],
+            "facing": 19.7,
+            "tilt": -10.6,
             "beat": "done",
             "subjects": [
               "founder"
             ],
-            "purpose": "The founder's whole company: a felt booth on a shared floor (real CC0 photo)",
-            "facing": 343.5,
+            "purpose": "The founder's whole company: a felt booth on a shared floor. Solved from the CC0 photo (13 landmarks, 5.3 px RMS).",
             "plates": [
               {
                 "asset": "office-W-commons",
@@ -2285,35 +3068,45 @@
           },
           {
             "id": "I",
-            "name": "Laptop screen insert",
+            "name": "Over his right shoulder onto the laptop",
             "size": "INS",
-            "lens": 50,
-            "height": 1.2,
+            "lens": 40,
+            "height": 1.35,
             "at": [
-              1.2,
-              2.75
+              0.8,
+              2.55
             ],
-            "tilt": -20,
+            "facing": 63,
+            "tilt": -27,
             "beat": "done",
-            "purpose": "Over his shoulder: Comp AI on the laptop screen, composited onto the screen",
-            "facing": 24.4
+            "subjects": [],
+            "purpose": "Over his right shoulder onto the laptop, square to the screen; the booth's left wall flown out (wild wall) for the distance. Comp AI composited onto the screen.",
+            "wild": [
+              "b1-left",
+              "jamb-left",
+              "curtain-left"
+            ]
           },
           {
             "id": "M",
-            "name": "Founder close-up in the booth",
+            "name": "Founder close-up from behind the laptop",
             "size": "MCU",
-            "lens": 50,
-            "height": 1.1,
+            "lens": 35,
+            "height": 1.08,
             "at": [
-              2,
-              3.2
+              2.45,
+              3.03
             ],
+            "facing": 276,
+            "tilt": 1,
             "beat": "done",
             "subjects": [
               "founder"
             ],
-            "purpose": "His reaction: 'It's done?'",
-            "facing": 258.1
+            "purpose": "His reaction: It's done? From the laptop side, the partition flown out (wild wall) to get 1.1 m of distance. The bench's felt backrest behind him; the back wall and its clock are out of shot.",
+            "wild": [
+              "partition"
+            ]
           }
         ]
       }
@@ -6251,9 +7044,10 @@
       "label": "Ministry waiting hall in 3D",
       "origin": "rendered",
       "gen": {
-        "model": "blender/greybox glb",
-        "prompt": "13 x 20 x 4.2 m, 51 items, 7 marks, 12 cameras"
-      }
+        "model": "blender/lightbox glb",
+        "prompt": "13 x 20 x 4.2 m, 55 items, 7 marks, 12 cameras"
+      },
+      "scores": {}
     },
     {
       "id": "grey-study-A-lit",
@@ -6442,6 +7236,154 @@
         "model": "blender/lightbox glb",
         "prompt": "6 x 6.5 x 3.2 m, 24 items, 3 marks, 5 cameras"
       }
+    },
+    {
+      "id": "grey-study-W2-lit",
+      "media": "image",
+      "path": "/generated/grey-study-W2-lit.jpg",
+      "label": "Study W master, lit grey box: camera re-planned to 1.25 m, tilt -2 (the paint pass re-framed the level 1.45 m camera)",
+      "origin": "rendered"
+    },
+    {
+      "id": "grey-study-W2-geo",
+      "media": "image",
+      "path": "/generated/grey-study-W2-geo.jpg",
+      "label": "Study W master, shape render (lightbox --geo): every edge, Image 2 of the paint pass",
+      "origin": "rendered"
+    },
+    {
+      "id": "study-W2-lit",
+      "media": "image",
+      "path": "/generated/study-W2-lit.jpg",
+      "label": "Study W plate v2: brief from plate-brief.ts (never-list in), black lacquer cabinet instead of the bookcase",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1: lit grey 3D layout of a real room from a new camera, already lit by the room's lighting plan. Image 2: the same camera as an evenly lit shape render: every wall edge, corner, the ceiling line and every object's outline exactly where they must be, at that size. Images 3-4: real photos of this room from the interview camera. Image 5: these exact two chairs.\nMake Image 1 a real photograph of that room. Keep its camera, lens, framing, perspective and every wall, opening and piece of furniture where it is (match Image 2's outlines and horizon exactly); keep its light exactly (where it comes from, how bright, where shadows fall). Materials and colour from the photos. No people.\nLight: the only key is soft daylight through the right-wall window, sheers drawn, coming from the window in frame; the practicals in shot (small table lamp with a linen shade on the side table) glow; nothing else; deep falloff into dark corners.\nWalls in shot: glossy cherry lacquer panels with vertical grooves; matte charcoal section of the back wall; matte charcoal right wall with the tall window. Mirror-like highlights in the lacquer; dark wood; dark oak floor, worn rug.\nThis camera, left to right: tall dark glass-fronted cabinet, its glass reflecting the room (left); Henrick's green leather wing armchair (left); acoustic guitar hung on the charcoal wall (centre); round dark wood side table (centre); small table lamp with a linen shade on the side table, warm (centre); tall cabinet in black lacquer against the right wall, doors closed, nothing on it (centre); walnut mid-century lounge chair, dark leather (the visitor's) (right); tall window in the right wall, sheer curtains drawn, heavy charcoal drapes pulled to the sides (right).\nNever: bookshelves of leather tomes; globes; gold-framed landscape paintings; brass desk lamps or green banker's lamps; a mahogany desk; rim or hair light.\nReal sensor grain in the shadows, slight edge softness; no readable text anywhere.",
+        "inputs": [
+          "grey-study-W2-lit",
+          "grey-study-W2-geo",
+          "study-A-real38",
+          "hen-real-37",
+          "study-M-lit"
+        ]
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Conform 97; geometry matches the shape render after the camera re-plan."
+      },
+      "scores": {}
+    },
+    {
+      "id": "kf-1.1-study-W2",
+      "media": "image",
+      "path": "/generated/kf-1.1-study-W2.jpg",
+      "label": "1.1 keyframe v2: positions from the camera, no rim light, the two backlit sketches by the guitar",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1 is a real photograph of a room. Change only this: add two seated people; keep everything else exactly (room, furniture, light, framing, grain, colour). Image 2 shows exactly where they sit, how big they are in the frame and how this room's light falls on them: match the grey figures' positions and sizes.\nIn the green wing armchair on the left: the older man from Images 4-5 (silver hair, short grey beard, round navy glasses, navy check suit, pale blue shirt, silver paisley tie, pink pocket square). His head about a third of the way across the frame, just above the middle, small in this wide shot. Turned toward the right, deadpan, listening, legs crossed. The window daylight from the right lights his face.\nIn the walnut lounge chair on the right, beside the window: the young founder from Image 3 (curly dark hair, stubble, grey zip hoodie, dark jeans, white sneakers). His head about three quarters of the way across, at the same height as the older man's. Leaning forward, elbows on knees, turned toward the older man on the left, mid-sentence. The window beside him lights the side of his face toward it softly; the small lamp between them warms the front of his face. No glowing rim on hair or shoulders.\nSame noise and softness as the photograph. A real candid moment; nobody looks at camera.",
+        "inputs": [
+          "study-W2-lit",
+          "founder-sheet",
+          "hen-real-38",
+          "hen-real-53",
+          "study-A-real38"
+        ]
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "Fit: Henrick 2% off at 104%; the founder leans 0.35 m (mark lean)."
+      },
+      "scores": {}
+    },
+    {
+      "id": "v-1.1-kling-w2",
+      "media": "video",
+      "path": "/generated/v-1.1-kling-w2.mp4",
+      "label": "1.1 master v2, Kling 3.0 (Leap): the founder leans in, Henrick waits",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap)",
+        "prompt": "One continuous locked-off wide shot, no camera movement, no cuts. In a dark lacquer-panelled study, the young man in the grey hoodie on the right leans further forward in the walnut chair, rubs his hands together and draws a breath, about to speak. The older man in the navy suit in the green wing armchair on the left sits completely still, legs crossed, watching him, expressionless. No dialogue. Daylight from the window stays steady. Quiet room tone, a clock ticking softly.",
+        "inputs": [
+          "kf-1.1-study-W2"
+        ]
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "No picture defects on the card; quiet (room tone in the mix)."
+      },
+      "scores": {}
+    },
+    {
+      "id": "cut-study-s1-v4",
+      "media": "video",
+      "path": "/generated/final-cut-study-s1-v4.mp4",
+      "label": "Scene 1: The request (study-s1-v4)",
+      "origin": "rendered",
+      "duration": 9.842
+    },
+    {
+      "id": "v-1b-friday-sync-1",
+      "media": "video",
+      "path": "/generated/v-1b-friday-sync-1.mp4",
+      "label": "1b \"Friday.\" in the v2 room: Kling + clone + lipsync-3",
+      "origin": "generated",
+      "duration": 5.042,
+      "gen": {
+        "model": "kling/kling-3.0-pro (Leap) + Index TTS 2 Henrick clone (fal) + sync/lipsync-3 (Leap)",
+        "prompt": "A-cam real frame (real-38), looks camera right, key from the right; his cloned read aligned to Kling's own Friday at 2.85 s",
+        "inputs": [
+          "study-A-real38",
+          "voice-henrick"
+        ],
+        "job": "gen_zriWORAF329UfYij4Vqyx1j2"
+      },
+      "scores": {
+        "face": 0.79,
+        "voice": 0.66
+      },
+      "qa": {
+        "verdict": "pass",
+        "note": "WER 0; Friday at 2.84-3.4 s, mouth open on it; hand settles by 2.2 s. Voice score low on a 0.5 s word (resemblyzer is weak on one-word lines)."
+      }
+    },
+    {
+      "id": "cut-v6",
+      "media": "video",
+      "path": "/generated/final-cut-v6.mp4",
+      "label": "Cut v6",
+      "origin": "rendered",
+      "duration": 39.908
+    },
+    {
+      "id": "hall-B-r2-lit",
+      "media": "image",
+      "path": "/generated/hall-B-r2-lit.jpg",
+      "label": "Hall B plate from the lit 3D room (lightbox render + geo, Flare paint)",
+      "origin": "generated",
+      "gen": {
+        "model": "lightbox.py (Cycles) + openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1: lit grey 3D layout of a real room from a new camera, already lit by the room's lighting plan. Image 2: the same camera as an evenly lit shape render: every wall edge, corner, the ceiling line and every object's outline exactly where they must be, at that size. Image 3: a photograph of this same hall from the opposite end, looking the other way, for materials, colour and light only; never copy its composition. Image 4: these exact mustard fibreglass shell chairs on black steel beams.\nMake Image 1 a real photograph of that room. Keep its camera, lens, framing, perspective and every wall, opening and piece of furniture where it is (match Image 2's outlines and horizon exactly); keep its light exactly (where it comes from, how bright, where shadows fall). Materials and colour from the photos. No people.\nLight: the key is overcast daylight through tall steel window 3, net curtain, co",
+        "job": "gen_Ks6dxerNM034iCMSlU0uDfNA"
+      }
+    },
+    {
+      "id": "hall-C-r3-proj",
+      "media": "image",
+      "path": "/generated/hall-C-r3-proj.jpg",
+      "label": "Hall C plate: the B plate carried into camera C through the 3D room, holes filled",
+      "origin": "generated",
+      "gen": {
+        "model": "reproject.py (camera projection through room-hall.glb) + openai/gpt-image-2.5-flare fill (Leap)",
+        "prompt": "Image 1 is a photograph of a 1970s provincial waiting hall with some areas painted flat magenta. Image 2 is the same camera as a shape render: every wall edge, chair and object outline exactly where it must be. Image 3: these exact mustard fibreglass shell chairs on black steel beams.\n\nMake Image 1 a clean, seamless photograph from exactly the same camera. Keep its framing, perspective and every chair, beam, door, noticeboard, dispenser, window and wall exactly where they are and at the same size; match Image 2's outlines.\n\nChange only these things:\n1. Fill every magenta area with what is really there: the gaps between chairs show the next row and the terrazzo floor behind; the left-hand row continues as rows of the same chairs on black beams.\n2. Where a chair is cut into flat blocks or its edges do not line up, give it its real moulded shell shape: one continuous rounded seat and back, ",
+        "inputs": [
+          "hall-B-r2-lit"
+        ],
+        "job": "gen_J04GSANp3oo9FgNY9fkkObE9"
+      }
     }
   ],
   "graphics": [
@@ -6600,8 +7542,13 @@
         },
         {
           "asset": "v-1.1-kling-w",
+          "verdict": "reject",
+          "note": "Superseded by the v2 master (art direction and camera fit)."
+        },
+        {
+          "asset": "v-1.1-kling-w2",
           "verdict": "circled",
-          "note": "Plan v2 coverage."
+          "note": "Frames consistent; the founder leans in 0.5-2.3 s."
         }
       ],
       "graphics": [],
@@ -6612,10 +7559,10 @@
       },
       "checks": {
         "room": {
-          "ok": false,
-          "note": "kf-1.1-study-W: founder: no face near where the room puts it (x 0.77, y 0.62); turned away or missing; FAIL henrick: face 102% of the size the camera gives at 4.2 m, 11% of the frame off",
+          "ok": true,
+          "note": "kf-1.1-study-W2: ok   founder: face 99% of the size the camera gives at 3.8 m, 5% of the frame off; ok   henrick: face 106% of the size the camera gives at 4.2 m, 2% of the frame off",
           "by": "fit",
-          "at": "2026-10-06T22:32:29.243Z"
+          "at": "2026-10-06T22:51:23.041Z"
         }
       },
       "id": "1.1",
@@ -6630,12 +7577,17 @@
         },
         {
           "asset": "kf-1.1-study-W",
+          "verdict": "reject",
+          "note": "Bookcase and a window rim on the founder (both on the never-list); heads 11-14% off the camera."
+        },
+        {
+          "asset": "kf-1.1-study-W2",
           "verdict": "circled",
-          "note": "Plan v2 coverage."
+          "note": "Henrick 2% off the projected head at 104% size; conform 100 with eyelines."
         }
       ],
       "card": {
-        "framing": "Setup W: master from the front-left, 24 mm, 1.45 m. Henrick left in the green wing armchair, the founder right in the walnut chair in front of the window; between them the side table and lamp, the charcoal corner with the two backlit sketches and the guitar, the bookcase.",
+        "framing": "Setup W: master from the front-left, 24 mm, 1.25 m, tilted down 2. Henrick left in the green wing armchair, the founder right in the walnut chair beside the window; between them the side table and lamp, the charcoal corner with the two backlit sketches and the guitar, the closed black lacquer cabinet.",
         "blocking": "The founder leans further in and rubs his hands; Henrick sits still, legs crossed, watching him.",
         "performance": "Founder: urgency building. Henrick: still, waiting, unreadable.",
         "continuity": "Key: daylight from the window in the right wall, on Henrick's face from frame right (as in his real A-cam frames); the founder rim-lit by it, warm fill from the side lamp. Navy jacket over the walnut chair. Eyelines: Henrick looks frame right, the founder frame left.",
@@ -6672,9 +7624,9 @@
       "checks": {
         "room": {
           "ok": true,
-          "note": "kf-1.2-study-O: henrick: no face near where the room puts it (x 0.18, y 0.87); turned away or missing; ok   founder: face 118% of the size the camera gives at 2.7 m, 1% of the frame off",
+          "note": "kf-1.2-study-O: henrick: no face near where the room puts it (x 0.22, y 0.64); turned away or missing; ok   founder: face 98% of the size the camera gives at 2.2 m, 0% of the frame off",
           "by": "fit",
-          "at": "2026-10-06T22:47:44.068Z"
+          "at": "2026-10-06T22:51:23.413Z"
         }
       },
       "id": "1.2",
@@ -6781,8 +7733,14 @@
       "card": {},
       "keyframes": [
         {
+          "asset": "study-A-real38",
+          "verdict": "circled",
+          "note": "His real frame in the v2 room: the circled take starts here."
+        },
+        {
           "asset": "hen-cu2-5dc6a6",
-          "verdict": "circled"
+          "verdict": "alt",
+          "note": "Old library study (never-list)."
         },
         {
           "asset": "hen-cu-c08f9e",
@@ -6792,12 +7750,18 @@
       "takes": [
         {
           "asset": "s1b-friday",
-          "verdict": "circled"
+          "verdict": "alt",
+          "note": "Old library study (never-list: bookshelves, globe, banker's lamp)."
         },
         {
           "asset": "hen-cu-402202",
           "verdict": "reject",
           "note": "480p draft dropped 'Friday'"
+        },
+        {
+          "asset": "v-1b-friday-sync-1",
+          "verdict": "circled",
+          "note": "Re-shot in the v2 room from his real A frame: key and eyeline camera right, no library."
         }
       ],
       "lines": [
@@ -6810,8 +7774,8 @@
       "graphics": [],
       "sfx": [],
       "edit": {
-        "in": "auto",
-        "out": "speech"
+        "in": 2.3,
+        "out": 3.9
       },
       "checks": {
         "lipsync": {
@@ -6832,17 +7796,17 @@
           "at": "2026-10-06T16:56:14.561Z"
         },
         "room": {
-          "ok": false,
-          "note": "hen-cu2-5dc6a6: FAIL henrick: face 271% of the size the camera gives at 2.1 m, 11% of the frame off",
+          "ok": true,
+          "note": "study-A-real38: ok   henrick: face 99% of the size the camera gives at 2.6 m, 1% of the frame off",
           "by": "fit",
-          "at": "2026-10-06T22:32:30.333Z"
+          "at": "2026-10-06T23:00:57.301Z"
         }
       },
       "id": "1b-friday",
       "name": "\"Friday.\"",
       "section": "hook",
       "location": "study",
-      "setup": "C"
+      "setup": "A"
     },
     {
       "characters": [
@@ -7848,10 +8812,10 @@
       },
       "checks": {
         "room": {
-          "ok": false,
-          "note": "kf-5.1-clean: FAIL founder: face 60% of the size the camera gives at 3.0 m, 13% of the frame off",
+          "ok": true,
+          "note": "kf-5.1-clean: ok   founder: face 93% of the size the camera gives at 2.5 m, 1% of the frame off",
           "by": "fit",
-          "at": "2026-10-06T22:32:35.764Z"
+          "at": "2026-10-06T23:09:47.589Z"
         }
       }
     },
@@ -7979,7 +8943,7 @@
           "ok": false,
           "note": "kf-5.3-t2: FAIL founder: face 59% of the size the camera gives at 1.0 m, 19% of the frame off",
           "by": "fit",
-          "at": "2026-10-06T22:32:36.503Z"
+          "at": "2026-10-06T23:02:51.104Z"
         }
       }
     },
@@ -8392,10 +9356,10 @@
           "at": "2026-10-06T16:56:14.561Z"
         },
         "room": {
-          "ok": false,
-          "note": "study-B-real53: FAIL henrick: face 222% of the size the camera gives at 3.0 m, 5% of the frame off",
+          "ok": true,
+          "note": "study-B-real53: ok   henrick: face 100% of the size the camera gives at 1.4 m, 2% of the frame off",
           "by": "fit",
-          "at": "2026-10-06T22:49:43.532Z"
+          "at": "2026-10-06T22:51:51.010Z"
         }
       },
       "id": "6a",
@@ -8600,6 +9564,294 @@
     }
   ],
   "cuts": [
+    {
+      "id": "v6",
+      "version": "v6",
+      "date": "2026-10-06",
+      "asset": "cut-v6",
+      "duration": 39.908,
+      "timeline": [
+        {
+          "shot": "1.2",
+          "start": 0,
+          "dur": 3.942,
+          "in": 1.1,
+          "asset": "v-1.2-kling-o",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "Henrick, I need SOC 2 by Friday.",
+              "mode": "native",
+              "start": 0,
+              "end": 3.942
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "1.3",
+          "start": 3.942,
+          "dur": 3.4,
+          "in": 1.2,
+          "asset": "v-1.3-kling-a",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "1b-friday",
+          "start": 7.342,
+          "dur": 1.6,
+          "in": 2.3,
+          "asset": "v-1b-friday-sync-1",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "Friday.",
+              "mode": "native",
+              "start": 7.896,
+              "end": 8.264
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "1b-europe",
+          "start": 8.942,
+          "dur": 3.6,
+          "in": 0,
+          "asset": "v-1b-europe-s2",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "In Europe, we would begin by weeping.",
+              "mode": "native",
+              "start": 8.942,
+              "end": 12.198
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "2.3",
+          "start": 12.542,
+          "dur": 1.742,
+          "in": 3.3,
+          "asset": "v-2.3-sf",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "What number are they on?",
+              "mode": "native",
+              "start": 12.919,
+              "end": 13.997
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "2.4",
+          "start": 14.284,
+          "dur": 2.05,
+          "in": 0.7,
+          "asset": "v-2.4-fix-s1",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "Seventeen.",
+              "mode": "native",
+              "start": 14.7,
+              "end": 15.398
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "2.5",
+          "start": 16.334,
+          "dur": 1.3,
+          "in": 0.5,
+          "asset": "v-2.5-k1",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "3.3",
+          "start": 17.634,
+          "dur": 1.94,
+          "in": 3.1,
+          "asset": "v-3.3-dub",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "Is there a portal?",
+              "mode": "native",
+              "start": 17.976,
+              "end": 19.574
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "3.4",
+          "start": 19.574,
+          "dur": 3.2,
+          "in": 1.3,
+          "asset": "v-3.4-k1",
+          "lines": [
+            {
+              "who": "clerk",
+              "text": "There is a fax.",
+              "mode": "native",
+              "start": 19.953,
+              "end": 22.774
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "4.2",
+          "start": 22.774,
+          "dur": 1.642,
+          "in": 1.4,
+          "asset": "v-4.2-k1",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "4.3",
+          "start": 24.416,
+          "dur": 3.1,
+          "in": 0,
+          "asset": "v-4.3-fix-s2",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "You are doing very well.",
+              "mode": "native",
+              "start": 24.416,
+              "end": 26.708
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "5.2",
+          "start": 27.516,
+          "dur": 2.2,
+          "in": 0.4,
+          "asset": "v-5.2-pin",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "5.3",
+          "start": 29.716,
+          "dur": 2.642,
+          "in": 2.4,
+          "asset": "v-5.3-sf",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "It's done?",
+              "mode": "native",
+              "start": 31.235,
+              "end": 32.049
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "6a",
+          "start": 32.358,
+          "dur": 3.4,
+          "in": 0,
+          "asset": "v-6a-sync-p1",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "In Europe, we would call this impossible.",
+              "mode": "native",
+              "start": 32.358,
+              "end": 35.272
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "6b",
+          "start": 35.758,
+          "dur": 2,
+          "in": 0,
+          "asset": "v-6b-sync-p1",
+          "lines": [
+            {
+              "who": "henrick",
+              "text": "It is good.",
+              "mode": "native",
+              "start": 35.758,
+              "end": 37.218
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "end",
+          "start": 37.408,
+          "dur": 2.5,
+          "in": 0,
+          "asset": null,
+          "lines": [],
+          "graphics": []
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "study-s1-v4",
+      "version": "study-s1-v4",
+      "scope": "Scene 1: The request",
+      "date": "2026-10-06",
+      "asset": "cut-study-s1-v4",
+      "duration": 9.842,
+      "timeline": [
+        {
+          "shot": "1.1",
+          "start": 0,
+          "dur": 2.5,
+          "in": 0.5,
+          "asset": "v-1.1-kling-w2",
+          "lines": [],
+          "graphics": []
+        },
+        {
+          "shot": "1.2",
+          "start": 2.5,
+          "dur": 3.942,
+          "in": 1.1,
+          "asset": "v-1.2-kling-o",
+          "lines": [
+            {
+              "who": "founder",
+              "text": "Henrick, I need SOC 2 by Friday.",
+              "mode": "native",
+              "start": 2.5,
+              "end": 6.442
+            }
+          ],
+          "graphics": []
+        },
+        {
+          "shot": "1.3",
+          "start": 6.442,
+          "dur": 3.4,
+          "in": 1.2,
+          "asset": "v-1.3-kling-a",
+          "lines": [],
+          "graphics": []
+        }
+      ],
+      "notes": []
+    },
     {
       "id": "study-s1-v3",
       "version": "study-s1-v3",
@@ -10637,41 +11889,6 @@
   ],
   "activity": [
     {
-      "t": "2026-10-06T16:11:54.573593+00:00",
-      "text": "Final cut v3 is on the board with sound: all lines pass the speech check, -13.8 LUFS. Honest status: not publishable yet. Missing lip-sync on founder and clerk shots, scenes 2 and 4 on older low-resemblance clips, cut runs long. Needs credits (Higgsfield top-up or OK to use fal) to finish.",
-      "kind": "warn"
-    },
-    {
-      "t": "2026-10-06T16:25:08.560816+00:00",
-      "text": "Craft pass started (no credits needed): trim warm-ups, continuous room tone, J-cuts, fill not pad, grade matched to real footage, real logo, captions on every line, 48 kHz.",
-      "kind": "run"
-    },
-    {
-      "t": "2026-10-06T16:42:57.539Z",
-      "text": "Look bible: hall, counter and office plates plus a prop sheet generated; study anchored on real footage; recorded room IR per location.",
-      "kind": "done"
-    },
-    {
-      "t": "2026-10-06T16:44:54.520Z",
-      "text": "Edit decisions: hook tightened (1a ends 0.65 s after the line), punch-in on the second close-up, form card moved onto the form line with stamp sounds, narrator cut (said cop AI), one caption track for every line.",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-06T16:45:39.636Z",
-      "text": "Building cut v3.1: trims, grade, room tone, captions, mix.",
-      "kind": "run"
-    },
-    {
-      "t": "2026-10-06T16:47:12.170Z",
-      "text": "Cut v3.1 built: 47.1 s.",
-      "kind": "done"
-    },
-    {
-      "t": "2026-10-06T16:49:45.104Z",
-      "text": "Building cut v3.2: trims, grade, room tone, captions, mix.",
-      "kind": "run"
-    },
-    {
       "t": "2026-10-06T16:51:07.916Z",
       "text": "Cut v3.2 built: 45.5 s.",
       "kind": "done"
@@ -11035,6 +12252,41 @@
       "t": "2026-10-06T22:33:24.052Z",
       "text": "Study look corrected to the evidence: key and eyeline camera right of A (they read camera left, mirrored). Bookcase replaced by a closed black-lacquer cabinet (the look's never-list bans bookshelves).",
       "kind": "info"
+    },
+    {
+      "t": "2026-10-06T22:51:59.173Z",
+      "text": "Building cut study-s1-v4: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T22:52:20.008Z",
+      "text": "Cut study-s1-v4 built: 9.8 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T23:01:05.665Z",
+      "text": "Building cut v6: trims, grade, room tone, captions, mix.",
+      "kind": "run"
+    },
+    {
+      "t": "2026-10-06T23:02:53.267Z",
+      "text": "Cut v6 built: 39.9 s.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T23:04:09.471Z",
+      "text": "Hall lighting plan: the three steel windows on the left wall as overcast area daylight (window 3, beside the seats, is the key), the tubes as panels (the dead one dark), a warm practical behind window 4. C tilted -4 so the seated eyes sit on the upper third.",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T23:12:14.577Z",
+      "text": "Ministry waiting hall: 3D room exported (13 x 20 x 4.2 m, 55 items, 7 marks, 12 cameras) for the Rooms view",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T23:17:49.917Z",
+      "text": "Hall B and C plates rebuilt from the 3D room. B: painted from the lit render with the opposite-angle reference (a same-angle reference got copied). C: the B plate projected through the room geometry into camera C (reproject.py), holes filled; conform 92. Paint passes copy a nearby reference instead of reframing, so close cameras get projection, not prompts.",
+      "kind": "done"
     }
   ],
   "ui": {

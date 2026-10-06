@@ -43,8 +43,17 @@ const practicals = [...new Set(lights.filter((it) => it !== key && it.light!.rol
 const keySide = vis.visible.some((x) => x.id === key?.id || (x.kind === "window" && key && Math.hypot(items.get(x.id)!.at[0] - key.at[0], items.get(x.id)!.at[1] - key.at[1]) < 0.5))
   ? "from the window in frame"
   : vis.lights.find((l) => l.id === key?.id)?.side ?? ""
+// Fills (overhead tubes, a bounce) light the whole room, so a plan with fills is not a low-key room: name them and take
+// the contrast from the look instead of a deep falloff (the hall's tubes; the study has none).
+const fills = lights.filter((it) => it !== key && it.light!.role === "fill")
+const panels = fills.filter((it) => it.light!.type === "panel")
+const dead = panels.filter((it) => (it.light!.strength ?? 1) <= 0).length
+const fillWords = [
+  panels.length ? `${panels.length - dead} ${name(panels[0].label, true).replace(/\s*\(.*\)/, "")}s overhead${dead ? ` (${dead} dead and dark)` : ""}` : "",
+  fills.some((it) => it.light!.type === "area") ? "softer daylight from the other windows" : "",
+].filter(Boolean).join(" and ").concat(fills.length ? " fill the room evenly; " : "")
 const light = key
-  ? `Light: the only key is ${name(key.label)}, coming ${keySide}; ${practicals.length ? `the practicals in shot (${practicals.slice(0, 5).join(", ")}) glow` : "practicals out of shot add a faint warm glow"}; nothing else; deep falloff into dark corners.`
+  ? `Light: the ${fills.length ? "" : "only "}key is ${name(key.label)}, coming ${keySide}; ${fillWords}${practicals.length ? `the practicals in shot (${practicals.slice(0, 5).join(", ")}) glow` : "practicals out of shot add a faint warm glow"}; ${fills.length ? `${(look?.contrast ?? "soft and flat, real shadows").toLowerCase()}.` : "nothing else; deep falloff into dark corners."}`
   : `Light: ${look?.light ?? "as in the photos"}.`
 
 const seen = vis.visible.filter((x) => x.kind !== "wall" && x.kind !== "person" && x.share >= 0.0005).sort((a, b) => a.box[0] + a.box[2] - (b.box[0] + b.box[2]))

@@ -18,8 +18,8 @@ type Vis = {
   visible: { id: string; label: string; kind: string; share: number; where: string; box: [number, number, number, number] }[]
   edges: { id: string; label: string; kind: string }[]
   behind: { id: string; label: string; kind: string }[]
-  lights: { id: string; type: string; side: string }[]
-  eyelines: { mark: string; who: string; looks: string }[]
+  lights: { id: string; type: string; side: string; elev?: number }[]
+  eyelines: { mark: string; who: string; looks: string; turned_away?: boolean }[]
 }
 type Q = { q: string; expect: string; accept?: string[]; kind: "present" | "absent" | "light" | "eyeline" }
 
@@ -52,10 +52,14 @@ function thirds(box: [number, number, number, number]) {
 function questions(v: Vis, people: boolean): Q[] {
   const qs: Q[] = []
   const seen = new Set<string>()
+  // A name two visible pieces share ("Row 2" of the left bank and of the right bank) has no single answer: skip it
+  // when they sit in different thirds. The room's camera geometry (stitch fit, reproject.py) places those instead.
+  const thirdsByName = new Map<string, Set<string>>()
+  for (const x of v.visible) thirdsByName.set(plain(x.label), new Set([...(thirdsByName.get(plain(x.label)) ?? []), third(x.where)]))
   for (const x of v.visible) {
     if (x.kind === "wall" || x.kind === "person" || x.share < 0.002 || !SALIENT.test(x.label)) continue
     const n = plain(x.label)
-    if (seen.has(n)) continue
+    if (seen.has(n) || (thirdsByName.get(n)?.size ?? 0) > 1) continue
     seen.add(n)
     const ok = thirds(x.box)
     qs.push({ q: `Where is ${/^(a|an|the|two|henrick's)\b/.test(n) ? n : `a ${n}`}? Answer one of: left, middle, right (thirds of the frame), or none if it is not in the picture.`, expect: ok[0], accept: ok, kind: "present" })
@@ -72,13 +76,14 @@ function questions(v: Vis, people: boolean): Q[] {
   const window = v.visible.find((x) => x.kind === "window")
   const k = v.lights.find((l) => l.type === "area")
   const side = window ? third(window.where) : k?.side.includes("left") ? "left" : k?.side.includes("right") ? "right" : k?.side.includes("behind") ? "behind the camera" : undefined
+  // An overhead key (well above the camera) reads as "above" to any judge, so accept that too.
   if (side && side !== "middle")
-    qs.push({ q: "Where does the main daylight come from? Answer one of: left, right, behind the camera, facing the camera, above.", expect: side, kind: "light" })
+    qs.push({ q: "Where does the main light come from? Answer one of: left, right, behind the camera, facing the camera, above.", expect: side, accept: (k?.elev ?? 0) > 30 ? [side, "above"] : undefined, kind: "light" })
   if (people)
     for (const e of v.eyelines) {
       const who = e.who === "henrick" ? "the older man with silver hair" : e.who === "founder" ? "the young man in the grey hoodie" : e.who
       const expect = e.looks.includes("left") ? "left" : e.looks.includes("right") ? "right" : e.looks.includes("toward camera") ? "toward the camera" : "away"
-      qs.push({ q: `Which way does ${who} look? Answer one of: left, right, toward the camera, away. (If he is seen from behind, answer away.)`, expect, kind: "eyeline" })
+      qs.push({ q: `Which way does ${who} look? Answer one of: left, right, toward the camera, away. (If he is seen from behind, answer away.)`, expect, accept: e.turned_away ? [expect, "away"] : undefined, kind: "eyeline" })
     }
   return qs
 }

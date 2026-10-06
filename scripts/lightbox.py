@@ -27,6 +27,9 @@
 # it next to the lit render: the lit render alone is too dark to pin down geometry, and the paint pass re-composed the
 # study master as if from a lower camera (the guitar and sketches up 25% of the frame, the people 14%).
 #
+# A setup's "wild" list names set pieces flown out for that camera only (a removable wall), so a camera can sit where the
+# set would otherwise block it; everything else, light included, stays.
+#
 # --top renders the lighting plot: the room from straight above with the ceiling off, lit only by the plan's lights, every
 # mark on set. The far wall is at the top. Scale: the image height covers the depth plus 1 m; the room's centre is the
 # image centre, so pixel = centre + (x - W/2, D/2 - y) * height / (D + 1).
@@ -116,6 +119,7 @@ GREY = {
     "window": material("window", (0.8, 0.8, 0.82), 0.9, ((0.85, 0.9, 1.0), 2.5)), "furniture": material("furniture", (0.10, 0.10, 0.10), 0.45),
     "prop": material("prop", (0.55, 0.55, 0.53), 0.7), "person": material("person", (0.45, 0.45, 0.47), 0.6),
     "glass": material("glass", (0.02, 0.02, 0.022), 0.04),
+    "shell": material("shell", (0.30, 0.28, 0.22), 0.35), "steel": material("steel", (0.03, 0.03, 0.03), 0.4),
 }
 
 
@@ -133,6 +137,37 @@ def chair(it, mat):
     part("back", 0, -(d - back_t) / 2, w, back_t, 0, h)
     part("arm-l", -(w - 0.12) / 2, 0.04, 0.12, d - back_t, 0, arm_h)
     part("arm-r", (w - 0.12) / 2, 0.04, 0.12, d - back_t, 0, arm_h)
+
+def seats(it, mat, steel):
+    """A beam of shell chairs, every seat where the plan's row puts it (pitch about 0.52 m): seat, back on the edge away
+    from where the sitters face (+y before rotation), the steel beam and its legs. A row built as one block let the
+    paint pass invent the chairs, and the people landed off their seats."""
+    (x, y), (w, d, h), rot = it["at"], it["size"], it.get("rot", 0)
+    n = max(1, round(w / 0.52))
+    pitch = w / n
+    for k in range(n):
+        sx = x - w / 2 + pitch * (k + 0.5)
+        box(f"seats:{it['id']}:{k}", it["id"], sx, y, 0.42, pitch * 0.9, d * 0.75, 0.05, mat, rot)
+        box(f"seats:{it['id']}:{k}:back", it["id"], sx, y - d * 0.4, 0.45, pitch * 0.9, 0.05, h - 0.45, mat, rot)
+    box(f"beam:{it['id']}", it["id"], x, y, 0.32, w, 0.08, 0.06, steel, rot)
+    for lx in (x - w / 2 + 0.2, x + w / 2 - 0.2):
+        box(f"leg:{it['id']}:{lx:.2f}", it["id"], lx, y, 0, 0.06, 0.45, 0.32, steel, rot)
+
+
+def wall_with_openings(it, mat):
+    """A wall along its width, cut by its openings [offset, width, sill, height] from its left end (service windows,
+    doorways), so the camera sees through them as it does in the room."""
+    (x, y), (w, d, h), z, rot = it["at"], it["size"], it.get("z", 0), it.get("rot", 0)
+    x0, cursor = x - w / 2, 0.0
+    for k, (off, ow, sill, oh) in enumerate(sorted(it.get("openings", []))):
+        if off > cursor:
+            box(f"wall:{it['id']}:{k}", it["id"], x0 + (cursor + off) / 2, y, z, off - cursor, d, h, mat, rot)
+        box(f"wall:{it['id']}:{k}:below", it["id"], x0 + off + ow / 2, y, z, ow, d, sill, mat, rot)
+        box(f"wall:{it['id']}:{k}:above", it["id"], x0 + off + ow / 2, y, sill + oh, ow, d, h - sill - oh, mat, rot)
+        cursor = off + ow
+    if cursor < w:
+        box(f"wall:{it['id']}:end", it["id"], x0 + (cursor + w) / 2, y, z, w - cursor, d, h, mat, rot)
+
 
 def boards(name, rgb, rough):
     """Floorboards (1.2 x 0.14 m, staggered, thin dark seams): converging lines that pin down the camera's height and
@@ -155,6 +190,14 @@ def boards(name, rgb, rough):
 
 
 GREY["boards"] = boards("boards", (0.09, 0.09, 0.085), 0.55)
+# Pale surfaces by the words in an item's label (first match wins), so a light room does not render as dark lacquer.
+SURFACE = {
+    "felt": material("felt", (0.42, 0.42, 0.40), 0.95), "upholster": material("felt", (0.42, 0.42, 0.40), 0.95),
+    "curtain": material("curtain", (0.45, 0.45, 0.44), 0.95), "carpet": material("carpet", (0.30, 0.30, 0.29), 0.95),
+    "white": material("white", (0.75, 0.75, 0.73), 0.8), "light grey": material("lightgrey", (0.55, 0.55, 0.54), 0.85),
+    "laminate": material("laminate", (0.50, 0.50, 0.49), 0.5), "birch": material("birch", (0.55, 0.45, 0.33), 0.6),
+    "black": material("black", (0.03, 0.03, 0.03), 0.5), "screen": material("screen", (0.05, 0.05, 0.06), 0.2),
+}
 W, D, H = plan["width"], plan["depth"], plan["height"]
 T = 0.15
 box("floor", "floor", W / 2, D / 2, -0.05, W, D, 0.05, GREY["boards"])
@@ -203,19 +246,26 @@ for it in plan["items"]:
             owner[g.name] = it["id"]
         lights.append((it, o))
         continue
+    surface = next((v for k, v in SURFACE.items() if k in label), None)
     if kind == "wall":
-        mat = GREY["charcoal"] if "charcoal" in label else GREY["lacquer"] if "lacquer" in label else GREY["wall"]
+        mat = GREY["charcoal"] if "charcoal" in label else GREY["lacquer"] if "lacquer" in label else surface or GREY["wall"]
+        if it.get("openings"):
+            wall_with_openings(it, mat)
+            continue
+    elif kind == "seats":
+        seats(it, GREY["shell"], GREY["steel"])
+        continue
     elif kind == "door":
         mat = GREY["door"]
     elif kind == "window":
         mat = GREY["window"]
     elif kind == "furniture":
-        mat = GREY["glass"] if "glass" in label else GREY["furniture"]
+        mat = GREY["glass"] if "glass" in label else surface or GREY["furniture"]
         if "chair" in label:
             chair(it, mat)
             continue
     else:
-        mat = GREY["prop"]
+        mat = surface or GREY["prop"]
     box(f"{kind}:{it['id']}", it["id"], x, y, z, w, d, h, mat, rot)
 
 # The plan's own words on every set piece, and an empty per light carrying its light block (glTF has no area lights).
@@ -401,7 +451,9 @@ def report(setup, seen, on_set):
         deg, dist = angle(it["at"])
         inside = it["id"] in seen and seen[it["id"]]["share"] > 0
         side = "in frame" if inside else ("behind the camera" if abs(deg) > 90 else f"from frame {'left' if deg < 0 else 'right'}")
-        light_sides.append({"id": it["id"], "label": it["label"], "type": it["light"]["type"], "kelvin": it["light"].get("kelvin"), "side": side, "deg": round(deg, 1)})
+        lz = it.get("z", 0) + it["size"][2] / 2
+        elev = math.degrees(math.atan2(lz - setup["height"], max(dist, 0.01)))
+        light_sides.append({"id": it["id"], "label": it["label"], "type": it["light"]["type"], "kelvin": it["light"].get("kelvin"), "side": side, "deg": round(deg, 1), "elev": round(elev, 1)})
     looks = []
     for m in plan["marks"]:
         if m["id"] not in on_set:
@@ -413,7 +465,7 @@ def report(setup, seen, on_set):
         c = (g[0] * to_cam[0] + g[1] * to_cam[1]) / n
         lateral = g[0] * right[0] + g[1] * right[1]
         look = "toward camera" if c > 0.87 else "away from camera" if c < -0.87 else f"toward frame {'right' if lateral > 0 else 'left'}"
-        looks.append({"mark": m["id"], "who": m["who"], "looks": look})
+        looks.append({"mark": m["id"], "who": m["who"], "looks": look, "turned_away": c < -0.3})
     visible.sort(key=lambda v: (seen[v["id"]]["cx"]))
     summary = "In frame, left to right: " + "; ".join(f"{v['label']} ({v['where']})" for v in visible if v["kind"] != "wall") + "."
     if edges:
@@ -473,6 +525,11 @@ for s in ([] if "--glb-only" in flags or flags.get("--top") else plan["setups"])
             o.hide_render = not (with_marks and mid in on_set)
     cam = cams[s["id"]]
     scene.camera = cam
+    # Wild walls: set pieces a setup flies out to make room for the camera (a film set's removable wall).
+    wild = set(s.get("wild", []))
+    for o in scene.objects:
+        if o.get("item") and not o.name.startswith("mark:"):
+            o.hide_render = o["item"] in wild
     cycles()
     scene.render.filepath = f"{out_dir}/{s['id']}{'-blocking' if with_marks else ''}.png"
     bpy.ops.render.render(write_still=True)
