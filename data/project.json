@@ -128,7 +128,7 @@
           "matte charcoal wall with two small framed sketches",
           "acoustic guitar hung on the wall",
           "warm practical bulbs deep in the dark",
-          "his worn leather armchair (off-axis to camera left)",
+          "his worn green leather wing armchair, turned toward camera right",
           "a glass of water"
         ],
         "never": [
@@ -146,8 +146,8 @@
           "#1f2c44",
           "#e59ab1"
         ],
-        "light": "One large soft key from camera left, darkness falling off to the right, warm practicals in the background",
-        "lens": "A-cam medium about 50 mm with his eyeline to camera left; B-cam extreme close-up 85 to 100 mm; shallow depth of field; framed about 2.3:1 like his videos",
+        "light": "One large soft key from camera right of the A-cam: daylight through a tall window in the right wall, sheers drawn. Darkness falls off to camera left; warm practicals in the background (globe sconces, a small lamp, the bulb in the glass cabinet, two backlit sketches). Solved from his real frames: brighter frame-right cheek in A, B and C, catchlights up and right, the window's highlight in the lacquer just right of his head.",
+        "lens": "A-cam medium about 50 mm, low (1.05 m), with his eyeline to camera right; B-cam extreme close-up 85 to 100 mm; shallow depth of field; framed about 2.3:1 like his videos",
         "contrast": "Low-key, rich blacks",
         "grain": "Fine 35 mm grain",
         "note": "The generated library study (shots 1a, 1b, 6a, 7) drifted from this room; that drift is why the stills read fake and off-brand."
@@ -564,17 +564,17 @@
             }
           },
           {
-            "id": "bookcase",
+            "id": "tall-cabinet",
             "kind": "furniture",
-            "label": "Tall dark wood bookcase against the right wall: old books, a few objects",
+            "label": "Tall cabinet in black lacquer against the right wall, doors closed, nothing on it",
             "at": [
               5.62,
               4.6
             ],
             "size": [
               0.4,
-              1.2,
-              2.1
+              1,
+              2
             ]
           }
         ],
@@ -712,7 +712,7 @@
             "name": "Master from the front-left: both of them, the charcoal corner and the window",
             "size": "WS",
             "lens": 24,
-            "height": 1.45,
+            "height": 1.25,
             "at": [
               1,
               0.9
@@ -732,7 +732,8 @@
                 "verdict": "circled",
                 "note": "Plan conformance 97-100 (3 blind judges, questions from the visibility report): every planned piece in its third of the frame, nothing from behind the camera, daylight from the window."
               }
-            ]
+            ],
+            "tilt": -2
           },
           {
             "id": "O",
@@ -744,15 +745,15 @@
               3,
               4.85
             ],
-            "facing": 141,
+            "facing": 144,
             "axis": "request",
             "beat": "1a",
             "subjects": [
               "founder",
               "henrick"
             ],
-            "purpose": "The request: the founder's line",
-            "tilt": -4,
+            "purpose": "The request: the founder's line. As shot: facing and tilt re-solved from the approved plate (Vision face fit), 3 degrees right and 2.75 degrees lower than planned.",
+            "tilt": -6.75,
             "render": "grey-study-O-lit",
             "plates": [
               {
@@ -761,6 +762,24 @@
                 "note": "Plan conformance 100: the window at left, the walnut chair right, nothing from the other walls; the chair faces Henrick."
               }
             ]
+          },
+          {
+            "id": "CU",
+            "name": "A-side close-up on Henrick",
+            "size": "CU",
+            "lens": 85,
+            "height": 1.15,
+            "at": [
+              2.94,
+              2.2
+            ],
+            "facing": 17.4,
+            "axis": "interview",
+            "beat": "interview",
+            "subjects": [
+              "henrick"
+            ],
+            "purpose": "Interview close-ups between A (medium) and B (extreme close-up): the A-cam axis, 2.2 m out, eyeline camera right. Face about 44% of frame height."
           }
         ]
       },
@@ -6652,10 +6671,10 @@
       },
       "checks": {
         "room": {
-          "ok": false,
-          "note": "kf-1.2-study-O: henrick: no face near where the room puts it (x 0.26, y 1.00); turned away or missing; FAIL founder: face 118% of the size the camera gives at 2.7 m, 11% of the frame off",
+          "ok": true,
+          "note": "kf-1.2-study-O: henrick: no face near where the room puts it (x 0.18, y 0.87); turned away or missing; ok   founder: face 118% of the size the camera gives at 2.7 m, 1% of the frame off",
           "by": "fit",
-          "at": "2026-10-06T22:32:29.601Z"
+          "at": "2026-10-06T22:47:44.068Z"
         }
       },
       "id": "1.2",
@@ -6833,8 +6852,14 @@
       "card": {},
       "keyframes": [
         {
+          "asset": "study-A-real38",
+          "verdict": "circled",
+          "note": "His real frame in the v2 room: the circled take starts here (Kling first frame), key camera right."
+        },
+        {
           "asset": "hen-cu2-5dc6a6",
-          "verdict": "circled"
+          "verdict": "alt",
+          "note": "Old library study (never-list: bookshelves, globe, banker's lamp)."
         }
       ],
       "takes": [
@@ -6886,10 +6911,10 @@
           "at": "2026-10-06T16:56:14.561Z"
         },
         "room": {
-          "ok": false,
-          "note": "hen-cu2-5dc6a6: FAIL henrick: face 234% of the size the camera gives at 2.6 m, 8% of the frame off",
+          "ok": true,
+          "note": "study-A-real38: ok   henrick: face 99% of the size the camera gives at 2.6 m, 1% of the frame off",
           "by": "fit",
-          "at": "2026-10-06T22:32:30.713Z"
+          "at": "2026-10-06T22:49:42.922Z"
         }
       },
       "id": "1b-europe",
@@ -8304,8 +8329,14 @@
       "card": {},
       "keyframes": [
         {
+          "asset": "study-B-real53",
+          "verdict": "circled",
+          "note": "His real frame in the v2 room: the circled take starts here (Kling first frame), key camera right."
+        },
+        {
           "asset": "k6-edit-a",
-          "verdict": "circled"
+          "verdict": "alt",
+          "note": "Old library study (never-list: bookshelves, globe, banker's lamp)."
         },
         {
           "asset": "kb6-5bef70",
@@ -8362,9 +8393,9 @@
         },
         "room": {
           "ok": false,
-          "note": "k6-edit-a: FAIL henrick: face 175% of the size the camera gives at 3.0 m, 12% of the frame off",
+          "note": "study-B-real53: FAIL henrick: face 222% of the size the camera gives at 3.0 m, 5% of the frame off",
           "by": "fit",
-          "at": "2026-10-06T22:32:36.915Z"
+          "at": "2026-10-06T22:49:43.532Z"
         }
       },
       "id": "6a",
@@ -8382,8 +8413,14 @@
       "card": {},
       "keyframes": [
         {
+          "asset": "study-A-real38",
+          "verdict": "circled",
+          "note": "His real frame in the v2 room: the circled take starts here (Kling first frame), key camera right."
+        },
+        {
           "asset": "kb6-5bef70",
-          "verdict": "circled"
+          "verdict": "alt",
+          "note": "Old library study (never-list: bookshelves, globe, banker's lamp)."
         }
       ],
       "takes": [
@@ -8429,10 +8466,10 @@
           "at": "2026-10-06T16:56:14.561Z"
         },
         "room": {
-          "ok": false,
-          "note": "kb6-5bef70: FAIL henrick: face 278% of the size the camera gives at 2.6 m, 13% of the frame off",
+          "ok": true,
+          "note": "study-A-real38: ok   henrick: face 99% of the size the camera gives at 2.6 m, 1% of the frame off",
           "by": "fit",
-          "at": "2026-10-06T22:32:37.302Z"
+          "at": "2026-10-06T22:49:43.986Z"
         }
       },
       "id": "6b",
@@ -10600,11 +10637,6 @@
   ],
   "activity": [
     {
-      "t": "2026-10-06T16:10:53.484185+00:00",
-      "text": "Seedance scene 6 'It is good' (face 0.78) and scene 7 statement (face 0.77) pass with exact words. Rebuilt cut v3 with them.",
-      "kind": "done"
-    },
-    {
       "t": "2026-10-06T16:11:54.573593+00:00",
       "text": "Final cut v3 is on the board with sound: all lines pass the speech check, -13.8 LUFS. Honest status: not publishable yet. Missing lip-sync on founder and clerk shots, scenes 2 and 4 on older low-resemblance clips, cut runs long. Needs credits (Higgsfield top-up or OK to use fal) to finish.",
       "kind": "warn"
@@ -10998,6 +11030,11 @@
       "t": "2026-10-06T22:30:41.021Z",
       "text": "Henrick's study: 3D room exported (6 x 6.5 x 3.2 m, 24 items, 3 marks, 5 cameras) for the Rooms view",
       "kind": "done"
+    },
+    {
+      "t": "2026-10-06T22:33:24.052Z",
+      "text": "Study look corrected to the evidence: key and eyeline camera right of A (they read camera left, mirrored). Bookcase replaced by a closed black-lacquer cabinet (the look's never-list bans bookshelves).",
+      "kind": "info"
     }
   ],
   "ui": {

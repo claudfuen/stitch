@@ -126,6 +126,8 @@ export type Mark = {
   z?: number
   /** The scene beat this mark belongs to; marks without one are always present (extras, the clerk). */
   beat?: string
+  /** How far the head sits forward of the mark along `facing`, in metres (a seated person leaning in). */
+  lean?: number
   note?: string
 }
 /** A 180-degree line between two marks. Setups that name it must all stay on one side. */

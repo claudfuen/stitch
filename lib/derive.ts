@@ -295,8 +295,14 @@ export function screenX(setup: Setup, at: [number, number]): number | undefined 
   return 0.5 + Math.tan(rad(rel)) / (2 * Math.tan(rad(half)))
 }
 
-/** Head height of a mark's stand-in above the floor, as the Blender builders seat and stand them. */
-export const headZ = (m: Mark) => (m.z ?? 0) + (m.pose === "sit" ? 1.2 : 1.58)
+/** Head height of a mark's stand-in above the floor, as the Blender builders seat and stand them. Leaning in lowers the
+ *  head about 0.3 m for every metre it moves forward (a 35 cm lean drops it about 10 cm). */
+export const headZ = (m: Mark) => (m.z ?? 0) + (m.pose === "sit" ? 1.2 : 1.58) - 0.3 * (m.lean ?? 0)
+/** Where a mark's head is on the floor plan: the mark, moved forward along its facing by its lean. */
+export const headAt = (m: Mark): [number, number] => {
+  const [fx, fy] = heading(m.facing)
+  return [m.at[0] + fx * (m.lean ?? 0), m.at[1] + fy * (m.lean ?? 0)]
+}
 /** Height of an Apple Vision face box (brow to chin) in metres: 0.158 on Henrick's real A-cam frame through its solved
  *  camera (head within 1% of where the plan puts it). Sets the face size a camera should give. */
 export const FACE_M = 0.16
@@ -306,8 +312,9 @@ export const FACE_M = 0.16
  *  looks up). undefined when the head is behind the lens or outside the frame. */
 export function projectHead(u: Setup, m: Mark): { x: number; y: number; h: number; depth: number } | undefined {
   const [fx, fy] = heading(u.facing)
-  const dx = m.at[0] - u.at[0]
-  const dy = m.at[1] - u.at[1]
+  const [hx, hy] = headAt(m)
+  const dx = hx - u.at[0]
+  const dy = hy - u.at[1]
   const ahead = dx * fx + dy * fy
   const right = dx * fy - dy * fx
   const up = headZ(m) - u.height
