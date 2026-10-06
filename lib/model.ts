@@ -64,7 +64,22 @@ export type Character = {
   note?: string
 }
 
-export type Look = { palette: string[]; light: string; lens: string; contrast: string; grain: string; note?: string }
+export type Look = {
+  /** One line of intent: what this place says about the story. */
+  concept?: string
+  /** Visual references by style (directors, photographers, eras), never specific frames to copy. */
+  references?: string
+  /** Objects that tell the story and must recur, so the set is the same in every shot. */
+  storyProps?: string[]
+  /** Clichés this place must avoid. */
+  never?: string[]
+  palette: string[]
+  light: string
+  lens: string
+  contrast: string
+  grain: string
+  note?: string
+}
 export type Location = {
   id: Id
   name: string

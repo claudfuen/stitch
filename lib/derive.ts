@@ -137,7 +137,7 @@ export type CanvasNode =
   | { id: string; kind: "character"; x: number; y: number; data: { character: Character } }
   | { id: string; kind: "location"; x: number; y: number; data: { location: Location; style: Asset[]; ambience?: Asset } }
   | { id: string; kind: "final"; x: number; y: number; data: { cut?: Cut; asset?: Asset } }
-export type CanvasEdge = { id: string; source: string; target: string; kind: "input" | "voice" | "graphic" | "cut" | "assumed" }
+export type CanvasEdge = { id: string; source: string; target: string; kind: "input" | "voice" | "graphic" | "cut" | "assumed" | "set" }
 
 const COL = 340
 export function canvasGraph(p: Project, rows: ShotRow[], ix: Index = indexProject(p)): { nodes: CanvasNode[]; edges: CanvasEdge[] } {
@@ -165,7 +165,19 @@ export function canvasGraph(p: Project, rows: ShotRow[], ix: Index = indexProjec
   for (const l of p.locations) {
     const style = l.style.map((s) => ix.assets.get(s)).filter((a): a is Asset => !!a)
     put({ id: `loc:${l.id}`, kind: "location", x: -1500, y: ly, data: { location: l, style, ambience: l.ambience ? ix.assets.get(l.ambience) : undefined } })
-    ly += 230
+    // Set pieces: style plates, prop sheets and grade references, each its own node.
+    const pieces = [...l.style.map((id) => [id, "Set plate"] as const), ...(l.props ?? []).map((id) => [id, "Prop sheet"] as const), ...l.gradeRef.map((id) => [id, "Grade reference"] as const)]
+    const seen = new Set<string>()
+    let i = 0
+    for (const [id, role] of pieces) {
+      const asset = ix.assets.get(id)
+      if (!asset || seen.has(id)) continue
+      seen.add(id)
+      put({ id: `asset:${id}`, kind: "asset", x: -1180 + (i % 4) * 230, y: ly + Math.floor(i / 4) * 190, data: { asset, role } })
+      edges.push({ id: `set:${l.id}:${id}`, source: `loc:${l.id}`, target: `asset:${id}`, kind: "set" })
+      i++
+    }
+    ly += Math.max(1, Math.ceil(i / 4)) * 190 + 60
   }
 
   // Shots: one column each.

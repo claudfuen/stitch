@@ -74,10 +74,14 @@ export function ShotsView({ project: p, ix, rows, sum, op, onWatch, onFocus }: P
                     <div className="mt-1 flex gap-1">{l.look.palette.map((c) => <span key={c} className="size-4 rounded-sm border" style={{ background: c }} title={c} />)}</div>
                   </div>
                   <div className="min-w-0 flex-1 text-[11px] leading-snug text-muted-foreground">
+                    {l.look.concept && <div className="mb-1 text-[12px] text-foreground">{l.look.concept}</div>}
+                    {l.look.references && <div><b className="text-foreground">References</b> {l.look.references}</div>}
+                    {l.look.storyProps && <div><b className="text-foreground">Story props</b> {l.look.storyProps.join(", ")}</div>}
+                    {l.look.never && <div><b className="text-rose-300">Never</b> {l.look.never.join(", ")}</div>}
                     <div><b className="text-foreground">Light</b> {l.look.light}. <b className="text-foreground">Lens</b> {l.look.lens}.</div>
                     <div><b className="text-foreground">Contrast</b> {l.look.contrast}. <b className="text-foreground">Grain</b> {l.look.grain}.</div>
                     <div className="mt-1 flex flex-wrap items-center gap-1.5">
-                      {l.style.length === 0 && <Chip tone="warn">no style frame yet</Chip>}
+                      {l.style.length === 0 && <Chip tone="warn">no set plate yet</Chip>}
                       {l.style.map((a) => <Thumb key={a} asset={ix.assets.get(a)} className="h-10 w-16 rounded" />)}
                       {l.gradeRef.length > 0 && <span className="ml-1">grade matched to</span>}
                       {l.gradeRef.map((a) => <Thumb key={a} asset={ix.assets.get(a)} className="h-10 w-16 rounded" />)}

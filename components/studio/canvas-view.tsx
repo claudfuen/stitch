@@ -18,6 +18,7 @@ function AssetNode({ data }: NodeProps<Node<Data<"asset">>>) {
     <div className={cn("w-[220px] rounded-xl border bg-card p-2 shadow-lg", data.circled && "border-emerald-400/60")}>
       <Handle id="t" type="target" position={Position.Top} className={dot} />
       <Handle id="b" type="target" position={Position.Bottom} className={dot} />
+      <Handle id="l" type="target" position={Position.Left} className={dot} />
       <div className="mb-1.5 flex items-center gap-1.5 text-[10px] tracking-widest text-muted-foreground uppercase">
         {data.role}{data.shot && <span className="font-mono normal-case">· {data.shot}</span>}
         {!!data.alts && data.alts > 0 && <span className="ml-auto normal-case">+{data.alts} takes</span>}
@@ -103,9 +104,11 @@ function LocationNode({ data }: NodeProps<Node<Data<"location">>>) {
     <div className="w-[260px] rounded-xl border bg-card p-3 shadow-lg">
       <div className="text-[10px] tracking-widest text-muted-foreground uppercase">Location · look</div>
       <div className="mt-0.5 text-base font-semibold">{l.name}</div>
+      {l.look.concept && <div className="mt-1 text-[12px] leading-snug">{l.look.concept}</div>}
       <div className="mt-1.5 flex gap-1">{l.look.palette.map((c) => <span key={c} className="size-4 rounded-sm border" style={{ background: c }} />)}</div>
       <div className="mt-1.5 text-[11px] leading-snug text-muted-foreground">{l.look.light}. {l.look.lens}.</div>
-      {data.style.length === 0 ? <div className="mt-1.5"><Chip tone="warn">no style frame yet</Chip></div> : <div className="mt-1.5 flex gap-1">{data.style.map((s) => <Thumb key={s.id} asset={s} className="h-10 w-16 rounded" />)}</div>}
+      {data.style.length === 0 && <div className="mt-1.5"><Chip tone="warn">no set plate yet</Chip></div>}
+      <Handle id="r" type="source" position={Position.Right} className={dot} />
     </div>
   )
 }
@@ -134,6 +137,7 @@ const edgeStyle: Record<CanvasEdge["kind"], React.CSSProperties> = {
   voice: { stroke: "#38bdf8", strokeWidth: 1.4, strokeDasharray: "2 3" },
   graphic: { stroke: "#fbbf24", strokeWidth: 1.4, strokeDasharray: "4 4" },
   cut: { stroke: "#34d399", strokeWidth: 1.8 },
+  set: { stroke: "#a78bfa", strokeWidth: 1.4, opacity: 0.7 },
 }
 const handles: Record<CanvasEdge["kind"], { sourceHandle: string; targetHandle: string }> = {
   input: { sourceHandle: "s", targetHandle: "t" },
@@ -141,6 +145,7 @@ const handles: Record<CanvasEdge["kind"], { sourceHandle: string; targetHandle: 
   voice: { sourceHandle: "top", targetHandle: "b" },
   graphic: { sourceHandle: "top", targetHandle: "b" },
   cut: { sourceHandle: "r", targetHandle: "l" },
+  set: { sourceHandle: "r", targetHandle: "l" },
 }
 
 export function CanvasView({ project: p, ix, rows, op, focus }: { project: ProjectWithRev; ix: Index; rows: ShotRow[]; op: (...o: Op[]) => Promise<void>; focus?: string | null }) {

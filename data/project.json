@@ -2696,9 +2696,11 @@
     }
   ],
   "open": [
-    "Credits: Higgsfield has 12.15 left. Top up, or name the fal account to use (the connected one is Leap).",
-    "Restructure: Henrick narrates over silent cutaways; cut the narrator; one lip-synced clerk line.",
-    "Voices: audition 3 to 4 voices per supporting character for Claudio to pick."
+    "Routing: Leap MCP first for every model it carries; Higgsfield (364 credits) only when Leap lacks the model. The AI Gateway enforces zero data retention, so only Gemini image, Grok Imagine and Muse pass there.",
+    "Restructure as a mockumentary: Henrick in his real interview set (A-cam medium, B-cam close-up) is the spine; the Ministry is observational coverage; 30 to 35 s.",
+    "Sets: the study is his real dark interview room (cherry lacquer panels, charcoal wall, two sketches, guitar), not a library. Ministry: 1974 provincial hall. Founder: phone booth on a cheap coworking floor.",
+    "Coverage: 2 to 4 camera setups per scene on a floor plan, not one angle per scene.",
+    "Voices: still bad (Claudio, Oct 6). Prefer dialogue generated in shot; Claudio picks supporting voices from auditions."
   ],
   "activity": [
     {
@@ -2899,6 +2901,11 @@
     {
       "t": "2026-10-06T16:56:48.633Z",
       "text": "Removed intermediate builds v3.1 and v3.2; v3.3 is the current cut.",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-06T17:54:42.988Z",
+      "text": "Handoff: set pieces on the canvas, art direction fields, multi-model still generator (scripts/imagine.ts); Ministry hall look test across 4 models",
       "kind": "info"
     }
   ],
