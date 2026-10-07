@@ -1,10 +1,10 @@
 "use client"
 
 import { ReactFlowProvider } from "@xyflow/react"
-import { Box, Clapperboard, History, LayoutList, Network, Play } from "lucide-react"
+import { Box, Clapperboard, Cpu, History, LayoutList, Network, Play } from "lucide-react"
 import dynamic from "next/dynamic"
 import { useCallback, useMemo, useState } from "react"
-import { assetUses, cutHistory, indexProject, shotRows, summary, type CutEntry, type CutHistory, type Index, type ShotRow, type Summary } from "@/lib/derive"
+import { assetUses, cutHistory, indexProject, modelBoard, shotRows, summary, type CutEntry, type CutHistory, type Index, type ModelStat, type ShotRow, type Summary } from "@/lib/derive"
 import type { Activity, Id, ProjectWithRev } from "@/lib/model"
 import type { Op } from "@/lib/ops"
 import { Button } from "@/components/ui/button"
@@ -13,6 +13,7 @@ import { ActivityView } from "./activity-view"
 import { CanvasView } from "./canvas-view"
 import { CutsView } from "./cuts-view"
 import { MediaProvider, ago, fmt, stamp, useMedia, useNow } from "./media"
+import { ModelsView } from "./models-view"
 import { ShotsView } from "./shots-view"
 import { useProject } from "./use-project"
 
@@ -23,6 +24,7 @@ const VIEWS = [
   { id: "shots", label: "Shots", icon: LayoutList },
   { id: "cuts", label: "Cuts", icon: Clapperboard },
   { id: "activity", label: "Activity", icon: History },
+  { id: "models", label: "Models", icon: Cpu },
   { id: "canvas", label: "Canvas", icon: Network },
   { id: "rooms", label: "Rooms", icon: Box },
 ] as const
@@ -52,12 +54,15 @@ export function Studio() {
   const sum = useMemo(() => p && rows && summary(p, rows), [rows, p?.cuts, p?.runtimeTarget])
   const uses = useMemo(() => (p ? assetUses(p) : new Map()), [p?.shots, p?.graphics, p?.characters, p?.locations, p?.cuts])
   const history = useMemo(() => p && ix && cutHistory(p, ix, mtimes), [ix, p?.cuts, mtimes])
+  const board = useMemo(() => (p ? modelBoard(p) : []), [p?.assets, p?.shots, p?.locations, p?.cuts])
+  // Everything circled anywhere (takes, keyframes, plates): the Models view puts these first.
+  const picked = useMemo(() => new Set(p ? [...p.shots.flatMap((s) => [...s.keyframes, ...s.takes]), ...p.locations.flatMap((l) => (l.plan?.setups ?? []).flatMap((u) => u.plates ?? []))].filter((t) => t.verdict === "circled").map((t) => t.asset) : []), [p?.shots, p?.locations])
   /* eslint-enable react-hooks/exhaustive-deps */
 
   if (!p || !ix || !rows || !sum || !history) return <div className="grid h-svh place-items-center text-sm text-muted-foreground">Loading project…</div>
   return (
     <MediaProvider mtimes={mtimes} uses={uses} assets={ix.assets} baselines={p.baselines}>
-      <Shell p={p} ix={ix} rows={rows} sum={sum} history={history} mtimes={mtimes} op={op} error={error} />
+      <Shell p={p} ix={ix} rows={rows} sum={sum} history={history} board={board} picked={picked} mtimes={mtimes} op={op} error={error} />
     </MediaProvider>
   )
 }
@@ -68,12 +73,14 @@ type ShellProps = {
   rows: ShotRow[]
   sum: Summary
   history: CutHistory
+  board: ModelStat[]
+  picked: Set<Id>
   mtimes: Record<Id, number>
   op: (...o: Op[]) => Promise<void>
   error: string | null
 }
 
-function Shell({ p, ix, rows, sum, history, mtimes, op, error }: ShellProps) {
+function Shell({ p, ix, rows, sum, history, board, picked, mtimes, op, error }: ShellProps) {
   const [view, setView] = useState<View>(() => {
     const v = read("stitch-view")
     return isView(v) ? v : "shots"
@@ -126,6 +133,8 @@ function Shell({ p, ix, rows, sum, history, mtimes, op, error }: ShellProps) {
           <CutsView project={p} ix={ix} history={history} selected={cutId} onSelect={setCutId} />
         ) : view === "activity" ? (
           <ActivityView project={p} ix={ix} mtimes={mtimes} current={history.current} seen={seen} now={now} onCut={openCut} />
+        ) : view === "models" ? (
+          <ModelsView board={board} picked={picked} />
         ) : view === "rooms" ? (
           <RoomsView project={p} ix={ix} op={op} />
         ) : (

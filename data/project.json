@@ -3182,6 +3182,13 @@
           "hen-real-53",
           "hen-real-54",
           "hen-real-56"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3203,6 +3210,13 @@
           "hen-real-53",
           "hen-real-54",
           "hen-real-56"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3221,6 +3235,13 @@
           "hen-sheet",
           "hen-real-37",
           "hen-real-56"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       }
     },
@@ -3232,7 +3253,14 @@
       "origin": "generated",
       "gen": {
         "model": "gpt_image_2_5",
-        "inputs": []
+        "inputs": [],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -3243,7 +3271,14 @@
       "origin": "generated",
       "gen": {
         "model": "gpt_image_2_5",
-        "inputs": []
+        "inputs": [],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -3257,6 +3292,13 @@
         "inputs": [
           "hen-sheet",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3277,6 +3319,13 @@
         "model": "gpt_image_2_5",
         "inputs": [
           "hen-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {}
@@ -3291,6 +3340,13 @@
         "model": "gpt_image_2_5",
         "inputs": [
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3310,6 +3366,13 @@
           "hen-real-37",
           "hen-real-49",
           "hen-real-56"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3327,6 +3390,13 @@
         "inputs": [
           "hen-real-56",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3344,6 +3414,13 @@
         "inputs": [
           "hen-sheet",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3360,6 +3437,13 @@
         "model": "gpt_image_2_5",
         "inputs": [
           "hen-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {}
@@ -3376,6 +3460,13 @@
           "clerk-sheet",
           "founder-sheet",
           "hen-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {}
@@ -3392,6 +3483,13 @@
           "hen-sheet",
           "founder-sheet",
           "clerk-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {}
@@ -3408,6 +3506,13 @@
           "hen-sheet",
           "founder-sheet",
           "clerk-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {}
@@ -3423,6 +3528,13 @@
         "inputs": [
           "hen-real-56",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3440,6 +3552,13 @@
         "inputs": [
           "hen-sheet",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3456,6 +3575,13 @@
         "model": "gpt_image_2_5",
         "inputs": [
           "hen-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {}
@@ -3470,6 +3596,13 @@
         "model": "gpt_image_2_5",
         "inputs": [
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {}
@@ -3484,6 +3617,13 @@
         "model": "gpt_image_2_5",
         "inputs": [
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3500,6 +3640,13 @@
         "model": "gpt_image_2_5",
         "inputs": [
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3516,6 +3663,13 @@
         "model": "gpt_image_2_5",
         "inputs": [
           "hen-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3535,6 +3689,13 @@
           "hen-real-37",
           "hen-real-49",
           "hen-real-56"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {}
@@ -3549,6 +3710,13 @@
         "model": "gpt_image_2_5",
         "inputs": [
           "hen-real-56"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3565,6 +3733,13 @@
         "model": "gpt_image_2_5",
         "inputs": [
           "hen-real-56"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3581,6 +3756,13 @@
         "model": "gpt_image_2_5",
         "inputs": [
           "hen-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3600,6 +3782,13 @@
           "hen-real-37",
           "hen-real-49",
           "hen-real-56"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {}
@@ -3621,6 +3810,13 @@
         "model": "Kling 3.0 pro, first frame, silent",
         "inputs": [
           "k1-c7e01b"
+        ],
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3645,6 +3841,13 @@
           "hen-real-56",
           "hen-real-37",
           "voice-henrick"
+        ],
+        "steps": [
+          {
+            "model": "bytedance/seedance-2.5",
+            "provider": "higgsfield",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3670,6 +3873,13 @@
           "hen-real-56",
           "hen-real-37",
           "voice-henrick"
+        ],
+        "steps": [
+          {
+            "model": "bytedance/seedance-2.5",
+            "provider": "higgsfield",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3694,6 +3904,13 @@
           "hen-sheet",
           "hen-real-37",
           "voice-henrick"
+        ],
+        "steps": [
+          {
+            "model": "bytedance/seedance-2.5",
+            "provider": "higgsfield",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3715,6 +3932,13 @@
         "model": "Kling 3.0 pro, first frame, silent",
         "inputs": [
           "k2-f2b22d"
+        ],
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3735,6 +3959,13 @@
         "model": "Kling 3.0 pro, first frame, silent",
         "inputs": [
           "k3-ad4425"
+        ],
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {},
@@ -3753,6 +3984,13 @@
         "model": "Kling 3.0 pro, first frame, silent",
         "inputs": [
           "k4-17c017"
+        ],
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3773,6 +4011,13 @@
         "model": "Kling 3.0 pro, first frame, silent",
         "inputs": [
           "k5-9d532d"
+        ],
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {},
@@ -3794,6 +4039,13 @@
           "hen-real-53",
           "hen-real-56",
           "voice-henrick"
+        ],
+        "steps": [
+          {
+            "model": "bytedance/seedance-2.5",
+            "provider": "higgsfield",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3815,6 +4067,13 @@
         "model": "Kling 3.0 pro, first frame, silent",
         "inputs": [
           "kb6-061d2f"
+        ],
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "unknown",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3838,6 +4097,13 @@
           "hen-real-53",
           "hen-real-56",
           "voice-henrick"
+        ],
+        "steps": [
+          {
+            "model": "bytedance/seedance-2.5",
+            "provider": "higgsfield",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3862,6 +4128,13 @@
           "hen-real-56",
           "hen-real-53",
           "voice-henrick"
+        ],
+        "steps": [
+          {
+            "model": "bytedance/seedance-2.5",
+            "provider": "higgsfield",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -3881,7 +4154,14 @@
       "origin": "generated",
       "gen": {
         "model": "Kling 3.0 pro, first frame, silent",
-        "inputs": []
+        "inputs": [],
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       },
       "scores": {
         "face": 0.46
@@ -3898,7 +4178,20 @@
       "label": "Founder (ElevenLabs Chris)",
       "origin": "generated",
       "text": "Henrick, I need SOC 2 by Friday.",
-      "scores": {}
+      "scores": {},
+      "gen": {
+        "model": "ElevenLabs TTS (version not recorded) (unknown)",
+        "steps": [
+          {
+            "model": "elevenlabs/tts",
+            "provider": "unknown",
+            "inferred": true,
+            "settings": {
+              "voice": "Chris"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "dlg-f_number.mp3",
@@ -3907,7 +4200,20 @@
       "label": "Founder (ElevenLabs Chris)",
       "origin": "generated",
       "text": "What number are they on?",
-      "scores": {}
+      "scores": {},
+      "gen": {
+        "model": "ElevenLabs TTS (version not recorded) (unknown)",
+        "steps": [
+          {
+            "model": "elevenlabs/tts",
+            "provider": "unknown",
+            "inferred": true,
+            "settings": {
+              "voice": "Chris"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "dlg-f_portal.mp3",
@@ -3916,7 +4222,20 @@
       "label": "Founder (ElevenLabs Chris)",
       "origin": "generated",
       "text": "Is there a portal?",
-      "scores": {}
+      "scores": {},
+      "gen": {
+        "model": "ElevenLabs TTS (version not recorded) (unknown)",
+        "steps": [
+          {
+            "model": "elevenlabs/tts",
+            "provider": "unknown",
+            "inferred": true,
+            "settings": {
+              "voice": "Chris"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "dlg-f_done.mp3",
@@ -3925,7 +4244,20 @@
       "label": "Founder (ElevenLabs Chris)",
       "origin": "generated",
       "text": "It's done?",
-      "scores": {}
+      "scores": {},
+      "gen": {
+        "model": "ElevenLabs TTS (version not recorded) (unknown)",
+        "steps": [
+          {
+            "model": "elevenlabs/tts",
+            "provider": "unknown",
+            "inferred": true,
+            "settings": {
+              "voice": "Chris"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "dlg-c_form.mp3",
@@ -3934,7 +4266,20 @@
       "label": "Clerk (ElevenLabs Alice)",
       "origin": "generated",
       "text": "To apply for the form, you must first complete the form.",
-      "scores": {}
+      "scores": {},
+      "gen": {
+        "model": "ElevenLabs TTS (version not recorded) (unknown)",
+        "steps": [
+          {
+            "model": "elevenlabs/tts",
+            "provider": "unknown",
+            "inferred": true,
+            "settings": {
+              "voice": "Alice"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "dlg-c_fax.mp3",
@@ -3943,7 +4288,20 @@
       "label": "Clerk (ElevenLabs Alice)",
       "origin": "generated",
       "text": "There is a fax.",
-      "scores": {}
+      "scores": {},
+      "gen": {
+        "model": "ElevenLabs TTS (version not recorded) (unknown)",
+        "steps": [
+          {
+            "model": "elevenlabs/tts",
+            "provider": "unknown",
+            "inferred": true,
+            "settings": {
+              "voice": "Alice"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "dlg-n_comp.mp3",
@@ -3952,7 +4310,20 @@
       "label": "Narrator (ElevenLabs Sarah)",
       "origin": "generated",
       "text": "Comp AI. SOC 2, without the Ministry.",
-      "scores": {}
+      "scores": {},
+      "gen": {
+        "model": "ElevenLabs TTS (version not recorded) (unknown)",
+        "steps": [
+          {
+            "model": "elevenlabs/tts",
+            "provider": "unknown",
+            "inferred": true,
+            "settings": {
+              "voice": "Sarah"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "dlg-henrick_indextts2_h_seventeen.wav",
@@ -3963,6 +4334,16 @@
       "text": "Seventeen.",
       "scores": {
         "voice": 0.81
+      },
+      "gen": {
+        "model": "Index TTS 2 (fal)",
+        "steps": [
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -3974,6 +4355,16 @@
       "text": "You are doing very well.",
       "scores": {
         "voice": 0.76
+      },
+      "gen": {
+        "model": "Index TTS 2 (fal)",
+        "steps": [
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -3985,6 +4376,16 @@
       "text": "It is good.",
       "scores": {
         "voice": 0.83
+      },
+      "gen": {
+        "model": "Index TTS 2 (fal)",
+        "steps": [
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -3996,6 +4397,16 @@
       "text": "I have prepared a statement.",
       "scores": {
         "voice": 0.77
+      },
+      "gen": {
+        "model": "Index TTS 2 (fal)",
+        "steps": [
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4007,6 +4418,16 @@
       "text": "In Europe, we would begin by weeping.",
       "scores": {
         "voice": 0.85
+      },
+      "gen": {
+        "model": "Index TTS 2 (fal)",
+        "steps": [
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4018,6 +4439,16 @@
       "text": "First, the Ministry.",
       "scores": {
         "voice": 0.8
+      },
+      "gen": {
+        "model": "Index TTS 2 (fal)",
+        "steps": [
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4029,6 +4460,16 @@
       "text": "Friday.",
       "scores": {
         "voice": 0.69
+      },
+      "gen": {
+        "model": "Index TTS 2 (fal)",
+        "steps": [
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4038,7 +4479,14 @@
       "label": "Ticket ding",
       "origin": "generated",
       "gen": {
-        "model": "ElevenLabs SFX v2 (placeholder)"
+        "model": "ElevenLabs SFX v2 (placeholder)",
+        "steps": [
+          {
+            "model": "elevenlabs/sfx-v2",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4048,7 +4496,14 @@
       "label": "Rubber stamp",
       "origin": "generated",
       "gen": {
-        "model": "ElevenLabs SFX v2 (placeholder)"
+        "model": "ElevenLabs SFX v2 (placeholder)",
+        "steps": [
+          {
+            "model": "elevenlabs/sfx-v2",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4058,7 +4513,14 @@
       "label": "Book closing",
       "origin": "generated",
       "gen": {
-        "model": "ElevenLabs SFX v2 (placeholder)"
+        "model": "ElevenLabs SFX v2 (placeholder)",
+        "steps": [
+          {
+            "model": "elevenlabs/sfx-v2",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4068,7 +4530,14 @@
       "label": "Time-lapse whoosh",
       "origin": "generated",
       "gen": {
-        "model": "ElevenLabs SFX v2 (placeholder)"
+        "model": "ElevenLabs SFX v2 (placeholder)",
+        "steps": [
+          {
+            "model": "elevenlabs/sfx-v2",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4078,7 +4547,14 @@
       "label": "Phone buzz and chime",
       "origin": "generated",
       "gen": {
-        "model": "ElevenLabs SFX v2 (placeholder)"
+        "model": "ElevenLabs SFX v2 (placeholder)",
+        "steps": [
+          {
+            "model": "elevenlabs/sfx-v2",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4088,7 +4564,14 @@
       "label": "UI ticks",
       "origin": "generated",
       "gen": {
-        "model": "ElevenLabs SFX v2 (placeholder)"
+        "model": "ElevenLabs SFX v2 (placeholder)",
+        "steps": [
+          {
+            "model": "elevenlabs/sfx-v2",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4098,7 +4581,14 @@
       "label": "Pocket square rustle",
       "origin": "generated",
       "gen": {
-        "model": "ElevenLabs SFX v2 (placeholder)"
+        "model": "ElevenLabs SFX v2 (placeholder)",
+        "steps": [
+          {
+            "model": "elevenlabs/sfx-v2",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4108,7 +4598,14 @@
       "label": "Binder into bin",
       "origin": "generated",
       "gen": {
-        "model": "ElevenLabs SFX v2 (placeholder)"
+        "model": "ElevenLabs SFX v2 (placeholder)",
+        "steps": [
+          {
+            "model": "elevenlabs/sfx-v2",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4118,7 +4615,14 @@
       "label": "Fax handshake",
       "origin": "generated",
       "gen": {
-        "model": "ElevenLabs SFX v2 (placeholder)"
+        "model": "ElevenLabs SFX v2 (placeholder)",
+        "steps": [
+          {
+            "model": "elevenlabs/sfx-v2",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4128,7 +4632,14 @@
       "label": "End-card hit",
       "origin": "generated",
       "gen": {
-        "model": "ElevenLabs SFX v2 (placeholder)"
+        "model": "ElevenLabs SFX v2 (placeholder)",
+        "steps": [
+          {
+            "model": "elevenlabs/sfx-v2",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4138,7 +4649,14 @@
       "label": "Study room tone",
       "origin": "generated",
       "gen": {
-        "model": "ElevenLabs SFX v2 (placeholder)"
+        "model": "ElevenLabs SFX v2 (placeholder)",
+        "steps": [
+          {
+            "model": "elevenlabs/sfx-v2",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4148,7 +4666,14 @@
       "label": "Ministry hall room tone",
       "origin": "generated",
       "gen": {
-        "model": "ElevenLabs SFX v2 (placeholder)"
+        "model": "ElevenLabs SFX v2 (placeholder)",
+        "steps": [
+          {
+            "model": "elevenlabs/sfx-v2",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4158,7 +4683,14 @@
       "label": "Office room tone",
       "origin": "generated",
       "gen": {
-        "model": "ElevenLabs SFX v2 (placeholder)"
+        "model": "ElevenLabs SFX v2 (placeholder)",
+        "steps": [
+          {
+            "model": "elevenlabs/sfx-v2",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4166,63 +4698,153 @@
       "media": "video",
       "path": "/generated/motion/MinistrySign.webm",
       "label": "Ministry sign lower third",
-      "origin": "rendered"
+      "origin": "rendered",
+      "gen": {
+        "model": "Remotion motion graphics (local)",
+        "steps": [
+          {
+            "model": "local/remotion",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "gfx-TicketDisplay",
       "media": "video",
       "path": "/generated/motion/TicketDisplay.webm",
       "label": "Ticket LED panel",
-      "origin": "rendered"
+      "origin": "rendered",
+      "gen": {
+        "model": "Remotion motion graphics (local)",
+        "steps": [
+          {
+            "model": "local/remotion",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "gfx-FormStamp",
       "media": "video",
       "path": "/generated/motion/FormStamp.webm",
       "label": "Form 27-B card",
-      "origin": "rendered"
+      "origin": "rendered",
+      "gen": {
+        "model": "Remotion motion graphics (local)",
+        "steps": [
+          {
+            "model": "local/remotion",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "gfx-CalendarFlip",
       "media": "video",
       "path": "/generated/motion/CalendarFlip.webm",
       "label": "Eleven years later",
-      "origin": "rendered"
+      "origin": "rendered",
+      "gen": {
+        "model": "Remotion motion graphics (local)",
+        "steps": [
+          {
+            "model": "local/remotion",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "gfx-DashboardScore",
       "media": "video",
       "path": "/generated/motion/DashboardScore.webm",
       "label": "Dashboard score card",
-      "origin": "rendered"
+      "origin": "rendered",
+      "gen": {
+        "model": "Remotion motion graphics (local)",
+        "steps": [
+          {
+            "model": "local/remotion",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "gfx-CaptionImpossible",
       "media": "video",
       "path": "/generated/motion/CaptionImpossible.webm",
       "label": "Caption: impossible",
-      "origin": "rendered"
+      "origin": "rendered",
+      "gen": {
+        "model": "Remotion motion graphics (local)",
+        "steps": [
+          {
+            "model": "local/remotion",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "gfx-CaptionGood",
       "media": "video",
       "path": "/generated/motion/CaptionGood.webm",
       "label": "Caption: it is good",
-      "origin": "rendered"
+      "origin": "rendered",
+      "gen": {
+        "model": "Remotion motion graphics (local)",
+        "steps": [
+          {
+            "model": "local/remotion",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "gfx-EndCard",
       "media": "video",
       "path": "/generated/motion/EndCard.webm",
       "label": "End card",
-      "origin": "rendered"
+      "origin": "rendered",
+      "gen": {
+        "model": "Remotion motion graphics (local)",
+        "steps": [
+          {
+            "model": "local/remotion",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "cut-v2",
       "media": "video",
       "path": "/generated/rough-cut-v2.mp4",
       "label": "Rough cut v2 (silent)",
-      "origin": "rendered"
+      "origin": "rendered",
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "cut-v3",
@@ -4232,6 +4854,16 @@
       "origin": "rendered",
       "scores": {
         "lufs": -13.8
+      },
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4242,7 +4874,14 @@
       "origin": "generated",
       "gen": {
         "model": "gpt_image_2_5 high 2k",
-        "prompt": "Empty symmetrical ministry waiting hall, LED board blank, no people, no text"
+        "prompt": "Empty symmetrical ministry waiting hall, LED board blank, no people, no text",
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4253,7 +4892,14 @@
       "origin": "generated",
       "gen": {
         "model": "gpt_image_2_5 high 2k",
-        "prompt": "Empty service counter, glass partition, rotary fax, stamp, blank forms"
+        "prompt": "Empty service counter, glass partition, rotary fax, stamp, blank forms",
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4264,7 +4910,14 @@
       "origin": "generated",
       "gen": {
         "model": "gpt_image_2_5 high 2k",
-        "prompt": "Empty bright startup office, laptop with dark screen, morning light"
+        "prompt": "Empty bright startup office, laptop with dark screen, morning light",
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4275,7 +4928,14 @@
       "origin": "generated",
       "gen": {
         "model": "gpt_image_2_5 high 2k",
-        "prompt": "Prop reference sheet on grey, blank LED board, ticket, form, fax, stamp, binder"
+        "prompt": "Prop reference sheet on grey, blank LED board, ticket, form, fax, stamp, binder",
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5",
+            "provider": "unknown",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4284,7 +4944,17 @@
       "path": "/generated/final-cut-v3.3.mp4",
       "label": "Cut v3.3",
       "origin": "rendered",
-      "duration": 45.456
+      "duration": 45.456,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "hall-look-nbp",
@@ -4294,7 +4964,14 @@
       "origin": "generated",
       "gen": {
         "model": "google/gemini-3-pro-image (AI Gateway)",
-        "prompt": "A documentary film still. Wide shot, eye level, camera slightly off-centre, locked off: the main waiting hall of a provincial European government ministry that has not been renovated since 1974, looking down the length of the hall toward the service counter.\n\nThe room: board-marked concrete walls painted institutional mint green up to shoulder height and dirty cream above, the paint scuffed and chipped where chair backs have hit it for fifty years. Grey and white terrazzo floor with brass divider strips, worn dull along the path to the counter. Four rows of moulded mustard-yellow fibreglass chairs bolted to steel beams, one chair cracked. At the far end a long brown wood-veneer counter with six service windows of reeded frosted glass, each with a small round speaking grille and a slot for papers, and a small mechanical number box above each window. High on the end wall a large mechanical split-flap \"now serving\" board. A red ticket dispenser on a chrome pole near the entrance. A rubber plant in a pot, half dead. A plain wall clock. Tall steel-framed windows on the left with yellowed net curtains. Ceiling of fluorescent tube fittings, two tubes dead. Nearly empty: an old man asleep upright in the third row, a woman knitting at the end of a row.\n\nPhotographic qualities: available light only, flat overcast daylight from the windows mixed with greenish fluorescent light, low contrast, soft shadows, deep focus so the whole room is sharp, slight lens vignetting, fine film grain, muted desaturated colour. A real location that has been used every day for decades: dust, wear, mismatched repairs. Shot on an ARRI Alexa with a 32 mm prime. The deadpan tableau framing of Roy Andersson.\n\nAvoid: readable text, signage or logos anywhere; LED screens; blue government signage; glossy or polished surfaces; god rays, haze or dramatic light; rim light; shallow depth of field or bokeh; teal-and-orange grade; HDR look; anything new or clean."
+        "prompt": "A documentary film still. Wide shot, eye level, camera slightly off-centre, locked off: the main waiting hall of a provincial European government ministry that has not been renovated since 1974, looking down the length of the hall toward the service counter.\n\nThe room: board-marked concrete walls painted institutional mint green up to shoulder height and dirty cream above, the paint scuffed and chipped where chair backs have hit it for fifty years. Grey and white terrazzo floor with brass divider strips, worn dull along the path to the counter. Four rows of moulded mustard-yellow fibreglass chairs bolted to steel beams, one chair cracked. At the far end a long brown wood-veneer counter with six service windows of reeded frosted glass, each with a small round speaking grille and a slot for papers, and a small mechanical number box above each window. High on the end wall a large mechanical split-flap \"now serving\" board. A red ticket dispenser on a chrome pole near the entrance. A rubber plant in a pot, half dead. A plain wall clock. Tall steel-framed windows on the left with yellowed net curtains. Ceiling of fluorescent tube fittings, two tubes dead. Nearly empty: an old man asleep upright in the third row, a woman knitting at the end of a row.\n\nPhotographic qualities: available light only, flat overcast daylight from the windows mixed with greenish fluorescent light, low contrast, soft shadows, deep focus so the whole room is sharp, slight lens vignetting, fine film grain, muted desaturated colour. A real location that has been used every day for decades: dust, wear, mismatched repairs. Shot on an ARRI Alexa with a 32 mm prime. The deadpan tableau framing of Roy Andersson.\n\nAvoid: readable text, signage or logos anywhere; LED screens; blue government signage; glossy or polished surfaces; god rays, haze or dramatic light; rim light; shallow depth of field or bokeh; teal-and-orange grade; HDR look; anything new or clean.",
+        "steps": [
+          {
+            "model": "google/nano-banana-pro",
+            "provider": "ai-gateway",
+            "inferred": true
+          }
+        ]
       },
       "qa": {
         "verdict": "pass",
@@ -4310,7 +4987,14 @@
       "origin": "generated",
       "gen": {
         "model": "spacexai/grok-imagine-image-2.0 (AI Gateway)",
-        "prompt": "A documentary film still. Wide shot, eye level, camera slightly off-centre, locked off: the main waiting hall of a provincial European government ministry that has not been renovated since 1974, looking down the length of the hall toward the service counter.\n\nThe room: board-marked concrete walls painted institutional mint green up to shoulder height and dirty cream above, the paint scuffed and chipped where chair backs have hit it for fifty years. Grey and white terrazzo floor with brass divider strips, worn dull along the path to the counter. Four rows of moulded mustard-yellow fibreglass chairs bolted to steel beams, one chair cracked. At the far end a long brown wood-veneer counter with six service windows of reeded frosted glass, each with a small round speaking grille and a slot for papers, and a small mechanical number box above each window. High on the end wall a large mechanical split-flap \"now serving\" board. A red ticket dispenser on a chrome pole near the entrance. A rubber plant in a pot, half dead. A plain wall clock. Tall steel-framed windows on the left with yellowed net curtains. Ceiling of fluorescent tube fittings, two tubes dead. Nearly empty: an old man asleep upright in the third row, a woman knitting at the end of a row.\n\nPhotographic qualities: available light only, flat overcast daylight from the windows mixed with greenish fluorescent light, low contrast, soft shadows, deep focus so the whole room is sharp, slight lens vignetting, fine film grain, muted desaturated colour. A real location that has been used every day for decades: dust, wear, mismatched repairs. Shot on an ARRI Alexa with a 32 mm prime. The deadpan tableau framing of Roy Andersson.\n\nAvoid: readable text, signage or logos anywhere; LED screens; blue government signage; glossy or polished surfaces; god rays, haze or dramatic light; rim light; shallow depth of field or bokeh; teal-and-orange grade; HDR look; anything new or clean."
+        "prompt": "A documentary film still. Wide shot, eye level, camera slightly off-centre, locked off: the main waiting hall of a provincial European government ministry that has not been renovated since 1974, looking down the length of the hall toward the service counter.\n\nThe room: board-marked concrete walls painted institutional mint green up to shoulder height and dirty cream above, the paint scuffed and chipped where chair backs have hit it for fifty years. Grey and white terrazzo floor with brass divider strips, worn dull along the path to the counter. Four rows of moulded mustard-yellow fibreglass chairs bolted to steel beams, one chair cracked. At the far end a long brown wood-veneer counter with six service windows of reeded frosted glass, each with a small round speaking grille and a slot for papers, and a small mechanical number box above each window. High on the end wall a large mechanical split-flap \"now serving\" board. A red ticket dispenser on a chrome pole near the entrance. A rubber plant in a pot, half dead. A plain wall clock. Tall steel-framed windows on the left with yellowed net curtains. Ceiling of fluorescent tube fittings, two tubes dead. Nearly empty: an old man asleep upright in the third row, a woman knitting at the end of a row.\n\nPhotographic qualities: available light only, flat overcast daylight from the windows mixed with greenish fluorescent light, low contrast, soft shadows, deep focus so the whole room is sharp, slight lens vignetting, fine film grain, muted desaturated colour. A real location that has been used every day for decades: dust, wear, mismatched repairs. Shot on an ARRI Alexa with a 32 mm prime. The deadpan tableau framing of Roy Andersson.\n\nAvoid: readable text, signage or logos anywhere; LED screens; blue government signage; glossy or polished surfaces; god rays, haze or dramatic light; rim light; shallow depth of field or bokeh; teal-and-orange grade; HDR look; anything new or clean.",
+        "steps": [
+          {
+            "model": "xai/grok-imagine-image-2.0",
+            "provider": "ai-gateway",
+            "inferred": true
+          }
+        ]
       },
       "qa": {
         "verdict": "pass",
@@ -4326,7 +5010,14 @@
       "origin": "generated",
       "gen": {
         "model": "google/gemini-3.1-flash-image (AI Gateway)",
-        "prompt": "A documentary film still. Wide shot, eye level, camera slightly off-centre, locked off: the main waiting hall of a provincial European government ministry that has not been renovated since 1974, looking down the length of the hall toward the service counter.\n\nThe room: board-marked concrete walls painted institutional mint green up to shoulder height and dirty cream above, the paint scuffed and chipped where chair backs have hit it for fifty years. Grey and white terrazzo floor with brass divider strips, worn dull along the path to the counter. Four rows of moulded mustard-yellow fibreglass chairs bolted to steel beams, one chair cracked. At the far end a long brown wood-veneer counter with six service windows of reeded frosted glass, each with a small round speaking grille and a slot for papers, and a small mechanical number box above each window. High on the end wall a large mechanical split-flap \"now serving\" board. A red ticket dispenser on a chrome pole near the entrance. A rubber plant in a pot, half dead. A plain wall clock. Tall steel-framed windows on the left with yellowed net curtains. Ceiling of fluorescent tube fittings, two tubes dead. Nearly empty: an old man asleep upright in the third row, a woman knitting at the end of a row.\n\nPhotographic qualities: available light only, flat overcast daylight from the windows mixed with greenish fluorescent light, low contrast, soft shadows, deep focus so the whole room is sharp, slight lens vignetting, fine film grain, muted desaturated colour. A real location that has been used every day for decades: dust, wear, mismatched repairs. Shot on an ARRI Alexa with a 32 mm prime. The deadpan tableau framing of Roy Andersson.\n\nAvoid: readable text, signage or logos anywhere; LED screens; blue government signage; glossy or polished surfaces; god rays, haze or dramatic light; rim light; shallow depth of field or bokeh; teal-and-orange grade; HDR look; anything new or clean."
+        "prompt": "A documentary film still. Wide shot, eye level, camera slightly off-centre, locked off: the main waiting hall of a provincial European government ministry that has not been renovated since 1974, looking down the length of the hall toward the service counter.\n\nThe room: board-marked concrete walls painted institutional mint green up to shoulder height and dirty cream above, the paint scuffed and chipped where chair backs have hit it for fifty years. Grey and white terrazzo floor with brass divider strips, worn dull along the path to the counter. Four rows of moulded mustard-yellow fibreglass chairs bolted to steel beams, one chair cracked. At the far end a long brown wood-veneer counter with six service windows of reeded frosted glass, each with a small round speaking grille and a slot for papers, and a small mechanical number box above each window. High on the end wall a large mechanical split-flap \"now serving\" board. A red ticket dispenser on a chrome pole near the entrance. A rubber plant in a pot, half dead. A plain wall clock. Tall steel-framed windows on the left with yellowed net curtains. Ceiling of fluorescent tube fittings, two tubes dead. Nearly empty: an old man asleep upright in the third row, a woman knitting at the end of a row.\n\nPhotographic qualities: available light only, flat overcast daylight from the windows mixed with greenish fluorescent light, low contrast, soft shadows, deep focus so the whole room is sharp, slight lens vignetting, fine film grain, muted desaturated colour. A real location that has been used every day for decades: dust, wear, mismatched repairs. Shot on an ARRI Alexa with a 32 mm prime. The deadpan tableau framing of Roy Andersson.\n\nAvoid: readable text, signage or logos anywhere; LED screens; blue government signage; glossy or polished surfaces; god rays, haze or dramatic light; rim light; shallow depth of field or bokeh; teal-and-orange grade; HDR look; anything new or clean.",
+        "steps": [
+          {
+            "model": "google/gemini-3.1-flash-image",
+            "provider": "ai-gateway",
+            "inferred": true
+          }
+        ]
       },
       "qa": {
         "verdict": "borderline",
@@ -4342,7 +5033,14 @@
       "origin": "generated",
       "gen": {
         "model": "meta/muse-image-1.0 (AI Gateway)",
-        "prompt": "A documentary film still. Wide shot, eye level, camera slightly off-centre, locked off: the main waiting hall of a provincial European government ministry that has not been renovated since 1974, looking down the length of the hall toward the service counter.\n\nThe room: board-marked concrete walls painted institutional mint green up to shoulder height and dirty cream above, the paint scuffed and chipped where chair backs have hit it for fifty years. Grey and white terrazzo floor with brass divider strips, worn dull along the path to the counter. Four rows of moulded mustard-yellow fibreglass chairs bolted to steel beams, one chair cracked. At the far end a long brown wood-veneer counter with six service windows of reeded frosted glass, each with a small round speaking grille and a slot for papers, and a small mechanical number box above each window. High on the end wall a large mechanical split-flap \"now serving\" board. A red ticket dispenser on a chrome pole near the entrance. A rubber plant in a pot, half dead. A plain wall clock. Tall steel-framed windows on the left with yellowed net curtains. Ceiling of fluorescent tube fittings, two tubes dead. Nearly empty: an old man asleep upright in the third row, a woman knitting at the end of a row.\n\nPhotographic qualities: available light only, flat overcast daylight from the windows mixed with greenish fluorescent light, low contrast, soft shadows, deep focus so the whole room is sharp, slight lens vignetting, fine film grain, muted desaturated colour. A real location that has been used every day for decades: dust, wear, mismatched repairs. Shot on an ARRI Alexa with a 32 mm prime. The deadpan tableau framing of Roy Andersson.\n\nAvoid: readable text, signage or logos anywhere; LED screens; blue government signage; glossy or polished surfaces; god rays, haze or dramatic light; rim light; shallow depth of field or bokeh; teal-and-orange grade; HDR look; anything new or clean."
+        "prompt": "A documentary film still. Wide shot, eye level, camera slightly off-centre, locked off: the main waiting hall of a provincial European government ministry that has not been renovated since 1974, looking down the length of the hall toward the service counter.\n\nThe room: board-marked concrete walls painted institutional mint green up to shoulder height and dirty cream above, the paint scuffed and chipped where chair backs have hit it for fifty years. Grey and white terrazzo floor with brass divider strips, worn dull along the path to the counter. Four rows of moulded mustard-yellow fibreglass chairs bolted to steel beams, one chair cracked. At the far end a long brown wood-veneer counter with six service windows of reeded frosted glass, each with a small round speaking grille and a slot for papers, and a small mechanical number box above each window. High on the end wall a large mechanical split-flap \"now serving\" board. A red ticket dispenser on a chrome pole near the entrance. A rubber plant in a pot, half dead. A plain wall clock. Tall steel-framed windows on the left with yellowed net curtains. Ceiling of fluorescent tube fittings, two tubes dead. Nearly empty: an old man asleep upright in the third row, a woman knitting at the end of a row.\n\nPhotographic qualities: available light only, flat overcast daylight from the windows mixed with greenish fluorescent light, low contrast, soft shadows, deep focus so the whole room is sharp, slight lens vignetting, fine film grain, muted desaturated colour. A real location that has been used every day for decades: dust, wear, mismatched repairs. Shot on an ARRI Alexa with a 32 mm prime. The deadpan tableau framing of Roy Andersson.\n\nAvoid: readable text, signage or logos anywhere; LED screens; blue government signage; glossy or polished surfaces; god rays, haze or dramatic light; rim light; shallow depth of field or bokeh; teal-and-orange grade; HDR look; anything new or clean.",
+        "steps": [
+          {
+            "model": "meta/muse-image-1.0",
+            "provider": "ai-gateway",
+            "inferred": true
+          }
+        ]
       },
       "qa": {
         "verdict": "fail",
@@ -4362,6 +5060,13 @@
         "inputs": [
           "hen-real-56",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "fal",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -4386,6 +5091,13 @@
           "hen-real-56",
           "hen-real-53",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "fal",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -4410,6 +5122,13 @@
           "hen-real-56",
           "hen-real-53",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "google/nano-banana-pro",
+            "provider": "fal",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -4432,6 +5151,13 @@
         "inputs": [
           "hen-real-56",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "google/nano-banana-pro",
+            "provider": "fal",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -4450,7 +5176,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/greybox",
-        "prompt": "25 mm, 1.5 m, facing 0"
+        "prompt": "25 mm, 1.5 m, facing 0",
+        "steps": [
+          {
+            "model": "local/blender-greybox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4461,7 +5194,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/greybox",
-        "prompt": "25 mm, 1.35 m, facing 184"
+        "prompt": "25 mm, 1.35 m, facing 184",
+        "steps": [
+          {
+            "model": "local/blender-greybox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4472,7 +5212,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/greybox",
-        "prompt": "32 mm, 1.15 m, facing 180"
+        "prompt": "32 mm, 1.15 m, facing 180",
+        "steps": [
+          {
+            "model": "local/blender-greybox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4483,7 +5230,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/greybox",
-        "prompt": "65 mm, 1.15 m, facing 209.2"
+        "prompt": "65 mm, 1.15 m, facing 209.2",
+        "steps": [
+          {
+            "model": "local/blender-greybox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4494,7 +5248,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/greybox",
-        "prompt": "65 mm, 1.15 m, facing 150.8"
+        "prompt": "65 mm, 1.15 m, facing 150.8",
+        "steps": [
+          {
+            "model": "local/blender-greybox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4505,7 +5266,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/greybox",
-        "prompt": "50 mm, 1 m, facing 232.1, tilt -33.7"
+        "prompt": "50 mm, 1 m, facing 232.1, tilt -33.7",
+        "steps": [
+          {
+            "model": "local/blender-greybox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4516,7 +5284,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/greybox",
-        "prompt": "50 mm, 1.2 m, facing 13.2, tilt 22.8"
+        "prompt": "50 mm, 1.2 m, facing 13.2, tilt 22.8",
+        "steps": [
+          {
+            "model": "local/blender-greybox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4527,7 +5302,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/greybox",
-        "prompt": "35 mm, 1.6 m, facing 6.1, tilt -2.5"
+        "prompt": "35 mm, 1.6 m, facing 6.1, tilt -2.5",
+        "steps": [
+          {
+            "model": "local/blender-greybox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4538,7 +5320,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/greybox",
-        "prompt": "50 mm, 1.45 m, facing 5.5, tilt 1.8"
+        "prompt": "50 mm, 1.45 m, facing 5.5, tilt 1.8",
+        "steps": [
+          {
+            "model": "local/blender-greybox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4549,7 +5338,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/greybox",
-        "prompt": "40 mm, 1.45 m, facing 181"
+        "prompt": "40 mm, 1.45 m, facing 181",
+        "steps": [
+          {
+            "model": "local/blender-greybox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       },
       "scores": {}
     },
@@ -4561,7 +5357,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/greybox",
-        "prompt": "50 mm, 1.45 m, facing 20, tilt -34.4"
+        "prompt": "50 mm, 1.45 m, facing 20, tilt -34.4",
+        "steps": [
+          {
+            "model": "local/blender-greybox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4572,7 +5375,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/greybox",
-        "prompt": "65 mm, 1.25 m, facing 63.4, tilt -40.1"
+        "prompt": "65 mm, 1.25 m, facing 63.4, tilt -40.1",
+        "steps": [
+          {
+            "model": "local/blender-greybox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -4583,7 +5393,14 @@
       "origin": "generated",
       "gen": {
         "model": "openai/gpt-image-2.5-sunburst (fal, Leap account)",
-        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board."
+        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board.",
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "fal",
+            "inferred": true
+          }
+        ]
       },
       "qa": {
         "verdict": "pass",
@@ -4599,7 +5416,14 @@
       "origin": "generated",
       "gen": {
         "model": "openai/gpt-image-2.5-flare (fal, Leap account)",
-        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board."
+        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board.",
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "fal",
+            "inferred": true
+          }
+        ]
       },
       "qa": {
         "verdict": "pass",
@@ -4615,7 +5439,19 @@
       "origin": "generated",
       "gen": {
         "model": "google/nano-banana-pro (Leap)",
-        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board."
+        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board.",
+        "steps": [
+          {
+            "model": "google/nano-banana-pro",
+            "provider": "leap",
+            "job": "gen_GoJYREYsNMgMgnDpgr0TjzXo",
+            "costUsd": 0.38148,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
+        ]
       },
       "qa": {
         "verdict": "fail",
@@ -4631,7 +5467,19 @@
       "origin": "generated",
       "gen": {
         "model": "google/nano-banana-pro (Leap)",
-        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board."
+        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board.",
+        "steps": [
+          {
+            "model": "google/nano-banana-pro",
+            "provider": "leap",
+            "job": "gen_GoJYREYsNMgMgnDpgr0TjzXo",
+            "costUsd": 0.38148,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
+        ]
       },
       "qa": {
         "verdict": "fail",
@@ -4647,7 +5495,18 @@
       "origin": "generated",
       "gen": {
         "model": "xai/grok-imagine-image-2.0 (Leap)",
-        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board."
+        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board.",
+        "steps": [
+          {
+            "model": "xai/grok-imagine-image-2.0",
+            "provider": "leap",
+            "job": "gen_goda7tmTpsFhHcU9UVazOdlu",
+            "costUsd": 0.088,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
+        ]
       },
       "qa": {
         "verdict": "fail",
@@ -4663,7 +5522,19 @@
       "origin": "generated",
       "gen": {
         "model": "bytedance/seedream-5.0-pro (Leap)",
-        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board."
+        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board.",
+        "steps": [
+          {
+            "model": "bytedance/seedream-5.0-pro",
+            "provider": "leap",
+            "job": "gen_mEsFjmbpYhASBCBitrvVbcxX",
+            "costUsd": 0.077,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
+        ]
       },
       "qa": {
         "verdict": "fail",
@@ -4679,7 +5550,19 @@
       "origin": "generated",
       "gen": {
         "model": "bytedance/seedream-5.0-pro (Leap)",
-        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board."
+        "prompt": "A frame from a 1990s European documentary, shot on 35 mm film. Wide frontal tableau at standing eye height, tripod locked off at the entrance end of the room, looking straight down the central aisle at the service counter on the far wall. The camera is square to the far wall, in one-point perspective, a 25 mm lens at f/8.\n\nThe place: the main waiting hall of a district government office in a provincial European town. It was built in 1974, still opens every weekday, and has been repainted many times without ever being renovated.\n\nFrom near to far:\n- Lower edge of frame: the backs of the last row of chairs.\n- Four rows of moulded mustard-yellow fibreglass shell chairs on black steel beams, in two banks of seven with a two-metre central aisle, all facing the counter. The front row, nearest the counter, is empty.\n- Floor: grey and white terrazzo with thin brass divider strips, dull and worn pale along the aisle.\n- Walls: chalky institutional mint-green oil paint to shoulder height, then cream yellowed by fifty years of cigarette smoke, scuffed at chair-back height.\n- Left wall: three tall steel-framed windows hung with yellowed net curtains, and a tired rubber plant in a clay pot beside the nearest window.\n- Right wall: a plain round wall clock, a cast-iron radiator under it and, near the counter, a plain door painted the same green.\n- Ceiling: rows of plain fluorescent tube fittings, one tube dark.\n\nThe far wall: a long counter in brown teak-effect veneer with six identical service windows. Each window has reeded frosted glass on its lower half and clear glass above, a small round chrome speaking grille at face height, and a brass paper slot at counter height. Five windows are dark, with a beige blind pulled down behind the glass. The fourth window from the left is lit from inside: a middle-aged clerk sits behind it at a desk with a beige fax machine, looking down at her papers. Above each window is a small black box with a single white numeral, 1 to 6 from left to right. Centred high above the counter hangs a large black mechanical split-flap board showing two white digits: 17.\n\nWaiting people, sitting perfectly still:\n- In the last row, in the right bank near camera, an old man in a grey overcoat is asleep upright, chin on his chest, his white beard grown long and untrimmed.\n- In the second row from the back, in the left bank, a woman in a brown wool coat is knitting. Her scarf is already long enough to run off her lap and along the floor under the chairs.\n\nThe light: flat, even, overcast daylight from the windows on the left, mixed with the faintly green cast of the fluorescent tubes. Shadows are soft and grey, pooling under the chairs. Every surface is matte and worn. Everything from the nearest chair to the far wall is in focus. Colour is muted and natural: greyish mint, faded mustard, brown veneer and cool daylight. The image has fine film grain, a slight vignette and the soft, imperfect rendering of an old lens. The only text in the room is the digits on the boxes and the board.",
+        "steps": [
+          {
+            "model": "bytedance/seedream-5.0-pro",
+            "provider": "leap",
+            "job": "gen_mEsFjmbpYhASBCBitrvVbcxX",
+            "costUsd": 0.077,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
+        ]
       },
       "qa": {
         "verdict": "borderline",
@@ -4699,6 +5582,17 @@
         "inputs": [
           "grey-hall-B",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_hhtWrbr3sZaXdMBhXEjXvn56",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4714,6 +5608,17 @@
         "inputs": [
           "grey-hall-B",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "leap",
+            "job": "gen_PUez87wmueIWROXvzclzb3Rq",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4729,6 +5634,17 @@
         "inputs": [
           "grey-hall-B",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "google/nano-banana-pro",
+            "provider": "leap",
+            "job": "gen_XTcjEQpdcp4YI0oFYJaKnInB",
+            "costUsd": 0.19074,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4744,6 +5660,17 @@
         "inputs": [
           "grey-hall-H",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_SaE8MThpcyCGXA4bPkvJD1JL",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4759,6 +5686,17 @@
         "inputs": [
           "grey-hall-H",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "leap",
+            "job": "gen_T1XXP5b19TMlieDe158wNlHN",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4774,6 +5712,17 @@
         "inputs": [
           "grey-hall-H",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "google/nano-banana-pro",
+            "provider": "leap",
+            "job": "gen_B6K96FCubwvQ1UXOwEFvLG3z",
+            "costUsd": 0.19074,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4789,6 +5738,17 @@
         "inputs": [
           "grey-hall-G",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "leap",
+            "job": "gen_KJfEGq1rtYrOcEenroZf3qII",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4804,6 +5764,17 @@
         "inputs": [
           "grey-hall-G",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_QrMnsbSd29rjsnVZujgn2Svi",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4819,6 +5790,17 @@
         "inputs": [
           "grey-hall-G",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "google/nano-banana-pro",
+            "provider": "leap",
+            "job": "gen_YABRIbxES5GHHWuMAgtfA5Ck",
+            "costUsd": 0.19074,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4834,6 +5816,17 @@
         "inputs": [
           "grey-hall-C",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_KWfBeXsCi5vCYin40S1lwg03",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4849,6 +5842,17 @@
         "inputs": [
           "grey-hall-C",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "leap",
+            "job": "gen_2KQ5Vuf9PHuQSzTvT9V40BG5",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4864,6 +5868,17 @@
         "inputs": [
           "grey-hall-C",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "google/nano-banana-pro",
+            "provider": "leap",
+            "job": "gen_huJVHLFOMdUyv6grQuFMcM7J",
+            "costUsd": 0.19074,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4879,6 +5894,17 @@
         "inputs": [
           "grey-hall-J",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_TBTGzKfB0cF5e6Ji4uYIUEGz",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4894,6 +5920,17 @@
         "inputs": [
           "grey-hall-J",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "leap",
+            "job": "gen_ENyhbK6PUd1qFk6qDxt3sS7N",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4909,6 +5946,17 @@
         "inputs": [
           "grey-hall-J",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "google/nano-banana-pro",
+            "provider": "leap",
+            "job": "gen_OnV4mR0yUJ5lSGv3ijHZIRZE",
+            "costUsd": 0.19074,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4924,6 +5972,17 @@
         "inputs": [
           "grey-hall-C",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "leap",
+            "job": "gen_8eb2BumF3VSFXDx5oO9v0VLF",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4939,6 +5998,17 @@
         "inputs": [
           "grey-hall-C",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_KHbt4JTHQO9q1wUPNwIn6W8j",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4954,6 +6024,17 @@
         "inputs": [
           "grey-hall-J",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "leap",
+            "job": "gen_X5ytfe7mVWES6qagM9KZCGFn",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4969,6 +6050,17 @@
         "inputs": [
           "grey-hall-J",
           "hall-A-r4-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_eqtoFqRvkC1Uk3RvtETNaeeo",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4984,6 +6076,17 @@
         "inputs": [
           "grey-hall-D",
           "hall-B-r1-flare"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_xxmvWBzMTv6CufeVJvuCxW5i",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -4999,6 +6102,17 @@
         "inputs": [
           "grey-hall-D",
           "hall-B-r1-flare"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "leap",
+            "job": "gen_gk1d2qxHe3HxmR7sXfWb3ejx",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -5014,6 +6128,17 @@
         "inputs": [
           "grey-hall-E",
           "hall-B-r1-flare"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "leap",
+            "job": "gen_wKANZZM439fJHUbrJEu7pvvV",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -5029,6 +6154,17 @@
         "inputs": [
           "grey-hall-E",
           "hall-B-r1-flare"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_se3eXJZs6195q4RSeMi85TAR",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -5044,6 +6180,17 @@
         "inputs": [
           "grey-hall-I",
           "hall-H-r1-flare"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_vMI8cnIg2kowLHB0QLh7imhD",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -5059,6 +6206,17 @@
         "inputs": [
           "grey-hall-I",
           "hall-H-r1-flare"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "leap",
+            "job": "gen_aMY2boW80TTWiWOrYoFzg8o5",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -5076,6 +6234,18 @@
           "hen-real-56",
           "hen-real-53",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_IEB0LZohjjqRjiFb0NkP9UGT",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       },
       "scores": {
@@ -5100,6 +6270,18 @@
           "hen-real-56",
           "hen-real-53",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_IEB0LZohjjqRjiFb0NkP9UGT",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       },
       "scores": {
@@ -5124,6 +6306,18 @@
           "hen-real-56",
           "hen-real-53",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "leap",
+            "job": "gen_4VrliYvGI4gKYapcsdElymUL",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       },
       "scores": {
@@ -5148,6 +6342,18 @@
           "hen-real-56",
           "hen-real-53",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "leap",
+            "job": "gen_4VrliYvGI4gKYapcsdElymUL",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       },
       "scores": {
@@ -5172,6 +6378,18 @@
           "hen-real-56",
           "hen-real-53",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "google/nano-banana-pro",
+            "provider": "leap",
+            "job": "gen_lgqSpB7tC6LPDWcpnNvl9VQJ",
+            "costUsd": 0.38148,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       },
       "scores": {
@@ -5196,6 +6414,18 @@
           "hen-real-56",
           "hen-real-53",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "google/nano-banana-pro",
+            "provider": "leap",
+            "job": "gen_lgqSpB7tC6LPDWcpnNvl9VQJ",
+            "costUsd": 0.38148,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       },
       "scores": {
@@ -5220,6 +6450,17 @@
           "founder-sheet",
           "hen-real-56",
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_dFLCvIYEvjHHdyRHcusQdI96",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -5235,6 +6476,17 @@
         "inputs": [
           "hall-E-r1-sunburst",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_uwn64CkFr4cRzDOuMTTpXLlX",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -5250,6 +6502,17 @@
         "inputs": [
           "hall-E-r1-sunburst",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "leap",
+            "job": "gen_MpLQtbxmrXKuPwEhK8ZWqDI3",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -5264,6 +6527,17 @@
         "prompt": "Image 1 shows two men waiting in a hall. Make a new photograph from the same scene: a close insert looking down over the young man's lap from just above his left shoulder, with a 50 mm lens. His hands rest on his dark jeans and hold a small pale pink paper ticket with a perforated top edge. The ticket shows one large printed number in black: 4201990. His grey hoodie cuffs, the edge of the mustard-yellow fibreglass seat and the grey and white terrazzo floor show around his hands. Same flat overcast daylight, muted colour and fine film grain as image 1. The ticket shows only those digits.",
         "inputs": [
           "kf-2.4-flare-1"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_zTesoaPm3lrVUX7miRd6LKR9",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -5280,6 +6554,17 @@
           "hall-A-r4-sunburst",
           "founder-sheet",
           "hen-real-56"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_P5rQ9Hk3IObAfGNWg05hFfVL",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -5296,6 +6581,17 @@
           "hall-H-r1-flare",
           "clerk-sheet",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_UutBflGQXjdSwZWGz1SQ8uls",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -5312,6 +6608,17 @@
           "hall-H-r1-flare",
           "clerk-sheet",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "leap",
+            "job": "gen_YayCmpH4v6wEGBl6WNYsJEAy",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -5329,6 +6636,17 @@
           "founder-sheet",
           "hen-real-56",
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "leap",
+            "job": "gen_rBmZqFZ6bjtuOxSklkcQvdeI",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       },
       "scores": {
@@ -5349,6 +6667,17 @@
           "founder-sheet",
           "hen-real-56",
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_nTZgKkFpZLxHfifY16vGAq1L",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       },
       "scores": {
@@ -5367,6 +6696,17 @@
         "inputs": [
           "hall-I-r1-flare",
           "clerk-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_UWs95jDyG5ItAtG9agP18sgR",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -5382,6 +6722,17 @@
         "inputs": [
           "hall-I-r1-flare",
           "clerk-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-sunburst",
+            "provider": "leap",
+            "job": "gen_iBQyY7ZxQ4CMMfbY8XpJshXE",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          }
         ]
       }
     },
@@ -5396,6 +6747,13 @@
         "prompt": "Image 1 is a photograph of a black mechanical split-flap number board. Change only one thing: the board now shows 18. The upper half of the 8 has just dropped and its flap is still falling, slightly blurred with motion. Keep everything else in image 1 exactly as it is.",
         "inputs": [
           "hall-G-r1-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       }
     },
@@ -5413,6 +6771,18 @@
           "founder-sheet",
           "hen-real-56",
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_0o7suzxBtjJW0eczdAnai9i4",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       }
     },
@@ -5430,6 +6800,18 @@
           "founder-sheet",
           "hen-real-56",
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_0o7suzxBtjJW0eczdAnai9i4",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       }
     },
@@ -5445,6 +6827,18 @@
         "inputs": [
           "hall-I-r1-flare",
           "clerk-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_k19IrTGFE4aPUKhUfrWB1F5t",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       }
     },
@@ -5460,6 +6854,18 @@
         "inputs": [
           "hall-I-r1-flare",
           "clerk-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_k19IrTGFE4aPUKhUfrWB1F5t",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       }
     },
@@ -5480,7 +6886,15 @@
           "founder-sheet",
           "voice-henrick"
         ],
-        "job": "90d271d0-6b70-4027-a742-c8a8efbb60c4"
+        "job": "90d271d0-6b70-4027-a742-c8a8efbb60c4",
+        "steps": [
+          {
+            "model": "bytedance/seedance-2.5",
+            "provider": "higgsfield",
+            "inferred": true,
+            "job": "90d271d0-6b70-4027-a742-c8a8efbb60c4"
+          }
+        ]
       },
       "scores": {
         "face": 0.58
@@ -5507,7 +6921,15 @@
           "founder-sheet",
           "voice-henrick"
         ],
-        "job": "15409f10-c497-4a51-bc35-671312fb3fe7"
+        "job": "15409f10-c497-4a51-bc35-671312fb3fe7",
+        "steps": [
+          {
+            "model": "bytedance/seedance-2.5",
+            "provider": "higgsfield",
+            "inferred": true,
+            "job": "15409f10-c497-4a51-bc35-671312fb3fe7"
+          }
+        ]
       },
       "scores": {
         "face": 0.6
@@ -5534,7 +6956,15 @@
           "founder-sheet",
           "voice-henrick"
         ],
-        "job": "9f1a6f81-83d5-42b9-9ca6-d67dde680494"
+        "job": "9f1a6f81-83d5-42b9-9ca6-d67dde680494",
+        "steps": [
+          {
+            "model": "bytedance/seedance-2.5",
+            "provider": "higgsfield",
+            "inferred": true,
+            "job": "9f1a6f81-83d5-42b9-9ca6-d67dde680494"
+          }
+        ]
       },
       "scores": {
         "face": 0.59
@@ -5562,7 +6992,15 @@
           "voice-henrick",
           "v-2.4-d2"
         ],
-        "job": "9c283fdb-a2e9-40d8-8515-d199fcbdf835"
+        "job": "9c283fdb-a2e9-40d8-8515-d199fcbdf835",
+        "steps": [
+          {
+            "model": "bytedance/seedance-2.5",
+            "provider": "higgsfield",
+            "inferred": true,
+            "job": "9c283fdb-a2e9-40d8-8515-d199fcbdf835"
+          }
+        ]
       },
       "scores": {
         "face": 0.71,
@@ -5584,6 +7022,13 @@
         "prompt": "Image 1 is a photograph of a black mechanical split-flap number board. Change only one thing: the board now shows 18, both flaps at rest. Keep everything else in image 1 exactly as it is.",
         "inputs": [
           "hall-G-r1-sunburst"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       }
     },
@@ -5603,7 +7048,15 @@
           "hen-real-56",
           "founder-sheet"
         ],
-        "job": "94c587e0-853a-4037-92ae-a6bceb978c72"
+        "job": "94c587e0-853a-4037-92ae-a6bceb978c72",
+        "steps": [
+          {
+            "model": "bytedance/seedance-2.5",
+            "provider": "higgsfield",
+            "inferred": true,
+            "job": "94c587e0-853a-4037-92ae-a6bceb978c72"
+          }
+        ]
       }
     },
     {
@@ -5622,7 +7075,15 @@
           "hen-real-56",
           "founder-sheet"
         ],
-        "job": "2d0e0f75-2ce2-45e7-a42c-ca6a9c509bd9"
+        "job": "2d0e0f75-2ce2-45e7-a42c-ca6a9c509bd9",
+        "steps": [
+          {
+            "model": "bytedance/seedance-2.5",
+            "provider": "higgsfield",
+            "inferred": true,
+            "job": "2d0e0f75-2ce2-45e7-a42c-ca6a9c509bd9"
+          }
+        ]
       }
     },
     {
@@ -5640,7 +7101,15 @@
           "hen-real-56",
           "founder-sheet"
         ],
-        "job": "f5eb21a8-1a9d-4c04-a49a-ddafb5fac310"
+        "job": "f5eb21a8-1a9d-4c04-a49a-ddafb5fac310",
+        "steps": [
+          {
+            "model": "bytedance/seedance-2.5",
+            "provider": "higgsfield",
+            "inferred": true,
+            "job": "f5eb21a8-1a9d-4c04-a49a-ddafb5fac310"
+          }
+        ]
       }
     },
     {
@@ -5658,7 +7127,15 @@
           "hen-real-56",
           "founder-sheet"
         ],
-        "job": "a8e0a8bf-5535-40a2-8d00-2dc50b8a13d2"
+        "job": "a8e0a8bf-5535-40a2-8d00-2dc50b8a13d2",
+        "steps": [
+          {
+            "model": "bytedance/seedance-2.5",
+            "provider": "higgsfield",
+            "inferred": true,
+            "job": "a8e0a8bf-5535-40a2-8d00-2dc50b8a13d2"
+          }
+        ]
       }
     },
     {
@@ -5674,7 +7151,20 @@
         "inputs": [
           "kf-2.5-flare"
         ],
-        "job": "gen_9vHCvO9XYvlwPpQwaNZaE2WR"
+        "job": "gen_9vHCvO9XYvlwPpQwaNZaE2WR",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_9vHCvO9XYvlwPpQwaNZaE2WR",
+            "costUsd": 0.616,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": false
+            }
+          }
+        ]
       },
       "qa": {
         "verdict": "pass",
@@ -5695,7 +7185,20 @@
         "inputs": [
           "kf-2.5-flare"
         ],
-        "job": "gen_ZVjj1Pvg3LnQ0cSgpl16kdYP"
+        "job": "gen_ZVjj1Pvg3LnQ0cSgpl16kdYP",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_ZVjj1Pvg3LnQ0cSgpl16kdYP",
+            "costUsd": 0.616,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": false
+            }
+          }
+        ]
       }
     },
     {
@@ -5712,7 +7215,20 @@
           "hall-G-r1-sunburst",
           "kf-4.2-settled"
         ],
-        "job": "gen_DX5Fp6rYZJtn8HnOdpRLE0SK"
+        "job": "gen_DX5Fp6rYZJtn8HnOdpRLE0SK",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_DX5Fp6rYZJtn8HnOdpRLE0SK",
+            "costUsd": 0.3696,
+            "settings": {
+              "duration": 3,
+              "aspect_ratio": "16:9",
+              "audio": false
+            }
+          }
+        ]
       },
       "qa": {
         "verdict": "pass",
@@ -5734,7 +7250,20 @@
           "hall-G-r1-sunburst",
           "kf-4.2-settled"
         ],
-        "job": "gen_BOa7dq49PhU6B8J4RLYchlNq"
+        "job": "gen_BOa7dq49PhU6B8J4RLYchlNq",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_BOa7dq49PhU6B8J4RLYchlNq",
+            "costUsd": 0.3696,
+            "settings": {
+              "duration": 3,
+              "aspect_ratio": "16:9",
+              "audio": false
+            }
+          }
+        ]
       },
       "qa": {
         "verdict": "fail",
@@ -5755,6 +7284,13 @@
           "kf-2.1-b1",
           "hen-real-56",
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "fal",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -5774,6 +7310,13 @@
           "kf-2.1-b1",
           "hen-real-56",
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "fal",
+            "inferred": true
+          }
         ]
       }
     },
@@ -5790,6 +7333,18 @@
           "kf-2.4-flare-1",
           "hen-real-56",
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_DO6hZBVaDqNOksH1XqJW7v2o",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       },
       "scores": {
@@ -5809,6 +7364,18 @@
           "kf-2.4-flare-1",
           "hen-real-56",
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_DO6hZBVaDqNOksH1XqJW7v2o",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       },
       "scores": {
@@ -5832,7 +7399,15 @@
           "founder-sheet",
           "v-2.1-d1"
         ],
-        "job": "4d3d6004-46e3-4202-8b76-71356fa48930"
+        "job": "4d3d6004-46e3-4202-8b76-71356fa48930",
+        "steps": [
+          {
+            "model": "bytedance/seedance-2.5",
+            "provider": "higgsfield",
+            "inferred": true,
+            "job": "4d3d6004-46e3-4202-8b76-71356fa48930"
+          }
+        ]
       },
       "qa": {
         "verdict": "pass",
@@ -5856,7 +7431,15 @@
           "founder-sheet",
           "v-3.1-d2"
         ],
-        "job": "a8540c8f-a174-4964-beee-e56c540a367d"
+        "job": "a8540c8f-a174-4964-beee-e56c540a367d",
+        "steps": [
+          {
+            "model": "bytedance/seedance-2.5",
+            "provider": "higgsfield",
+            "inferred": true,
+            "job": "a8540c8f-a174-4964-beee-e56c540a367d"
+          }
+        ]
       },
       "qa": {
         "verdict": "pass",
@@ -5877,7 +7460,20 @@
         "inputs": [
           "kf-2.3-flare"
         ],
-        "job": "gen_ZHbJo7XYvrh2HDiVpVvnVZFz"
+        "job": "gen_ZHbJo7XYvrh2HDiVpVvnVZFz",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_ZHbJo7XYvrh2HDiVpVvnVZFz",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       },
       "qa": {
         "verdict": "borderline",
@@ -5891,7 +7487,17 @@
       "path": "/generated/final-cut-hall-s2-v1.mp4",
       "label": "Hall scene 2: Seventeen (hall-s2-v1)",
       "origin": "rendered",
-      "duration": 12.95
+      "duration": 12.95,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "cut-hall-s2-v2",
@@ -5899,7 +7505,17 @@
       "path": "/generated/final-cut-hall-s2-v2.mp4",
       "label": "Hall scene 2: Seventeen (hall-s2-v2)",
       "origin": "rendered",
-      "duration": 11.45
+      "duration": 11.45,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "cut-hall-s2-v3",
@@ -5907,7 +7523,17 @@
       "path": "/generated/final-cut-hall-s2-v3.mp4",
       "label": "Hall scene 2: Seventeen (hall-s2-v3)",
       "origin": "rendered",
-      "duration": 11.45
+      "duration": 11.45,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "grey-study-A",
@@ -5917,7 +7543,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/greybox",
-        "prompt": "50 mm, 1.25 m, facing 17.4"
+        "prompt": "50 mm, 1.25 m, facing 17.4",
+        "steps": [
+          {
+            "model": "local/blender-greybox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -5928,7 +7561,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/greybox",
-        "prompt": "100 mm, 1.3 m, facing 7.6"
+        "prompt": "100 mm, 1.3 m, facing 7.6",
+        "steps": [
+          {
+            "model": "local/blender-greybox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -5939,7 +7579,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/greybox",
-        "prompt": "35 mm, 1.3 m, facing 355.9"
+        "prompt": "35 mm, 1.3 m, facing 355.9",
+        "steps": [
+          {
+            "model": "local/blender-greybox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -5953,6 +7600,23 @@
         "prompt": "Image 1 is a frame from a real documentary interview, cropped to a wide letterbox. Make it a full 16:9 frame by extending the picture above and below only. Above: the rest of the dark room continues, the same glossy cherry lacquer panels and matte charcoal wall falling into darkness, the same warm practical bulbs. Below: his suit, shirt and tie continue naturally to the bottom of the frame. Change nothing that is already in image 1: the same man, face, glasses, expression, pose, light, colour, focus and grain. No text anywhere.",
         "inputs": [
           "hen-real-38"
+        ],
+        "steps": [
+          {
+            "model": "ideogram/ideogram-v3-reframe",
+            "provider": "leap",
+            "job": "gen_LzpWFAaGBhyIgq8rU67EZc8D",
+            "costUsd": 0.132,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          },
+          {
+            "model": "local/pasteback",
+            "provider": "local",
+            "inferred": true
+          }
         ]
       }
     },
@@ -5968,6 +7632,22 @@
         "inputs": [
           "hen-real-56",
           "hen-real-38"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_yl0nNevrvQTX7qwTO8e2Xwxh",
+            "costUsd": 0.1749,
+            "settings": {
+              "aspect_ratio": "16:9"
+            }
+          },
+          {
+            "model": "local/pasteback",
+            "provider": "local",
+            "inferred": true
+          }
         ]
       }
     },
@@ -5982,6 +7662,13 @@
         "prompt": "Image 1 is a frame from a real documentary interview, cropped to a wide letterbox. Make it a full 16:9 frame by extending the picture above and below only. Above: the rest of the dark room continues, the same glossy cherry lacquer panels and matte charcoal wall falling into darkness, the same warm practical bulbs. Below: his suit, shirt and tie continue naturally to the bottom of the frame. Change nothing that is already in image 1: the same man, face, glasses, expression, pose, light, colour, focus and grain. No text anywhere.",
         "inputs": [
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "local/ffmpeg",
+            "provider": "local",
+            "inferred": true
+          }
         ]
       }
     },
@@ -6002,7 +7689,14 @@
       "label": "Study lit grey box, setup R (lighting plan)",
       "origin": "generated",
       "gen": {
-        "model": "Blender 5.2 Cycles, lightbox.py (plan geometry + plan lights)"
+        "model": "Blender 5.2 Cycles, lightbox.py (plan geometry + plan lights)",
+        "steps": [
+          {
+            "model": "local/blender-lightbox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -6012,7 +7706,14 @@
       "label": "Study lit grey box, setup S (lighting plan)",
       "origin": "generated",
       "gen": {
-        "model": "Blender 5.2 Cycles, lightbox.py (plan geometry + plan lights)"
+        "model": "Blender 5.2 Cycles, lightbox.py (plan geometry + plan lights)",
+        "steps": [
+          {
+            "model": "local/blender-lightbox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -6022,7 +7723,14 @@
       "label": "Study lit grey box, setup M (lighting plan)",
       "origin": "generated",
       "gen": {
-        "model": "Blender 5.2 Cycles, lightbox.py (plan geometry + plan lights)"
+        "model": "Blender 5.2 Cycles, lightbox.py (plan geometry + plan lights)",
+        "steps": [
+          {
+            "model": "local/blender-lightbox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -6038,6 +7746,13 @@
           "grey-study-M-lit",
           "hen-real-38",
           "hen-real-37"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       },
       "qa": {
@@ -6060,6 +7775,13 @@
           "hen-real-38",
           "hen-real-37",
           "study-M-lit"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       },
       "qa": {
@@ -6082,6 +7804,13 @@
           "hen-real-38",
           "hen-real-37",
           "study-M-lit"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       },
       "qa": {
@@ -6103,6 +7832,13 @@
           "office-W-commons",
           "founder-sheet",
           "kf-4.3-t2"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       }
     },
@@ -6119,6 +7855,18 @@
           "office-W-commons",
           "founder-sheet",
           "kf-4.3-t2"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_UG5MOxZKUj3jjlwmB5A2yLTm",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       }
     },
@@ -6135,6 +7883,18 @@
           "office-W-commons",
           "founder-sheet",
           "kf-4.3-t2"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_yLcqglD10oym3txZ8678Bl8d",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       }
     },
@@ -6151,6 +7911,18 @@
           "office-W-commons",
           "founder-sheet",
           "kf-4.3-t2"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_yLcqglD10oym3txZ8678Bl8d",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       }
     },
@@ -6166,6 +7938,18 @@
         "inputs": [
           "office-W-commons",
           "kf-4.3-t2"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_IUsVNeQIcPDf4GIRGzb0ZD4k",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       }
     },
@@ -6181,6 +7965,18 @@
         "inputs": [
           "office-W-commons",
           "kf-4.3-t2"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_IUsVNeQIcPDf4GIRGzb0ZD4k",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
         ]
       }
     },
@@ -6197,7 +7993,20 @@
         "inputs": [
           "kf-5.1-clean"
         ],
-        "job": "gen_T7LsIDAu2vYmn5JlKXnRu5UV"
+        "job": "gen_T7LsIDAu2vYmn5JlKXnRu5UV",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_T7LsIDAu2vYmn5JlKXnRu5UV",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -6213,7 +8022,20 @@
         "inputs": [
           "kf-5.3-t2"
         ],
-        "job": "gen_HszpztOy9PgJ581STvtpP9uG"
+        "job": "gen_HszpztOy9PgJ581STvtpP9uG",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_HszpztOy9PgJ581STvtpP9uG",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -6229,7 +8051,20 @@
         "inputs": [
           "kf-5.3-t2"
         ],
-        "job": "gen_yg9Yw6FfC6m7lMq82Kb0GnQr"
+        "job": "gen_yg9Yw6FfC6m7lMq82Kb0GnQr",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_yg9Yw6FfC6m7lMq82Kb0GnQr",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -6243,6 +8078,18 @@
         "model": "screenpin.py: LaptopScreen (Remotion) corner-pinned into kf-5.2-t1",
         "inputs": [
           "kf-5.2-t1"
+        ],
+        "steps": [
+          {
+            "model": "local/screenpin",
+            "provider": "local",
+            "inferred": true
+          },
+          {
+            "model": "local/remotion",
+            "provider": "local",
+            "inferred": true
+          }
         ]
       }
     },
@@ -6258,6 +8105,23 @@
         "inputs": [
           "kf-2.4-flare-1",
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_667pBCJtWtmHD3h643CDGkPE",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          },
+          {
+            "model": "local/pasteback",
+            "provider": "local",
+            "inferred": true
+          }
         ]
       },
       "scores": {
@@ -6277,7 +8141,20 @@
         "inputs": [
           "kf-3.2-flare"
         ],
-        "job": "gen_DjNgn9mJekOyvDRf11CQ85YH"
+        "job": "gen_DjNgn9mJekOyvDRf11CQ85YH",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_DjNgn9mJekOyvDRf11CQ85YH",
+            "costUsd": 1.2936,
+            "settings": {
+              "duration": 7,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -6293,7 +8170,20 @@
         "inputs": [
           "kf-3.2-flare"
         ],
-        "job": "gen_YBIfD5K605R28GNzMGOUgfHY"
+        "job": "gen_YBIfD5K605R28GNzMGOUgfHY",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_YBIfD5K605R28GNzMGOUgfHY",
+            "costUsd": 1.2936,
+            "settings": {
+              "duration": 7,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -6309,7 +8199,20 @@
         "inputs": [
           "kf-3.3-sunburst"
         ],
-        "job": "gen_NDQY6OJfAWeKDyt1uyjSNQOe"
+        "job": "gen_NDQY6OJfAWeKDyt1uyjSNQOe",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_NDQY6OJfAWeKDyt1uyjSNQOe",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -6325,7 +8228,20 @@
         "inputs": [
           "kf-3.3-sunburst"
         ],
-        "job": "gen_T8e3dYc5kUm3rRtOujA5HDqJ"
+        "job": "gen_T8e3dYc5kUm3rRtOujA5HDqJ",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_T8e3dYc5kUm3rRtOujA5HDqJ",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -6341,7 +8257,20 @@
         "inputs": [
           "kf-3.4-b1"
         ],
-        "job": "gen_mGxVu6WLwdNmgcds0L1mtro5"
+        "job": "gen_mGxVu6WLwdNmgcds0L1mtro5",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_mGxVu6WLwdNmgcds0L1mtro5",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -6357,7 +8286,20 @@
         "inputs": [
           "kf-3.4-b1"
         ],
-        "job": "gen_WKUxZxac9ms7ya1xZQd2CTmm"
+        "job": "gen_WKUxZxac9ms7ya1xZQd2CTmm",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_WKUxZxac9ms7ya1xZQd2CTmm",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -6373,7 +8315,20 @@
         "inputs": [
           "kf-4.1-t1"
         ],
-        "job": "gen_ST7QmdFPBlzI9kTEVclbV3hM"
+        "job": "gen_ST7QmdFPBlzI9kTEVclbV3hM",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_ST7QmdFPBlzI9kTEVclbV3hM",
+            "costUsd": 0.616,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": false
+            }
+          }
+        ]
       }
     },
     {
@@ -6389,7 +8344,20 @@
         "inputs": [
           "kf-4.1-t1"
         ],
-        "job": "gen_tICN80g44MP9EwktYHqcyfK2"
+        "job": "gen_tICN80g44MP9EwktYHqcyfK2",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_tICN80g44MP9EwktYHqcyfK2",
+            "costUsd": 0.616,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": false
+            }
+          }
+        ]
       }
     },
     {
@@ -6407,6 +8375,13 @@
           "founder-sheet",
           "hen-real-38",
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       }
     },
@@ -6425,6 +8400,13 @@
           "founder-sheet",
           "hen-real-38",
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       }
     },
@@ -6443,6 +8425,13 @@
           "founder-sheet",
           "hen-real-38",
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       }
     },
@@ -6460,7 +8449,31 @@
           "kb6-5bef70",
           "voice-henrick"
         ],
-        "job": "gen_AD9c8lnjBJf2ZQ9nTR1mxmC0"
+        "job": "gen_AD9c8lnjBJf2ZQ9nTR1mxmC0",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_qe4QkUnNYWtiWkL37hjNdBzY",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          },
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          },
+          {
+            "model": "sync/lipsync-3",
+            "provider": "leap",
+            "job": "gen_AD9c8lnjBJf2ZQ9nTR1mxmC0",
+            "costUsd": 0.880001
+          }
+        ]
       },
       "scores": {
         "face": 0.76,
@@ -6484,7 +8497,20 @@
         "inputs": [
           "kf-4.3-c2"
         ],
-        "job": "gen_w2HMSG749hifGCAuZ0t9QBG5"
+        "job": "gen_w2HMSG749hifGCAuZ0t9QBG5",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_w2HMSG749hifGCAuZ0t9QBG5",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -6500,7 +8526,20 @@
         "inputs": [
           "kf-4.3-c2"
         ],
-        "job": "gen_p9Uv7I6vqEhmKwwgxvdnNOAq"
+        "job": "gen_p9Uv7I6vqEhmKwwgxvdnNOAq",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_p9Uv7I6vqEhmKwwgxvdnNOAq",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -6509,7 +8548,17 @@
       "path": "/generated/final-cut-hall-s3-v1.mp4",
       "label": "Hall scene 3 (hall-s3-v1)",
       "origin": "rendered",
-      "duration": 13.517
+      "duration": 13.517,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "v-6a-sync-p1",
@@ -6524,7 +8573,31 @@
         "inputs": [
           "voice-henrick"
         ],
-        "job": "gen_MUJMNwKNjDfvmJR0UrR2BOmZ"
+        "job": "gen_MUJMNwKNjDfvmJR0UrR2BOmZ",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_ETd4ZQdg08i0VXwPjVpZWQhL",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          },
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          },
+          {
+            "model": "sync/lipsync-3",
+            "provider": "leap",
+            "job": "gen_MUJMNwKNjDfvmJR0UrR2BOmZ",
+            "costUsd": 0.880001
+          }
+        ]
       },
       "scores": {
         "face": 0.8,
@@ -6541,7 +8614,17 @@
       "path": "/generated/final-cut-booth-s5-v1.mp4",
       "label": "Booth scene 5 (booth-s5-v1)",
       "origin": "rendered",
-      "duration": 9.45
+      "duration": 9.45,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "v-1.1-kling",
@@ -6555,6 +8638,13 @@
         "prompt": "One continuous locked-off wide shot, no camera movement, no cuts. In a dark wood-panelled study, the young man in the grey hoodie leans forward in the walnut chair, opens his hands and draws a breath, about to speak. The older man in the navy suit sits completely still in the green leather armchair, waiting, expressionless. No dialogue. Quiet room tone, a distant clock.",
         "inputs": [
           "kf-1.1-study-M"
+        ],
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       }
     },
@@ -6570,6 +8660,13 @@
         "prompt": "One continuous locked-off shot, no camera movement, no cuts. The young man in the grey hoodie sitting in the walnut chair leans forward, looks at the older man on the right of frame, and says in a tired, urgent American voice: \"Henrick, I need SOC 2 by Friday.\" Then he waits. The older man in the foreground right, seen from behind, does not move or speak. Natural small movements only, no exaggerated mouth movement. Quiet room tone.",
         "inputs": [
           "kf-1.2-study-R"
+        ],
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       }
     },
@@ -6585,6 +8682,13 @@
         "prompt": "One continuous locked-off shot, no camera movement, no cuts. Complete silence. The older man in the navy suit in the green leather armchair stares at the young man without any expression, then one slow blink. The young man in the walnut chair waits, hopeful, motionless. Nobody speaks. Only quiet room tone.",
         "inputs": [
           "kf-1.3-study-S"
+        ],
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       }
     },
@@ -6594,7 +8698,17 @@
       "path": "/generated/final-cut-study-s1-v1.mp4",
       "label": "Scene 1: The request (study-s1-v1)",
       "origin": "rendered",
-      "duration": 9.392
+      "duration": 9.392,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "cut-booth-s5-v2",
@@ -6602,7 +8716,17 @@
       "path": "/generated/final-cut-booth-s5-v2.mp4",
       "label": "Booth scene 5 (booth-s5-v2)",
       "origin": "rendered",
-      "duration": 9.45
+      "duration": 9.45,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "cut-study-s1-v2",
@@ -6610,7 +8734,17 @@
       "path": "/generated/final-cut-study-s1-v2.mp4",
       "label": "Scene 1: The request (study-s1-v2)",
       "origin": "rendered",
-      "duration": 8.392
+      "duration": 8.392,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "v-3.1-k1",
@@ -6625,7 +8759,20 @@
         "inputs": [
           "kf-3.1-flare"
         ],
-        "job": "gen_icQ8eWdrqOSWhoFPAFcNIpsX"
+        "job": "gen_icQ8eWdrqOSWhoFPAFcNIpsX",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_icQ8eWdrqOSWhoFPAFcNIpsX",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -6641,7 +8788,20 @@
         "inputs": [
           "kf-3.1-flare"
         ],
-        "job": "gen_nlKXsKMm3AE4CyPpvlWwk5he"
+        "job": "gen_nlKXsKMm3AE4CyPpvlWwk5he",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_nlKXsKMm3AE4CyPpvlWwk5he",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -6659,7 +8819,31 @@
           "voice-henrick",
           "v-4.3c-k2"
         ],
-        "job": "gen_8Hd8wEKkPIFOkzRg94Leflsn"
+        "job": "gen_8Hd8wEKkPIFOkzRg94Leflsn",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_p9Uv7I6vqEhmKwwgxvdnNOAq",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          },
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          },
+          {
+            "model": "sync/lipsync-3",
+            "provider": "leap",
+            "job": "gen_8Hd8wEKkPIFOkzRg94Leflsn",
+            "costUsd": 0.880001
+          }
+        ]
       },
       "scores": {
         "face": 0.65,
@@ -6683,7 +8867,31 @@
         "inputs": [
           "voice-henrick"
         ],
-        "job": "gen_BqNFKJpc9oCdp3guRxCw0sMV"
+        "job": "gen_BqNFKJpc9oCdp3guRxCw0sMV",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_P8loVaKmNEczA0KX54z9UcPg",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          },
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          },
+          {
+            "model": "sync/lipsync-3",
+            "provider": "leap",
+            "job": "gen_BqNFKJpc9oCdp3guRxCw0sMV",
+            "costUsd": 0.880001
+          }
+        ]
       },
       "scores": {
         "face": 0.79,
@@ -6700,7 +8908,17 @@
       "path": "/generated/final-cut-hall-s3-v2.mp4",
       "label": "Hall scene 3 (hall-s3-v2)",
       "origin": "rendered",
-      "duration": 11.95
+      "duration": 11.95,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "cut-hall-s4-v1",
@@ -6708,7 +8926,17 @@
       "path": "/generated/final-cut-hall-s4-v1.mp4",
       "label": "Hall scene 4 (hall-s4-v1)",
       "origin": "rendered",
-      "duration": 7.142
+      "duration": 7.142,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "sfx-clock",
@@ -6728,7 +8956,17 @@
       "path": "/generated/final-cut-v4-rough.mp4",
       "label": "Cut v4-rough",
       "origin": "rendered",
-      "duration": 38.96
+      "duration": 38.96,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "cut-v4",
@@ -6736,7 +8974,17 @@
       "path": "/generated/final-cut-v4.mp4",
       "label": "Cut v4",
       "origin": "rendered",
-      "duration": 35.26
+      "duration": 35.26,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "v-7-sync-p1",
@@ -6751,7 +8999,31 @@
         "inputs": [
           "voice-henrick"
         ],
-        "job": "gen_GhusWHVdQxths9DykqZ8ehKi"
+        "job": "gen_GhusWHVdQxths9DykqZ8ehKi",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_n9w5XihUFPEXOj3DrJPCykfV",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          },
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          },
+          {
+            "model": "sync/lipsync-3",
+            "provider": "leap",
+            "job": "gen_GhusWHVdQxths9DykqZ8ehKi",
+            "costUsd": 0.880001
+          }
+        ]
       },
       "scores": {
         "face": 0.81,
@@ -6777,7 +9049,31 @@
           "voice-henrick",
           "v-4.3c-k1"
         ],
-        "job": "gen_NNJrdHkqAv9FbfFmI8X5kcRZ"
+        "job": "gen_NNJrdHkqAv9FbfFmI8X5kcRZ",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_w2HMSG749hifGCAuZ0t9QBG5",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          },
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          },
+          {
+            "model": "sync/lipsync-3",
+            "provider": "leap",
+            "job": "gen_NNJrdHkqAv9FbfFmI8X5kcRZ",
+            "costUsd": 0.880001
+          }
+        ]
       },
       "scores": {
         "face": 0.64,
@@ -6801,7 +9097,20 @@
         "inputs": [
           "kf-4.1-t1"
         ],
-        "job": "gen_sGa7n4UGH1w9YOxphvpNoD3I"
+        "job": "gen_sGa7n4UGH1w9YOxphvpNoD3I",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_sGa7n4UGH1w9YOxphvpNoD3I",
+            "costUsd": 0.616,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": false
+            }
+          }
+        ]
       }
     },
     {
@@ -6817,7 +9126,20 @@
         "inputs": [
           "kf-4.1-t1"
         ],
-        "job": "gen_tmANsAe4jwa3mATUV2rR93td"
+        "job": "gen_tmANsAe4jwa3mATUV2rR93td",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_tmANsAe4jwa3mATUV2rR93td",
+            "costUsd": 0.616,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": false
+            }
+          }
+        ]
       }
     },
     {
@@ -6826,7 +9148,17 @@
       "path": "/generated/voice-founder-clone.wav",
       "label": "Founder voice reference: his line from 1.2 (provisional until cast)",
       "origin": "generated",
-      "duration": 3.2
+      "duration": 3.2,
+      "gen": {
+        "model": "ffmpeg (crop, extract, mux) (local)",
+        "steps": [
+          {
+            "model": "local/ffmpeg",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "v-2.3-sf",
@@ -6842,7 +9174,20 @@
           "v-2.3-k1",
           "voice-founder-clone"
         ],
-        "job": "gen_ajTir04gX8nUgKXu5XgKSQlA"
+        "job": "gen_ajTir04gX8nUgKXu5XgKSQlA",
+        "steps": [
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          },
+          {
+            "model": "sync/lipsync-3",
+            "provider": "leap",
+            "job": "gen_ajTir04gX8nUgKXu5XgKSQlA",
+            "costUsd": 0.880001
+          }
+        ]
       }
     },
     {
@@ -6858,6 +9203,18 @@
         "inputs": [
           "v-3.3-k1",
           "voice-founder-clone"
+        ],
+        "steps": [
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          },
+          {
+            "model": "local/ffmpeg",
+            "provider": "local",
+            "inferred": true
+          }
         ]
       }
     },
@@ -6875,7 +9232,20 @@
           "v-5.3-k1",
           "voice-founder-clone"
         ],
-        "job": "gen_d62gyGcyThlzbmVV0jJ8sqEn"
+        "job": "gen_d62gyGcyThlzbmVV0jJ8sqEn",
+        "steps": [
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          },
+          {
+            "model": "sync/lipsync-3",
+            "provider": "leap",
+            "job": "gen_d62gyGcyThlzbmVV0jJ8sqEn",
+            "costUsd": 0.880001
+          }
+        ]
       }
     },
     {
@@ -6890,7 +9260,24 @@
         "inputs": [
           "kf-2.4-flare-1"
         ],
-        "job": "gen_8yTi71mXeANJysLM2RytL4eB"
+        "job": "gen_8yTi71mXeANJysLM2RytL4eB",
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_8yTi71mXeANJysLM2RytL4eB",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          },
+          {
+            "model": "local/maskpaste",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -6906,7 +9293,24 @@
           "kf-2.4-fix",
           "kf-4.3-c2"
         ],
-        "job": "gen_mNIVjB8L9yKbomEVWbMTwyzP"
+        "job": "gen_mNIVjB8L9yKbomEVWbMTwyzP",
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_mNIVjB8L9yKbomEVWbMTwyzP",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          },
+          {
+            "model": "local/maskpaste",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -6922,7 +9326,20 @@
         "inputs": [
           "kf-2.4-fix"
         ],
-        "job": "gen_Feyb7XVjkj2RqLx9L7NoRCFz"
+        "job": "gen_Feyb7XVjkj2RqLx9L7NoRCFz",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_Feyb7XVjkj2RqLx9L7NoRCFz",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -6938,7 +9355,20 @@
         "inputs": [
           "kf-2.4-fix"
         ],
-        "job": "gen_dZZNaAtWYO0HkEoRcRWMld9L"
+        "job": "gen_dZZNaAtWYO0HkEoRcRWMld9L",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_dZZNaAtWYO0HkEoRcRWMld9L",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -6956,7 +9386,31 @@
           "v-2.4-fix-k1",
           "voice-henrick"
         ],
-        "job": "gen_FtGSde9PxH4rFF4KtpvpDKya"
+        "job": "gen_FtGSde9PxH4rFF4KtpvpDKya",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_Feyb7XVjkj2RqLx9L7NoRCFz",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          },
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          },
+          {
+            "model": "sync/lipsync-3",
+            "provider": "leap",
+            "job": "gen_FtGSde9PxH4rFF4KtpvpDKya",
+            "costUsd": 0.880001
+          }
+        ]
       },
       "scores": {
         "face": 0.62,
@@ -6980,7 +9434,20 @@
         "inputs": [
           "kf-4.3-fix"
         ],
-        "job": "gen_fgYuv6sBbLh4g4sNQGqsHO9Y"
+        "job": "gen_fgYuv6sBbLh4g4sNQGqsHO9Y",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_fgYuv6sBbLh4g4sNQGqsHO9Y",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -6996,7 +9463,20 @@
         "inputs": [
           "kf-4.3-fix"
         ],
-        "job": "gen_qI8h0MNXHUKu3PLBZ6iQ5YMu"
+        "job": "gen_qI8h0MNXHUKu3PLBZ6iQ5YMu",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_qI8h0MNXHUKu3PLBZ6iQ5YMu",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          }
+        ]
       }
     },
     {
@@ -7014,7 +9494,31 @@
           "v-4.3-fix-k2",
           "voice-henrick"
         ],
-        "job": "gen_oseyuHd0SfVmIScg3kyEy0G3"
+        "job": "gen_oseyuHd0SfVmIScg3kyEy0G3",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_qI8h0MNXHUKu3PLBZ6iQ5YMu",
+            "costUsd": 0.924,
+            "settings": {
+              "duration": 5,
+              "aspect_ratio": "16:9",
+              "audio": true
+            }
+          },
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          },
+          {
+            "model": "sync/lipsync-3",
+            "provider": "leap",
+            "job": "gen_oseyuHd0SfVmIScg3kyEy0G3",
+            "costUsd": 0.880001
+          }
+        ]
       },
       "scores": {
         "face": 0.65,
@@ -7031,7 +9535,17 @@
       "path": "/generated/final-cut-v5.mp4",
       "label": "Cut v5",
       "origin": "rendered",
-      "duration": 36.684
+      "duration": 36.684,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "cut-hall-s2-v4",
@@ -7039,7 +9553,17 @@
       "path": "/generated/final-cut-hall-s2-v4.mp4",
       "label": "Hall scene 2: Seventeen (hall-s2-v4)",
       "origin": "rendered",
-      "duration": 8.992
+      "duration": 8.992,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "cut-hall-s4-v2",
@@ -7047,7 +9571,17 @@
       "path": "/generated/final-cut-hall-s4-v2.mp4",
       "label": "Hall scene 4 (hall-s4-v2)",
       "origin": "rendered",
-      "duration": 6.942
+      "duration": 6.942,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "room-hall",
@@ -7057,7 +9591,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/lightbox glb",
-        "prompt": "13 x 20 x 4.2 m, 55 items, 7 marks, 12 cameras"
+        "prompt": "13 x 20 x 4.2 m, 55 items, 7 marks, 12 cameras",
+        "steps": [
+          {
+            "model": "local/blender-lightbox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       },
       "scores": {}
     },
@@ -7066,21 +9607,51 @@
       "media": "image",
       "path": "/generated/grey-study-A-lit.jpg",
       "label": "Study A, lit grey box, plan v2 (camera solved from real-38; key window in the right wall)",
-      "origin": "rendered"
+      "origin": "rendered",
+      "gen": {
+        "model": "Blender lightbox (Cycles, plan lights) (local)",
+        "steps": [
+          {
+            "model": "local/blender-lightbox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "grey-study-W-lit",
       "media": "image",
       "path": "/generated/grey-study-W-lit.jpg",
       "label": "Study W master, lit grey box (plan v2)",
-      "origin": "rendered"
+      "origin": "rendered",
+      "gen": {
+        "model": "Blender lightbox (Cycles, plan lights) (local)",
+        "steps": [
+          {
+            "model": "local/blender-lightbox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "grey-study-O-lit",
       "media": "image",
       "path": "/generated/grey-study-O-lit.jpg",
       "label": "Study O over Henrick's shoulder, lit grey box (plan v2)",
-      "origin": "rendered"
+      "origin": "rendered",
+      "gen": {
+        "model": "Blender lightbox (Cycles, plan lights) (local)",
+        "steps": [
+          {
+            "model": "local/blender-lightbox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "study-W-lit",
@@ -7096,6 +9667,13 @@
           "study-A-real38",
           "hen-real-37",
           "study-M-lit"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       },
       "qa": {
@@ -7118,6 +9696,13 @@
           "study-A-real38",
           "hen-real-37",
           "study-M-lit"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       },
       "qa": {
@@ -7140,6 +9725,13 @@
           "founder-sheet",
           "hen-real-38",
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       },
       "qa": {
@@ -7162,6 +9754,13 @@
           "founder-sheet",
           "hen-real-38",
           "hen-real-53"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       },
       "qa": {
@@ -7182,6 +9781,13 @@
         "prompt": "One continuous locked-off wide shot, no camera movement, no cuts. In a dark lacquer-panelled study, the young man in the grey hoodie on the right leans further forward in the walnut chair, rubs his hands together and draws a breath, about to speak. The older man in the navy suit in the green wing armchair on the left sits completely still, legs crossed, watching him, expressionless. No dialogue. Daylight from the window stays steady. Quiet room tone, a clock ticking softly.",
         "inputs": [
           "kf-1.1-study-W"
+        ],
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       },
       "qa": {
@@ -7202,6 +9808,13 @@
         "prompt": "One continuous locked-off shot, no camera movement, no cuts. The young man in the grey hoodie in the walnut chair leans forward, looks at the older man just left of camera, and says in a tired, urgent American voice: \"Henrick, I need S-O-C 2 by Friday.\" (S-O-C spelled out as three letters, then the number two) Then he waits, hopeful. The older man in the near left foreground, seen from behind, does not move or speak. Natural small movements only, no exaggerated mouth movement. Quiet room tone.",
         "inputs": [
           "kf-1.2-study-O"
+        ],
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       },
       "qa": {
@@ -7222,6 +9835,13 @@
         "prompt": "One continuous locked-off shot, no camera movement, no cuts. The older man in the navy suit has just stopped talking. He closes his mouth and holds a completely deadpan stare at the person off-screen to the right, motionless, then one slow blink. He says nothing. Natural stillness, no smile, no nod. Only quiet room tone.",
         "inputs": [
           "study-A-real38"
+        ],
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       },
       "qa": {
@@ -7236,7 +9856,17 @@
       "path": "/generated/final-cut-study-s1-v3.mp4",
       "label": "Scene 1: The request (study-s1-v3)",
       "origin": "rendered",
-      "duration": 9.842
+      "duration": 9.842,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "room-study",
@@ -7246,7 +9876,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/lightbox glb",
-        "prompt": "6 x 6.5 x 3.2 m, 24 items, 3 marks, 6 cameras"
+        "prompt": "6 x 6.5 x 3.2 m, 24 items, 3 marks, 6 cameras",
+        "steps": [
+          {
+            "model": "local/blender-lightbox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       },
       "scores": {}
     },
@@ -7255,14 +9892,34 @@
       "media": "image",
       "path": "/generated/grey-study-W2-lit.jpg",
       "label": "Study W master, lit grey box: camera re-planned to 1.25 m, tilt -2 (the paint pass re-framed the level 1.45 m camera)",
-      "origin": "rendered"
+      "origin": "rendered",
+      "gen": {
+        "model": "Blender lightbox (Cycles, plan lights) (local)",
+        "steps": [
+          {
+            "model": "local/blender-lightbox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "grey-study-W2-geo",
       "media": "image",
       "path": "/generated/grey-study-W2-geo.jpg",
       "label": "Study W master, shape render (lightbox --geo): every edge, Image 2 of the paint pass",
-      "origin": "rendered"
+      "origin": "rendered",
+      "gen": {
+        "model": "Blender lightbox (Cycles, plan lights) (local)",
+        "steps": [
+          {
+            "model": "local/blender-lightbox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "study-W2-lit",
@@ -7279,6 +9936,13 @@
           "study-A-real38",
           "hen-real-37",
           "study-M-lit"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       },
       "qa": {
@@ -7302,6 +9966,13 @@
           "hen-real-38",
           "hen-real-53",
           "study-A-real38"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       },
       "qa": {
@@ -7322,6 +9993,13 @@
         "prompt": "One continuous locked-off wide shot, no camera movement, no cuts. In a dark lacquer-panelled study, the young man in the grey hoodie on the right leans further forward in the walnut chair, rubs his hands together and draws a breath, about to speak. The older man in the navy suit in the green wing armchair on the left sits completely still, legs crossed, watching him, expressionless. No dialogue. Daylight from the window stays steady. Quiet room tone, a clock ticking softly.",
         "inputs": [
           "kf-1.1-study-W2"
+        ],
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       },
       "qa": {
@@ -7336,7 +10014,17 @@
       "path": "/generated/final-cut-study-s1-v4.mp4",
       "label": "Scene 1: The request (study-s1-v4)",
       "origin": "rendered",
-      "duration": 9.842
+      "duration": 9.842,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "v-1b-friday-sync-1",
@@ -7352,7 +10040,31 @@
           "study-A-real38",
           "voice-henrick"
         ],
-        "job": "gen_zriWORAF329UfYij4Vqyx1j2"
+        "job": "gen_zriWORAF329UfYij4Vqyx1j2",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "leap",
+            "job": "gen_mffFuatGbNm1V8t5LJZZ5Vyf",
+            "costUsd": 0.924,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "duration": 5,
+              "audio": true
+            }
+          },
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          },
+          {
+            "model": "sync/lipsync-3",
+            "provider": "leap",
+            "job": "gen_zriWORAF329UfYij4Vqyx1j2",
+            "costUsd": 0.880001
+          }
+        ]
       },
       "scores": {
         "face": 0.79,
@@ -7369,7 +10081,17 @@
       "path": "/generated/final-cut-v6.mp4",
       "label": "Cut v6",
       "origin": "rendered",
-      "duration": 39.908
+      "duration": 39.908,
+      "gen": {
+        "model": "stitch build (cut render) (local)",
+        "steps": [
+          {
+            "model": "local/stitch-build",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "hall-B-r2-lit",
@@ -7380,7 +10102,24 @@
       "gen": {
         "model": "lightbox.py (Cycles) + openai/gpt-image-2.5-flare (Leap)",
         "prompt": "Image 1: lit grey 3D layout of a real room from a new camera, already lit by the room's lighting plan. Image 2: the same camera as an evenly lit shape render: every wall edge, corner, the ceiling line and every object's outline exactly where they must be, at that size. Image 3: a photograph of this same hall from the opposite end, looking the other way, for materials, colour and light only; never copy its composition. Image 4: these exact mustard fibreglass shell chairs on black steel beams.\nMake Image 1 a real photograph of that room. Keep its camera, lens, framing, perspective and every wall, opening and piece of furniture where it is (match Image 2's outlines and horizon exactly); keep its light exactly (where it comes from, how bright, where shadows fall). Materials and colour from the photos. No people.\nLight: the key is overcast daylight through tall steel window 3, net curtain, co",
-        "job": "gen_Ks6dxerNM034iCMSlU0uDfNA"
+        "job": "gen_Ks6dxerNM034iCMSlU0uDfNA",
+        "steps": [
+          {
+            "model": "local/blender-lightbox",
+            "provider": "local",
+            "inferred": true
+          },
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_Ks6dxerNM034iCMSlU0uDfNA",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
+        ]
       }
     },
     {
@@ -7395,7 +10134,24 @@
         "inputs": [
           "hall-B-r2-lit"
         ],
-        "job": "gen_J04GSANp3oo9FgNY9fkkObE9"
+        "job": "gen_J04GSANp3oo9FgNY9fkkObE9",
+        "steps": [
+          {
+            "model": "local/reproject",
+            "provider": "local",
+            "inferred": true
+          },
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "job": "gen_J04GSANp3oo9FgNY9fkkObE9",
+            "costUsd": 0.3498,
+            "settings": {
+              "aspect_ratio": "16:9",
+              "n": 2
+            }
+          }
+        ]
       }
     },
     {
@@ -7406,7 +10162,14 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/lightbox glb",
-        "prompt": "5 x 4.6 x 2.8 m, 40 items, 1 marks, 3 cameras"
+        "prompt": "5 x 4.6 x 2.8 m, 40 items, 1 marks, 3 cameras",
+        "steps": [
+          {
+            "model": "local/blender-lightbox",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
       }
     },
     {
@@ -7414,7 +10177,17 @@
       "media": "image",
       "path": "/generated/office-proj-M.jpg",
       "label": "Office M: the real booth photo projected through the solved room into camera M (magenta = never seen)",
-      "origin": "rendered"
+      "origin": "rendered",
+      "gen": {
+        "model": "Camera projection through the room GLB (local)",
+        "steps": [
+          {
+            "model": "local/reproject",
+            "provider": "local",
+            "inferred": true
+          }
+        ]
+      }
     },
     {
       "id": "office-M-plate",
@@ -7428,6 +10201,13 @@
         "inputs": [
           "office-proj-M",
           "office-W-commons"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       }
     },
@@ -7444,6 +10224,13 @@
           "office-M-plate",
           "kf-5.3-t2",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       }
     },
@@ -7460,6 +10247,18 @@
         "inputs": [
           "v-1.2-kling-o",
           "voice-founder-clone"
+        ],
+        "steps": [
+          {
+            "model": "indextts/index-tts-2",
+            "provider": "fal",
+            "inferred": true
+          },
+          {
+            "model": "sync/lipsync-3",
+            "provider": "leap",
+            "inferred": true
+          }
         ]
       }
     },
@@ -7474,6 +10273,21 @@
         "prompt": "Image 1 is a frame from our feature film: a 1970s provincial European government waiting hall. Image 2 is a real photograph of a painted plaster wall over a green wooden dado, Image 3 a real photograph of a terrazzo floor, Image 4 the real mustard fibreglass shell chairs on black steel beams. Images 2 to 4 are materials only; never copy their framing.\n\nMake Image 1 a real photographic film frame. Keep the framing, camera position and perspective, and every chair, beam, door, window, noticeboard and wall edge exactly where it is and the same size. Change only how it is photographed and what the surfaces are made of.\n\nPhotography: shot on an ARRI Alexa 35 with a vintage spherical prime, deep focus. Soft overcast daylight falls from the tall windows at frame right; the overhead fluorescent tu",
         "inputs": [
           "hall-C-r3-proj"
+        ],
+        "steps": [
+          {
+            "model": "google/nano-banana-2.1",
+            "provider": "fal",
+            "job": "01a113c2-1dd0-7da0-b4ac-17c1cba8c057",
+            "settings": {
+              "endpoint": "google/nano-banana-2.1/edit",
+              "output": 2
+            }
+          },
+          {
+            "model": "local/ecc-warp",
+            "provider": "local"
+          }
         ]
       }
     },
@@ -7491,6 +10305,17 @@
           "hen-real-56",
           "hen-real-38",
           "founder-sheet"
+        ],
+        "steps": [
+          {
+            "model": "openai/gpt-image-2.5-flare",
+            "provider": "fal",
+            "job": "01a113cb-bc95-7293-a0c0-80f0aa3016c7",
+            "settings": {
+              "endpoint": "openai/gpt-image-2.5/flare/edit",
+              "output": 2
+            }
+          }
         ]
       },
       "scores": {
@@ -7509,6 +10334,16 @@
         "prompt": "Kling 3.0 Pro, first frame kf-2.4-v4: locked-off two-shot, Henrick still, the founder looks at him then down at his ticket",
         "inputs": [
           "kf-2.4-v4"
+        ],
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "fal",
+            "job": "01a113cf-bb7d-7d53-8b51-c3985b38a62b",
+            "settings": {
+              "endpoint": "fal-ai/kling-video/v3/pro/image-to-video"
+            }
+          }
         ]
       }
     },
@@ -7524,6 +10359,16 @@
         "prompt": "Kling 3.0 Pro, first frame kf-2.4-v4: locked-off two-shot, Henrick still, the founder looks at him then down at his ticket",
         "inputs": [
           "kf-2.4-v4"
+        ],
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "fal",
+            "job": "01a113cf-bc96-7a62-a821-deeab4c2a897",
+            "settings": {
+              "endpoint": "fal-ai/kling-video/v3/pro/image-to-video"
+            }
+          }
         ]
       }
     }

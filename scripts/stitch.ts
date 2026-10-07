@@ -4,6 +4,10 @@
 //   bun run stitch log "text" [--kind run|done|info|warn]
 //   bun run stitch asset add <id> --media image|video|audio --from <url|file> [--label ..] [--origin generated]
 //                            [--model ..] [--prompt ..|--prompt-file f] [--inputs a,b] [--job ..] [--text ..]
+//                            [--step model@provider:job ...] [--sidecar out.json]   (how it was made; a sidecar next to
+//                            --from is read automatically; required for anything not real)
+//   bun run stitch attribute <id> --step model@provider[:job] [--step ...] [--sidecar out.json]
+//   bun run stitch models [--all]                            what each model made, picked, rejected and put in the cut
 //   bun run stitch asset qa <id> pass|borderline|fail "note"
 //   bun run stitch asset set <id> '<json patch>'
 //   bun run stitch score <asset> [--face] [--voice]
@@ -22,12 +26,13 @@
 //   bun run stitch room <loc> [--builder greybox|lightbox]   export the room in 3D (GLB) for the Rooms view
 //   bun run stitch fit <shot> [asset] [--file f.jpg]         do the faces land where the room's camera puts the marks?
 import { execFileSync } from "node:child_process"
-import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
+import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import path from "node:path"
-import { CHECKS, type Asset, type CheckKey, type Media, type TakeVerdict } from "../lib/model"
+import { CHECKS, type Asset, type CheckKey, type GenStep, type Media, type TakeVerdict } from "../lib/model"
+import { parseStep, stepFromSidecar } from "../lib/models"
 import type { Op } from "../lib/ops"
 import { load, mutate } from "../lib/store"
-import { latestCut, pick, planView, projectHead, shotRows } from "../lib/derive"
+import { latestCut, modelBoard, pick, planView, projectHead, shotRows } from "../lib/derive"
 import type { PlanList } from "../lib/ops"
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..")
@@ -36,11 +41,13 @@ process.chdir(root)
 const argv = process.argv.slice(2)
 const flags: Record<string, string | true> = {}
 const pos: string[] = []
+/** Every value of a repeatable flag (--step). */
+const many: Record<string, string[]> = {}
 for (let i = 0; i < argv.length; i++) {
   const a = argv[i]
   if (a.startsWith("--")) {
     const next = argv[i + 1]
-    if (next !== undefined && !next.startsWith("--")) (flags[a.slice(2)] = next), i++
+    if (next !== undefined && !next.startsWith("--")) (flags[a.slice(2)] = next), (many[a.slice(2)] ??= []).push(next), i++
     else flags[a.slice(2)] = true
   } else pos.push(a)
 }
@@ -49,6 +56,19 @@ const run = (ops: Op[]) => mutate(ops).then((p) => p)
 const sh = (cmd: string, args: string[]) => execFileSync(cmd, args, { encoding: "utf8" })
 const probe = (file: string) => {
   try { return Number(sh("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", file]).trim()) || undefined } catch { return undefined }
+}
+
+/** The steps that made a file: its provider sidecar (`<from>.json`, or --sidecar), then each --step in order. */
+function attributionFor(from: string | undefined): GenStep[] {
+  const steps: GenStep[] = []
+  const side = flag("sidecar") ?? (from && !/^https?:/.test(from) && existsSync(`${from}.json`) ? `${from}.json` : undefined)
+  if (side) {
+    const s = stepFromSidecar(JSON.parse(readFileSync(side, "utf8")))
+    if (!s) throw new Error(`${side}: its model is not in lib/models.ts`)
+    steps.push(s)
+  }
+  for (const t of many.step ?? []) steps.push(parseStep(t))
+  return steps
 }
 
 async function importFile(id: string, from: string, media: Media): Promise<{ path: string; duration?: number }> {
@@ -124,13 +144,15 @@ async function main() {
         if (!id || !from) throw new Error("asset add <id> --media .. --from <url|file>")
         const { path: p, duration } = await importFile(id, from, media)
         const inputs = flag("inputs")?.split(",").filter(Boolean)
+        const steps = attributionFor(from)
+        const origin = (flag("origin") as Asset["origin"]) ?? "generated"
         const asset: Asset = {
-          id, media, path: p, label: flag("label") ?? id, origin: (flag("origin") as Asset["origin"]) ?? "generated", duration,
-          ...(flag("model") ? { gen: { model: flag("model")!, prompt: flag("prompt") ?? (flag("prompt-file") ? readFileSync(flag("prompt-file")!, "utf8").trim() : undefined), inputs, job: flag("job") } } : {}),
+          id, media, path: p, label: flag("label") ?? id, origin, duration,
+          ...(steps.length || flag("model") ? { gen: { model: flag("model") ?? "", prompt: flag("prompt") ?? (flag("prompt-file") ? readFileSync(flag("prompt-file")!, "utf8").trim() : undefined), inputs, job: flag("job") ?? steps.find((s) => s.job)?.job, steps } } : {}),
           ...(flag("text") ? { text: flag("text") } : {}),
         }
         await run([{ op: "asset.add", asset }])
-        console.log(`added ${id} -> ${p}${duration ? ` (${duration.toFixed(2)} s)` : ""}`)
+        console.log(`added ${id} -> ${p}${duration ? ` (${duration.toFixed(2)} s)` : ""}${steps.length ? `; made by ${steps.map((s) => `${s.model}@${s.provider}${s.job ? `:${s.job}` : ""}`).join(" + ")}` : ""}`)
         return
       }
       if (sub === "qa") {
@@ -144,6 +166,23 @@ async function main() {
         return
       }
       throw new Error("asset add|qa|set")
+    }
+    case "models": {
+      // What each model made and what we kept: the Models view, for agents.
+      const p = await load()
+      for (const s of modelBoard(p)) {
+        if (s.model.kind === "local" && !flags.all) continue
+        console.log(`${s.model.kind.padEnd(8)} ${s.model.name.padEnd(36)} made ${String(s.assets.length).padStart(3)}  picked ${String(s.picked).padStart(3)}  rejected ${String(s.rejected).padStart(3)}  in cut ${String(s.inCut).padStart(3)}  face ${s.face?.toFixed(2) ?? "  - "}  voice ${s.voice?.toFixed(2) ?? "  - "}  $${s.costUsd.toFixed(2).padStart(6)}  jobs ${s.recorded}/${s.steps}  on ${s.providers.join(",")}`)
+      }
+      return
+    }
+    case "attribute": {
+      // Record or correct how an asset was made: stitch attribute <id> --step model@provider:job [--step ...] [--sidecar f.json]
+      const steps = attributionFor(undefined)
+      if (!sub || !steps.length) throw new Error("attribute <id> --step model@provider[:job] [--step ...] [--sidecar out.json]")
+      await run([{ op: "asset.attribute", id: sub, steps }])
+      console.log(`${sub}: ${steps.map((s) => `${s.model}@${s.provider}${s.job ? `:${s.job}` : ""}`).join(" + ")}`)
+      return
     }
     case "score": {
       const p = await load()
@@ -220,7 +259,7 @@ async function main() {
         const u = l.plan.setups.find((x) => x.id === id)!
         const asset = `grey-${l.id}-${id}`
         const { path: ap } = await importFile(asset, `${dir}/${id}.png`, "image")
-        const a: Asset = { id: asset, media: "image", path: ap, label: `Grey box ${id}: ${u.name}`, origin: "rendered", gen: { model: "blender/greybox", prompt: `${u.lens} mm, ${u.height} m, facing ${u.facing}${u.tilt ? `, tilt ${u.tilt}` : ""}` } }
+        const a: Asset = { id: asset, media: "image", path: ap, label: `Grey box ${id}: ${u.name}`, origin: "rendered", gen: { model: "blender/greybox", prompt: `${u.lens} mm, ${u.height} m, facing ${u.facing}${u.tilt ? `, tilt ${u.tilt}` : ""}`, steps: [{ model: "local/blender-greybox", provider: "local" }] } }
         ops.push(p.assets.some((x) => x.id === asset) ? { op: "asset.update", id: asset, patch: { path: ap, gen: a.gen, label: a.label } } : { op: "asset.add", asset: a })
         ops.push({ op: "plan.patch", location: l.id, list: "setups", id, patch: { render: asset } })
       }
@@ -241,7 +280,7 @@ async function main() {
       execFileSync("/Applications/Blender.app/Contents/MacOS/Blender", ["-b", "-P", `scripts/${builder}.py`, "--", `work/${l.id}/plan.json`, dir, "--glb", `${dir}/${l.id}.glb`, "--glb-only"], { stdio: "ignore" })
       const asset = `room-${l.id}`
       const { path: ap } = await importFile(asset, `${dir}/${l.id}.glb`, "model")
-      const gen = { model: `blender/${builder} glb`, prompt: `${l.plan.width} x ${l.plan.depth} x ${l.plan.height} m, ${l.plan.items.length} items, ${l.plan.marks.length} marks, ${l.plan.setups.length} cameras` }
+      const gen = { model: `blender/${builder} glb`, prompt: `${l.plan.width} x ${l.plan.depth} x ${l.plan.height} m, ${l.plan.items.length} items, ${l.plan.marks.length} marks, ${l.plan.setups.length} cameras`, steps: [{ model: `local/blender-${builder}`, provider: "local" as const }] }
       await run([
         p.assets.some((x) => x.id === asset) ? { op: "asset.update", id: asset, patch: { path: ap, gen } } : { op: "asset.add", asset: { id: asset, media: "model", path: ap, label: `${l.name} in 3D`, origin: "rendered", gen } },
         { op: "location.update", id: l.id, patch: { model: asset } },
@@ -314,7 +353,7 @@ async function main() {
 }
 
 function readHelp() {
-  return "commands: show, log, asset add|qa|set, score, take add|circle|alt|reject|pending, card, shot set|add|move|remove, check, op, plan [set|upsert|remove|plate], greybox, room, fit, build"
+  return "commands: show, log, asset add|qa|set, attribute, models, score, take add|circle|alt|reject|pending, card, shot set|add|move|remove, check, op, plan [set|upsert|remove|plate], greybox, room, fit, build"
 }
 
 main().catch((e) => {

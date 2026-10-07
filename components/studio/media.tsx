@@ -8,6 +8,7 @@
 import { Box, ChevronLeft, ChevronRight, Pause, Play, X } from "lucide-react"
 import { createContext, memo, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react"
 import type { AssetUse } from "@/lib/derive"
+import { modelInfo } from "@/lib/models"
 import type { Asset, Id, LineMode, Project, TakeVerdict, Verdict } from "@/lib/model"
 import { cn } from "@/lib/utils"
 
@@ -171,13 +172,25 @@ function Viewer({ list, i, onMove, onClose }: { list: Asset[]; i: number; onMove
       <div className="max-h-[32vh] overflow-y-auto border-t border-white/10 px-4 py-3 text-xs" onClick={stop}>
         <div className="flex flex-wrap items-center gap-1.5">
           <Chip tone={a.origin === "real" ? "good" : "muted"}>{a.origin}</Chip>
-          {a.gen?.model && <Chip tone="muted">{a.gen.model}</Chip>}
           <FaceChip value={a.scores?.face} target={b.faceTarget} baseline={b.face} />
           <VoiceChip value={a.scores?.voice} baseline={b.voice} />
           <VerdictChip verdict={a.qa?.verdict} note={a.qa?.note} />
           {a.duration ? <Chip tone="muted">{fmt(a.duration)}</Chip> : null}
           {m.mtimes[a.id] && <span className="text-muted-foreground">made {stamp(m.mtimes[a.id])}</span>}
         </div>
+        {a.gen?.steps && a.gen.steps.length > 0 && (
+          <div className="mt-2 flex flex-wrap items-center gap-1.5">
+            <span className="text-muted-foreground">Made by</span>
+            {a.gen.steps.map((s, i) => (
+              <span key={i} className="flex items-center gap-1.5">
+                {i > 0 && <span className="text-muted-foreground">then</span>}
+                <Chip tone={s.inferred ? "muted" : "good"} title={`${s.model} on ${s.provider}${s.job ? `, job ${s.job}` : ""}${s.costUsd ? `, $${s.costUsd.toFixed(2)}` : ""}${s.inferred ? " (read from the label, no job record)" : ""}${s.settings ? `\n${JSON.stringify(s.settings)}` : ""}`}>
+                  {modelInfo(s.model)?.name ?? s.model} · {s.provider}{s.job ? ` · ${s.job.slice(0, 10)}` : ""}
+                </Chip>
+              </span>
+            ))}
+          </div>
+        )}
         {uses.length > 0 && (
           <div className="mt-2 flex flex-wrap items-center gap-1.5">
             <span className="text-muted-foreground">Used in</span>

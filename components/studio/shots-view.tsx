@@ -7,7 +7,7 @@
 import { ChevronDown, ChevronRight, Network, Search, X } from "lucide-react"
 import { memo, useMemo, useState } from "react"
 import { CARD_FIELDS, type Asset, type CardKey, type Check, type ProjectWithRev, type ShotStatus } from "@/lib/model"
-import type { CutEntry, ShotRow, Summary } from "@/lib/derive"
+import { madeBy, type CutEntry, type ShotRow, type Summary } from "@/lib/derive"
 import type { Op } from "@/lib/ops"
 import { cn } from "@/lib/utils"
 import { AudioButton, Chip, FaceChip, ModeChip, TakeChip, Thumb, VerdictChip, VoiceChip, fmt, posterUrl, useMedia } from "./media"
@@ -220,7 +220,7 @@ function ShotDetail({ r, p, version, op, onClose, onCanvas, onCut }: { r: ShotRo
           <VerdictChip verdict={main?.qa?.verdict} note={main?.qa?.note} />
           <FaceChip value={main?.scores?.face} target={b.faceTarget} baseline={b.face} />
           <VoiceChip value={main?.scores?.voice} baseline={b.voice} />
-          {main?.gen?.model && <Chip tone="muted">{main.gen.model.split(",")[0]}</Chip>}
+          {madeBy(main) && <Chip tone="muted" title="The models that made this take, in order">{madeBy(main)}</Chip>}
         </div>
         {main?.qa?.note && <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{main.qa.note}</p>}
         {r.issues.length > 0 && (

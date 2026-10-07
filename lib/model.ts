@@ -37,6 +37,20 @@ export type ShotCard = Partial<Record<CardKey, string>>
 export type Media = "image" | "video" | "audio" | "model"
 export type Origin = "real" | "generated" | "rendered" | "recorded"
 
+export type Provider = "leap" | "fal" | "higgsfield" | "ai-gateway" | "local" | "unknown"
+/** One step of an asset's making: the model (a canonical id from lib/models.ts), where it ran, and its job there.
+ *  `inferred` marks a step read from a free-text label rather than a job record (the backfill of older assets). */
+export type GenStep = {
+  model: string
+  provider: Provider
+  /** The provider's job or request id (Leap gen_..., fal request id, Higgsfield job id). */
+  job?: string
+  costUsd?: number
+  /** The settings it ran with (duration, resolution, audio, voice...), without the prompt. */
+  settings?: Record<string, unknown>
+  inferred?: boolean
+}
+
 export type Asset = {
   id: Id
   media: Media
@@ -44,7 +58,9 @@ export type Asset = {
   path: string
   label: string
   origin: Origin
-  gen?: { model: string; prompt?: string; inputs?: Id[]; job?: string; provider?: string }
+  /** How it was made. `steps` is the record, in the order the steps ran; `model` is a display label. Required (with
+   *  known model ids) for every asset that is not real or recorded. */
+  gen?: { model: string; prompt?: string; inputs?: Id[]; job?: string; provider?: string; steps?: GenStep[] }
   scores?: { face?: number; voice?: number; lufs?: number }
   qa?: { verdict: Verdict; note: string }
   /** For dialogue audio: the words. */

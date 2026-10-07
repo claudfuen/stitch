@@ -2,9 +2,10 @@
 // the CLI (scripts/stitch.ts) applies the same functions. Pure: (project, op) -> project.
 
 import type {
-  ActivityKind, Asset, Axis, CardKey, Character, CheckKey, Cut, Graphic, Id, Location, Mark, Plan, PlanItem, Project, Section,
-  Setup, Shot, Take, TakeVerdict,
+  ActivityKind, Asset, Axis, CardKey, Character, CheckKey, Cut, GenStep, Graphic, Id, Location, Mark, Plan, PlanItem, Project,
+  Section, Setup, Shot, Take, TakeVerdict,
 } from "./model"
+import { checkSteps, modelInfo } from "./models"
 
 /** The editable lists on a floor plan, and the element type each holds. */
 export type PlanList = { items: PlanItem; marks: Mark; axes: Axis; setups: Setup }
@@ -13,6 +14,8 @@ export type Op =
   | { op: "log"; text: string; kind?: ActivityKind }
   | { op: "asset.add"; asset: Asset }
   | { op: "asset.update"; id: Id; patch: Partial<Omit<Asset, "id">> }
+  /** Record how an asset was made: its generation steps in order (models from lib/models.ts). Replaces earlier steps. */
+  | { op: "asset.attribute"; id: Id; steps: GenStep[] }
   | { op: "take.add"; shot: Id; asset: Id; list?: "keyframes" | "takes"; verdict?: TakeVerdict; note?: string }
   | { op: "take.set"; shot: Id; asset: Id; verdict: TakeVerdict; note?: string }
   | { op: "shot.add"; shot: Shot; after?: Id }
@@ -64,6 +67,9 @@ function upsert<T extends { id: Id }>(list: T[], item: T): T[] {
 }
 
 /** Circling a take demotes any other circled take in the same list to "alt". */
+/** A display label for steps that came without one: "Kling 3.0 Pro (leap) + sync lipsync-3 (leap)". */
+const stepLabel = (steps: GenStep[] = []) => steps.map((s) => `${modelInfo(s.model)?.name ?? s.model} (${s.provider})`).join(" + ")
+
 function circle(list: Take[], asset: Id, verdict: TakeVerdict, note?: string): Take[] {
   return list.map((t) => {
     if (t.asset === asset) return { ...t, verdict, note: note ?? t.note }
@@ -82,13 +88,30 @@ export function applyOp(p: Project, o: Op): Project {
   switch (o.op) {
     case "log":
       return { ...p, activity: [...p.activity, { t: now(), text: o.text, kind: o.kind ?? "info" }].slice(-80) }
-    case "asset.add":
+    case "asset.add": {
       if (p.assets.some((a) => a.id === o.asset.id)) throw new Error(`asset ${o.asset.id} exists`)
-      return { ...p, assets: [...p.assets, o.asset] }
-    case "asset.update":
-      need(p.assets.find((a) => a.id === o.id), `asset ${o.id}`)
+      // Attribution: anything that is not a real photo or recording says which models made it.
+      const bad = o.asset.origin === "real" || o.asset.origin === "recorded" ? undefined : checkSteps(o.asset.gen?.steps)
+      if (bad) throw new Error(`asset ${o.asset.id}: ${bad}. Pass its steps (stitch asset add --step model@provider:job, or a sidecar next to --from)`)
+      const gen = o.asset.gen && { ...o.asset.gen, model: o.asset.gen.model || stepLabel(o.asset.gen.steps) }
+      return { ...p, assets: [...p.assets, gen ? { ...o.asset, gen } : o.asset] }
+    }
+    case "asset.update": {
+      const cur = need(p.assets.find((a) => a.id === o.id), `asset ${o.id}`)
+      // gen merges, so a patch that sets a prompt or label keeps the recorded steps.
+      const gen = o.patch.gen && { ...cur.gen, ...o.patch.gen }
+      const bad = gen?.steps && checkSteps(gen.steps)
+      if (bad) throw new Error(`asset ${o.id}: ${bad}`)
       // A null in the patch removes that field.
-      return { ...p, assets: p.assets.map((a) => (a.id === o.id ? (Object.fromEntries(Object.entries({ ...a, ...o.patch, scores: { ...a.scores, ...o.patch.scores } }).filter(([, v]) => v !== null)) as Asset) : a)) }
+      return { ...p, assets: p.assets.map((a) => (a.id === o.id ? (Object.fromEntries(Object.entries({ ...a, ...o.patch, ...(gen ? { gen } : {}), scores: { ...a.scores, ...o.patch.scores } }).filter(([, v]) => v !== null)) as Asset) : a)) }
+    }
+    case "asset.attribute": {
+      const cur = need(p.assets.find((a) => a.id === o.id), `asset ${o.id}`)
+      const bad = checkSteps(o.steps)
+      if (bad) throw new Error(`asset ${o.id}: ${bad}`)
+      const gen = { ...cur.gen, model: cur.gen?.model || stepLabel(o.steps), steps: o.steps }
+      return { ...p, assets: p.assets.map((a) => (a.id === o.id ? { ...a, gen } : a)) }
+    }
     case "take.add": {
       need(p.assets.find((a) => a.id === o.asset), `asset ${o.asset}`)
       const list = o.list ?? (p.assets.find((a) => a.id === o.asset)!.media === "image" ? "keyframes" : "takes")

@@ -285,7 +285,7 @@ export async function build(version?: string, opts: { shots?: string[]; scope?: 
   await mutate([
     p.assets.some((x) => x.id === assetId)
       ? { op: "asset.update", id: assetId, patch: { path: `/generated/${name}.mp4`, duration: total } }
-      : { op: "asset.add", asset: { id: assetId, media: "video", path: `/generated/${name}.mp4`, label: opts.scope ? `${opts.scope} (${v})` : `Cut ${v}`, origin: "rendered", duration: total } },
+      : { op: "asset.add", asset: { id: assetId, media: "video", path: `/generated/${name}.mp4`, label: opts.scope ? `${opts.scope} (${v})` : `Cut ${v}`, origin: "rendered", duration: total, gen: { model: "stitch build", inputs: [...new Set(timeline.flatMap((t) => (t.asset ? [t.asset] : [])))], steps: [{ model: "local/stitch-build", provider: "local" }] } } },
     { op: "cut.add", cut },
     { op: "log", text: `Cut ${v} built: ${total.toFixed(1)} s${warnings.length ? `, ${warnings.length} warnings` : ""}.`, kind: "done" },
   ])

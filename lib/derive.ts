@@ -5,6 +5,7 @@ import {
   type GraphicUse, type Id, type Line, type Location, type Mark, type Plan, type Project, type Section, type Setup, type Shot,
   type Take, type TakeVerdict,
 } from "./model"
+import { MODELS, modelInfo, type ModelInfo } from "./models"
 
 export type Index = ReturnType<typeof indexProject>
 export function indexProject(p: Project) {
@@ -470,3 +471,71 @@ export function activityFeed(p: Project, ix: Index, mtimes: Record<Id, number>):
   flush()
   return items.sort((a, b) => b.t - a.t)
 }
+
+// ---------- Models: what each model made, and what of it we kept ----------
+
+export type ModelStat = {
+  model: ModelInfo
+  providers: string[]
+  /** Assets with a step by this model (a lip-synced take counts for its picture, voice and lip-sync models). */
+  assets: Asset[]
+  picked: number
+  rejected: number
+  /** Assets the current cut plays or was made from (a keyframe behind a take in the cut counts). */
+  inCut: number
+  /** Steps with a provider job id (the rest were read from labels). */
+  recorded: number
+  steps: number
+  costUsd: number
+  face?: number
+  voice?: number
+  qa: { pass: number; borderline: number; fail: number }
+}
+
+/** Per model: what it made, how much of it was picked, rejected or is in the current cut, its scores and cost. */
+export function modelBoard(p: Project): ModelStat[] {
+  const verdicts = new Map<Id, TakeVerdict[]>()
+  const add = (id: Id, v: TakeVerdict) => verdicts.set(id, [...(verdicts.get(id) ?? []), v])
+  for (const s of p.shots) for (const t of [...s.keyframes, ...s.takes]) add(t.asset, t.verdict)
+  for (const l of p.locations) for (const u of l.plan?.setups ?? []) for (const t of u.plates ?? []) add(t.asset, t.verdict)
+  const cut = latestCut(p)
+  const byId = new Map(p.assets.map((a) => [a.id, a]))
+  const inCut = new Set<Id>()
+  const walk = (id: Id) => {
+    if (inCut.has(id)) return
+    inCut.add(id)
+    for (const i of byId.get(id)?.gen?.inputs ?? []) walk(i)
+  }
+  for (const t of cut?.timeline ?? []) if (t.asset) walk(t.asset)
+  const stats = new Map<string, ModelStat & { faces: number[]; voices: number[] }>()
+  for (const a of p.assets) {
+    for (const id of new Set((a.gen?.steps ?? []).map((s) => s.model))) {
+      const info = modelInfo(id)
+      if (!info) continue
+      const st = stats.get(id) ?? { model: info, providers: [], assets: [], picked: 0, rejected: 0, inCut: 0, recorded: 0, steps: 0, costUsd: 0, qa: { pass: 0, borderline: 0, fail: 0 }, faces: [], voices: [] }
+      const steps = a.gen!.steps!.filter((s) => s.model === id)
+      for (const s of steps) {
+        if (!st.providers.includes(s.provider)) st.providers.push(s.provider)
+        st.steps++
+        if (s.job) st.recorded++
+        st.costUsd += s.costUsd ?? 0
+      }
+      const v = verdicts.get(a.id) ?? []
+      st.assets.push(a)
+      if (v.includes("circled")) st.picked++
+      if (v.length && v.every((x) => x === "reject")) st.rejected++
+      if (inCut.has(a.id)) st.inCut++
+      if (a.scores?.face !== undefined) st.faces.push(a.scores.face)
+      if (a.scores?.voice !== undefined) st.voices.push(a.scores.voice)
+      if (a.qa) st.qa[a.qa.verdict]++
+      stats.set(id, st)
+    }
+  }
+  const mean = (l: number[]) => (l.length ? l.reduce((s, x) => s + x, 0) / l.length : undefined)
+  return [...stats.values()]
+    .map(({ faces, voices, ...s }) => ({ ...s, face: mean(faces), voice: mean(voices) }))
+    .sort((a, b) => MODELS.indexOf(a.model) - MODELS.indexOf(b.model))
+}
+
+/** The models that made an asset, in order, by name: "Kling 3.0 Pro + Index TTS 2 + sync lipsync-3". */
+export const madeBy = (a?: Asset) => (a?.gen?.steps ?? []).map((s) => modelInfo(s.model)?.name ?? s.model).join(" + ")
