@@ -117,8 +117,9 @@ They rotate one approved set into a few angles and write the space down.
 
      The space judge passed a Brock who was floating mid-air. The cohesion judge failed that frame at plausibility 3
      and caught props redesigned from cut to cut.
-   - `bun run space-frames prep|batches|fetch|candidates|pick` runs the loop. A person still looks at every frame
-     that passes.
+   - `bun run space-frames prep|run|candidates|pick` runs the loop: `run` sends the jobs to fal with the Keychain
+     key (`FAL_KEY`) and writes each take with its sidecar, about 90 s a take, no uploads or pasting. A person still
+     looks at every frame that passes.
 9. **Fix, don't regenerate, when a take is close.** One "change only X" edit from the judge's own fix list
    (`space-frames fix`). It starts from the clean take, so no frame gets more than two generative passes.
 10. **Review every frame for logic:** the same person twice in a crowd, a stranger in a known character's place, a

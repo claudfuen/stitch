@@ -10,6 +10,7 @@
 //   bun run space-frames fix <film> <run> <tag ...> [--from <run>]
 //        one "change only" edit per failing take: Image 1 is the take, Image 2 its board, the prompt the judge's fixes.
 //   bun run space-frames batches <run> --urls urls.json      the jobs as fal requests (8 per batch), local paths -> URLs
+//   bun run space-frames run <run> [--only 0,3]               run the jobs on fal with the Keychain key (FAL_KEY), no uploads
 //   bun run space-frames fetch <run> <index>|<take>|<url> ...  download outputs with sidecars (provider, model, job)
 //   bun run space-frames candidates <run>                     the downloaded takes as a judge input list
 //   bun run space-frames pick <run>                           best take per camera from <run>/judge.json, and the gate
@@ -155,6 +156,43 @@ function fetchOut(film: string, run: string, items: string[]) {
   }
 }
 
+/** Run a run's jobs on fal directly (scripts/fal.ts, key from the Keychain): inputs go inline, outputs land as
+ *  out/<key>-a.png, -b.png ... with the same sidecar as `fetch`, so `candidates` and the judges read them unchanged. */
+function runJobs(film: string, run: string) {
+  const dir = runDir(film, run)
+  const jobs = JSON.parse(readFileSync(`${dir}/jobs.json`, "utf8")) as Job[]
+  const only = flag("only")?.split(",").map(Number)
+  const todo = jobs.filter((j) => !only || only.includes(j.index))
+  mkdirSync(`${dir}/out`, { recursive: true }); mkdirSync(`${dir}/in`, { recursive: true })
+  // Big PNG takes (fix passes) go as high-quality JPEG so the inline request stays small.
+  const ref = (f: string) => {
+    if (!f.endsWith(".png")) return f
+    const jpg = `${dir}/in/${path.basename(f, ".png")}.jpg`
+    if (!existsSync(jpg)) spawnSync("ffmpeg", ["-v", "error", "-y", "-i", f, "-q:v", "2", jpg])
+    return jpg
+  }
+  const falJobs = todo.map((j) => ({ endpoint: j.endpoint, input: j.input, refs: j.images.map(ref), out: `${dir}/out/${j.key}.png` }))
+  writeFileSync(`${dir}/fal-jobs.json`, JSON.stringify(falJobs, null, 1))
+  const r = spawnSync("bun", ["scripts/fal.ts", "batch", `${dir}/fal-jobs.json`, "--concurrency", flag("concurrency") ?? "6"], { stdio: "inherit" })
+  const requests = existsSync(`${dir}/requests.json`) ? (JSON.parse(readFileSync(`${dir}/requests.json`, "utf8")) as Record<string, string>) : {}
+  for (const j of todo) {
+    const n = Number((j.input as { num_images?: number }).num_images ?? 1)
+    for (let t = 0; t < n; t++) {
+      const src = n === 1 ? `${dir}/out/${j.key}.png` : `${dir}/out/${j.key}-${t + 1}.png`
+      if (!existsSync(src)) continue
+      const dst = `${dir}/out/${j.key}-${"abcd"[t]}.png`
+      const side = JSON.parse(readFileSync(`${src}.json`, "utf8")) as { request_id: string }
+      spawnSync("mv", [src, dst]); spawnSync("rm", ["-f", `${src}.json`])
+      requests[String(j.index)] = side.request_id
+      const { image_urls: _u, ...input } = j.input as Record<string, unknown>
+      writeFileSync(`${dst}.json`, JSON.stringify({ provider: "fal", model: MODEL_NAME[j.endpoint], endpoint: j.endpoint, request_id: side.request_id, take: t, inputs: j.images, parent: j.parent, input }, null, 1))
+      console.log(dst)
+    }
+  }
+  writeFileSync(`${dir}/requests.json`, JSON.stringify(requests, null, 1))
+  if (r.status !== 0) process.exitCode = 1
+}
+
 function candidates(film: string, run: string) {
   const dir = runDir(film, run)
   const jobs = JSON.parse(readFileSync(`${dir}/jobs.json`, "utf8")) as Job[]
@@ -188,11 +226,12 @@ function pick(film: string, run: string) {
 }
 
 const [film, run, ...more] = rest
-if (!cmd || !film || !run) throw new Error("usage: bun run space-frames prep|fix|batches|fetch|candidates|pick <film> <run> ...")
+if (!cmd || !film || !run) throw new Error("usage: bun run space-frames prep|fix|batches|run|fetch|candidates|pick <film> <run> ...")
 if (cmd === "prep") prep(film, run, more)
 else if (cmd === "fix") fix(film, run, more)
 else if (cmd === "batches") batches(film, run)
 else if (cmd === "fetch") fetchOut(film, run, more)
+else if (cmd === "run") runJobs(film, run)
 else if (cmd === "candidates") candidates(film, run)
 else if (cmd === "pick") pick(film, run)
 else throw new Error(`unknown command ${cmd}`)
