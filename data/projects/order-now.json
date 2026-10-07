@@ -804,7 +804,8 @@
         "text": "Done: Kyle redesigned as a 1994 founder (mousse hair, oversized glasses, oxford, loosened tie, pleated khakis, pager); his kitchen now has a beige computer and CRT. Sheet and scene rebuilt.",
         "by": "claude",
         "at": "2026-10-07T15:55:27.057Z",
-        "kind": "comment"
+        "kind": "comment",
+        "resolved": true
       }
     ],
     "pick": "A",
