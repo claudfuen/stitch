@@ -4183,9 +4183,10 @@
         "model": "ElevenLabs TTS (version not recorded) (unknown)",
         "steps": [
           {
-            "model": "elevenlabs/tts",
+            "model": "elevenlabs/eleven-v3",
             "provider": "fal",
             "settings": {
+              "endpoint": "fal-ai/elevenlabs/tts/eleven-v3",
               "voice": "Chris"
             },
             "job": "01a111d9-f4fb-7a12-9bb1-de3dfd62fb91"
@@ -4205,9 +4206,10 @@
         "model": "ElevenLabs TTS (version not recorded) (unknown)",
         "steps": [
           {
-            "model": "elevenlabs/tts",
+            "model": "elevenlabs/eleven-v3",
             "provider": "fal",
             "settings": {
+              "endpoint": "fal-ai/elevenlabs/tts/eleven-v3",
               "voice": "Chris"
             },
             "job": "01a111d9-f605-7a00-bf70-64c86c3da363"
@@ -4227,9 +4229,10 @@
         "model": "ElevenLabs TTS (version not recorded) (unknown)",
         "steps": [
           {
-            "model": "elevenlabs/tts",
+            "model": "elevenlabs/eleven-v3",
             "provider": "fal",
             "settings": {
+              "endpoint": "fal-ai/elevenlabs/tts/eleven-v3",
               "voice": "Chris"
             },
             "job": "01a111d9-f6bb-77f1-8193-b5b4757420a2"
@@ -4249,9 +4252,10 @@
         "model": "ElevenLabs TTS (version not recorded) (unknown)",
         "steps": [
           {
-            "model": "elevenlabs/tts",
+            "model": "elevenlabs/eleven-v3",
             "provider": "fal",
             "settings": {
+              "endpoint": "fal-ai/elevenlabs/tts/eleven-v3",
               "voice": "Chris"
             },
             "job": "01a111d9-f76e-7bf0-b727-7006b8a32631"
@@ -4271,9 +4275,10 @@
         "model": "ElevenLabs TTS (version not recorded) (unknown)",
         "steps": [
           {
-            "model": "elevenlabs/tts",
+            "model": "elevenlabs/eleven-v3",
             "provider": "fal",
             "settings": {
+              "endpoint": "fal-ai/elevenlabs/tts/eleven-v3",
               "voice": "Alice"
             },
             "job": "01a111d9-f82f-7481-97f2-389664f2c2c2"
@@ -4293,9 +4298,10 @@
         "model": "ElevenLabs TTS (version not recorded) (unknown)",
         "steps": [
           {
-            "model": "elevenlabs/tts",
+            "model": "elevenlabs/eleven-v3",
             "provider": "fal",
             "settings": {
+              "endpoint": "fal-ai/elevenlabs/tts/eleven-v3",
               "voice": "Alice"
             },
             "job": "01a111d9-f8d5-7253-b61c-00092289766a"
@@ -4315,9 +4321,10 @@
         "model": "ElevenLabs TTS (version not recorded) (unknown)",
         "steps": [
           {
-            "model": "elevenlabs/tts",
+            "model": "elevenlabs/eleven-v3",
             "provider": "fal",
             "settings": {
+              "endpoint": "fal-ai/elevenlabs/tts/eleven-v3",
               "voice": "Sarah"
             },
             "job": "01a111d9-f987-7df1-8949-63d47e069317"

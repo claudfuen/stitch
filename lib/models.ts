@@ -27,7 +27,10 @@ export const MODELS: ModelInfo[] = [
   { id: "ideogram/ideogram-v3-reframe", name: "Ideogram 3 Reframe", vendor: "Ideogram", kind: "image", aliases: [/ideogram-v3-reframe/i] },
   // Voice, lip-sync, sound
   { id: "indextts/index-tts-2", name: "Index TTS 2", vendor: "Bilibili", kind: "voice", aliases: [/index ?tts ?2/i] },
-  { id: "elevenlabs/tts", name: "ElevenLabs TTS (version not recorded)", vendor: "ElevenLabs", kind: "voice", aliases: [/elevenlabs (chris|alice|sarah)|elevenlabs tts/i] },
+  { id: "elevenlabs/eleven-v3", name: "ElevenLabs v3", vendor: "ElevenLabs", kind: "voice", aliases: [/eleven[-_ ]?v3|elevenlabs (chris|alice|sarah)/i] },
+  { id: "elevenlabs/eleven-v4", name: "ElevenLabs v4", vendor: "ElevenLabs", kind: "voice", aliases: [/eleven[-_ ]?v4(?!-turbo)/i] },
+  { id: "elevenlabs/voice-changer", name: "ElevenLabs Voice Changer", vendor: "ElevenLabs", kind: "voice", aliases: [/voice[-_ ]?changer/i] },
+  { id: "elevenlabs/tts", name: "ElevenLabs TTS (version not recorded)", vendor: "ElevenLabs", kind: "voice", aliases: [/elevenlabs tts/i] },
   { id: "sync/lipsync-3", name: "sync lipsync-3", vendor: "sync.", kind: "lipsync", aliases: [/lipsync-3/i] },
   { id: "elevenlabs/sfx-v2", name: "ElevenLabs SFX v2", vendor: "ElevenLabs", kind: "sfx", aliases: [/elevenlabs sfx v2/i] },
   // Local steps (our own code)
