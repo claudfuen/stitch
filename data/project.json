@@ -7496,6 +7496,36 @@
       "scores": {
         "face": 0.72
       }
+    },
+    {
+      "id": "v-2.4-v4-k1",
+      "media": "video",
+      "path": "/generated/v-2.4-v4-k1.mp4",
+      "label": "2.4 Kling take 1 from kf-2.4-v4",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "fal-ai/kling-video/v3/pro/image-to-video",
+        "prompt": "Kling 3.0 Pro, first frame kf-2.4-v4: locked-off two-shot, Henrick still, the founder looks at him then down at his ticket",
+        "inputs": [
+          "kf-2.4-v4"
+        ]
+      }
+    },
+    {
+      "id": "v-2.4-v4-k2",
+      "media": "video",
+      "path": "/generated/v-2.4-v4-k2.mp4",
+      "label": "2.4 Kling take 2 from kf-2.4-v4",
+      "origin": "generated",
+      "duration": 5.041667,
+      "gen": {
+        "model": "fal-ai/kling-video/v3/pro/image-to-video",
+        "prompt": "Kling 3.0 Pro, first frame kf-2.4-v4: locked-off two-shot, Henrick still, the founder looks at him then down at his ticket",
+        "inputs": [
+          "kf-2.4-v4"
+        ]
+      }
     }
   ],
   "graphics": [
@@ -8278,6 +8308,16 @@
           "asset": "v-2.4-fix-s1",
           "verdict": "circled",
           "note": "Chair row fixed. Face 0.62 against 0.71 for the old Seedance take, voice 0.80 against 0.74."
+        },
+        {
+          "asset": "v-2.4-v4-k1",
+          "verdict": "alt",
+          "note": "From circled kf-2.4-v4: room and chair row hold, faces steady, founder drops to the ticket at 4.2 s. Native voice only; needs his locked Seventeen."
+        },
+        {
+          "asset": "v-2.4-v4-k2",
+          "verdict": "reject",
+          "note": "From kf-2.4-v4: faces steady, but the native track says the word twice."
         }
       ],
       "lines": [
@@ -12016,11 +12056,6 @@
   ],
   "activity": [
     {
-      "t": "2026-10-06T16:56:48.633Z",
-      "text": "Removed intermediate builds v3.1 and v3.2; v3.3 is the current cut.",
-      "kind": "info"
-    },
-    {
       "t": "2026-10-06T17:54:42.988Z",
       "text": "Handoff: set pieces on the canvas, art direction fields, multi-model still generator (scripts/imagine.ts); Ministry hall look test across 4 models",
       "kind": "info"
@@ -12414,6 +12449,11 @@
       "t": "2026-10-07T00:41:04.110Z",
       "text": "Model bake-off for hall stills: realism pass on an empty plate, Nano Banana 2.1 94 (real control 96, input 42), Sunburst 87/74, Seedream reframed; people pass on that plate, GPT Image 2.5 Flare 96 with face 0.72, Nano Banana 2.1 5-7 with face 0.52-0.61. Recipe: 3D geometry, NB 2.1 room, Flare people.",
       "kind": "done"
+    },
+    {
+      "t": "2026-10-07T00:55:47.889Z",
+      "text": "2.4: two Kling takes from kf-2.4-v4 registered (k1 alt, k2 reject). Seedance pilot inputs staged on Higgsfield; generation paused for a permission decision.",
+      "kind": "info"
     }
   ],
   "ui": {
