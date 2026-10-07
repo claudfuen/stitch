@@ -7462,6 +7462,40 @@
           "voice-founder-clone"
         ]
       }
+    },
+    {
+      "id": "hall-C-r4-real",
+      "media": "image",
+      "path": "/generated/hall-C-r4-real.jpg",
+      "label": "Hall C plate made photographic: Nano Banana 2.1 realism pass with real material crops, warped back to camera C",
+      "origin": "generated",
+      "gen": {
+        "model": "google/nano-banana-2.1/edit (fal), 2K; ECC warp to the projected plate",
+        "prompt": "Image 1 is a frame from our feature film: a 1970s provincial European government waiting hall. Image 2 is a real photograph of a painted plaster wall over a green wooden dado, Image 3 a real photograph of a terrazzo floor, Image 4 the real mustard fibreglass shell chairs on black steel beams. Images 2 to 4 are materials only; never copy their framing.\n\nMake Image 1 a real photographic film frame. Keep the framing, camera position and perspective, and every chair, beam, door, window, noticeboard and wall edge exactly where it is and the same size. Change only how it is photographed and what the surfaces are made of.\n\nPhotography: shot on an ARRI Alexa 35 with a vintage spherical prime, deep focus. Soft overcast daylight falls from the tall windows at frame right; the overhead fluorescent tu",
+        "inputs": [
+          "hall-C-r3-proj"
+        ]
+      }
+    },
+    {
+      "id": "kf-2.4-v4",
+      "media": "image",
+      "path": "/generated/kf-2.4-v4.jpg",
+      "label": "2.4 keyframe: actors placed on the 3D stand-ins over the photographic C plate",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5/flare/edit (fal): plate + blocking render + 2 real Henrick frames + founder sheet + knitter",
+        "prompt": "Actors on the C stand-ins over the photographic plate (work/hall/bake/actors.txt)",
+        "inputs": [
+          "hall-C-r4-real",
+          "hen-real-56",
+          "hen-real-38",
+          "founder-sheet"
+        ]
+      },
+      "scores": {
+        "face": 0.72
+      }
     }
   ],
   "graphics": [
@@ -8171,9 +8205,14 @@
       },
       "keyframes": [
         {
-          "asset": "kf-2.4-fix",
+          "asset": "kf-2.4-v4",
           "verdict": "circled",
-          "note": "Chairs and back wall fixed to match the wide: one straight front row, the empty seat beside Henrick on his beam, no chairs in front of them; transom and alarm box as in 2.1; actors pasted back from kf-2.4-flare-1."
+          "note": "Geometry from the 3D room (B plate projected into C), room made photographic by Nano Banana 2.1, actors by GPT Flare on the stand-ins with real Henrick frames. Realism 96 (real control 96); face 0.72; fit: Henrick 77% / 2% off, knitter 101% / 0% off; founder reads 61% because his head is turned."
+        },
+        {
+          "asset": "kf-2.4-fix",
+          "verdict": "alt",
+          "note": "Superseded by kf-2.4-v4 (realism 96). Chairs and back wall fixed to match the wide: one straight front row, the empty seat beside Henrick on his beam, no chairs in front of them; transom and alarm box as in 2.1; actors pasted back from kf-2.4-flare-1."
         },
         {
           "asset": "kf-2.4-flare-1",
@@ -11977,11 +12016,6 @@
   ],
   "activity": [
     {
-      "t": "2026-10-06T16:56:14.561Z",
-      "text": "Cut v3.3 audited: craft fixes verified; remaining issues need new generations (lip-sync, scene 2 plate) and the restructure (runtime).",
-      "kind": "done"
-    },
-    {
       "t": "2026-10-06T16:56:48.633Z",
       "text": "Removed intermediate builds v3.1 and v3.2; v3.3 is the current cut.",
       "kind": "info"
@@ -12375,6 +12409,11 @@
       "t": "2026-10-07T00:14:19.397Z",
       "text": "Leap locked photo checks for the workspace after several false under-18 flags today (one was a tight crop of the adult founder's hair). Image edits, Kling i2v and lipsync with faces are blocked until Leap reviews; nothing ran or was charged.",
       "kind": "warn"
+    },
+    {
+      "t": "2026-10-07T00:41:04.110Z",
+      "text": "Model bake-off for hall stills: realism pass on an empty plate, Nano Banana 2.1 94 (real control 96, input 42), Sunburst 87/74, Seedream reframed; people pass on that plate, GPT Image 2.5 Flare 96 with face 0.72, Nano Banana 2.1 5-7 with face 0.52-0.61. Recipe: 3D geometry, NB 2.1 room, Flare people.",
+      "kind": "done"
     }
   ],
   "ui": {

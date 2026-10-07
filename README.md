@@ -143,7 +143,8 @@ does the work. Re-run a bake-off when a new model ships.
 
 | Task | Picked | Evidence (2026-10-06) | Also tried |
 |---|---|---|---|
-| Realism pass on a plate (make a geometry-true frame read as a photograph) | Nano Banana 2.1 edit, 2K, frame + 3 real material crops | Realism 94 on both takes (real photo control 96, input 42); geometry held within 1% scale and 10 px | GPT Image 2.5 Sunburst 87 / 74 (holds geometry to 2 px but stays smoother); GPT Flare fills 71 |
+| Realism pass on a plate (make a geometry-true frame read as a photograph) | Nano Banana 2.1 edit, 2K, frame + 3 real material crops | Realism 94 on both takes (real photo control 96, input 42); geometry held within 1% scale and 10 px | GPT Image 2.5 Sunburst 87 / 74 (holds geometry to 2 px but stays smoother); Seedream 5.0 Pro edit reframed wider on both takes (fails geometry); GPT Flare fills 71 |
+| People on a plate (actors on the 3D stand-ins) | GPT Image 2.5 Flare edit: plate + blocking render + real Henrick frames + character sheet | Realism 96 (real control 96), Henrick face 0.70-0.72, fit ok for Henrick and the knitter | Nano Banana 2.1: realism 5-7 (judges read it as generated), face 0.52-0.61 |
 | Carry a plate to another camera of the same room | `reproject.py` through the room GLB | Within 4 px of the projection; paint passes with a same-direction reference copied that reference's framing twice | Flare paint from the lit render |
 | Plate from a lit 3D render | GPT Image 2.5 Flare with an opposite-angle look reference and material crops | Conform 83-89 | Same-direction reference: copied composition |
 | Dialogue video with Henrick | Seedance 2.5 omni_reference (Higgsfield) | Face 0.71, voice 0.74 in a two-shot | Kling 3.0 Pro + Index TTS clone + lipsync-3: face 0.76-0.81, voice 0.80-0.90 on interview singles |

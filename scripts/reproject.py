@@ -6,9 +6,10 @@
 # outside its frame, a face turned away from it) comes out magenta, for a fill pass that touches only those pixels.
 #
 #   /Applications/Blender.app/Contents/MacOS/Blender -b -P scripts/reproject.py -- <room.glb> <plan.json> <from-setup>
-#       <plate.jpg> <to-setup> <out.png> [--size 1920x1080] [--samples 16]
+#       <plate.jpg> <to-setup> <out.png> [--size 1920x1080] [--samples 16] [--graze 0.1]
 #
-# Writes <out.png> (the plate seen from the new camera, holes magenta) and <out>.holes.png (white where the source
+# Surfaces the source camera saw nearly edge-on (cosine to its lens under --graze) are holes too: their few texels would be
+# stretched into a smear. Writes <out.png> (the plate seen from the new camera, holes magenta) and <out>.holes.png (white where the source
 # camera saw the surface). Cameras come from the plan (lens on Super 35, height, facing, tilt), as in greybox.py.
 import math
 import sys
@@ -102,7 +103,22 @@ nt.links.new(uv.outputs[0], tex.inputs["Vector"])
 hole = N("ShaderNodeMix"); hole.data_type = "RGBA"; hole.inputs["B"].default_value = (1, 0, 1, 1)  # outside its frame
 inv = N("ShaderNodeMath"); inv.operation = "SUBTRACT"; inv.inputs[0].default_value = 1.0
 nt.links.new(tex.outputs["Alpha"], inv.inputs[1])
-nt.links.new(inv.outputs[0], hole.inputs["Factor"])
+# A surface the source camera sees edge-on gets a few texels stretched across it: a smear the fill pass then "smooths"
+# into the painterly look. Below GRAZE (cosine between the surface normal and the way to the source lens) it is a hole.
+GRAZE = float(flags.get("--graze", "0.1"))
+toward = N("ShaderNodeVectorMath"); toward.operation = "SUBTRACT"; toward.inputs[0].default_value = pos
+nt.links.new(geo.outputs["Position"], toward.inputs[1])
+unit = N("ShaderNodeVectorMath"); unit.operation = "NORMALIZE"
+nt.links.new(toward.outputs[0], unit.inputs[0])
+facing = N("ShaderNodeVectorMath"); facing.operation = "DOT_PRODUCT"
+nt.links.new(unit.outputs[0], facing.inputs[0]); nt.links.new(geo.outputs["Normal"], facing.inputs[1])
+absf = N("ShaderNodeMath"); absf.operation = "ABSOLUTE"
+nt.links.new(facing.outputs["Value"], absf.inputs[0])
+grazing = N("ShaderNodeMath"); grazing.operation = "LESS_THAN"; grazing.inputs[1].default_value = GRAZE
+nt.links.new(absf.outputs[0], grazing.inputs[0])
+either = N("ShaderNodeMath"); either.operation = "MAXIMUM"
+nt.links.new(inv.outputs[0], either.inputs[0]); nt.links.new(grazing.outputs[0], either.inputs[1])
+nt.links.new(either.outputs[0], hole.inputs["Factor"])
 nt.links.new(tex.outputs["Color"], hole.inputs["A"])
 em = N("ShaderNodeEmission")
 nt.links.new(hole.outputs["Result"], em.inputs["Color"])
