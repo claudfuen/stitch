@@ -21,8 +21,8 @@ case $look in
 esac
 
 stats=$(ffmpeg -v error -i "$in" -vf "${sd},${pre},crop=iw*0.6:ih*0.6,signalstats,metadata=print:file=-" -frames:v 1 -f null - 2>/dev/null)
-lo=$(print -r -- "$stats" | sed -n 's/.*signalstats.YLOW=\([0-9.]*\).*/\1/p' | head -1)
-hi=$(print -r -- "$stats" | sed -n 's/.*signalstats.YHIGH=\([0-9.]*\).*/\1/p' | head -1)
+lo=$(print -r -- "$stats" | LC_ALL=C sed -n 's/.*signalstats.YLOW=\([0-9.]*\).*/\1/p' | head -1)
+hi=$(print -r -- "$stats" | LC_ALL=C sed -n 's/.*signalstats.YHIGH=\([0-9.]*\).*/\1/p' | head -1)
 (( hi - lo < 8 )) && hi=$(( lo + 8 ))
 match="lutyuv=y='clip((val-${lo})*${$(( (hi_t - lo_t) * 1.0 / (hi - lo) ))}+${lo_t},0,255)'"
 

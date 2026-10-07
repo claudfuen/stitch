@@ -6,7 +6,7 @@ import type {
   Section, Setup, Shot, Take, TakeVerdict,
 } from "./model"
 import { checkSteps, modelInfo } from "./models"
-import { blockedBy, newProcess, type Beat, type BeatMark, type Candidate, type CastMember, type Concept, type SheetItem, type Doer, type GateMode, type GateStatus, type Process, type StageId } from "./process"
+import { blockedBy, newProcess, type Beat, type BeatMark, type Candidate, type CastMember, type Concept, type SheetItem, type Doer, type GateMode, type GateStatus, type Process, type Space, type StageId } from "./process"
 
 /** The editable lists on a floor plan, and the element type each holds. */
 export type PlanList = { items: PlanItem; marks: Mark; axes: Axis; setups: Setup }
@@ -61,6 +61,11 @@ export type Op =
   | { op: "sheet.view"; id: Id; candidate: Candidate }
   /** Take views off the item's sheet (a regenerated sheet replaces the old one). */
   | { op: "sheet.unview"; id: Id; views: string[] }
+  /** Stage 03: the rooms, their cameras and space maps, and the camera script. Replaces the plan; frames already made
+   *  for a camera that keeps its room and id stay on it. */
+  | { op: "space.set"; space: Space; by?: string }
+  /** A frame of the set from one camera, with the cast on their marks (model and provider required). */
+  | { op: "space.frame"; room: Id; cam: Id; candidate: Candidate }
   | { op: "sheet.lock"; id: Id; pass: number; of: number; note?: string }
   | { op: "sheet.scene"; id: Id; candidate: Candidate }
   /** Replace the beat sheet (an agent's rewrite). Bumps the version and reopens the script gate. */
@@ -252,6 +257,8 @@ export function applyOp(p: Project, o: Op): Project {
     case "sheet.pick":
     case "sheet.view":
     case "sheet.unview":
+    case "space.set":
+    case "space.frame":
     case "sheet.lock":
     case "sheet.scene":
     case "script.set":
@@ -260,14 +267,14 @@ export function applyOp(p: Project, o: Op): Project {
     case "note.resolve":
     {
       const process = applyProcessOp(p.process ?? newProcess(), o)
-      const said = o.op === "gate.set" ? `${process.stages.find((x) => x.id === o.stage)?.name}: ${o.status}${o.note ? ` - ${o.note}` : ""}` : o.op === "concept.pick" ? `Concept picked: ${o.id ?? "none"}` : o.op === "script.set" ? `Beat sheet v${process.script.version} written` : o.op === "note.add" ? `Note on ${o.target}: ${o.text}` : o.op === "sheet.pick" ? `Picked for ${o.id}: ${o.file ?? "none"}` : o.op === "sheet.add" ? `Candidate for ${o.id}: ${o.candidate.file} (${o.candidate.model} via ${o.candidate.provider})` : null
+      const said = o.op === "gate.set" ? `${process.stages.find((x) => x.id === o.stage)?.name}: ${o.status}${o.note ? ` - ${o.note}` : ""}` : o.op === "concept.pick" ? `Concept picked: ${o.id ?? "none"}` : o.op === "script.set" ? `Beat sheet v${process.script.version} written` : o.op === "note.add" ? `Note on ${o.target}: ${o.text}` : o.op === "sheet.pick" ? `Picked for ${o.id}: ${o.file ?? "none"}` : o.op === "sheet.add" ? `Candidate for ${o.id}: ${o.candidate.file} (${o.candidate.model} via ${o.candidate.provider})` : o.op === "space.set" ? `Space and camera: ${o.space.rooms.length} rooms, ${o.space.rooms.reduce((n, r) => n + r.cameras.length, 0)} cameras, ${o.space.cuts.length} cuts` : o.op === "space.frame" ? `Frame for ${o.room} ${o.cam} (${o.candidate.model} via ${o.candidate.provider})` : null
       const activity = said ? [...p.activity, { t: now(), text: `${("by" in o && o.by) || "claude"} · ${said}`, kind: "info" as const }].slice(-80) : p.activity
       return { ...p, process, activity }
     }
   }
 }
 
-type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "cast.set" | "sheet.upsert" | "sheet.add" | "sheet.pick" | "sheet.view" | "sheet.unview" | "sheet.lock" | "sheet.scene" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
+type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "cast.set" | "sheet.upsert" | "sheet.add" | "sheet.pick" | "sheet.view" | "sheet.unview" | "space.set" | "space.frame" | "sheet.lock" | "sheet.scene" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
 
 let seq = 0
 const noteId = () => `n${Date.now().toString(36)}${(seq++).toString(36)}`
@@ -331,6 +338,17 @@ function applyProcessOp(pr: Process, o: ProcessOp): Process {
       const list = pr.sheets ?? []
       need(list.find((x) => x.id === o.id), `sheet ${o.id}`)
       return { ...pr, sheets: list.map((x) => (x.id === o.id ? { ...x, views: (x.views ?? []).filter((v) => !o.views.includes(v.view ?? "")) } : x)) }
+    }
+    case "space.set": {
+      const old = pr.space?.rooms ?? []
+      const rooms = o.space.rooms.map((r) => ({ ...r, cameras: r.cameras.map((c) => ({ ...c, frame: c.frame ?? old.find((x) => x.id === r.id)?.cameras.find((x) => x.id === c.id)?.frame })) }))
+      return { ...pr, space: { rooms, cuts: [...o.space.cuts].sort((a, b) => a.t0 - b.t0) } }
+    }
+    case "space.frame": {
+      if (!o.candidate.model || !o.candidate.provider) throw new Error("a frame needs its model and provider")
+      const rooms = pr.space?.rooms ?? []
+      need(rooms.find((r) => r.id === o.room)?.cameras.find((c) => c.id === o.cam), `camera ${o.room}/${o.cam}`)
+      return { ...pr, space: { ...pr.space!, rooms: rooms.map((r) => (r.id === o.room ? { ...r, cameras: r.cameras.map((c) => (c.id === o.cam ? { ...c, frame: o.candidate } : c)) } : r)) } }
     }
     case "sheet.scene": {
       if (!o.candidate.model || !o.candidate.provider) throw new Error("a scene needs its model and provider")

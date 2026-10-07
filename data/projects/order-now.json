@@ -17,201 +17,6 @@
   "open": [],
   "activity": [
     {
-      "t": "2026-10-07T15:35:14.686Z",
-      "text": "claude · Candidate for look-before: generated/order-now/look-before-2.png (GPT Image 2.5 Sunburst via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:35:14.713Z",
-      "text": "claude · Candidate for look-before: generated/order-now/look-before-3.jpg (Seedream 5.0 Pro via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:35:14.741Z",
-      "text": "claude · Candidate for look-colour: generated/order-now/look-colour-1.jpg (FLUX 2 Max via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:35:14.768Z",
-      "text": "claude · Candidate for look-colour: generated/order-now/look-colour-2.png (GPT Image 2.5 Sunburst via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:35:14.795Z",
-      "text": "claude · Candidate for look-colour: generated/order-now/look-colour-3.jpg (Seedream 5.0 Pro via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:35:14.829Z",
-      "text": "claude · Candidate for set-kitchen: generated/order-now/set-kitchen-1.png (GPT Image 2.5 Sunburst via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:35:19.800Z",
-      "text": "claude · Candidate for kyle: generated/order-now/kyle-3.jpg (Seedream 5.0 Pro via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:35:19.830Z",
-      "text": "claude · Candidate for set-stairwell: generated/order-now/set-stairwell-1.png (GPT Image 2.5 Sunburst via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:35:27.918Z",
-      "text": "claude · Candidate for audience: generated/order-now/audience-2.jpg (FLUX 2 Max via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:35:36.016Z",
-      "text": "claude · Candidate for gerald: generated/order-now/gerald-3.jpg (Seedream 5.0 Pro via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:35:36.043Z",
-      "text": "claude · Candidate for set-audit: generated/order-now/set-audit-1.png (GPT Image 2.5 Sunburst via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:35:36.068Z",
-      "text": "claude · Candidate for set-kitchen: generated/order-now/set-kitchen-2.jpg (FLUX 2 Max via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:35:44.166Z",
-      "text": "claude · Candidate for audience: generated/order-now/audience-3.jpg (Seedream 5.0 Pro via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:35:52.274Z",
-      "text": "claude · Candidate for set-stairwell: generated/order-now/set-stairwell-2.jpg (FLUX 2 Max via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:35:52.303Z",
-      "text": "claude · Candidate for set-studio: generated/order-now/set-studio-1.png (GPT Image 2.5 Sunburst via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:36:00.391Z",
-      "text": "claude · Candidate for set-kitchen: generated/order-now/set-kitchen-3.jpg (Seedream 5.0 Pro via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:36:00.418Z",
-      "text": "claude · Candidate for set-stairwell: generated/order-now/set-stairwell-3.jpg (Seedream 5.0 Pro via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:36:08.501Z",
-      "text": "claude · Candidate for set-audit: generated/order-now/set-audit-2.jpg (FLUX 2 Max via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:36:16.581Z",
-      "text": "claude · Candidate for set-audit: generated/order-now/set-audit-3.jpg (Seedream 5.0 Pro via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:36:16.605Z",
-      "text": "claude · Candidate for set-hammock: generated/order-now/set-hammock-1.png (GPT Image 2.5 Sunburst via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:36:16.630Z",
-      "text": "claude · Candidate for set-operators: generated/order-now/set-operators-1.png (GPT Image 2.5 Sunburst via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:36:16.654Z",
-      "text": "claude · Candidate for set-studio: generated/order-now/set-studio-2.jpg (FLUX 2 Max via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:36:32.801Z",
-      "text": "claude · Candidate for props-demo: generated/order-now/props-demo-1.png (GPT Image 2.5 Sunburst via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:36:32.826Z",
-      "text": "claude · Candidate for set-studio: generated/order-now/set-studio-3.jpg (Seedream 5.0 Pro via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:36:36.905Z",
-      "text": "Claudio · Picked for set-studio: generated/order-now/set-studio-1.png",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:36:40.896Z",
-      "text": "claude · Candidate for set-hammock: generated/order-now/set-hammock-2.jpg (FLUX 2 Max via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:36:40.921Z",
-      "text": "claude · Candidate for set-operators: generated/order-now/set-operators-2.jpg (FLUX 2 Max via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:36:40.947Z",
-      "text": "claude · Candidate for set-operators: generated/order-now/set-operators-3.jpg (Seedream 5.0 Pro via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:36:56.688Z",
-      "text": "Claudio · Picked for gerald: generated/order-now/gerald-1.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:36:57.091Z",
-      "text": "claude · Candidate for props-demo: generated/order-now/props-demo-2.jpg (FLUX 2 Max via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:37:06.063Z",
-      "text": "Claudio · Picked for brock: generated/order-now/brock-3.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:37:13.824Z",
-      "text": "Claudio · Picked for look-colour: generated/order-now/look-colour-2.png",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:37:17.274Z",
-      "text": "Claudio · Picked for look-before: generated/order-now/look-before-1.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:37:27.723Z",
-      "text": "Claudio · Picked for set-operators: generated/order-now/set-operators-1.png",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:37:29.378Z",
-      "text": "claude · Candidate for props-demo: generated/order-now/props-demo-3.jpg (Seedream 5.0 Pro via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:37:37.471Z",
-      "text": "claude · Candidate for set-hammock: generated/order-now/set-hammock-3.jpg (Seedream 5.0 Pro via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:37:42.468Z",
-      "text": "claude · Picked for henrick-set: generated/order-now/henrick-set-2.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:37:42.493Z",
-      "text": "claude · Picked for brock: generated/order-now/brock-2.png",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:37:42.517Z",
-      "text": "claude · Picked for kyle: generated/order-now/kyle-2.png",
-      "kind": "info"
-    },
-    {
       "t": "2026-10-07T15:37:42.541Z",
       "text": "claude · Picked for gerald: generated/order-now/gerald-1.jpg",
       "kind": "info"
@@ -415,6 +220,201 @@
       "t": "2026-10-07T16:17:19.984Z",
       "text": "claude · Picked for props-demo: generated/order-now/props-demo-6.jpg",
       "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:22:01.044Z",
+      "text": "Claudio · Look and sheets: approved",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:28:22.674Z",
+      "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:32:55.934Z",
+      "text": "claude · Frame for studio C1 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:32:56.156Z",
+      "text": "claude · Frame for studio C2 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:32:56.375Z",
+      "text": "claude · Frame for studio C3 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:32:56.608Z",
+      "text": "claude · Frame for studio C4 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:32:56.820Z",
+      "text": "claude · Frame for studio C5 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:32:57.049Z",
+      "text": "claude · Frame for studio C6 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:32:57.285Z",
+      "text": "claude · Frame for studio C7 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:39:25.544Z",
+      "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:41:27.530Z",
+      "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:41:27.552Z",
+      "text": "claude · Note on space:script: Timing check: beats 7, 10 and 11 carry 4 to 4.5 words a second, but Henrick and Gerald play slow (about 2). At their pace those beats need about 6.5 s more, so the film would run about 67 s. Proposal: record the voices at natural pace (stage 04), then either trim lines or let it run, and retime the camera script to the recordings.",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:41:27.552Z",
+      "text": "claude · Note on beat:3: 1994 check: a phone flash is an anachronism. The camera plan uses a point-and-shoot film camera with a flash; the line reads the same.",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:42:20.937Z",
+      "text": "claude · Frame for studio C1 (Nano Banana 2.1 (edit, 2 passes) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:42:21.151Z",
+      "text": "claude · Frame for studio C3 (Nano Banana 2.1 (edit, 2 passes) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:42:21.377Z",
+      "text": "claude · Frame for studio C4 (Nano Banana 2.1 (edit, 2 passes) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:42:21.596Z",
+      "text": "claude · Frame for studio C5 (Nano Banana 2.1 (edit, 2 passes) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:42:21.818Z",
+      "text": "claude · Frame for studio C6 (Nano Banana 2.1 (edit, 2 passes) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:44:14.102Z",
+      "text": "claude · Frame for kitchen K1 (Nano Banana 2.1 (edit) + before grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:44:14.349Z",
+      "text": "claude · Frame for kitchen K2 (Nano Banana 2.1 (edit) + before grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:44:14.598Z",
+      "text": "claude · Frame for kitchen K3 (Nano Banana 2.1 (edit) + before grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:44:14.843Z",
+      "text": "claude · Frame for stairwell S1 (Nano Banana 2.1 (edit) + before grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:44:15.081Z",
+      "text": "claude · Frame for audit A1 (Nano Banana 2.1 (edit) + before grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:44:15.278Z",
+      "text": "claude · Frame for audit A3 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:44:15.506Z",
+      "text": "claude · Frame for operators O1 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:45:10.913Z",
+      "text": "claude · Frame for operators O2 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:45:11.160Z",
+      "text": "claude · Frame for hammock H1 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:45:44.462Z",
+      "text": "claude · Frame for audit A2 (Nano Banana 2.1 (edit, 2 passes) + before grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:47:06.456Z",
+      "text": "claude · Frame for studio C7 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:47:06.479Z",
+      "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:48:48.360Z",
+      "text": "claude · Frame for studio C1 (Nano Banana 2.1 (edit, 2 passes) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:48:48.586Z",
+      "text": "claude · Frame for studio C2 (Nano Banana 2.1 (edit, 2 passes) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:50:17.865Z",
+      "text": "claude · Frame for studio C5 (Nano Banana 2.1 (edit, 2 passes) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:50:31.954Z",
+      "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:50:57.037Z",
+      "text": "claude · Frame for studio C4 (Nano Banana 2.1 (edit, 2 passes) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:50:57.261Z",
+      "text": "claude · Frame for studio C6 (Nano Banana 2.1 (edit, 2 passes) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:51:34.054Z",
+      "text": "claude · Frame for operators O1 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:51:34.258Z",
+      "text": "claude · Frame for operators O2 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:51:34.278Z",
+      "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
+      "kind": "info"
     }
   ],
   "ui": {
@@ -438,7 +438,9 @@
         "about": "Image models make stills; faces, wardrobe and rooms are locked before any video. Real photos beat generated ones.",
         "doer": "both",
         "gate": "required",
-        "status": "pending"
+        "status": "approved",
+        "by": "Claudio",
+        "at": "2026-10-07T16:22:01.044Z"
       },
       {
         "id": "space",
@@ -806,6 +808,22 @@
         "at": "2026-10-07T15:55:27.057Z",
         "kind": "comment",
         "resolved": true
+      },
+      {
+        "id": "nmuyc4buo0",
+        "target": "space:script",
+        "text": "Timing check: beats 7, 10 and 11 carry 4 to 4.5 words a second, but Henrick and Gerald play slow (about 2). At their pace those beats need about 6.5 s more, so the film would run about 67 s. Proposal: record the voices at natural pace (stage 04), then either trim lines or let it run, and retime the camera script to the recordings.",
+        "by": "claude",
+        "at": "2026-10-07T16:41:27.552Z",
+        "kind": "comment"
+      },
+      {
+        "id": "nmuyc4buo1",
+        "target": "beat:3",
+        "text": "1994 check: a phone flash is an anachronism. The camera plan uses a point-and-shoot film camera with a flash; the line reads the same.",
+        "by": "claude",
+        "at": "2026-10-07T16:41:27.552Z",
+        "kind": "comment"
       }
     ],
     "pick": "A",
@@ -1772,7 +1790,7 @@
         "id": "gerald",
         "kind": "cast",
         "name": "Gerald",
-        "brief": "The auditor, about 60: careful comb-over, half-moon glasses on a chain, beige three-piece suit. Deadpan; later misty-eyed.",
+        "brief": "The auditor, about 60: careful comb-over, round wire reading glasses on a thin beaded chain fixed to both arms, beige three-piece suit. Deadpan; later misty-eyed.",
         "candidates": [
           {
             "file": "generated/order-now/gerald-1.jpg",
@@ -2435,6 +2453,614 @@
         "pick": "generated/order-now/props-demo-6.jpg",
         "pickedBy": "claude"
       }
-    ]
+    ],
+    "space": {
+      "rooms": [
+        {
+          "id": "kitchen",
+          "name": "Kyle's kitchen",
+          "sheet": "set-kitchen",
+          "look": "before",
+          "map": "Night. A small laminate table in the middle of the kitchen. Kyle sits at it on a wooden kitchen chair, facing a beige 1994 computer with a CRT monitor on the table; the monitor's screen faces him. Fridge, sink and cabinets along the back wall. A dot-matrix printer on the counter behind Kyle's right shoulder, fed with continuous-feed paper. In every angle Kyle faces screen left toward the computer, so his fall and his photographing read in the same direction.",
+          "cameras": [
+            {
+              "id": "K1",
+              "name": "The fall",
+              "size": "MWS",
+              "lens": 28,
+              "from": "Low, from Kyle's left front at seated eye height, three-quarter on: Kyle and his chair on screen right, the computer on screen left, the back wall behind.",
+              "why": "Wide lens and enough floor in frame to let him tip all the way back out of the chair in slow motion. The fall is the joke, so it plays whole, not cut up.",
+              "behind": "The kitchen doorway and a dark hall.",
+              "frame": {
+                "file": "generated/order-now/space/kitchen--K1.jpg",
+                "view": "K1",
+                "model": "Nano Banana 2.1 (edit) + before grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a1173b-413a-7f73-9957-3010fe2e9ab7",
+                "prompt": "Image 1 is Kyle's small 1994 apartment kitchen at night. Show the same kitchen from a new camera: low, from Kyle's left front at seated eye height, three-quarter on, a 28 mm medium-wide shot with plenty of floor in frame. Kyle sits at the laminate kitchen table on a wooden kitchen chair, on screen right, facing screen left toward a beige 1994 computer with a CRT monitor on the table; the monitor's screen faces him. The opening moment: he has just read the screen and flings both arms up as his chair starts to tip backwards on its two back legs. Kyle is the man in Images 2 and 3 (keep his face, mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch and brown loafers exactly). Image 4 shows only the pose to copy; ignore its grey background. Keep the kitchen exactly as in Image 1: same cabinets, fridge, table and light. Behind the camera is the kitchen doorway; do not show it. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text.",
+                "inputs": [
+                  "https://v3b.fal.media/files/b/0aad7214/_Ol5AiAh2_x5baiq67Ijg_plate-kitchen.jpg",
+                  "https://v3b.fal.media/files/b/0aad7214/7a_Wfxc471pWdt4Jr4V3A_kyle--body-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad7214/r_VKfNuGkHDBj9l1cX3_p_kyle--face-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad7214/r5og5EOdUroLnXt1LZQWI_kyle--pose-tip-chair.jpg"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:44:14.100Z"
+              }
+            },
+            {
+              "id": "K2",
+              "name": "The email",
+              "size": "INS",
+              "lens": 50,
+              "from": "Over Kyle's right shoulder onto the CRT screen, the email readable.",
+              "why": "The audience has to read the inciting email in under two seconds: one insert, no acting needed.",
+              "behind": "The rest of the kitchen; never shown.",
+              "frame": {
+                "file": "generated/order-now/space/kitchen--K2.jpg",
+                "view": "K2",
+                "model": "Nano Banana 2.1 (edit) + before grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a1173b-41f5-7611-a2f9-67e41bd63edf",
+                "prompt": "Image 1 is Kyle's small 1994 apartment kitchen at night. Show an insert from a new camera: over Kyle's right shoulder onto the beige CRT monitor on the kitchen table, the screen filling most of the frame. On the screen, a 1994 email program window with grey title bars and a white message area that reads exactly: 'Love the product! Before we sign, can you send your SOC 2?' The back of Kyle's head and his light-blue shirt shoulder soft in the left foreground. Kyle is the man in Image 2 (keep his face, mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch and brown loafers exactly). Keep the kitchen's light as in Image 1. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No other text.",
+                "inputs": [
+                  "https://v3b.fal.media/files/b/0aad7214/_Ol5AiAh2_x5baiq67Ijg_plate-kitchen.jpg",
+                  "https://v3b.fal.media/files/b/0aad7214/7a_Wfxc471pWdt4Jr4V3A_kyle--body-front.jpg"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:44:14.347Z"
+              }
+            },
+            {
+              "id": "K3",
+              "name": "The screenshots",
+              "size": "MWS",
+              "lens": 24,
+              "from": "From behind the computer, looking at Kyle head on as he stands and photographs the screen with a point-and-shoot camera; the printer behind him spews paper into a pile at his knees.",
+              "why": "The printer behind him is the punchline, so it shares the frame with him; the flash goes off straight into our lens.",
+              "behind": "The back wall with the fridge; only the edge of the monitor is in frame, bottom left.",
+              "frame": {
+                "file": "generated/order-now/space/kitchen--K3.jpg",
+                "view": "K3",
+                "model": "Nano Banana 2.1 (edit) + before grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a1173b-41f7-7c60-a49e-111f66475644",
+                "prompt": "Image 1 is Kyle's small 1994 apartment kitchen at night. Show the same kitchen from a new camera: from behind the computer on the table, looking straight at Kyle, a 24 mm medium-wide shot. Kyle stands facing the lens, holding a small silver 1990s compact film camera up to his eye with both hands and photographing the computer screen, the flash firing. Only the back edge of the beige monitor shows, in the bottom-left corner of frame. Behind him on the counter a beige dot-matrix printer spews a long stream of continuous-feed paper printouts that pile up around his knees on the floor. Kyle is the man in Images 2 and 3 (keep his face, mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch and brown loafers exactly). Image 4 shows only the pose to copy; ignore its grey background. Keep the kitchen exactly as in Image 1. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text.",
+                "inputs": [
+                  "https://v3b.fal.media/files/b/0aad7214/_Ol5AiAh2_x5baiq67Ijg_plate-kitchen.jpg",
+                  "https://v3b.fal.media/files/b/0aad7214/7a_Wfxc471pWdt4Jr4V3A_kyle--body-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad7214/r_VKfNuGkHDBj9l1cX3_p_kyle--face-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad7215/EkLc-XsPc7_oVwrc_9ePk_kyle--pose-photo.jpg"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:44:14.596Z"
+              }
+            }
+          ]
+        },
+        {
+          "id": "stairwell",
+          "name": "Apartment stairwell",
+          "sheet": "set-stairwell",
+          "look": "before",
+          "map": "The stairwell of Kyle's apartment building (he has no office; the company is his kitchen): a square stairwell, four flights down around an open well with metal railings. Kyle stands at the railing of the top landing and lets go of a security questionnaire printed on continuous-feed paper; it unrolls straight down the well, past every landing, and keeps going.",
+          "cameras": [
+            {
+              "id": "S1",
+              "name": "Down the well",
+              "size": "EWS",
+              "lens": 18,
+              "from": "High above the top landing, looking straight down the well past Kyle's hands at the railing.",
+              "why": "One image tells the whole joke: the paper outruns four flights. Ultra-wide makes the drop feel endless.",
+              "behind": "The stairwell ceiling; nothing else.",
+              "frame": {
+                "file": "generated/order-now/space/stairwell--S1.jpg",
+                "view": "S1",
+                "model": "Nano Banana 2.1 (edit) + before grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a1173b-41f5-7d61-a45b-b940d1da7179",
+                "prompt": "Image 1 is an office stairwell seen from the top landing, straight down four flights around an open well. Keep its camera and framing: high above the top landing, an 18 mm ultra-wide looking straight down the well. Add Kyle's hands and forearms in the light-blue oxford shirt sleeves at the top-landing railing in the bottom of frame, seen from above and behind; he has just let go of a security questionnaire printed on continuous-feed paper, which unrolls straight down the open well past every landing, all four flights, and keeps going out of sight at the bottom. Kyle's sleeves and watch as in Image 2. Image 3 shows the continuous-feed paper; copy only the paper. Keep the stairwell exactly as in Image 1. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text.",
+                "inputs": [
+                  "https://v3b.fal.media/files/b/0aad7214/SJgbsZdk8DAggEBBHP5dy_plate-stairwell.jpg",
+                  "https://v3b.fal.media/files/b/0aad7214/7a_Wfxc471pWdt4Jr4V3A_kyle--body-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad7215/2vFxTsSvV6yiqrvIm0f3v_kyle--pose-scroll.jpg"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:44:14.842Z"
+              }
+            }
+          ]
+        },
+        {
+          "id": "audit",
+          "name": "Audit room",
+          "sheet": "set-audit",
+          "look": "before",
+          "map": "A windowless conference room under harsh fluorescent tubes. A long table runs left to right across the room. Kyle sits on the near side at screen left, Gerald on the far side at screen right, facing each other across towers of white binders. The tallest tower stands at Kyle's left elbow. The line runs Kyle to Gerald: every camera stays on the door side of the room, so Kyle is always screen left looking right and Gerald is always screen right looking left. After: the same room in colour with the table cleared to one thin blue folder.",
+          "cameras": [
+            {
+              "id": "A1",
+              "name": "Across the table",
+              "size": "MWS",
+              "lens": 28,
+              "from": "From the door end of the table, a profile two-shot: Kyle screen left, Gerald screen right, the binder towers between them.",
+              "why": "Comedy plays in the two-shot: Gerald's tiny sticky note against the wall of binders, both faces in one frame.",
+              "behind": "The door wall with a light switch.",
+              "frame": {
+                "file": "generated/order-now/space/audit--A1.jpg",
+                "view": "A1",
+                "model": "Nano Banana 2.1 (edit) + before grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a1173b-41eb-73d2-8698-00f53257e5cb",
+                "prompt": "Image 1 is a windowless conference room under harsh fluorescent tubes with a long table piled with white binders. Show the same room from a new camera: at one end of the long table, looking down its length, a 28 mm medium-wide two-shot. Kyle sits on the left side of the table (screen left) and Gerald sits on the right side (screen right), facing each other across towers of white binders; the tallest tower stands at Kyle's left elbow. Gerald, deadpan, slides a single small yellow sticky note across the table toward Kyle with one finger; Kyle stares at it. Kyle is the man in Images 2 and 3 (keep his face, mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch and brown loafers exactly). Gerald is the man in Images 4 and 5 (keep his face, slicked comb-over, wire reading glasses with a thin beaded chain fixed to both arms, beige three-piece suit, brown tie and lapel pin exactly). Image 6 shows only the pose to copy; ignore its grey background. Keep the room, table, binders and light as in Image 1. Behind the camera is the door wall; do not show it. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text.",
+                "inputs": [
+                  "https://v3b.fal.media/files/b/0aad7214/c8WyBs3y5Dii0qEUJri_i_plate-audit.jpg",
+                  "https://v3b.fal.media/files/b/0aad7214/7a_Wfxc471pWdt4Jr4V3A_kyle--body-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad7214/r_VKfNuGkHDBj9l1cX3_p_kyle--face-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad7215/JMnobz0VSV7idwZuiBSmd_gerald--body-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad7215/10oxGovJJlzseDK1W9nfw_gerald--face-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad7215/Ex-gl1BbJkkipjFGSDqj7_gerald--pose-sticky-note.jpg"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:44:15.079Z"
+              }
+            },
+            {
+              "id": "A2",
+              "name": "Kyle to camera",
+              "size": "MS",
+              "lens": 35,
+              "from": "From Gerald's side of the table, just off his shoulder: Kyle stands, throws his arms up and knocks the tower over, then looks straight into the lens.",
+              "why": "The infomercial's breaking-the-fourth-wall plea: he turns to us, mid-disaster.",
+              "behind": "Gerald's chair and the far wall; Gerald is just out of frame on the right.",
+              "frame": {
+                "file": "generated/order-now/space/audit--A2.jpg",
+                "view": "A2",
+                "model": "Nano Banana 2.1 (edit, 2 passes) + before grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a11741-0eab-7182-9ac9-d1a5ffae7d76",
+                "prompt": "Continuity edit: the foreground man seen from behind made Gerald (grey comb-over, glasses chain, beige suit).",
+                "inputs": [
+                  "audit A2 take a (job 01a1173b-4253-79d2-a138-c0759bae1e15)",
+                  "gerald--body-front"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:45:44.461Z"
+              }
+            },
+            {
+              "id": "A3",
+              "name": "Gerald's testimonial",
+              "size": "MCU",
+              "lens": 50,
+              "look": "colour",
+              "from": "Same room after, in colour: Gerald seated on the far side, the table empty but for one thin blue folder he holds; he looks just off the lens to an interviewer on camera left.",
+              "why": "Colour on purpose: the testimonials come after the smash to colour, so Gerald's is in colour like Kyle's. Shot in the same room that held the binders, now cleared to one thin folder, it is the before-and-after in one frame. Testimonial framing, off centre, room for the lower third.",
+              "behind": "The cleared table and the door.",
+              "frame": {
+                "file": "generated/order-now/space/audit--A3.jpg",
+                "view": "A3",
+                "model": "Nano Banana 2.1 (edit) + betacam grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a1173b-41ef-7d10-8a90-985cbbb31966",
+                "prompt": "Image 1 is a windowless conference room under fluorescent tubes. Show the same room afterwards: the long table now completely cleared, no binders anywhere. A 50 mm medium close-up of Gerald seated on the far side of the table, slightly off centre to screen right, holding one thin blue folder to his chest, misty-eyed, lips pressed together, looking just off the lens toward an interviewer on camera left. Room on the left of frame for a lower third. Soft, flattering interview light. Gerald is the man in Images 2 and 3 (keep his face, slicked comb-over, wire reading glasses with a thin beaded chain fixed to both arms, beige three-piece suit, brown tie and lapel pin exactly). Image 4 shows only the pose to copy; ignore its grey background. Keep the room's walls, table and chairs as in Image 1. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text.",
+                "inputs": [
+                  "https://v3b.fal.media/files/b/0aad7214/c8WyBs3y5Dii0qEUJri_i_plate-audit.jpg",
+                  "https://v3b.fal.media/files/b/0aad7215/JMnobz0VSV7idwZuiBSmd_gerald--body-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad7215/10oxGovJJlzseDK1W9nfw_gerald--face-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad7215/rp9ALAVOirEKNkPT5ERXx_gerald--pose-folder.jpg"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:44:15.276Z"
+              }
+            }
+          ]
+        },
+        {
+          "id": "studio",
+          "name": "Infomercial set",
+          "sheet": "set-studio",
+          "look": "colour",
+          "map": "The 1994 infomercial stage, seen from the audience side. Screen left: tiered bleachers with the studio audience. Centre: the curved white demo desk with chrome trim. Two white stools at the desk's ends. Back wall: pink-to-teal gradient with the COMP AI neon sign above the desk. Henrick sits on the right-hand stool (screen right), hands folded, angled three-quarters toward camera and slightly toward Brock. Brock's mark is standing left of the desk (screen left of centre); he keeps leaving it. The line runs Brock to Henrick: every camera stays on the audience side, so Brock is always screen left looking right and Henrick always screen right looking left. The audience is the only reverse angle. The audience: one bleacher bank at stage left (screen left from the front cameras), six tiers of eight burgundy seats on grey carpeted steps, stairs with a chrome handrail at its stage end beside a pink column. The same 48 people sit in it for the whole show, always in the same seats; C7 is their reference. Front row, as C7 sees it from left to right: a blonde woman in her 40s in a pink sweater; a moustached man in a teal-and-purple windbreaker; a grey-haired woman in lavender with pearls; a young man with a mullet in a denim jacket; a curly auburn-haired woman in a pastel sweatshirt; a bald man with glasses in plaid; a black-haired woman in teal; a grey-bearded man in burgundy. No face appears twice. Continuity: any angle that shows the bleachers shows them full and reacting to the beat (on their feet in 5, applauding in 6, 'Ooooh' in 7, 'WOW' in 8, frozen in the silence of 11, applauding in 14). The demo desk always holds the red COMP AI button in the centre and the thin blue SOC 2 folder at its right end, by Henrick's stool; the tower of white binders is on the desk only in beat 8. Nothing else on the desk.",
+          "cameras": [
+            {
+              "id": "C1",
+              "name": "Studio wide",
+              "size": "WS",
+              "lens": 24,
+              "from": "Front left, the angle of the set plate: audience on screen left, desk centre, Henrick's stool screen right, neon sign above.",
+              "why": "The wide master that loads the layout for the video model and for the audience. The smash from black and white to colour lands here.",
+              "behind": "The studio floor and the pedestal cameras.",
+              "frame": {
+                "file": "generated/order-now/space/studio--C1.jpg",
+                "view": "C1",
+                "model": "Nano Banana 2.1 (edit, 2 passes) + betacam grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a11742-c72a-71b1-b15c-dc8678238b1a",
+                "prompt": "Continuity edit: audience made the cast from C7 (same people, same seats), on their feet; desk dressed with the button and folder. Change only that; keep everything else.",
+                "inputs": [
+                  "studio C1 pass 1 (job 01a11733-b0d0-7563-a9b7-632ee93d3a59)",
+                  "studio C7 audience reference",
+                  "props reference"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:48:48.358Z"
+              }
+            },
+            {
+              "id": "C2",
+              "name": "Brock",
+              "size": "MS",
+              "lens": 32,
+              "from": "Front left, on Brock at his mark, with room on both sides of frame because he keeps bounding out of it.",
+              "why": "A host who cannot stay in his own shot. Wide-ish lens keeps the set and the audience edge behind him.",
+              "behind": "The studio floor; Henrick is off screen right.",
+              "frame": {
+                "file": "generated/order-now/space/studio--C2.jpg",
+                "view": "C2",
+                "model": "Nano Banana 2.1 (edit, 2 passes) + betacam grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a11742-c67c-7181-98f4-b81a3173e23b",
+                "prompt": "Continuity edit: audience made the cast from C7 (same people, same seats), applauding. Change only that; keep everything else.",
+                "inputs": [
+                  "studio C2 pass 1 (job 01a11733-b1a5-7ff2-9187-efebba9ffaab)",
+                  "studio C7 audience reference",
+                  "props reference"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:48:48.584Z"
+              }
+            },
+            {
+              "id": "C3",
+              "name": "Henrick, locked",
+              "size": "MS",
+              "lens": 50,
+              "from": "Straight on to Henrick on his stool, centred, the neon sign out of focus behind him. The camera never moves.",
+              "why": "The comic anchor of the whole film: a dead-still frame against Brock's chaos. The reaction is funnier than the action, so we keep coming back here.",
+              "behind": "The audience side; Brock is off screen left.",
+              "frame": {
+                "file": "generated/order-now/space/studio--C3.jpg",
+                "view": "C3",
+                "model": "Nano Banana 2.1 (edit, 2 passes) + betacam grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a1173c-de07-7e01-9602-027f55578b3d",
+                "prompt": "Continuity edit: SOC 2 folder on the desk by Henrick. Change only that; keep everything else.",
+                "inputs": [
+                  "studio C3 take a (job 01a11733-b160-71b3-9868-d5ad1b19d337)",
+                  "props or audience reference"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:42:21.149Z"
+              }
+            },
+            {
+              "id": "C4",
+              "name": "Demo table",
+              "size": "WS",
+              "lens": 28,
+              "from": "Square on the demo desk: binders left, the red COMP AI button centre, the SOC 2 folder right, Brock behind the desk.",
+              "why": "The product demo plays wide so the binder tower and the one thin folder are in the same frame when the swap happens.",
+              "behind": "The audience; Henrick is off screen right, not looking.",
+              "frame": {
+                "file": "generated/order-now/space/studio--C4.jpg",
+                "view": "C4",
+                "model": "Nano Banana 2.1 (edit, 2 passes) + betacam grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a11744-8ba9-78c3-965a-2dc9f00a983b",
+                "prompt": "Continuity edit: the bleachers at the left edge filled with the cast audience from C7, kept small in the background. Keep the composition exactly.",
+                "inputs": [
+                  "studio C4 pass 1 (job 01a11733-b093-7943-8fa4-f02410b56f73)",
+                  "studio C7 audience reference"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:50:57.035Z"
+              }
+            },
+            {
+              "id": "C5",
+              "name": "Brock to lens",
+              "size": "CU",
+              "lens": 24,
+              "from": "Very close on Brock, low, as he lunges into the lens.",
+              "why": "A wide lens up close distorts him into a used-car ad. It sets up Henrick's 'No.' in C3.",
+              "behind": "The audience side.",
+              "frame": {
+                "file": "generated/order-now/space/studio--C5.jpg",
+                "view": "C5",
+                "model": "Nano Banana 2.1 (edit, 2 passes) + betacam grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a11742-c845-7a82-9e65-519f18ec3332",
+                "prompt": "Continuity edit: audience made the cast from C7 (same people, same seats), frozen in silence; desk dressed with the button and folder.",
+                "inputs": [
+                  "studio C5 take b (job 01a11733-b013-7092-a600-5ef15b229b9e)",
+                  "studio C7 audience reference",
+                  "props reference"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:50:17.863Z"
+              }
+            },
+            {
+              "id": "C6",
+              "name": "Two-shot to camera",
+              "size": "MWS",
+              "lens": 35,
+              "from": "Front, centred on Henrick's stool: Henrick seated to lens, Brock standing beside him at screen left, beaming.",
+              "why": "The sign-off: both faces to us, the contrast in one frame.",
+              "behind": "The studio floor and the audience.",
+              "frame": {
+                "file": "generated/order-now/space/studio--C6.jpg",
+                "view": "C6",
+                "model": "Nano Banana 2.1 (edit, 2 passes) + betacam grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a11744-8c3b-75b0-852d-825e1719eece",
+                "prompt": "Continuity edit: the bleachers filled with the cast audience from C7, kept small in the background; folder on the desk. Keep the composition exactly.",
+                "inputs": [
+                  "studio C6 pass 1 (job 01a11733-b105-7ef2-ad4d-c3cbc8857825)",
+                  "studio C7 audience reference"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:50:57.259Z"
+              }
+            },
+            {
+              "id": "C7",
+              "name": "Audience",
+              "size": "WS",
+              "lens": 35,
+              "from": "The one reverse: from the stage onto the bleacher bank, the six tiers and all 48 people filling the frame. This frame is the audience's reference.",
+              "why": "Reactions: on their feet, 'Ooooh', and the cough in the silence.",
+              "behind": "The stage, the desk and the neon sign; never shown in this angle.",
+              "frame": {
+                "file": "generated/order-now/space/studio--C7.jpg",
+                "view": "C7",
+                "model": "Nano Banana 2.1 (edit) + betacam grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a11741-0e8f-78f1-8850-aafb6b3b7e3f",
+                "prompt": "Reverse angle onto the bleachers in Image 1 (studio C1), same build: six tiers of eight; 48 distinct people; front row specified person by person.",
+                "inputs": [
+                  "studio C1 after the desk fix"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:47:06.455Z"
+              }
+            }
+          ]
+        },
+        {
+          "id": "operators",
+          "name": "Operator bank",
+          "sheet": "set-operators",
+          "look": "colour",
+          "map": "A real, used 1994 telemarketing room: drop ceiling, fluorescent panels, beige walls, a round wall clock and a 1994 calendar. A long worn laminate counter runs down the room with a dozen identical operator stations divided by low grey partitions, each with a beige push-button multi-line phone (line lights blinking), an order pad and an empty grey task chair. Every chair is empty except one about a third of the way down the row, where Henrick sits in a beige headset, writing orders. The sign OPERATORS STANDING BY hangs on the back wall. Shot like documentary footage, never symmetrical.",
+          "cameras": [
+            {
+              "id": "O1",
+              "name": "Down the row",
+              "size": "WS",
+              "lens": 35,
+              "from": "Near one end of the row, looking down it at an angle: the stations recede, Henrick a third of the way down, the sign on the back wall.",
+              "why": "Scale is the joke: one calm man in a long row of empty chairs and blinking phones. The angle and the wear make it read as real footage.",
+              "behind": "The room's back wall; nothing to build.",
+              "frame": {
+                "file": "generated/order-now/space/operators--O1.jpg",
+                "view": "O1",
+                "model": "Nano Banana 2.1 (edit) + betacam grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a11745-e7ac-7bb3-b0b1-48c7af98971a",
+                "prompt": "Redo after Claudio's note that the first version looked staged: a real, used 1994 telemarketing room shot like documentary footage; Henrick from his real photo.",
+                "inputs": [
+                  "operators plate",
+                  "henrick real-front (real photo)",
+                  "henrick pose-headset"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:51:34.050Z"
+              }
+            },
+            {
+              "id": "O2",
+              "name": "Henrick answers",
+              "size": "MS",
+              "lens": 50,
+              "from": "From beside the row, three-quarter on to Henrick writing an order, the empty stations and their blinking lights receding soft behind him.",
+              "why": "Cut in on 'Which framework.' so his deadpan reads.",
+              "behind": "The empty room.",
+              "frame": {
+                "file": "generated/order-now/space/operators--O2.jpg",
+                "view": "O2",
+                "model": "Nano Banana 2.1 (edit) + betacam grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a11745-e70d-7b10-a71b-2bea573030ec",
+                "prompt": "Redo after Claudio's note that the first version looked staged: a real, used 1994 telemarketing room shot like documentary footage; Henrick from his real photo.",
+                "inputs": [
+                  "operators plate",
+                  "henrick real-front (real photo)",
+                  "henrick pose-headset"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:51:34.256Z"
+              }
+            }
+          ]
+        },
+        {
+          "id": "hammock",
+          "name": "Backyard",
+          "sheet": "set-hammock",
+          "look": "colour",
+          "map": "A sunny backyard. A rope hammock strung between two trees, Kyle lying in it with a chunky 1994 laptop on his stomach and a coconut drink in his hand. A small side table beside the hammock. He looks just off lens to an interviewer on camera left.",
+          "cameras": [
+            {
+              "id": "H1",
+              "name": "Testimonial",
+              "size": "MCU",
+              "lens": 40,
+              "from": "Slightly off centre, Kyle on screen right in the hammock, space on the left for the lower third.",
+              "why": "VHS testimonial framing, the parody of the format.",
+              "behind": "The house's back door.",
+              "frame": {
+                "file": "generated/order-now/space/hammock--H1.jpg",
+                "view": "H1",
+                "model": "Nano Banana 2.1 (edit) + betacam grade",
+                "provider": "fal, graded in Stitch",
+                "job": "01a1173d-26f5-7ec2-a45c-bc72c087b410",
+                "prompt": "Image 1 is a sunny 1994 suburban backyard with a rope hammock strung between two trees. Show a 40 mm medium close-up, slightly off centre: Kyle lies relaxed in the rope hammock on screen right, a chunky 1994 grey laptop open on his stomach, a coconut drink with a straw in one hand, utterly at peace, looking just off the lens toward an interviewer on camera left. Room on the left of frame for a lower third. Kyle is the man in Images 2 and 3 (keep his face, mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch and brown loafers exactly). Keep the backyard, trees and warm afternoon light as in Image 1. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text.",
+                "inputs": [
+                  "https://v3b.fal.media/files/b/0aad7214/4W0MwFBXoijJEs_X50Xj__plate-hammock.jpg",
+                  "https://v3b.fal.media/files/b/0aad7214/7a_Wfxc471pWdt4Jr4V3A_kyle--body-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad7214/r_VKfNuGkHDBj9l1cX3_p_kyle--face-front.jpg"
+                ],
+                "by": "claude",
+                "at": "2026-10-07T16:45:11.158Z"
+              }
+            }
+          ]
+        }
+      ],
+      "cuts": [
+        {
+          "t0": 0,
+          "t1": 1.5,
+          "room": "kitchen",
+          "cam": "K2",
+          "what": "The email: 'Love the product! Before we sign, can you send your SOC 2?'"
+        },
+        {
+          "t0": 1.5,
+          "t1": 4,
+          "room": "kitchen",
+          "cam": "K1",
+          "what": "Kyle flails and tips backwards out of his chair, slow motion"
+        },
+        {
+          "t0": 4,
+          "t1": 8,
+          "room": "stairwell",
+          "cam": "S1",
+          "what": "The questionnaire unrolls down four flights"
+        },
+        {
+          "t0": 8,
+          "t1": 12,
+          "room": "kitchen",
+          "cam": "K3",
+          "what": "Flash; the printer buries him in screenshots"
+        },
+        {
+          "t0": 12,
+          "t1": 15,
+          "room": "audit",
+          "cam": "A1",
+          "what": "Gerald slides the sticky note: 'evidence of the evidence'"
+        },
+        {
+          "t0": 15,
+          "t1": 17,
+          "room": "audit",
+          "cam": "A2",
+          "what": "Kyle stands, knocks the tower, to lens: 'There's GOT to be a better way!'"
+        },
+        {
+          "t0": 17,
+          "t1": 18.5,
+          "room": "studio",
+          "cam": "C1",
+          "what": "Smash to colour: audience on its feet, Brock bounds in"
+        },
+        {
+          "t0": 18.5,
+          "t1": 21,
+          "room": "studio",
+          "cam": "C2",
+          "what": "Brock: 'THERE IS! ... HENRICK JOHANSSON!'"
+        },
+        {
+          "t0": 21,
+          "t1": 25,
+          "room": "studio",
+          "cam": "C3",
+          "what": "Henrick: 'Please stop clapping.' ... 'Nothing has happened yet.'"
+        },
+        {
+          "t0": 25,
+          "t1": 26.5,
+          "room": "studio",
+          "cam": "C2",
+          "what": "Brock leans in: 'What does Comp AI DO?!'"
+        },
+        {
+          "t0": 26.5,
+          "t1": 30,
+          "room": "studio",
+          "cam": "C3",
+          "what": "Henrick explains; 'three ministries and a strike'"
+        },
+        {
+          "t0": 30,
+          "t1": 31,
+          "room": "studio",
+          "cam": "C7",
+          "what": "Audience: 'Ooooh'"
+        },
+        {
+          "t0": 31,
+          "t1": 36,
+          "room": "studio",
+          "cam": "C4",
+          "what": "Binders on the desk, the button, the tower becomes one folder"
+        },
+        {
+          "t0": 36,
+          "t1": 40,
+          "room": "hammock",
+          "cam": "H1",
+          "what": "Kyle: 'I closed our biggest deal... from this hammock.'"
+        },
+        {
+          "t0": 40,
+          "t1": 44,
+          "room": "audit",
+          "cam": "A3",
+          "what": "Gerald: 'The evidence... it was all there.'"
+        },
+        {
+          "t0": 44,
+          "t1": 46,
+          "room": "studio",
+          "cam": "C5",
+          "what": "Brock to lens: 'But WAIT!'"
+        },
+        {
+          "t0": 46,
+          "t1": 49,
+          "room": "studio",
+          "cam": "C3",
+          "what": "Henrick: 'No.' A cough in the silence. 'It is software. Everyone gets the same one.'"
+        },
+        {
+          "t0": 49,
+          "t1": 51,
+          "room": "operators",
+          "cam": "O1",
+          "what": "Every phone ringing; Henrick answers: 'Comp AI.'"
+        },
+        {
+          "t0": 51,
+          "t1": 53,
+          "room": "operators",
+          "cam": "O2",
+          "what": "'Which framework.' ... 'Very good.'"
+        },
+        {
+          "t0": 57,
+          "t1": 60,
+          "room": "studio",
+          "cam": "C6",
+          "what": "Henrick: 'Order now. Or do not.' Brock: 'WOW!'"
+        }
+      ]
+    }
   }
 }

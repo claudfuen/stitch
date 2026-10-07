@@ -64,6 +64,37 @@ export type SheetItem = {
   lock?: { pass: number; of: number; note?: string }
 }
 
+/** Stage 03: where everyone is and where the cameras go, so cuts keep screen direction and the video model never has
+ *  to invent the room. Per room: a written space map (it goes into every prompt), and 2-4 cameras, each one frame of the
+ *  approved set seen from that angle with the cast on their marks. The first camera is the wide master that loads the
+ *  layout. Across the film, a camera script says which camera is on screen at each second. No 3D unless blocking is
+ *  hard (research note 2026-10-07-sota-ai-film-vs-stitch). */
+export type FilmLook = "colour" | "before"
+export type Camera = {
+  /** The tag prompts recall it by ("C3"). */
+  id: Id
+  name: string
+  /** Shot size: EWS, WS, MWS, MS, MCU, CU, INS. */
+  size: string
+  lens: number
+  /** Where the camera stands and what it sees. */
+  from: string
+  /** The story or comedy reason for the angle. */
+  why: string
+  /** What is behind the camera, so no model builds a reverse wall or moves a sign. */
+  behind?: string
+  /** Overrides the room's look (the auditor's colour testimonial in the black-and-white audit room). */
+  look?: FilmLook
+  frame?: Candidate
+}
+export type Room = { id: Id; name: string; sheet?: Id; look: FilmLook; map: string; cameras: Camera[] }
+export type CameraCut = { t0: number; t1: number; room: Id; cam: Id; what: string }
+export type Space = { rooms: Room[]; cuts: CameraCut[] }
+
+/** Which beats each camera is used in, from the camera script (the one source of truth for it). */
+export const beatsOf = (pr: Process, room: Id, cam: Id) =>
+  [...new Set((pr.space?.cuts ?? []).filter((c) => c.room === room && c.cam === cam).map((c) => pr.script.beats.find((b) => c.t0 >= b.t0 && c.t0 < b.t1)?.id).filter((x): x is Id => !!x))]
+
 /** Who is in the film, as the script introduces them. Their look is locked later, at the sheets stage. */
 export type CastMember = { id: Id; name: string; who: string; playedBy: string; voice: string; states?: string[] }
 
@@ -72,6 +103,7 @@ export type Process = {
   concepts: Concept[]
   cast?: CastMember[]
   sheets?: SheetItem[]
+  space?: Space
   pick?: Id
   /** The beat sheet for the picked concept. Bumped each time an agent rewrites it, which reopens the script gate. */
   script: { version: number; concept?: Id; beats: Beat[] }

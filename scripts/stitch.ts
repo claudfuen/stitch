@@ -38,6 +38,9 @@
 //        (a sidecar next to the file, as scripts/fal.ts writes, fills model, provider, job, prompt and inputs)
 //   bun run stitch sheet unview <item> <view> [view ...]    take views off a sheet (before a regenerated sheet goes on)
 //   bun run stitch sheet scene <item> <file> --model <m> --provider <p>   (the character in the world, in the look)
+//   bun run stitch space                                     stage 03: rooms, cameras (frame, beats), the camera script
+//   bun run stitch space set <plan.json>                     replace the space plan ({ rooms, cuts }); frames are kept
+//   bun run stitch space frame <room> <cam> <file>           a frame of the set from that camera (sidecar read as above)
 //   bun run stitch sheet pick <item> <n|file|none>          bun run stitch sheet lock <item> <pass> <of> ["note"]
 import { execFileSync } from "node:child_process"
 import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs"
@@ -48,7 +51,7 @@ import type { Op } from "../lib/ops"
 import { load, mutate } from "../lib/store"
 import { latestCut, modelBoard, pick, planView, projectHead, shotRows } from "../lib/derive"
 import type { PlanList } from "../lib/ops"
-import { blockedBy, currentStage, openNotes, runtime, words, type GateStatus, type StageId } from "../lib/process"
+import { beatsOf, blockedBy, currentStage, openNotes, runtime, words, type Candidate, type GateStatus, type StageId } from "../lib/process"
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..")
 process.chdir(root)
@@ -209,25 +212,43 @@ const MODEL_NAME: Record<string, string> = {
   "openai/gpt-image-2.5-sunburst/edit": "GPT Image 2.5 Sunburst (edit)",
 }
 
-async function sheetView(id: string, view: string, src: string, scene = false) {
+/** Copy a generated image into public/generated/<film>/<sub>/<name> and describe it as a candidate. A sidecar next to
+ *  the file (scripts/fal.ts, Leap) fills model, provider, job, prompt and inputs; flags override it. Big PNGs (2K model
+ *  output is ~7 MB) are stored as high-quality JPEG; the original stays where it was. */
+function storeCandidate(src: string, sub: string, name: string, view?: string): Candidate {
   const film = process.env.STITCH_PROJECT || "ministry"
-  // A sidecar next to the file (scripts/fal.ts, Leap) fills model, provider, job, prompt and inputs; flags override it.
   const side = existsSync(src + ".json") ? JSON.parse(readFileSync(src + ".json", "utf8")) : {}
   const model = flag("model") ?? (side.model ? MODEL_NAME[side.model] ?? side.model : undefined)
   const provider = flag("provider") ?? side.provider
-  if (!model || !provider) throw new Error("every view needs --model and --provider (or a sidecar)")
-  const dir = path.join("public", "generated", film, "sheets")
+  if (!model || !provider) throw new Error("every image needs --model and --provider (or a sidecar)")
+  const dir = path.join("public", "generated", film, sub)
   mkdirSync(dir, { recursive: true })
-  // Big PNGs (2K model output is ~7 MB) are stored as high-quality JPEG; the original stays where it was.
   const jpeg = path.extname(src).toLowerCase() === ".png" && statSync(src).size > 2_000_000
-  const dest = path.join(dir, `${id}--${view}${jpeg ? ".jpg" : path.extname(src)}`)
+  const dest = path.join(dir, `${name}${jpeg ? ".jpg" : path.extname(src)}`)
   if (jpeg) execFileSync("ffmpeg", ["-v", "error", "-y", "-i", src, "-q:v", "2", dest])
   else copyFileSync(src, dest)
   const prompt = flag("prompt-file") ? readFileSync(flag("prompt-file")!, "utf8") : flag("prompt") ?? side.input?.prompt ?? side.prompt
   const inputs: string[] | undefined = many.input ?? side.input?.image_urls
   const cost = flag("cost") ?? side.cost_usd ?? side.usage?.cost_usd
-  await run([{ op: scene ? "sheet.scene" : "sheet.view", id, candidate: { file: path.relative("public", dest), view, model, provider, job: flag("job") ?? side.request_id ?? side.id, prompt, cost: cost !== undefined ? Number(cost) : undefined, inputs, by: flag("by") ?? "claude", at: new Date().toISOString() } }])
-  console.log(`${id} ${view}: ${path.relative("public", dest)} (${model} via ${provider})`)
+  return { file: path.relative("public", dest), view, model, provider, job: flag("job") ?? side.request_id ?? side.id, prompt, cost: cost !== undefined ? Number(cost) : undefined, inputs, by: flag("by") ?? "claude", at: new Date().toISOString() }
+}
+
+async function sheetView(id: string, view: string, src: string, scene = false) {
+  const candidate = storeCandidate(src, "sheets", `${id}--${view}`, view)
+  await run([{ op: scene ? "sheet.scene" : "sheet.view", id, candidate }])
+  console.log(`${id} ${view}: ${candidate.file} (${candidate.model} via ${candidate.provider})`)
+}
+
+async function space() {
+  const pr = await processOf()
+  const sp = pr.space
+  if (!sp) return console.log("no space plan yet (stitch space set plan.json)")
+  for (const r of sp.rooms) {
+    console.log(`\n${r.id}  ${r.name}  [${r.look}]${r.sheet ? `  set: ${r.sheet}` : ""}\n  map: ${r.map}`)
+    for (const c of r.cameras) console.log(`  ${c.id.padEnd(4)} ${c.size.padEnd(4)} ${String(c.lens).padStart(3)} mm  ${c.name}  beats ${beatsOf(pr, r.id, c.id).join(",") || "-"}${c.look ? ` [${c.look}]` : ""}  ${c.frame ? `frame ${c.frame.file} (${c.frame.model} via ${c.frame.provider})` : "no frame"}`)
+  }
+  console.log("\ncamera script")
+  for (const c of sp.cuts) console.log(`  ${c.t0.toFixed(1).padStart(5)}-${c.t1.toFixed(1).padEnd(5)} ${c.room}/${c.cam}  ${c.what}`)
 }
 
 async function main() {
@@ -235,6 +256,19 @@ async function main() {
   switch (cmd) {
     case "sheets":
       return sheets()
+    case "space": {
+      if (!sub) return space()
+      if (sub === "set" && rest[0]) {
+        await run([{ op: "space.set", space: JSON.parse(readFileSync(rest[0], "utf8")), by: flag("by") ?? "claude" }])
+        return space()
+      }
+      if (sub === "frame" && rest.length >= 3) {
+        const candidate = storeCandidate(rest[2], "space", `${rest[0]}--${rest[1]}`, rest[1])
+        await run([{ op: "space.frame", room: rest[0], cam: rest[1], candidate }])
+        return console.log(`${rest[0]} ${rest[1]}: ${candidate.file} (${candidate.model} via ${candidate.provider})`)
+      }
+      throw new Error("usage: stitch space | space set <plan.json> | space frame <room> <cam> <file>")
+    }
     case "sheet": {
       if (sub === "add" && rest.length >= 2) return sheetAdd(rest[0], rest[1])
       if (sub === "view" && rest.length >= 3) return sheetView(rest[0], rest[1], rest[2])

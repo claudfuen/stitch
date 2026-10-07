@@ -54,6 +54,29 @@ piece skips the AI stages and runs the same rail.
    Image 1.
 5. **Lock test before any video** (next): the sheet must give the same recognisable person in 10 of 10 new scenes.
 
+## Stage 03 in detail
+
+From the research (note 2026-10-07-sota-ai-film-vs-stitch), not from 3D: the best 30-90 s spots build no rooms in 3D.
+They rotate one approved set into a few angles and write the space down.
+
+1. **Per room, a space map in words.** Who sits or stands where, which side of screen each person is on, where they
+   look, what is behind each camera. It goes into every prompt, because the failures to prevent are left-right
+   flips, invented reverse walls and moving signs.
+2. **2-4 cameras per room**, the wide master first (it loads the layout). Every camera stays on one side of the
+   action. Comedy rules: wide lenses are funny, the reaction is funnier, hold one beat after the punchline.
+3. **One frame per camera:** the approved set plate (ungraded) as Image 1, the cast's sheets and the script pose as
+   references, cast placed on their marks, then the film grade. Two takes each; keep the better.
+4. **Continuity is written as rules, not hoped for.** What is always in the room (the studio audience), what is on
+   the desk in which beat, who is behind the camera. A crowd is cast like a character: one reference frame (the
+   reverse angle), a seating chart with the front row described person by person, and every other frame copies it.
+5. **The camera script:** which camera is on screen at each second. It is retimed to the recorded voices at stage 04.
+6. **Review every frame for logic:** the same person twice in a crowd, a stranger in a known character's place, a
+   prop that should not be there yet, a room bigger in one angle than another. Fix with one "change only X" edit
+   from the clean take, so no frame gets more than two generative passes.
+
+Nano Banana 2.1 (edit) makes the frames. On the studio A/B it followed framing and action more literally than
+Seedream 5.0 Pro (edit), which kept skin a little more natural; Seedream is the fallback when a frame fails.
+
 ## Rules that hold across stages
 
 - **Provenance on everything.** Every image, clip and sound records its model and provider (or that it is real),
@@ -83,6 +106,10 @@ piece skips the AI stages and runs the same rail.
 
 ## Changes
 
+- 2026-10-07: Stage 03 built from first principles (no floor-plan geometry, no Blender): rooms, cameras, space maps
+  and a camera script in the process (`stitch space`), a frame per camera. Claudio's review found the audience
+  appearing and vanishing, the same woman in two seats, and bleachers of different sizes; the audience became a cast
+  with a reference frame and a seating chart, and continuity rules went into the space map.
 - 2026-10-07: Character sheets regenerated with Nano Banana 2.1 (edit) on fal after Claudio saw grain and a painted
   look in the GPT Image 2.5 views: 13 views per character (turnaround, faces, expressions, script poses). Henrick's
   sheet keeps his real stills and the poses from his Ministry book. `stitch sheet view` reads sidecars and stores big

@@ -8,7 +8,7 @@ import { ChevronDown, Lock } from "lucide-react"
 import { useState } from "react"
 import type { ProjectWithRev } from "@/lib/model"
 import type { Op } from "@/lib/ops"
-import { GATE_LABEL, blockedBy, currentStage, openNotes, runtime, words, type Beat, type Candidate, type Concept, type GateStatus, type Note, type Process, type SheetItem, type SheetKind, type Stage, type StageId } from "@/lib/process"
+import { GATE_LABEL, beatsOf, blockedBy, currentStage, openNotes, runtime, words, type Beat, type Camera, type Candidate, type Concept, type GateStatus, type Note, type Process, type Room, type SheetItem, type SheetKind, type Stage, type StageId } from "@/lib/process"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -42,7 +42,7 @@ export function ProcessView({ project: p, op }: Props) {
     <div className="flex h-full flex-col">
       <Stepper pr={pr} sel={sel} onSelect={setSel} />
       <div className="min-h-0 flex-1 overflow-y-auto">
-        <div className="mx-auto max-w-3xl px-6 pt-10 pb-12">{sel === "script" ? <ScriptStage pr={pr} op={op} /> : sel === "sheets" && !blockedBy(pr, "sheets") ? <SheetsStage pr={pr} stage={stage} op={op} /> : <OtherStage pr={pr} stage={stage} op={op} />}</div>
+        <div className="mx-auto max-w-3xl px-6 pt-10 pb-12">{sel === "script" ? <ScriptStage pr={pr} op={op} /> : sel === "sheets" && !blockedBy(pr, "sheets") ? <SheetsStage pr={pr} stage={stage} op={op} /> : sel === "space" && !blockedBy(pr, "space") && pr.space ? <SpaceStage pr={pr} stage={stage} op={op} /> : <OtherStage pr={pr} stage={stage} op={op} />}</div>
       </div>
       <DecisionBar pr={pr} stage={stage} op={op} />
     </div>
@@ -270,7 +270,7 @@ function DecisionBar({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["
   const st = stateOf(pr, stage)
   const open = openNotes(pr).length
   const reviewable =
-    stage.id === "script" ? !!pr.pick && pr.script.concept === pr.pick && pr.script.beats.length > 0 : stage.id === "sheets" ? !!pr.sheets?.length && pr.sheets.filter((x) => !x.from).every((x) => x.pick) : true
+    stage.id === "script" ? !!pr.pick && pr.script.concept === pr.pick && pr.script.beats.length > 0 : stage.id === "sheets" ? !!pr.sheets?.length && pr.sheets.filter((x) => !x.from).every((x) => x.pick) : stage.id === "space" ? !!pr.space?.rooms.length : true
   const decide = async (status: GateStatus) => {
     await op({ op: "gate.set", stage: stage.id, status, note: text, by: ME })
     setText("")
@@ -374,19 +374,19 @@ function SheetsStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["
         </p>
       </header>
 
-      <ProposalSection title="1. Art direction" about="Two looks: the 1994 infomercial in colour, and its black-and-white &lsquo;before&rsquo; footage. Everything below matches these." target="direction" pr={pr} op={op}>
+      <ProposalSection title="1. Art direction" about="Two looks: the 1994 infomercial in colour, and its black-and-white &lsquo;before&rsquo; footage. Everything below matches these." target="sheets:direction" pr={pr} op={op}>
         <div className="grid gap-3 sm:grid-cols-2">
           {of("look").map((x) => <Still key={x.id} item={x} c={chosen(x)} />)}
         </div>
       </ProposalSection>
 
-      <ProposalSection title="2. The world" about="Every set and prop, made by one model and run through the same film grade, so they read as one show." target="world" pr={pr} op={op}>
+      <ProposalSection title="2. The world" about="Every set and prop, made by one model and run through the same film grade, so they read as one show." target="sheets:world" pr={pr} op={op}>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
           {world.map((x) => <Still key={x.id} item={x} c={chosen(x)} small />)}
         </div>
       </ProposalSection>
 
-      <ProposalSection title="3. The cast" about="Each character inside the film, in its look. Under each, the reference sheet the video models will use: same face from every angle, in costume, with the expressions the script needs." target="cast" pr={pr} op={op}>
+      <ProposalSection title="3. The cast" about="Each character inside the film, in its look. Under each, the reference sheet the video models will use: same face from every angle, in costume, with the expressions the script needs." target="sheets:cast" pr={pr} op={op}>
         <div className="space-y-10">
           {cast.map((x) => <CastBlock key={x.id} item={x} />)}
         </div>
@@ -398,13 +398,14 @@ function SheetsStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["
   )
 }
 
+/** One part of a proposal with its own comment thread. `target` is the note target ("sheets:world", "space:studio"). */
 function ProposalSection({ title, about, target, pr, op, children }: { title: string; about: string; target: string; pr: Process; op: Props["op"]; children: React.ReactNode }) {
   const [writing, setWriting] = useState(false)
   const [text, setText] = useState("")
-  const notes = pr.notes.filter((n) => n.target === `sheets:${target}`)
+  const notes = pr.notes.filter((n) => n.target === target)
   const send = async () => {
     if (!text.trim()) return
-    await op({ op: "note.add", target: `sheets:${target}`, text, by: ME })
+    await op({ op: "note.add", target, text, by: ME })
     setText("")
     setWriting(false)
   }
@@ -488,3 +489,128 @@ function CastBlock({ item }: { item: SheetItem }) {
   )
 }
 
+
+const LOOK_LABEL = { colour: "1994 colour", before: "Black-and-white 'before'" } as const
+
+/** Stage 03 is one proposal for where everyone stands and where every camera goes. Per room: each camera as a frame of
+ *  the approved set with the cast on their marks (the wide master first, it loads the layout), and the space map that
+ *  goes into every prompt. Then the camera script: which camera is on screen at each second of the film. */
+function SpaceStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["op"] }) {
+  const sp = pr.space!
+  const cams = sp.rooms.reduce((n, r) => n + r.cameras.length, 0)
+  const framed = sp.rooms.reduce((n, r) => n + r.cameras.filter((c) => c.frame).length, 0)
+  return (
+    <article className="space-y-12">
+      <header className="space-y-2">
+        <Eyebrow pr={pr} stage={stage} />
+        <h1 className="text-3xl font-semibold tracking-tight">Space and camera</h1>
+        <p className="text-[15px] leading-relaxed text-muted-foreground">Where everyone stands and where every camera goes, room by room. In each room the cameras stay on one side of the action, so a cut never flips who is on the left. React to the whole, or comment on a room.</p>
+        <p className="text-sm text-muted-foreground">
+          {sp.rooms.length} rooms · {cams} cameras · {sp.cuts.length} cuts{framed < cams && <> · {framed} of {cams} frames made</>}
+        </p>
+      </header>
+
+      {sp.rooms.map((r) => <RoomBlock key={r.id} pr={pr} room={r} op={op} />)}
+
+      <ProposalSection title="Camera script" about="Which camera is on screen at each second. Timings follow the script for now; they move to the recorded lines once the voices are in." target="space:script" pr={pr} op={op}>
+        <CameraScript pr={pr} />
+      </ProposalSection>
+
+      <StageSettings stage={stage} op={op} />
+    </article>
+  )
+}
+
+function RoomBlock({ pr, room, op }: { pr: Process; room: Room; op: Props["op"] }) {
+  const set = pr.sheets?.find((x) => x.id === room.sheet)
+  const plate = set ? chosen(set) : undefined
+  return (
+    <ProposalSection title={room.name} about={`${LOOK_LABEL[room.look]} · ${room.cameras.length} ${room.cameras.length === 1 ? "camera" : "cameras"}`} target={`space:${room.id}`} pr={pr} op={op}>
+      <div className="grid gap-x-3 gap-y-6 sm:grid-cols-2">
+        {room.cameras.map((c, i) => (
+          <CameraCard key={c.id} pr={pr} room={room} cam={c} plate={plate} wide={i === 0} />
+        ))}
+      </div>
+      <div className="space-y-1 rounded-md bg-muted/50 px-4 py-3">
+        <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">Space map</p>
+        <p className="text-sm leading-relaxed">{room.map}</p>
+      </div>
+    </ProposalSection>
+  )
+}
+
+function CameraCard({ pr, room, cam, plate, wide }: { pr: Process; room: Room; cam: Camera; plate?: Candidate; wide?: boolean }) {
+  const f = cam.frame
+  const beats = beatsOf(pr, room.id, cam.id)
+  return (
+    <figure className={cn("space-y-2", wide && "sm:col-span-2")}>
+      {f ? (
+        <a href={`/${f.file}?v=${encodeURIComponent(f.at)}`} target="_blank" rel="noreferrer" className="block overflow-hidden rounded-md border bg-muted">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={thumb(f.file, wide ? 1280 : 800, f.at)} alt={`${cam.id} ${cam.name}`} loading="lazy" className="aspect-video w-full object-cover" />
+        </a>
+      ) : plate ? (
+        <div className="relative overflow-hidden rounded-md border bg-muted">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={thumb(plate.file, 640, plate.at)} alt="" loading="lazy" className="aspect-video w-full object-cover opacity-30 grayscale" />
+          <span className="absolute inset-0 grid place-items-center text-sm text-muted-foreground">Frame being made</span>
+        </div>
+      ) : (
+        <div className="grid aspect-video place-items-center rounded-md border border-dashed text-sm text-muted-foreground">Frame being made</div>
+      )}
+      <figcaption className="space-y-1">
+        <p className="flex items-baseline gap-2 text-sm">
+          <span className="font-mono text-xs font-semibold">{cam.id}</span>
+          <span className="font-medium">{cam.name}</span>
+          <span className="ml-auto shrink-0 text-xs text-muted-foreground">{cam.size} · {cam.lens} mm{beats.length > 0 && <> · beat {beats.join(", ")}</>}</span>
+        </p>
+        {cam.look && cam.look !== room.look && <p className="text-xs font-medium">In {LOOK_LABEL[cam.look].toLowerCase()}, unlike the rest of this room: on purpose.</p>}
+        <p className="text-sm leading-relaxed text-muted-foreground">{cam.why}</p>
+        {cam.behind && <p className="text-xs text-muted-foreground">Behind camera: {cam.behind}</p>}
+        {f && <p className="truncate text-xs text-muted-foreground" title={[f.model, f.provider, f.job].filter(Boolean).join(" · ")}>{caption(f)}</p>}
+      </figcaption>
+    </figure>
+  )
+}
+
+function CameraScript({ pr }: { pr: Process }) {
+  const sp = pr.space!
+  const cam = (room: string, id: string) => sp.rooms.find((r) => r.id === room)?.cameras.find((c) => c.id === id)
+  return (
+    <ol className="space-y-5">
+      {pr.script.beats.map((b) => {
+        const cuts = sp.cuts.filter((c) => c.t0 >= b.t0 && c.t0 < b.t1)
+        return (
+          <li key={b.id} className="grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-4">
+            <span className="pt-0.5 font-mono text-xs text-muted-foreground">{tc(b.t0)}</span>
+            <div className="space-y-2">
+              <h3 className="text-sm font-semibold">{b.title}</h3>
+              {cuts.length === 0 ? (
+                <p className="text-sm text-muted-foreground">No camera: an edit graphic.</p>
+              ) : (
+                cuts.map((c) => {
+                  const k = cam(c.room, c.cam)
+                  return (
+                    <div key={`${c.t0}-${c.cam}`} className="flex items-start gap-3">
+                      {k?.frame ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={thumb(k.frame.file, 240, k.frame.at)} alt="" loading="lazy" className="aspect-video w-24 shrink-0 rounded border object-cover" />
+                      ) : (
+                        <div className="aspect-video w-24 shrink-0 rounded border border-dashed" />
+                      )}
+                      <p className="min-w-0 text-sm leading-relaxed">
+                        <span className="font-mono text-xs text-muted-foreground">{c.t0.toFixed(1)}-{c.t1.toFixed(1)} s</span>{" "}
+                        <span className="font-mono text-xs font-semibold">{c.cam}</span> {k?.name}
+                        <span className="block text-muted-foreground">{c.what}</span>
+                      </p>
+                    </div>
+                  )
+                })
+              )}
+            </div>
+          </li>
+        )
+      })}
+    </ol>
+  )
+}
