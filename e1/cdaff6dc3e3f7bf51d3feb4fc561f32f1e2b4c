@@ -1,0 +1,21 @@
+app/print/page.tsx
+  s_9a6dad0ffea19b::t_72c4266c80ff13 1-109,112,115-130
+app/api/script-pdf/route.ts
+  s_9a6dad0ffea19b::t_21d66155d3f71f 1-29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "e1cdaff6dc3e3f7bf51d3feb4fc561f32f1e2b4c",
+  "prompts": {},
+  "sessions": {
+    "s_9a6dad0ffea19b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bc7696aa-abd7-4776-8ffd-9cb8ebc22cd6",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Claudio Fuentes <imclaudfuen@gmail.com>"
+    }
+  }
+}
