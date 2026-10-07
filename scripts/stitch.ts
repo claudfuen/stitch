@@ -20,7 +20,7 @@
 //   bun run stitch plan plate <loc> <setup> <asset> [circle|alt|reject|pending] [--note ..]
 //   bun run stitch greybox <loc> [setup ...]                 render the grey box (Blender) and attach each render
 //   bun run stitch room <loc> [--builder greybox|lightbox]   export the room in 3D (GLB) for the Rooms view
-//   bun run stitch fit <shot> [asset]                        do the faces land where the room's camera puts the marks?
+//   bun run stitch fit <shot> [asset] [--file f.jpg]         do the faces land where the room's camera puts the marks?
 import { execFileSync } from "node:child_process"
 import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import path from "node:path"
@@ -260,9 +260,11 @@ async function main() {
       const plan = p.locations.find((l) => l.id === shot.location)?.plan
       const u = plan?.setups.find((x) => x.id === shot.setup)
       if (!plan || !u) throw new Error(`${sub} has no setup in its room's plan`)
-      const asset = p.assets.find((a) => a.id === (rest[0] ?? pick(shot.keyframes ?? [])?.asset))
-      if (!asset) throw new Error(`${sub}: no keyframe to fit (pass an asset id)`)
-      let file = path.join("public", asset.path)
+      // --file checks a candidate frame before it is registered; nothing is recorded then.
+      const candidate = flag("file")
+      const asset = candidate ? ({ id: path.basename(candidate), media: "image", path: candidate } as Asset) : p.assets.find((a) => a.id === (rest[0] ?? pick(shot.keyframes ?? [])?.asset))
+      if (!asset) throw new Error(`${sub}: no keyframe to fit (pass an asset id or --file)`)
+      let file = candidate ?? path.join("public", asset.path)
       if (asset.media === "video") {
         file = `work/fit-${asset.id}.jpg`
         sh("ffmpeg", ["-v", "error", "-y", "-ss", String(typeof shot.edit.in === "number" ? shot.edit.in : 0.5), "-i", path.join("public", asset.path), "-frames:v", "1", "-q:v", "2", file])
@@ -298,7 +300,7 @@ async function main() {
       for (const [i] of faces.entries()) if (!used.has(i)) lines.push(`extra face at x ${faces[i].x.toFixed(2)}, y ${faces[i].y.toFixed(2)}: nobody is on a mark there`)
       const verdict = want.length === 0 ? null : ok
       console.log(`${sub} ${asset.id} through ${u.id} (${u.lens} mm):\n${lines.map((l) => `  ${l}`).join("\n")}`)
-      await run([{ op: "check.set", shot: sub, key: "room", ok: verdict, note: `${asset.id}: ${lines.join("; ")}`, by: "fit" }])
+      if (!candidate) await run([{ op: "check.set", shot: sub, key: "room", ok: verdict, note: `${asset.id}: ${lines.join("; ")}`, by: "fit" }])
       return
     }
     case "build": {

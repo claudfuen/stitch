@@ -37,17 +37,40 @@ function key(): string {
   return (process.env.LEAP_API_KEY = r.stdout.trim())
 }
 
-async function leap(p: string, init: RequestInit & { raw?: boolean } = {}) {
+// Every request has a deadline: with none, one stalled connection hung whole batches for half an hour while Leap itself
+// answered in a third of a second. A stalled or dropped request is retried (a generation keeps its idempotency key, and
+// a long-poll that times out just polls again).
+async function leap(p: string, init: RequestInit & { raw?: boolean; timeoutMs?: number } = {}) {
   for (let attempt = 0; ; attempt++) {
-    const res = await fetch(`${API}${p}`, {
-      ...init,
-      headers: { "x-api-key": key(), ...(init.raw ? {} : { "content-type": "application/json" }), ...init.headers },
-    })
-    if ((res.status === 429 || res.status >= 500) && attempt < 4) {
-      await new Promise((r) => setTimeout(r, Number(res.headers.get("retry-after") ?? 2 ** attempt) * 1000))
+    let res: Response
+    let text: string
+    const t0 = Date.now()
+    if (process.env.LEAP_DEBUG) console.error(`-> ${init.method ?? "GET"} ${p}`)
+    try {
+      res = await fetch(`${API}${p}`, {
+        ...init,
+        signal: AbortSignal.timeout(init.timeoutMs ?? 120_000),
+        headers: { "x-api-key": key(), ...(init.raw ? {} : { "content-type": "application/json" }), ...init.headers },
+      })
+      text = await res.text()
+      if (process.env.LEAP_DEBUG) console.error(`<- ${res.status} ${p} ${Date.now() - t0} ms`)
+    } catch (err) {
+      if (attempt < 4) {
+        console.error(`leap ${p}: ${(err as Error).name} (${(err as Error).message}), retrying`)
+        await new Promise((r) => setTimeout(r, 2 ** attempt * 1000))
+        continue
+      }
+      throw err
+    }
+    // A 429 that is a policy hold (the workspace's photo checks are paused), not a rate, never clears by waiting.
+    const hold = res.status === 429 && /blocked|can't check|cannot check/i.test(text)
+    if ((res.status === 429 || res.status >= 500) && !hold && attempt < 6) {
+      // Say so: a silent retry-after on a concurrency cap looked like a hang for half an hour.
+      const wait = Math.min(60, Number(res.headers.get("retry-after") ?? 2 ** attempt))
+      console.error(`leap ${res.status} ${p}: ${text.slice(0, 160)}; retrying in ${wait} s`)
+      await new Promise((r) => setTimeout(r, wait * 1000))
       continue
     }
-    const text = await res.text()
     let body: any
     try { body = JSON.parse(text) } catch { throw new Error(`Leap ${res.status} ${p}: not JSON: ${text.slice(0, 160)}`) }
     if (!res.ok) {
@@ -76,7 +99,7 @@ async function upload(file: string): Promise<string> {
   } else {
     // Video and sound: start an upload, PUT the bytes to the signed URL, then complete it.
     const u = await leap("/v1/uploads", { method: "POST", body: JSON.stringify({ filename: path.basename(file), content_type: type, bytes: bytes.length }) })
-    const put = await fetch(u.upload_url, { method: u.upload_method ?? "PUT", headers: { ...(u.upload_headers ?? {}), "content-type": type }, body: bytes })
+    const put = await fetch(u.upload_url, { method: u.upload_method ?? "PUT", headers: { ...(u.upload_headers ?? {}), "content-type": type }, body: bytes, signal: AbortSignal.timeout(300_000) })
     if (!put.ok) throw new Error(`upload ${file}: ${put.status} ${(await put.text()).slice(0, 160)}`)
     r = await leap(`/v1/uploads/${u.id}/complete`, { method: "POST", body: JSON.stringify({ filename: path.basename(file) }) })
   }
@@ -119,7 +142,7 @@ async function run(job: Job, quoteOnly = false) {
   for (const [i, o] of (g.output as { url: string; content_type?: string }[]).entries()) {
     const ext = EXT[o.content_type ?? ""] ?? path.extname(job.out)
     const file = g.output.length === 1 ? `${base}${ext}` : `${base}-${i + 1}${ext}`
-    const res = await fetch(o.url)
+    const res = await fetch(o.url, { signal: AbortSignal.timeout(300_000) })
     if (!res.ok) throw new Error(`download ${o.url}: ${res.status}`)
     writeFileSync(file, new Uint8Array(await res.arrayBuffer()))
     writeFileSync(`${file}.json`, JSON.stringify({ provider: "leap", model: job.model, generation: g.id, cost_usd: g.usage?.cost_usd, sources: { promptFile: job.promptFile, images: job.images, files: job.files }, input }, null, 1))
