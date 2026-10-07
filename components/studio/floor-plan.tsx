@@ -6,6 +6,7 @@
 
 import { heading, kelvinColor, type PlanView } from "@/lib/derive"
 import type { PlanItem } from "@/lib/model"
+import { cn } from "@/lib/utils"
 
 const FILL: Record<PlanItem["kind"], string> = {
   wall: "#94a3b8", window: "#7dd3fc", door: "#64748b", counter: "#92400e", seats: "#ca8a04", furniture: "#57534e",
@@ -14,11 +15,13 @@ const FILL: Record<PlanItem["kind"], string> = {
 export const WHO_COLOR: Record<string, string> = { henrick: "#7dd3fc", founder: "#fcd34d", clerk: "#fda4af" }
 const SETUP_COLOR = "#a78bfa"
 
-export function FloorPlan({ view, width = 360, selected, onSelect, className }: {
+export function FloorPlan({ view, width = 360, selected, onSelect, onPoint, className }: {
   view: PlanView
   width?: number
   selected?: string
   onSelect?: (setup: string) => void
+  /** A click on the floor, in plan metres (the Rooms view places its scouting camera with it). */
+  onPoint?: (at: [number, number]) => void
   className?: string
 }) {
   const { plan, setups } = view
@@ -93,7 +96,17 @@ export function FloorPlan({ view, width = 360, selected, onSelect, className }: 
   }
 
   return (
-    <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height} className={className} role="img" aria-label="Floor plan">
+    <svg
+      viewBox={`0 0 ${width} ${height}`} width={width} height={height} className={cn(className, onPoint && "cursor-crosshair")} role="img" aria-label="Floor plan"
+      onClick={onPoint ? (e) => {
+        const r = e.currentTarget.getBoundingClientRect()
+        const px = ((e.clientX - r.left) / r.width) * width
+        const py = ((e.clientY - r.top) / r.height) * height
+        const x = px / s - pad
+        const y = plan.depth - (py / s - pad)
+        if (x >= 0 && x <= plan.width && y >= 0 && y <= plan.depth) onPoint([Math.round(x * 100) / 100, Math.round(y * 100) / 100])
+      } : undefined}
+    >
       <defs>
         <marker id="throw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
           <path d="M0,0 L10,5 L0,10 z" fill="context-stroke" />
@@ -125,7 +138,7 @@ export function FloorPlan({ view, width = 360, selected, onSelect, className }: 
         const [rx, ry] = heading(u.facing + u.fov / 2)
         const [cx, cy] = u.at
         return (
-          <g key={u.id} onClick={() => onSelect?.(u.id)} className={onSelect ? "cursor-pointer" : undefined} opacity={selected && !on ? 0.35 : 1}>
+          <g key={u.id} onClick={(e) => { if (onSelect) { e.stopPropagation(); onSelect(u.id) } }} className={onSelect ? "cursor-pointer" : undefined} opacity={selected && !on ? 0.35 : 1}>
             <path d={`M${X(cx)},${Y(cy)} L${X(cx + lx * reach)},${Y(cy + ly * reach)} L${X(cx + rx * reach)},${Y(cy + ry * reach)} Z`} fill={SETUP_COLOR} fillOpacity={on ? 0.3 : 0.12} stroke={SETUP_COLOR} strokeOpacity={0.7} strokeWidth={on ? 1.6 : 0.8} />
             <circle cx={X(cx)} cy={Y(cy)} r={on ? 6 : 4.5} fill={SETUP_COLOR} />
             <text x={X(cx) + 6} y={Y(cy) - 5} fontSize={11} fontWeight={700} fill="#ede9fe">{u.id}</text>

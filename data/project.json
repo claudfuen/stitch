@@ -3094,22 +3094,34 @@
             "lens": 35,
             "height": 1.08,
             "at": [
-              2.45,
+              2.66,
               3.03
             ],
-            "facing": 276,
-            "tilt": 1,
+            "facing": 271.25,
+            "tilt": 1.25,
             "beat": "done",
             "subjects": [
               "founder"
             ],
-            "purpose": "His reaction: It's done? From the laptop side, the partition flown out (wild wall) to get 1.1 m of distance. The bench's felt backrest behind him; the back wall and its clock are out of shot.",
+            "purpose": "His reaction: It's done? From the laptop side, the partition flown out (wild wall). As shot: solved from the approved frame (face 100%, 0.2% off). The bench's felt backrest behind him; the back wall and its clock are out of shot.",
             "wild": [
-              "partition"
+              "partition",
+              "cushion-R1",
+              "cushion-R2",
+              "cushion-R3",
+              "cushion-R4"
+            ],
+            "plates": [
+              {
+                "asset": "office-M-plate",
+                "verdict": "circled",
+                "note": "Real felt projected from the booth photo, filled and cleaned."
+              }
             ]
           }
         ]
-      }
+      },
+      "model": "room-office"
     }
   ],
   "assets": [
@@ -7234,8 +7246,9 @@
       "origin": "rendered",
       "gen": {
         "model": "blender/lightbox glb",
-        "prompt": "6 x 6.5 x 3.2 m, 24 items, 3 marks, 5 cameras"
-      }
+        "prompt": "6 x 6.5 x 3.2 m, 24 items, 3 marks, 6 cameras"
+      },
+      "scores": {}
     },
     {
       "id": "grey-study-W2-lit",
@@ -7383,6 +7396,71 @@
           "hall-B-r2-lit"
         ],
         "job": "gen_J04GSANp3oo9FgNY9fkkObE9"
+      }
+    },
+    {
+      "id": "room-office",
+      "media": "model",
+      "path": "/generated/room-office.glb",
+      "label": "Founder's space in 3D",
+      "origin": "rendered",
+      "gen": {
+        "model": "blender/lightbox glb",
+        "prompt": "5 x 4.6 x 2.8 m, 40 items, 1 marks, 3 cameras"
+      }
+    },
+    {
+      "id": "office-proj-M",
+      "media": "image",
+      "path": "/generated/office-proj-M.jpg",
+      "label": "Office M: the real booth photo projected through the solved room into camera M (magenta = never seen)",
+      "origin": "rendered"
+    },
+    {
+      "id": "office-M-plate",
+      "media": "image",
+      "path": "/generated/office-M-plate.jpg",
+      "label": "Office M plate: the projection filled and cleaned (felt cushions, laptop lid)",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1 is a real photograph of the felt-lined wall of a phone booth, re-projected into a new camera through the booth's 3D model. Magenta marks what the original photograph never saw. Make it one clean, real photograph from this camera:\n- Fill every magenta area with what belongs there: more of the same grey felt cushion panels, their soft horizontal seams, and at the bottom the back of an open silver laptop lid on a light grey desk.\n- Turn the stretched, smeared texture into crisp grey felt upholstery as in Image 4, keeping every panel edge and seam exactly where Image 2's outlines put them.\n- Keep the light of Image 3: soft, cool office light from frame left (the booth's open side), a little darker toward frame right.\nNo people. Real sensor grain, slight lens softness. No text.",
+        "inputs": [
+          "office-proj-M",
+          "office-W-commons"
+        ]
+      }
+    },
+    {
+      "id": "kf-5.3-M",
+      "media": "image",
+      "path": "/generated/kf-5.3-M.jpg",
+      "label": "5.3 keyframe from plan v2: the felt backrest behind him, no clock (the back wall is out of shot)",
+      "origin": "generated",
+      "gen": {
+        "model": "openai/gpt-image-2.5-flare (Leap)",
+        "prompt": "Image 1 is a real photograph of the inside of a felt phone booth. Change only this: add one man sitting on the bench where the grey figure in Image 2 sits, at exactly that position and size (his head centred, about a third of the frame tall); keep everything else exactly (wall, seams, laptop lid, light, framing, grain).\nHe is the bearded founder from Images 3-4: curly dark hair, a full beard grown out over eleven years, tired eyes, grey zip hoodie over a dark t-shirt. Hunched toward the laptop in the foreground, eyes on its screen just below the lens. The screen's cool glow lights his face softly from below; the soft office light comes from frame left. He has just read something he cannot believe: frozen, mouth slightly open.\nSame noise and softness as the photograph. A real candid moment; he does not look into the lens.",
+        "inputs": [
+          "office-M-plate",
+          "kf-5.3-t2",
+          "founder-sheet"
+        ]
+      }
+    },
+    {
+      "id": "v-1.2-sync",
+      "media": "video",
+      "path": "/generated/v-1.2-sync.mp4",
+      "label": "1.2 re-voiced with the founder clone (voice 0.86, same as the Kling take)",
+      "origin": "generated",
+      "duration": 5.042,
+      "gen": {
+        "model": "Index TTS 2 clone of the 1.2 founder voice (fal) + sync/lipsync-3 (Leap)",
+        "prompt": "Founder clone read, aligned at 1.35 s to Kling's own line",
+        "inputs": [
+          "v-1.2-kling-o",
+          "voice-founder-clone"
+        ]
       }
     }
   ],
@@ -7613,6 +7691,11 @@
           "asset": "v-1.2-kling-o",
           "verdict": "circled",
           "note": "Plan v2 coverage."
+        },
+        {
+          "asset": "v-1.2-sync",
+          "verdict": "alt",
+          "note": "Clone + lipsync-3 re-voice. Voice match 0.86, the same as the circled Kling take, so the natural lip sync stays circled."
         }
       ],
       "graphics": [],
@@ -8889,23 +8972,28 @@
       ],
       "status": "review",
       "card": {
-        "framing": "Setup M: MCU inside the booth, 50 mm, laptop lid in the foreground, felt and clock behind.",
+        "framing": "Setup M: MCU from the laptop side, 35 mm, the partition flown (wild wall). The felt backrest of the bench behind him, the laptop lid in the foreground; the back wall and its clock are behind the camera.",
         "blocking": "He stares at the screen just below camera.",
         "performance": "Quiet disbelief after eleven years. Two words, almost a whisper.",
-        "continuity": "Laptop glow on his face; beard and hoodie as 5.1.",
+        "continuity": "Same booth as 5.1 (the plan is solved from the real CC0 photo): bearded after eleven years, grey zip hoodie, dark t-shirt; soft cool office light from frame left (the open side), the laptop glow from below. The take waits on Leap (photo checks locked for the workspace); v-5.3-sf stays in the cut until then.",
         "sound": "His voice close and dry in the felt booth (dead acoustic).",
         "cut": "Hold one beat after the question, then cut to Henrick."
       },
       "keyframes": [
         {
           "asset": "kf-5.3-t2",
-          "verdict": "circled",
-          "note": "MCU in the felt booth: beard matches 4.x, laptop lid foreground with no logo, quiet disbelief."
+          "verdict": "alt",
+          "note": "Shows the back wall clock behind him; from the laptop side the back wall is out of shot."
         },
         {
           "asset": "kf-5.3-t1",
           "verdict": "alt",
           "note": "Lighter beard than 4.x."
+        },
+        {
+          "asset": "kf-5.3-M",
+          "verdict": "circled",
+          "note": "Plan v2: fit 100% size, 0% off (as-shot M)."
         }
       ],
       "takes": [
@@ -8940,10 +9028,10 @@
       },
       "checks": {
         "room": {
-          "ok": false,
-          "note": "kf-5.3-t2: FAIL founder: face 59% of the size the camera gives at 1.0 m, 19% of the frame off",
+          "ok": true,
+          "note": "kf-5.3-M: ok   founder: face 100% of the size the camera gives at 1.3 m, 0% of the frame off",
           "by": "fit",
-          "at": "2026-10-06T23:02:51.104Z"
+          "at": "2026-10-06T23:27:03.378Z"
         }
       }
     },
@@ -11889,21 +11977,6 @@
   ],
   "activity": [
     {
-      "t": "2026-10-06T16:51:07.916Z",
-      "text": "Cut v3.2 built: 45.5 s.",
-      "kind": "done"
-    },
-    {
-      "t": "2026-10-06T16:52:17.889Z",
-      "text": "Building cut v3.3: trims, grade, room tone, captions, mix.",
-      "kind": "run"
-    },
-    {
-      "t": "2026-10-06T16:53:39.380Z",
-      "text": "Cut v3.3 built: 45.5 s.",
-      "kind": "done"
-    },
-    {
       "t": "2026-10-06T16:56:14.561Z",
       "text": "Cut v3.3 audited: craft fixes verified; remaining issues need new generations (lip-sync, scene 2 plate) and the restructure (runtime).",
       "kind": "done"
@@ -12287,6 +12360,21 @@
       "t": "2026-10-06T23:17:49.917Z",
       "text": "Hall B and C plates rebuilt from the 3D room. B: painted from the lit render with the opposite-angle reference (a same-angle reference got copied). C: the B plate projected through the room geometry into camera C (reproject.py), holes filled; conform 92. Paint passes copy a nearby reference instead of reframing, so close cameras get projection, not prompts.",
       "kind": "done"
+    },
+    {
+      "t": "2026-10-06T23:19:00.176Z",
+      "text": "Founder's space: 3D room exported (5 x 4.6 x 2.8 m, 40 items, 1 marks, 3 cameras) for the Rooms view",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-06T23:55:50.426Z",
+      "text": "Henrick's study: 3D room exported (6 x 6.5 x 3.2 m, 24 items, 3 marks, 6 cameras) for the Rooms view",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-07T00:14:19.397Z",
+      "text": "Leap locked photo checks for the workspace after several false under-18 flags today (one was a tight crop of the adult founder's hair). Image edits, Kling i2v and lipsync with faces are blocked until Leap reviews; nothing ran or was charged.",
+      "kind": "warn"
     }
   ],
   "ui": {

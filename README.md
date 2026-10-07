@@ -38,6 +38,10 @@ an agent made it.
   Above the shots: open decisions, the cast and the look bible.
 - **Canvas**: the pipeline as a graph. Real anchors and sheets feed keyframes, keyframes feed takes, voices and
   graphics feed takes, takes feed the final cut. Edges come from asset provenance, not hand-drawn links.
+- **Rooms**: every location as one 3D scene (the GLB its plates are rendered from), with its cameras, marks and lights.
+  Orbit it; look through any camera at its real lens with its frames laid over the 3D view and the faces' expected
+  boxes drawn; or scout: place a free camera on the floor plan, dial lens, height, facing and tilt, see the frame live,
+  and save it as a setup.
 - **Timeline**: what the latest cut actually contains, line by line.
 - **Watch final cut**: every rendered version.
 
@@ -130,6 +134,19 @@ The Henrick images and voice are the actor's likeness, used with signed permissi
 - Laid voices over silent clips read as cheap. Generate on-camera lines inside the shot.
 - Hall shot 2.4 (Seedance 2.5 on Higgsfield, keyframe + 2 real frames + founder sheet + voice reference): face 0.71 in a
   32 mm two-shot, voice 0.74 (real vs real 0.71), the word on the mouth. Drafts cost 5 credits, the 1080p final 60.
+
+## Model picks, by task (measured, not assumed)
+
+Choosing the model for a task and doing the task are separate efforts: a small bake-off on one real frame, judged by
+the blind realism panel (`bun run realism`), the room fit (`stitch fit`), conform and a geometry check, then the winner
+does the work. Re-run a bake-off when a new model ships.
+
+| Task | Picked | Evidence (2026-10-06) | Also tried |
+|---|---|---|---|
+| Realism pass on a plate (make a geometry-true frame read as a photograph) | Nano Banana 2.1 edit, 2K, frame + 3 real material crops | Realism 94 on both takes (real photo control 96, input 42); geometry held within 1% scale and 10 px | GPT Image 2.5 Sunburst 87 / 74 (holds geometry to 2 px but stays smoother); GPT Flare fills 71 |
+| Carry a plate to another camera of the same room | `reproject.py` through the room GLB | Within 4 px of the projection; paint passes with a same-direction reference copied that reference's framing twice | Flare paint from the lit render |
+| Plate from a lit 3D render | GPT Image 2.5 Flare with an opposite-angle look reference and material crops | Conform 83-89 | Same-direction reference: copied composition |
+| Dialogue video with Henrick | Seedance 2.5 omni_reference (Higgsfield) | Face 0.71, voice 0.74 in a two-shot | Kling 3.0 Pro + Index TTS clone + lipsync-3: face 0.76-0.81, voice 0.80-0.90 on interview singles |
 
 ## Stack
 

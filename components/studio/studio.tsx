@@ -49,7 +49,7 @@ export function Studio() {
         {view === "shots" ? (
           <ShotsView project={project} ix={d.ix} rows={d.rows} sum={d.sum} op={op} onWatch={() => setWatching(true)} onFocus={(id) => { setFocus(id); choose("canvas") }} />
         ) : view === "rooms" ? (
-          <RoomsView project={project} ix={d.ix} />
+          <RoomsView project={project} ix={d.ix} op={op} />
         ) : (
           <div className="absolute inset-0">
             <ReactFlowProvider>
