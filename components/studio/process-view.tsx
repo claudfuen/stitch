@@ -12,6 +12,7 @@ import { GATE_LABEL, blockedBy, currentStage, openNotes, runtime, words, type Be
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
+import { projectSlug } from "./use-project"
 
 const ME = "Claudio"
 type Props = { project: ProjectWithRev; op: (...o: Op[]) => Promise<void> }
@@ -93,6 +94,14 @@ function ScriptStage({ pr, op }: { pr: Process; op: Props["op"] }) {
             <button type="button" className="underline underline-offset-2 hover:text-foreground" onClick={() => op({ op: "concept.pick", id: null, by: ME })}>
               change concept
             </button>
+            {beats.length > 0 && (
+              <>
+                {" · "}
+                <a href={`/api/script-pdf${projectSlug() ? `?p=${encodeURIComponent(projectSlug())}` : ""}`} className="underline underline-offset-2 hover:text-foreground">
+                  download PDF
+                </a>
+              </>
+            )}
           </p>
         )}
       </header>
