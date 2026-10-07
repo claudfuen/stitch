@@ -41,9 +41,13 @@ export type Beat = {
   mark?: BeatMark
 }
 
+/** Who is in the film, as the script introduces them. Their look is locked later, at the sheets stage. */
+export type CastMember = { id: Id; name: string; who: string; playedBy: string; voice: string; states?: string[] }
+
 export type Process = {
   stages: Stage[]
   concepts: Concept[]
+  cast?: CastMember[]
   pick?: Id
   /** The beat sheet for the picked concept. Bumped each time an agent rewrites it, which reopens the script gate. */
   script: { version: number; concept?: Id; beats: Beat[] }

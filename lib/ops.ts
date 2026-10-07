@@ -6,7 +6,7 @@ import type {
   Section, Setup, Shot, Take, TakeVerdict,
 } from "./model"
 import { checkSteps, modelInfo } from "./models"
-import { blockedBy, newProcess, type Beat, type BeatMark, type Concept, type Doer, type GateMode, type GateStatus, type Process, type StageId } from "./process"
+import { blockedBy, newProcess, type Beat, type BeatMark, type CastMember, type Concept, type Doer, type GateMode, type GateStatus, type Process, type StageId } from "./process"
 
 /** The editable lists on a floor plan, and the element type each holds. */
 export type PlanList = { items: PlanItem; marks: Mark; axes: Axis; setups: Setup }
@@ -51,6 +51,8 @@ export type Op =
   /** Pick a concept (or clear the pick with null). The script gate reopens. */
   | { op: "concept.pick"; id: Id | null; note?: string; by?: string }
   | { op: "concept.upsert"; concept: Concept }
+  /** Replace the cast list the script introduces (who they are, who plays them, how they sound). */
+  | { op: "cast.set"; cast: CastMember[] }
   /** Replace the beat sheet (an agent's rewrite). Bumps the version and reopens the script gate. */
   | { op: "script.set"; beats: Beat[]; concept?: Id; by?: string; note?: string }
   | { op: "beat.mark"; id: Id; mark: BeatMark | null; by?: string }
@@ -234,6 +236,7 @@ export function applyOp(p: Project, o: Op): Project {
     case "stage.update":
     case "concept.pick":
     case "concept.upsert":
+    case "cast.set":
     case "script.set":
     case "beat.mark":
     case "note.add":
@@ -247,7 +250,7 @@ export function applyOp(p: Project, o: Op): Project {
   }
 }
 
-type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
+type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "cast.set" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
 
 let seq = 0
 const noteId = () => `n${Date.now().toString(36)}${(seq++).toString(36)}`
@@ -281,6 +284,8 @@ function applyProcessOp(pr: Process, o: ProcessOp): Process {
     }
     case "concept.upsert":
       return { ...pr, concepts: pr.concepts.some((c) => c.id === o.concept.id) ? pr.concepts.map((c) => (c.id === o.concept.id ? o.concept : c)) : [...pr.concepts, o.concept] }
+    case "cast.set":
+      return { ...pr, cast: o.cast }
     case "script.set": {
       const next = setStage({ ...pr, script: { version: pr.script.version + 1, concept: o.concept ?? pr.script.concept ?? pr.pick, beats: o.beats } }, "script", { status: "pending", by, at: now() })
       return addNote(next, "stage:script", o.note, by)

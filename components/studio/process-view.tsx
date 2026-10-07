@@ -97,6 +97,8 @@ function ScriptStage({ pr, op }: { pr: Process; op: Props["op"] }) {
         )}
       </header>
 
+      {picked && beats.length > 0 && pr.cast?.length ? <CastList pr={pr} /> : null}
+
       {!picked ? (
         <div className="space-y-4">
           {pr.concepts.map((c) => (
@@ -122,6 +124,29 @@ function ScriptStage({ pr, op }: { pr: Process; op: Props["op"] }) {
         </section>
       )}
     </article>
+  )
+}
+
+function CastList({ pr }: { pr: Process }) {
+  return (
+    <section className="space-y-4">
+      <h2 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">Cast</h2>
+      <dl className="space-y-4">
+        {pr.cast!.map((c) => (
+          <div key={c.id} className="grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-4">
+            <span />
+            <div className="space-y-1">
+              <dt className="text-xs font-semibold tracking-wider uppercase">{c.name}</dt>
+              <dd className="text-[15px] leading-relaxed">{c.who}</dd>
+              <dd className="text-sm text-muted-foreground">
+                {c.playedBy} · {c.voice}
+                {c.states && c.states.length > 1 && <> · {c.states.length} looks: {c.states.join("; ").toLowerCase()}</>}
+              </dd>
+            </div>
+          </div>
+        ))}
+      </dl>
+    </section>
   )
 }
 

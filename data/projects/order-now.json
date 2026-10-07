@@ -18,12 +18,12 @@
   "activity": [
     {
       "t": "2026-10-07T16:00:00.000Z",
-      "text": "claude · Project created: three concepts and a beat sheet for A, every gate open for review",
+      "text": "claude \u00b7 Project created: three concepts and a beat sheet for A, every gate open for review",
       "kind": "info"
     },
     {
       "t": "2026-10-07T15:23:21.960Z",
-      "text": "Claudio · Concept picked: A",
+      "text": "Claudio \u00b7 Concept picked: A",
       "kind": "info"
     }
   ],
@@ -377,7 +377,7 @@
           "title": "Order now",
           "t0": 57,
           "t1": 61,
-          "picture": "Back on set. Henrick to camera; Brock beside him, beaming. End card: COMP AI · SOC 2, handled · trycomp.ai",
+          "picture": "Back on set. Henrick to camera; Brock beside him, beaming. End card: COMP AI \u00b7 SOC 2, handled \u00b7 trycomp.ai",
           "lines": [
             {
               "who": "Henrick",
@@ -399,6 +399,65 @@
       ]
     },
     "notes": [],
-    "pick": "A"
+    "pick": "A",
+    "cast": [
+      {
+        "id": "henrick",
+        "name": "Henrick Johansson",
+        "who": "The guest expert from Europe. Navy suit, silver hair, perfectly still. Refuses to do infomercial energy and corrects every exaggeration.",
+        "playedBy": "The real Henrick (signed likeness)",
+        "voice": "His own: flat, formal, unhurried",
+        "states": [
+          "On set, on the white stool",
+          "Operator, in a beige 1994 headset"
+        ]
+      },
+      {
+        "id": "brock",
+        "name": "Brock Cassidy",
+        "who": "The loudest host on 1994 cable. Mid-40s, frosted spiked hair, mahogany tan, blinding veneers, teal double-breasted blazer, wireless headset mic. Sells everything at full volume.",
+        "playedBy": "Generated",
+        "voice": "Booming American host; every sentence ends on an exclamation",
+        "states": [
+          "On set"
+        ]
+      },
+      {
+        "id": "kyle",
+        "name": "Kyle",
+        "who": "A startup founder in his late 20s. Patchy beard, fleece vest over a startup tee. The victim of every 'before' disaster, then the happiest man in a hammock.",
+        "playedBy": "Generated",
+        "voice": "Young American founder: stressed, then serene",
+        "states": [
+          "Black and white, miserable",
+          "Colour, relaxed in the hammock"
+        ]
+      },
+      {
+        "id": "gerald",
+        "name": "Gerald",
+        "who": "The auditor, about 60. Beige three-piece suit, half-moon glasses on a chain, careful comb-over. Wants evidence of the evidence; later moved to tears.",
+        "playedBy": "Generated",
+        "voice": "Dry and precise; cracks in the testimonial",
+        "states": [
+          "Black and white, deadpan",
+          "Colour, misty-eyed"
+        ]
+      },
+      {
+        "id": "audience",
+        "name": "Studio audience",
+        "who": "A 1994 crowd: perms, windbreakers, pastel sweaters. Wide shots only.",
+        "playedBy": "Generated",
+        "voice": "Library reactions"
+      },
+      {
+        "id": "narrator",
+        "name": "Narrator",
+        "who": "The fine-print voice. Heard, never seen.",
+        "playedBy": "Voice only",
+        "voice": "Fast fine-print announcer"
+      }
+    ]
   }
 }
