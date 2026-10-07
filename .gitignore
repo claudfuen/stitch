@@ -41,3 +41,6 @@ next-env.d.ts
 # scratch
 /work/
 *.log
+
+# poster cache (app/api/thumb)
+/.cache/

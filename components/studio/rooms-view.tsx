@@ -15,7 +15,7 @@ import type { Op } from "@/lib/ops"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { FloorPlan, WHO_COLOR } from "./floor-plan"
-import { Chip } from "./media"
+import { Chip, Thumb } from "./media"
 
 const SETUP = "#a78bfa"
 /** Plan metres (x right, y toward the far wall, z up) to the GLB's y-up world, as Blender's glTF export writes it. */
@@ -52,7 +52,13 @@ function poseOf(u: Setup) {
 
 export function RoomsView({ project, ix, op }: { project: Project; ix: Index; op: (...o: Op[]) => Promise<void> }) {
   const rooms = project.locations.filter((l) => l.plan)
-  const [roomId, setRoomId] = useState(rooms[0]?.id)
+  const [roomId, setRoomId] = useState(() => {
+    let r: string | null = null
+    try {
+      r = localStorage.getItem("stitch-room")
+    } catch {}
+    return r && rooms.some((l) => l.id === r) ? r : rooms[0]?.id
+  })
   const [setupId, setSetupId] = useState<string | null>(null)
   const [look, setLook] = useState(false)
   const [beat, setBeat] = useState<string>("")
@@ -63,13 +69,6 @@ export function RoomsView({ project, ix, op }: { project: Project; ix: Index; op
   const [scout, setScout] = useState<Setup | null>(null)
   const [scoutName, setScoutName] = useState("")
 
-  useEffect(() => {
-    try {
-      const r = localStorage.getItem("stitch-room")
-      if (r && rooms.some((l) => l.id === r)) setRoomId(r)
-    } catch {}
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
   const chooseRoom = (id: string) => {
     setRoomId(id)
     setSetupId(null)
@@ -118,7 +117,8 @@ export function RoomsView({ project, ix, op }: { project: Project; ix: Index; op
   const shown = frames.find((f) => f.asset.id === overlay)
 
   return (
-    <div className="absolute inset-0 flex pt-16">
+    // isolate: drei's Html labels set huge z-indexes; keep them inside this view, under the viewer and menus.
+    <div className="absolute inset-0 isolate flex">
       {/* Rooms: one per location, with the shots and scenes that play in it. */}
       <aside className="w-64 shrink-0 overflow-y-auto border-r p-3">
         <div className="mb-2 text-xs font-semibold tracking-wide text-muted-foreground uppercase">Rooms</div>
@@ -254,13 +254,10 @@ export function RoomsView({ project, ix, op }: { project: Project; ix: Index; op
                 {frames.length === 0 && <div className="text-xs text-muted-foreground">Nothing made for this camera yet.</div>}
                 <div className="grid grid-cols-2 gap-2">
                   {frames.map((f) => (
-                    <button key={f.asset.id} onClick={() => { setOverlay(f.asset.id); setLook(true) }} className={cn("overflow-hidden rounded-md border text-left", f.asset.id === overlay ? "border-violet-400 ring-1 ring-violet-400" : "hover:border-muted-foreground/50")}>
-                      {f.asset.media === "video"
-                        ? <video src={f.asset.path} className="aspect-video w-full bg-black object-cover" muted preload="metadata" />
-                        // eslint-disable-next-line @next/next/no-img-element
-                        : <img src={f.asset.path} alt={f.asset.label} className="aspect-video w-full bg-muted object-cover" />}
+                    <div key={f.asset.id} className={cn("overflow-hidden rounded-md border", f.asset.id === overlay ? "border-violet-400 ring-1 ring-violet-400" : "hover:border-muted-foreground/50")}>
+                      <Thumb asset={f.asset} w={320} onClick={() => { setOverlay(f.asset.id); setLook(true) }} className="aspect-video w-full rounded-none" />
                       <div className="p-1"><Chip tone={f.tone}>{f.tag}</Chip></div>
-                    </button>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -368,7 +365,7 @@ function RoomScene({ url, plan, setups, selected, look, beat, onPick, scout }: {
       <primitive object={scene} />
       {plan.items.filter((it) => it.kind === "light").map((it) => <LightGlyph key={it.id} it={it} />)}
       {!look && plan.marks.filter((m) => !beat || !m.beat || m.beat === beat).map((m) => (
-        <Html key={m.id} position={P(m.at[0], m.at[1], (m.z ?? 0) + (m.pose === "sit" ? 1.45 : 1.85))} center style={{ pointerEvents: "none" }}>
+        <Html zIndexRange={[20, 0]} key={m.id} position={P(m.at[0], m.at[1], (m.z ?? 0) + (m.pose === "sit" ? 1.45 : 1.85))} center style={{ pointerEvents: "none" }}>
           <div className="rounded px-1 text-[10px] font-semibold whitespace-nowrap text-slate-950" style={{ background: WHO_COLOR[m.who] ?? "#cbd5e1" }}>{m.who}</div>
         </Html>
       ))}
@@ -404,7 +401,7 @@ function Frustum({ cam, id, on, onPick }: { cam: THREE.PerspectiveCamera; id: st
       <lineSegments geometry={geom}>
         <lineBasicMaterial color={SETUP} transparent opacity={on ? 1 : 0.55} />
       </lineSegments>
-      <Html center position={[0, 0.12, 0]}>
+      <Html zIndexRange={[20, 0]} center position={[0, 0.12, 0]}>
         <button onClick={() => onPick(id)} className={cn("rounded px-1.5 text-[11px] font-bold", on ? "bg-violet-300 text-violet-950" : "bg-violet-500/80 text-white hover:bg-violet-400")}>{id}</button>
       </Html>
     </group>
@@ -443,7 +440,7 @@ function LightGlyph({ it }: { it: PlanItem }) {
       ) : null}
       {throwLine && <lineSegments geometry={throwLine}><lineBasicMaterial color={color} /></lineSegments>}
       {label && (
-        <Html position={pos} center style={{ pointerEvents: "none" }}>
+        <Html zIndexRange={[20, 0]} position={pos} center style={{ pointerEvents: "none" }}>
           <div className="rounded bg-black/70 px-1 text-[10px] font-bold" style={{ color }}>{label}</div>
         </Html>
       )}

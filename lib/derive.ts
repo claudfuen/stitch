@@ -1,8 +1,9 @@
 // Derived views. Computed once from the project; every component renders these, never re-derives.
 
 import {
-  CHECKS, type Asset, type Character, type Check, type CheckKey, type Cut, type CutShot, type Graphic, type GraphicUse,
-  type Id, type Line, type Location, type Mark, type Plan, type Project, type Section, type Setup, type Shot, type Take,
+  CHECKS, type ActivityKind, type Asset, type Character, type Check, type CheckKey, type Cut, type CutShot, type Graphic,
+  type GraphicUse, type Id, type Line, type Location, type Mark, type Plan, type Project, type Section, type Setup, type Shot,
+  type Take, type TakeVerdict,
 } from "./model"
 
 export type Index = ReturnType<typeof indexProject>
@@ -45,8 +46,11 @@ export type ShotRow = {
   checks: CheckView[]
   checked: { ok: number; fail: number; total: number }
   timing?: CutShot
+  /** Whether the latest full cut shows the picked take: "in", "older" (the cut has an earlier take), or "out". */
+  cutState: CutState
   issues: Issue[]
 }
+export type CutState = "in" | "older" | "out"
 
 export function shotRows(p: Project, ix: Index = indexProject(p)): ShotRow[] {
   const cut = latestCut(p)
@@ -85,6 +89,7 @@ export function shotRows(p: Project, ix: Index = indexProject(p)): ShotRow[] {
       const cross = crossesLine(loc.plan, prevSetup, setup)
       if (cross) issues.push({ level: "fail", text: `Crosses the line (${cross}) from the previous shot` })
     }
+    const timing = cut?.timeline.find((t) => t.shot === shot.id)
     return {
       shot, index, cast, lines, checks, checked, issues,
       section: ix.sections.get(shot.section),
@@ -98,7 +103,8 @@ export function shotRows(p: Project, ix: Index = indexProject(p)): ShotRow[] {
         const gr = ix.graphics.get(g.graphic)
         return { ...g, g: gr, preview: gr?.preview ? ix.assets.get(gr.preview) : undefined }
       }),
-      timing: cut?.timeline.find((t) => t.shot === shot.id),
+      timing,
+      cutState: !timing ? "out" : shot.card_graphic || !take || timing.asset === take.id ? "in" : "older",
     }
   })
 }
@@ -126,7 +132,11 @@ export type TimelineView = {
 }
 export function timeline(p: Project, ix: Index = indexProject(p)): TimelineView | undefined {
   const cut = latestCut(p)
-  if (!cut) return undefined
+  return cut ? cutTimeline(p, cut, ix) : undefined
+}
+
+/** Any cut's timeline: its shots, lines and graphics, as rendered. */
+export function cutTimeline(p: Project, cut: Cut, ix: Index = indexProject(p)): TimelineView {
   const shotById = new Map(p.shots.map((s) => [s.id, s]))
   return {
     duration: cut.duration,
@@ -360,4 +370,103 @@ export function planView(l: Location): PlanView | undefined {
     for (const s of u.subjects ?? []) if (!u.inFrame.some((m) => m.mark.id === s)) issues.push({ level: "warn", text: `${u.id}: ${s} is outside the frame` })
   }
   return { plan, setups, issues }
+}
+
+// ---------- History: which version is current, where each file is used, and the work as it happened ----------
+
+export type AssetUse = { what: string; shot?: Id; cut?: Id; location?: Id; setup?: Id; picked?: boolean }
+const verdictTag = (v: TakeVerdict) => (v === "circled" ? ", picked" : v === "reject" ? ", rejected" : v === "pending" ? ", pending" : "")
+
+/** Where each asset is used, in words: "2.4 take, picked", "Ministry waiting hall B plate", "Cut v6". */
+export function assetUses(p: Project): Map<Id, AssetUse[]> {
+  const out = new Map<Id, AssetUse[]>()
+  const add = (id: Id | null | undefined, u: AssetUse) => {
+    if (!id) return
+    const list = out.get(id)
+    if (list) list.push(u)
+    else out.set(id, [u])
+  }
+  for (const s of p.shots) {
+    for (const k of s.keyframes) add(k.asset, { what: `${s.id} keyframe${verdictTag(k.verdict)}`, shot: s.id, picked: k.verdict === "circled" })
+    for (const t of s.takes) add(t.asset, { what: `${s.id} take${verdictTag(t.verdict)}`, shot: s.id, picked: t.verdict === "circled" })
+    for (const l of s.lines) add(l.audio, { what: `${s.id} line`, shot: s.id })
+    for (const c of s.sfx) add(c.asset, { what: `${s.id} sound`, shot: s.id })
+  }
+  for (const g of p.graphics) add(g.preview, { what: `Graphic: ${g.label}` })
+  for (const c of p.characters) {
+    for (const a of c.anchors) add(a, { what: `${c.name} anchor (real)` })
+    for (const a of c.sheets) add(a, { what: `${c.name} sheet` })
+    add(c.voice?.ref, { what: `${c.name} voice reference` })
+  }
+  for (const l of p.locations) {
+    for (const a of l.style) add(a, { what: `${l.name} set plate`, location: l.id })
+    for (const a of l.gradeRef) add(a, { what: `${l.name} grade reference`, location: l.id })
+    for (const a of l.props ?? []) add(a, { what: `${l.name} prop sheet`, location: l.id })
+    add(l.ambience, { what: `${l.name} ambience`, location: l.id })
+    add(l.model, { what: `${l.name} 3D room`, location: l.id })
+    for (const u of l.plan?.setups ?? []) {
+      add(u.render, { what: `${l.name} ${u.id} grey render`, location: l.id, setup: u.id })
+      for (const t of u.plates ?? []) add(t.asset, { what: `${l.name} ${u.id} plate${verdictTag(t.verdict)}`, location: l.id, setup: u.id, picked: t.verdict === "circled" })
+    }
+  }
+  for (const c of p.cuts) add(c.asset, { what: c.scope ? `${c.scope} cut ${c.version}` : `Cut ${c.version}`, cut: c.id })
+  return out
+}
+
+export type CutChange = { shot: Id; change: "added" | "removed" | "new take" | "retimed" | "dialogue" }
+export type CutEntry = { cut: Cut; asset?: Asset; at?: number; current: boolean; prev?: Cut; changes: CutChange[] }
+export type CutHistory = { current?: CutEntry; full: CutEntry[]; scenes: { scope: string; entries: CutEntry[] }[] }
+
+/** What changed between two versions of a cut, shot by shot. Line times are compared from their shot's start, since an
+ *  earlier shot getting longer moves every later line without changing it. */
+export function cutChanges(prev: Cut, cut: Cut): CutChange[] {
+  const before = new Map(prev.timeline.map((t) => [t.shot, t]))
+  const lines = (t: CutShot) => t.lines.map((l) => `${l.who}|${l.text}|${l.mode}|${Math.round((l.start - t.start) * 10)}|${Math.round((l.end - t.start) * 10)}`).join("\n")
+  const out: CutChange[] = []
+  for (const t of cut.timeline) {
+    const b = before.get(t.shot)
+    before.delete(t.shot)
+    if (!b) out.push({ shot: t.shot, change: "added" })
+    else if (b.asset !== t.asset) out.push({ shot: t.shot, change: "new take" })
+    else if (Math.abs(b.dur - t.dur) > 0.05 || Math.abs(b.in - t.in) > 0.05) out.push({ shot: t.shot, change: "retimed" })
+    else if (lines(b) !== lines(t)) out.push({ shot: t.shot, change: "dialogue" })
+  }
+  for (const shot of before.keys()) out.push({ shot, change: "removed" })
+  return out
+}
+
+/** Every cut, newest first (the order the project keeps them in, as latestCut reads it): the full cuts, whose newest is
+ *  the current cut of the film, and each scene's cuts in film order, whose newest is that scene's current version. */
+export function cutHistory(p: Project, ix: Index = indexProject(p), mtimes: Record<Id, number> = {}): CutHistory {
+  const entries = (list: Cut[]): CutEntry[] =>
+    list.map((cut, i) => ({ cut, asset: ix.assets.get(cut.asset), at: mtimes[cut.asset], current: i === 0, prev: list[i + 1], changes: list[i + 1] ? cutChanges(list[i + 1], cut) : [] }))
+  const full = entries(p.cuts.filter((c) => !c.scope))
+  const sceneNo = (scope: string) => Number(/scene (\d+)/i.exec(scope)?.[1] ?? 99)
+  const scopes = [...new Set(p.cuts.flatMap((c) => (c.scope ? [c.scope] : [])))].sort((a, b) => sceneNo(a) - sceneNo(b))
+  return { current: full[0], full, scenes: scopes.map((scope) => ({ scope, entries: entries(p.cuts.filter((c) => c.scope === scope)) })) }
+}
+
+export type FeedItem =
+  | { kind: "note"; t: number; tone: ActivityKind; text: string }
+  | { kind: "media"; t: number; from: number; assets: Asset[] }
+  | { kind: "cut"; t: number; cut: Cut; asset?: Asset }
+
+/** The work as it happened, newest first: the agents' log, the files they made (by file time, in batches no more than
+ *  three minutes apart) and every cut as it was rendered. */
+export function activityFeed(p: Project, ix: Index, mtimes: Record<Id, number>): FeedItem[] {
+  const items: FeedItem[] = p.activity.map((a) => ({ kind: "note", t: Date.parse(a.t), tone: a.kind ?? "info", text: a.text }))
+  const cutFiles = new Set(p.cuts.map((c) => c.asset))
+  for (const cut of p.cuts) if (mtimes[cut.asset]) items.push({ kind: "cut", t: mtimes[cut.asset], cut, asset: ix.assets.get(cut.asset) })
+  const made = p.assets.filter((a) => mtimes[a.id] && !cutFiles.has(a.id)).sort((a, b) => mtimes[a.id] - mtimes[b.id])
+  let batch: Asset[] = []
+  const flush = () => {
+    if (batch.length) items.push({ kind: "media", t: mtimes[batch[batch.length - 1].id], from: mtimes[batch[0].id], assets: [...batch].reverse() })
+    batch = []
+  }
+  for (const a of made) {
+    if (batch.length && mtimes[a.id] - mtimes[batch[batch.length - 1].id] > 3 * 60_000) flush()
+    batch.push(a)
+  }
+  flush()
+  return items.sort((a, b) => b.t - a.t)
 }

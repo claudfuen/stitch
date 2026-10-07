@@ -17,9 +17,9 @@ bun run stitch show         # the same project, from the terminal
 | Model | `lib/model.ts` | Types for the project: characters, locations (look bible), assets, shots, graphics, cuts, activity |
 | Operations | `lib/ops.ts` | The only way the project changes. Pure `(project, op) -> project` |
 | Store | `lib/store.ts` | Locked, atomic reads and writes of `data/project.json` |
-| Derived views | `lib/derive.ts` | Shot rows, issues, canvas graph (edges from provenance), timeline (from the latest cut) |
-| API | `app/api/project` | `GET` the project, `POST { ops }` to change it |
-| UI | `components/studio` | Shots view, Canvas view, timeline, activity, final-cut player |
+| Derived views | `lib/derive.ts` | Shot rows, issues, canvas graph (edges from provenance), cut timelines and history (current cut, what changed), where each asset is used, the activity feed |
+| API | `app/api/project`, `app/api/thumb` | `GET` the project (with each asset's file time), `POST { ops }` to change it; small cached WebP posters of any image or video |
+| UI | `components/studio` | Shots, Cuts, Activity, Canvas and Rooms views; one media viewer; shared chips and posters in `media.tsx` |
 | CLI | `scripts/stitch.ts` | The agent's way in. Same ops as the UI |
 | Renderer | `scripts/build.ts` | Builds a cut straight from the project and registers it |
 | Grey box | `scripts/greybox.py` | Builds a location in Blender from its floor plan and renders every camera setup |
@@ -32,18 +32,31 @@ an agent made it.
 
 ## Views
 
-- **Shots** (default): one row per shot. Keyframe and take (with alternates you can pick), dialogue with how each
-  line was voiced (on camera, voice-over, or laid over a silent clip and therefore not lip-synced), graphics, the
-  shot card (framing, blocking, performance, continuity, sound, cut points) and a nine-point craft checklist.
-  Above the shots: open decisions, the cast and the look bible.
+The top bar always shows the **current cut** (the newest full cut, never a scene cut) with a Watch button, and
+whether the agents are working (the last thing they logged and how long ago).
+
+- **Shots** (default): the film in order, one line per shot, grouped into scenes: its picked take, whether the
+  current cut shows that take ("in v6", "v6 has an older take", "not in v6"), issues and checks. Filter by scene,
+  issues or text. Select a shot for its detail: the take player, takes and keyframes to pick from, dialogue with how
+  each line was voiced (on camera, voice-over, or laid over a silent clip and therefore not lip-synced), graphics,
+  the checklist and the shot card. Open decisions and the cast and look bible fold away above the list.
+- **Cuts**: every version of the film and of each scene, newest first. The newest full cut is marked current;
+  older ones say what replaced them. Each plays with its timeline (click a shot to jump to it) and lists what changed
+  from the version before, shot by shot.
+- **Activity**: the work in progress, newest first, by the hour: what the agents log, the files they make (batched
+  by file time, with posters and the shots they are for) and every cut as it renders. Everything since you last
+  looked sits above a "new" line, and the tab counts it.
 - **Canvas**: the pipeline as a graph. Real anchors and sheets feed keyframes, keyframes feed takes, voices and
   graphics feed takes, takes feed the final cut. Edges come from asset provenance, not hand-drawn links.
 - **Rooms**: every location as one 3D scene (the GLB its plates are rendered from), with its cameras, marks and lights.
   Orbit it; look through any camera at its real lens with its frames laid over the 3D view and the faces' expected
   boxes drawn; or scout: place a free camera on the floor plan, dial lens, height, facing and tilt, see the frame live,
   and save it as a setup.
-- **Timeline**: what the latest cut actually contains, line by line.
-- **Watch final cut**: every rendered version.
+
+Lists never load media files: every image and video shows as a small poster from `/api/thumb` (cached in `.cache/`),
+and a click opens the one viewer (full file, what made it, scores, where it is used). The board polls the project
+every second; an unchanged project is answered from its file time alone, and each change is structurally shared
+with the last, so a new log line re-renders only the activity views.
 
 ## CLI
 

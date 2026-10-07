@@ -2,18 +2,19 @@
 
 import { Background, BackgroundVariant, Controls, Handle, MiniMap, Position, ReactFlow, useNodesState, useReactFlow, type Edge, type Node, type NodeProps } from "@xyflow/react"
 import "@xyflow/react/dist/style.css"
-import { useEffect, useMemo, useRef } from "react"
+import { memo, useEffect, useMemo, useRef } from "react"
 import { canvasGraph, type CanvasEdge, type CanvasNode, type Index, type ShotRow } from "@/lib/derive"
 import type { ProjectWithRev } from "@/lib/model"
 import type { Op } from "@/lib/ops"
 import { cn } from "@/lib/utils"
 import { FloorPlan } from "./floor-plan"
 import { Chip, FaceChip, ModeChip, Thumb, VerdictChip, VoiceChip, fmt } from "./media"
+import { share } from "./share"
 
 type Data<K extends CanvasNode["kind"]> = Extract<CanvasNode, { kind: K }>["data"] & { baselines: ProjectWithRev["baselines"] }
 const dot = "!size-2 !border-0 !bg-sky-400/70"
 
-function AssetNode({ data }: NodeProps<Node<Data<"asset">>>) {
+const AssetNode = memo(function AssetNode({ data }: NodeProps<Node<Data<"asset">>>) {
   const a = data.asset
   return (
     <div className={cn("w-[220px] rounded-xl border bg-card p-2 shadow-lg", data.circled && "border-emerald-400/60")}>
@@ -24,7 +25,7 @@ function AssetNode({ data }: NodeProps<Node<Data<"asset">>>) {
         {data.role}{data.shot && <span className="font-mono normal-case">· {data.shot}</span>}
         {!!data.alts && data.alts > 0 && <span className="ml-auto normal-case">+{data.alts} takes</span>}
       </div>
-      <Thumb asset={a} className={cn("w-full rounded-md", a.media === "audio" ? "" : "aspect-video")} />
+      <Thumb asset={a} w={480} className={cn("w-full rounded-md", a.media === "audio" ? "" : "aspect-video")} />
       <div className="mt-1.5 truncate text-[12px]" title={a.label}>{a.label}</div>
       <div className="mt-1 flex flex-wrap gap-1">
         <FaceChip value={a.scores?.face} target={data.baselines.faceTarget} baseline={data.baselines.face} />
@@ -36,9 +37,9 @@ function AssetNode({ data }: NodeProps<Node<Data<"asset">>>) {
       <Handle id="r" type="source" position={Position.Right} className={dot} />
     </div>
   )
-}
+})
 
-function ShotNode({ data }: NodeProps<Node<Data<"shot">>>) {
+const ShotNode = memo(function ShotNode({ data }: NodeProps<Node<Data<"shot">>>) {
   const r: ShotRow = data.row
   const color = r.section?.color ?? "#64748b"
   return (
@@ -56,9 +57,9 @@ function ShotNode({ data }: NodeProps<Node<Data<"shot">>>) {
       </div>
     </div>
   )
-}
+})
 
-function LinesNode({ data }: NodeProps<Node<Data<"lines">>>) {
+const LinesNode = memo(function LinesNode({ data }: NodeProps<Node<Data<"lines">>>) {
   return (
     <div className="w-[300px] rounded-xl border bg-card p-3 shadow-lg">
       <div className="mb-1.5 text-[10px] tracking-widest text-muted-foreground uppercase">Dialogue · {data.row.shot.id}</div>
@@ -72,22 +73,22 @@ function LinesNode({ data }: NodeProps<Node<Data<"lines">>>) {
       <Handle id="top" type="source" position={Position.Top} className={dot} />
     </div>
   )
-}
+})
 
-function GraphicNode({ data }: NodeProps<Node<Data<"graphic">>>) {
+const GraphicNode = memo(function GraphicNode({ data }: NodeProps<Node<Data<"graphic">>>) {
   const g = data.use
   return (
     <div className="w-[220px] rotate-[-0.5deg] rounded-sm border border-dashed border-amber-300/50 bg-amber-200/10 p-2 shadow-md">
       <div className="mb-1 text-[10px] tracking-widest text-amber-300 uppercase">Motion graphic</div>
-      <Thumb asset={g.preview} className="aspect-video w-full rounded-sm" autoPlay />
+      <Thumb asset={g.preview} w={480} className="aspect-video w-full rounded-sm" />
       <div className="mt-1 text-[12px]">{g.g?.label}</div>
       <div className="text-[11px] text-muted-foreground">at {fmt(g.at)} for {fmt(g.dur)}</div>
       <Handle id="top" type="source" position={Position.Top} className="!size-2 !border-0 !bg-amber-400" />
     </div>
   )
-}
+})
 
-function CharacterNode({ data }: NodeProps<Node<Data<"character">>>) {
+const CharacterNode = memo(function CharacterNode({ data }: NodeProps<Node<Data<"character">>>) {
   const c = data.character
   return (
     <div className="w-[260px] rounded-xl border bg-card p-3 shadow-lg">
@@ -97,9 +98,9 @@ function CharacterNode({ data }: NodeProps<Node<Data<"character">>>) {
       <div className="mt-1 text-[11px] text-muted-foreground">{c.anchors.length} real anchors · {c.sheets.length} sheets</div>
     </div>
   )
-}
+})
 
-function LocationNode({ data }: NodeProps<Node<Data<"location">>>) {
+const LocationNode = memo(function LocationNode({ data }: NodeProps<Node<Data<"location">>>) {
   const l = data.location
   return (
     <div className={cn("rounded-xl border bg-card p-3 shadow-lg", data.plan ? "w-[340px]" : "w-[260px]")}>
@@ -119,9 +120,9 @@ function LocationNode({ data }: NodeProps<Node<Data<"location">>>) {
       <Handle id="r" type="source" position={Position.Right} className={dot} />
     </div>
   )
-}
+})
 
-function SetupNode({ data }: NodeProps<Node<Data<"setup">>>) {
+const SetupNode = memo(function SetupNode({ data }: NodeProps<Node<Data<"setup">>>) {
   const u = data.setup
   const subjects = u.inFrame.filter((m) => !u.subjects || u.subjects.includes(m.mark.id))
   return (
@@ -134,11 +135,11 @@ function SetupNode({ data }: NodeProps<Node<Data<"setup">>>) {
       </div>
       <div className="grid grid-cols-2 gap-1">
         <div>
-          <Thumb asset={data.render} className="aspect-video w-full rounded" />
+          <Thumb asset={data.render} w={320} className="aspect-video w-full rounded" />
           <div className="mt-0.5 text-[10px] text-muted-foreground">grey box</div>
         </div>
         <div>
-          <Thumb asset={data.plate} className="aspect-video w-full rounded" />
+          <Thumb asset={data.plate} w={320} className="aspect-video w-full rounded" />
           <div className="mt-0.5 text-[10px] text-muted-foreground">{data.plate ? `plate · ${data.takes} take${data.takes === 1 ? "" : "s"}` : "no plate yet"}</div>
         </div>
       </div>
@@ -151,9 +152,9 @@ function SetupNode({ data }: NodeProps<Node<Data<"setup">>>) {
       <Handle id="s" type="source" position={Position.Bottom} className={dot} />
     </div>
   )
-}
+})
 
-function FinalNode({ data }: NodeProps<Node<Data<"final">>>) {
+const FinalNode = memo(function FinalNode({ data }: NodeProps<Node<Data<"final">>>) {
   const cut = data.cut
   return (
     <div className="w-[640px] rounded-2xl border-2 border-emerald-400/70 bg-card p-4 shadow-2xl" style={{ boxShadow: "0 0 0 6px rgba(52,211,153,0.08), 0 30px 80px rgba(0,0,0,0.6)" }}>
@@ -163,11 +164,11 @@ function FinalNode({ data }: NodeProps<Node<Data<"final">>>) {
         <span className="font-mono text-sm text-emerald-300">{cut?.version ?? "none"}</span>
         {cut && <span className="ml-auto font-mono text-xs text-muted-foreground">{fmt(cut.duration)}</span>}
       </div>
-      {data.asset ? <Thumb asset={data.asset} className="nodrag nowheel mt-3 aspect-video w-full rounded-lg" controls /> : <div className="mt-3 aspect-video rounded-lg bg-muted" />}
+      {data.asset ? <Thumb asset={data.asset} w={1280} className="nodrag mt-3 aspect-video w-full rounded-lg" /> : <div className="mt-3 aspect-video rounded-lg bg-muted" />}
       {cut?.audit?.issues && <ul className="mt-2 space-y-0.5 text-[12px] text-muted-foreground">{cut.audit.issues.map((i) => <li key={i}>· {i}</li>)}</ul>}
     </div>
   )
-}
+})
 
 const nodeTypes = { asset: AssetNode, shot: ShotNode, lines: LinesNode, graphic: GraphicNode, character: CharacterNode, location: LocationNode, setup: SetupNode, final: FinalNode }
 
@@ -189,15 +190,36 @@ const handles: Record<CanvasEdge["kind"], { sourceHandle: string; targetHandle: 
 }
 
 export function CanvasView({ project: p, ix, rows, op, focus }: { project: ProjectWithRev; ix: Index; rows: ShotRow[]; op: (...o: Op[]) => Promise<void>; focus?: string | null }) {
-  const graph = useMemo(() => canvasGraph(p, rows, ix), [p, rows, ix])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const graph = useMemo(() => canvasGraph(p, rows, ix), [rows, ix, p.ui, p.shots, p.characters, p.locations, p.cuts])
   const [nodes, setNodes, onNodesChange] = useNodesState<Node>([])
   const dragging = useRef(false)
   const { fitView } = useReactFlow()
   const first = useRef(true)
 
+  // Nodes whose data did not change keep their objects (and React Flow's measurements), so a poll that changed one
+  // take re-renders one node, not all of them.
+  const built = useRef(new Map<string, Node>())
   useEffect(() => {
     if (dragging.current) return
-    setNodes(graph.nodes.map((n) => ({ id: n.id, type: n.kind, position: { x: n.x, y: n.y }, data: { ...n.data, baselines: p.baselines } })))
+    const next = new Map<string, Node>()
+    const changed = new Set<string>()
+    for (const n of graph.nodes) {
+      const old = built.current.get(n.id)
+      const node = share(old, { id: n.id, type: n.kind, position: { x: n.x, y: n.y }, data: { ...n.data, baselines: p.baselines } } as Node)
+      if (node !== old) changed.add(n.id)
+      next.set(n.id, node)
+    }
+    const removed = [...built.current.keys()].some((id) => !next.has(id))
+    built.current = next
+    if (!changed.size && !removed) return
+    setNodes((cur) => {
+      const live = new Map(cur.map((c) => [c.id, c]))
+      return [...next.values()].map((n) => {
+        const c = live.get(n.id)
+        return c && !changed.has(n.id) ? c : { ...c, ...n }
+      })
+    })
     if (first.current) {
       first.current = false
       setTimeout(() => fitView({ padding: 0.08 }), 80)
@@ -216,6 +238,7 @@ export function CanvasView({ project: p, ix, rows, op, focus }: { project: Proje
   return (
     <ReactFlow
       nodes={nodes} edges={edges} nodeTypes={nodeTypes} onNodesChange={onNodesChange} colorMode="dark" minZoom={0.1} proOptions={{ hideAttribution: true }}
+      onlyRenderVisibleElements
       onNodeDragStart={() => (dragging.current = true)}
       onNodeDragStop={(_, n) => {
         dragging.current = false
