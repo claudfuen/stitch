@@ -17,11 +17,6 @@
   "open": [],
   "activity": [
     {
-      "t": "2026-10-07T16:32:56.608Z",
-      "text": "claude · Frame for studio C4 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
-      "kind": "info"
-    },
-    {
       "t": "2026-10-07T16:32:56.820Z",
       "text": "claude · Frame for studio C5 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
       "kind": "info"
@@ -413,6 +408,11 @@
     },
     {
       "t": "2026-10-07T19:54:51.809Z",
+      "text": "claude · Voice: 5 roles, 1 take",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T20:18:03.391Z",
       "text": "claude · Voice: 5 roles, 1 take",
       "kind": "info"
     }
@@ -3124,72 +3124,148 @@
           "who": "brock",
           "auditions": [
             {
-              "voice": "Brian",
-              "file": "generated/order-now/voice/auditions/brock-Brian.mp3",
-              "model": "ElevenLabs v3",
-              "provider": "Leap",
-              "job": "gen_U1GBWJsnH5ZlWSmy7U0YEgXm",
-              "at": "2026-10-07T19:54:49.226520Z"
+              "voice": "Ed - Late Night Announcer",
+              "file": "generated/order-now/voice/cast/brock-ed-late-night-announcer.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "ARaSrq9607wVOUo5F422",
+              "at": "2026-10-07T20:12:46.030Z",
+              "source": "library",
+              "about": "Comedy show introduction voice. Over the top cheesy American male. For live radio audience silly events. Game shows, award shows, parody trailers. Celebrity guest or Saturday sketch club stage intros. Cartoons or animation. A funny vintage character by Hey Its Brad.",
+              "voiceId": "dHd5gvgSOzSfduK4CvEg"
             },
             {
-              "voice": "Chris",
-              "file": "generated/order-now/voice/auditions/brock-Chris.mp3",
-              "model": "ElevenLabs v3",
-              "provider": "Leap",
-              "job": "gen_B0WtTPuJMSQ3Rf198SppxBXo",
-              "at": "2026-10-07T19:54:49.226520Z"
+              "voice": "Phil - Explosive, Passionate Announcer",
+              "file": "generated/order-now/voice/cast/brock-phil-explosive-passionate-announcer.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "2sv5RmoCl5uRoSVP0i4H",
+              "at": "2026-10-07T20:12:53.377Z",
+              "source": "library",
+              "about": "An explosive voice, commentating every electrifying suplex and championship clash with unbridled passion!",
+              "voiceId": "LG95yZDEHg6fCZdQjLqj"
             },
             {
-              "voice": "Eric",
-              "file": "generated/order-now/voice/auditions/brock-Eric.mp3",
-              "model": "ElevenLabs v3",
-              "provider": "Leap",
-              "job": "gen_z0kkFzlYs6YD8x99ItjELUYA",
-              "at": "2026-10-07T19:54:49.226520Z"
+              "voice": "John - Energetic, Unstoppable and Upbeat",
+              "file": "generated/order-now/voice/cast/brock-john-energetic-unstoppable-and-upbeat.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "3ELNQT4rR3FP5RcqKoQg",
+              "at": "2026-10-07T20:13:01.450Z",
+              "source": "library",
+              "about": "Unstoppable John is a thunderous, cinematic high-energy commercial voice built for maximum impact. Think over-the-top announcer swagger meets entrepreneurial motivational energy — the kind of voice that can turn an ad, trailer, or viral video into pure adrenaline. Perfect for storytellers, game trailers, parody ads, and brand spots that need power, humor, and charisma in every line.",
+              "voiceId": "lXyLz3Gu0YqdG8RfvIyZ"
             },
             {
-              "voice": "Roger",
-              "file": "generated/order-now/voice/auditions/brock-Roger.mp3",
-              "model": "ElevenLabs v3",
-              "provider": "Leap",
-              "job": "gen_WR973fLjMUpmyksQV9Famzy5",
-              "at": "2026-10-07T19:54:49.226520Z"
+              "voice": "Designed A",
+              "file": "generated/order-now/voice/cast/brock-designed-a.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "5rvKAZGvyciBtEb971gG",
+              "at": "2026-10-07T20:13:08.924Z",
+              "source": "designed",
+              "about": "A booming American TV infomercial host in his mid-forties, 1994 cable. A huge, bright, slightly nasal showman voice that grins through every word, relentless energy, every sentence lands like an exclamation. Clean studio microphone.",
+              "voiceId": "aT11c1PwPNrzJVQrFkbs"
+            },
+            {
+              "voice": "Designed B",
+              "file": "generated/order-now/voice/cast/brock-designed-b.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "sJsNyFteo728RpmGhOd6",
+              "at": "2026-10-07T20:13:16.091Z",
+              "source": "designed",
+              "about": "A booming American TV infomercial host in his mid-forties, 1994 cable. A huge, bright, slightly nasal showman voice that grins through every word, relentless energy, every sentence lands like an exclamation. Clean studio microphone.",
+              "voiceId": "EGyOtnba5yJO3noC9rye"
             }
           ]
         },
         {
           "who": "henrick",
+          "auditions": [
+            {
+              "voice": "v4 clone",
+              "file": "generated/order-now/voice/cast/henrick-v4-clone.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "U8KC6hhRgvYCFHf7jl2F",
+              "at": "2026-10-07T20:15:32.650Z",
+              "source": "clone",
+              "about": "Instant clone of his four real recorded lines (13.6 s), reading his lines on Eleven v4. It is scored against the same lines it learned from, so the match flatters it a little.",
+              "voiceId": "7Ul9MNpMh3w5Is2gb5tG",
+              "match": 0.91
+            },
+            {
+              "voice": "Stand-in, converted",
+              "file": "generated/order-now/voice/cast/henrick-take1-chatterbox.wav",
+              "model": "ElevenLabs v3 + Chatterbox HD",
+              "provider": "fal",
+              "at": "2026-10-07T19:54:49Z",
+              "source": "converted",
+              "about": "Take 1's method: a stock voice reads his lines in the dialogue, then each line is converted to his real recording (speech to speech).",
+              "match": 0.84
+            }
+          ],
           "real": true,
-          "voice": "his own",
-          "auditions": [],
-          "note": "Read in the take by a stand-in voice (Daniel), then each line converted to his real recording with Chatterbox HD speech to speech. The match to his recording is on each of his lines below; two real lines of his score about 0.71."
+          "note": "Two ways to make his voice. The v4 clone can act inside the one-take read directly, with no conversion step, and it matches his recording better (0.91 vs 0.84; two real lines of his score about 0.71 against each other). A stronger clone from 20+ minutes of his real footage is being built next."
         },
         {
           "who": "kyle",
           "auditions": [
             {
-              "voice": "Chris",
-              "file": "generated/order-now/voice/auditions/kyle-Chris.mp3",
-              "model": "ElevenLabs v3",
-              "provider": "Leap",
-              "job": "gen_aL9f2eSGcw7vjed7I7dzKvfJ",
-              "at": "2026-10-07T19:54:49.226520Z"
+              "voice": "Nelson - High-Pitched, Anxious Nerd",
+              "file": "generated/order-now/voice/cast/kyle-nelson-high-pitched-anxious-nerd.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "oGfbozMfjZJn55IzExbH",
+              "at": "2026-10-07T20:13:57.849Z",
+              "source": "library",
+              "about": "Socially anxious nerd with expressive, slightly squeaky delivery. Great for POV skits, social media comedy, school or exam scenes, tech explainers, gaming intros, D&D characters, visual novels and any storyline that needs an overthinking, overprepared geek who still sounds lovable.",
+              "voiceId": "EaX6rnyDKjJx35tchi80"
             },
             {
-              "voice": "Liam",
-              "file": "generated/order-now/voice/auditions/kyle-Liam.mp3",
-              "model": "ElevenLabs v3",
-              "provider": "Leap",
-              "job": "gen_jzuE1c4JgYdxxKVLM2ewqA4X",
-              "at": "2026-10-07T19:54:49.226520Z"
+              "voice": "Lukas - Excited youthful young man",
+              "file": "generated/order-now/voice/cast/kyle-lukas-excited-youthful-young-man.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "hJRVnct4WhKPulRjGrjI",
+              "at": "2026-10-07T20:13:59.758Z",
+              "source": "library",
+              "about": "Young man with a lot of passion and excitement in tone, happy, hopeful and confident. Good for characters and catchy Socil Media narration.",
+              "voiceId": "wSqOdjeNqDrHcoK0zorF"
             },
             {
-              "voice": "Will",
-              "file": "generated/order-now/voice/auditions/kyle-Will.mp3",
-              "model": "ElevenLabs v3",
-              "provider": "Leap",
-              "job": "gen_b6SA8irdWdTFFt8TEB8Nugv3",
-              "at": "2026-10-07T19:54:49.226520Z"
+              "voice": "Erby - Nerdy Regular Dude",
+              "file": "generated/order-now/voice/cast/kyle-erby-nerdy-regular-dude.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "FkPkE7dkUayhpRZkGfJl",
+              "at": "2026-10-07T20:14:01.630Z",
+              "source": "library",
+              "about": "A youthful, high-pitched American male voice with an authentic, everyday cadence. It features natural pacing, lifelike breathing, and a highly conversational, laid-back tone. Very much a normal kind of guy!",
+              "voiceId": "n27L8GNoVt7SPUboEQb7"
+            },
+            {
+              "voice": "Designed A",
+              "file": "generated/order-now/voice/cast/kyle-designed-a.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "m4HjTTzN0lIEvG7Y1BaW",
+              "at": "2026-10-07T20:14:04.112Z",
+              "source": "designed",
+              "about": "An eager American software-startup founder in his late twenties in 1994. A slightly high, reedy voice, quick and frantic, cracking with stress, sincere and a bit nerdy. Clean studio microphone.",
+              "voiceId": "X0ZcIWoDzDBWHvNGOzLa"
+            },
+            {
+              "voice": "Designed B",
+              "file": "generated/order-now/voice/cast/kyle-designed-b.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "gnyPhVzEX36i9wgDldSB",
+              "at": "2026-10-07T20:14:06.474Z",
+              "source": "designed",
+              "about": "An eager American software-startup founder in his late twenties in 1994. A slightly high, reedy voice, quick and frantic, cracking with stress, sincere and a bit nerdy. Clean studio microphone.",
+              "voiceId": "XOpUrBWqpvEBieaNdyy3"
             }
           ]
         },
@@ -3197,28 +3273,59 @@
           "who": "gerald",
           "auditions": [
             {
-              "voice": "Bill",
-              "file": "generated/order-now/voice/auditions/gerald-Bill.mp3",
-              "model": "ElevenLabs v3",
-              "provider": "Leap",
-              "job": "gen_fglXAJ9Ie25hcIWtGoqoLvdt",
-              "at": "2026-10-07T19:54:49.226520Z"
+              "voice": "Henry - Serious Professor",
+              "file": "generated/order-now/voice/cast/gerald-henry-serious-professor.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "BOyCMolaf9EBGgXPPIvI",
+              "at": "2026-10-07T20:14:30.943Z",
+              "source": "library",
+              "about": "A voice of wisdom and genius. A voice with the depth of experience and the silence of contemplation. The voice of a teacher guided by time… humble yet full of wisdom and understanding. Every word is like a lesson from experience, clear, firm, and weighted with wisdom. This voice does not shout to be heard, but when it speaks, you will listen quietly, because you know that every word it releases has substance.",
+              "voiceId": "xJRVu5rCGFsjBiSE5TWn"
             },
             {
-              "voice": "Callum",
-              "file": "generated/order-now/voice/auditions/gerald-Callum.mp3",
-              "model": "ElevenLabs v3",
-              "provider": "Leap",
-              "job": "gen_tUcDi5nSZH7DmDVFhr7uTug6",
-              "at": "2026-10-07T19:54:49.226520Z"
+              "voice": "Grampa Werthers - Old & Cranky",
+              "file": "generated/order-now/voice/cast/gerald-grampa-werthers-old-cranky.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "n0KY3atxcx2VphMNbeNf",
+              "at": "2026-10-07T20:14:34.359Z",
+              "source": "library",
+              "about": "Sometimes sweet, always honest. American old timer who remembers how the world used to be. A grumpy grandpa, or a wise elder male storyteller for silly old-fashioned parody, cartoon or comedy content. A funny grandfather character voice by Hey Its Brad.",
+              "voiceId": "MKlLqCItoCkvdhrxgtLv"
             },
             {
-              "voice": "Roger",
-              "file": "generated/order-now/voice/auditions/gerald-Roger.mp3",
-              "model": "ElevenLabs v3",
-              "provider": "Leap",
-              "job": "gen_wPLh2XpPmDysdOdVxMMOIdZj",
-              "at": "2026-10-07T19:54:49.226520Z"
+              "voice": "David - Slow & Charming",
+              "file": "generated/order-now/voice/cast/gerald-david-slow-charming.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "avlJlwd6VBRdlEF0DzZR",
+              "at": "2026-10-07T20:14:37.145Z",
+              "source": "library",
+              "about": "A calm, seasoned documentary narrator who savors every single word. Extremely charming, slow, relaxed, with long deliberate pauses. A mature, warm German male voice with a deeply comforting and charmingly witty tone. The delivery is deadpan, dryly ironic, and beautifully unhurried, commenting on events with a subtle, affectionate smile.",
+              "voiceId": "LTo9oDjTW1FdEgMfiXWQ"
+            },
+            {
+              "voice": "Designed A",
+              "file": "generated/order-now/voice/cast/gerald-designed-a.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "Wc3JCzECQ9CnouHsaDGa",
+              "at": "2026-10-07T20:14:40.685Z",
+              "source": "designed",
+              "about": "An American corporate auditor of about sixty. Dry, precise and fussy: clipped consonants, a faintly nasal, pedantic tone, slow and deliberate, the kind of man who asks for evidence of the evidence. Clean studio microphone.",
+              "voiceId": "qxahFF8yL6hZuLr1eOzS"
+            },
+            {
+              "voice": "Designed B",
+              "file": "generated/order-now/voice/cast/gerald-designed-b.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "KIntPrNA0v5LO2TNGolL",
+              "at": "2026-10-07T20:14:44.109Z",
+              "source": "designed",
+              "about": "An American corporate auditor of about sixty. Dry, precise and fussy: clipped consonants, a faintly nasal, pedantic tone, slow and deliberate, the kind of man who asks for evidence of the evidence. Clean studio microphone.",
+              "voiceId": "tpUhErMnhbcHmoo1cKOi"
             }
           ]
         },
@@ -3226,28 +3333,59 @@
           "who": "narrator",
           "auditions": [
             {
-              "voice": "Brian",
-              "file": "generated/order-now/voice/auditions/narrator-Brian.mp3",
-              "model": "ElevenLabs v3",
-              "provider": "Leap",
-              "job": "gen_vOQudotaypVfhTAg8i8XhqdS",
-              "at": "2026-10-07T19:54:49.226520Z"
+              "voice": "Elliot Quick - Fast and Clear",
+              "file": "generated/order-now/voice/cast/narrator-elliot-quick-fast-and-clear.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "kySOZy7QWGEkXenT97Fj",
+              "at": "2026-10-07T20:15:09.860Z",
+              "source": "library",
+              "about": "Friendly, Quick paced and Clear. Perfect for Medical or Legal Transcription or Elearning, Agents or Audiobooks. Handles speed adjustments well.",
+              "voiceId": "ef6i5OAutcUmkyWVkRDQ"
             },
             {
-              "voice": "Eric",
-              "file": "generated/order-now/voice/auditions/narrator-Eric.mp3",
-              "model": "ElevenLabs v3",
-              "provider": "Leap",
-              "job": "gen_HO04TZgDb1d8pCD5qGLAZ6FL",
-              "at": "2026-10-07T19:54:49.226520Z"
+              "voice": "Tagg - Short Announcements",
+              "file": "generated/order-now/voice/cast/narrator-tagg-short-announcements.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "nScRn8h8uCLRpxkSvFt5",
+              "at": "2026-10-07T20:15:12.362Z",
+              "source": "library",
+              "about": "Award Show Nominees. Edgy promo voice for radio and tv station IDs. Sponsorship and commercial tags. Bold stage categories announcer for special event presentations. Punchy, modern and crisp introductions. Male American cinematic presenter voice by Hey Its Brad for entertainment and sports.",
+              "voiceId": "Tro83F3waWsNiDmUgRqP"
             },
             {
-              "voice": "Will",
-              "file": "generated/order-now/voice/auditions/narrator-Will.mp3",
-              "model": "ElevenLabs v3",
-              "provider": "Leap",
-              "job": "gen_Y8JhyVkfkX4yKEBlfrFMXrbG",
-              "at": "2026-10-07T19:54:49.226520Z"
+              "voice": "Danny DJ - Radio Announcer Voice",
+              "file": "generated/order-now/voice/cast/narrator-danny-dj-radio-announcer-voice.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "7EWkKZdyDaecf4ulZBh7",
+              "at": "2026-10-07T20:15:14.670Z",
+              "source": "library",
+              "about": "A DJ voice for commercials, radio station automation, or just uplifting narrations.",
+              "voiceId": "KLoixBflzS2a9rg6nT8x"
+            },
+            {
+              "voice": "Designed A",
+              "file": "generated/order-now/voice/cast/narrator-designed-a.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "jgmLuthmTaytzIxr9P2X",
+              "at": "2026-10-07T20:15:17.594Z",
+              "source": "designed",
+              "about": "A middle-aged American TV announcer from a 1990s commercial reading the legal disclaimer at the end at extreme speed. Crisp, flat, monotone, perfectly articulated, no emotion at all. Clean studio microphone.",
+              "voiceId": "maXhwSYItfhcFmRn4vb0"
+            },
+            {
+              "voice": "Designed B",
+              "file": "generated/order-now/voice/cast/narrator-designed-b.mp3",
+              "model": "Eleven v4",
+              "provider": "ElevenLabs",
+              "job": "NIwQv800Y29XuDRIcTGW",
+              "at": "2026-10-07T20:15:20.816Z",
+              "source": "designed",
+              "about": "A middle-aged American TV announcer from a 1990s commercial reading the legal disclaimer at the end at extreme speed. Crisp, flat, monotone, perfectly articulated, no emotion at all. Clean studio microphone.",
+              "voiceId": "LSfzxzzlhGU3lDOPz4qV"
             }
           ]
         }

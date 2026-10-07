@@ -1,0 +1,28 @@
+{
+ "provider": "ElevenLabs",
+ "model": "eleven_v4",
+ "endpoint": "/v1/text-to-dialogue",
+ "request_id": "oGfbozMfjZJn55IzExbH",
+ "input": {
+  "model_id": "eleven_v4",
+  "inputs": [
+   {
+    "text": "[frantic, overwhelmed, desperate, pleading to camera] There's GOT to be a better way!",
+    "voice_id": "EaX6rnyDKjJx35tchi80"
+   },
+   {
+    "text": "[serene, blissed out, relaxed] I closed our biggest deal... from this hammock.",
+    "voice_id": "EaX6rnyDKjJx35tchi80"
+   }
+  ],
+  "seed": 101
+ },
+ "voice": {
+  "who": "kyle",
+  "name": "Nelson - High-Pitched, Anxious Nerd",
+  "voice_id": "EaX6rnyDKjJx35tchi80",
+  "source": "library",
+  "about": "Socially anxious nerd with expressive, slightly squeaky delivery. Great for POV skits, social media comedy, school or exam scenes, tech explainers, gaming intros, D&D characters, visual novels and any storyline that needs an overthinking, overprepared geek who still sounds lovable."
+ },
+ "at": "2026-10-07T20:13:57.849Z"
+}

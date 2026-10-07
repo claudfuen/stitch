@@ -8,7 +8,7 @@ import { ChevronDown, Lock } from "lucide-react"
 import { useState } from "react"
 import type { ProjectWithRev } from "@/lib/model"
 import type { Op } from "@/lib/ops"
-import { GATE_LABEL, beatsOf, blockedBy, currentStage, openNotes, runtime, words, type Beat, type Camera, type Candidate, type Concept, type GateStatus, type Note, type Process, type Room, type SheetItem, type SheetKind, type Stage, type StageId, type VoiceLine } from "@/lib/process"
+import { GATE_LABEL, beatsOf, blockedBy, currentStage, openNotes, runtime, words, type Audition, type Beat, type Camera, type Candidate, type Concept, type GateStatus, type Note, type Process, type Room, type SheetItem, type SheetKind, type Stage, type StageId, type VoiceLine } from "@/lib/process"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -627,6 +627,8 @@ function CameraScript({ pr }: { pr: Process }) {
   )
 }
 
+const SOURCE: Record<NonNullable<Audition["source"]>, string> = { stock: "Stock voice", library: "Voice Library", designed: "Designed from the brief", clone: "Clone of his real voice", converted: "Stand-in converted to his real voice" }
+
 /** Stage 04: who sounds like what, then the whole film read in one take. Every line is performed before any picture
  *  is made, so the pictures follow the acting. Casting picks are ops (voice.cast), the same ones agents use. */
 function VoiceStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["op"] }) {
@@ -644,7 +646,7 @@ function VoiceStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["o
           <p className="text-[15px] leading-relaxed text-muted-foreground">Every line is performed before any picture is made, so the pictures follow the acting. The whole film is read in one take, so each line answers the one before it.</p>
         </div>
         <ol className="space-y-1.5 rounded-md bg-muted/50 px-4 py-3 text-sm leading-relaxed">
-          <li><span className="font-medium">1. Cast.</span> Play the auditions for each role and pick a voice. Henrick is his own voice: his lines are converted to his real recording.</li>
+          <li><span className="font-medium">1. Cast.</span> Play the auditions for each role and pick a voice. Each one reads that role&apos;s own lines: voices from the ElevenLabs library and voices designed from the character brief. Henrick is his own voice either way: pick how it is made.</li>
           <li><span className="font-medium">2. Listen to the read.</span> The whole film in one take, then line by line. Comment on any line that is wrong, or on the casting.</li>
           <li><span className="font-medium">3. Approve.</span> The lines lock, and the camera script is retimed to them.</li>
         </ol>
@@ -666,19 +668,23 @@ function VoiceStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["o
                   <p className="flex items-baseline gap-2 text-sm">
                     <span className="font-medium">{name(r.who)}</span>
                     <span className="text-muted-foreground">{pr.cast?.find((c) => c.id === r.who)?.voice}</span>
-                    {r.voice && <span className="ml-auto shrink-0 text-xs font-medium">{r.real ? "His own voice" : `Cast: ${r.voice}`}</span>}
+                    {(r.voice || r.real) && <span className="ml-auto shrink-0 text-xs font-medium">{r.real ? `His own voice${r.voice ? `: ${r.voice}` : ""}` : `Cast: ${r.voice}`}</span>}
                   </p>
-                  {r.real ? (
-                    <p className="text-sm text-muted-foreground">{r.note ?? "Read in the take by a stand-in voice, then converted to his real recording. The match to his recording is shown on each of his lines below."}</p>
-                  ) : (
+                  {r.real && <p className="text-sm text-muted-foreground">{r.note ?? "Read in the take by a stand-in voice, then converted to his real recording. The match to his recording is shown on each of his lines below."}</p>}
+                  {r.auditions.length > 0 && (
                     <ul className="divide-y rounded-md border">
                       {r.auditions.map((a) => (
-                        <li key={a.voice} className="flex items-center gap-3 px-3 py-2">
-                          <span className="w-20 shrink-0 text-sm font-medium">{a.voice}</span>
-                          <audio controls preload="none" src={`/${a.file}`} className="h-8 min-w-0 flex-1" />
-                          <Button size="sm" variant={r.voice === a.voice ? "secondary" : "ghost"} disabled={r.voice === a.voice} onClick={() => op({ op: "voice.cast", who: r.who, voice: a.voice, by: ME })}>
-                            {r.voice === a.voice ? "Cast" : "Use"}
-                          </Button>
+                        <li key={a.voice} className="space-y-1.5 px-3 py-2.5">
+                          <div className="flex items-baseline gap-2">
+                            <span className="min-w-0 truncate text-sm font-medium">{a.voice}</span>
+                            {a.source && <span className="shrink-0 text-xs text-muted-foreground">{SOURCE[a.source]}</span>}
+                            {a.match !== undefined && <span className="shrink-0 font-mono text-xs text-muted-foreground">match {a.match.toFixed(2)}</span>}
+                            <Button size="sm" className="ml-auto shrink-0" variant={r.voice === a.voice ? "secondary" : "ghost"} disabled={r.voice === a.voice} onClick={() => op({ op: "voice.cast", who: r.who, voice: a.voice, by: ME })}>
+                              {r.voice === a.voice ? "Cast" : "Use"}
+                            </Button>
+                          </div>
+                          {a.about && <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">{a.about}</p>}
+                          <audio controls preload="none" src={`/${a.file}`} className="h-8 w-full" />
                         </li>
                       ))}
                     </ul>

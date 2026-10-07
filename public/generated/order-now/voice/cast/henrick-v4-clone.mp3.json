@@ -1,0 +1,68 @@
+{
+ "provider": "ElevenLabs",
+ "model": "eleven_v4",
+ "endpoint": "/v1/text-to-dialogue",
+ "request_id": "U8KC6hhRgvYCFHf7jl2F",
+ "input": {
+  "model_id": "eleven_v4",
+  "inputs": [
+   {
+    "text": "[flat, formal, unhurried] Thank you. Please stop clapping.",
+    "voice_id": "7Ul9MNpMh3w5Is2gb5tG"
+   },
+   {
+    "text": "[flat, formal, unhurried, after a pause] Nothing has happened yet.",
+    "voice_id": "7Ul9MNpMh3w5Is2gb5tG"
+   },
+   {
+    "text": "[flat, formal, unhurried] It collects the evidence. It writes the policies. It answers the questionnaire.",
+    "voice_id": "7Ul9MNpMh3w5Is2gb5tG"
+   },
+   {
+    "text": "[flat, formal, unhurried, after a pause] In Europe, this takes three ministries and a strike.",
+    "voice_id": "7Ul9MNpMh3w5Is2gb5tG"
+   },
+   {
+    "text": "[flat, formal, unhurried, offhand, not looking up] The button is decoration. It is software.",
+    "voice_id": "7Ul9MNpMh3w5Is2gb5tG"
+   },
+   {
+    "text": "[flat, formal, unhurried] No.",
+    "voice_id": "7Ul9MNpMh3w5Is2gb5tG"
+   },
+   {
+    "text": "[flat, formal, unhurried, after a pause] It is software. Everyone gets the same one.",
+    "voice_id": "7Ul9MNpMh3w5Is2gb5tG"
+   },
+   {
+    "text": "[flat, formal, unhurried] Comp AI.",
+    "voice_id": "7Ul9MNpMh3w5Is2gb5tG"
+   },
+   {
+    "text": "[flat, formal, unhurried, after a pause] Which framework.",
+    "voice_id": "7Ul9MNpMh3w5Is2gb5tG"
+   },
+   {
+    "text": "[flat, formal, unhurried, after a pause] Very good.",
+    "voice_id": "7Ul9MNpMh3w5Is2gb5tG"
+   },
+   {
+    "text": "[flat, formal, unhurried] Order now.",
+    "voice_id": "7Ul9MNpMh3w5Is2gb5tG"
+   },
+   {
+    "text": "[flat, formal, unhurried, after a pause] Or do not. It is a free market.",
+    "voice_id": "7Ul9MNpMh3w5Is2gb5tG"
+   }
+  ],
+  "seed": 101
+ },
+ "voice": {
+  "who": "henrick",
+  "name": "v4 clone",
+  "voice_id": "7Ul9MNpMh3w5Is2gb5tG",
+  "source": "clone",
+  "about": "Instant clone of his 4 real recorded lines (13.6 s)"
+ },
+ "at": "2026-10-07T20:15:32.650Z"
+}

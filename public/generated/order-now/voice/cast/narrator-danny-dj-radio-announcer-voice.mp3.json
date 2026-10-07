@@ -1,0 +1,24 @@
+{
+ "provider": "ElevenLabs",
+ "model": "eleven_v4",
+ "endpoint": "/v1/text-to-dialogue",
+ "request_id": "7EWkKZdyDaecf4ulZBh7",
+ "input": {
+  "model_id": "eleven_v4",
+  "inputs": [
+   {
+    "text": "[extremely fast legal disclaimer, flat monotone, no pauses] Comp AI is not a government agency. Side effects may include closed deals, sleeping through the night, and a smiling auditor. Not available in the EU pending a committee to decide on a committee.",
+    "voice_id": "KLoixBflzS2a9rg6nT8x"
+   }
+  ],
+  "seed": 101
+ },
+ "voice": {
+  "who": "narrator",
+  "name": "Danny DJ - Radio Announcer Voice",
+  "voice_id": "KLoixBflzS2a9rg6nT8x",
+  "source": "library",
+  "about": "A DJ voice for commercials, radio station automation, or just uplifting narrations."
+ },
+ "at": "2026-10-07T20:15:14.670Z"
+}

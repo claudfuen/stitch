@@ -1,0 +1,24 @@
+{
+ "provider": "ElevenLabs",
+ "model": "eleven_v4",
+ "endpoint": "/v1/text-to-dialogue",
+ "request_id": "kySOZy7QWGEkXenT97Fj",
+ "input": {
+  "model_id": "eleven_v4",
+  "inputs": [
+   {
+    "text": "[extremely fast legal disclaimer, flat monotone, no pauses] Comp AI is not a government agency. Side effects may include closed deals, sleeping through the night, and a smiling auditor. Not available in the EU pending a committee to decide on a committee.",
+    "voice_id": "ef6i5OAutcUmkyWVkRDQ"
+   }
+  ],
+  "seed": 101
+ },
+ "voice": {
+  "who": "narrator",
+  "name": "Elliot Quick - Fast and Clear",
+  "voice_id": "ef6i5OAutcUmkyWVkRDQ",
+  "source": "library",
+  "about": "Friendly, Quick paced and Clear. Perfect for Medical or Legal Transcription or Elearning, Agents or Audiobooks. Handles speed adjustments well."
+ },
+ "at": "2026-10-07T20:15:09.860Z"
+}

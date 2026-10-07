@@ -1,0 +1,32 @@
+{
+ "provider": "ElevenLabs",
+ "model": "eleven_v4",
+ "endpoint": "/v1/text-to-dialogue",
+ "request_id": "BOyCMolaf9EBGgXPPIvI",
+ "input": {
+  "model_id": "eleven_v4",
+  "inputs": [
+   {
+    "text": "[dry, precise, fussy, deadpan] Wonderful. Now I'll need evidence... of the evidence.",
+    "voice_id": "xJRVu5rCGFsjBiSE5TWn"
+   },
+   {
+    "text": "[misty-eyed, moved, voice cracking] The evidence... it was all there.",
+    "voice_id": "xJRVu5rCGFsjBiSE5TWn"
+   },
+   {
+    "text": "[misty-eyed, moved, voice cracking, after a pause] I don't know what to do with my hands.",
+    "voice_id": "xJRVu5rCGFsjBiSE5TWn"
+   }
+  ],
+  "seed": 101
+ },
+ "voice": {
+  "who": "gerald",
+  "name": "Henry - Serious Professor",
+  "voice_id": "xJRVu5rCGFsjBiSE5TWn",
+  "source": "library",
+  "about": "A voice of wisdom and genius. A voice with the depth of experience and the silence of contemplation. The voice of a teacher guided by time… humble yet full of wisdom and understanding. Every word is like a lesson from experience, clear, firm, and weighted with wisdom. This voice does not shout to be heard, but when it speaks, you will listen quietly, because you know that every word it releases has substance."
+ },
+ "at": "2026-10-07T20:14:30.943Z"
+}

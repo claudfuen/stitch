@@ -1,0 +1,48 @@
+{
+ "provider": "ElevenLabs",
+ "model": "eleven_v4",
+ "endpoint": "/v1/text-to-dialogue",
+ "request_id": "3ELNQT4rR3FP5RcqKoQg",
+ "input": {
+  "model_id": "eleven_v4",
+  "inputs": [
+   {
+    "text": "[booming 1994 infomercial host, grinning, full volume] Has this ever happened to you?",
+    "voice_id": "lXyLz3Gu0YqdG8RfvIyZ"
+   },
+   {
+    "text": "[booming 1994 infomercial host, grinning, full volume] Three hundred security questions! Forty of them just say 'please elaborate'!",
+    "voice_id": "lXyLz3Gu0YqdG8RfvIyZ"
+   },
+   {
+    "text": "[booming 1994 infomercial host, grinning, full volume] Ten thousand screenshots of a setting you already turned on!",
+    "voice_id": "lXyLz3Gu0YqdG8RfvIyZ"
+   },
+   {
+    "text": "[booming 1994 infomercial host, grinning, full volume, shouting] THERE IS! All the way from Europe... HENRICK JOHANSSON!",
+    "voice_id": "lXyLz3Gu0YqdG8RfvIyZ"
+   },
+   {
+    "text": "[booming 1994 infomercial host, grinning, full volume] Henrick! What does Comp AI DO?!",
+    "voice_id": "lXyLz3Gu0YqdG8RfvIyZ"
+   },
+   {
+    "text": "[booming 1994 infomercial host, grinning, full volume, shouting] But WAIT! Call in the next ten minutes and we'll DOUBLE your-",
+    "voice_id": "lXyLz3Gu0YqdG8RfvIyZ"
+   },
+   {
+    "text": "[booming 1994 infomercial host, grinning, full volume, shouting] WOW!",
+    "voice_id": "lXyLz3Gu0YqdG8RfvIyZ"
+   }
+  ],
+  "seed": 101
+ },
+ "voice": {
+  "who": "brock",
+  "name": "John - Energetic, Unstoppable and Upbeat",
+  "voice_id": "lXyLz3Gu0YqdG8RfvIyZ",
+  "source": "library",
+  "about": "Unstoppable John is a thunderous, cinematic high-energy commercial voice built for maximum impact. Think over-the-top announcer swagger meets entrepreneurial motivational energy — the kind of voice that can turn an ad, trailer, or viral video into pure adrenaline. Perfect for storytellers, game trailers, parody ads, and brand spots that need power, humor, and charisma in every line."
+ },
+ "at": "2026-10-07T20:13:01.450Z"
+}

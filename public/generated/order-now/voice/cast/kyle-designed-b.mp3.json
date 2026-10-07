@@ -1,0 +1,28 @@
+{
+ "provider": "ElevenLabs",
+ "model": "eleven_v4",
+ "endpoint": "/v1/text-to-dialogue",
+ "request_id": "gnyPhVzEX36i9wgDldSB",
+ "input": {
+  "model_id": "eleven_v4",
+  "inputs": [
+   {
+    "text": "[frantic, overwhelmed, desperate, pleading to camera] There's GOT to be a better way!",
+    "voice_id": "XOpUrBWqpvEBieaNdyy3"
+   },
+   {
+    "text": "[serene, blissed out, relaxed] I closed our biggest deal... from this hammock.",
+    "voice_id": "XOpUrBWqpvEBieaNdyy3"
+   }
+  ],
+  "seed": 101
+ },
+ "voice": {
+  "who": "kyle",
+  "name": "Designed B",
+  "voice_id": "XOpUrBWqpvEBieaNdyy3",
+  "source": "designed",
+  "about": "An eager American software-startup founder in his late twenties in 1994. A slightly high, reedy voice, quick and frantic, cracking with stress, sincere and a bit nerdy. Clean studio microphone."
+ },
+ "at": "2026-10-07T20:14:06.474Z"
+}

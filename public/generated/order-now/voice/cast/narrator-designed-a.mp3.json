@@ -1,0 +1,24 @@
+{
+ "provider": "ElevenLabs",
+ "model": "eleven_v4",
+ "endpoint": "/v1/text-to-dialogue",
+ "request_id": "jgmLuthmTaytzIxr9P2X",
+ "input": {
+  "model_id": "eleven_v4",
+  "inputs": [
+   {
+    "text": "[extremely fast legal disclaimer, flat monotone, no pauses] Comp AI is not a government agency. Side effects may include closed deals, sleeping through the night, and a smiling auditor. Not available in the EU pending a committee to decide on a committee.",
+    "voice_id": "maXhwSYItfhcFmRn4vb0"
+   }
+  ],
+  "seed": 101
+ },
+ "voice": {
+  "who": "narrator",
+  "name": "Designed A",
+  "voice_id": "maXhwSYItfhcFmRn4vb0",
+  "source": "designed",
+  "about": "A middle-aged American TV announcer from a 1990s commercial reading the legal disclaimer at the end at extreme speed. Crisp, flat, monotone, perfectly articulated, no emotion at all. Clean studio microphone."
+ },
+ "at": "2026-10-07T20:15:17.594Z"
+}

@@ -1,0 +1,24 @@
+{
+ "provider": "ElevenLabs",
+ "model": "eleven_v4",
+ "endpoint": "/v1/text-to-dialogue",
+ "request_id": "nScRn8h8uCLRpxkSvFt5",
+ "input": {
+  "model_id": "eleven_v4",
+  "inputs": [
+   {
+    "text": "[extremely fast legal disclaimer, flat monotone, no pauses] Comp AI is not a government agency. Side effects may include closed deals, sleeping through the night, and a smiling auditor. Not available in the EU pending a committee to decide on a committee.",
+    "voice_id": "Tro83F3waWsNiDmUgRqP"
+   }
+  ],
+  "seed": 101
+ },
+ "voice": {
+  "who": "narrator",
+  "name": "Tagg - Short Announcements",
+  "voice_id": "Tro83F3waWsNiDmUgRqP",
+  "source": "library",
+  "about": "Award Show Nominees. Edgy promo voice for radio and tv station IDs. Sponsorship and commercial tags. Bold stage categories announcer for special event presentations. Punchy, modern and crisp introductions. Male American cinematic presenter voice by Hey Its Brad for entertainment and sports."
+ },
+ "at": "2026-10-07T20:15:12.362Z"
+}

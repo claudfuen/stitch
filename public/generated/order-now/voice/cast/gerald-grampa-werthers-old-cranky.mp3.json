@@ -1,0 +1,32 @@
+{
+ "provider": "ElevenLabs",
+ "model": "eleven_v4",
+ "endpoint": "/v1/text-to-dialogue",
+ "request_id": "n0KY3atxcx2VphMNbeNf",
+ "input": {
+  "model_id": "eleven_v4",
+  "inputs": [
+   {
+    "text": "[dry, precise, fussy, deadpan] Wonderful. Now I'll need evidence... of the evidence.",
+    "voice_id": "MKlLqCItoCkvdhrxgtLv"
+   },
+   {
+    "text": "[misty-eyed, moved, voice cracking] The evidence... it was all there.",
+    "voice_id": "MKlLqCItoCkvdhrxgtLv"
+   },
+   {
+    "text": "[misty-eyed, moved, voice cracking, after a pause] I don't know what to do with my hands.",
+    "voice_id": "MKlLqCItoCkvdhrxgtLv"
+   }
+  ],
+  "seed": 101
+ },
+ "voice": {
+  "who": "gerald",
+  "name": "Grampa Werthers - Old & Cranky",
+  "voice_id": "MKlLqCItoCkvdhrxgtLv",
+  "source": "library",
+  "about": "Sometimes sweet, always honest. American old timer who remembers how the world used to be. A grumpy grandpa, or a wise elder male storyteller for silly old-fashioned parody, cartoon or comedy content. A funny grandfather character voice by Hey Its Brad."
+ },
+ "at": "2026-10-07T20:14:34.359Z"
+}

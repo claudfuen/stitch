@@ -1,0 +1,28 @@
+{
+ "provider": "ElevenLabs",
+ "model": "eleven_v4",
+ "endpoint": "/v1/text-to-dialogue",
+ "request_id": "hJRVnct4WhKPulRjGrjI",
+ "input": {
+  "model_id": "eleven_v4",
+  "inputs": [
+   {
+    "text": "[frantic, overwhelmed, desperate, pleading to camera] There's GOT to be a better way!",
+    "voice_id": "wSqOdjeNqDrHcoK0zorF"
+   },
+   {
+    "text": "[serene, blissed out, relaxed] I closed our biggest deal... from this hammock.",
+    "voice_id": "wSqOdjeNqDrHcoK0zorF"
+   }
+  ],
+  "seed": 101
+ },
+ "voice": {
+  "who": "kyle",
+  "name": "Lukas - Excited youthful young man",
+  "voice_id": "wSqOdjeNqDrHcoK0zorF",
+  "source": "library",
+  "about": "Young man with a lot of passion and excitement in tone, happy, hopeful and confident. Good for characters and catchy Socil Media narration."
+ },
+ "at": "2026-10-07T20:13:59.758Z"
+}

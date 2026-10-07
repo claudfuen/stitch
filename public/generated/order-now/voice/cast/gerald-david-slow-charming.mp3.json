@@ -1,0 +1,32 @@
+{
+ "provider": "ElevenLabs",
+ "model": "eleven_v4",
+ "endpoint": "/v1/text-to-dialogue",
+ "request_id": "avlJlwd6VBRdlEF0DzZR",
+ "input": {
+  "model_id": "eleven_v4",
+  "inputs": [
+   {
+    "text": "[dry, precise, fussy, deadpan] Wonderful. Now I'll need evidence... of the evidence.",
+    "voice_id": "LTo9oDjTW1FdEgMfiXWQ"
+   },
+   {
+    "text": "[misty-eyed, moved, voice cracking] The evidence... it was all there.",
+    "voice_id": "LTo9oDjTW1FdEgMfiXWQ"
+   },
+   {
+    "text": "[misty-eyed, moved, voice cracking, after a pause] I don't know what to do with my hands.",
+    "voice_id": "LTo9oDjTW1FdEgMfiXWQ"
+   }
+  ],
+  "seed": 101
+ },
+ "voice": {
+  "who": "gerald",
+  "name": "David - Slow & Charming",
+  "voice_id": "LTo9oDjTW1FdEgMfiXWQ",
+  "source": "library",
+  "about": "A calm, seasoned documentary narrator who savors every single word. Extremely charming, slow, relaxed, with long deliberate pauses. A mature, warm German male voice with a deeply comforting and charmingly witty tone. The delivery is deadpan, dryly ironic, and beautifully unhurried, commenting on events with a subtle, affectionate smile."
+ },
+ "at": "2026-10-07T20:14:37.145Z"
+}

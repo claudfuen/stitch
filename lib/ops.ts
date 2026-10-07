@@ -357,9 +357,10 @@ function applyProcessOp(pr: Process, o: ProcessOp): Process {
       return { ...pr, space: { ...pr.space!, rooms: rooms.map((r) => (r.id === o.room ? { ...r, cameras: r.cameras.map((c) => (c.id === o.cam ? { ...c, frame: o.candidate } : c)) } : r)) } }
     }
     case "voice.set": {
-      // Keep a person's picks when an agent rewrites the proposal.
+      // Keep a person's picks when an agent rewrites the proposal, as long as the voice they picked is still auditioned.
       const old = pr.voice
-      const roles = o.voice.roles.map((r) => ({ ...r, voice: r.voice ?? old?.roles.find((x) => x.who === r.who)?.voice }))
+      const kept = (r: Voice["roles"][number]) => { const v = old?.roles.find((x) => x.who === r.who)?.voice; return v && r.auditions.some((a) => a.voice === v) ? v : undefined }
+      const roles = o.voice.roles.map((r) => ({ ...r, voice: r.voice ?? kept(r) }))
       return { ...pr, voice: { roles, takes: o.voice.takes, pick: o.voice.pick ?? old?.pick } }
     }
     case "voice.cast": {

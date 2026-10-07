@@ -96,7 +96,10 @@ export type Space = { rooms: Room[]; cuts: CameraCut[] }
 
 /** Stage 04. Each role gets a voice picked from auditions; then the whole film is read in one take, so every line
  *  answers the one before it. Lines are cut from the take with their times; Henrick's are converted to his real voice. */
-export type Audition = { voice: string; file: string; model: string; provider: string; job?: string; at: string }
+/** One voice reading a role's own lines. `source`: a stock voice, one from the ElevenLabs Voice Library, one made by
+ *  Voice Design from the role's brief, a clone of the real person, or a conversion to their real recording. `match` is
+ *  the speaker similarity to the real person's recording (real roles only). */
+export type Audition = { voice: string; file: string; model: string; provider: string; job?: string; at: string; source?: "stock" | "library" | "designed" | "clone" | "converted"; about?: string; voiceId?: string; match?: number }
 export type VoiceRole = { who: Id; voice?: string; real?: boolean; auditions: Audition[]; note?: string }
 export type VoiceLine = { n: number; beat: Id; who: Id; text: string; start: number; end: number; file: string; match?: number }
 export type VoiceTake = { id: Id; file: string; model: string; provider: string; job?: string; cast: Record<string, string>; duration: number; lines: VoiceLine[]; note?: string; at: string }

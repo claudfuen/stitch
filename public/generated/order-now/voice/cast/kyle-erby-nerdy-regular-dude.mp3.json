@@ -1,0 +1,28 @@
+{
+ "provider": "ElevenLabs",
+ "model": "eleven_v4",
+ "endpoint": "/v1/text-to-dialogue",
+ "request_id": "FkPkE7dkUayhpRZkGfJl",
+ "input": {
+  "model_id": "eleven_v4",
+  "inputs": [
+   {
+    "text": "[frantic, overwhelmed, desperate, pleading to camera] There's GOT to be a better way!",
+    "voice_id": "n27L8GNoVt7SPUboEQb7"
+   },
+   {
+    "text": "[serene, blissed out, relaxed] I closed our biggest deal... from this hammock.",
+    "voice_id": "n27L8GNoVt7SPUboEQb7"
+   }
+  ],
+  "seed": 101
+ },
+ "voice": {
+  "who": "kyle",
+  "name": "Erby - Nerdy Regular Dude",
+  "voice_id": "n27L8GNoVt7SPUboEQb7",
+  "source": "library",
+  "about": "A youthful, high-pitched American male voice with an authentic, everyday cadence. It features natural pacing, lifelike breathing, and a highly conversational, laid-back tone. Very much a normal kind of guy!"
+ },
+ "at": "2026-10-07T20:14:01.630Z"
+}

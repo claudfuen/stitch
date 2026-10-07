@@ -1,0 +1,48 @@
+{
+ "provider": "ElevenLabs",
+ "model": "eleven_v4",
+ "endpoint": "/v1/text-to-dialogue",
+ "request_id": "sJsNyFteo728RpmGhOd6",
+ "input": {
+  "model_id": "eleven_v4",
+  "inputs": [
+   {
+    "text": "[booming 1994 infomercial host, grinning, full volume] Has this ever happened to you?",
+    "voice_id": "EGyOtnba5yJO3noC9rye"
+   },
+   {
+    "text": "[booming 1994 infomercial host, grinning, full volume] Three hundred security questions! Forty of them just say 'please elaborate'!",
+    "voice_id": "EGyOtnba5yJO3noC9rye"
+   },
+   {
+    "text": "[booming 1994 infomercial host, grinning, full volume] Ten thousand screenshots of a setting you already turned on!",
+    "voice_id": "EGyOtnba5yJO3noC9rye"
+   },
+   {
+    "text": "[booming 1994 infomercial host, grinning, full volume, shouting] THERE IS! All the way from Europe... HENRICK JOHANSSON!",
+    "voice_id": "EGyOtnba5yJO3noC9rye"
+   },
+   {
+    "text": "[booming 1994 infomercial host, grinning, full volume] Henrick! What does Comp AI DO?!",
+    "voice_id": "EGyOtnba5yJO3noC9rye"
+   },
+   {
+    "text": "[booming 1994 infomercial host, grinning, full volume, shouting] But WAIT! Call in the next ten minutes and we'll DOUBLE your-",
+    "voice_id": "EGyOtnba5yJO3noC9rye"
+   },
+   {
+    "text": "[booming 1994 infomercial host, grinning, full volume, shouting] WOW!",
+    "voice_id": "EGyOtnba5yJO3noC9rye"
+   }
+  ],
+  "seed": 101
+ },
+ "voice": {
+  "who": "brock",
+  "name": "Designed B",
+  "voice_id": "EGyOtnba5yJO3noC9rye",
+  "source": "designed",
+  "about": "A booming American TV infomercial host in his mid-forties, 1994 cable. A huge, bright, slightly nasal showman voice that grins through every word, relentless energy, every sentence lands like an exclamation. Clean studio microphone."
+ },
+ "at": "2026-10-07T20:13:16.091Z"
+}

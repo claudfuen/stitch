@@ -153,6 +153,30 @@ wall, not the tan.
   its single-line lettering redesigned a sign the approved plate has on two lines. Keep it as an optional pose guide,
   not as Image 1.
 
+## Stage 04 in detail
+
+1. **State of the art first.** Before the first take, name the current best voice model and check that the route
+   exposes the feature that matters. In October 2026 that is ElevenLabs Eleven v4 (top of the Voice Arena), and the
+   features are the Voice Library, Voice Design, clones and Text to Dialogue. Leap and fal carry v4 with only the 21
+   stock voices and no dialogue mode, so voice goes to ElevenLabs direct (`scripts/eleven.ts`, Claudio's Pro plan).
+2. **Cast.** `bun scripts/voice-cast.ts <film>` makes three Voice Library voices and two Voice Design voices (written
+   from the character brief, `eleven_ttv_v3`) per role. Each one reads that role's own lines with the same direction
+   as one v4 dialogue request, so the person compares voices, not performances. A real person (Henrick) gets a clone
+   of his real recordings, never of generated audio, scored against his recording with `scripts/voice-score.py`.
+   Everything lands in the app (`stitch voice set`), and the person picks.
+3. **Read the whole film in one take** with the picked voices (`scripts/voice-take.ts`), cut into lines by word
+   timings, and check every beat's speech against its slot.
+
+v4 takes direction in one free bracket per line (`[dry, precise, fussy]`), built from each character's standing
+read, the beat, and the line's own `how` (`acted()` in `scripts/eleven.ts`). Transcripts of the auditions came back
+word for word, with none of the direction spoken.
+
+| Henrick's voice | Match to his recording |
+|---|---|
+| Stock voice, converted (Chatterbox HD), take 1, per line | 0.71 mean (0.57 to 0.83) |
+| Same, his lines joined | 0.84 |
+| Eleven v4 instant clone of his 4 real lines (13.6 s) | 0.91 (in sample: it learned from the reference) |
+
 ## Rules that hold across stages
 
 - **Provenance on everything.** Every image, clip and sound records its model and provider (or that it is real),
@@ -181,6 +205,11 @@ wall, not the tan.
   our test; extra keyframes made motion stiffer (research note 2026-10-07-storyboard-density-test).
 
 ## Changes
+
+- 2026-10-07 (voice): Claudio, on the first auditions (ElevenLabs v3 stock voices via Leap): "I don't love the voices
+  you pulled... are we using state-of-the-art or no?" and "for everything we do, we should always be using
+  state-of-the-art." Casting moved to ElevenLabs direct on Eleven v4 with library, designed and cloned voices (stage
+  04 in detail). Every stage now starts by naming the current best model and checking the route exposes it.
 
 - 2026-10-07 (later): Claudio, on the Seedream rounds: "we lost character consistency... it was coming out way better
   with Nano Banana... we have to go back to that approach". ArcFace confirmed it (step 7), so takes went back to Nano

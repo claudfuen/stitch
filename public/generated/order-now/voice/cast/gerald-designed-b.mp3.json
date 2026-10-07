@@ -1,0 +1,32 @@
+{
+ "provider": "ElevenLabs",
+ "model": "eleven_v4",
+ "endpoint": "/v1/text-to-dialogue",
+ "request_id": "KIntPrNA0v5LO2TNGolL",
+ "input": {
+  "model_id": "eleven_v4",
+  "inputs": [
+   {
+    "text": "[dry, precise, fussy, deadpan] Wonderful. Now I'll need evidence... of the evidence.",
+    "voice_id": "tpUhErMnhbcHmoo1cKOi"
+   },
+   {
+    "text": "[misty-eyed, moved, voice cracking] The evidence... it was all there.",
+    "voice_id": "tpUhErMnhbcHmoo1cKOi"
+   },
+   {
+    "text": "[misty-eyed, moved, voice cracking, after a pause] I don't know what to do with my hands.",
+    "voice_id": "tpUhErMnhbcHmoo1cKOi"
+   }
+  ],
+  "seed": 101
+ },
+ "voice": {
+  "who": "gerald",
+  "name": "Designed B",
+  "voice_id": "tpUhErMnhbcHmoo1cKOi",
+  "source": "designed",
+  "about": "An American corporate auditor of about sixty. Dry, precise and fussy: clipped consonants, a faintly nasal, pedantic tone, slow and deliberate, the kind of man who asks for evidence of the evidence. Clean studio microphone."
+ },
+ "at": "2026-10-07T20:14:44.109Z"
+}
