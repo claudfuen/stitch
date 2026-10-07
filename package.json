@@ -17,7 +17,9 @@
     "sameroom": "bun scripts/sameroom.ts",
     "conform": "bun scripts/conform.ts",
     "plate-brief": "bun scripts/plate-brief.ts",
-    "fal": "bun scripts/fal.ts"
+    "fal": "bun scripts/fal.ts",
+    "space-judge": "bun scripts/space-judge.ts",
+    "space-board": "bun scripts/space-board.ts"
   },
   "dependencies": {
     "@ai-sdk/gateway": "^4.0.104",

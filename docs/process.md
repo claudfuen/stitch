@@ -69,7 +69,8 @@ They rotate one approved set into a few angles and write the space down.
    `scripts/greybox.py`). Each camera's render becomes that frame's Image 1: it fixes framing, positions, screen
    direction and what is not in frame. Skip it for one person or one camera. On Order Now the studio and the operator
    room got one; the frames made without it had the desk move, bleachers appear where the angle cannot see them, and
-   Henrick change seats between cuts. No camera solving, reprojection or judges: that was the Ministry's overspend.
+   Henrick change seats between cuts. No camera solving or reprojection: that was the Ministry's overspend. The one
+   judge is the whole-room check in step 8, and it sees the same box the frames are made from.
 4. **One frame per camera:** the grey-box render (or, without one, the approved set plate) as Image 1, the set plate
    for the look, the cast's sheets and the script pose as references, then the film grade. Two takes each; keep the
    one that matches the layout.
@@ -77,12 +78,37 @@ They rotate one approved set into a few angles and write the space down.
    the desk in which beat, who is behind the camera. A crowd is cast like a character: one reference frame (the
    reverse angle), a seating chart with the front row described person by person, and every other frame copies it.
 6. **The camera script:** which camera is on screen at each second. It is retimed to the recorded voices at stage 04.
-7. **Check adherence before accepting a frame:** `python3 scripts/adherence.py <film>` puts each frame beside its
-   grey-box layout and a 50/50 blend. Look for the desk turning, a crowd facing the wrong way, a person at the wrong
-   size or on the wrong side, something in frame that the angle cannot see. Pass the set plate to the model only as
-   tight material crops (the sign wall, the desk, the seats); a full plate is a ready-made composition and the model
-   copies it instead of the layout (on Order Now it turned the crowd to face the camera and blew up the bleachers).
-8. **Review every frame for logic:** the same person twice in a crowd, a stranger in a known character's place, a
+7. **Give the generator the room, not a pile of pictures.** Each frame gets two images and computed text:
+   - Image 1 is the grey-box layout from this camera.
+   - Image 2 is one labelled reference board (`bun run space-board <film> <room> <cam>`). It holds the top-down
+     plan with this camera's cone, the approved set (materials and light only), and identity panels for the people
+     this camera sees. The labels are the tags the prompt refers to.
+   - The text adds the blocking computed from the 3D plan (`bun run space-judge <film> <room> --truth`): where each
+     person and object lands across the frame, which way people face, and what this angle must not show.
+   - Settings: a system prompt saying the layout wins over any reference, and thinking set to high.
+
+   On the Order Now A/B (four cameras, two takes each, judged as in step 8) this recipe scored 6.4/10, against
+   about 4.6 for the old frames and 5.75 for separate references. Four of its eight takes had no high-severity
+   finding, against none of the old frames. The board alone, without the blocking text, was no better than separate
+   references: the computed text did the work. Pass the set plate only on the board or as tight material crops. A
+   full plate, or a full crowd frame, is a ready-made composition: the model copies it instead of the layout (on
+   Order Now it blew up the bleachers in every angle).
+8. **Judge every frame against the whole room:** `bun run space-judge <film> [room]` builds one sheet per camera:
+   - the labelled top-down plan with every person, prop and camera;
+   - every camera's layout;
+   - this camera's layout beside its frame.
+
+   Opus 5.5 gets that sheet, the space map and the computed blocking. It returns findings classed as model (the
+   frame is wrong), layout (the box is wrong) or plan (the camera does not serve the shot). A pair of images hides
+   room-level errors. On Order Now the room view found faults a pairwise check had passed:
+   - a crowd seated in the beat where it stands;
+   - a neon sign the camera physically cannot see;
+   - an operator facing the opposite way from every other chair.
+
+   `--frames candidates.json` scores takes before one is picked. `python3 scripts/adherence.py <film>` (layout,
+   frame, 50/50 blend) stays as the quick visual check. Read the judge's findings before acting on them. Some are
+   layout or plan errors, and those are fixed in the box, not by regenerating.
+9. **Review every frame for logic:** the same person twice in a crowd, a stranger in a known character's place, a
    prop that should not be there yet, a room bigger in one angle than another. Fix with one "change only X" edit
    from the clean take, so no frame gets more than two generative passes.
 
@@ -117,6 +143,19 @@ Seedream 5.0 Pro (edit), which kept skin a little more natural; Seedream is the 
   our test; extra keyframes made motion stiffer (research note 2026-10-07-storyboard-density-test).
 
 ## Changes
+
+- 2026-10-07: Claudio asked for a judge that sees the whole room, not two images: "Here's a whole room, a bunch of
+  different stills, and then here's the particular camera angle versus the actual visual". He also asked to feed
+  the generator that same context. Building it found errors in the plan, not only in the frames:
+  - The neon sign was boxed a metre too high against the approved set.
+  - The beat 5 crowd was seated when the script has it standing.
+  - C7 could see only 38 of the 48 seats.
+  - In both operator frames, Henrick faced the opposite way from every other operator. The approved plate has
+    everyone facing their partition.
+
+  The boxes were fixed first. Then a four-arm A/B ran on C1, C2, C5 and O2 (Nano Banana 2.1 three ways, plus
+  Seedream 5.0 Pro), and the board plus computed blocking became the recipe (step 7). The winners replaced the old
+  frames.
 
 - 2026-10-07: Claudio saw space drift between angles (the stage, Henrick's seat in the operator room) and asked
   whether the 3D step was worth it. Yes, scoped to rooms with hard blocking: grey boxes for the studio and the

@@ -22,15 +22,15 @@
   {
    "id": "part0",
    "kind": "board",
-   "label": "low grey partition",
+   "label": "grey cubicle partition",
    "at": [
     1.8,
-    5.2
+    5.0
    ],
    "size": [
     0.05,
     0.7,
-    0.55
+    0.65
    ],
    "z": 0.75,
    "rot": 0
@@ -38,15 +38,15 @@
   {
    "id": "part1",
    "kind": "board",
-   "label": "low grey partition",
+   "label": "grey cubicle partition",
    "at": [
     2.65,
-    5.2
+    5.0
    ],
    "size": [
     0.05,
     0.7,
-    0.55
+    0.65
    ],
    "z": 0.75,
    "rot": 0
@@ -54,15 +54,15 @@
   {
    "id": "part2",
    "kind": "board",
-   "label": "low grey partition",
+   "label": "grey cubicle partition",
    "at": [
     3.5,
-    5.2
+    5.0
    ],
    "size": [
     0.05,
     0.7,
-    0.55
+    0.65
    ],
    "z": 0.75,
    "rot": 0
@@ -70,15 +70,15 @@
   {
    "id": "part3",
    "kind": "board",
-   "label": "low grey partition",
+   "label": "grey cubicle partition",
    "at": [
     4.35,
-    5.2
+    5.0
    ],
    "size": [
     0.05,
     0.7,
-    0.55
+    0.65
    ],
    "z": 0.75,
    "rot": 0
@@ -86,15 +86,15 @@
   {
    "id": "part4",
    "kind": "board",
-   "label": "low grey partition",
+   "label": "grey cubicle partition",
    "at": [
     5.2,
-    5.2
+    5.0
    ],
    "size": [
     0.05,
     0.7,
-    0.55
+    0.65
    ],
    "z": 0.75,
    "rot": 0
@@ -102,15 +102,15 @@
   {
    "id": "part5",
    "kind": "board",
-   "label": "low grey partition",
+   "label": "grey cubicle partition",
    "at": [
     6.05,
-    5.2
+    5.0
    ],
    "size": [
     0.05,
     0.7,
-    0.55
+    0.65
    ],
    "z": 0.75,
    "rot": 0
@@ -118,15 +118,15 @@
   {
    "id": "part6",
    "kind": "board",
-   "label": "low grey partition",
+   "label": "grey cubicle partition",
    "at": [
     6.8999999999999995,
-    5.2
+    5.0
    ],
    "size": [
     0.05,
     0.7,
-    0.55
+    0.65
    ],
    "z": 0.75,
    "rot": 0
@@ -134,15 +134,15 @@
   {
    "id": "part7",
    "kind": "board",
-   "label": "low grey partition",
+   "label": "grey cubicle partition",
    "at": [
     7.75,
-    5.2
+    5.0
    ],
    "size": [
     0.05,
     0.7,
-    0.55
+    0.65
    ],
    "z": 0.75,
    "rot": 0
@@ -150,15 +150,15 @@
   {
    "id": "part8",
    "kind": "board",
-   "label": "low grey partition",
+   "label": "grey cubicle partition",
    "at": [
     8.6,
-    5.2
+    5.0
    ],
    "size": [
     0.05,
     0.7,
-    0.55
+    0.65
    ],
    "z": 0.75,
    "rot": 0
@@ -166,15 +166,15 @@
   {
    "id": "part9",
    "kind": "board",
-   "label": "low grey partition",
+   "label": "grey cubicle partition",
    "at": [
     9.45,
-    5.2
+    5.0
    ],
    "size": [
     0.05,
     0.7,
-    0.55
+    0.65
    ],
    "z": 0.75,
    "rot": 0
@@ -182,15 +182,15 @@
   {
    "id": "part10",
    "kind": "board",
-   "label": "low grey partition",
+   "label": "grey cubicle partition",
    "at": [
     10.3,
-    5.2
+    5.0
    ],
    "size": [
     0.05,
     0.7,
-    0.55
+    0.65
    ],
    "z": 0.75,
    "rot": 0
@@ -198,15 +198,15 @@
   {
    "id": "part11",
    "kind": "board",
-   "label": "low grey partition",
+   "label": "grey cubicle partition",
    "at": [
     11.15,
-    5.2
+    5.0
    ],
    "size": [
     0.05,
     0.7,
-    0.55
+    0.65
    ],
    "z": 0.75,
    "rot": 0
@@ -214,15 +214,15 @@
   {
    "id": "part12",
    "kind": "board",
-   "label": "low grey partition",
+   "label": "grey cubicle partition",
    "at": [
     12.0,
-    5.2
+    5.0
    ],
    "size": [
     0.05,
     0.7,
-    0.55
+    0.65
    ],
    "z": 0.75,
    "rot": 0
@@ -246,15 +246,15 @@
   {
    "id": "chair0",
    "kind": "furniture",
-   "label": "empty grey task chair",
+   "label": "empty grey task chair (backrest)",
    "at": [
     2.225,
-    4.3
+    4.0
    ],
    "size": [
-    0.5,
-    0.5,
-    0.9
+    0.48,
+    0.1,
+    0.95
    ],
    "z": 0,
    "rot": 0
@@ -278,15 +278,15 @@
   {
    "id": "chair1",
    "kind": "furniture",
-   "label": "empty grey task chair",
+   "label": "empty grey task chair (backrest)",
    "at": [
     3.075,
-    4.3
+    4.0
    ],
    "size": [
-    0.5,
-    0.5,
-    0.9
+    0.48,
+    0.1,
+    0.95
    ],
    "z": 0,
    "rot": 0
@@ -310,15 +310,15 @@
   {
    "id": "chair2",
    "kind": "furniture",
-   "label": "empty grey task chair",
+   "label": "empty grey task chair (backrest)",
    "at": [
     3.925,
-    4.3
+    4.0
    ],
    "size": [
-    0.5,
-    0.5,
-    0.9
+    0.48,
+    0.1,
+    0.95
    ],
    "z": 0,
    "rot": 0
@@ -358,15 +358,15 @@
   {
    "id": "chair4",
    "kind": "furniture",
-   "label": "empty grey task chair",
+   "label": "empty grey task chair (backrest)",
    "at": [
     5.625,
-    4.3
+    4.0
    ],
    "size": [
-    0.5,
-    0.5,
-    0.9
+    0.48,
+    0.1,
+    0.95
    ],
    "z": 0,
    "rot": 0
@@ -390,15 +390,15 @@
   {
    "id": "chair5",
    "kind": "furniture",
-   "label": "empty grey task chair",
+   "label": "empty grey task chair (backrest)",
    "at": [
     6.475,
-    4.3
+    4.0
    ],
    "size": [
-    0.5,
-    0.5,
-    0.9
+    0.48,
+    0.1,
+    0.95
    ],
    "z": 0,
    "rot": 0
@@ -422,15 +422,15 @@
   {
    "id": "chair6",
    "kind": "furniture",
-   "label": "empty grey task chair",
+   "label": "empty grey task chair (backrest)",
    "at": [
     7.324999999999999,
-    4.3
+    4.0
    ],
    "size": [
-    0.5,
-    0.5,
-    0.9
+    0.48,
+    0.1,
+    0.95
    ],
    "z": 0,
    "rot": 0
@@ -470,15 +470,15 @@
   {
    "id": "chair8",
    "kind": "furniture",
-   "label": "empty grey task chair",
+   "label": "empty grey task chair (backrest)",
    "at": [
     9.025,
-    4.3
+    4.0
    ],
    "size": [
-    0.5,
-    0.5,
-    0.9
+    0.48,
+    0.1,
+    0.95
    ],
    "z": 0,
    "rot": 0
@@ -502,15 +502,15 @@
   {
    "id": "chair9",
    "kind": "furniture",
-   "label": "empty grey task chair",
+   "label": "empty grey task chair (backrest)",
    "at": [
     9.875,
-    4.3
+    4.0
    ],
    "size": [
-    0.5,
-    0.5,
-    0.9
+    0.48,
+    0.1,
+    0.95
    ],
    "z": 0,
    "rot": 0
@@ -534,15 +534,15 @@
   {
    "id": "chair10",
    "kind": "furniture",
-   "label": "empty grey task chair",
+   "label": "empty grey task chair (backrest)",
    "at": [
     10.725,
-    4.3
+    4.0
    ],
    "size": [
-    0.5,
-    0.5,
-    0.9
+    0.48,
+    0.1,
+    0.95
    ],
    "z": 0,
    "rot": 0
@@ -566,15 +566,15 @@
   {
    "id": "chair11",
    "kind": "furniture",
-   "label": "empty grey task chair",
+   "label": "empty grey task chair (backrest)",
    "at": [
     11.575,
-    4.3
+    4.0
    ],
    "size": [
-    0.5,
-    0.5,
-    0.9
+    0.48,
+    0.1,
+    0.95
    ],
    "z": 0,
    "rot": 0
@@ -646,17 +646,33 @@
   {
    "id": "chair3",
    "kind": "furniture",
-   "label": "empty grey task chair",
+   "label": "empty grey task chair (backrest)",
    "at": [
     4.775,
-    4.3
+    4.0
    ],
    "size": [
-    0.5,
-    0.5,
-    0.9
+    0.48,
+    0.1,
+    0.95
    ],
    "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "backpanel",
+   "kind": "board",
+   "label": "grey partition along the back of the counter",
+   "at": [
+    7.0,
+    5.35
+   ],
+   "size": [
+    10.4,
+    0.05,
+    0.65
+   ],
+   "z": 0.75,
    "rot": 0
   }
  ],
@@ -684,19 +700,30 @@
     12.6,
     2.2
    ],
-   "facing": -68
+   "facing": -68,
+   "tilt": 0
   },
   {
    "id": "O2",
    "name": "Henrick answers",
    "size": "MS",
    "lens": 40,
-   "height": 1.25,
+   "height": 1.3,
    "at": [
-    10.475000000000001,
-    2.6
+    10.5,
+    3.2
    ],
-   "facing": -52
+   "facing": -64,
+   "tilt": 0
   }
- ]
+ ],
+ "board": {
+  "room": "generated/order-now/set-operators-1.png",
+  "cast": {
+   "henrick": [
+    "generated/order-now/sheets/henrick-set--real-front.jpg",
+    "generated/order-now/sheets/henrick-set--pose-headset.jpg"
+   ]
+  }
+ }
 }

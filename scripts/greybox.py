@@ -76,6 +76,9 @@ def tag(before, **props):
 
 
 tag(set(), kind="room")
+beat_objects = {}
+# Marks with "stand_in": [beats] are built twice: seated, and standing for those beats (the audience on its feet).
+variants = []
 for it in plan["items"]:
     before_item = set(bpy.data.objects.keys())
     (x, y), (w, d, h), z, rot, kind = it["at"], it["size"], it.get("z", 0), it.get("rot", 0), it["kind"]
@@ -123,9 +126,17 @@ for it in plan["items"]:
     else:
         box(f"{kind}:{it['id']}", x, y, z, w, d, h, rgb, rot)
     tag(before_item, item=it["id"], kind=kind, label=it["label"])
+    if it.get("beat"):
+        beat_objects.setdefault(it["beat"], []).extend(set(bpy.data.objects.keys()) - before_item)
 
-beat_objects = {}
+expanded = []
 for m in plan["marks"]:
+    if m.get("stand_in"):
+        expanded.append(({**m, "pose": "sit"}, ("hide", set(m["stand_in"]))))
+        expanded.append(({**m, "pose": "stand"}, ("show", set(m["stand_in"]))))
+    else:
+        expanded.append((m, None))
+for m, variant in expanded:
     before = set(bpy.data.objects.keys())
     x, y = m["at"]
     rgb = PEOPLE.get(m["who"], (0.58, 0.58, 0.58))
@@ -157,6 +168,8 @@ for m in plan["marks"]:
     tag(before, mark=m["id"], who=m["who"], beat=m.get("beat"), pose=m["pose"])
     if m.get("beat"):
         beat_objects.setdefault(m["beat"], []).extend(set(bpy.data.objects.keys()) - before)
+    if variant:
+        variants.append((set(bpy.data.objects.keys()) - before, variant))
 
 # Light: a soft daylight from the left windows plus a fill, so shapes read in Workbench.
 scene.render.engine = "BLENDER_WORKBENCH"
@@ -201,6 +214,10 @@ for s in plan["setups"] if render else []:
     for beat, names in beat_objects.items():
         for name in names:
             bpy.data.objects[name].hide_render = bool(s.get("beat")) and beat != s.get("beat")
+    for names, (mode, beats) in variants:
+        on = s.get("beat") in beats
+        for name in names:
+            bpy.data.objects[name].hide_render = on if mode == "hide" else not on
     scene.render.filepath = f"{out_dir}/{s['id']}.png"
     bpy.ops.render.render(write_still=True)
     print(f"rendered {s['id']} -> {scene.render.filepath}")

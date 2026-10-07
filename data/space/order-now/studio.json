@@ -12,11 +12,11 @@
     15.85
    ],
    "size": [
-    5.5,
+    4.0,
     0.1,
-    1.3
+    1.0
    ],
-   "z": 3.0,
+   "z": 2.0,
    "rot": 0
   },
   {
@@ -57,7 +57,7 @@
    "label": "shelving unit with TVs",
    "at": [
     15.5,
-    12.0
+    13.8
    ],
    "size": [
     0.6,
@@ -70,7 +70,7 @@
   {
    "id": "palm-l",
    "kind": "prop",
-   "label": "palm",
+   "label": "palm, left",
    "at": [
     4.6,
     14.6
@@ -86,7 +86,7 @@
   {
    "id": "palm-r",
    "kind": "prop",
-   "label": "palm",
+   "label": "palm, right",
    "at": [
     13.6,
     14.6
@@ -370,6 +370,23 @@
    ],
    "z": 3.2,
    "rot": 0
+  },
+  {
+   "id": "binders",
+   "kind": "prop",
+   "label": "tower of white binders",
+   "at": [
+    8.2,
+    11.5
+   ],
+   "size": [
+    0.6,
+    0.4,
+    0.95
+   ],
+   "z": 1.05,
+   "rot": 0,
+   "beat": "8"
   }
  ],
  "marks": [
@@ -383,7 +400,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.0,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud01",
@@ -395,7 +415,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.0,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud02",
@@ -407,7 +430,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.0,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud03",
@@ -419,7 +445,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.0,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud04",
@@ -431,7 +460,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.0,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud05",
@@ -443,7 +475,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.0,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud06",
@@ -455,7 +490,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.0,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud07",
@@ -467,7 +505,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.0,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud10",
@@ -479,7 +520,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.45,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud11",
@@ -491,7 +535,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.45,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud12",
@@ -503,7 +550,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.45,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud13",
@@ -515,7 +565,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.45,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud14",
@@ -527,7 +580,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.45,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud15",
@@ -539,7 +595,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.45,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud16",
@@ -551,7 +610,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.45,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud17",
@@ -563,7 +625,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.45,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud20",
@@ -575,7 +640,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.9,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud21",
@@ -587,7 +655,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.9,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud22",
@@ -599,7 +670,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.9,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud23",
@@ -611,7 +685,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.9,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud24",
@@ -623,7 +700,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.9,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud25",
@@ -635,7 +715,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.9,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud26",
@@ -647,7 +730,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.9,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud27",
@@ -659,7 +745,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 0.9,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud30",
@@ -671,7 +760,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 1.35,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud31",
@@ -683,7 +775,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 1.35,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud32",
@@ -695,7 +790,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 1.35,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud33",
@@ -707,7 +805,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 1.35,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud34",
@@ -719,7 +820,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 1.35,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud35",
@@ -731,7 +835,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 1.35,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud36",
@@ -743,7 +850,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 1.35,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud37",
@@ -755,7 +865,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 1.35,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud40",
@@ -767,7 +880,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 1.8,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud41",
@@ -779,7 +895,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 1.8,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud42",
@@ -791,7 +910,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 1.8,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud43",
@@ -803,7 +925,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 1.8,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud44",
@@ -815,7 +940,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 1.8,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud45",
@@ -827,7 +955,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 1.8,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud46",
@@ -839,7 +970,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 1.8,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud47",
@@ -851,7 +985,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 1.8,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud50",
@@ -863,7 +1000,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 2.25,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud51",
@@ -875,7 +1015,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 2.25,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud52",
@@ -887,7 +1030,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 2.25,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud53",
@@ -899,7 +1045,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 2.25,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud54",
@@ -911,7 +1060,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 2.25,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud55",
@@ -923,7 +1075,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 2.25,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud56",
@@ -935,7 +1090,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 2.25,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "aud57",
@@ -947,7 +1105,10 @@
    "facing": 90,
    "pose": "sit",
    "z": 2.25,
-   "platform": false
+   "platform": false,
+   "stand_in": [
+    "5"
+   ]
   },
   {
    "id": "henrick",
@@ -1097,16 +1258,33 @@
   },
   {
    "id": "C7",
-   "name": "Audience",
+   "name": "Audience (jib)",
    "size": "WS",
-   "lens": 28,
-   "height": 1.6,
+   "lens": 24,
+   "height": 3.4,
    "at": [
-    8.0,
-    8.4
+    9.5,
+    10.3
    ],
-   "facing": -78,
-   "beat": "7"
+   "facing": -90,
+   "beat": "7",
+   "tilt": -14
   }
- ]
+ ],
+ "board": {
+  "room": "generated/order-now/set-studio-1.png",
+  "cast": {
+   "brock": [
+    "generated/order-now/sheets/brock--face-front.jpg",
+    "generated/order-now/sheets/brock--body-front.jpg"
+   ],
+   "henrick": [
+    "generated/order-now/sheets/henrick-set--real-front.jpg",
+    "generated/order-now/sheets/henrick-set--body-front.jpg"
+   ],
+   "audience": [
+    "generated/order-now/space/ref/audience-clean.jpg"
+   ]
+  }
+ }
 }

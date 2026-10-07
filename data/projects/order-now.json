@@ -17,31 +17,6 @@
   "open": [],
   "activity": [
     {
-      "t": "2026-10-07T15:49:53.410Z",
-      "text": "claude · Candidate for kyle: generated/order-now/kyle-4.png (GPT Image 2.5 Sunburst via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:49:53.434Z",
-      "text": "claude · Candidate for kyle: generated/order-now/kyle-5.png (GPT Image 2.5 Sunburst via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:49:53.459Z",
-      "text": "claude · Candidate for kyle: generated/order-now/kyle-6.png (GPT Image 2.5 Sunburst via Leap)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:49:53.485Z",
-      "text": "claude · Picked for kyle: generated/order-now/kyle-5.png",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:50:55.381Z",
-      "text": "claude · Candidate for set-kitchen: generated/order-now/set-kitchen-5.jpg (GPT Image 2.5 Sunburst + before grade via Leap, graded in Stitch)",
-      "kind": "info"
-    },
-    {
       "t": "2026-10-07T15:50:55.406Z",
       "text": "claude · Picked for set-kitchen: generated/order-now/set-kitchen-5.jpg",
       "kind": "info"
@@ -414,6 +389,31 @@
     {
       "t": "2026-10-07T17:11:57.456Z",
       "text": "claude · Frame for studio C6 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:47:41.388Z",
+      "text": "claude · Frame for studio C1 (Seedream 5.0 Pro (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:47:41.611Z",
+      "text": "claude · Frame for studio C2 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:47:41.811Z",
+      "text": "claude · Frame for studio C5 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:47:42.013Z",
+      "text": "claude · Frame for operators O2 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:47:53.538Z",
+      "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
       "kind": "info"
     }
   ],
@@ -2703,7 +2703,7 @@
           "name": "Infomercial set",
           "sheet": "set-studio",
           "look": "colour",
-          "map": "The 1994 infomercial stage, seen from the audience side. Screen left: tiered bleachers with the studio audience. Centre: the curved white demo desk with chrome trim. Two white stools at the desk's ends. Back wall: pink-to-teal gradient with the COMP AI neon sign above the desk. Henrick sits on the right-hand stool (screen right), hands folded, angled three-quarters toward camera and slightly toward Brock. Brock's mark is standing left of the desk (screen left of centre); he keeps leaving it. The line runs Brock to Henrick: every camera stays on the audience side, so Brock is always screen left looking right and Henrick always screen right looking left. The audience is the only reverse angle. The audience: one bleacher bank at stage left (screen left from the front cameras), six tiers of eight burgundy seats on grey carpeted steps, stairs with a chrome handrail at its stage end beside a pink column. The same 48 people sit in it for the whole show, always in the same seats; C7 is their reference. Front row, as C7 sees it from left to right: a blonde woman in her 40s in a pink sweater; a moustached man in a teal-and-purple windbreaker; a grey-haired woman in lavender with pearls; a young man with a mullet in a denim jacket; a curly auburn-haired woman in a pastel sweatshirt; a bald man with glasses in plaid; a black-haired woman in teal; a grey-bearded man in burgundy. No face appears twice. Continuity: any angle that shows the bleachers shows them full and reacting to the beat (on their feet in 5, applauding in 6, 'Ooooh' in 7, 'WOW' in 8, frozen in the silence of 11, applauding in 14). The demo desk always holds the red COMP AI button in the centre and the thin blue SOC 2 folder at its right end, by Henrick's stool; the tower of white binders is on the desk only in beat 8. Nothing else on the desk.",
+          "map": "The 1994 infomercial stage, seen from the audience side. Screen left: tiered bleachers with the studio audience. Centre: the curved white demo desk with chrome trim. Two white stools at the desk's ends. Back wall: pink-to-teal gradient with the COMP AI neon sign hanging low on it, just above the desk. Henrick sits on the right-hand stool (screen right), hands folded, angled three-quarters toward camera and slightly toward Brock. Brock's mark is standing left of the desk (screen left of centre); he keeps leaving it. The line runs Brock to Henrick: every camera stays on the audience side, so Brock is always screen left looking right and Henrick always screen right looking left. The audience is the only reverse angle. The audience: one bleacher bank at stage left (screen left from the front cameras), six tiers of eight burgundy seats on grey carpeted steps, stairs with a chrome handrail at its stage end beside a pink column. The same 48 people sit in it for the whole show, always in the same seats; C7 is their reference. Front row, as C7 sees it from left to right: a blonde woman in her 40s in a pink sweater; a moustached man in a teal-and-purple windbreaker; a grey-haired woman in lavender with pearls; a young man with a mullet in a denim jacket; a curly auburn-haired woman in a pastel sweatshirt; a bald man with glasses in plaid; a black-haired woman in teal; a grey-bearded man in burgundy. No face appears twice. Continuity: any angle that shows the bleachers shows them full and reacting to the beat (on their feet in 5, applauding in 6, 'Ooooh' in 7, 'WOW' in 8, frozen in the silence of 11, applauding in 14). The demo desk always holds the red COMP AI button in the centre and the thin blue SOC 2 folder at its right end, by Henrick's stool; the tower of white binders is on the desk only in beat 8. Nothing else on the desk.",
           "cameras": [
             {
               "id": "C1",
@@ -2717,21 +2717,16 @@
               "frame": {
                 "file": "generated/order-now/space/studio--C1.jpg",
                 "view": "C1",
-                "model": "Nano Banana 2.1 (edit) + betacam grade",
+                "model": "Seedream 5.0 Pro (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11758-4183-7db3-bae2-bf94ae0c9f93",
-                "prompt": "Grey-box render from this camera as Image 1, the only full-frame image; set plate passed only as material crops (wall and sign, desk and stool, bleacher seats); cast and audience references for faces and clothes only.",
+                "job": "01a11771-9b5a-7141-8991-df88abcdb87c",
+                "prompt": "You re-create planned film frames as real photographs. The layout image is binding: camera position, lens, framing and the place, size and facing of every person and object. The reference board is context about the room and the cast, so that this frame agrees with every other angle of the same room; never use it as a composition, and never draw its panels, labels or text. If a reference and the layout disagree about where something is, the layout wins. Figure 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position, size and facing of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph. In Figure 1 the teal figure is Brock, the blue-grey figure is Henrick and the grey figures are the studio audience. Figure 2 is a reference board, not a scene: never copy its layout, its labels or its text. Use each labelled panel only for what its label says: MAP is a top-down plan of the whole room with this camera's view as the purple cone (where everything is and which way it faces); THE ROOM is the approved set (materials, colours and light); the named cast panels give faces and costumes; AUDIENCE gives the same people in the same seats. Blocking from the 3D plan, measured from this camera (across the frame: 0% is the left edge; up: 0% is the bottom edge): Audience: 15 of 48 people at least partly in frame, spanning 2% to 18% across; nearest 4.7 m from the lens, the tallest of them 57% of frame height; they are standing and in profile. henrick: in frame, 75% to 75% across, 22% to 44% up from the bottom, 10.0 m from the lens, seated, faces the camera. brock: in frame, 37% to 37% across, 5% to 51% up from the bottom, 6.0 m from the lens, standing, in profile, looking toward screen right. COMP AI neon sign: 33% to 59% across, 53% to 67% up from the bottom. pink column: 19% to 27% across, 24% to 100% up from the bottom, running out of frame at the top. teal column: 67% to 75% across, 29% to 100% up from the bottom, running out of frame at the top. shelving unit with TVs: 84% to 100% across, 27% to 59% up from the bottom, running out of frame at the right. palm, left: 10% to 18% across, 23% to 52% up from the bottom. palm, right: 74% to 82% across, 29% to 51% up from the bottom. curved white demo desk: 44% to 76% across, 16% to 40% up from the bottom. red COMP AI button: 57% to 63% across, 38% to 42% up from the bottom. blue SOC 2 folder: 68% to 73% across, 39% to 40% up from the bottom. white stool, left: 38% to 45% across, 17% to 33% up from the bottom. white stool, right (Henrick): 72% to 79% across, 21% to 35% up from the bottom. chrome handrail: 0% to 21% across, 77% to 84% up from the bottom, running out of frame at the left. Beat 5, the smash to colour. The studio audience in the bleachers at screen left is ON ITS FEET, applauding and cheering. Brock bounds in left of centre, mid-stride, arms flung wide, huge grin, turned toward Henrick. Henrick sits perfectly still on the right-hand stool, hands folded, angled three-quarters toward camera. On the desk: the giant red COMP AI button in the centre and the thin blue SOC 2 folder at the right end, nothing else. The COMP AI neon sign glows on the back wall just above the desk. Brock: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Henrick, a real man: keep his face exactly (silver hair, short white beard, round dark-blue glasses), navy suit, light-blue shirt, grey paisley tie, pink pocket square. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
                 "inputs": [
-                  "box studio C1",
-                  "mat-wall",
-                  "mat-desk",
-                  "mat-seats",
-                  "cast refs",
-                  "audience ref",
-                  "props"
+                  "grey-box layout C1",
+                  "reference board C1"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T17:11:56.819Z"
+                "at": "2026-10-07T17:47:41.386Z"
               }
             },
             {
@@ -2748,19 +2743,14 @@
                 "view": "C2",
                 "model": "Nano Banana 2.1 (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11758-41a3-7313-ae44-a003466781d7",
-                "prompt": "Grey-box render from this camera as Image 1, the only full-frame image; set plate passed only as material crops (wall and sign, desk and stool, bleacher seats); cast and audience references for faces and clothes only.",
+                "job": "01a11771-9ad2-7f10-aeb5-39a0ea746652",
+                "prompt": "Image 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position, size and facing of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph. In Image 1 the teal figure is Brock and the grey figures are the studio audience. Image 2 is a reference board, not a scene: never copy its layout, its labels or its text. Use each labelled panel only for what its label says: MAP is a top-down plan of the whole room with this camera's view as the purple cone (where everything is and which way it faces); THE ROOM is the approved set (materials, colours and light); the named cast panels give faces and costumes; AUDIENCE gives the same people in the same seats. Blocking from the 3D plan, measured from this camera (across the frame: 0% is the left edge; up: 0% is the bottom edge): Audience: 2 of 48 people at least partly in frame, spanning 2% to 9% across; nearest 5.9 m from the lens, the tallest of them 40% of frame height; they are seated and three-quarter toward the camera. henrick: NOT in frame. brock: in frame, 51% to 51% across, 0% to 58% up from the bottom, running out of frame at the bottom, 3.5 m from the lens, standing, faces the camera, looking toward screen right. COMP AI neon sign: 60% to 100% across, 60% to 89% up from the bottom, running out of frame at the right. pink column: 29% to 46% across, 4% to 100% up from the bottom, running out of frame at the top. palm, left: 12% to 29% across, 4% to 56% up from the bottom. curved white demo desk: 56% to 100% across, 0% to 26% up from the bottom, running out of frame at the right and bottom. red COMP AI button: 93% to 100% across, 20% to 32% up from the bottom, running out of frame at the right. white stool, left: 40% to 55% across, 0% to 14% up from the bottom, running out of frame at the bottom. chrome handrail: 0% to 19% across, 99% to 100% up from the bottom, running out of frame at the left and top. Outside this frame entirely (must not appear): teal column; shelving unit with TVs; palm, right; blue SOC 2 folder; white stool, right (Henrick). A medium shot of Brock standing left of the desk, arms flung wide, mouth open mid-shout, body toward camera, head and eyes turned to screen right toward his unseen guest. At the far left edge, the end of the bleachers with one or two seated audience members applauding, soft. Behind him: the pink column and a palm at screen left, the COMP AI neon sign running off the top right, the left end of the white desk at the right edge with the red button at the frame edge. Brock: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
                 "inputs": [
-                  "box studio C2",
-                  "mat-wall",
-                  "mat-desk",
-                  "mat-seats",
-                  "cast refs",
-                  "audience ref",
-                  "props"
+                  "grey-box layout C2",
+                  "reference board C2"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T17:11:57.039Z"
+                "at": "2026-10-07T17:47:41.610Z"
               }
             },
             {
@@ -2830,19 +2820,14 @@
                 "view": "C5",
                 "model": "Nano Banana 2.1 (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11758-419c-7a62-9136-dea6e91cecf5",
-                "prompt": "Grey-box render from this camera as Image 1, the only full-frame image; set plate passed only as material crops (wall and sign, desk and stool, bleacher seats); cast and audience references for faces and clothes only.",
+                "job": "01a11772-a689-7cd1-a660-2154b33cf3fe",
+                "prompt": "Image 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position, size and facing of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph. In Image 1 the teal figure is Brock and the grey figure is an audience member. Image 2 is a reference board, not a scene: never copy its layout, its labels or its text. Use each labelled panel only for what its label says: MAP is a top-down plan of the whole room with this camera's view as the purple cone (where everything is and which way it faces); THE ROOM is the approved set (materials, colours and light); the named cast panels give faces and costumes; AUDIENCE gives the same people in the same seats. Blocking from the 3D plan, measured from this camera (across the frame: 0% is the left edge; up: 0% is the bottom edge): Audience: 1 of 48 people at least partly in frame, spanning 6% to 6% across; nearest 5.9 m from the lens, the tallest of them 42% of frame height; they are seated and three-quarter toward the camera. henrick: NOT in frame. brock: in frame, 33% to 33% across, 0% to 100% up from the bottom, running out of frame at the top and bottom, 1.1 m from the lens, standing, faces the camera. COMP AI neon sign: 48% to 95% across, 64% to 86% up from the bottom. pink column: 23% to 37% across, 20% to 100% up from the bottom, running out of frame at the top. palm, left: 9% to 23% across, 19% to 62% up from the bottom. curved white demo desk: 48% to 100% across, 0% to 41% up from the bottom, running out of frame at the right and bottom. red COMP AI button: 78% to 92% across, 39% to 47% up from the bottom. white stool, left: 34% to 47% across, 0% to 31% up from the bottom, running out of frame at the bottom. Outside this frame entirely (must not appear): teal column; shelving unit with TVs; palm, right; blue SOC 2 folder; white stool, right (Henrick); chrome handrail. A 24 mm close-up: Brock lunges toward the lens, face large and a little distorted by the wide lens, eyes wide, mouth open shouting 'But wait!', one hand reaching toward camera. Behind him, soft: one seated audience member frozen in silence at the far left edge, a palm and the pink column at left, the COMP AI neon sign running off the top right, the white desk with the red button at right. Brock: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
                 "inputs": [
-                  "box studio C5",
-                  "mat-wall",
-                  "mat-desk",
-                  "mat-seats",
-                  "cast refs",
-                  "audience ref",
-                  "props"
+                  "grey-box layout C5",
+                  "reference board C5"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T17:11:57.244Z"
+                "at": "2026-10-07T17:47:41.810Z"
               }
             },
             {
@@ -2878,8 +2863,8 @@
               "id": "C7",
               "name": "Audience",
               "size": "WS",
-              "lens": 35,
-              "from": "The one reverse: from the stage onto the bleacher bank, the six tiers and all 48 people filling the frame. This frame is the audience's reference.",
+              "lens": 24,
+              "from": "The one reverse: a jib on the stage, high, looking down onto the bleacher bank; the six tiers and all 48 people fill the frame. This frame is the audience's reference.",
               "why": "Reactions: on their feet, 'Ooooh', and the cough in the silence.",
               "behind": "The stage, the desk and the neon sign; never shown in this angle.",
               "layout": "generated/order-now/space/box/studio--C7.jpg",
@@ -2906,7 +2891,7 @@
           "name": "Operator bank",
           "sheet": "set-operators",
           "look": "colour",
-          "map": "A real, used 1994 telemarketing room: drop ceiling, fluorescent panels, beige walls, a round wall clock and a 1994 calendar. A long worn laminate counter runs down the room with a dozen identical operator stations divided by low grey partitions, each with a beige push-button multi-line phone (line lights blinking), an order pad and an empty grey task chair. Every chair is empty except one about a third of the way down the row, where Henrick sits in a beige headset, writing orders. The sign OPERATORS STANDING BY hangs on the back wall. Shot like documentary footage, never symmetrical.",
+          "map": "A real, used 1994 telemarketing room: drop ceiling, fluorescent panels, beige walls, a round wall clock and a 1994 calendar. A long worn laminate counter runs down the room with a dozen identical operator stations divided by low grey partitions, each with a beige push-button multi-line phone (line lights blinking), an order pad and an empty grey task chair. Every chair is empty except one about a third of the way down the row, where Henrick sits in a beige headset, writing orders. The sign OPERATORS STANDING BY hangs from the ceiling over the row. Every operator faces their own partition with their back to the aisle, Henrick included; the cameras stay in the aisle on the same side of his eyeline, so he always looks screen right. Shot like documentary footage, never symmetrical.",
           "cameras": [
             {
               "id": "O1",
@@ -2938,8 +2923,8 @@
               "id": "O2",
               "name": "Henrick answers",
               "size": "MS",
-              "lens": 50,
-              "from": "From beside the row, three-quarter on to Henrick writing an order, the empty stations and their blinking lights receding soft behind him.",
+              "lens": 40,
+              "from": "From the aisle a few stations along the row, looking back along it: Henrick at his station facing his partition, seen three-quarter from behind, his face in profile as he writes an order; the empty stations and their blinking lights recede soft beyond him.",
               "why": "Cut in on 'Which framework.' so his deadpan reads.",
               "behind": "The empty room.",
               "layout": "generated/order-now/space/box/operators--O2.jpg",
@@ -2948,16 +2933,14 @@
                 "view": "O2",
                 "model": "Nano Banana 2.1 (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1174e-bad0-7b92-8764-c0aafaa7164f",
-                "prompt": "Grey-box render from this camera as Image 1 (data/space/order-now/operators.json); operators plate for materials; Henrick from his real photo; headset reference.",
+                "job": "01a11772-a658-7512-8894-1653eb9c8789",
+                "prompt": "Image 1 is a grey-box layout render of our 1994 telephone order room from this exact camera. It fixes the camera, lens, framing and the position, size and facing of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph. In Image 1 the blue-grey figure is Henrick; the dark panels are grey cubicle partitions and the pale slabs are empty task chairs. Image 2 is a reference board, not a scene: never copy its layout, its labels or its text. Use each labelled panel only for what its label says: MAP is a top-down plan of the whole room with this camera's view as the purple cone (where everything is and which way it faces); THE ROOM is the approved set (materials, colours and light); the named cast panels give faces and costumes; AUDIENCE gives the same people in the same seats. Blocking from the 3D plan, measured from this camera (across the frame: 0% is the left edge; up: 0% is the bottom edge): henrick: in frame, 51% to 51% across, 0% to 52% up from the bottom, running out of frame at the bottom, 2.6 m from the lens, seated, three-quarter away from the camera, looking toward screen right. long worn laminate counter: 2% to 100% across, 0% to 32% up from the bottom, running out of frame at the right and bottom. OPERATORS STANDING BY sign, hanging: 54% to 100% across, 99% to 100% up from the bottom, running out of frame at the right and top. grey partition along the back of the counter: 15% to 100% across, 0% to 100% up from the bottom, running out of frame at the right and top and bottom. Outside this frame entirely (must not appear): round wall clock; 1994 wall calendar; filing cabinets. A 40 mm medium shot from the aisle a few stations along the row: Henrick seated at his station facing his partition, seen three-quarter from behind, his face in profile as he writes an order on a pad, a beige headset on, deadpan. Grey cubicle partitions around his station; the row of empty stations, empty grey task chairs and beige push-button multi-line phones with blinking line lights recedes soft beyond him to screen left. Worn beige walls, fluorescent drop ceiling. Henrick, a real man: keep his face exactly (silver hair, short white beard, round dark-blue glasses), navy suit, light-blue shirt, grey paisley tie, pink pocket square, wearing a beige headset. Flat fluorescent office light in a real, worn room, shot like documentary footage. Clean, sharp, natural photograph of a real place and a real person at true scale: no grain, no noise, no painterly texture. No text except the OPERATORS STANDING BY sign.",
                 "inputs": [
-                  "box operators O2",
-                  "operators plate",
-                  "henrick real-front",
-                  "henrick pose-headset"
+                  "grey-box layout O2",
+                  "reference board O2"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T17:01:01.863Z"
+                "at": "2026-10-07T17:47:42.012Z"
               }
             }
           ]
