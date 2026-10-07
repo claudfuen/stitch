@@ -1,0 +1,14 @@
+{
+ "provider": "leap",
+ "model": "elevenlabs/eleven-v3",
+ "generation": "gen_WR973fLjMUpmyksQV9Famzy5",
+ "cost_usd": "0.013860",
+ "sources": {},
+ "input": {
+  "text": "[excited] [shouting] THERE IS! All the way from Europe... HENRICK JOHANSSON! [pause] [excited] Henrick! What does Comp AI DO?!",
+  "voice": "Roger",
+  "settings": {
+   "stability": 0.5
+  }
+ }
+}

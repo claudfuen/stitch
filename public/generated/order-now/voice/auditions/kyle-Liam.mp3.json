@@ -1,0 +1,14 @@
+{
+ "provider": "leap",
+ "model": "elevenlabs/eleven-v3",
+ "generation": "gen_jzuE1c4JgYdxxKVLM2ewqA4X",
+ "cost_usd": "0.011880",
+ "sources": {},
+ "input": {
+  "text": "[desperate] There's GOT to be a better way! [pause] [serene] I closed our biggest deal... from this hammock.",
+  "voice": "Liam",
+  "settings": {
+   "stability": 0.5
+  }
+ }
+}

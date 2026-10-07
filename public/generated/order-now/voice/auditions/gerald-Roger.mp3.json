@@ -1,0 +1,14 @@
+{
+ "provider": "leap",
+ "model": "elevenlabs/eleven-v3",
+ "generation": "gen_wPLh2XpPmDysdOdVxMMOIdZj",
+ "cost_usd": "0.017600",
+ "sources": {},
+ "input": {
+  "text": "[dry] Wonderful. Now I'll need evidence... of the evidence. [pause] [emotional] The evidence... it was all there. [pause] I don't know what to do with my hands.",
+  "voice": "Roger",
+  "settings": {
+   "stability": 0.5
+  }
+ }
+}

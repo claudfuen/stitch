@@ -94,6 +94,14 @@ export type Room = { id: Id; name: string; sheet?: Id; look: FilmLook; map: stri
 export type CameraCut = { t0: number; t1: number; room: Id; cam: Id; what: string }
 export type Space = { rooms: Room[]; cuts: CameraCut[] }
 
+/** Stage 04. Each role gets a voice picked from auditions; then the whole film is read in one take, so every line
+ *  answers the one before it. Lines are cut from the take with their times; Henrick's are converted to his real voice. */
+export type Audition = { voice: string; file: string; model: string; provider: string; job?: string; at: string }
+export type VoiceRole = { who: Id; voice?: string; real?: boolean; auditions: Audition[]; note?: string }
+export type VoiceLine = { n: number; beat: Id; who: Id; text: string; start: number; end: number; file: string; match?: number }
+export type VoiceTake = { id: Id; file: string; model: string; provider: string; job?: string; cast: Record<string, string>; duration: number; lines: VoiceLine[]; note?: string; at: string }
+export type Voice = { roles: VoiceRole[]; takes: VoiceTake[]; pick?: Id }
+
 /** Which beats each camera is used in, from the camera script (the one source of truth for it). */
 export const beatsOf = (pr: Process, room: Id, cam: Id) =>
   [...new Set((pr.space?.cuts ?? []).filter((c) => c.room === room && c.cam === cam).map((c) => pr.script.beats.find((b) => c.t0 >= b.t0 && c.t0 < b.t1)?.id).filter((x): x is Id => !!x))]
@@ -107,6 +115,7 @@ export type Process = {
   cast?: CastMember[]
   sheets?: SheetItem[]
   space?: Space
+  voice?: Voice
   pick?: Id
   /** The beat sheet for the picked concept. Bumped each time an agent rewrites it, which reopens the script gate. */
   script: { version: number; concept?: Id; beats: Beat[] }

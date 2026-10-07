@@ -1,0 +1,14 @@
+{
+ "provider": "leap",
+ "model": "elevenlabs/eleven-v3",
+ "generation": "gen_HO04TZgDb1d8pCD5qGLAZ6FL",
+ "cost_usd": "0.023760",
+ "sources": {},
+ "input": {
+  "text": "[very fast] [rushed] Comp AI is not a government agency. Side effects may include closed deals, sleeping through the night, and a smiling auditor. Not available in the EU pending a committee to decide on a committee.",
+  "voice": "Eric",
+  "settings": {
+   "stability": 0.5
+  }
+ }
+}

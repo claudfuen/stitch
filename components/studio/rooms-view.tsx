@@ -4,6 +4,7 @@
 // marks and lights. Audit a room by orbiting it, then look through any camera at its real lens and lay the frames made
 // for that setup over the 3D view: chairs, people, walls and windows must land where the room puts them.
 
+import { useParam } from "./url-state"
 import { Html, OrbitControls, PerspectiveCamera, useGLTF } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import { Camera, Crosshair, Orbit } from "lucide-react"
@@ -51,14 +52,10 @@ function poseOf(u: Setup) {
 }
 
 export function RoomsView({ project, ix, op }: { project: Project; ix: Index; op: (...o: Op[]) => Promise<void> }) {
-  const rooms = project.locations.filter((l) => l.plan)
-  const [roomId, setRoomId] = useState(() => {
-    let r: string | null = null
-    try {
-      r = localStorage.getItem("stitch-room")
-    } catch {}
-    return r && rooms.some((l) => l.id === r) ? r : rooms[0]?.id
-  })
+  const rooms = useMemo(() => project.locations.filter((l) => l.plan), [project.locations])
+  // The open room lives in the URL (?room=hall).
+  const [roomParam, setRoomParam] = useParam("room")
+  const roomId = roomParam ?? rooms[0]?.id
   const [setupId, setSetupId] = useState<string | null>(null)
   const [look, setLook] = useState(false)
   const [beat, setBeat] = useState<string>("")
@@ -70,15 +67,14 @@ export function RoomsView({ project, ix, op }: { project: Project; ix: Index; op
   const [scoutName, setScoutName] = useState("")
 
   const chooseRoom = (id: string) => {
-    setRoomId(id)
+    setRoomParam(id)
     setSetupId(null)
     setLook(false)
     setOverlay(null)
     setScout(null)
-    try { localStorage.setItem("stitch-room", id) } catch {}
   }
 
-  const loc = rooms.find((l) => l.id === roomId)
+  const loc = useMemo(() => rooms.find((l) => l.id === roomId) ?? rooms[0], [rooms, roomId])
   const view = useMemo(() => (loc ? planView(scout && loc.plan ? { ...loc, plan: { ...loc.plan, setups: [...loc.plan.setups, scout] } } : loc) : undefined), [loc, scout])
   const scoutView = scout ? view?.setups.find((u) => u.id === scout.id) : undefined
   const setup = view?.setups.find((u) => u.id === setupId)

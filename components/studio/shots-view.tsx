@@ -4,6 +4,7 @@
 // checks), grouped into scenes. Everything else about a shot (takes, keyframes, lines, graphics, checklist, card) lives
 // in the detail pane of the one you select, so the list stays light however many takes pile up.
 
+import { useParam } from "./url-state"
 import { ChevronDown, ChevronRight, Network, Search, X } from "lucide-react"
 import { memo, useMemo, useState } from "react"
 import { CARD_FIELDS, type Asset, type CardKey, type Check, type ProjectWithRev, type ShotStatus } from "@/lib/model"
@@ -28,25 +29,15 @@ const shown = (r: ShotRow) => (r.shot.card_graphic ? r.graphics[0]?.preview : r.
 const assets = (list: { asset?: Asset }[]) => list.map((x) => x.asset).filter((a): a is Asset => !!a)
 
 export function ShotsView({ project: p, rows, sum, current, op, onCanvas, onCut }: Props) {
-  const [selected, setSelected] = useState<string | null>(() => {
-    // Below the lg breakpoint the detail covers the list, so start on the list.
-    if (window.matchMedia("(max-width: 1023px)").matches) return null
-    let s: string | null = null
-    try {
-      s = localStorage.getItem("stitch-shot")
-    } catch {}
-    return s && rows.some((r) => r.shot.id === s) ? s : (rows[0]?.shot.id ?? null)
-  })
+  // The open shot lives in the URL (?shot=2.4). Below the lg breakpoint the detail covers the list, so a phone
+  // starts on the list unless the link names a shot.
+  const [shotParam, setShotParam] = useParam("shot")
+  const selected = shotParam && rows.some((r) => r.shot.id === shotParam) ? shotParam : typeof window !== "undefined" && window.matchMedia("(max-width: 1023px)").matches ? null : (rows[0]?.shot.id ?? null)
   const [scene, setScene] = useState<string>("")
   const [issuesOnly, setIssuesOnly] = useState(false)
   const [query, setQuery] = useState("")
 
-  const select = (id: string | null) => {
-    setSelected(id)
-    try {
-      if (id) localStorage.setItem("stitch-shot", id)
-    } catch {}
-  }
+  const select = (id: string | null) => setShotParam(id)
 
   const q = query.trim().toLowerCase()
   // Film order, in runs of the same section.

@@ -18,6 +18,7 @@ import { ModelsView } from "./models-view"
 import { ProcessView } from "./process-view"
 import { ShotsView } from "./shots-view"
 import { projectSlug, useProject } from "./use-project"
+import { setParams, useParam } from "./url-state"
 
 // The 3D view loads three.js only in the browser, and only when Rooms is opened.
 const RoomsView = dynamic(() => import("./rooms-view").then((m) => m.RoomsView), { ssr: false })
@@ -84,17 +85,15 @@ type ShellProps = {
 }
 
 function Shell({ p, ix, rows, sum, history, board, picked, mtimes, op, error }: ShellProps) {
-  // The view is remembered per film. A film with a process opens on it.
-  const viewKey = `stitch-view:${projectSlug() || "ministry"}`
   // A film run on the process shows only its stages, what the agents are doing and (once there are any) its cuts.
   // The older tools (shots, models, canvas, rooms) stay on films made before it.
   const views = p.process ? VIEWS.filter((v) => v.id === "process" || v.id === "activity" || (v.id === "cuts" && p.cuts.length > 0)) : VIEWS.filter((v) => v.id !== "process")
-  const [view, setView] = useState<View>(() => {
-    const v = read(viewKey)
-    return isView(v) && views.some((x) => x.id === v) ? v : p.process ? "process" : "shots"
-  })
+  // Where you are lives in the URL (?view=...), so a refresh or a pasted link lands on the same view.
+  const [viewParam] = useParam("view")
+  const view: View = isView(viewParam) && views.some((x) => x.id === viewParam) ? viewParam : p.process ? "process" : "shots"
   const [focus, setFocus] = useState<string | null>(null)
-  const [cutId, setCutId] = useState<string | null>(null)
+  const [cutId, setCutParam] = useParam("cut")
+  const setCutId = useCallback((id: string | null) => setCutParam(id, { push: false }), [setCutParam])
   // When Activity was last looked at: newer log entries count on its tab and sit above the "new" line in the view.
   const [seen, setSeen] = useState(() => Number(read("stitch-seen")) || Date.parse(p.activity.at(-1)?.t ?? "") || Date.now())
   const now = useNow()
@@ -106,12 +105,11 @@ function Shell({ p, ix, rows, sum, history, board, picked, mtimes, op, error }: 
         setSeen(t)
         write("stitch-seen", String(t))
       }
-      setView(v)
-      write(viewKey, v)
+      setParams({ view: v })
     },
-    [view, viewKey],
+    [view],
   )
-  const openCut = useCallback((id: string) => (setCutId(id), choose("cuts")), [choose])
+  const openCut = useCallback((id: string) => setParams({ view: "cuts", cut: id }), [])
   const openCanvas = useCallback((node: string) => (setFocus(node), choose("canvas")), [choose])
 
   const unseen = view === "activity" ? 0 : p.activity.filter((a) => Date.parse(a.t) > seen).length

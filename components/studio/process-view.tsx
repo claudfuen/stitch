@@ -8,13 +8,14 @@ import { ChevronDown, Lock } from "lucide-react"
 import { useState } from "react"
 import type { ProjectWithRev } from "@/lib/model"
 import type { Op } from "@/lib/ops"
-import { GATE_LABEL, beatsOf, blockedBy, currentStage, openNotes, runtime, words, type Beat, type Camera, type Candidate, type Concept, type GateStatus, type Note, type Process, type Room, type SheetItem, type SheetKind, type Stage, type StageId } from "@/lib/process"
+import { GATE_LABEL, beatsOf, blockedBy, currentStage, openNotes, runtime, words, type Beat, type Camera, type Candidate, type Concept, type GateStatus, type Note, type Process, type Room, type SheetItem, type SheetKind, type Stage, type StageId, type VoiceLine } from "@/lib/process"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
 import { projectSlug } from "./use-project"
+import { useParam, useScrollToHash } from "./url-state"
 
 const ME = "Claudio"
 type Props = { project: ProjectWithRev; op: (...o: Op[]) => Promise<void> }
@@ -36,13 +37,18 @@ const label = (st: State) => (st === "skipped" ? "Skipped" : st === "locked" ? "
 
 export function ProcessView({ project: p, op }: Props) {
   const pr = p.process!
-  const [sel, setSel] = useState<StageId>(() => currentStage(pr)?.id ?? "script")
+  // The open stage lives in the URL (?stage=voice), and every section has an anchor (#voice:cast), so a refresh or
+  // a pasted link opens the same place.
+  const [stageParam, setStage] = useParam("stage")
+  const sel: StageId = pr.stages.some((s) => s.id === stageParam) ? (stageParam as StageId) : (currentStage(pr)?.id ?? "script")
+  const setSel = (id: StageId) => setStage(id)
   const stage = pr.stages.find((s) => s.id === sel)!
+  useScrollToHash(sel)
   return (
     <div className="flex h-full flex-col">
       <Stepper pr={pr} sel={sel} onSelect={setSel} />
       <div className="min-h-0 flex-1 overflow-y-auto">
-        <div className="mx-auto max-w-3xl px-6 pt-10 pb-12">{sel === "script" ? <ScriptStage pr={pr} op={op} /> : sel === "sheets" && !blockedBy(pr, "sheets") ? <SheetsStage pr={pr} stage={stage} op={op} /> : sel === "space" && !blockedBy(pr, "space") && pr.space ? <SpaceStage pr={pr} stage={stage} op={op} /> : <OtherStage pr={pr} stage={stage} op={op} />}</div>
+        <div className="mx-auto max-w-3xl px-6 pt-10 pb-12">{sel === "script" ? <ScriptStage pr={pr} op={op} /> : sel === "sheets" && !blockedBy(pr, "sheets") ? <SheetsStage pr={pr} stage={stage} op={op} /> : sel === "space" && !blockedBy(pr, "space") && pr.space ? <SpaceStage pr={pr} stage={stage} op={op} /> : sel === "voice" && !blockedBy(pr, "voice") ? <VoiceStage pr={pr} stage={stage} op={op} /> : <OtherStage pr={pr} stage={stage} op={op} />}</div>
       </div>
       <DecisionBar pr={pr} stage={stage} op={op} />
     </div>
@@ -270,7 +276,7 @@ function DecisionBar({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["
   const st = stateOf(pr, stage)
   const open = openNotes(pr).length
   const reviewable =
-    stage.id === "script" ? !!pr.pick && pr.script.concept === pr.pick && pr.script.beats.length > 0 : stage.id === "sheets" ? !!pr.sheets?.length && pr.sheets.filter((x) => !x.from).every((x) => x.pick) : stage.id === "space" ? !!pr.space?.rooms.length : true
+    stage.id === "script" ? !!pr.pick && pr.script.concept === pr.pick && pr.script.beats.length > 0 : stage.id === "sheets" ? !!pr.sheets?.length && pr.sheets.filter((x) => !x.from).every((x) => x.pick) : stage.id === "space" ? !!pr.space?.rooms.length : stage.id === "voice" ? !!pr.voice?.takes.length : false
   const decide = async (status: GateStatus) => {
     await op({ op: "gate.set", stage: stage.id, status, note: text, by: ME })
     setText("")
@@ -410,9 +416,11 @@ function ProposalSection({ title, about, target, pr, op, children }: { title: st
     setWriting(false)
   }
   return (
-    <section className="space-y-4">
+    <section id={target} className="scroll-mt-6 space-y-4">
       <div className="flex items-baseline gap-3 border-b pb-2">
-        <h2 className="text-lg font-semibold">{title}</h2>
+        <h2 className="text-lg font-semibold">
+          <a href={`#${target}`} className="hover:underline" title="Link to this section">{title}</a>
+        </h2>
         <button type="button" onClick={() => setWriting((w) => !w)} className="ml-auto text-sm text-muted-foreground hover:text-foreground">Comment</button>
       </div>
       <p className="text-sm leading-relaxed text-muted-foreground" dangerouslySetInnerHTML={{ __html: about }} />
@@ -616,5 +624,133 @@ function CameraScript({ pr }: { pr: Process }) {
         )
       })}
     </ol>
+  )
+}
+
+/** Stage 04: who sounds like what, then the whole film read in one take. Every line is performed before any picture
+ *  is made, so the pictures follow the acting. Casting picks are ops (voice.cast), the same ones agents use. */
+function VoiceStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["op"] }) {
+  const v = pr.voice
+  const take = v ? (v.takes.find((t) => t.id === v.pick) ?? v.takes.at(-1)) : undefined
+  const planned = pr.script.beats.at(-1)?.t1 ?? 0
+  const name = (who: string) => pr.cast?.find((c) => c.id === who)?.name ?? who
+  const speech = (beat: string) => (take?.lines ?? []).filter((l) => l.beat === beat).reduce((n, l) => n + (l.end - l.start), 0)
+  return (
+    <article className="space-y-12">
+      <header className="space-y-4">
+        <div className="space-y-2">
+          <Eyebrow pr={pr} stage={stage} />
+          <h1 className="text-3xl font-semibold tracking-tight">Voice</h1>
+          <p className="text-[15px] leading-relaxed text-muted-foreground">Every line is performed before any picture is made, so the pictures follow the acting. The whole film is read in one take, so each line answers the one before it.</p>
+        </div>
+        <ol className="space-y-1.5 rounded-md bg-muted/50 px-4 py-3 text-sm leading-relaxed">
+          <li><span className="font-medium">1. Cast.</span> Play the auditions for each role and pick a voice. Henrick is his own voice: his lines are converted to his real recording.</li>
+          <li><span className="font-medium">2. Listen to the read.</span> The whole film in one take, then line by line. Comment on any line that is wrong, or on the casting.</li>
+          <li><span className="font-medium">3. Approve.</span> The lines lock, and the camera script is retimed to them.</li>
+        </ol>
+        {take && (
+          <p className="text-sm text-muted-foreground">
+            {take.lines.length} lines · the read runs {Math.round(take.duration)} s; the script plans {planned} s
+          </p>
+        )}
+      </header>
+
+      {!v ? (
+        <p className="text-[15px] text-muted-foreground">Auditions and the first read are being made.</p>
+      ) : (
+        <>
+          <ProposalSection title="Casting" about="A voice for each role. Each audition reads that character's own lines with the same direction, so you compare voices, not performances." target="voice:cast" pr={pr} op={op}>
+            <div className="space-y-6">
+              {v.roles.map((r) => (
+                <div key={r.who} className="space-y-2">
+                  <p className="flex items-baseline gap-2 text-sm">
+                    <span className="font-medium">{name(r.who)}</span>
+                    <span className="text-muted-foreground">{pr.cast?.find((c) => c.id === r.who)?.voice}</span>
+                    {r.voice && <span className="ml-auto shrink-0 text-xs font-medium">{r.real ? "His own voice" : `Cast: ${r.voice}`}</span>}
+                  </p>
+                  {r.real ? (
+                    <p className="text-sm text-muted-foreground">{r.note ?? "Read in the take by a stand-in voice, then converted to his real recording. The match to his recording is shown on each of his lines below."}</p>
+                  ) : (
+                    <ul className="divide-y rounded-md border">
+                      {r.auditions.map((a) => (
+                        <li key={a.voice} className="flex items-center gap-3 px-3 py-2">
+                          <span className="w-20 shrink-0 text-sm font-medium">{a.voice}</span>
+                          <audio controls preload="none" src={`/${a.file}`} className="h-8 min-w-0 flex-1" />
+                          <Button size="sm" variant={r.voice === a.voice ? "secondary" : "ghost"} disabled={r.voice === a.voice} onClick={() => op({ op: "voice.cast", who: r.who, voice: a.voice, by: ME })}>
+                            {r.voice === a.voice ? "Cast" : "Use"}
+                          </Button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          </ProposalSection>
+
+          {take && (
+            <ProposalSection
+              title="The read"
+              about={`The whole film in one take, as performed, with Henrick converted to his real voice. Voices in this take: ${Object.entries(take.cast).map(([who, voice]) => `${name(who)} ${who === "henrick" ? "(his own)" : voice}`).join(", ")}. ${take.model} · ${take.provider}.`}
+              target="voice:take"
+              pr={pr}
+              op={op}
+            >
+              <audio controls preload="metadata" src={`/${take.file}`} className="w-full" />
+              {v.takes.length > 1 && (
+                <div className="flex flex-wrap gap-2">
+                  {v.takes.map((t) => (
+                    <Button key={t.id} size="sm" variant={t.id === take.id ? "secondary" : "ghost"} onClick={() => op({ op: "voice.pick", take: t.id, by: ME })}>
+                      Take {t.id}
+                    </Button>
+                  ))}
+                </div>
+              )}
+              {take.note && <p className="text-sm leading-relaxed">{take.note}</p>}
+              <ol className="space-y-6">
+                {pr.script.beats.map((b) => {
+                  const lines = take.lines.filter((l) => l.beat === b.id)
+                  const slot = b.t1 - b.t0
+                  const need = speech(b.id)
+                  return (
+                    <li key={b.id} id={`voice:beat-${b.id}`} className="grid scroll-mt-6 grid-cols-[3.5rem_minmax(0,1fr)] gap-x-4">
+                      <span className="pt-0.5 font-mono text-xs text-muted-foreground">{tc(b.t0)}</span>
+                      <div className="space-y-2">
+                        <h3 className="flex items-baseline gap-2 text-sm font-semibold">
+                          {b.title}
+                          {lines.length > 0 && (
+                            <span className={cn("ml-auto shrink-0 text-xs font-normal", need > slot + 0.3 ? "text-amber-600 dark:text-amber-400" : "text-muted-foreground")}>
+                              {need.toFixed(1)} s of speech in a {slot} s beat
+                            </span>
+                          )}
+                        </h3>
+                        {lines.length === 0 ? <p className="text-sm text-muted-foreground">No lines.</p> : lines.map((l) => <LineRow key={l.n} l={l} who={name(l.who)} />)}
+                      </div>
+                    </li>
+                  )
+                })}
+              </ol>
+            </ProposalSection>
+          )}
+        </>
+      )}
+
+      <StageSettings stage={stage} op={op} />
+    </article>
+  )
+}
+
+function LineRow({ l, who }: { l: VoiceLine; who: string }) {
+  return (
+    <div className="space-y-1">
+      <p className="text-sm leading-relaxed">
+        <span className="font-medium">{who}</span> <span className="text-muted-foreground">{l.text}</span>
+      </p>
+      <div className="flex items-center gap-3">
+        <audio controls preload="none" src={`/${l.file}`} className="h-8 min-w-0 flex-1" />
+        <span className="shrink-0 font-mono text-xs text-muted-foreground">{l.start.toFixed(1)}-{l.end.toFixed(1)} s</span>
+        {l.match !== undefined && <span className="shrink-0 text-xs text-muted-foreground" title="Speaker similarity to his real recording (resemblyzer). Two real lines of his score about 0.71.">match {l.match.toFixed(2)}</span>}
+      </div>
+    </div>
   )
 }

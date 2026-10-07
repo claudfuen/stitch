@@ -22,6 +22,7 @@
 //   bun run stitch plan set <loc> <plan.json>                replace the plan (dimensions, items, marks, axes, setups)
 //   bun run stitch plan upsert <loc> items|marks|axes|setups '<json>'     bun run stitch plan remove <loc> <list> <id>
 //   bun run stitch plan plate <loc> <setup> <asset> [circle|alt|reject|pending] [--note ..]
+//   bun run stitch voice set <voice.json> | voice cast <who> <voice> | voice pick <take>   stage 04 (STITCH_PROJECT=<film>)
 //   bun run stitch greybox <loc> [setup ...]                 render the grey box (Blender) and attach each render
 //   bun run stitch room <loc> [--builder greybox|lightbox]   export the room in 3D (GLB) for the Rooms view
 //   bun run stitch fit <shot> [asset] [--file f.jpg]         do the faces land where the room's camera puts the marks?
@@ -268,6 +269,15 @@ async function main() {
         return console.log(`${rest[0]} ${rest[1]}: ${candidate.file} (${candidate.model} via ${candidate.provider})`)
       }
       throw new Error("usage: stitch space | space set <plan.json> | space frame <room> <cam> <file>")
+    }
+    case "voice": {
+      if (sub === "set" && rest[0]) {
+        await run([{ op: "voice.set", voice: JSON.parse(readFileSync(rest[0], "utf8")), by: flag("by") ?? "claude" }])
+        return console.log("voice set")
+      }
+      if (sub === "cast" && rest.length >= 2) return run([{ op: "voice.cast", who: rest[0], voice: rest[1], by: flag("by") ?? "claude" }])
+      if (sub === "pick" && rest[0]) return run([{ op: "voice.pick", take: rest[0], by: flag("by") ?? "claude" }])
+      throw new Error("usage: stitch voice set <voice.json> | voice cast <who> <voice> | voice pick <take>")
     }
     case "sheet": {
       if (sub === "add" && rest.length >= 2) return sheetAdd(rest[0], rest[1])

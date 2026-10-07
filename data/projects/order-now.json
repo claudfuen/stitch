@@ -17,16 +17,6 @@
   "open": [],
   "activity": [
     {
-      "t": "2026-10-07T16:32:56.156Z",
-      "text": "claude · Frame for studio C2 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T16:32:56.375Z",
-      "text": "claude · Frame for studio C3 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
-      "kind": "info"
-    },
-    {
       "t": "2026-10-07T16:32:56.608Z",
       "text": "claude · Frame for studio C4 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
       "kind": "info"
@@ -415,6 +405,16 @@
       "t": "2026-10-07T19:38:26.202Z",
       "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
       "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:45:31.905Z",
+      "text": "Claudio · Space and camera: approved",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:54:51.809Z",
+      "text": "claude · Voice: 5 roles, 1 take",
+      "kind": "info"
     }
   ],
   "ui": {
@@ -448,7 +448,9 @@
         "about": "Real plates or one master image per room. 3D only for hard blocking.",
         "doer": "both",
         "gate": "advisory",
-        "status": "pending"
+        "status": "approved",
+        "by": "Claudio",
+        "at": "2026-10-07T19:45:31.905Z"
       },
       {
         "id": "voice",
@@ -3115,6 +3117,400 @@
           "what": "Henrick: 'Order now. Or do not.' Brock: 'WOW!'"
         }
       ]
+    },
+    "voice": {
+      "roles": [
+        {
+          "who": "brock",
+          "auditions": [
+            {
+              "voice": "Brian",
+              "file": "generated/order-now/voice/auditions/brock-Brian.mp3",
+              "model": "ElevenLabs v3",
+              "provider": "Leap",
+              "job": "gen_U1GBWJsnH5ZlWSmy7U0YEgXm",
+              "at": "2026-10-07T19:54:49.226520Z"
+            },
+            {
+              "voice": "Chris",
+              "file": "generated/order-now/voice/auditions/brock-Chris.mp3",
+              "model": "ElevenLabs v3",
+              "provider": "Leap",
+              "job": "gen_B0WtTPuJMSQ3Rf198SppxBXo",
+              "at": "2026-10-07T19:54:49.226520Z"
+            },
+            {
+              "voice": "Eric",
+              "file": "generated/order-now/voice/auditions/brock-Eric.mp3",
+              "model": "ElevenLabs v3",
+              "provider": "Leap",
+              "job": "gen_z0kkFzlYs6YD8x99ItjELUYA",
+              "at": "2026-10-07T19:54:49.226520Z"
+            },
+            {
+              "voice": "Roger",
+              "file": "generated/order-now/voice/auditions/brock-Roger.mp3",
+              "model": "ElevenLabs v3",
+              "provider": "Leap",
+              "job": "gen_WR973fLjMUpmyksQV9Famzy5",
+              "at": "2026-10-07T19:54:49.226520Z"
+            }
+          ]
+        },
+        {
+          "who": "henrick",
+          "real": true,
+          "voice": "his own",
+          "auditions": [],
+          "note": "Read in the take by a stand-in voice (Daniel), then each line converted to his real recording with Chatterbox HD speech to speech. The match to his recording is on each of his lines below; two real lines of his score about 0.71."
+        },
+        {
+          "who": "kyle",
+          "auditions": [
+            {
+              "voice": "Chris",
+              "file": "generated/order-now/voice/auditions/kyle-Chris.mp3",
+              "model": "ElevenLabs v3",
+              "provider": "Leap",
+              "job": "gen_aL9f2eSGcw7vjed7I7dzKvfJ",
+              "at": "2026-10-07T19:54:49.226520Z"
+            },
+            {
+              "voice": "Liam",
+              "file": "generated/order-now/voice/auditions/kyle-Liam.mp3",
+              "model": "ElevenLabs v3",
+              "provider": "Leap",
+              "job": "gen_jzuE1c4JgYdxxKVLM2ewqA4X",
+              "at": "2026-10-07T19:54:49.226520Z"
+            },
+            {
+              "voice": "Will",
+              "file": "generated/order-now/voice/auditions/kyle-Will.mp3",
+              "model": "ElevenLabs v3",
+              "provider": "Leap",
+              "job": "gen_b6SA8irdWdTFFt8TEB8Nugv3",
+              "at": "2026-10-07T19:54:49.226520Z"
+            }
+          ]
+        },
+        {
+          "who": "gerald",
+          "auditions": [
+            {
+              "voice": "Bill",
+              "file": "generated/order-now/voice/auditions/gerald-Bill.mp3",
+              "model": "ElevenLabs v3",
+              "provider": "Leap",
+              "job": "gen_fglXAJ9Ie25hcIWtGoqoLvdt",
+              "at": "2026-10-07T19:54:49.226520Z"
+            },
+            {
+              "voice": "Callum",
+              "file": "generated/order-now/voice/auditions/gerald-Callum.mp3",
+              "model": "ElevenLabs v3",
+              "provider": "Leap",
+              "job": "gen_tUcDi5nSZH7DmDVFhr7uTug6",
+              "at": "2026-10-07T19:54:49.226520Z"
+            },
+            {
+              "voice": "Roger",
+              "file": "generated/order-now/voice/auditions/gerald-Roger.mp3",
+              "model": "ElevenLabs v3",
+              "provider": "Leap",
+              "job": "gen_wPLh2XpPmDysdOdVxMMOIdZj",
+              "at": "2026-10-07T19:54:49.226520Z"
+            }
+          ]
+        },
+        {
+          "who": "narrator",
+          "auditions": [
+            {
+              "voice": "Brian",
+              "file": "generated/order-now/voice/auditions/narrator-Brian.mp3",
+              "model": "ElevenLabs v3",
+              "provider": "Leap",
+              "job": "gen_vOQudotaypVfhTAg8i8XhqdS",
+              "at": "2026-10-07T19:54:49.226520Z"
+            },
+            {
+              "voice": "Eric",
+              "file": "generated/order-now/voice/auditions/narrator-Eric.mp3",
+              "model": "ElevenLabs v3",
+              "provider": "Leap",
+              "job": "gen_HO04TZgDb1d8pCD5qGLAZ6FL",
+              "at": "2026-10-07T19:54:49.226520Z"
+            },
+            {
+              "voice": "Will",
+              "file": "generated/order-now/voice/auditions/narrator-Will.mp3",
+              "model": "ElevenLabs v3",
+              "provider": "Leap",
+              "job": "gen_Y8JhyVkfkX4yKEBlfrFMXrbG",
+              "at": "2026-10-07T19:54:49.226520Z"
+            }
+          ]
+        }
+      ],
+      "takes": [
+        {
+          "id": "1",
+          "file": "generated/order-now/voice/t1/full-take.m4a",
+          "model": "ElevenLabs v3 Text to Dialogue + Chatterbox HD (Henrick)",
+          "provider": "fal",
+          "job": "01a117e9-dd4a-71a2-8898-bccd8d0c2e57",
+          "cast": {
+            "brock": "Brian",
+            "kyle": "Liam",
+            "gerald": "Bill",
+            "henrick": "Daniel",
+            "narrator": "Eric"
+          },
+          "duration": 89.31,
+          "lines": [
+            {
+              "n": 1,
+              "beat": "1",
+              "who": "brock",
+              "text": "Has this ever happened to you?",
+              "start": 0.1,
+              "end": 1.68,
+              "file": "generated/order-now/voice/t1/lines/01-brock.m4a"
+            },
+            {
+              "n": 2,
+              "beat": "2",
+              "who": "brock",
+              "text": "Three hundred security questions! Forty of them just say 'please elaborate'!",
+              "start": 2.38,
+              "end": 6.1,
+              "file": "generated/order-now/voice/t1/lines/02-brock.m4a"
+            },
+            {
+              "n": 3,
+              "beat": "3",
+              "who": "brock",
+              "text": "Ten thousand screenshots of a setting you already turned on!",
+              "start": 8.46,
+              "end": 12.1,
+              "file": "generated/order-now/voice/t1/lines/03-brock.m4a"
+            },
+            {
+              "n": 4,
+              "beat": "4",
+              "who": "gerald",
+              "text": "Wonderful. Now I'll need evidence... of the evidence.",
+              "start": 12.56,
+              "end": 17.26,
+              "file": "generated/order-now/voice/t1/lines/04-gerald.m4a"
+            },
+            {
+              "n": 5,
+              "beat": "4",
+              "who": "kyle",
+              "text": "There's GOT to be a better way!",
+              "start": 17.74,
+              "end": 19.76,
+              "file": "generated/order-now/voice/t1/lines/05-kyle.m4a"
+            },
+            {
+              "n": 6,
+              "beat": "5",
+              "who": "brock",
+              "text": "THERE IS! All the way from Europe... HENRICK JOHANSSON!",
+              "start": 20.3,
+              "end": 25.08,
+              "file": "generated/order-now/voice/t1/lines/06-brock.m4a"
+            },
+            {
+              "n": 7,
+              "beat": "6",
+              "who": "henrick",
+              "text": "Thank you. Please stop clapping.",
+              "start": 25.54,
+              "end": 27.84,
+              "file": "generated/order-now/voice/t1/lines/07-henrick.m4a",
+              "match": 0.73
+            },
+            {
+              "n": 8,
+              "beat": "6",
+              "who": "henrick",
+              "text": "Nothing has happened yet.",
+              "start": 28.86,
+              "end": 30.08,
+              "file": "generated/order-now/voice/t1/lines/08-henrick.m4a",
+              "match": 0.73
+            },
+            {
+              "n": 9,
+              "beat": "7",
+              "who": "brock",
+              "text": "Henrick! What does Comp AI DO?!",
+              "start": 31.58,
+              "end": 33.28,
+              "file": "generated/order-now/voice/t1/lines/09-brock.m4a"
+            },
+            {
+              "n": 10,
+              "beat": "7",
+              "who": "henrick",
+              "text": "It collects the evidence. It writes the policies. It answers the questionnaire.",
+              "start": 33.76,
+              "end": 39,
+              "file": "generated/order-now/voice/t1/lines/10-henrick.m4a",
+              "match": 0.83
+            },
+            {
+              "n": 11,
+              "beat": "7",
+              "who": "henrick",
+              "text": "In Europe, this takes three ministries and a strike.",
+              "start": 40.12,
+              "end": 43.8,
+              "file": "generated/order-now/voice/t1/lines/11-henrick.m4a",
+              "match": 0.78
+            },
+            {
+              "n": 12,
+              "beat": "8",
+              "who": "henrick",
+              "text": "The button is decoration. It is software.",
+              "start": 44.48,
+              "end": 47.56,
+              "file": "generated/order-now/voice/t1/lines/12-henrick.m4a",
+              "match": 0.77
+            },
+            {
+              "n": 13,
+              "beat": "9",
+              "who": "kyle",
+              "text": "I closed our biggest deal... from this hammock.",
+              "start": 48.08,
+              "end": 50.9,
+              "file": "generated/order-now/voice/t1/lines/13-kyle.m4a"
+            },
+            {
+              "n": 14,
+              "beat": "10",
+              "who": "gerald",
+              "text": "The evidence... it was all there.",
+              "start": 51.3,
+              "end": 53.9,
+              "file": "generated/order-now/voice/t1/lines/14-gerald.m4a"
+            },
+            {
+              "n": 15,
+              "beat": "10",
+              "who": "gerald",
+              "text": "I don't know what to do with my hands.",
+              "start": 54.92,
+              "end": 57.44,
+              "file": "generated/order-now/voice/t1/lines/15-gerald.m4a"
+            },
+            {
+              "n": 16,
+              "beat": "11",
+              "who": "brock",
+              "text": "But WAIT! Call in the next ten minutes and we'll DOUBLE your-",
+              "start": 57.82,
+              "end": 61.76,
+              "file": "generated/order-now/voice/t1/lines/16-brock.m4a"
+            },
+            {
+              "n": 17,
+              "beat": "11",
+              "who": "henrick",
+              "text": "No.",
+              "start": 62.1,
+              "end": 62.48,
+              "file": "generated/order-now/voice/t1/lines/17-henrick.m4a",
+              "match": 0.61
+            },
+            {
+              "n": 18,
+              "beat": "11",
+              "who": "henrick",
+              "text": "It is software. Everyone gets the same one.",
+              "start": 63.1,
+              "end": 66.12,
+              "file": "generated/order-now/voice/t1/lines/18-henrick.m4a",
+              "match": 0.75
+            },
+            {
+              "n": 19,
+              "beat": "12",
+              "who": "henrick",
+              "text": "Comp AI.",
+              "start": 66.6,
+              "end": 67.68,
+              "file": "generated/order-now/voice/t1/lines/19-henrick.m4a",
+              "match": 0.73
+            },
+            {
+              "n": 20,
+              "beat": "12",
+              "who": "henrick",
+              "text": "Which framework.",
+              "start": 68.32,
+              "end": 69.24,
+              "file": "generated/order-now/voice/t1/lines/20-henrick.m4a",
+              "match": 0.66
+            },
+            {
+              "n": 21,
+              "beat": "12",
+              "who": "henrick",
+              "text": "Very good.",
+              "start": 69.96,
+              "end": 70.64,
+              "file": "generated/order-now/voice/t1/lines/21-henrick.m4a",
+              "match": 0.57
+            },
+            {
+              "n": 22,
+              "beat": "13",
+              "who": "narrator",
+              "text": "Comp AI is not a government agency. Side effects may include closed deals, sleeping through the night, and a smiling auditor. Not available in the EU pending a committee to decide on a committee.",
+              "start": 71.06,
+              "end": 83.04,
+              "file": "generated/order-now/voice/t1/lines/22-narrator.m4a"
+            },
+            {
+              "n": 23,
+              "beat": "14",
+              "who": "henrick",
+              "text": "Order now.",
+              "start": 83.46,
+              "end": 84.24,
+              "file": "generated/order-now/voice/t1/lines/23-henrick.m4a",
+              "match": 0.64
+            },
+            {
+              "n": 24,
+              "beat": "14",
+              "who": "henrick",
+              "text": "Or do not. It is a free market.",
+              "start": 84.96,
+              "end": 87.6,
+              "file": "generated/order-now/voice/t1/lines/24-henrick.m4a",
+              "match": 0.69
+            },
+            {
+              "n": 25,
+              "beat": "14",
+              "who": "brock",
+              "text": "WOW!",
+              "start": 88.32,
+              "end": 88.92,
+              "file": "generated/order-now/voice/t1/lines/25-brock.m4a"
+            }
+          ],
+          "note": "A first read, at natural pace: 72 s of speech and 89 s with the pauses, against the 61 s the script plans. Beat 7 (Henrick's explanation) and beat 13 (the fine print) run longest. The fine print will be sped up in the mix, which is the joke; for the rest, either the film runs about 75 s or lines get trimmed. Audience reactions (applause, 'Ooooh', 'WOW!', the cough) are sound effects, added at the cut.",
+          "at": "2026-10-07T19:54:49.226520Z"
+        }
+      ],
+      "pick": "1"
     }
   }
 }
