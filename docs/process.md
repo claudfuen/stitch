@@ -64,13 +64,20 @@ They rotate one approved set into a few angles and write the space down.
    flips, invented reverse walls and moving signs.
 2. **2-4 cameras per room**, the wide master first (it loads the layout). Every camera stays on one side of the
    action. Comedy rules: wide lenses are funny, the reaction is funnier, hold one beat after the punchline.
-3. **One frame per camera:** the approved set plate (ungraded) as Image 1, the cast's sheets and the script pose as
-   references, cast placed on their marks, then the film grade. Two takes each; keep the better.
-4. **Continuity is written as rules, not hoped for.** What is always in the room (the studio audience), what is on
+3. **A grey box where blocking is hard** (many cameras, several people, a crowd, a line to hold): the room as simple
+   blocks with a flat-coloured stand-in per character (`data/space/<film>/<room>.json`, rendered by
+   `scripts/greybox.py`). Each camera's render becomes that frame's Image 1: it fixes framing, positions, screen
+   direction and what is not in frame. Skip it for one person or one camera. On Order Now the studio and the operator
+   room got one; the frames made without it had the desk move, bleachers appear where the angle cannot see them, and
+   Henrick change seats between cuts. No camera solving, reprojection or judges: that was the Ministry's overspend.
+4. **One frame per camera:** the grey-box render (or, without one, the approved set plate) as Image 1, the set plate
+   for the look, the cast's sheets and the script pose as references, then the film grade. Two takes each; keep the
+   one that matches the layout.
+5. **Continuity is written as rules, not hoped for.** What is always in the room (the studio audience), what is on
    the desk in which beat, who is behind the camera. A crowd is cast like a character: one reference frame (the
    reverse angle), a seating chart with the front row described person by person, and every other frame copies it.
-5. **The camera script:** which camera is on screen at each second. It is retimed to the recorded voices at stage 04.
-6. **Review every frame for logic:** the same person twice in a crowd, a stranger in a known character's place, a
+6. **The camera script:** which camera is on screen at each second. It is retimed to the recorded voices at stage 04.
+7. **Review every frame for logic:** the same person twice in a crowd, a stranger in a known character's place, a
    prop that should not be there yet, a room bigger in one angle than another. Fix with one "change only X" edit
    from the clean take, so no frame gets more than two generative passes.
 
@@ -106,6 +113,9 @@ Seedream 5.0 Pro (edit), which kept skin a little more natural; Seedream is the 
 
 ## Changes
 
+- 2026-10-07: Claudio saw space drift between angles (the stage, Henrick's seat in the operator room) and asked
+  whether the 3D step was worth it. Yes, scoped to rooms with hard blocking: grey boxes for the studio and the
+  operator room, each frame remade with its camera's render as Image 1, the render shown inset on the page.
 - 2026-10-07: Stage 03 built from first principles (no floor-plan geometry, no Blender): rooms, cameras, space maps
   and a camera script in the process (`stitch space`), a frame per camera. Claudio's review found the audience
   appearing and vanishing, the same woman in two seats, and bleachers of different sizes; the audience became a cast

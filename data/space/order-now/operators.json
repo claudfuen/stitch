@@ -1,0 +1,702 @@
+{
+ "width": 14,
+ "depth": 10,
+ "height": 3,
+ "items": [
+  {
+   "id": "counter",
+   "kind": "counter",
+   "label": "long worn laminate counter",
+   "at": [
+    7.0,
+    5.0
+   ],
+   "size": [
+    10.4,
+    0.75,
+    0.75
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "part0",
+   "kind": "board",
+   "label": "low grey partition",
+   "at": [
+    1.8,
+    5.2
+   ],
+   "size": [
+    0.05,
+    0.7,
+    0.55
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "part1",
+   "kind": "board",
+   "label": "low grey partition",
+   "at": [
+    2.65,
+    5.2
+   ],
+   "size": [
+    0.05,
+    0.7,
+    0.55
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "part2",
+   "kind": "board",
+   "label": "low grey partition",
+   "at": [
+    3.5,
+    5.2
+   ],
+   "size": [
+    0.05,
+    0.7,
+    0.55
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "part3",
+   "kind": "board",
+   "label": "low grey partition",
+   "at": [
+    4.35,
+    5.2
+   ],
+   "size": [
+    0.05,
+    0.7,
+    0.55
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "part4",
+   "kind": "board",
+   "label": "low grey partition",
+   "at": [
+    5.2,
+    5.2
+   ],
+   "size": [
+    0.05,
+    0.7,
+    0.55
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "part5",
+   "kind": "board",
+   "label": "low grey partition",
+   "at": [
+    6.05,
+    5.2
+   ],
+   "size": [
+    0.05,
+    0.7,
+    0.55
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "part6",
+   "kind": "board",
+   "label": "low grey partition",
+   "at": [
+    6.8999999999999995,
+    5.2
+   ],
+   "size": [
+    0.05,
+    0.7,
+    0.55
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "part7",
+   "kind": "board",
+   "label": "low grey partition",
+   "at": [
+    7.75,
+    5.2
+   ],
+   "size": [
+    0.05,
+    0.7,
+    0.55
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "part8",
+   "kind": "board",
+   "label": "low grey partition",
+   "at": [
+    8.6,
+    5.2
+   ],
+   "size": [
+    0.05,
+    0.7,
+    0.55
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "part9",
+   "kind": "board",
+   "label": "low grey partition",
+   "at": [
+    9.45,
+    5.2
+   ],
+   "size": [
+    0.05,
+    0.7,
+    0.55
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "part10",
+   "kind": "board",
+   "label": "low grey partition",
+   "at": [
+    10.3,
+    5.2
+   ],
+   "size": [
+    0.05,
+    0.7,
+    0.55
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "part11",
+   "kind": "board",
+   "label": "low grey partition",
+   "at": [
+    11.15,
+    5.2
+   ],
+   "size": [
+    0.05,
+    0.7,
+    0.55
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "part12",
+   "kind": "board",
+   "label": "low grey partition",
+   "at": [
+    12.0,
+    5.2
+   ],
+   "size": [
+    0.05,
+    0.7,
+    0.55
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "phone0",
+   "kind": "prop",
+   "label": "beige multi-line phone",
+   "at": [
+    2.225,
+    5.05
+   ],
+   "size": [
+    0.25,
+    0.22,
+    0.1
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "chair0",
+   "kind": "furniture",
+   "label": "empty grey task chair",
+   "at": [
+    2.225,
+    4.3
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.9
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "phone1",
+   "kind": "prop",
+   "label": "beige multi-line phone",
+   "at": [
+    3.075,
+    5.05
+   ],
+   "size": [
+    0.25,
+    0.22,
+    0.1
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "chair1",
+   "kind": "furniture",
+   "label": "empty grey task chair",
+   "at": [
+    3.075,
+    4.3
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.9
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "phone2",
+   "kind": "prop",
+   "label": "beige multi-line phone",
+   "at": [
+    3.925,
+    5.05
+   ],
+   "size": [
+    0.25,
+    0.22,
+    0.1
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "chair2",
+   "kind": "furniture",
+   "label": "empty grey task chair",
+   "at": [
+    3.925,
+    4.3
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.9
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "phone3",
+   "kind": "prop",
+   "label": "beige multi-line phone",
+   "at": [
+    4.775,
+    5.05
+   ],
+   "size": [
+    0.25,
+    0.22,
+    0.1
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "phone4",
+   "kind": "prop",
+   "label": "beige multi-line phone",
+   "at": [
+    5.625,
+    5.05
+   ],
+   "size": [
+    0.25,
+    0.22,
+    0.1
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "chair4",
+   "kind": "furniture",
+   "label": "empty grey task chair",
+   "at": [
+    5.625,
+    4.3
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.9
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "phone5",
+   "kind": "prop",
+   "label": "beige multi-line phone",
+   "at": [
+    6.475,
+    5.05
+   ],
+   "size": [
+    0.25,
+    0.22,
+    0.1
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "chair5",
+   "kind": "furniture",
+   "label": "empty grey task chair",
+   "at": [
+    6.475,
+    4.3
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.9
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "phone6",
+   "kind": "prop",
+   "label": "beige multi-line phone",
+   "at": [
+    7.324999999999999,
+    5.05
+   ],
+   "size": [
+    0.25,
+    0.22,
+    0.1
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "chair6",
+   "kind": "furniture",
+   "label": "empty grey task chair",
+   "at": [
+    7.324999999999999,
+    4.3
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.9
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "phone7",
+   "kind": "prop",
+   "label": "beige multi-line phone",
+   "at": [
+    8.175,
+    5.05
+   ],
+   "size": [
+    0.25,
+    0.22,
+    0.1
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "phone8",
+   "kind": "prop",
+   "label": "beige multi-line phone",
+   "at": [
+    9.025,
+    5.05
+   ],
+   "size": [
+    0.25,
+    0.22,
+    0.1
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "chair8",
+   "kind": "furniture",
+   "label": "empty grey task chair",
+   "at": [
+    9.025,
+    4.3
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.9
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "phone9",
+   "kind": "prop",
+   "label": "beige multi-line phone",
+   "at": [
+    9.875,
+    5.05
+   ],
+   "size": [
+    0.25,
+    0.22,
+    0.1
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "chair9",
+   "kind": "furniture",
+   "label": "empty grey task chair",
+   "at": [
+    9.875,
+    4.3
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.9
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "phone10",
+   "kind": "prop",
+   "label": "beige multi-line phone",
+   "at": [
+    10.725,
+    5.05
+   ],
+   "size": [
+    0.25,
+    0.22,
+    0.1
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "chair10",
+   "kind": "furniture",
+   "label": "empty grey task chair",
+   "at": [
+    10.725,
+    4.3
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.9
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "phone11",
+   "kind": "prop",
+   "label": "beige multi-line phone",
+   "at": [
+    11.575,
+    5.05
+   ],
+   "size": [
+    0.25,
+    0.22,
+    0.1
+   ],
+   "z": 0.75,
+   "rot": 0
+  },
+  {
+   "id": "chair11",
+   "kind": "furniture",
+   "label": "empty grey task chair",
+   "at": [
+    11.575,
+    4.3
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.9
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "sign",
+   "kind": "board",
+   "label": "OPERATORS STANDING BY sign, hanging",
+   "at": [
+    7.0,
+    5.6
+   ],
+   "size": [
+    2.2,
+    0.05,
+    0.6
+   ],
+   "z": 2.2,
+   "rot": 0
+  },
+  {
+   "id": "clock",
+   "kind": "prop",
+   "label": "round wall clock",
+   "at": [
+    10.5,
+    9.95
+   ],
+   "size": [
+    0.35,
+    0.05,
+    0.35
+   ],
+   "z": 2.0,
+   "rot": 0
+  },
+  {
+   "id": "calendar",
+   "kind": "board",
+   "label": "1994 wall calendar",
+   "at": [
+    12.0,
+    9.95
+   ],
+   "size": [
+    0.6,
+    0.03,
+    0.8
+   ],
+   "z": 1.2,
+   "rot": 0
+  },
+  {
+   "id": "file",
+   "kind": "furniture",
+   "label": "filing cabinets",
+   "at": [
+    13.4,
+    8.0
+   ],
+   "size": [
+    0.6,
+    2.0,
+    1.3
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "chair3",
+   "kind": "furniture",
+   "label": "empty grey task chair",
+   "at": [
+    4.775,
+    4.3
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.9
+   ],
+   "z": 0,
+   "rot": 0
+  }
+ ],
+ "marks": [
+  {
+   "id": "henrick",
+   "who": "henrick",
+   "at": [
+    8.175,
+    4.35
+   ],
+   "facing": 0,
+   "pose": "sit"
+  }
+ ],
+ "axes": [],
+ "setups": [
+  {
+   "id": "O1",
+   "name": "Down the row",
+   "size": "WS",
+   "lens": 35,
+   "height": 1.6,
+   "at": [
+    12.6,
+    2.2
+   ],
+   "facing": -68
+  },
+  {
+   "id": "O2",
+   "name": "Henrick answers",
+   "size": "MS",
+   "lens": 40,
+   "height": 1.25,
+   "at": [
+    10.475000000000001,
+    2.6
+   ],
+   "facing": -52
+  }
+ ]
+}

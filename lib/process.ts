@@ -85,6 +85,9 @@ export type Camera = {
   behind?: string
   /** Overrides the room's look (the auditor's colour testimonial in the black-and-white audit room). */
   look?: FilmLook
+  /** The grey-box render from this camera (rooms with hard blocking only): it fixes framing, positions and screen
+   *  direction, and is Image 1 when the frame is made. Built from data/space/<film>/<room>.json by scripts/greybox.py. */
+  layout?: string
   frame?: Candidate
 }
 export type Room = { id: Id; name: string; sheet?: Id; look: FilmLook; map: string; cameras: Camera[] }

@@ -545,9 +545,13 @@ function CameraCard({ pr, room, cam, plate, wide }: { pr: Process; room: Room; c
   return (
     <figure className={cn("space-y-2", wide && "sm:col-span-2")}>
       {f ? (
-        <a href={`/${f.file}?v=${encodeURIComponent(f.at)}`} target="_blank" rel="noreferrer" className="block overflow-hidden rounded-md border bg-muted">
+        <a href={`/${f.file}?v=${encodeURIComponent(f.at)}`} target="_blank" rel="noreferrer" className="relative block overflow-hidden rounded-md border bg-muted">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={thumb(f.file, wide ? 1280 : 800, f.at)} alt={`${cam.id} ${cam.name}`} loading="lazy" className="aspect-video w-full object-cover" />
+          {cam.layout && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={thumb(cam.layout, 320, f.at)} alt="Grey-box layout from this camera" title="Grey-box layout: framing, positions and screen direction come from this" className="absolute right-2 bottom-2 aspect-video w-1/5 rounded border border-white/70 object-cover shadow" />
+          )}
         </a>
       ) : plate ? (
         <div className="relative overflow-hidden rounded-md border bg-muted">

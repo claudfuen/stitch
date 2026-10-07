@@ -17,56 +17,6 @@
   "open": [],
   "activity": [
     {
-      "t": "2026-10-07T15:37:42.541Z",
-      "text": "claude · Picked for gerald: generated/order-now/gerald-1.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:41:49.456Z",
-      "text": "claude · Candidate for set-studio: generated/order-now/set-studio-4.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:41:49.482Z",
-      "text": "claude · Picked for set-studio: generated/order-now/set-studio-4.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:41:49.571Z",
-      "text": "claude · Candidate for set-operators: generated/order-now/set-operators-4.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:41:49.598Z",
-      "text": "claude · Picked for set-operators: generated/order-now/set-operators-4.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:41:49.700Z",
-      "text": "claude · Candidate for set-hammock: generated/order-now/set-hammock-4.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:41:49.731Z",
-      "text": "claude · Picked for set-hammock: generated/order-now/set-hammock-4.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:41:49.829Z",
-      "text": "claude · Candidate for props-demo: generated/order-now/props-demo-4.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:41:49.861Z",
-      "text": "claude · Picked for props-demo: generated/order-now/props-demo-4.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:41:49.957Z",
-      "text": "claude · Candidate for audience: generated/order-now/audience-4.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
-      "kind": "info"
-    },
-    {
       "t": "2026-10-07T15:41:49.984Z",
       "text": "claude · Picked for audience: generated/order-now/audience-4.jpg",
       "kind": "info"
@@ -414,6 +364,56 @@
     {
       "t": "2026-10-07T16:51:34.278Z",
       "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:59:17.862Z",
+      "text": "claude · Frame for studio C1 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:59:18.083Z",
+      "text": "claude · Frame for studio C2 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:59:18.293Z",
+      "text": "claude · Frame for studio C3 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:59:18.509Z",
+      "text": "claude · Frame for studio C4 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:59:18.718Z",
+      "text": "claude · Frame for studio C5 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:59:18.938Z",
+      "text": "claude · Frame for studio C7 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:00:16.341Z",
+      "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:01:01.669Z",
+      "text": "claude · Frame for operators O1 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:01:01.864Z",
+      "text": "claude · Frame for operators O2 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:02:01.127Z",
+      "text": "claude · Frame for studio C6 (Nano Banana 2.1 (edit, 2 passes) + betacam grade via fal, graded in Stitch)",
       "kind": "info"
     }
   ],
@@ -2671,20 +2671,26 @@
               "from": "Front left, the angle of the set plate: audience on screen left, desk centre, Henrick's stool screen right, neon sign above.",
               "why": "The wide master that loads the layout for the video model and for the audience. The smash from black and white to colour lands here.",
               "behind": "The studio floor and the pedestal cameras.",
+              "layout": "generated/order-now/space/box/studio--C1.jpg",
               "frame": {
                 "file": "generated/order-now/space/studio--C1.jpg",
                 "view": "C1",
-                "model": "Nano Banana 2.1 (edit, 2 passes) + betacam grade",
+                "model": "Nano Banana 2.1 (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11742-c72a-71b1-b15c-dc8678238b1a",
-                "prompt": "Continuity edit: audience made the cast from C7 (same people, same seats), on their feet; desk dressed with the button and folder. Change only that; keep everything else.",
+                "job": "01a1174c-871e-7560-a41d-e4027bbde021",
+                "prompt": "Image 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position and size of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph of the set in Image 2: the pink-to-teal gradient back wall, the glowing COMP AI neon sign where the dark panel is, the curved white demo desk with chrome trim, the white stools, the burgundy bleacher seats on grey carpeted tiers with the chrome handrail, the pink and teal columns, the palms and the shelving with old TVs. The teal figure is Brock, the man in Images 3 and 4 (frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone). He bounds in mid-stride, arms flung wide, huge grin. The blue-grey figure is Henrick, the real man in Images 5 and 6 (keep his face exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square). He sits on the right-hand stool, hands folded, perfectly still. The grey seated figures are the studio audience: exactly the people in Image 7, the same faces and clothes in the same seats; front row the blonde woman in a pink sweater, the moustached man in a teal-and-purple windbreaker, the grey-haired woman in lavender with pearls, the young man with a mullet in denim, the curly auburn-haired woman in a pastel sweatshirt, the bald man with glasses in plaid, the black-haired woman in teal and the grey-bearded man in burgundy. No face appears twice. They are on their feet, applauding. On the desk top: the giant red COMP AI button on its grey base in the centre and the thin blue SOC 2 folder at the right end, like Image 8. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
                 "inputs": [
-                  "studio C1 pass 1 (job 01a11733-b0d0-7563-a9b7-632ee93d3a59)",
-                  "studio C7 audience reference",
-                  "props reference"
+                  "https://v3b.fal.media/files/b/0aad728f/wcrGIFTMaQGw39NEueBTq_clay-C1.jpg",
+                  "https://v3b.fal.media/files/b/0aad71a0/Aw-f21fsTMnXEKJJRPlfD_set-studio-1.png",
+                  "https://v3b.fal.media/files/b/0aad71ed/qh31DKwk-rY8uZajAe2wZ_brock--body-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad71ed/S5tyXiVHjG796KZX3I0V8_brock--face-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad71ed/V8l2gVMKyno113s35Ju6L_henrick-set--real-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad71ed/FndmfAnvDRofP9XuFyOiL_henrick-set--body-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad7255/-cwioatWVKEtt-WZ4NhYB_audience-ref.jpg",
+                  "https://v3b.fal.media/files/b/0aad71ed/yH7iotvT7EFsBOQw4SCHf_props-a.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:48:48.358Z"
+                "at": "2026-10-07T16:59:17.860Z"
               }
             },
             {
@@ -2695,20 +2701,23 @@
               "from": "Front left, on Brock at his mark, with room on both sides of frame because he keeps bounding out of it.",
               "why": "A host who cannot stay in his own shot. Wide-ish lens keeps the set and the audience edge behind him.",
               "behind": "The studio floor; Henrick is off screen right.",
+              "layout": "generated/order-now/space/box/studio--C2.jpg",
               "frame": {
                 "file": "generated/order-now/space/studio--C2.jpg",
                 "view": "C2",
-                "model": "Nano Banana 2.1 (edit, 2 passes) + betacam grade",
+                "model": "Nano Banana 2.1 (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11742-c67c-7181-98f4-b81a3173e23b",
-                "prompt": "Continuity edit: audience made the cast from C7 (same people, same seats), applauding. Change only that; keep everything else.",
+                "job": "01a1174c-870a-7dc0-a983-08a40f5de48c",
+                "prompt": "Image 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position and size of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph of the set in Image 2: the pink-to-teal gradient back wall, the glowing COMP AI neon sign where the dark panel is, the curved white demo desk with chrome trim, the white stools, the burgundy bleacher seats on grey carpeted tiers with the chrome handrail, the pink and teal columns, the palms and the shelving with old TVs. The teal figure is Brock, the man in Images 3 and 4 (frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone). A medium shot: arms flung wide, mouth open mid-shout, looking to screen right toward an unseen guest. The grey seated figures are the studio audience: exactly the people in Image 5, the same faces and clothes in the same seats; front row the blonde woman in a pink sweater, the moustached man in a teal-and-purple windbreaker, the grey-haired woman in lavender with pearls, the young man with a mullet in denim, the curly auburn-haired woman in a pastel sweatshirt, the bald man with glasses in plaid, the black-haired woman in teal and the grey-bearded man in burgundy. No face appears twice. Seated, applauding, softly out of focus behind him. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
                 "inputs": [
-                  "studio C2 pass 1 (job 01a11733-b1a5-7ff2-9187-efebba9ffaab)",
-                  "studio C7 audience reference",
-                  "props reference"
+                  "https://v3b.fal.media/files/b/0aad728f/ZBcdrqVUBHGh3JSeCcdJN_clay-C2.jpg",
+                  "https://v3b.fal.media/files/b/0aad71a0/Aw-f21fsTMnXEKJJRPlfD_set-studio-1.png",
+                  "https://v3b.fal.media/files/b/0aad71ed/qh31DKwk-rY8uZajAe2wZ_brock--body-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad71ed/S5tyXiVHjG796KZX3I0V8_brock--face-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad7255/-cwioatWVKEtt-WZ4NhYB_audience-ref.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:48:48.584Z"
+                "at": "2026-10-07T16:59:18.082Z"
               }
             },
             {
@@ -2719,19 +2728,23 @@
               "from": "Straight on to Henrick on his stool, centred, the neon sign out of focus behind him. The camera never moves.",
               "why": "The comic anchor of the whole film: a dead-still frame against Brock's chaos. The reaction is funnier than the action, so we keep coming back here.",
               "behind": "The audience side; Brock is off screen left.",
+              "layout": "generated/order-now/space/box/studio--C3.jpg",
               "frame": {
                 "file": "generated/order-now/space/studio--C3.jpg",
                 "view": "C3",
-                "model": "Nano Banana 2.1 (edit, 2 passes) + betacam grade",
+                "model": "Nano Banana 2.1 (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1173c-de07-7e01-9602-027f55578b3d",
-                "prompt": "Continuity edit: SOC 2 folder on the desk by Henrick. Change only that; keep everything else.",
+                "job": "01a1174c-8760-78a3-b59a-3e6779518aa8",
+                "prompt": "Image 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position and size of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph of the set in Image 2: the pink-to-teal gradient back wall, the glowing COMP AI neon sign where the dark panel is, the curved white demo desk with chrome trim, the white stools, the burgundy bleacher seats on grey carpeted tiers with the chrome handrail, the pink and teal columns, the palms and the shelving with old TVs. The blue-grey figure is Henrick, the real man in Images 3 and 4 (keep his face exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square). A locked medium shot of him on the stool: hands folded in his lap, back straight, perfectly still, flat polite expression, eyes slightly to screen left toward an unseen host. The thin blue SOC 2 folder lies on the end of the desk beside him, like Image 5. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
                 "inputs": [
-                  "studio C3 take a (job 01a11733-b160-71b3-9868-d5ad1b19d337)",
-                  "props or audience reference"
+                  "https://v3b.fal.media/files/b/0aad728f/kqMcv7xh9Ks1iMfdFQ7H6_clay-C3.jpg",
+                  "https://v3b.fal.media/files/b/0aad71a0/Aw-f21fsTMnXEKJJRPlfD_set-studio-1.png",
+                  "https://v3b.fal.media/files/b/0aad71ed/V8l2gVMKyno113s35Ju6L_henrick-set--real-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad71ed/FndmfAnvDRofP9XuFyOiL_henrick-set--body-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad71ed/yH7iotvT7EFsBOQw4SCHf_props-a.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:42:21.149Z"
+                "at": "2026-10-07T16:59:18.291Z"
               }
             },
             {
@@ -2742,19 +2755,22 @@
               "from": "Square on the demo desk: binders left, the red COMP AI button centre, the SOC 2 folder right, Brock behind the desk.",
               "why": "The product demo plays wide so the binder tower and the one thin folder are in the same frame when the swap happens.",
               "behind": "The audience; Henrick is off screen right, not looking.",
+              "layout": "generated/order-now/space/box/studio--C4.jpg",
               "frame": {
                 "file": "generated/order-now/space/studio--C4.jpg",
                 "view": "C4",
-                "model": "Nano Banana 2.1 (edit, 2 passes) + betacam grade",
+                "model": "Nano Banana 2.1 (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11744-8ba9-78c3-965a-2dc9f00a983b",
-                "prompt": "Continuity edit: the bleachers at the left edge filled with the cast audience from C7, kept small in the background. Keep the composition exactly.",
+                "job": "01a1174c-874c-7140-bc67-459c5e4b2780",
+                "prompt": "Image 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position and size of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph of the set and props in Image 2: the curved white demo desk with chrome trim, the gradient wall and COMP AI neon sign behind. On the desk top: a tall tower of about twelve thick white binders at the left, the giant red COMP AI button in the centre, the thin blue SOC 2 folder at the right, exactly as in Image 2. The teal figure is Brock, the man in Images 3 and 4 (frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone). He stands behind the desk facing the camera, both hands raised high above the button about to slam it, grinning wildly. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
                 "inputs": [
-                  "studio C4 pass 1 (job 01a11733-b093-7943-8fa4-f02410b56f73)",
-                  "studio C7 audience reference"
+                  "https://v3b.fal.media/files/b/0aad728f/srwF1IvRHDioIQDPHTdSH_clay-C4.jpg",
+                  "https://v3b.fal.media/files/b/0aad71ed/yH7iotvT7EFsBOQw4SCHf_props-a.jpg",
+                  "https://v3b.fal.media/files/b/0aad71ed/qh31DKwk-rY8uZajAe2wZ_brock--body-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad71ed/S5tyXiVHjG796KZX3I0V8_brock--face-front.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:50:57.035Z"
+                "at": "2026-10-07T16:59:18.507Z"
               }
             },
             {
@@ -2765,20 +2781,24 @@
               "from": "Very close on Brock, low, as he lunges into the lens.",
               "why": "A wide lens up close distorts him into a used-car ad. It sets up Henrick's 'No.' in C3.",
               "behind": "The audience side.",
+              "layout": "generated/order-now/space/box/studio--C5.jpg",
               "frame": {
                 "file": "generated/order-now/space/studio--C5.jpg",
                 "view": "C5",
-                "model": "Nano Banana 2.1 (edit, 2 passes) + betacam grade",
+                "model": "Nano Banana 2.1 (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11742-c845-7a82-9e65-519f18ec3332",
-                "prompt": "Continuity edit: audience made the cast from C7 (same people, same seats), frozen in silence; desk dressed with the button and folder.",
+                "job": "01a1174c-879a-7452-8a8a-c6ecbd41c4e5",
+                "prompt": "Image 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position and size of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph of the set in Image 2: the pink-to-teal gradient back wall, the glowing COMP AI neon sign where the dark panel is, the curved white demo desk with chrome trim, the white stools, the burgundy bleacher seats on grey carpeted tiers with the chrome handrail, the pink and teal columns, the palms and the shelving with old TVs. The teal figure is Brock, the man in Images 3 and 4 (frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone). A 24 mm close-up: he lunges toward the lens, face large and a little distorted by the wide lens, eyes wide, mouth open shouting 'But wait!', one hand reaching toward the camera. The grey seated figures are the studio audience: exactly the people in Image 5, the same faces and clothes in the same seats; front row the blonde woman in a pink sweater, the moustached man in a teal-and-purple windbreaker, the grey-haired woman in lavender with pearls, the young man with a mullet in denim, the curly auburn-haired woman in a pastel sweatshirt, the bald man with glasses in plaid, the black-haired woman in teal and the grey-bearded man in burgundy. No face appears twice. Seated behind him, frozen, staring in silence. On the desk top: the giant red COMP AI button on its grey base in the centre and the thin blue SOC 2 folder at the right end, like Image 6. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
                 "inputs": [
-                  "studio C5 take b (job 01a11733-b013-7092-a600-5ef15b229b9e)",
-                  "studio C7 audience reference",
-                  "props reference"
+                  "https://v3b.fal.media/files/b/0aad728f/ncB5QfYZt0b56UxHWDEiV_clay-C5.jpg",
+                  "https://v3b.fal.media/files/b/0aad71a0/Aw-f21fsTMnXEKJJRPlfD_set-studio-1.png",
+                  "https://v3b.fal.media/files/b/0aad71ed/S5tyXiVHjG796KZX3I0V8_brock--face-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad71ed/qh31DKwk-rY8uZajAe2wZ_brock--body-front.jpg",
+                  "https://v3b.fal.media/files/b/0aad7255/-cwioatWVKEtt-WZ4NhYB_audience-ref.jpg",
+                  "https://v3b.fal.media/files/b/0aad71ed/yH7iotvT7EFsBOQw4SCHf_props-a.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:50:17.863Z"
+                "at": "2026-10-07T16:59:18.716Z"
               }
             },
             {
@@ -2789,19 +2809,23 @@
               "from": "Front, centred on Henrick's stool: Henrick seated to lens, Brock standing beside him at screen left, beaming.",
               "why": "The sign-off: both faces to us, the contrast in one frame.",
               "behind": "The studio floor and the audience.",
+              "layout": "generated/order-now/space/box/studio--C6.jpg",
               "frame": {
                 "file": "generated/order-now/space/studio--C6.jpg",
                 "view": "C6",
                 "model": "Nano Banana 2.1 (edit, 2 passes) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11744-8c3b-75b0-852d-825e1719eece",
-                "prompt": "Continuity edit: the bleachers filled with the cast audience from C7, kept small in the background; folder on the desk. Keep the composition exactly.",
+                "job": "01a1174f-ea21-7b62-973c-91246aba65d3",
+                "prompt": "Pass 1: grey-box render from C6 as Image 1, no bleachers in this angle (job 01a1174e-bb15-7311-835a-6feba64d5055, take a). Pass 2: removed the binders (they are on the desk only in beat 8).",
                 "inputs": [
-                  "studio C6 pass 1 (job 01a11733-b105-7ef2-ad4d-c3cbc8857825)",
-                  "studio C7 audience reference"
+                  "box studio C6",
+                  "studio plate",
+                  "henrick refs",
+                  "brock refs",
+                  "props"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:50:57.259Z"
+                "at": "2026-10-07T17:02:01.125Z"
               }
             },
             {
@@ -2812,18 +2836,21 @@
               "from": "The one reverse: from the stage onto the bleacher bank, the six tiers and all 48 people filling the frame. This frame is the audience's reference.",
               "why": "Reactions: on their feet, 'Ooooh', and the cough in the silence.",
               "behind": "The stage, the desk and the neon sign; never shown in this angle.",
+              "layout": "generated/order-now/space/box/studio--C7.jpg",
               "frame": {
                 "file": "generated/order-now/space/studio--C7.jpg",
                 "view": "C7",
                 "model": "Nano Banana 2.1 (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11741-0e8f-78f1-8850-aafb6b3b7e3f",
-                "prompt": "Reverse angle onto the bleachers in Image 1 (studio C1), same build: six tiers of eight; 48 distinct people; front row specified person by person.",
+                "job": "01a1174c-880e-7451-9d5b-67e300032dd6",
+                "prompt": "Image 1 is a grey-box layout render, from the stage, of the bleacher bank on our 1994 infomercial set. It fixes the camera, lens, framing, the tiers and the position and size of every seated person: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph: burgundy bleacher seats on grey carpeted tiers, the chrome handrail, the pink column, lit by the pink and teal light of the set in Image 2; behind the top row only a dark studio wall. The grey seated figures are the studio audience: exactly the people in Image 3, the same faces and clothes in the same seats; front row the blonde woman in a pink sweater, the moustached man in a teal-and-purple windbreaker, the grey-haired woman in lavender with pearls, the young man with a mullet in denim, the curly auburn-haired woman in a pastel sweatshirt, the bald man with glasses in plaid, the black-haired woman in teal and the grey-bearded man in burgundy. No face appears twice. Seated, leaning forward, mouths rounded in an amazed 'Ooooh'. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
                 "inputs": [
-                  "studio C1 after the desk fix"
+                  "https://v3b.fal.media/files/b/0aad728f/htNEJahBIHB0-IAtsFxJS_clay-C7.jpg",
+                  "https://v3b.fal.media/files/b/0aad71a0/Aw-f21fsTMnXEKJJRPlfD_set-studio-1.png",
+                  "https://v3b.fal.media/files/b/0aad7255/-cwioatWVKEtt-WZ4NhYB_audience-ref.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:47:06.455Z"
+                "at": "2026-10-07T16:59:18.936Z"
               }
             }
           ]
@@ -2843,20 +2870,22 @@
               "from": "Near one end of the row, looking down it at an angle: the stations recede, Henrick a third of the way down, the sign on the back wall.",
               "why": "Scale is the joke: one calm man in a long row of empty chairs and blinking phones. The angle and the wear make it read as real footage.",
               "behind": "The room's back wall; nothing to build.",
+              "layout": "generated/order-now/space/box/operators--O1.jpg",
               "frame": {
                 "file": "generated/order-now/space/operators--O1.jpg",
                 "view": "O1",
                 "model": "Nano Banana 2.1 (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11745-e7ac-7bb3-b0b1-48c7af98971a",
-                "prompt": "Redo after Claudio's note that the first version looked staged: a real, used 1994 telemarketing room shot like documentary footage; Henrick from his real photo.",
+                "job": "01a1174e-bad0-7fc3-8c80-4327b8b316b6",
+                "prompt": "Grey-box render from this camera as Image 1 (data/space/order-now/operators.json); operators plate for materials; Henrick from his real photo; headset reference.",
                 "inputs": [
+                  "box operators O1",
                   "operators plate",
-                  "henrick real-front (real photo)",
+                  "henrick real-front",
                   "henrick pose-headset"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:51:34.050Z"
+                "at": "2026-10-07T17:01:01.668Z"
               }
             },
             {
@@ -2867,20 +2896,22 @@
               "from": "From beside the row, three-quarter on to Henrick writing an order, the empty stations and their blinking lights receding soft behind him.",
               "why": "Cut in on 'Which framework.' so his deadpan reads.",
               "behind": "The empty room.",
+              "layout": "generated/order-now/space/box/operators--O2.jpg",
               "frame": {
                 "file": "generated/order-now/space/operators--O2.jpg",
                 "view": "O2",
                 "model": "Nano Banana 2.1 (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11745-e70d-7b10-a71b-2bea573030ec",
-                "prompt": "Redo after Claudio's note that the first version looked staged: a real, used 1994 telemarketing room shot like documentary footage; Henrick from his real photo.",
+                "job": "01a1174e-bad0-7b92-8764-c0aafaa7164f",
+                "prompt": "Grey-box render from this camera as Image 1 (data/space/order-now/operators.json); operators plate for materials; Henrick from his real photo; headset reference.",
                 "inputs": [
+                  "box operators O2",
                   "operators plate",
-                  "henrick real-front (real photo)",
+                  "henrick real-front",
                   "henrick pose-headset"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:51:34.256Z"
+                "at": "2026-10-07T17:01:01.863Z"
               }
             }
           ]

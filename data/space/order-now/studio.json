@@ -1,0 +1,1112 @@
+{
+ "width": 16,
+ "depth": 16,
+ "height": 6,
+ "items": [
+  {
+   "id": "sign",
+   "kind": "board",
+   "label": "COMP AI neon sign",
+   "at": [
+    9.0,
+    15.85
+   ],
+   "size": [
+    5.5,
+    0.1,
+    1.3
+   ],
+   "z": 3.0,
+   "rot": 0
+  },
+  {
+   "id": "col-pink",
+   "kind": "furniture",
+   "label": "pink column",
+   "at": [
+    5.6,
+    15.0
+   ],
+   "size": [
+    0.9,
+    0.9,
+    6.0
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "col-teal",
+   "kind": "furniture",
+   "label": "teal column",
+   "at": [
+    12.6,
+    15.0
+   ],
+   "size": [
+    0.9,
+    0.9,
+    6.0
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "shelves",
+   "kind": "furniture",
+   "label": "shelving unit with TVs",
+   "at": [
+    15.5,
+    12.0
+   ],
+   "size": [
+    0.6,
+    3.0,
+    2.4
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "palm-l",
+   "kind": "prop",
+   "label": "palm",
+   "at": [
+    4.6,
+    14.6
+   ],
+   "size": [
+    0.8,
+    0.8,
+    1.8
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "palm-r",
+   "kind": "prop",
+   "label": "palm",
+   "at": [
+    13.6,
+    14.6
+   ],
+   "size": [
+    0.8,
+    0.8,
+    1.8
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "desk",
+   "kind": "counter",
+   "label": "curved white demo desk",
+   "at": [
+    9.0,
+    11.5
+   ],
+   "size": [
+    3.0,
+    1.0,
+    1.05
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "button",
+   "kind": "prop",
+   "label": "red COMP AI button",
+   "at": [
+    9.0,
+    11.5
+   ],
+   "size": [
+    0.45,
+    0.45,
+    0.18
+   ],
+   "z": 1.05,
+   "rot": 0
+  },
+  {
+   "id": "folder",
+   "kind": "prop",
+   "label": "blue SOC 2 folder",
+   "at": [
+    10.15,
+    11.45
+   ],
+   "size": [
+    0.35,
+    0.5,
+    0.03
+   ],
+   "z": 1.05,
+   "rot": 0
+  },
+  {
+   "id": "stool-l",
+   "kind": "furniture",
+   "label": "white stool, left",
+   "at": [
+    7.1,
+    11.6
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.78
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "stool-r",
+   "kind": "furniture",
+   "label": "white stool, right (Henrick)",
+   "at": [
+    10.9,
+    11.6
+   ],
+   "size": [
+    0.5,
+    0.5,
+    0.78
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "tier1",
+   "kind": "counter",
+   "label": "bleacher tier 1",
+   "at": [
+    4.2,
+    10.3
+   ],
+   "size": [
+    0.8,
+    4.9,
+    0.45
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "tier2",
+   "kind": "counter",
+   "label": "bleacher tier 2",
+   "at": [
+    3.4,
+    10.3
+   ],
+   "size": [
+    0.8,
+    4.9,
+    0.9
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "tier3",
+   "kind": "counter",
+   "label": "bleacher tier 3",
+   "at": [
+    2.5999999999999996,
+    10.3
+   ],
+   "size": [
+    0.8,
+    4.9,
+    1.35
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "tier4",
+   "kind": "counter",
+   "label": "bleacher tier 4",
+   "at": [
+    1.7999999999999998,
+    10.3
+   ],
+   "size": [
+    0.8,
+    4.9,
+    1.8
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "tier5",
+   "kind": "counter",
+   "label": "bleacher tier 5",
+   "at": [
+    1.0,
+    10.3
+   ],
+   "size": [
+    0.8,
+    4.9,
+    2.25
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "stair0",
+   "kind": "counter",
+   "label": "stair 0",
+   "at": [
+    5.0,
+    13.25
+   ],
+   "size": [
+    0.8,
+    0.9,
+    0.01
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "stair1",
+   "kind": "counter",
+   "label": "stair 1",
+   "at": [
+    4.2,
+    13.25
+   ],
+   "size": [
+    0.8,
+    0.9,
+    0.46
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "stair2",
+   "kind": "counter",
+   "label": "stair 2",
+   "at": [
+    3.4,
+    13.25
+   ],
+   "size": [
+    0.8,
+    0.9,
+    0.91
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "stair3",
+   "kind": "counter",
+   "label": "stair 3",
+   "at": [
+    2.5999999999999996,
+    13.25
+   ],
+   "size": [
+    0.8,
+    0.9,
+    1.36
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "stair4",
+   "kind": "counter",
+   "label": "stair 4",
+   "at": [
+    1.7999999999999998,
+    13.25
+   ],
+   "size": [
+    0.8,
+    0.9,
+    1.81
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "stair5",
+   "kind": "counter",
+   "label": "stair 5",
+   "at": [
+    1.0,
+    13.25
+   ],
+   "size": [
+    0.8,
+    0.9,
+    2.26
+   ],
+   "z": 0,
+   "rot": 0
+  },
+  {
+   "id": "rail",
+   "kind": "prop",
+   "label": "chrome handrail",
+   "at": [
+    2.9,
+    12.8
+   ],
+   "size": [
+    4.8,
+    0.06,
+    0.06
+   ],
+   "z": 3.2,
+   "rot": 0
+  }
+ ],
+ "marks": [
+  {
+   "id": "aud00",
+   "who": "audience",
+   "at": [
+    5.0,
+    8.2
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.0,
+   "platform": false
+  },
+  {
+   "id": "aud01",
+   "who": "audience",
+   "at": [
+    5.0,
+    8.799999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.0,
+   "platform": false
+  },
+  {
+   "id": "aud02",
+   "who": "audience",
+   "at": [
+    5.0,
+    9.399999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.0,
+   "platform": false
+  },
+  {
+   "id": "aud03",
+   "who": "audience",
+   "at": [
+    5.0,
+    10.0
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.0,
+   "platform": false
+  },
+  {
+   "id": "aud04",
+   "who": "audience",
+   "at": [
+    5.0,
+    10.6
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.0,
+   "platform": false
+  },
+  {
+   "id": "aud05",
+   "who": "audience",
+   "at": [
+    5.0,
+    11.2
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.0,
+   "platform": false
+  },
+  {
+   "id": "aud06",
+   "who": "audience",
+   "at": [
+    5.0,
+    11.799999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.0,
+   "platform": false
+  },
+  {
+   "id": "aud07",
+   "who": "audience",
+   "at": [
+    5.0,
+    12.399999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.0,
+   "platform": false
+  },
+  {
+   "id": "aud10",
+   "who": "audience",
+   "at": [
+    4.2,
+    8.2
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.45,
+   "platform": false
+  },
+  {
+   "id": "aud11",
+   "who": "audience",
+   "at": [
+    4.2,
+    8.799999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.45,
+   "platform": false
+  },
+  {
+   "id": "aud12",
+   "who": "audience",
+   "at": [
+    4.2,
+    9.399999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.45,
+   "platform": false
+  },
+  {
+   "id": "aud13",
+   "who": "audience",
+   "at": [
+    4.2,
+    10.0
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.45,
+   "platform": false
+  },
+  {
+   "id": "aud14",
+   "who": "audience",
+   "at": [
+    4.2,
+    10.6
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.45,
+   "platform": false
+  },
+  {
+   "id": "aud15",
+   "who": "audience",
+   "at": [
+    4.2,
+    11.2
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.45,
+   "platform": false
+  },
+  {
+   "id": "aud16",
+   "who": "audience",
+   "at": [
+    4.2,
+    11.799999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.45,
+   "platform": false
+  },
+  {
+   "id": "aud17",
+   "who": "audience",
+   "at": [
+    4.2,
+    12.399999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.45,
+   "platform": false
+  },
+  {
+   "id": "aud20",
+   "who": "audience",
+   "at": [
+    3.4,
+    8.2
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.9,
+   "platform": false
+  },
+  {
+   "id": "aud21",
+   "who": "audience",
+   "at": [
+    3.4,
+    8.799999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.9,
+   "platform": false
+  },
+  {
+   "id": "aud22",
+   "who": "audience",
+   "at": [
+    3.4,
+    9.399999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.9,
+   "platform": false
+  },
+  {
+   "id": "aud23",
+   "who": "audience",
+   "at": [
+    3.4,
+    10.0
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.9,
+   "platform": false
+  },
+  {
+   "id": "aud24",
+   "who": "audience",
+   "at": [
+    3.4,
+    10.6
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.9,
+   "platform": false
+  },
+  {
+   "id": "aud25",
+   "who": "audience",
+   "at": [
+    3.4,
+    11.2
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.9,
+   "platform": false
+  },
+  {
+   "id": "aud26",
+   "who": "audience",
+   "at": [
+    3.4,
+    11.799999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.9,
+   "platform": false
+  },
+  {
+   "id": "aud27",
+   "who": "audience",
+   "at": [
+    3.4,
+    12.399999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 0.9,
+   "platform": false
+  },
+  {
+   "id": "aud30",
+   "who": "audience",
+   "at": [
+    2.5999999999999996,
+    8.2
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 1.35,
+   "platform": false
+  },
+  {
+   "id": "aud31",
+   "who": "audience",
+   "at": [
+    2.5999999999999996,
+    8.799999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 1.35,
+   "platform": false
+  },
+  {
+   "id": "aud32",
+   "who": "audience",
+   "at": [
+    2.5999999999999996,
+    9.399999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 1.35,
+   "platform": false
+  },
+  {
+   "id": "aud33",
+   "who": "audience",
+   "at": [
+    2.5999999999999996,
+    10.0
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 1.35,
+   "platform": false
+  },
+  {
+   "id": "aud34",
+   "who": "audience",
+   "at": [
+    2.5999999999999996,
+    10.6
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 1.35,
+   "platform": false
+  },
+  {
+   "id": "aud35",
+   "who": "audience",
+   "at": [
+    2.5999999999999996,
+    11.2
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 1.35,
+   "platform": false
+  },
+  {
+   "id": "aud36",
+   "who": "audience",
+   "at": [
+    2.5999999999999996,
+    11.799999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 1.35,
+   "platform": false
+  },
+  {
+   "id": "aud37",
+   "who": "audience",
+   "at": [
+    2.5999999999999996,
+    12.399999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 1.35,
+   "platform": false
+  },
+  {
+   "id": "aud40",
+   "who": "audience",
+   "at": [
+    1.7999999999999998,
+    8.2
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 1.8,
+   "platform": false
+  },
+  {
+   "id": "aud41",
+   "who": "audience",
+   "at": [
+    1.7999999999999998,
+    8.799999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 1.8,
+   "platform": false
+  },
+  {
+   "id": "aud42",
+   "who": "audience",
+   "at": [
+    1.7999999999999998,
+    9.399999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 1.8,
+   "platform": false
+  },
+  {
+   "id": "aud43",
+   "who": "audience",
+   "at": [
+    1.7999999999999998,
+    10.0
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 1.8,
+   "platform": false
+  },
+  {
+   "id": "aud44",
+   "who": "audience",
+   "at": [
+    1.7999999999999998,
+    10.6
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 1.8,
+   "platform": false
+  },
+  {
+   "id": "aud45",
+   "who": "audience",
+   "at": [
+    1.7999999999999998,
+    11.2
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 1.8,
+   "platform": false
+  },
+  {
+   "id": "aud46",
+   "who": "audience",
+   "at": [
+    1.7999999999999998,
+    11.799999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 1.8,
+   "platform": false
+  },
+  {
+   "id": "aud47",
+   "who": "audience",
+   "at": [
+    1.7999999999999998,
+    12.399999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 1.8,
+   "platform": false
+  },
+  {
+   "id": "aud50",
+   "who": "audience",
+   "at": [
+    1.0,
+    8.2
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 2.25,
+   "platform": false
+  },
+  {
+   "id": "aud51",
+   "who": "audience",
+   "at": [
+    1.0,
+    8.799999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 2.25,
+   "platform": false
+  },
+  {
+   "id": "aud52",
+   "who": "audience",
+   "at": [
+    1.0,
+    9.399999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 2.25,
+   "platform": false
+  },
+  {
+   "id": "aud53",
+   "who": "audience",
+   "at": [
+    1.0,
+    10.0
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 2.25,
+   "platform": false
+  },
+  {
+   "id": "aud54",
+   "who": "audience",
+   "at": [
+    1.0,
+    10.6
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 2.25,
+   "platform": false
+  },
+  {
+   "id": "aud55",
+   "who": "audience",
+   "at": [
+    1.0,
+    11.2
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 2.25,
+   "platform": false
+  },
+  {
+   "id": "aud56",
+   "who": "audience",
+   "at": [
+    1.0,
+    11.799999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 2.25,
+   "platform": false
+  },
+  {
+   "id": "aud57",
+   "who": "audience",
+   "at": [
+    1.0,
+    12.399999999999999
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "z": 2.25,
+   "platform": false
+  },
+  {
+   "id": "henrick",
+   "who": "henrick",
+   "at": [
+    10.9,
+    11.6
+   ],
+   "facing": 200,
+   "pose": "sit"
+  },
+  {
+   "id": "brock5",
+   "who": "brock",
+   "at": [
+    6.2,
+    9.4
+   ],
+   "facing": 110,
+   "pose": "stand",
+   "beat": "5"
+  },
+  {
+   "id": "brock7",
+   "who": "brock",
+   "at": [
+    7.5,
+    10.2
+   ],
+   "facing": 150,
+   "pose": "stand",
+   "beat": "7"
+  },
+  {
+   "id": "brock8",
+   "who": "brock",
+   "at": [
+    9.0,
+    12.3
+   ],
+   "facing": 180,
+   "pose": "stand",
+   "beat": "8"
+  },
+  {
+   "id": "brock11",
+   "who": "brock",
+   "at": [
+    7.6,
+    8.4
+   ],
+   "facing": 175,
+   "pose": "stand",
+   "beat": "11"
+  },
+  {
+   "id": "brock14",
+   "who": "brock",
+   "at": [
+    10.0,
+    11.0
+   ],
+   "facing": 180,
+   "pose": "stand",
+   "beat": "14"
+  }
+ ],
+ "axes": [],
+ "setups": [
+  {
+   "id": "C1",
+   "name": "Studio wide",
+   "size": "WS",
+   "lens": 22,
+   "height": 1.7,
+   "at": [
+    5.0,
+    3.5
+   ],
+   "facing": 20,
+   "beat": "5"
+  },
+  {
+   "id": "C2",
+   "name": "Brock",
+   "size": "MS",
+   "lens": 32,
+   "height": 1.6,
+   "at": [
+    8.2,
+    6.8
+   ],
+   "facing": -12,
+   "beat": "7"
+  },
+  {
+   "id": "C3",
+   "name": "Henrick, locked",
+   "size": "MS",
+   "lens": 50,
+   "height": 1.2,
+   "at": [
+    10.6,
+    7.6
+   ],
+   "facing": 4,
+   "beat": "6"
+  },
+  {
+   "id": "C4",
+   "name": "Demo table",
+   "size": "WS",
+   "lens": 32,
+   "height": 1.5,
+   "at": [
+    9.0,
+    7.0
+   ],
+   "facing": 0,
+   "beat": "8"
+  },
+  {
+   "id": "C5",
+   "name": "Brock to lens",
+   "size": "CU",
+   "lens": 24,
+   "height": 1.3,
+   "at": [
+    7.9,
+    7.3
+   ],
+   "facing": -5,
+   "beat": "11"
+  },
+  {
+   "id": "C6",
+   "name": "Two-shot to camera",
+   "size": "MWS",
+   "lens": 35,
+   "height": 1.4,
+   "at": [
+    10.4,
+    7.4
+   ],
+   "facing": 0,
+   "beat": "14"
+  },
+  {
+   "id": "C7",
+   "name": "Audience",
+   "size": "WS",
+   "lens": 28,
+   "height": 1.6,
+   "at": [
+    8.0,
+    8.4
+   ],
+   "facing": -78,
+   "beat": "7"
+  }
+ ]
+}

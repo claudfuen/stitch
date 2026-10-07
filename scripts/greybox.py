@@ -28,7 +28,8 @@ GREY = {
     "window": (0.88, 0.90, 0.92), "door": (0.42, 0.42, 0.42), "counter": (0.35, 0.33, 0.31), "seats": (0.62, 0.58, 0.48),
     "furniture": (0.45, 0.43, 0.40), "prop": (0.50, 0.50, 0.50), "light": (1.0, 1.0, 1.0), "board": (0.12, 0.12, 0.12),
 }
-PEOPLE = {"henrick": (0.35, 0.42, 0.55), "founder": (0.62, 0.45, 0.30), "clerk": (0.50, 0.38, 0.52)}
+PEOPLE = {"henrick": (0.35, 0.42, 0.55), "founder": (0.62, 0.45, 0.30), "clerk": (0.50, 0.38, 0.52),
+          "brock": (0.10, 0.50, 0.46), "kyle": (0.58, 0.70, 0.88), "gerald": (0.78, 0.70, 0.52), "audience": (0.62, 0.56, 0.58)}
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 scene = bpy.context.scene
@@ -151,7 +152,7 @@ for m in plan["marks"]:
     if sit:
         # Thighs forward over the seat.
         box(f"legs:{m['id']}", x + math.sin(f) * 0.22, y + math.cos(f) * 0.22, 0.45 + lift, 0.32, 0.42, 0.14, rgb, m["facing"])
-    if lift:
+    if lift and m.get("platform", True):
         box(f"platform:{m['id']}", x, y, 0, 1.6, 1.4, lift, GREY["floor"])
     tag(before, mark=m["id"], who=m["who"], beat=m.get("beat"), pose=m["pose"])
     if m.get("beat"):
