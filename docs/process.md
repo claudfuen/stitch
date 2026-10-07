@@ -41,9 +41,17 @@ piece skips the AI stages and runs the same rail.
    together on one board, because cohesion only shows side by side.
 3. **The cast inside the world.** For each character, one frame of them in the film's look: what the person reviews.
    Real people come from real footage (real photos beat generated ones).
-4. **Reference sheets for the models.** Separate images, not a grid: front and three-quarter close-ups, profile, full
-   body front and back, and the expressions the script needs. Plain grey backdrop on purpose: their job is to pin the
-   face and costume; the look is applied in the shot. Each view is an edit of the approved face.
+4. **Reference sheets for the models.** Separate images, not a grid, 13 per character: a body turnaround (front,
+   three-quarter, profile, back), three face views (front, three-quarter, profile), two expressions the script needs,
+   and four poses that are actions from the script (Brock heaving the binders, Gerald sliding the sticky note). Plain
+   grey backdrop on purpose: their job is to pin the face and costume; the look is applied in the shot. Each view is
+   an edit of the approved face, made with Nano Banana 2.1 (edit), which keeps skin and fabric clean. GPT Image 2.5
+   views came out grainy and painterly. A real person keeps their real stills on the sheet next to the generated
+   views. The prompts are a data file (`work/<film>/sheets/nb-views.json`), so a sheet can be rerun or extended.
+   Look at every view before it goes on the sheet, at full size: costume details drift between views (Gerald's
+   glasses chain hung like a necklace in three of four face views), and props combine in impossible ways (a headset
+   and a handheld receiver on the same ear). Fix a drifting detail by passing the one view that got it right as
+   Image 1.
 5. **Lock test before any video** (next): the sheet must give the same recognisable person in 10 of 10 new scenes.
 
 ## Rules that hold across stages
@@ -62,13 +70,23 @@ piece skips the AI stages and runs the same rail.
 - **Exports for review.** The script and the look book (`/api/script-pdf?doc=look`) download as PDFs, with every image
   captioned by model and provider, so the look can be reviewed and refined outside the app.
 - **Leap first** for any model Leap carries; fal (Leap's fal account) when Leap cannot take the input; Higgsfield
-  only for a model or input neither offers (for example Seedance with a real person's face).
+  only for a model or input neither offers (for example Seedance with a real person's face). On fal, `bun run fal
+  batch jobs.json` runs a jobs file with a key, and the fal connector (8 jobs per call) runs the same requests
+  without one. Either way, every output gets a sidecar (`<file>.json`: provider, model, request ID, the prompt that
+  actually ran, inputs), and `stitch sheet view` reads it, so provenance is never typed by hand.
+- **A refused prompt is retried once, reworded, and the sidecar says so.** fal's content checker flags harmless
+  prompts now and then (3 of 52 sheet views: a neutral face, a camera flash, a chair tipping over). Refusals are not
+  billed.
 - **Physical plausibility is checked by a person.** Edit models do not notice a hand through glass.
 - **Dense storyboards are not the default.** One strong opening frame plus timed beats in text placed every beat in
   our test; extra keyframes made motion stiffer (research note 2026-10-07-storyboard-density-test).
 
 ## Changes
 
+- 2026-10-07: Character sheets regenerated with Nano Banana 2.1 (edit) on fal after Claudio saw grain and a painted
+  look in the GPT Image 2.5 views: 13 views per character (turnaround, faces, expressions, script poses). Henrick's
+  sheet keeps his real stills and the poses from his Ministry book. `stitch sheet view` reads sidecars and stores big
+  PNGs as JPEG; `stitch sheet unview` takes old views off. The demo props rebuilt on the infomercial set itself.
 - 2026-10-07: Kyle redesigned as a 1994 founder after Claudio's note; the black-and-white sets rebuilt with flat 1994
   light because grading alone could not match them; tonal matching added to the grade; "generate clean, grade once";
   look book PDF export; the "other options" section removed from the review page.

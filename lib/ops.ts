@@ -59,6 +59,8 @@ export type Op =
   | { op: "sheet.pick"; id: Id; file: string | null; by?: string }
   /** Add one view to the item's full sheet (model and provider required). */
   | { op: "sheet.view"; id: Id; candidate: Candidate }
+  /** Take views off the item's sheet (a regenerated sheet replaces the old one). */
+  | { op: "sheet.unview"; id: Id; views: string[] }
   | { op: "sheet.lock"; id: Id; pass: number; of: number; note?: string }
   | { op: "sheet.scene"; id: Id; candidate: Candidate }
   /** Replace the beat sheet (an agent's rewrite). Bumps the version and reopens the script gate. */
@@ -249,6 +251,7 @@ export function applyOp(p: Project, o: Op): Project {
     case "sheet.add":
     case "sheet.pick":
     case "sheet.view":
+    case "sheet.unview":
     case "sheet.lock":
     case "sheet.scene":
     case "script.set":
@@ -264,7 +267,7 @@ export function applyOp(p: Project, o: Op): Project {
   }
 }
 
-type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "cast.set" | "sheet.upsert" | "sheet.add" | "sheet.pick" | "sheet.view" | "sheet.lock" | "sheet.scene" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
+type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "cast.set" | "sheet.upsert" | "sheet.add" | "sheet.pick" | "sheet.view" | "sheet.unview" | "sheet.lock" | "sheet.scene" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
 
 let seq = 0
 const noteId = () => `n${Date.now().toString(36)}${(seq++).toString(36)}`
@@ -323,6 +326,11 @@ function applyProcessOp(pr: Process, o: ProcessOp): Process {
       const list = pr.sheets ?? []
       need(list.find((x) => x.id === o.id), `sheet ${o.id}`)
       return { ...pr, sheets: list.map((x) => (x.id === o.id ? { ...x, views: [...(x.views ?? []).filter((v) => v.view !== o.candidate.view), o.candidate] } : x)) }
+    }
+    case "sheet.unview": {
+      const list = pr.sheets ?? []
+      need(list.find((x) => x.id === o.id), `sheet ${o.id}`)
+      return { ...pr, sheets: list.map((x) => (x.id === o.id ? { ...x, views: (x.views ?? []).filter((v) => !o.views.includes(v.view ?? "")) } : x)) }
     }
     case "sheet.scene": {
       if (!o.candidate.model || !o.candidate.provider) throw new Error("a scene needs its model and provider")

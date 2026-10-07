@@ -67,7 +67,7 @@ export default async function LookBook({ searchParams }: { searchParams: Promise
             )}
             {refs.length > 0 && (
               <>
-                <h3>Reference sheet · {refs.length} views · {cap(refs[0])}</h3>
+                <h3>Reference sheet · {refs.length} views · {[...new Set(refs.map(cap))].join(" / ")}</h3>
                 <div className="sheet">
                   {refs.map((v) => (
                     <figure key={v.file}>

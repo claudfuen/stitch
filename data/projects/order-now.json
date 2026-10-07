@@ -17,13 +17,403 @@
   "open": [],
   "activity": [
     {
-      "t": "2026-10-07T16:00:00.000Z",
-      "text": "claude \u00b7 Project created: three concepts and a beat sheet for A, every gate open for review",
+      "t": "2026-10-07T15:35:14.686Z",
+      "text": "claude · Candidate for look-before: generated/order-now/look-before-2.png (GPT Image 2.5 Sunburst via Leap)",
       "kind": "info"
     },
     {
-      "t": "2026-10-07T15:23:21.960Z",
-      "text": "Claudio \u00b7 Concept picked: A",
+      "t": "2026-10-07T15:35:14.713Z",
+      "text": "claude · Candidate for look-before: generated/order-now/look-before-3.jpg (Seedream 5.0 Pro via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:35:14.741Z",
+      "text": "claude · Candidate for look-colour: generated/order-now/look-colour-1.jpg (FLUX 2 Max via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:35:14.768Z",
+      "text": "claude · Candidate for look-colour: generated/order-now/look-colour-2.png (GPT Image 2.5 Sunburst via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:35:14.795Z",
+      "text": "claude · Candidate for look-colour: generated/order-now/look-colour-3.jpg (Seedream 5.0 Pro via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:35:14.829Z",
+      "text": "claude · Candidate for set-kitchen: generated/order-now/set-kitchen-1.png (GPT Image 2.5 Sunburst via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:35:19.800Z",
+      "text": "claude · Candidate for kyle: generated/order-now/kyle-3.jpg (Seedream 5.0 Pro via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:35:19.830Z",
+      "text": "claude · Candidate for set-stairwell: generated/order-now/set-stairwell-1.png (GPT Image 2.5 Sunburst via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:35:27.918Z",
+      "text": "claude · Candidate for audience: generated/order-now/audience-2.jpg (FLUX 2 Max via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:35:36.016Z",
+      "text": "claude · Candidate for gerald: generated/order-now/gerald-3.jpg (Seedream 5.0 Pro via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:35:36.043Z",
+      "text": "claude · Candidate for set-audit: generated/order-now/set-audit-1.png (GPT Image 2.5 Sunburst via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:35:36.068Z",
+      "text": "claude · Candidate for set-kitchen: generated/order-now/set-kitchen-2.jpg (FLUX 2 Max via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:35:44.166Z",
+      "text": "claude · Candidate for audience: generated/order-now/audience-3.jpg (Seedream 5.0 Pro via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:35:52.274Z",
+      "text": "claude · Candidate for set-stairwell: generated/order-now/set-stairwell-2.jpg (FLUX 2 Max via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:35:52.303Z",
+      "text": "claude · Candidate for set-studio: generated/order-now/set-studio-1.png (GPT Image 2.5 Sunburst via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:36:00.391Z",
+      "text": "claude · Candidate for set-kitchen: generated/order-now/set-kitchen-3.jpg (Seedream 5.0 Pro via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:36:00.418Z",
+      "text": "claude · Candidate for set-stairwell: generated/order-now/set-stairwell-3.jpg (Seedream 5.0 Pro via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:36:08.501Z",
+      "text": "claude · Candidate for set-audit: generated/order-now/set-audit-2.jpg (FLUX 2 Max via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:36:16.581Z",
+      "text": "claude · Candidate for set-audit: generated/order-now/set-audit-3.jpg (Seedream 5.0 Pro via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:36:16.605Z",
+      "text": "claude · Candidate for set-hammock: generated/order-now/set-hammock-1.png (GPT Image 2.5 Sunburst via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:36:16.630Z",
+      "text": "claude · Candidate for set-operators: generated/order-now/set-operators-1.png (GPT Image 2.5 Sunburst via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:36:16.654Z",
+      "text": "claude · Candidate for set-studio: generated/order-now/set-studio-2.jpg (FLUX 2 Max via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:36:32.801Z",
+      "text": "claude · Candidate for props-demo: generated/order-now/props-demo-1.png (GPT Image 2.5 Sunburst via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:36:32.826Z",
+      "text": "claude · Candidate for set-studio: generated/order-now/set-studio-3.jpg (Seedream 5.0 Pro via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:36:36.905Z",
+      "text": "Claudio · Picked for set-studio: generated/order-now/set-studio-1.png",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:36:40.896Z",
+      "text": "claude · Candidate for set-hammock: generated/order-now/set-hammock-2.jpg (FLUX 2 Max via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:36:40.921Z",
+      "text": "claude · Candidate for set-operators: generated/order-now/set-operators-2.jpg (FLUX 2 Max via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:36:40.947Z",
+      "text": "claude · Candidate for set-operators: generated/order-now/set-operators-3.jpg (Seedream 5.0 Pro via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:36:56.688Z",
+      "text": "Claudio · Picked for gerald: generated/order-now/gerald-1.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:36:57.091Z",
+      "text": "claude · Candidate for props-demo: generated/order-now/props-demo-2.jpg (FLUX 2 Max via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:37:06.063Z",
+      "text": "Claudio · Picked for brock: generated/order-now/brock-3.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:37:13.824Z",
+      "text": "Claudio · Picked for look-colour: generated/order-now/look-colour-2.png",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:37:17.274Z",
+      "text": "Claudio · Picked for look-before: generated/order-now/look-before-1.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:37:27.723Z",
+      "text": "Claudio · Picked for set-operators: generated/order-now/set-operators-1.png",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:37:29.378Z",
+      "text": "claude · Candidate for props-demo: generated/order-now/props-demo-3.jpg (Seedream 5.0 Pro via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:37:37.471Z",
+      "text": "claude · Candidate for set-hammock: generated/order-now/set-hammock-3.jpg (Seedream 5.0 Pro via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:37:42.468Z",
+      "text": "claude · Picked for henrick-set: generated/order-now/henrick-set-2.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:37:42.493Z",
+      "text": "claude · Picked for brock: generated/order-now/brock-2.png",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:37:42.517Z",
+      "text": "claude · Picked for kyle: generated/order-now/kyle-2.png",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:37:42.541Z",
+      "text": "claude · Picked for gerald: generated/order-now/gerald-1.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:41:49.456Z",
+      "text": "claude · Candidate for set-studio: generated/order-now/set-studio-4.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:41:49.482Z",
+      "text": "claude · Picked for set-studio: generated/order-now/set-studio-4.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:41:49.571Z",
+      "text": "claude · Candidate for set-operators: generated/order-now/set-operators-4.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:41:49.598Z",
+      "text": "claude · Picked for set-operators: generated/order-now/set-operators-4.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:41:49.700Z",
+      "text": "claude · Candidate for set-hammock: generated/order-now/set-hammock-4.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:41:49.731Z",
+      "text": "claude · Picked for set-hammock: generated/order-now/set-hammock-4.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:41:49.829Z",
+      "text": "claude · Candidate for props-demo: generated/order-now/props-demo-4.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:41:49.861Z",
+      "text": "claude · Picked for props-demo: generated/order-now/props-demo-4.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:41:49.957Z",
+      "text": "claude · Candidate for audience: generated/order-now/audience-4.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:41:49.984Z",
+      "text": "claude · Picked for audience: generated/order-now/audience-4.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:41:50.101Z",
+      "text": "claude · Candidate for set-kitchen: generated/order-now/set-kitchen-4.jpg (GPT Image 2.5 Sunburst + before grade via Leap, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:41:50.128Z",
+      "text": "claude · Picked for set-kitchen: generated/order-now/set-kitchen-4.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:41:50.241Z",
+      "text": "claude · Candidate for set-stairwell: generated/order-now/set-stairwell-4.jpg (GPT Image 2.5 Sunburst + before grade via Leap, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:41:50.266Z",
+      "text": "claude · Picked for set-stairwell: generated/order-now/set-stairwell-4.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:41:50.378Z",
+      "text": "claude · Candidate for set-audit: generated/order-now/set-audit-4.jpg (GPT Image 2.5 Sunburst + before grade via Leap, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:41:50.403Z",
+      "text": "claude · Picked for set-audit: generated/order-now/set-audit-4.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:48:08.978Z",
+      "text": "Claudio · Note on sheets:cast: Kyle doesn't read as a 1990s founder.",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:49:53.410Z",
+      "text": "claude · Candidate for kyle: generated/order-now/kyle-4.png (GPT Image 2.5 Sunburst via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:49:53.434Z",
+      "text": "claude · Candidate for kyle: generated/order-now/kyle-5.png (GPT Image 2.5 Sunburst via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:49:53.459Z",
+      "text": "claude · Candidate for kyle: generated/order-now/kyle-6.png (GPT Image 2.5 Sunburst via Leap)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:49:53.485Z",
+      "text": "claude · Picked for kyle: generated/order-now/kyle-5.png",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:50:55.381Z",
+      "text": "claude · Candidate for set-kitchen: generated/order-now/set-kitchen-5.jpg (GPT Image 2.5 Sunburst + before grade via Leap, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:50:55.406Z",
+      "text": "claude · Picked for set-kitchen: generated/order-now/set-kitchen-5.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:50:55.543Z",
+      "text": "claude · Candidate for set-stairwell: generated/order-now/set-stairwell-5.jpg (GPT Image 2.5 Sunburst + before grade via Leap, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:50:55.568Z",
+      "text": "claude · Picked for set-stairwell: generated/order-now/set-stairwell-5.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:50:55.707Z",
+      "text": "claude · Candidate for set-audit: generated/order-now/set-audit-5.jpg (GPT Image 2.5 Sunburst + before grade via Leap, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:50:55.732Z",
+      "text": "claude · Picked for set-audit: generated/order-now/set-audit-5.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:50:55.865Z",
+      "text": "claude · Candidate for set-hammock: generated/order-now/set-hammock-5.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:50:55.892Z",
+      "text": "claude · Picked for set-hammock: generated/order-now/set-hammock-5.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:53:55.444Z",
+      "text": "claude · Candidate for set-studio: generated/order-now/set-studio-5.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:53:55.469Z",
+      "text": "claude · Picked for set-studio: generated/order-now/set-studio-5.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:53:55.593Z",
+      "text": "claude · Candidate for set-operators: generated/order-now/set-operators-5.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:53:55.618Z",
+      "text": "claude · Picked for set-operators: generated/order-now/set-operators-5.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:53:55.744Z",
+      "text": "claude · Candidate for props-demo: generated/order-now/props-demo-5.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:53:55.768Z",
+      "text": "claude · Picked for props-demo: generated/order-now/props-demo-5.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:53:55.895Z",
+      "text": "claude · Candidate for audience: generated/order-now/audience-5.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:53:55.920Z",
+      "text": "claude · Picked for audience: generated/order-now/audience-5.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:55:27.057Z",
+      "text": "claude · Note on sheets:cast: Done: Kyle redesigned as a 1994 founder (mousse hair, oversized glasses, oxford, loosened tie, pleated khakis, pager); his kitchen now has a beige computer and CRT. Sheet and scene rebuilt.",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:17:19.964Z",
+      "text": "claude · Candidate for props-demo: generated/order-now/props-demo-6.jpg (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T16:17:19.984Z",
+      "text": "claude · Picked for props-demo: generated/order-now/props-demo-6.jpg",
       "kind": "info"
     }
   ],
@@ -38,9 +428,9 @@
         "about": "A beat sheet first, with a joke in every beat. LLMs draft the prompts, a few at a time.",
         "doer": "both",
         "gate": "required",
-        "status": "pending",
+        "status": "approved",
         "by": "Claudio",
-        "at": "2026-10-07T15:23:21.960Z"
+        "at": "2026-10-07T15:29:45.893Z"
       },
       {
         "id": "sheets",
@@ -377,7 +767,7 @@
           "title": "Order now",
           "t0": 57,
           "t1": 61,
-          "picture": "Back on set. Henrick to camera; Brock beside him, beaming. End card: COMP AI \u00b7 SOC 2, handled \u00b7 trycomp.ai",
+          "picture": "Back on set. Henrick to camera; Brock beside him, beaming. End card: COMP AI · SOC 2, handled · trycomp.ai",
           "lines": [
             {
               "who": "Henrick",
@@ -398,7 +788,25 @@
         }
       ]
     },
-    "notes": [],
+    "notes": [
+      {
+        "id": "nmuya7rte0",
+        "target": "sheets:cast",
+        "text": "Kyle doesn't read as a 1990s founder.",
+        "by": "Claudio",
+        "at": "2026-10-07T15:48:08.978Z",
+        "kind": "comment",
+        "resolved": true
+      },
+      {
+        "id": "nmuyah5u90",
+        "target": "sheets:cast",
+        "text": "Done: Kyle redesigned as a 1994 founder (mousse hair, oversized glasses, oxford, loosened tie, pleated khakis, pager); his kitchen now has a beige computer and CRT. Sheet and scene rebuilt.",
+        "by": "claude",
+        "at": "2026-10-07T15:55:27.057Z",
+        "kind": "comment"
+      }
+    ],
     "pick": "A",
     "cast": [
       {
@@ -425,9 +833,9 @@
       {
         "id": "kyle",
         "name": "Kyle",
-        "who": "A startup founder in his late 20s. Patchy beard, fleece vest over a startup tee. The victim of every 'before' disaster, then the happiest man in a hammock.",
+        "who": "A 1994 software-startup founder in his late 20s: mousse-sculpted hair, oversized wire-rim glasses, an oversized oxford shirt tucked into pleated khakis, a loosened patterned tie, a pager on his belt. The victim of every 'before' disaster, then the happiest man in a hammock.",
         "playedBy": "Generated",
-        "voice": "Young American founder: stressed, then serene",
+        "voice": "Eager young American founder: frantic, then serene",
         "states": [
           "Black and white, miserable",
           "Colour, relaxed in the hammock"
@@ -457,6 +865,1574 @@
         "who": "The fine-print voice. Heard, never seen.",
         "playedBy": "Voice only",
         "voice": "Fast fine-print announcer"
+      }
+    ],
+    "sheets": [
+      {
+        "id": "look-colour",
+        "kind": "look",
+        "name": "Colour: 1994 cable infomercial",
+        "brief": "Betacam played back from VHS: bright flat key light, blown highlights, soft focus, chroma bleed, tape noise.",
+        "candidates": [
+          {
+            "file": "generated/order-now/look-colour-1.jpg",
+            "model": "FLUX 2 Max",
+            "provider": "Leap",
+            "job": "gen_35sIWxTzSMx39oqzRNV1e0gS",
+            "prompt": "A frame grabbed from a 1994 American late-night cable infomercial, recorded on Betacam and played back from VHS: a host's hands present a gleaming kitchen gadget on a laminate demo table, pastel gradient backdrop, bright flat studio key light, slightly blown highlights, soft focus, chroma bleed on the reds, faint tape noise and scanlines, 4:3-safe composition. Photographic and period-accurate, not a modern recreation. No text.",
+            "cost": 0.077,
+            "by": "claude",
+            "at": "2026-10-07T15:35:14.740Z"
+          },
+          {
+            "file": "generated/order-now/look-colour-2.png",
+            "model": "GPT Image 2.5 Sunburst",
+            "provider": "Leap",
+            "job": "gen_ESYEEnzHghQtN02TjxCOfPaX",
+            "prompt": "A frame grabbed from a 1994 American late-night cable infomercial, recorded on Betacam and played back from VHS: a host's hands present a gleaming kitchen gadget on a laminate demo table, pastel gradient backdrop, bright flat studio key light, slightly blown highlights, soft focus, chroma bleed on the reds, faint tape noise and scanlines, 4:3-safe composition. Photographic and period-accurate, not a modern recreation. No text.",
+            "cost": 0.0858,
+            "by": "claude",
+            "at": "2026-10-07T15:35:14.767Z"
+          },
+          {
+            "file": "generated/order-now/look-colour-3.jpg",
+            "model": "Seedream 5.0 Pro",
+            "provider": "Leap",
+            "job": "gen_lpxkdDSlnmeyNVbHd476IKCB",
+            "prompt": "A frame grabbed from a 1994 American late-night cable infomercial, recorded on Betacam and played back from VHS: a host's hands present a gleaming kitchen gadget on a laminate demo table, pastel gradient backdrop, bright flat studio key light, slightly blown highlights, soft focus, chroma bleed on the reds, faint tape noise and scanlines, 4:3-safe composition. Photographic and period-accurate, not a modern recreation. No text.",
+            "cost": 0.0385,
+            "by": "claude",
+            "at": "2026-10-07T15:35:14.794Z"
+          }
+        ],
+        "pick": "generated/order-now/look-colour-2.png"
+      },
+      {
+        "id": "look-before",
+        "kind": "look",
+        "name": "Before: black-and-white failure footage",
+        "brief": "The infomercial 'before': black and white, slow motion, crushed blacks, heavy vignette, exaggerated but real.",
+        "candidates": [
+          {
+            "file": "generated/order-now/look-before-1.jpg",
+            "model": "FLUX 2 Max",
+            "provider": "Leap",
+            "job": "gen_50ebruP9KqbxlFoHac5wcub4",
+            "prompt": "A black-and-white frame from the 'before' segment of a 1994 American infomercial: a frustrated man in a fleece vest, seen from behind, is buried by an avalanche of paperwork sliding off a desk, motion blur, crushed blacks, heavy vignette, soft focus, VHS tape noise, slightly too wide 4:3-safe framing. Photographic, exaggerated but real. No text.",
+            "cost": 0.077,
+            "by": "claude",
+            "at": "2026-10-07T15:35:14.658Z"
+          },
+          {
+            "file": "generated/order-now/look-before-2.png",
+            "model": "GPT Image 2.5 Sunburst",
+            "provider": "Leap",
+            "job": "gen_w4EjCB7nRSIQKDRFZpE9YSaB",
+            "prompt": "A black-and-white frame from the 'before' segment of a 1994 American infomercial: a frustrated man in a fleece vest, seen from behind, is buried by an avalanche of paperwork sliding off a desk, motion blur, crushed blacks, heavy vignette, soft focus, VHS tape noise, slightly too wide 4:3-safe framing. Photographic, exaggerated but real. No text.",
+            "cost": 0.0858,
+            "by": "claude",
+            "at": "2026-10-07T15:35:14.685Z"
+          },
+          {
+            "file": "generated/order-now/look-before-3.jpg",
+            "model": "Seedream 5.0 Pro",
+            "provider": "Leap",
+            "job": "gen_zcZEYnJ26akBgD7llF8bnElD",
+            "prompt": "A black-and-white frame from the 'before' segment of a 1994 American infomercial: a frustrated man in a fleece vest, seen from behind, is buried by an avalanche of paperwork sliding off a desk, motion blur, crushed blacks, heavy vignette, soft focus, VHS tape noise, slightly too wide 4:3-safe framing. Photographic, exaggerated but real. No text.",
+            "cost": 0.0385,
+            "by": "claude",
+            "at": "2026-10-07T15:35:14.712Z"
+          }
+        ],
+        "pick": "generated/order-now/look-before-1.jpg"
+      },
+      {
+        "id": "henrick-set",
+        "kind": "cast",
+        "name": "Henrick",
+        "brief": "The real Henrick: navy suit, silver hair, round glasses, perfectly still. His sheet starts from his real footage, plus the character book built from it.",
+        "candidates": [
+          {
+            "file": "generated/order-now/henrick-set-1.jpg",
+            "model": "Real footage",
+            "provider": "Camera",
+            "by": "claude",
+            "at": "2026-10-07T15:34:01.627Z"
+          },
+          {
+            "file": "generated/order-now/henrick-set-2.jpg",
+            "model": "Real footage",
+            "provider": "Camera",
+            "by": "claude",
+            "at": "2026-10-07T15:34:01.650Z"
+          },
+          {
+            "file": "generated/order-now/henrick-set-3.jpg",
+            "model": "Real footage",
+            "provider": "Camera",
+            "by": "claude",
+            "at": "2026-10-07T15:34:01.674Z"
+          }
+        ],
+        "pick": "generated/order-now/henrick-set-2.jpg",
+        "pickedBy": "claude",
+        "scene": {
+          "file": "generated/order-now/sheets/henrick-set--scene.jpg",
+          "view": "scene",
+          "model": "GPT Image 2.5 Sunburst (edit) + betacam grade",
+          "provider": "fal, graded in Stitch",
+          "by": "claude",
+          "at": "2026-10-07T15:53:56.054Z"
+        },
+        "views": [
+          {
+            "file": "generated/order-now/sheets/henrick-set--real-front.jpg",
+            "view": "real-front",
+            "model": "Real footage",
+            "provider": "Camera",
+            "by": "claude",
+            "at": "2026-10-07T15:57:07.246Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--real-three-quarter.jpg",
+            "view": "real-three-quarter",
+            "model": "Real footage",
+            "provider": "Camera",
+            "by": "claude",
+            "at": "2026-10-07T15:57:07.269Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--real-side.jpg",
+            "view": "real-side",
+            "model": "Real footage",
+            "provider": "Camera",
+            "by": "claude",
+            "at": "2026-10-07T15:57:07.294Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--real-close-up.jpg",
+            "view": "real-close-up",
+            "model": "Real footage",
+            "provider": "Camera",
+            "by": "claude",
+            "at": "2026-10-07T15:57:07.317Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--real-angled.jpg",
+            "view": "real-angled",
+            "model": "Real footage",
+            "provider": "Camera",
+            "by": "claude",
+            "at": "2026-10-07T15:57:07.340Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--real-gesturing.jpg",
+            "view": "real-gesturing",
+            "model": "Real footage",
+            "provider": "Camera",
+            "by": "claude",
+            "at": "2026-10-07T15:57:07.364Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--body-front.jpg",
+            "view": "body-front",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a11718-474f-7923-8f58-6d74443f49be",
+            "prompt": "Character reference photograph of the real man in Images 1 to 4 (the same person; Image 4 shows his full costume). Keep his face, age, hair, build and costume exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square, black shoes. Full body, head to toe, standing facing the camera, arms relaxed. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7132/p8KH6AFILo_nHngzCpceE_henrick-real-56.jpg",
+              "https://v3b.fal.media/files/b/0aad70dd/d_Dhj2BBKP3g7cVM0Mu_p_henrick-real-38.jpg",
+              "https://v3b.fal.media/files/b/0aad7132/miJKrSiVoQbKcEW7739V0_henrick-real-53.jpg",
+              "https://v3b.fal.media/files/b/0aad713c/aeNS5_F068NhJJw5ZKgHq_henrick-body-front.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:10.077Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--body-three-quarter.jpg",
+            "view": "body-three-quarter",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a11718-47f3-74e2-b3ca-894e1166ae59",
+            "prompt": "Character reference photograph of the real man in Images 1 to 4 (the same person; Image 4 shows his full costume). Keep his face, age, hair, build and costume exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square, black shoes. Full body, head to toe, standing turned three-quarters to his left. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7132/p8KH6AFILo_nHngzCpceE_henrick-real-56.jpg",
+              "https://v3b.fal.media/files/b/0aad70dd/d_Dhj2BBKP3g7cVM0Mu_p_henrick-real-38.jpg",
+              "https://v3b.fal.media/files/b/0aad7132/miJKrSiVoQbKcEW7739V0_henrick-real-53.jpg",
+              "https://v3b.fal.media/files/b/0aad713c/aeNS5_F068NhJJw5ZKgHq_henrick-body-front.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:10.193Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--body-profile.jpg",
+            "view": "body-profile",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a11718-4810-7aa0-8d33-0570117faff6",
+            "prompt": "Character reference photograph of the real man in Images 1 to 4 (the same person; Image 4 shows his full costume). Keep his face, age, hair, build and costume exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square, black shoes. Full body, head to toe, standing in exact left profile. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7132/p8KH6AFILo_nHngzCpceE_henrick-real-56.jpg",
+              "https://v3b.fal.media/files/b/0aad70dd/d_Dhj2BBKP3g7cVM0Mu_p_henrick-real-38.jpg",
+              "https://v3b.fal.media/files/b/0aad7132/miJKrSiVoQbKcEW7739V0_henrick-real-53.jpg",
+              "https://v3b.fal.media/files/b/0aad713c/aeNS5_F068NhJJw5ZKgHq_henrick-body-front.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:10.311Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--body-back.jpg",
+            "view": "body-back",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a11718-47a6-7952-8f34-8ea2609bf5d1",
+            "prompt": "Character reference photograph of the real man in Images 1 to 4 (the same person; Image 4 shows his full costume). Keep his face, age, hair, build and costume exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square, black shoes. Full body, head to toe, standing, seen from directly behind. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7132/p8KH6AFILo_nHngzCpceE_henrick-real-56.jpg",
+              "https://v3b.fal.media/files/b/0aad70dd/d_Dhj2BBKP3g7cVM0Mu_p_henrick-real-38.jpg",
+              "https://v3b.fal.media/files/b/0aad7132/miJKrSiVoQbKcEW7739V0_henrick-real-53.jpg",
+              "https://v3b.fal.media/files/b/0aad713c/aeNS5_F068NhJJw5ZKgHq_henrick-body-front.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:10.434Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--face-front.jpg",
+            "view": "face-front",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a11718-48c2-7202-92a2-2beca7093ee4",
+            "prompt": "Character reference photograph of the real man in Images 1 to 4 (the same person; Image 4 shows his full costume). Keep his face, age, hair, build and costume exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square, black shoes. Head-and-shoulders close-up facing the camera, neutral expression. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7132/p8KH6AFILo_nHngzCpceE_henrick-real-56.jpg",
+              "https://v3b.fal.media/files/b/0aad70dd/d_Dhj2BBKP3g7cVM0Mu_p_henrick-real-38.jpg",
+              "https://v3b.fal.media/files/b/0aad7132/miJKrSiVoQbKcEW7739V0_henrick-real-53.jpg",
+              "https://v3b.fal.media/files/b/0aad713c/aeNS5_F068NhJJw5ZKgHq_henrick-body-front.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:10.556Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--face-three-quarter.jpg",
+            "view": "face-three-quarter",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a11718-47a8-7fd3-b845-d8befb36460b",
+            "prompt": "Character reference photograph of the real man in Images 1 to 4 (the same person; Image 4 shows his full costume). Keep his face, age, hair, build and costume exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square, black shoes. Head-and-shoulders close-up, head turned three-quarters to his left, neutral. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7132/p8KH6AFILo_nHngzCpceE_henrick-real-56.jpg",
+              "https://v3b.fal.media/files/b/0aad70dd/d_Dhj2BBKP3g7cVM0Mu_p_henrick-real-38.jpg",
+              "https://v3b.fal.media/files/b/0aad7132/miJKrSiVoQbKcEW7739V0_henrick-real-53.jpg",
+              "https://v3b.fal.media/files/b/0aad713c/aeNS5_F068NhJJw5ZKgHq_henrick-body-front.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:10.674Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--face-profile.jpg",
+            "view": "face-profile",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a11718-4818-7cc1-9a46-f78218d9ea94",
+            "prompt": "Character reference photograph of the real man in Images 1 to 4 (the same person; Image 4 shows his full costume). Keep his face, age, hair, build and costume exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square, black shoes. Head-and-shoulders, exact left profile, neutral. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7132/p8KH6AFILo_nHngzCpceE_henrick-real-56.jpg",
+              "https://v3b.fal.media/files/b/0aad70dd/d_Dhj2BBKP3g7cVM0Mu_p_henrick-real-38.jpg",
+              "https://v3b.fal.media/files/b/0aad7132/miJKrSiVoQbKcEW7739V0_henrick-real-53.jpg",
+              "https://v3b.fal.media/files/b/0aad713c/aeNS5_F068NhJJw5ZKgHq_henrick-body-front.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:10.787Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--expr-flat.jpg",
+            "view": "expr-flat",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a11718-487d-70d2-8279-9b403da4bdf9",
+            "prompt": "Character reference photograph of the real man in Images 1 to 4 (the same person; Image 4 shows his full costume). Keep his face, age, hair, build and costume exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square, black shoes. Head-and-shoulders, a flat, patient, unimpressed look straight into the camera. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7132/p8KH6AFILo_nHngzCpceE_henrick-real-56.jpg",
+              "https://v3b.fal.media/files/b/0aad70dd/d_Dhj2BBKP3g7cVM0Mu_p_henrick-real-38.jpg",
+              "https://v3b.fal.media/files/b/0aad7132/miJKrSiVoQbKcEW7739V0_henrick-real-53.jpg",
+              "https://v3b.fal.media/files/b/0aad713c/aeNS5_F068NhJJw5ZKgHq_henrick-body-front.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:10.906Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--expr-satisfied.jpg",
+            "view": "expr-satisfied",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171a-0cb6-7101-a0b6-f78dcb5ffd58",
+            "prompt": "Character reference photograph of the real man in Images 1 to 4 (the same person; Image 4 shows his full costume). Keep his face, age, hair, build and costume exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square, black shoes. Head-and-shoulders, the faintest dry hint of satisfaction, lips closed. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7132/p8KH6AFILo_nHngzCpceE_henrick-real-56.jpg",
+              "https://v3b.fal.media/files/b/0aad70dd/d_Dhj2BBKP3g7cVM0Mu_p_henrick-real-38.jpg",
+              "https://v3b.fal.media/files/b/0aad7132/miJKrSiVoQbKcEW7739V0_henrick-real-53.jpg",
+              "https://v3b.fal.media/files/b/0aad713c/aeNS5_F068NhJJw5ZKgHq_henrick-body-front.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:11.027Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--pose-finger.jpg",
+            "view": "pose-finger",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171a-0bed-71c0-ad45-cdf703eabcbc",
+            "prompt": "Character reference photograph of the real man in Images 1 to 4 (the same person; Image 4 shows his full costume). Keep his face, age, hair, build and costume exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square, black shoes. Full body, standing, one index finger raised to say no, flat expression. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7132/p8KH6AFILo_nHngzCpceE_henrick-real-56.jpg",
+              "https://v3b.fal.media/files/b/0aad70dd/d_Dhj2BBKP3g7cVM0Mu_p_henrick-real-38.jpg",
+              "https://v3b.fal.media/files/b/0aad7132/miJKrSiVoQbKcEW7739V0_henrick-real-53.jpg",
+              "https://v3b.fal.media/files/b/0aad713c/aeNS5_F068NhJJw5ZKgHq_henrick-body-front.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:11.135Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--pose-headset.jpg",
+            "view": "pose-headset",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a11723-6284-72c1-b9d4-96d126c384a0",
+            "prompt": "Character reference photograph of the real man in Images 1 to 4 (the same person; Image 4 shows his full costume). Keep his face, age, hair, build and costume exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square. Waist-up, seated at a desk wearing a slim beige 1994 telephone operator headset with one earpiece and a thin boom microphone by his mouth, both hands free: one hand writing an order on a notepad with a pen, the other resting on a beige multi-line desk phone. No handheld receiver. Calm. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7132/p8KH6AFILo_nHngzCpceE_henrick-real-56.jpg",
+              "https://v3b.fal.media/files/b/0aad70dd/d_Dhj2BBKP3g7cVM0Mu_p_henrick-real-38.jpg",
+              "https://v3b.fal.media/files/b/0aad7132/miJKrSiVoQbKcEW7739V0_henrick-real-53.jpg",
+              "https://v3b.fal.media/files/b/0aad713c/aeNS5_F068NhJJw5ZKgHq_henrick-body-front.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:11.250Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--pose-stool.jpg",
+            "view": "pose-stool",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171a-0bf1-78b2-9aaf-a2046f4a8ec5",
+            "prompt": "Character reference photograph of the real man in Images 1 to 4 (the same person; Image 4 shows his full costume). Keep his face, age, hair, build and costume exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square, black shoes. Full body, seated perfectly still on a white bar stool, hands folded on one knee, looking at the camera. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7132/p8KH6AFILo_nHngzCpceE_henrick-real-56.jpg",
+              "https://v3b.fal.media/files/b/0aad70dd/d_Dhj2BBKP3g7cVM0Mu_p_henrick-real-38.jpg",
+              "https://v3b.fal.media/files/b/0aad7132/miJKrSiVoQbKcEW7739V0_henrick-real-53.jpg",
+              "https://v3b.fal.media/files/b/0aad713c/aeNS5_F068NhJJw5ZKgHq_henrick-body-front.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:11.358Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--pose-to-camera.jpg",
+            "view": "pose-to-camera",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171a-0c76-7561-a5c9-085334df9927",
+            "prompt": "Character reference photograph of the real man in Images 1 to 4 (the same person; Image 4 shows his full costume). Keep his face, age, hair, build and costume exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square, black shoes. Full body, standing still, hands at his sides, looking straight into the camera. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7132/p8KH6AFILo_nHngzCpceE_henrick-real-56.jpg",
+              "https://v3b.fal.media/files/b/0aad70dd/d_Dhj2BBKP3g7cVM0Mu_p_henrick-real-38.jpg",
+              "https://v3b.fal.media/files/b/0aad7132/miJKrSiVoQbKcEW7739V0_henrick-real-53.jpg",
+              "https://v3b.fal.media/files/b/0aad713c/aeNS5_F068NhJJw5ZKgHq_henrick-body-front.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:11.467Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--pose-arms-crossed.jpg",
+            "view": "pose-arms-crossed",
+            "model": "GPT Image 2.5 from his book (Ministry poses)",
+            "provider": "Higgsfield; cropped in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:57:07.605Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--pose-walking.jpg",
+            "view": "pose-walking",
+            "model": "GPT Image 2.5 from his book (Ministry poses)",
+            "provider": "Higgsfield; cropped in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:57:07.629Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--pose-seated-ticket.jpg",
+            "view": "pose-seated-ticket",
+            "model": "GPT Image 2.5 from his book (Ministry poses)",
+            "provider": "Higgsfield; cropped in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:57:07.653Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--pose-seated-hands-clasped.jpg",
+            "view": "pose-seated-hands-clasped",
+            "model": "GPT Image 2.5 from his book (Ministry poses)",
+            "provider": "Higgsfield; cropped in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:57:07.676Z"
+          },
+          {
+            "file": "generated/order-now/sheets/henrick-set--pose-binder-in-bin.jpg",
+            "view": "pose-binder-in-bin",
+            "model": "GPT Image 2.5 from his book (Ministry poses)",
+            "provider": "Higgsfield; cropped in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:57:07.704Z"
+          }
+        ]
+      },
+      {
+        "id": "henrick-operator",
+        "kind": "cast",
+        "name": "Henrick: operator",
+        "brief": "The same Henrick and suit, plus a beige 1994 telephone headset, at an operator desk. Made from your pick above.",
+        "from": "henrick-set",
+        "candidates": []
+      },
+      {
+        "id": "brock",
+        "kind": "cast",
+        "name": "Brock Cassidy",
+        "brief": "The host: mid-40s, frosted spiked hair, mahogany tan, blinding veneers, teal double-breasted blazer, headset mic.",
+        "candidates": [
+          {
+            "file": "generated/order-now/brock-1.jpg",
+            "model": "FLUX 2 Max",
+            "provider": "Leap",
+            "job": "gen_UGq2CeZe20etKjOfUoZgHif3",
+            "prompt": "An American TV infomercial host in 1994, mid-40s, frosted spiked hair with blond tips, deep mahogany tan, blinding white veneers in a huge grin, teal double-breasted blazer with big shoulder pads over a white shirt, a thin wireless headset microphone at his cheek, gesturing with both hands as if landing a plane. Studio portrait photograph, waist-up, three-quarter view, plain mid-grey backdrop, soft even light. Unretouched photograph: real skin texture with pores and lines, real fabric, natural light falloff. Not an illustration, not a painting, no smoothing, no glow. No text.",
+            "cost": 0.077,
+            "by": "claude",
+            "at": "2026-10-07T15:35:14.482Z"
+          },
+          {
+            "file": "generated/order-now/brock-2.png",
+            "model": "GPT Image 2.5 Sunburst",
+            "provider": "Leap",
+            "job": "gen_faqR7qLx39cK9bvCNXcqIFeA",
+            "prompt": "An American TV infomercial host in 1994, mid-40s, frosted spiked hair with blond tips, deep mahogany tan, blinding white veneers in a huge grin, teal double-breasted blazer with big shoulder pads over a white shirt, a thin wireless headset microphone at his cheek, gesturing with both hands as if landing a plane. Studio portrait photograph, waist-up, three-quarter view, plain mid-grey backdrop, soft even light. Unretouched photograph: real skin texture with pores and lines, real fabric, natural light falloff. Not an illustration, not a painting, no smoothing, no glow. No text.",
+            "cost": 0.0858,
+            "by": "claude",
+            "at": "2026-10-07T15:35:14.507Z"
+          },
+          {
+            "file": "generated/order-now/brock-3.jpg",
+            "model": "Seedream 5.0 Pro",
+            "provider": "Leap",
+            "job": "gen_LnNtrgspni0pKSQRUwLGCTSY",
+            "prompt": "An American TV infomercial host in 1994, mid-40s, frosted spiked hair with blond tips, deep mahogany tan, blinding white veneers in a huge grin, teal double-breasted blazer with big shoulder pads over a white shirt, a thin wireless headset microphone at his cheek, gesturing with both hands as if landing a plane. Studio portrait photograph, waist-up, three-quarter view, plain mid-grey backdrop, soft even light. Unretouched photograph: real skin texture with pores and lines, real fabric, natural light falloff. Not an illustration, not a painting, no smoothing, no glow. No text.",
+            "cost": 0.0385,
+            "by": "claude",
+            "at": "2026-10-07T15:35:14.531Z"
+          }
+        ],
+        "pick": "generated/order-now/brock-2.png",
+        "pickedBy": "claude",
+        "views": [
+          {
+            "file": "generated/order-now/sheets/brock--body-front.jpg",
+            "view": "body-front",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171a-0b65-7072-b725-b28bfdcb3194",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Full body, head to toe, standing facing the camera, arms relaxed. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Jq6A8vN9hgGm19zmEGY4P_brock-2.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:11.578Z"
+          },
+          {
+            "file": "generated/order-now/sheets/brock--body-three-quarter.jpg",
+            "view": "body-three-quarter",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171a-0c54-7382-bc78-29d957292f8f",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Full body, head to toe, standing turned three-quarters to his left. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Jq6A8vN9hgGm19zmEGY4P_brock-2.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:11.693Z"
+          },
+          {
+            "file": "generated/order-now/sheets/brock--body-profile.jpg",
+            "view": "body-profile",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171a-0c77-7f12-a6bc-1337327183fd",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Full body, head to toe, standing in exact left profile. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Jq6A8vN9hgGm19zmEGY4P_brock-2.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:11.807Z"
+          },
+          {
+            "file": "generated/order-now/sheets/brock--body-back.jpg",
+            "view": "body-back",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-12bb-7261-8e35-6d5c7f9b374e",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Full body, head to toe, standing, seen from directly behind. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Jq6A8vN9hgGm19zmEGY4P_brock-2.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:11.918Z"
+          },
+          {
+            "file": "generated/order-now/sheets/brock--face-front.jpg",
+            "view": "face-front",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-1308-7a71-abb9-9bb157101f4f",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Head-and-shoulders close-up facing the camera, neutral expression. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Jq6A8vN9hgGm19zmEGY4P_brock-2.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:12.044Z"
+          },
+          {
+            "file": "generated/order-now/sheets/brock--face-three-quarter.jpg",
+            "view": "face-three-quarter",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-1314-7192-a82d-1189032baf0e",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Head-and-shoulders close-up, head turned three-quarters to his left, neutral. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Jq6A8vN9hgGm19zmEGY4P_brock-2.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:12.171Z"
+          },
+          {
+            "file": "generated/order-now/sheets/brock--face-profile.jpg",
+            "view": "face-profile",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-12f7-78b1-bcfc-b82eeb814dfc",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Head-and-shoulders, exact left profile, neutral. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Jq6A8vN9hgGm19zmEGY4P_brock-2.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:12.301Z"
+          },
+          {
+            "file": "generated/order-now/sheets/brock--expr-but-wait.jpg",
+            "view": "expr-but-wait",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-12f4-7370-abbe-4b605d73893a",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Head-and-shoulders, frantic, eyes wide, mouth open mid-shout. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Jq6A8vN9hgGm19zmEGY4P_brock-2.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:12.427Z"
+          },
+          {
+            "file": "generated/order-now/sheets/brock--expr-selling.jpg",
+            "view": "expr-selling",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-15ef-7f01-bca2-8988507f2a30",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Head-and-shoulders, a huge veneer grin, eyes wide with sales enthusiasm. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Jq6A8vN9hgGm19zmEGY4P_brock-2.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:12.548Z"
+          },
+          {
+            "file": "generated/order-now/sheets/brock--pose-bound.jpg",
+            "view": "pose-bound",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-12f5-7d62-ab3c-80277c141d51",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Full body, bounding forward mid-stride, arms flung wide, huge grin. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Jq6A8vN9hgGm19zmEGY4P_brock-2.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:12.655Z"
+          },
+          {
+            "file": "generated/order-now/sheets/brock--pose-button.jpg",
+            "view": "pose-button",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-715d-78c2-964b-86d220bd2581",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Waist-up, slamming his palm down on a giant round red arcade button on a grey base. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Jq6A8vN9hgGm19zmEGY4P_brock-2.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:12.775Z"
+          },
+          {
+            "file": "generated/order-now/sheets/brock--pose-heave.jpg",
+            "view": "pose-heave",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-1331-7fd1-b47b-728d7773b1cf",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Full body, heaving a tall tower of about twelve thick white binders, straining. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Jq6A8vN9hgGm19zmEGY4P_brock-2.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:12.885Z"
+          },
+          {
+            "file": "generated/order-now/sheets/brock--pose-wow.jpg",
+            "view": "pose-wow",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-7199-72b3-b76a-bbefe45f9664",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Waist-up, two thumbs up, mouth open in a delighted WOW. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Jq6A8vN9hgGm19zmEGY4P_brock-2.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:13.001Z"
+          }
+        ],
+        "scene": {
+          "file": "generated/order-now/sheets/brock--scene.jpg",
+          "view": "scene",
+          "model": "GPT Image 2.5 Sunburst (edit) + betacam grade",
+          "provider": "fal, graded in Stitch",
+          "by": "claude",
+          "at": "2026-10-07T15:53:56.189Z"
+        }
+      },
+      {
+        "id": "kyle",
+        "kind": "cast",
+        "name": "Kyle",
+        "brief": "The founder, 1994: mousse-sculpted hair, oversized wire-rim glasses, oversized oxford shirt, loosened patterned tie, pleated khakis, a pager on his belt. His 'before' scenes are black and white.",
+        "candidates": [
+          {
+            "file": "generated/order-now/kyle-1.jpg",
+            "model": "FLUX 2 Max",
+            "provider": "Leap",
+            "job": "gen_JWBSSokpUBq1s2qlyqbWKdqu",
+            "prompt": "A startup founder in his late 20s: patchy beard, messy brown hair, tired eyes with under-eye bags, a navy fleece vest over a plain grey t-shirt, white wireless earbuds. Neutral, slightly anxious expression. Studio portrait photograph, waist-up, three-quarter view, plain mid-grey backdrop, soft even light. Unretouched photograph: real skin texture with pores and lines, real fabric, natural light falloff. Not an illustration, not a painting, no smoothing, no glow. No text.",
+            "cost": 0.077,
+            "by": "claude",
+            "at": "2026-10-07T15:35:14.605Z"
+          },
+          {
+            "file": "generated/order-now/kyle-2.png",
+            "model": "GPT Image 2.5 Sunburst",
+            "provider": "Leap",
+            "job": "gen_mSyt3LzurJsM6Ilnezhere5J",
+            "prompt": "A startup founder in his late 20s: patchy beard, messy brown hair, tired eyes with under-eye bags, a navy fleece vest over a plain grey t-shirt, white wireless earbuds. Neutral, slightly anxious expression. Studio portrait photograph, waist-up, three-quarter view, plain mid-grey backdrop, soft even light. Unretouched photograph: real skin texture with pores and lines, real fabric, natural light falloff. Not an illustration, not a painting, no smoothing, no glow. No text.",
+            "cost": 0.0858,
+            "by": "claude",
+            "at": "2026-10-07T15:35:14.630Z"
+          },
+          {
+            "file": "generated/order-now/kyle-3.jpg",
+            "model": "Seedream 5.0 Pro",
+            "provider": "Leap",
+            "job": "gen_UMXgdz8yHrfQRxLJEvhbEDKR",
+            "prompt": "A startup founder in his late 20s: patchy beard, messy brown hair, tired eyes with under-eye bags, a navy fleece vest over a plain grey t-shirt, white wireless earbuds. Neutral, slightly anxious expression. Studio portrait photograph, waist-up, three-quarter view, plain mid-grey backdrop, soft even light. Unretouched photograph: real skin texture with pores and lines, real fabric, natural light falloff. Not an illustration, not a painting, no smoothing, no glow. No text.",
+            "cost": 0.0385,
+            "by": "claude",
+            "at": "2026-10-07T15:35:19.799Z"
+          },
+          {
+            "file": "generated/order-now/kyle-4.png",
+            "model": "GPT Image 2.5 Sunburst",
+            "provider": "Leap",
+            "job": "gen_zmONLE0e2suhQ4EP78nupwAG",
+            "prompt": "Studio portrait photograph, waist-up, three-quarter view, of a 1994 American software-startup founder in his late 20s: thick mousse-sculpted brown hair with a side part, oversized wire-rim glasses, clean-shaven, eager but exhausted eyes. An oversized light-blue oxford shirt tucked into pleated khaki trousers, a loosened wide patterned silk tie, a braided leather belt with a black pager clipped to it, a chunky digital wristwatch. Plain mid-grey studio backdrop, soft even light. Unretouched photograph: real skin texture with pores, real fabric. Period-accurate 1994, not a modern costume. Not an illustration. No text.",
+            "cost": 0.2574,
+            "by": "claude",
+            "at": "2026-10-07T15:49:53.409Z"
+          },
+          {
+            "file": "generated/order-now/kyle-5.png",
+            "model": "GPT Image 2.5 Sunburst",
+            "provider": "Leap",
+            "job": "gen_zmONLE0e2suhQ4EP78nupwAG",
+            "prompt": "Studio portrait photograph, waist-up, three-quarter view, of a 1994 American software-startup founder in his late 20s: thick mousse-sculpted brown hair with a side part, oversized wire-rim glasses, clean-shaven, eager but exhausted eyes. An oversized light-blue oxford shirt tucked into pleated khaki trousers, a loosened wide patterned silk tie, a braided leather belt with a black pager clipped to it, a chunky digital wristwatch. Plain mid-grey studio backdrop, soft even light. Unretouched photograph: real skin texture with pores, real fabric. Period-accurate 1994, not a modern costume. Not an illustration. No text.",
+            "cost": 0.2574,
+            "by": "claude",
+            "at": "2026-10-07T15:49:53.433Z"
+          },
+          {
+            "file": "generated/order-now/kyle-6.png",
+            "model": "GPT Image 2.5 Sunburst",
+            "provider": "Leap",
+            "job": "gen_zmONLE0e2suhQ4EP78nupwAG",
+            "prompt": "Studio portrait photograph, waist-up, three-quarter view, of a 1994 American software-startup founder in his late 20s: thick mousse-sculpted brown hair with a side part, oversized wire-rim glasses, clean-shaven, eager but exhausted eyes. An oversized light-blue oxford shirt tucked into pleated khaki trousers, a loosened wide patterned silk tie, a braided leather belt with a black pager clipped to it, a chunky digital wristwatch. Plain mid-grey studio backdrop, soft even light. Unretouched photograph: real skin texture with pores, real fabric. Period-accurate 1994, not a modern costume. Not an illustration. No text.",
+            "cost": 0.2574,
+            "by": "claude",
+            "at": "2026-10-07T15:49:53.458Z"
+          }
+        ],
+        "pick": "generated/order-now/kyle-5.png",
+        "pickedBy": "claude",
+        "views": [
+          {
+            "file": "generated/order-now/sheets/kyle--body-front.jpg",
+            "view": "body-front",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-7195-7501-8b3a-9b9f959ebd1c",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch, brown loafers. Full body, head to toe, standing facing the camera, arms relaxed. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7103/Fuj2rlp0aWCJNY9EdE2m7_kyle94.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:13.133Z"
+          },
+          {
+            "file": "generated/order-now/sheets/kyle--body-three-quarter.jpg",
+            "view": "body-three-quarter",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-70ce-79e2-bd0e-1e7be2457cf8",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch, brown loafers. Full body, head to toe, standing turned three-quarters to his left. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7103/Fuj2rlp0aWCJNY9EdE2m7_kyle94.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:13.262Z"
+          },
+          {
+            "file": "generated/order-now/sheets/kyle--body-profile.jpg",
+            "view": "body-profile",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-7095-7d40-8cbb-3c759befc5a5",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch, brown loafers. Full body, head to toe, standing in exact left profile. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7103/Fuj2rlp0aWCJNY9EdE2m7_kyle94.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:13.381Z"
+          },
+          {
+            "file": "generated/order-now/sheets/kyle--body-back.jpg",
+            "view": "body-back",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-7143-7523-8dc0-419266661337",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch, brown loafers. Full body, head to toe, standing, seen from directly behind. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7103/Fuj2rlp0aWCJNY9EdE2m7_kyle94.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:13.511Z"
+          },
+          {
+            "file": "generated/order-now/sheets/kyle--face-front.jpg",
+            "view": "face-front",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a11721-3c88-7812-9d29-10e2f1ccb1f1",
+            "prompt": "Studio portrait of the man in Image 1, same face, hair, glasses and clothes: mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie. Head and shoulders, looking straight into the lens, calm neutral face. Plain mid-grey backdrop, soft even light. Clean, sharp, natural photograph with real skin and fabric texture, no grain, no painterly look. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7103/Fuj2rlp0aWCJNY9EdE2m7_kyle94.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:13.636Z"
+          },
+          {
+            "file": "generated/order-now/sheets/kyle--face-three-quarter.jpg",
+            "view": "face-three-quarter",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-7315-74c2-bbe1-ebd7efa870f5",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch, brown loafers. Head-and-shoulders close-up, head turned three-quarters to his left, neutral. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7103/Fuj2rlp0aWCJNY9EdE2m7_kyle94.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:13.767Z"
+          },
+          {
+            "file": "generated/order-now/sheets/kyle--face-profile.jpg",
+            "view": "face-profile",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-dc96-7950-a5fb-7c900ebbeb4b",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch, brown loafers. Head-and-shoulders, exact left profile, neutral. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7103/Fuj2rlp0aWCJNY9EdE2m7_kyle94.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:13.896Z"
+          },
+          {
+            "file": "generated/order-now/sheets/kyle--expr-serene.jpg",
+            "view": "expr-serene",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-dcd4-7ab0-81c7-b09993116e6e",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch, brown loafers. Head-and-shoulders, completely relaxed, easy happy smile, glasses pushed up on his forehead. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7103/Fuj2rlp0aWCJNY9EdE2m7_kyle94.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:14.024Z"
+          },
+          {
+            "file": "generated/order-now/sheets/kyle--expr-stressed.jpg",
+            "view": "expr-stressed",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-dc3f-7af2-9c2d-7fc60c083593",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch, brown loafers. Head-and-shoulders, panicking: eyes wide behind his glasses, mouth tight. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7103/Fuj2rlp0aWCJNY9EdE2m7_kyle94.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:14.154Z"
+          },
+          {
+            "file": "generated/order-now/sheets/kyle--pose-arms-up.jpg",
+            "view": "pose-arms-up",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-dd10-75c2-95fe-c54f5e2c3cf7",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch, brown loafers. Full body, both arms thrown up in exasperation, shouting. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7103/Fuj2rlp0aWCJNY9EdE2m7_kyle94.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:14.278Z"
+          },
+          {
+            "file": "generated/order-now/sheets/kyle--pose-photo.jpg",
+            "view": "pose-photo",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a11721-3c08-76c1-b275-6b47d24a87e0",
+            "prompt": "Studio photo of the man in Image 1, same face, hair, glasses and clothes: mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, digital watch. Waist-up, holding a small silver 1990s compact film camera up to his eye with both hands, taking a snapshot. Plain mid-grey backdrop, soft even light. Clean, sharp, natural photograph, no grain, no painterly look. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7103/Fuj2rlp0aWCJNY9EdE2m7_kyle94.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:14.395Z"
+          },
+          {
+            "file": "generated/order-now/sheets/kyle--pose-scroll.jpg",
+            "view": "pose-scroll",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-dcd9-73b1-8ad8-f10dbef9ae41",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch, brown loafers. Full body, standing, holding the top of a very long continuous-feed paper printout that unrolls down to the floor. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7103/Fuj2rlp0aWCJNY9EdE2m7_kyle94.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:14.521Z"
+          },
+          {
+            "file": "generated/order-now/sheets/kyle--pose-tip-chair.jpg",
+            "view": "pose-tip-chair",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a11721-3ebd-7083-98e7-ca39b6256e55",
+            "prompt": "Comedy still of the man in Image 1, same face, hair, glasses and clothes: mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, brown loafers. Full body, he is leaning back too far on a wooden kitchen chair, which tilts on its two back legs, arms windmilling for balance, comic alarm on his face. Plain mid-grey backdrop, soft even light. Clean, sharp, natural photograph, no grain, no painterly look. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7103/Fuj2rlp0aWCJNY9EdE2m7_kyle94.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:14.635Z"
+          }
+        ],
+        "scene": {
+          "file": "generated/order-now/sheets/kyle--scene.jpg",
+          "view": "scene",
+          "model": "GPT Image 2.5 Sunburst (edit) + before grade",
+          "provider": "fal, graded in Stitch",
+          "by": "claude",
+          "at": "2026-10-07T15:54:37.327Z"
+        }
+      },
+      {
+        "id": "kyle-hammock",
+        "kind": "cast",
+        "name": "Kyle: in the hammock",
+        "brief": "The same Kyle, relaxed, glasses pushed up, a brick phone and a 1994 laptop beside him. Made from the approved face.",
+        "from": "kyle",
+        "candidates": []
+      },
+      {
+        "id": "gerald",
+        "kind": "cast",
+        "name": "Gerald",
+        "brief": "The auditor, about 60: careful comb-over, half-moon glasses on a chain, beige three-piece suit. Deadpan; later misty-eyed.",
+        "candidates": [
+          {
+            "file": "generated/order-now/gerald-1.jpg",
+            "model": "FLUX 2 Max",
+            "provider": "Leap",
+            "job": "gen_5rl6f9VruTeDs8bxu3OaaTgv",
+            "prompt": "An auditor about 60 years old: careful comb-over, half-moon reading glasses on a beaded chain, a beige three-piece suit with a brown tie, a small pin on the lapel, upright precise posture, deadpan expression. Studio portrait photograph, waist-up, three-quarter view, plain mid-grey backdrop, soft even light. Unretouched photograph: real skin texture with pores and lines, real fabric, natural light falloff. Not an illustration, not a painting, no smoothing, no glow. No text.",
+            "cost": 0.077,
+            "by": "claude",
+            "at": "2026-10-07T15:35:14.556Z"
+          },
+          {
+            "file": "generated/order-now/gerald-2.png",
+            "model": "GPT Image 2.5 Sunburst",
+            "provider": "Leap",
+            "job": "gen_o4puZxgQWhLcs1DucfmUWHkw",
+            "prompt": "An auditor about 60 years old: careful comb-over, half-moon reading glasses on a beaded chain, a beige three-piece suit with a brown tie, a small pin on the lapel, upright precise posture, deadpan expression. Studio portrait photograph, waist-up, three-quarter view, plain mid-grey backdrop, soft even light. Unretouched photograph: real skin texture with pores and lines, real fabric, natural light falloff. Not an illustration, not a painting, no smoothing, no glow. No text.",
+            "cost": 0.0858,
+            "by": "claude",
+            "at": "2026-10-07T15:35:14.580Z"
+          },
+          {
+            "file": "generated/order-now/gerald-3.jpg",
+            "model": "Seedream 5.0 Pro",
+            "provider": "Leap",
+            "job": "gen_xq5vbIpIsgREa3oYtjMjuz0w",
+            "prompt": "An auditor about 60 years old: careful comb-over, half-moon reading glasses on a beaded chain, a beige three-piece suit with a brown tie, a small pin on the lapel, upright precise posture, deadpan expression. Studio portrait photograph, waist-up, three-quarter view, plain mid-grey backdrop, soft even light. Unretouched photograph: real skin texture with pores and lines, real fabric, natural light falloff. Not an illustration, not a painting, no smoothing, no glow. No text.",
+            "cost": 0.0385,
+            "by": "claude",
+            "at": "2026-10-07T15:35:36.015Z"
+          }
+        ],
+        "pick": "generated/order-now/gerald-1.jpg",
+        "pickedBy": "claude",
+        "views": [
+          {
+            "file": "generated/order-now/sheets/gerald--body-front.jpg",
+            "view": "body-front",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171e-dcdc-7110-96f8-2cf8287fa933",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: slicked comb-over, half-moon reading glasses whose arms attach to a thin beaded chain looped behind his neck, beige three-piece suit, brown tie, lapel pin, brown oxford shoes. Full body, head to toe, standing facing the camera, arms relaxed. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Rkt5xwVlNFkiJvhrBeToe_gerald-1.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:14.751Z"
+          },
+          {
+            "file": "generated/order-now/sheets/gerald--body-three-quarter.jpg",
+            "view": "body-three-quarter",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171f-422f-72c2-92d8-43e6e4223b9a",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: slicked comb-over, half-moon reading glasses whose arms attach to a thin beaded chain looped behind his neck, beige three-piece suit, brown tie, lapel pin, brown oxford shoes. Full body, head to toe, standing turned three-quarters to his left. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Rkt5xwVlNFkiJvhrBeToe_gerald-1.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:14.862Z"
+          },
+          {
+            "file": "generated/order-now/sheets/gerald--body-profile.jpg",
+            "view": "body-profile",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171f-4203-7962-a0cb-1fa169d00e97",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: slicked comb-over, half-moon reading glasses whose arms attach to a thin beaded chain looped behind his neck, beige three-piece suit, brown tie, lapel pin, brown oxford shoes. Full body, head to toe, standing in exact left profile. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Rkt5xwVlNFkiJvhrBeToe_gerald-1.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:14.973Z"
+          },
+          {
+            "file": "generated/order-now/sheets/gerald--body-back.jpg",
+            "view": "body-back",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171f-42a3-7460-b1c6-4c2244493e68",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: slicked comb-over, half-moon reading glasses whose arms attach to a thin beaded chain looped behind his neck, beige three-piece suit, brown tie, lapel pin, brown oxford shoes. Full body, head to toe, standing, seen from directly behind. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Rkt5xwVlNFkiJvhrBeToe_gerald-1.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:15.088Z"
+          },
+          {
+            "file": "generated/order-now/sheets/gerald--face-front.jpg",
+            "view": "face-front",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a11723-61c0-7442-b184-9fe25fad031e",
+            "prompt": "Character reference photograph of the man in Image 1, same face, age, hair, glasses and beige three-piece suit, brown tie, lapel pin. His wire reading glasses have a thin dark beaded chain fixed to the end of each temple arm: the chain runs from both arms of the glasses, past his ears, and hangs in a loop behind his neck, exactly as in Image 1. Head-and-shoulders close-up, head turned three-quarters to his left, neutral. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7189/CbrDnYxd0Jf8LD7RcsGpo_gerald-chain-ref.jpg",
+              "https://v3b.fal.media/files/b/0aad70bc/Rkt5xwVlNFkiJvhrBeToe_gerald-1.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:15.212Z"
+          },
+          {
+            "file": "generated/order-now/sheets/gerald--face-three-quarter.jpg",
+            "view": "face-three-quarter",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a11723-61db-7f22-924b-752bffce152f",
+            "prompt": "Character reference photograph of the man in Image 1, same face, age, hair, glasses and beige three-piece suit, brown tie, lapel pin. His wire reading glasses have a thin dark beaded chain fixed to the end of each temple arm: the chain runs from both arms of the glasses, past his ears, and hangs in a loop behind his neck, exactly as in Image 1. Head-and-shoulders close-up facing the camera, neutral expression. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7189/CbrDnYxd0Jf8LD7RcsGpo_gerald-chain-ref.jpg",
+              "https://v3b.fal.media/files/b/0aad70bc/Rkt5xwVlNFkiJvhrBeToe_gerald-1.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:15.335Z"
+          },
+          {
+            "file": "generated/order-now/sheets/gerald--face-profile.jpg",
+            "view": "face-profile",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a11723-6286-7b00-81dc-be62890c9c04",
+            "prompt": "Character reference photograph of the man in Image 1, same face, age, hair, glasses and beige three-piece suit, brown tie, lapel pin. His wire reading glasses have a thin dark beaded chain fixed to the end of each temple arm: in profile the chain is seen running from the tip of the glasses arm behind his ear and down the side of his neck, exactly the chain in Image 1. Head-and-shoulders, exact left profile, neutral. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad7189/CbrDnYxd0Jf8LD7RcsGpo_gerald-chain-ref.jpg",
+              "https://v3b.fal.media/files/b/0aad70bc/Rkt5xwVlNFkiJvhrBeToe_gerald-1.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:15.455Z"
+          },
+          {
+            "file": "generated/order-now/sheets/gerald--expr-deadpan.jpg",
+            "view": "expr-deadpan",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171f-4268-78f1-b641-c503af02e5fb",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: slicked comb-over, half-moon reading glasses whose arms attach to a thin beaded chain looped behind his neck, beige three-piece suit, brown tie, lapel pin, brown oxford shoes. Head-and-shoulders, an unimpressed flat stare over the top of his half-moon glasses. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Rkt5xwVlNFkiJvhrBeToe_gerald-1.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:15.579Z"
+          },
+          {
+            "file": "generated/order-now/sheets/gerald--expr-misty.jpg",
+            "view": "expr-misty",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171f-41ee-7ff1-8808-2196f1355dd7",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: slicked comb-over, half-moon reading glasses whose arms attach to a thin beaded chain looped behind his neck, beige three-piece suit, brown tie, lapel pin, brown oxford shoes. Head-and-shoulders, misty-eyed and moved, lips pressed together. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Rkt5xwVlNFkiJvhrBeToe_gerald-1.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:15.703Z"
+          },
+          {
+            "file": "generated/order-now/sheets/gerald--pose-folder.jpg",
+            "view": "pose-folder",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171f-86d6-76d0-b0bf-fc1420aaa283",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: slicked comb-over, half-moon reading glasses whose arms attach to a thin beaded chain looped behind his neck, beige three-piece suit, brown tie, lapel pin, brown oxford shoes. Waist-up, holding one thin blue folder to his chest, misty-eyed. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Rkt5xwVlNFkiJvhrBeToe_gerald-1.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:15.827Z"
+          },
+          {
+            "file": "generated/order-now/sheets/gerald--pose-hands.jpg",
+            "view": "pose-hands",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171f-8723-7651-8029-0e6cd4a472f7",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: slicked comb-over, half-moon reading glasses whose arms attach to a thin beaded chain looped behind his neck, beige three-piece suit, brown tie, lapel pin, brown oxford shoes. Waist-up, holding both hands up awkwardly in front of him, unsure what to do with them. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Rkt5xwVlNFkiJvhrBeToe_gerald-1.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:15.951Z"
+          },
+          {
+            "file": "generated/order-now/sheets/gerald--pose-seated.jpg",
+            "view": "pose-seated",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171f-8686-7f42-bb09-beffceda3167",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: slicked comb-over, half-moon reading glasses whose arms attach to a thin beaded chain looped behind his neck, beige three-piece suit, brown tie, lapel pin, brown oxford shoes. Full body, seated upright on an office chair, hands flat on his knees, deadpan. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Rkt5xwVlNFkiJvhrBeToe_gerald-1.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:16.061Z"
+          },
+          {
+            "file": "generated/order-now/sheets/gerald--pose-sticky-note.jpg",
+            "view": "pose-sticky-note",
+            "model": "Nano Banana 2.1 (edit)",
+            "provider": "fal",
+            "job": "01a1171f-88b2-72c1-a924-dd3ced4dc390",
+            "prompt": "Character reference photograph of the man in Image 1. Keep his face, age, hair, build and costume exactly: slicked comb-over, half-moon reading glasses whose arms attach to a thin beaded chain looped behind his neck, beige three-piece suit, brown tie, lapel pin, brown oxford shoes. Waist-up, seated at a table, sliding a single yellow sticky note forward with one finger, deadpan. Plain mid-grey seamless studio backdrop, soft even light. Clean, sharp, natural photograph: real skin and fabric, no grain, no noise, no painterly texture, no smoothing. No text.",
+            "inputs": [
+              "https://v3b.fal.media/files/b/0aad70bc/Rkt5xwVlNFkiJvhrBeToe_gerald-1.jpg"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:15:16.176Z"
+          }
+        ],
+        "scene": {
+          "file": "generated/order-now/sheets/gerald--scene.jpg",
+          "view": "scene",
+          "model": "GPT Image 2.5 Sunburst (edit) + before grade",
+          "provider": "fal, graded in Stitch",
+          "by": "claude",
+          "at": "2026-10-07T15:54:37.350Z"
+        }
+      },
+      {
+        "id": "audience",
+        "kind": "cast",
+        "name": "Studio audience",
+        "brief": "A 1994 crowd on bleachers: perms, windbreakers, pastel sweaters, big reactions. Wide shots only.",
+        "candidates": [
+          {
+            "file": "generated/order-now/audience-1.png",
+            "model": "GPT Image 2.5 Sunburst",
+            "provider": "Leap",
+            "job": "gen_nENdwD9sGYHzjFtbgHKOovLE",
+            "prompt": "A wide photograph of a 1994 American TV studio audience on tiered bleachers, about forty adults with perms, mullets, pastel sweaters and windbreakers, applauding and cheering with big genuine reactions, bright flat studio light, shot on Betacam, soft focus, slight chroma bleed. Photographic, period-accurate. No text.",
+            "cost": 0.0858,
+            "by": "claude",
+            "at": "2026-10-07T15:35:14.458Z"
+          },
+          {
+            "file": "generated/order-now/audience-2.jpg",
+            "model": "FLUX 2 Max",
+            "provider": "Leap",
+            "job": "gen_pSKtPRAkP4BEgX8VdydufN0j",
+            "prompt": "A wide photograph of a 1994 American TV studio audience on tiered bleachers, about forty adults with perms, mullets, pastel sweaters and windbreakers, applauding and cheering with big genuine reactions, bright flat studio light, shot on Betacam, soft focus, slight chroma bleed. Photographic, period-accurate. No text.",
+            "cost": 0.077,
+            "by": "claude",
+            "at": "2026-10-07T15:35:27.918Z"
+          },
+          {
+            "file": "generated/order-now/audience-3.jpg",
+            "model": "Seedream 5.0 Pro",
+            "provider": "Leap",
+            "job": "gen_9WaFvRihA2PKEkRf1hQBFfvm",
+            "prompt": "A wide photograph of a 1994 American TV studio audience on tiered bleachers, about forty adults with perms, mullets, pastel sweaters and windbreakers, applauding and cheering with big genuine reactions, bright flat studio light, shot on Betacam, soft focus, slight chroma bleed. Photographic, period-accurate. No text.",
+            "cost": 0.0385,
+            "by": "claude",
+            "at": "2026-10-07T15:35:44.165Z"
+          },
+          {
+            "file": "generated/order-now/audience-4.jpg",
+            "model": "GPT Image 2.5 Sunburst + betacam grade",
+            "provider": "Leap, graded in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:41:49.956Z"
+          },
+          {
+            "file": "generated/order-now/audience-5.jpg",
+            "model": "GPT Image 2.5 Sunburst + betacam grade",
+            "provider": "Leap, graded in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:53:55.894Z"
+          }
+        ],
+        "pick": "generated/order-now/audience-5.jpg",
+        "pickedBy": "claude"
+      },
+      {
+        "id": "set-kitchen",
+        "kind": "location",
+        "name": "Kyle's kitchen",
+        "brief": "Small apartment kitchen at night, laminate table, open laptop, pizza boxes. Graded black and white in the edit.",
+        "candidates": [
+          {
+            "file": "generated/order-now/set-kitchen-1.png",
+            "model": "GPT Image 2.5 Sunburst",
+            "provider": "Leap",
+            "job": "gen_F0suX5feSDxYuG7lvNEH7mvJ",
+            "prompt": "An empty small apartment kitchen in the evening: a cheap laminate kitchen table with an open laptop, a stack of pizza boxes, takeout cups, a wooden chair pulled out, a fridge covered in magnets, a single overhead light. Medium-wide locked camera at seated eye level. Lived-in. Photographic, real, period-accurate. No people. No text.",
+            "cost": 0.0858,
+            "by": "claude",
+            "at": "2026-10-07T15:35:14.828Z"
+          },
+          {
+            "file": "generated/order-now/set-kitchen-2.jpg",
+            "model": "FLUX 2 Max",
+            "provider": "Leap",
+            "job": "gen_z49s87UO9681G6SncUGZYwcx",
+            "prompt": "An empty small apartment kitchen in the evening: a cheap laminate kitchen table with an open laptop, a stack of pizza boxes, takeout cups, a wooden chair pulled out, a fridge covered in magnets, a single overhead light. Medium-wide locked camera at seated eye level. Lived-in. Photographic, real, period-accurate. No people. No text.",
+            "cost": 0.077,
+            "by": "claude",
+            "at": "2026-10-07T15:35:36.068Z"
+          },
+          {
+            "file": "generated/order-now/set-kitchen-3.jpg",
+            "model": "Seedream 5.0 Pro",
+            "provider": "Leap",
+            "job": "gen_l3mUIco1T2Zl2cbQ9vTFDLJP",
+            "prompt": "An empty small apartment kitchen in the evening: a cheap laminate kitchen table with an open laptop, a stack of pizza boxes, takeout cups, a wooden chair pulled out, a fridge covered in magnets, a single overhead light. Medium-wide locked camera at seated eye level. Lived-in. Photographic, real, period-accurate. No people. No text.",
+            "cost": 0.0385,
+            "by": "claude",
+            "at": "2026-10-07T15:36:00.390Z"
+          },
+          {
+            "file": "generated/order-now/set-kitchen-4.jpg",
+            "model": "GPT Image 2.5 Sunburst + before grade",
+            "provider": "Leap, graded in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:41:50.100Z"
+          },
+          {
+            "file": "generated/order-now/set-kitchen-5.jpg",
+            "model": "GPT Image 2.5 Sunburst + before grade",
+            "provider": "Leap, graded in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:50:55.381Z"
+          }
+        ],
+        "pick": "generated/order-now/set-kitchen-5.jpg",
+        "pickedBy": "claude"
+      },
+      {
+        "id": "set-stairwell",
+        "kind": "location",
+        "name": "Stairwell",
+        "brief": "Office stairwell from the top landing, straight down four flights. Graded black and white.",
+        "candidates": [
+          {
+            "file": "generated/order-now/set-stairwell-1.png",
+            "model": "GPT Image 2.5 Sunburst",
+            "provider": "Leap",
+            "job": "gen_H456WzgffRPuLvokGD8Nqmb5",
+            "prompt": "An empty office building stairwell seen from the top landing looking straight down four flights, metal railings spiralling down, concrete steps, fluorescent light. Photographic, real, period-accurate. No people. No text.",
+            "cost": 0.0858,
+            "by": "claude",
+            "at": "2026-10-07T15:35:19.828Z"
+          },
+          {
+            "file": "generated/order-now/set-stairwell-2.jpg",
+            "model": "FLUX 2 Max",
+            "provider": "Leap",
+            "job": "gen_70q0m5SJtxrM5v2xTovGXn21",
+            "prompt": "An empty office building stairwell seen from the top landing looking straight down four flights, metal railings spiralling down, concrete steps, fluorescent light. Photographic, real, period-accurate. No people. No text.",
+            "cost": 0.077,
+            "by": "claude",
+            "at": "2026-10-07T15:35:52.273Z"
+          },
+          {
+            "file": "generated/order-now/set-stairwell-3.jpg",
+            "model": "Seedream 5.0 Pro",
+            "provider": "Leap",
+            "job": "gen_u2M2odP553RbetrFPyrH1PgT",
+            "prompt": "An empty office building stairwell seen from the top landing looking straight down four flights, metal railings spiralling down, concrete steps, fluorescent light. Photographic, real, period-accurate. No people. No text.",
+            "cost": 0.0385,
+            "by": "claude",
+            "at": "2026-10-07T15:36:00.417Z"
+          },
+          {
+            "file": "generated/order-now/set-stairwell-4.jpg",
+            "model": "GPT Image 2.5 Sunburst + before grade",
+            "provider": "Leap, graded in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:41:50.240Z"
+          },
+          {
+            "file": "generated/order-now/set-stairwell-5.jpg",
+            "model": "GPT Image 2.5 Sunburst + before grade",
+            "provider": "Leap, graded in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:50:55.543Z"
+          }
+        ],
+        "pick": "generated/order-now/set-stairwell-5.jpg",
+        "pickedBy": "claude"
+      },
+      {
+        "id": "set-audit",
+        "kind": "location",
+        "name": "Audit room",
+        "brief": "Windowless conference room, harsh fluorescents, a long table piled with binders. Graded black and white.",
+        "candidates": [
+          {
+            "file": "generated/order-now/set-audit-1.png",
+            "model": "GPT Image 2.5 Sunburst",
+            "provider": "Leap",
+            "job": "gen_gWSmZrsHIUkWDEmF1kdgE5oY",
+            "prompt": "An empty windowless conference room under harsh fluorescent light, a long table piled with tall stacks of white binders and a few yellow sticky notes, two office chairs facing each other across it, beige walls. Medium-wide locked camera at seated eye level. Photographic, real, period-accurate. No people. No text.",
+            "cost": 0.0858,
+            "by": "claude",
+            "at": "2026-10-07T15:35:36.042Z"
+          },
+          {
+            "file": "generated/order-now/set-audit-2.jpg",
+            "model": "FLUX 2 Max",
+            "provider": "Leap",
+            "job": "gen_yNrjdSvwQyniTaPLdMhssa3f",
+            "prompt": "An empty windowless conference room under harsh fluorescent light, a long table piled with tall stacks of white binders and a few yellow sticky notes, two office chairs facing each other across it, beige walls. Medium-wide locked camera at seated eye level. Photographic, real, period-accurate. No people. No text.",
+            "cost": 0.077,
+            "by": "claude",
+            "at": "2026-10-07T15:36:08.500Z"
+          },
+          {
+            "file": "generated/order-now/set-audit-3.jpg",
+            "model": "Seedream 5.0 Pro",
+            "provider": "Leap",
+            "job": "gen_eVc83pQtVX5dOOLTIz6q2PlU",
+            "prompt": "An empty windowless conference room under harsh fluorescent light, a long table piled with tall stacks of white binders and a few yellow sticky notes, two office chairs facing each other across it, beige walls. Medium-wide locked camera at seated eye level. Photographic, real, period-accurate. No people. No text.",
+            "cost": 0.0385,
+            "by": "claude",
+            "at": "2026-10-07T15:36:16.580Z"
+          },
+          {
+            "file": "generated/order-now/set-audit-4.jpg",
+            "model": "GPT Image 2.5 Sunburst + before grade",
+            "provider": "Leap, graded in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:41:50.377Z"
+          },
+          {
+            "file": "generated/order-now/set-audit-5.jpg",
+            "model": "GPT Image 2.5 Sunburst + before grade",
+            "provider": "Leap, graded in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:50:55.706Z"
+          }
+        ],
+        "pick": "generated/order-now/set-audit-5.jpg",
+        "pickedBy": "claude"
+      },
+      {
+        "id": "set-studio",
+        "kind": "location",
+        "name": "Infomercial set",
+        "brief": "1994 infomercial set: pastel gradient backdrop, demo table, two white stools, COMP AI neon sign, audience bleachers.",
+        "candidates": [
+          {
+            "file": "generated/order-now/set-studio-1.png",
+            "model": "GPT Image 2.5 Sunburst",
+            "provider": "Leap",
+            "job": "gen_xNsx5PFzU3EhhoxxTS0OSzJW",
+            "prompt": "An empty 1994 American infomercial television set: a pastel pink-to-teal gradient backdrop, a glossy laminate demo table centre stage, two white stools, a large glowing neon sign that reads 'COMP AI', tiered audience bleachers at frame left, bright flat studio lighting, shot on Betacam with soft focus and slight chroma bleed. Photographic, real, period-accurate. No people.",
+            "cost": 0.0858,
+            "by": "claude",
+            "at": "2026-10-07T15:35:52.302Z"
+          },
+          {
+            "file": "generated/order-now/set-studio-2.jpg",
+            "model": "FLUX 2 Max",
+            "provider": "Leap",
+            "job": "gen_zkK7e88EDA5JAMEFzQwwlNf7",
+            "prompt": "An empty 1994 American infomercial television set: a pastel pink-to-teal gradient backdrop, a glossy laminate demo table centre stage, two white stools, a large glowing neon sign that reads 'COMP AI', tiered audience bleachers at frame left, bright flat studio lighting, shot on Betacam with soft focus and slight chroma bleed. Photographic, real, period-accurate. No people.",
+            "cost": 0.077,
+            "by": "claude",
+            "at": "2026-10-07T15:36:16.653Z"
+          },
+          {
+            "file": "generated/order-now/set-studio-3.jpg",
+            "model": "Seedream 5.0 Pro",
+            "provider": "Leap",
+            "job": "gen_PYHGGQHtfN3l5UYp61Uexpjx",
+            "prompt": "An empty 1994 American infomercial television set: a pastel pink-to-teal gradient backdrop, a glossy laminate demo table centre stage, two white stools, a large glowing neon sign that reads 'COMP AI', tiered audience bleachers at frame left, bright flat studio lighting, shot on Betacam with soft focus and slight chroma bleed. Photographic, real, period-accurate. No people.",
+            "cost": 0.0385,
+            "by": "claude",
+            "at": "2026-10-07T15:36:32.825Z"
+          },
+          {
+            "file": "generated/order-now/set-studio-4.jpg",
+            "model": "GPT Image 2.5 Sunburst + betacam grade",
+            "provider": "Leap, graded in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:41:49.456Z"
+          },
+          {
+            "file": "generated/order-now/set-studio-5.jpg",
+            "model": "GPT Image 2.5 Sunburst + betacam grade",
+            "provider": "Leap, graded in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:53:55.443Z"
+          }
+        ],
+        "pick": "generated/order-now/set-studio-5.jpg",
+        "pickedBy": "claude"
+      },
+      {
+        "id": "set-operators",
+        "kind": "location",
+        "name": "Operator bank",
+        "brief": "1994 order phone bank: beige desks and phones in a long row, a sign: OPERATORS STANDING BY.",
+        "candidates": [
+          {
+            "file": "generated/order-now/set-operators-1.png",
+            "model": "GPT Image 2.5 Sunburst",
+            "provider": "Leap",
+            "job": "gen_UBf81Womz635hVO1yBsMGsrh",
+            "prompt": "An empty 1994 telephone order centre: a long row of beige desks with beige corded phones and grey fabric partitions, a hanging sign that reads 'OPERATORS STANDING BY', fluorescent light, beige carpet. Wide locked camera. Photographic, real, period-accurate. No people.",
+            "cost": 0.0858,
+            "by": "claude",
+            "at": "2026-10-07T15:36:16.629Z"
+          },
+          {
+            "file": "generated/order-now/set-operators-2.jpg",
+            "model": "FLUX 2 Max",
+            "provider": "Leap",
+            "job": "gen_69Cdy6ma1ywoMTmeZI4MPzVV",
+            "prompt": "An empty 1994 telephone order centre: a long row of beige desks with beige corded phones and grey fabric partitions, a hanging sign that reads 'OPERATORS STANDING BY', fluorescent light, beige carpet. Wide locked camera. Photographic, real, period-accurate. No people.",
+            "cost": 0.077,
+            "by": "claude",
+            "at": "2026-10-07T15:36:40.920Z"
+          },
+          {
+            "file": "generated/order-now/set-operators-3.jpg",
+            "model": "Seedream 5.0 Pro",
+            "provider": "Leap",
+            "job": "gen_9mTUBZTKwBAL6ovfJneWVn5Z",
+            "prompt": "An empty 1994 telephone order centre: a long row of beige desks with beige corded phones and grey fabric partitions, a hanging sign that reads 'OPERATORS STANDING BY', fluorescent light, beige carpet. Wide locked camera. Photographic, real, period-accurate. No people.",
+            "cost": 0.0385,
+            "by": "claude",
+            "at": "2026-10-07T15:36:40.947Z"
+          },
+          {
+            "file": "generated/order-now/set-operators-4.jpg",
+            "model": "GPT Image 2.5 Sunburst + betacam grade",
+            "provider": "Leap, graded in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:41:49.570Z"
+          },
+          {
+            "file": "generated/order-now/set-operators-5.jpg",
+            "model": "GPT Image 2.5 Sunburst + betacam grade",
+            "provider": "Leap, graded in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:53:55.592Z"
+          }
+        ],
+        "pick": "generated/order-now/set-operators-5.jpg",
+        "pickedBy": "claude"
+      },
+      {
+        "id": "set-hammock",
+        "kind": "location",
+        "name": "Backyard hammock",
+        "brief": "Sunny backyard, rope hammock between two trees, side table with a coconut drink and a laptop. VHS testimonial look.",
+        "candidates": [
+          {
+            "file": "generated/order-now/set-hammock-1.png",
+            "model": "GPT Image 2.5 Sunburst",
+            "provider": "Leap",
+            "job": "gen_zGUROIScn39nBKI1WpY3ZuNQ",
+            "prompt": "A sunny suburban backyard with a rope hammock strung between two trees, a small side table holding a coconut drink with a straw and a closed laptop, green lawn, a wooden fence, late-afternoon light. Medium camera at hammock height, shot on a 1994 consumer VHS camcorder: soft, slightly oversaturated, a little tape noise. Photographic, real, period-accurate. No people. No text.",
+            "cost": 0.0858,
+            "by": "claude",
+            "at": "2026-10-07T15:36:16.604Z"
+          },
+          {
+            "file": "generated/order-now/set-hammock-2.jpg",
+            "model": "FLUX 2 Max",
+            "provider": "Leap",
+            "job": "gen_M0lLu6LCJl4PXlVCOfOoiDeZ",
+            "prompt": "A sunny suburban backyard with a rope hammock strung between two trees, a small side table holding a coconut drink with a straw and a closed laptop, green lawn, a wooden fence, late-afternoon light. Medium camera at hammock height, shot on a 1994 consumer VHS camcorder: soft, slightly oversaturated, a little tape noise. Photographic, real, period-accurate. No people. No text.",
+            "cost": 0.077,
+            "by": "claude",
+            "at": "2026-10-07T15:36:40.895Z"
+          },
+          {
+            "file": "generated/order-now/set-hammock-3.jpg",
+            "model": "Seedream 5.0 Pro",
+            "provider": "Leap",
+            "job": "gen_shTnvHLLjr98jeq8uYHKvET9",
+            "prompt": "A sunny suburban backyard with a rope hammock strung between two trees, a small side table holding a coconut drink with a straw and a closed laptop, green lawn, a wooden fence, late-afternoon light. Medium camera at hammock height, shot on a 1994 consumer VHS camcorder: soft, slightly oversaturated, a little tape noise. Photographic, real, period-accurate. No people. No text.",
+            "cost": 0.0385,
+            "by": "claude",
+            "at": "2026-10-07T15:37:37.470Z"
+          },
+          {
+            "file": "generated/order-now/set-hammock-4.jpg",
+            "model": "GPT Image 2.5 Sunburst + betacam grade",
+            "provider": "Leap, graded in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:41:49.699Z"
+          },
+          {
+            "file": "generated/order-now/set-hammock-5.jpg",
+            "model": "GPT Image 2.5 Sunburst + betacam grade",
+            "provider": "Leap, graded in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:50:55.864Z"
+          }
+        ],
+        "pick": "generated/order-now/set-hammock-5.jpg",
+        "pickedBy": "claude"
+      },
+      {
+        "id": "props-demo",
+        "kind": "prop",
+        "name": "The demo: binders, button, folder",
+        "brief": "A tower of white binders, a giant red COMP AI button, and the one thin folder marked SOC 2.",
+        "candidates": [
+          {
+            "file": "generated/order-now/props-demo-1.png",
+            "model": "GPT Image 2.5 Sunburst",
+            "provider": "Leap",
+            "job": "gen_cC61XvqlFgbW6nfIaZ8BbUp2",
+            "prompt": "Product photograph on a glossy laminate demo table: a tall tower of about twelve thick white three-ring binders, a giant round red arcade-style button on a grey base with 'COMP AI' printed on it, and beside it one thin blue folder labelled 'SOC 2'. Bright flat 1994 studio light, pastel backdrop. Photographic. No people.",
+            "cost": 0.0858,
+            "by": "claude",
+            "at": "2026-10-07T15:36:32.800Z"
+          },
+          {
+            "file": "generated/order-now/props-demo-2.jpg",
+            "model": "FLUX 2 Max",
+            "provider": "Leap",
+            "job": "gen_GMqLyEQ3lztQrEMbyLCnGJ7o",
+            "prompt": "Product photograph on a glossy laminate demo table: a tall tower of about twelve thick white three-ring binders, a giant round red arcade-style button on a grey base with 'COMP AI' printed on it, and beside it one thin blue folder labelled 'SOC 2'. Bright flat 1994 studio light, pastel backdrop. Photographic. No people.",
+            "cost": 0.077,
+            "by": "claude",
+            "at": "2026-10-07T15:36:57.090Z"
+          },
+          {
+            "file": "generated/order-now/props-demo-3.jpg",
+            "model": "Seedream 5.0 Pro",
+            "provider": "Leap",
+            "job": "gen_hAaL6RG4uVhh7Km2UHw43WOm",
+            "prompt": "Product photograph on a glossy laminate demo table: a tall tower of about twelve thick white three-ring binders, a giant round red arcade-style button on a grey base with 'COMP AI' printed on it, and beside it one thin blue folder labelled 'SOC 2'. Bright flat 1994 studio light, pastel backdrop. Photographic. No people.",
+            "cost": 0.0385,
+            "by": "claude",
+            "at": "2026-10-07T15:37:29.378Z"
+          },
+          {
+            "file": "generated/order-now/props-demo-4.jpg",
+            "model": "GPT Image 2.5 Sunburst + betacam grade",
+            "provider": "Leap, graded in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:41:49.828Z"
+          },
+          {
+            "file": "generated/order-now/props-demo-5.jpg",
+            "model": "GPT Image 2.5 Sunburst + betacam grade",
+            "provider": "Leap, graded in Stitch",
+            "by": "claude",
+            "at": "2026-10-07T15:53:55.743Z"
+          },
+          {
+            "file": "generated/order-now/props-demo-6.jpg",
+            "model": "Nano Banana 2.1 (edit) + betacam grade",
+            "provider": "fal, graded in Stitch",
+            "job": "01a11726-d6e7-7cd3-a666-c8db785f0b18",
+            "prompt": "Image 1 is our 1994 infomercial television set. Image 2 shows the three demo props. Make a closer shot of the same set: the camera moves in to a medium shot of the white curved demo desk in Image 1, keeping its glossy white top with chrome trim, the pink-to-teal gradient wall, the glowing COMP AI neon sign softly out of focus behind, the potted palms and the same bright, flat, even 1994 studio lighting. On the desk top stand the props from Image 2, restyled so they belong on this set: on the left a tall stack of about twelve thick white three-ring binders; in the centre a giant round glossy red arcade-style button on a grey base, with COMP AI printed on the red dome; on the right one thin blue folder lying flat with a white label that reads SOC 2. The props sit firmly on the desk top with correct contact shadows and reflections in the glossy surface. No people. Clean, sharp, natural photograph of a real television set: no grain, no noise, no painterly texture. No other text.",
+            "inputs": [
+              "generated/order-now/set-studio-1.png",
+              "generated/order-now/props-demo-1.png"
+            ],
+            "by": "claude",
+            "at": "2026-10-07T16:17:19.963Z"
+          }
+        ],
+        "pick": "generated/order-now/props-demo-6.jpg",
+        "pickedBy": "claude"
       }
     ]
   }

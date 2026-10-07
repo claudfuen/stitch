@@ -34,11 +34,13 @@
 //   bun run stitch sheets                                    stage 02: every item, its candidates (model, provider) and pick
 //   bun run stitch sheet add <item> <file|sidecar.json> --model <m> --provider <p> [--job id] [--cost usd] [--prompt-file f]
 //        (a Leap sidecar next to the file fills model, job, cost and prompt; the image is copied into public/generated/<film>/)
-//   bun run stitch sheet view <item> <view> <file> --model <m> --provider <p> [--job id] [--cost usd] [--prompt-file f]
+//   bun run stitch sheet view <item> <view> <file> [--model <m> --provider <p>] [--job id] [--cost usd] [--prompt-file f]
+//        (a sidecar next to the file, as scripts/fal.ts writes, fills model, provider, job, prompt and inputs)
+//   bun run stitch sheet unview <item> <view> [view ...]    take views off a sheet (before a regenerated sheet goes on)
 //   bun run stitch sheet scene <item> <file> --model <m> --provider <p>   (the character in the world, in the look)
 //   bun run stitch sheet pick <item> <n|file|none>          bun run stitch sheet lock <item> <pass> <of> ["note"]
 import { execFileSync } from "node:child_process"
-import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
+import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs"
 import path from "node:path"
 import { CHECKS, type Asset, type CheckKey, type GenStep, type Media, type TakeVerdict } from "../lib/model"
 import { parseStep, stepFromSidecar } from "../lib/models"
@@ -200,16 +202,31 @@ async function sheetAdd(id: string, src: string) {
   console.log(`${id}: ${path.relative("public", dest)} (${model} via ${provider})`)
 }
 
+// Readable names for model IDs that sidecars record (fal endpoints, Leap IDs). Unknown IDs are shown as they are.
+const MODEL_NAME: Record<string, string> = {
+  "google/nano-banana-2.1/edit": "Nano Banana 2.1 (edit)",
+  "google/nano-banana-2.1": "Nano Banana 2.1",
+  "openai/gpt-image-2.5-sunburst/edit": "GPT Image 2.5 Sunburst (edit)",
+}
+
 async function sheetView(id: string, view: string, src: string, scene = false) {
   const film = process.env.STITCH_PROJECT || "ministry"
-  const model = flag("model"), provider = flag("provider")
-  if (!model || !provider) throw new Error("every view needs --model and --provider")
+  // A sidecar next to the file (scripts/fal.ts, Leap) fills model, provider, job, prompt and inputs; flags override it.
+  const side = existsSync(src + ".json") ? JSON.parse(readFileSync(src + ".json", "utf8")) : {}
+  const model = flag("model") ?? (side.model ? MODEL_NAME[side.model] ?? side.model : undefined)
+  const provider = flag("provider") ?? side.provider
+  if (!model || !provider) throw new Error("every view needs --model and --provider (or a sidecar)")
   const dir = path.join("public", "generated", film, "sheets")
   mkdirSync(dir, { recursive: true })
-  const dest = path.join(dir, `${id}--${view}${path.extname(src)}`)
-  copyFileSync(src, dest)
-  const prompt = flag("prompt-file") ? readFileSync(flag("prompt-file")!, "utf8") : flag("prompt")
-  await run([{ op: scene ? "sheet.scene" : "sheet.view", id, candidate: { file: path.relative("public", dest), view, model, provider, job: flag("job"), prompt, cost: flag("cost") ? Number(flag("cost")) : undefined, inputs: many.input, by: flag("by") ?? "claude", at: new Date().toISOString() } }])
+  // Big PNGs (2K model output is ~7 MB) are stored as high-quality JPEG; the original stays where it was.
+  const jpeg = path.extname(src).toLowerCase() === ".png" && statSync(src).size > 2_000_000
+  const dest = path.join(dir, `${id}--${view}${jpeg ? ".jpg" : path.extname(src)}`)
+  if (jpeg) execFileSync("ffmpeg", ["-v", "error", "-y", "-i", src, "-q:v", "2", dest])
+  else copyFileSync(src, dest)
+  const prompt = flag("prompt-file") ? readFileSync(flag("prompt-file")!, "utf8") : flag("prompt") ?? side.input?.prompt ?? side.prompt
+  const inputs: string[] | undefined = many.input ?? side.input?.image_urls
+  const cost = flag("cost") ?? side.cost_usd ?? side.usage?.cost_usd
+  await run([{ op: scene ? "sheet.scene" : "sheet.view", id, candidate: { file: path.relative("public", dest), view, model, provider, job: flag("job") ?? side.request_id ?? side.id, prompt, cost: cost !== undefined ? Number(cost) : undefined, inputs, by: flag("by") ?? "claude", at: new Date().toISOString() } }])
   console.log(`${id} ${view}: ${path.relative("public", dest)} (${model} via ${provider})`)
 }
 
@@ -222,6 +239,10 @@ async function main() {
       if (sub === "add" && rest.length >= 2) return sheetAdd(rest[0], rest[1])
       if (sub === "view" && rest.length >= 3) return sheetView(rest[0], rest[1], rest[2])
       if (sub === "scene" && rest.length >= 2) return sheetView(rest[0], "scene", rest[1], true)
+      if (sub === "unview" && rest.length >= 2) {
+        await run([{ op: "sheet.unview", id: rest[0], views: rest.slice(1) }])
+        return sheets()
+      }
       if (sub === "pick" && rest.length >= 2) {
         const pr = await processOf()
         const item = pr.sheets?.find((x) => x.id === rest[0])
