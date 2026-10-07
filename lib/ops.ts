@@ -6,7 +6,7 @@ import type {
   Section, Setup, Shot, Take, TakeVerdict,
 } from "./model"
 import { checkSteps, modelInfo } from "./models"
-import { blockedBy, newProcess, type Beat, type BeatMark, type CastMember, type Concept, type Doer, type GateMode, type GateStatus, type Process, type StageId } from "./process"
+import { blockedBy, newProcess, type Beat, type BeatMark, type Candidate, type CastMember, type Concept, type SheetItem, type Doer, type GateMode, type GateStatus, type Process, type StageId } from "./process"
 
 /** The editable lists on a floor plan, and the element type each holds. */
 export type PlanList = { items: PlanItem; marks: Mark; axes: Axis; setups: Setup }
@@ -53,6 +53,10 @@ export type Op =
   | { op: "concept.upsert"; concept: Concept }
   /** Replace the cast list the script introduces (who they are, who plays them, how they sound). */
   | { op: "cast.set"; cast: CastMember[] }
+  /** Stage 02 items: add or replace one, add a candidate image (model and provider required), pick one or clear. */
+  | { op: "sheet.upsert"; item: Omit<SheetItem, "candidates"> & { candidates?: Candidate[] } }
+  | { op: "sheet.add"; id: Id; candidate: Candidate }
+  | { op: "sheet.pick"; id: Id; file: string | null; by?: string }
   /** Replace the beat sheet (an agent's rewrite). Bumps the version and reopens the script gate. */
   | { op: "script.set"; beats: Beat[]; concept?: Id; by?: string; note?: string }
   | { op: "beat.mark"; id: Id; mark: BeatMark | null; by?: string }
@@ -237,20 +241,23 @@ export function applyOp(p: Project, o: Op): Project {
     case "concept.pick":
     case "concept.upsert":
     case "cast.set":
+    case "sheet.upsert":
+    case "sheet.add":
+    case "sheet.pick":
     case "script.set":
     case "beat.mark":
     case "note.add":
     case "note.resolve":
     {
       const process = applyProcessOp(p.process ?? newProcess(), o)
-      const said = o.op === "gate.set" ? `${process.stages.find((x) => x.id === o.stage)?.name}: ${o.status}${o.note ? ` - ${o.note}` : ""}` : o.op === "concept.pick" ? `Concept picked: ${o.id ?? "none"}` : o.op === "script.set" ? `Beat sheet v${process.script.version} written` : o.op === "note.add" ? `Note on ${o.target}: ${o.text}` : null
+      const said = o.op === "gate.set" ? `${process.stages.find((x) => x.id === o.stage)?.name}: ${o.status}${o.note ? ` - ${o.note}` : ""}` : o.op === "concept.pick" ? `Concept picked: ${o.id ?? "none"}` : o.op === "script.set" ? `Beat sheet v${process.script.version} written` : o.op === "note.add" ? `Note on ${o.target}: ${o.text}` : o.op === "sheet.pick" ? `Picked for ${o.id}: ${o.file ?? "none"}` : o.op === "sheet.add" ? `Candidate for ${o.id}: ${o.candidate.file} (${o.candidate.model} via ${o.candidate.provider})` : null
       const activity = said ? [...p.activity, { t: now(), text: `${("by" in o && o.by) || "claude"} · ${said}`, kind: "info" as const }].slice(-80) : p.activity
       return { ...p, process, activity }
     }
   }
 }
 
-type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "cast.set" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
+type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "cast.set" | "sheet.upsert" | "sheet.add" | "sheet.pick" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
 
 let seq = 0
 const noteId = () => `n${Date.now().toString(36)}${(seq++).toString(36)}`
@@ -286,6 +293,24 @@ function applyProcessOp(pr: Process, o: ProcessOp): Process {
       return { ...pr, concepts: pr.concepts.some((c) => c.id === o.concept.id) ? pr.concepts.map((c) => (c.id === o.concept.id ? o.concept : c)) : [...pr.concepts, o.concept] }
     case "cast.set":
       return { ...pr, cast: o.cast }
+    case "sheet.upsert": {
+      const list = pr.sheets ?? []
+      const old = list.find((x) => x.id === o.item.id)
+      const item = { ...old, ...o.item, candidates: o.item.candidates ?? old?.candidates ?? [] }
+      return { ...pr, sheets: old ? list.map((x) => (x.id === item.id ? item : x)) : [...list, item] }
+    }
+    case "sheet.add": {
+      if (!o.candidate.model || !o.candidate.provider) throw new Error("a candidate needs its model and provider")
+      const list = pr.sheets ?? []
+      need(list.find((x) => x.id === o.id), `sheet ${o.id}`)
+      return { ...pr, sheets: list.map((x) => (x.id === o.id ? { ...x, candidates: [...x.candidates.filter((c) => c.file !== o.candidate.file), o.candidate] } : x)) }
+    }
+    case "sheet.pick": {
+      const list = pr.sheets ?? []
+      const item = need(list.find((x) => x.id === o.id), `sheet ${o.id}`)
+      if (o.file !== null) need(item.candidates.find((c) => c.file === o.file), `candidate ${o.file}`)
+      return { ...pr, sheets: list.map((x) => (x.id === o.id ? { ...x, pick: o.file ?? undefined } : x)) }
+    }
     case "script.set": {
       const next = setStage({ ...pr, script: { version: pr.script.version + 1, concept: o.concept ?? pr.script.concept ?? pr.pick, beats: o.beats } }, "script", { status: "pending", by, at: now() })
       return addNote(next, "stage:script", o.note, by)

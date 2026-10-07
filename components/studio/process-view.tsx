@@ -8,8 +8,10 @@ import { ChevronDown, Lock } from "lucide-react"
 import { useState } from "react"
 import type { ProjectWithRev } from "@/lib/model"
 import type { Op } from "@/lib/ops"
-import { GATE_LABEL, blockedBy, currentStage, openNotes, runtime, words, type Beat, type Concept, type GateStatus, type Note, type Process, type Stage, type StageId } from "@/lib/process"
+import { GATE_LABEL, blockedBy, currentStage, openNotes, runtime, words, type Beat, type Candidate, type Concept, type GateStatus, type Note, type Process, type SheetItem, type SheetKind, type Stage, type StageId } from "@/lib/process"
 import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
 import { projectSlug } from "./use-project"
@@ -40,7 +42,7 @@ export function ProcessView({ project: p, op }: Props) {
     <div className="flex h-full flex-col">
       <Stepper pr={pr} sel={sel} onSelect={setSel} />
       <div className="min-h-0 flex-1 overflow-y-auto">
-        <div className="mx-auto max-w-3xl px-6 pt-10 pb-12">{sel === "script" ? <ScriptStage pr={pr} op={op} /> : <OtherStage pr={pr} stage={stage} op={op} />}</div>
+        <div className="mx-auto max-w-3xl px-6 pt-10 pb-12">{sel === "script" ? <ScriptStage pr={pr} op={op} /> : sel === "sheets" && !blockedBy(pr, "sheets") ? <SheetsStage pr={pr} stage={stage} op={op} /> : <OtherStage pr={pr} stage={stage} op={op} />}</div>
       </div>
       <DecisionBar pr={pr} stage={stage} op={op} />
     </div>
@@ -250,7 +252,6 @@ function NoteLine({ n, op }: { n: Note; op: Props["op"] }) {
 
 function OtherStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["op"] }) {
   const block = blockedBy(pr, stage.id)
-  const select = "rounded-md border bg-transparent px-2 py-1 text-sm text-foreground"
   return (
     <article className="space-y-8">
       <header className="space-y-2">
@@ -259,27 +260,7 @@ function OtherStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["o
         <p className="text-[15px] leading-relaxed text-muted-foreground">{stage.about}</p>
       </header>
       {block && <p className="text-[15px]">Opens after {block.name.toLowerCase()} is approved.</p>}
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-3 border-t pt-6 text-sm text-muted-foreground">
-        <label className="flex items-center gap-2">
-          Done by
-          <select className={select} value={stage.doer} onChange={(e) => op({ op: "stage.update", stage: stage.id, patch: { doer: e.target.value as Stage["doer"] } })}>
-            <option value="agent">Agent</option>
-            <option value="person">Person</option>
-            <option value="both">Agent and person</option>
-          </select>
-        </label>
-        <label className="flex items-center gap-2">
-          Gate
-          <select className={select} value={stage.gate} onChange={(e) => op({ op: "stage.update", stage: stage.id, patch: { gate: e.target.value as Stage["gate"] } })}>
-            <option value="required">Required</option>
-            <option value="advisory">Advisory</option>
-          </select>
-        </label>
-        <label className="flex items-center gap-2">
-          <input type="checkbox" checked={!!stage.skipped} onChange={(e) => op({ op: "stage.update", stage: stage.id, patch: { skipped: e.target.checked } })} />
-          Skip for this film
-        </label>
-      </div>
+      <StageSettings stage={stage} op={op} />
     </article>
   )
 }
@@ -288,7 +269,8 @@ function DecisionBar({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["
   const [text, setText] = useState("")
   const st = stateOf(pr, stage)
   const open = openNotes(pr).length
-  const reviewable = stage.id !== "script" || (!!pr.pick && pr.script.concept === pr.pick && pr.script.beats.length > 0)
+  const reviewable =
+    stage.id === "script" ? !!pr.pick && pr.script.concept === pr.pick && pr.script.beats.length > 0 : stage.id === "sheets" ? !!pr.sheets?.length && pr.sheets.every((x) => x.pick) : true
   const decide = async (status: GateStatus) => {
     await op({ op: "gate.set", stage: stage.id, status, note: text, by: ME })
     setText("")
@@ -321,5 +303,157 @@ function DecisionBar({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["
         ) : null}
       </div>
     </footer>
+  )
+}
+
+const DOERS = [
+  { value: "agent", label: "Agent" },
+  { value: "person", label: "Person" },
+  { value: "both", label: "Agent and person" },
+]
+const GATES = [
+  { value: "required", label: "Required" },
+  { value: "advisory", label: "Advisory" },
+]
+
+function Choice({ value, items, onChange }: { value: string; items: { value: string; label: string }[]; onChange: (v: string) => void }) {
+  return (
+    <Select items={items} value={value} onValueChange={(v) => v && onChange(v as string)}>
+      <SelectTrigger size="sm">
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent>
+        {items.map((i) => (
+          <SelectItem key={i.value} value={i.value}>
+            {i.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  )
+}
+
+function StageSettings({ stage, op }: { stage: Stage; op: Props["op"] }) {
+  return (
+    <div className="flex flex-wrap items-center gap-x-6 gap-y-3 border-t pt-6 text-sm text-muted-foreground">
+      <div className="flex items-center gap-2">
+        Done by
+        <Choice value={stage.doer} items={DOERS} onChange={(v) => op({ op: "stage.update", stage: stage.id, patch: { doer: v as Stage["doer"] } })} />
+      </div>
+      <div className="flex items-center gap-2">
+        Gate
+        <Choice value={stage.gate} items={GATES} onChange={(v) => op({ op: "stage.update", stage: stage.id, patch: { gate: v as Stage["gate"] } })} />
+      </div>
+      <label className="flex items-center gap-2">
+        <Checkbox checked={!!stage.skipped} onCheckedChange={(c) => op({ op: "stage.update", stage: stage.id, patch: { skipped: !!c } })} />
+        Skip for this film
+      </label>
+    </div>
+  )
+}
+
+const KINDS: { kind: SheetKind; title: string; about: string }[] = [
+  { kind: "look", title: "Look", about: "The picture's texture and colour, shot for shot." },
+  { kind: "cast", title: "Cast", about: "One image per look of each character. Second looks are made from your pick of the first." },
+  { kind: "location", title: "Sets", about: "Each place, empty, from the angle the film mostly sees it." },
+  { kind: "prop", title: "Props", about: "Objects that have to match from shot to shot." },
+]
+
+const thumb = (file: string, w = 640) => `/api/thumb?src=${encodeURIComponent("/" + file)}&w=${w}`
+
+function SheetsStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["op"] }) {
+  const items = pr.sheets ?? []
+  const picked = items.filter((x) => x.pick).length
+  return (
+    <article className="space-y-10">
+      <header className="space-y-2">
+        <Eyebrow pr={pr} stage={stage} />
+        <h1 className="text-3xl font-semibold tracking-tight">Look and sheets</h1>
+        <p className="text-[15px] leading-relaxed text-muted-foreground">Lock how every character, place and prop looks before any video. Pick one image per row; open an image to see it full size. Each one says which model and provider made it.</p>
+        <p className="text-sm text-muted-foreground">{picked} of {items.length} picked</p>
+      </header>
+      {KINDS.map(({ kind, title, about }) => {
+        const list = items.filter((x) => x.kind === kind)
+        if (!list.length) return null
+        return (
+          <section key={kind} className="space-y-6">
+            <div className="space-y-1 border-b pb-2">
+              <h2 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">{title}</h2>
+              <p className="text-sm text-muted-foreground">{about}</p>
+            </div>
+            {list.map((x) => (
+              <SheetRow key={x.id} item={x} items={items} notes={pr.notes.filter((n) => n.target === `sheet:${x.id}`)} op={op} />
+            ))}
+          </section>
+        )
+      })}
+      <StageSettings stage={stage} op={op} />
+    </article>
+  )
+}
+
+function SheetRow({ item, items, notes, op }: { item: SheetItem; items: SheetItem[]; notes: Note[]; op: Props["op"] }) {
+  const [writing, setWriting] = useState(false)
+  const [text, setText] = useState("")
+  const parent = item.from ? items.find((x) => x.id === item.from) : undefined
+  const send = async () => {
+    if (!text.trim()) return
+    await op({ op: "note.add", target: `sheet:${item.id}`, text, by: ME })
+    setText("")
+    setWriting(false)
+  }
+  return (
+    <div className="space-y-3">
+      <div className="flex items-baseline gap-3">
+        <h3 className="font-semibold">{item.name}</h3>
+        {item.pick && <span className="text-xs text-emerald-700 dark:text-emerald-300">Picked</span>}
+        <button type="button" onClick={() => setWriting((w) => !w)} className="ml-auto text-xs text-muted-foreground hover:text-foreground">
+          Comment
+        </button>
+      </div>
+      <p className="text-sm leading-relaxed text-muted-foreground">{item.brief}</p>
+      {item.candidates.length ? (
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {item.candidates.map((c) => (
+            <CandidateTile key={c.file} c={c} picked={item.pick === c.file} onPick={() => op({ op: "sheet.pick", id: item.id, file: item.pick === c.file ? null : c.file, by: ME })} />
+          ))}
+        </div>
+      ) : (
+        <p className="rounded-md border border-dashed px-3 py-6 text-center text-sm text-muted-foreground">
+          {parent && !parent.pick ? `Made from your pick for ${parent.name}. Pick that first.` : "Candidates are being made."}
+        </p>
+      )}
+      {notes.map((n) => (
+        <NoteLine key={n.id} n={n} op={op} />
+      ))}
+      {writing && (
+        <div className="space-y-2">
+          <Textarea autoFocus value={text} onChange={(e) => setText(e.target.value)} placeholder="What should change? You can name a model to try." onKeyDown={(e) => (e.metaKey || e.ctrlKey) && e.key === "Enter" && send()} />
+          <div className="flex gap-2">
+            <Button size="sm" onClick={send} disabled={!text.trim()}>Add comment</Button>
+            <Button size="sm" variant="ghost" onClick={() => setWriting(false)}>Cancel</Button>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+function CandidateTile({ c, picked, onPick }: { c: Candidate; picked: boolean; onPick: () => void }) {
+  return (
+    <figure className="space-y-1.5">
+      <a href={"/" + c.file} target="_blank" rel="noreferrer" className={cn("block overflow-hidden rounded-md border bg-muted", picked && "ring-2 ring-emerald-500 ring-offset-2 ring-offset-background")}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={thumb(c.file)} alt="" loading="lazy" className="aspect-[4/3] w-full object-cover" />
+      </a>
+      <figcaption className="flex items-center gap-2">
+        <span className="min-w-0 flex-1 truncate text-xs text-muted-foreground" title={[c.model, c.provider, c.job, c.cost !== undefined ? `$${c.cost.toFixed(3)}` : null].filter(Boolean).join(" · ")}>
+          {c.model} · {c.provider}
+        </span>
+        <Button size="xs" variant={picked ? "secondary" : "outline"} onClick={onPick}>
+          {picked ? "Picked" : "Pick"}
+        </Button>
+      </figcaption>
+    </figure>
   )
 }

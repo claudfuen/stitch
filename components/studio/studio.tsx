@@ -8,6 +8,7 @@ import { assetUses, cutHistory, indexProject, modelBoard, shotRows, summary, typ
 import type { Activity, Id, ProjectWithRev } from "@/lib/model"
 import type { Op } from "@/lib/ops"
 import { Button } from "@/components/ui/button"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { cn } from "@/lib/utils"
 import { ActivityView } from "./activity-view"
 import { CanvasView } from "./canvas-view"
@@ -165,17 +166,16 @@ function ProjectSwitch({ title, logline }: { title: string; logline: string }) {
   const slug = projectSlug() || "ministry"
   if (list.length < 2) return <span className="hidden max-w-48 truncate text-sm font-semibold lg:block" title={logline}>{title}</span>
   return (
-    <select
-      aria-label="Film"
-      title={logline}
-      value={slug}
-      onChange={(e) => (window.location.search = e.target.value === "ministry" ? "" : `?p=${e.target.value}`)}
-      className="max-w-56 truncate rounded-md border bg-transparent px-2 py-1 text-sm font-semibold"
-    >
-      {list.map((x) => (
-        <option key={x.slug} value={x.slug}>{x.title}</option>
-      ))}
-    </select>
+    <Select items={list.map((x) => ({ value: x.slug, label: x.title }))} value={slug} onValueChange={(v) => v && (window.location.search = v === "ministry" ? "" : `?p=${v}`)}>
+      <SelectTrigger size="sm" aria-label="Film" title={logline} className="max-w-56 font-semibold">
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent>
+        {list.map((x) => (
+          <SelectItem key={x.slug} value={x.slug}>{x.title}</SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
   )
 }
 

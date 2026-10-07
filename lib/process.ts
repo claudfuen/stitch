@@ -41,6 +41,22 @@ export type Beat = {
   mark?: BeatMark
 }
 
+/** Stage 02: everything that must look the same in every shot, locked before any video. Each item collects candidate
+ *  images and a person picks one. Every candidate records the model and provider that made it (or that it is real). */
+export type SheetKind = "look" | "cast" | "location" | "prop"
+export type Candidate = { file: string; model: string; provider: string; job?: string; prompt?: string; cost?: number; inputs?: string[]; by: string; at: string }
+export type SheetItem = {
+  id: Id
+  kind: SheetKind
+  name: string
+  brief: string
+  /** Made from another item's picked image (a second look of the same person), so it waits for that pick. */
+  from?: Id
+  candidates: Candidate[]
+  /** The picked candidate's file. */
+  pick?: string
+}
+
 /** Who is in the film, as the script introduces them. Their look is locked later, at the sheets stage. */
 export type CastMember = { id: Id; name: string; who: string; playedBy: string; voice: string; states?: string[] }
 
@@ -48,6 +64,7 @@ export type Process = {
   stages: Stage[]
   concepts: Concept[]
   cast?: CastMember[]
+  sheets?: SheetItem[]
   pick?: Id
   /** The beat sheet for the picked concept. Bumped each time an agent rewrites it, which reopens the script gate. */
   script: { version: number; concept?: Id; beats: Beat[] }

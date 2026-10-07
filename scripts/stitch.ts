@@ -31,6 +31,9 @@
 //   bun run stitch feedback [--all]                          open notes on stages, concepts and beats: act on these
 //   bun run stitch note <stage:id|beat:id|concept:id> "text" [--by name]     bun run stitch resolve <note-id>
 //   bun run stitch concept pick <id|none> ["note"]           bun run stitch beats    (the beat sheet as text)
+//   bun run stitch sheets                                    stage 02: every item, its candidates (model, provider) and pick
+//   bun run stitch sheet add <item> <file|sidecar.json> --model <m> --provider <p> [--job id] [--cost usd] [--prompt-file f]
+//        (a Leap sidecar next to the file fills model, job, cost and prompt; the image is copied into public/generated/<film>/)
 import { execFileSync } from "node:child_process"
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import path from "node:path"
@@ -168,9 +171,41 @@ async function beatSheet() {
   }
 }
 
+async function sheets() {
+  const pr = await processOf()
+  for (const x of pr.sheets ?? []) {
+    console.log(`${x.kind.padEnd(8)} ${x.id.padEnd(18)} ${x.pick ? "picked" : `${x.candidates.length} candidates`}${x.from ? `  (from ${x.from})` : ""}  ${x.name}`)
+    for (const c of x.candidates) console.log(`    ${c.file === x.pick ? "*" : " "} ${c.file}  ${c.model} via ${c.provider}${c.job ? ` job ${c.job}` : ""}${c.cost !== undefined ? ` $${c.cost}` : ""}`)
+  }
+}
+
+async function sheetAdd(id: string, src: string) {
+  const film = process.env.STITCH_PROJECT || "ministry"
+  const side = existsSync(src + ".json") ? JSON.parse(readFileSync(src + ".json", "utf8")) : {}
+  const model = flag("model") ?? side.model
+  const provider = flag("provider") ?? side.provider
+  if (!model || !provider) throw new Error("every candidate needs --model and --provider (or a Leap sidecar)")
+  const dir = path.join("public", "generated", film)
+  mkdirSync(dir, { recursive: true })
+  const pr = await processOf()
+  const n = (pr.sheets?.find((x) => x.id === id)?.candidates.length ?? 0) + 1
+  const dest = path.join(dir, `${id}-${n}${path.extname(src)}`)
+  copyFileSync(src, dest)
+  const prompt = flag("prompt-file") ? readFileSync(flag("prompt-file")!, "utf8") : (side.input?.prompt ?? side.prompt)
+  const cost = flag("cost") ? Number(flag("cost")) : (side.cost_usd ?? side.usage?.cost_usd ?? side.cost)
+  await run([{ op: "sheet.add", id, candidate: { file: path.relative("public", dest), model, provider, job: flag("job") ?? side.id ?? side.generation, prompt, cost: cost !== undefined ? Number(cost) : undefined, inputs: many.input, by: flag("by") ?? "claude", at: new Date().toISOString() } }])
+  console.log(`${id}: ${path.relative("public", dest)} (${model} via ${provider})`)
+}
+
 async function main() {
   const [cmd, sub, ...rest] = pos
   switch (cmd) {
+    case "sheets":
+      return sheets()
+    case "sheet": {
+      if (sub !== "add" || rest.length < 2) throw new Error("usage: stitch sheet add <item> <file> --model m --provider p")
+      return sheetAdd(rest[0], rest[1])
+    }
     case "gates":
       return gates()
     case "gate": {
