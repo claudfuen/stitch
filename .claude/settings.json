@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "deny": ["Bash(wa send:*)"]
+  },
+  "hooks": {
+    "SessionStart": [
+      { "hooks": [{ "type": "command", "command": "bash scripts/link-assistant.sh" }] }
+    ]
+  }
+}

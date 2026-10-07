@@ -5,6 +5,21 @@
 Local production board for AI video. `data/project.json` is the single source of truth (types in `lib/model.ts`).
 Read README.md for the architecture.
 
+## Assistant is the operating system
+
+A session started here has the same skills as one started in `~/Repos/assistant`: `scripts/link-assistant.sh` (run
+by the SessionStart hook) links every Assistant skill into `.claude/skills`. Those links are never committed.
+
+- Paths inside Assistant skills (`tooling/...`, `domains/...`, `skills/...`, `data/...`) are relative to
+  `~/Repos/assistant`. Run them from there (`cd ~/Repos/assistant && ...`), not from this repo.
+- Before choosing a provider or model, run `assistant capabilities "<task>"` and `assistant services`; run
+  `assistant doctor --service <id>` before calling a provider unavailable. Media goes through Leap first
+  (`assistant doctor --service provider.leap`).
+- `~/Repos/assistant/AGENTS.md` is the policy for anything beyond this repo's code: approval before anything external,
+  research notes in `~/Repos/assistant/domains/research/` (the `research` skill), and `todo` read-only.
+- The skills most used here: `leap`, `av-review`, `generate-image`, `use-ai-gateway`, `use-fx`, `research`,
+  `publish-cloud-artifact`.
+
 ## Rules
 
 - Change the project only through ops: `bun run stitch ...` or `POST /api/project { ops }`. Never edit
