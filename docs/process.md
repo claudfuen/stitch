@@ -77,7 +77,12 @@ They rotate one approved set into a few angles and write the space down.
    the desk in which beat, who is behind the camera. A crowd is cast like a character: one reference frame (the
    reverse angle), a seating chart with the front row described person by person, and every other frame copies it.
 6. **The camera script:** which camera is on screen at each second. It is retimed to the recorded voices at stage 04.
-7. **Review every frame for logic:** the same person twice in a crowd, a stranger in a known character's place, a
+7. **Check adherence before accepting a frame:** `python3 scripts/adherence.py <film>` puts each frame beside its
+   grey-box layout and a 50/50 blend. Look for the desk turning, a crowd facing the wrong way, a person at the wrong
+   size or on the wrong side, something in frame that the angle cannot see. Pass the set plate to the model only as
+   tight material crops (the sign wall, the desk, the seats); a full plate is a ready-made composition and the model
+   copies it instead of the layout (on Order Now it turned the crowd to face the camera and blew up the bleachers).
+8. **Review every frame for logic:** the same person twice in a crowd, a stranger in a known character's place, a
    prop that should not be there yet, a room bigger in one angle than another. Fix with one "change only X" edit
    from the clean take, so no frame gets more than two generative passes.
 

@@ -17,46 +17,6 @@
   "open": [],
   "activity": [
     {
-      "t": "2026-10-07T15:41:49.984Z",
-      "text": "claude · Picked for audience: generated/order-now/audience-4.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:41:50.101Z",
-      "text": "claude · Candidate for set-kitchen: generated/order-now/set-kitchen-4.jpg (GPT Image 2.5 Sunburst + before grade via Leap, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:41:50.128Z",
-      "text": "claude · Picked for set-kitchen: generated/order-now/set-kitchen-4.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:41:50.241Z",
-      "text": "claude · Candidate for set-stairwell: generated/order-now/set-stairwell-4.jpg (GPT Image 2.5 Sunburst + before grade via Leap, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:41:50.266Z",
-      "text": "claude · Picked for set-stairwell: generated/order-now/set-stairwell-4.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:41:50.378Z",
-      "text": "claude · Candidate for set-audit: generated/order-now/set-audit-4.jpg (GPT Image 2.5 Sunburst + before grade via Leap, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:41:50.403Z",
-      "text": "claude · Picked for set-audit: generated/order-now/set-audit-4.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:48:08.978Z",
-      "text": "Claudio · Note on sheets:cast: Kyle doesn't read as a 1990s founder.",
-      "kind": "info"
-    },
-    {
       "t": "2026-10-07T15:49:53.410Z",
       "text": "claude · Candidate for kyle: generated/order-now/kyle-4.png (GPT Image 2.5 Sunburst via Leap)",
       "kind": "info"
@@ -414,6 +374,46 @@
     {
       "t": "2026-10-07T17:02:01.127Z",
       "text": "claude · Frame for studio C6 (Nano Banana 2.1 (edit, 2 passes) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:07:58.887Z",
+      "text": "claude · Candidate for henrick-operator: generated/order-now/henrick-operator-1.jpg (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:07:58.909Z",
+      "text": "claude · Picked for henrick-operator: generated/order-now/henrick-operator-1.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:07:58.931Z",
+      "text": "claude · Candidate for kyle-hammock: generated/order-now/kyle-hammock-1.jpg (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:07:58.952Z",
+      "text": "claude · Picked for kyle-hammock: generated/order-now/kyle-hammock-1.jpg",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:11:56.821Z",
+      "text": "claude · Frame for studio C1 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:11:57.040Z",
+      "text": "claude · Frame for studio C2 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:11:57.246Z",
+      "text": "claude · Frame for studio C5 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:11:57.456Z",
+      "text": "claude · Frame for studio C6 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
       "kind": "info"
     }
   ],
@@ -998,10 +998,19 @@
         "scene": {
           "file": "generated/order-now/sheets/henrick-set--scene.jpg",
           "view": "scene",
-          "model": "GPT Image 2.5 Sunburst (edit) + betacam grade",
+          "model": "Nano Banana 2.1 (edit) + betacam grade",
           "provider": "fal, graded in Stitch",
+          "job": "01a1174c-8760-78a3-b59a-3e6779518aa8",
+          "prompt": "Image 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position and size of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph of the set in Image 2: the pink-to-teal gradient back wall, the glowing COMP AI neon sign where the dark panel is, the curved white demo desk with chrome trim, the white stools, the burgundy bleacher seats on grey carpeted tiers with the chrome handrail, the pink and teal columns, the palms and the shelving with old TVs. The blue-grey figure is Henrick, the real man in Images 3 and 4 (keep his face exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square). A locked medium shot of him on the stool: hands folded in his lap, back straight, perfectly still, flat polite expression, eyes slightly to screen left toward an unseen host. The thin blue SOC 2 folder lies on the end of the desk beside him, like Image 5. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
+          "inputs": [
+            "https://v3b.fal.media/files/b/0aad728f/kqMcv7xh9Ks1iMfdFQ7H6_clay-C3.jpg",
+            "https://v3b.fal.media/files/b/0aad71a0/Aw-f21fsTMnXEKJJRPlfD_set-studio-1.png",
+            "https://v3b.fal.media/files/b/0aad71ed/V8l2gVMKyno113s35Ju6L_henrick-set--real-front.jpg",
+            "https://v3b.fal.media/files/b/0aad71ed/FndmfAnvDRofP9XuFyOiL_henrick-set--body-front.jpg",
+            "https://v3b.fal.media/files/b/0aad71ed/yH7iotvT7EFsBOQw4SCHf_props-a.jpg"
+          ],
           "by": "claude",
-          "at": "2026-10-07T15:53:56.054Z"
+          "at": "2026-10-07T17:07:58.841Z"
         },
         "views": [
           {
@@ -1308,7 +1317,18 @@
         "name": "Henrick: operator",
         "brief": "The same Henrick and suit, plus a beige 1994 telephone headset, at an operator desk. Made from your pick above.",
         "from": "henrick-set",
-        "candidates": []
+        "candidates": [
+          {
+            "file": "generated/order-now/henrick-operator-1.jpg",
+            "model": "Nano Banana 2.1 (edit) + betacam grade",
+            "provider": "fal, graded in Stitch",
+            "prompt": "Grey-box render from this camera as Image 1 (data/space/order-now/operators.json); operators plate for materials; Henrick from his real photo; headset reference.",
+            "by": "claude",
+            "at": "2026-10-07T17:07:58.886Z"
+          }
+        ],
+        "pick": "generated/order-now/henrick-operator-1.jpg",
+        "pickedBy": "claude"
       },
       {
         "id": "brock",
@@ -1523,10 +1543,21 @@
         "scene": {
           "file": "generated/order-now/sheets/brock--scene.jpg",
           "view": "scene",
-          "model": "GPT Image 2.5 Sunburst (edit) + betacam grade",
+          "model": "Nano Banana 2.1 (edit) + betacam grade",
           "provider": "fal, graded in Stitch",
+          "job": "01a11758-41a3-7313-ae44-a003466781d7",
+          "prompt": "Grey-box render from this camera as Image 1, the only full-frame image; set plate passed only as material crops (wall and sign, desk and stool, bleacher seats); cast and audience references for faces and clothes only.",
+          "inputs": [
+            "box studio C2",
+            "mat-wall",
+            "mat-desk",
+            "mat-seats",
+            "cast refs",
+            "audience ref",
+            "props"
+          ],
           "by": "claude",
-          "at": "2026-10-07T15:53:56.189Z"
+          "at": "2026-10-07T17:11:57.474Z"
         }
       },
       {
@@ -1784,7 +1815,18 @@
         "name": "Kyle: in the hammock",
         "brief": "The same Kyle, relaxed, glasses pushed up, a brick phone and a 1994 laptop beside him. Made from the approved face.",
         "from": "kyle",
-        "candidates": []
+        "candidates": [
+          {
+            "file": "generated/order-now/kyle-hammock-1.jpg",
+            "model": "Nano Banana 2.1 (edit) + betacam grade",
+            "provider": "fal, graded in Stitch",
+            "prompt": "Image 1 is a sunny 1994 suburban backyard with a rope hammock strung between two trees. Show a 40 mm medium close-up, slightly off centre: Kyle lies relaxed in the rope hammock on screen right, a chunky 1994 grey laptop open on his stomach, a coconut drink with a straw in one hand, utterly at peace, looking just off the lens toward an interviewer on camera left. Room on the left of frame for a lower third. Kyle is the man in Images 2 and 3 (keep his face, mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch and brown loafers exactly). Keep the backyard, trees and warm afternoon light as in Image 1. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text.",
+            "by": "claude",
+            "at": "2026-10-07T17:07:58.930Z"
+          }
+        ],
+        "pick": "generated/order-now/kyle-hammock-1.jpg",
+        "pickedBy": "claude"
       },
       {
         "id": "gerald",
@@ -2677,20 +2719,19 @@
                 "view": "C1",
                 "model": "Nano Banana 2.1 (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1174c-871e-7560-a41d-e4027bbde021",
-                "prompt": "Image 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position and size of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph of the set in Image 2: the pink-to-teal gradient back wall, the glowing COMP AI neon sign where the dark panel is, the curved white demo desk with chrome trim, the white stools, the burgundy bleacher seats on grey carpeted tiers with the chrome handrail, the pink and teal columns, the palms and the shelving with old TVs. The teal figure is Brock, the man in Images 3 and 4 (frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone). He bounds in mid-stride, arms flung wide, huge grin. The blue-grey figure is Henrick, the real man in Images 5 and 6 (keep his face exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square). He sits on the right-hand stool, hands folded, perfectly still. The grey seated figures are the studio audience: exactly the people in Image 7, the same faces and clothes in the same seats; front row the blonde woman in a pink sweater, the moustached man in a teal-and-purple windbreaker, the grey-haired woman in lavender with pearls, the young man with a mullet in denim, the curly auburn-haired woman in a pastel sweatshirt, the bald man with glasses in plaid, the black-haired woman in teal and the grey-bearded man in burgundy. No face appears twice. They are on their feet, applauding. On the desk top: the giant red COMP AI button on its grey base in the centre and the thin blue SOC 2 folder at the right end, like Image 8. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
+                "job": "01a11758-4183-7db3-bae2-bf94ae0c9f93",
+                "prompt": "Grey-box render from this camera as Image 1, the only full-frame image; set plate passed only as material crops (wall and sign, desk and stool, bleacher seats); cast and audience references for faces and clothes only.",
                 "inputs": [
-                  "https://v3b.fal.media/files/b/0aad728f/wcrGIFTMaQGw39NEueBTq_clay-C1.jpg",
-                  "https://v3b.fal.media/files/b/0aad71a0/Aw-f21fsTMnXEKJJRPlfD_set-studio-1.png",
-                  "https://v3b.fal.media/files/b/0aad71ed/qh31DKwk-rY8uZajAe2wZ_brock--body-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad71ed/S5tyXiVHjG796KZX3I0V8_brock--face-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad71ed/V8l2gVMKyno113s35Ju6L_henrick-set--real-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad71ed/FndmfAnvDRofP9XuFyOiL_henrick-set--body-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad7255/-cwioatWVKEtt-WZ4NhYB_audience-ref.jpg",
-                  "https://v3b.fal.media/files/b/0aad71ed/yH7iotvT7EFsBOQw4SCHf_props-a.jpg"
+                  "box studio C1",
+                  "mat-wall",
+                  "mat-desk",
+                  "mat-seats",
+                  "cast refs",
+                  "audience ref",
+                  "props"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:59:17.860Z"
+                "at": "2026-10-07T17:11:56.819Z"
               }
             },
             {
@@ -2707,17 +2748,19 @@
                 "view": "C2",
                 "model": "Nano Banana 2.1 (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1174c-870a-7dc0-a983-08a40f5de48c",
-                "prompt": "Image 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position and size of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph of the set in Image 2: the pink-to-teal gradient back wall, the glowing COMP AI neon sign where the dark panel is, the curved white demo desk with chrome trim, the white stools, the burgundy bleacher seats on grey carpeted tiers with the chrome handrail, the pink and teal columns, the palms and the shelving with old TVs. The teal figure is Brock, the man in Images 3 and 4 (frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone). A medium shot: arms flung wide, mouth open mid-shout, looking to screen right toward an unseen guest. The grey seated figures are the studio audience: exactly the people in Image 5, the same faces and clothes in the same seats; front row the blonde woman in a pink sweater, the moustached man in a teal-and-purple windbreaker, the grey-haired woman in lavender with pearls, the young man with a mullet in denim, the curly auburn-haired woman in a pastel sweatshirt, the bald man with glasses in plaid, the black-haired woman in teal and the grey-bearded man in burgundy. No face appears twice. Seated, applauding, softly out of focus behind him. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
+                "job": "01a11758-41a3-7313-ae44-a003466781d7",
+                "prompt": "Grey-box render from this camera as Image 1, the only full-frame image; set plate passed only as material crops (wall and sign, desk and stool, bleacher seats); cast and audience references for faces and clothes only.",
                 "inputs": [
-                  "https://v3b.fal.media/files/b/0aad728f/ZBcdrqVUBHGh3JSeCcdJN_clay-C2.jpg",
-                  "https://v3b.fal.media/files/b/0aad71a0/Aw-f21fsTMnXEKJJRPlfD_set-studio-1.png",
-                  "https://v3b.fal.media/files/b/0aad71ed/qh31DKwk-rY8uZajAe2wZ_brock--body-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad71ed/S5tyXiVHjG796KZX3I0V8_brock--face-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad7255/-cwioatWVKEtt-WZ4NhYB_audience-ref.jpg"
+                  "box studio C2",
+                  "mat-wall",
+                  "mat-desk",
+                  "mat-seats",
+                  "cast refs",
+                  "audience ref",
+                  "props"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:59:18.082Z"
+                "at": "2026-10-07T17:11:57.039Z"
               }
             },
             {
@@ -2787,18 +2830,19 @@
                 "view": "C5",
                 "model": "Nano Banana 2.1 (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1174c-879a-7452-8a8a-c6ecbd41c4e5",
-                "prompt": "Image 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position and size of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph of the set in Image 2: the pink-to-teal gradient back wall, the glowing COMP AI neon sign where the dark panel is, the curved white demo desk with chrome trim, the white stools, the burgundy bleacher seats on grey carpeted tiers with the chrome handrail, the pink and teal columns, the palms and the shelving with old TVs. The teal figure is Brock, the man in Images 3 and 4 (frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone). A 24 mm close-up: he lunges toward the lens, face large and a little distorted by the wide lens, eyes wide, mouth open shouting 'But wait!', one hand reaching toward the camera. The grey seated figures are the studio audience: exactly the people in Image 5, the same faces and clothes in the same seats; front row the blonde woman in a pink sweater, the moustached man in a teal-and-purple windbreaker, the grey-haired woman in lavender with pearls, the young man with a mullet in denim, the curly auburn-haired woman in a pastel sweatshirt, the bald man with glasses in plaid, the black-haired woman in teal and the grey-bearded man in burgundy. No face appears twice. Seated behind him, frozen, staring in silence. On the desk top: the giant red COMP AI button on its grey base in the centre and the thin blue SOC 2 folder at the right end, like Image 6. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
+                "job": "01a11758-419c-7a62-9136-dea6e91cecf5",
+                "prompt": "Grey-box render from this camera as Image 1, the only full-frame image; set plate passed only as material crops (wall and sign, desk and stool, bleacher seats); cast and audience references for faces and clothes only.",
                 "inputs": [
-                  "https://v3b.fal.media/files/b/0aad728f/ncB5QfYZt0b56UxHWDEiV_clay-C5.jpg",
-                  "https://v3b.fal.media/files/b/0aad71a0/Aw-f21fsTMnXEKJJRPlfD_set-studio-1.png",
-                  "https://v3b.fal.media/files/b/0aad71ed/S5tyXiVHjG796KZX3I0V8_brock--face-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad71ed/qh31DKwk-rY8uZajAe2wZ_brock--body-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad7255/-cwioatWVKEtt-WZ4NhYB_audience-ref.jpg",
-                  "https://v3b.fal.media/files/b/0aad71ed/yH7iotvT7EFsBOQw4SCHf_props-a.jpg"
+                  "box studio C5",
+                  "mat-wall",
+                  "mat-desk",
+                  "mat-seats",
+                  "cast refs",
+                  "audience ref",
+                  "props"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:59:18.716Z"
+                "at": "2026-10-07T17:11:57.244Z"
               }
             },
             {
@@ -2813,19 +2857,21 @@
               "frame": {
                 "file": "generated/order-now/space/studio--C6.jpg",
                 "view": "C6",
-                "model": "Nano Banana 2.1 (edit, 2 passes) + betacam grade",
+                "model": "Nano Banana 2.1 (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1174f-ea21-7b62-973c-91246aba65d3",
-                "prompt": "Pass 1: grey-box render from C6 as Image 1, no bleachers in this angle (job 01a1174e-bb15-7311-835a-6feba64d5055, take a). Pass 2: removed the binders (they are on the desk only in beat 8).",
+                "job": "01a11758-4461-7763-b53f-98d1636f3ceb",
+                "prompt": "Grey-box render from this camera as Image 1, the only full-frame image; set plate passed only as material crops (wall and sign, desk and stool, bleacher seats); cast and audience references for faces and clothes only.",
                 "inputs": [
                   "box studio C6",
-                  "studio plate",
-                  "henrick refs",
-                  "brock refs",
+                  "mat-wall",
+                  "mat-desk",
+                  "mat-seats",
+                  "cast refs",
+                  "audience ref",
                   "props"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T17:02:01.125Z"
+                "at": "2026-10-07T17:11:57.454Z"
               }
             },
             {
