@@ -33,7 +33,7 @@ export default async function LookBook({ searchParams }: { searchParams: Promise
         <div className="two">
           {of("look").map((x) => (
             <figure key={x.id}>
-              {picked(x) && <img src={img(picked(x)!.file, 1280, picked(x)!.at)} alt="" />}
+              {picked(x) && <img src={img(picked(x)!.file, 960, picked(x)!.at)} alt="" />}
               <figcaption><b>{x.name}</b> {x.brief}<span>{cap(picked(x))}</span></figcaption>
             </figure>
           ))}
@@ -45,7 +45,7 @@ export default async function LookBook({ searchParams }: { searchParams: Promise
         <div className="three">
           {world.map((x) => (
             <figure key={x.id}>
-              {picked(x) && <img src={img(picked(x)!.file, 960, picked(x)!.at)} alt="" />}
+              {picked(x) && <img src={img(picked(x)!.file, 640, picked(x)!.at)} alt="" />}
               <figcaption><b>{x.name}</b><span>{cap(picked(x))}</span></figcaption>
             </figure>
           ))}
@@ -61,7 +61,7 @@ export default async function LookBook({ searchParams }: { searchParams: Promise
             <p className="brief">{x.brief}</p>
             {hero && (
               <figure>
-                <img src={img(hero.file, 1280, hero.at)} alt="" />
+                <img src={img(hero.file, 960, hero.at)} alt="" />
                 <figcaption><span>In the film: {cap(hero)}</span></figcaption>
               </figure>
             )}
@@ -71,7 +71,7 @@ export default async function LookBook({ searchParams }: { searchParams: Promise
                 <div className="sheet">
                   {refs.map((v) => (
                     <figure key={v.file}>
-                      <img src={img(v.file, 480, v.at)} alt="" />
+                      <img src={img(v.file, 320, v.at)} alt="" />
                       <figcaption><span>{v.view}</span></figcaption>
                     </figure>
                   ))}
@@ -100,7 +100,7 @@ html, body { background: #fff !important; }
 figcaption { margin-top: 0.05in; font-size: 9pt; }
 figcaption span { display: block; color: #666; font-size: 8pt; }
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0.2in; }
-.three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.16in 0.16in; }
+.three { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.16in 0.14in; }
 .page { break-before: page; }
 .page > h2:first-child { margin-top: 0; }
 .character .brief { max-width: 8in; margin-bottom: 0.1in; color: #333; }
