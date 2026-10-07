@@ -18,7 +18,7 @@ const flag = (k: string) => { const i = argv.indexOf(`--${k}`); return i >= 0 ? 
 const [film, room, cam] = argv.filter((a, i) => !a.startsWith("--") && !argv[i - 1]?.startsWith("--"))
 if (!film || !room || !cam) throw new Error("usage: bun run space-board <film> <room> <cam> [--out file.jpg]")
 
-type Board = { room: string; cast: Record<string, string[]> }
+type Board = { room: string; cast: Record<string, string[]>; props?: string[] }
 const box = JSON.parse(readFileSync(`data/space/${film}/${room}.json`, "utf8")) as Box & { board: Board }
 const s = box.setups.find((u) => u.id === cam)
 if (!s) throw new Error(`no setup ${cam} in ${room}`)
@@ -37,7 +37,8 @@ const html = `<!doctype html><html><body style="margin:0;width:2048px;height:115
 <div style="background:#111;color:#fff;font:700 24px Arial;padding:9px 14px">REFERENCE BOARD for camera ${cam}. Not a scene: never copy this layout, its labels or its text.</div>
 <div style="height:650px;display:flex;gap:10px">
  ${panel(`MAP: top-down plan of the whole room. ${cam} is the purple cone. Positions and facing only, never drawn.`, planSvg(box, s, mapW), `flex:0 0 ${mapW + 22}px`)}
- ${panel("THE ROOM: the approved set. Materials, colours and light only, not its framing.", img(box.board.room, 560), "flex:1")}
+ ${panel("THE ROOM: the approved set. Materials, colours and light only, not its framing.", img(box.board.room, box.board.props ? 380 : 560), "flex:1")}
+ ${box.board.props ? panel("PROPS AND SIGNS: these exact designs in every angle (shape, size, lettering).", box.board.props.map((p) => img(p, 380 / Math.max(1, box.board.props!.length - 0.6))).join(""), "flex:1") : ""}
 </div>
 <div style="flex:1;display:flex;gap:10px;min-height:0;justify-content:flex-start">${cast.join("")}</div>
 </body></html>`

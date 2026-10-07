@@ -1,0 +1,520 @@
+{
+ "width": 4.2,
+ "depth": 3.8,
+ "height": 2.5,
+ "items": [
+  {
+   "id": "table",
+   "kind": "counter",
+   "label": "small laminate kitchen table",
+   "at": [
+    1.35,
+    1.9
+   ],
+   "size": [
+    0.85,
+    0.75,
+    0.74
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.84,
+    0.82,
+    0.76
+   ]
+  },
+  {
+   "id": "cpu",
+   "kind": "prop",
+   "label": "beige 1994 desktop computer case",
+   "at": [
+    1.25,
+    1.9
+   ],
+   "size": [
+    0.42,
+    0.42,
+    0.12
+   ],
+   "z": 0.74,
+   "rot": 0,
+   "color": [
+    0.86,
+    0.82,
+    0.7
+   ]
+  },
+  {
+   "id": "crt",
+   "kind": "prop",
+   "label": "beige CRT monitor (screen faces Kyle)",
+   "at": [
+    1.22,
+    1.9
+   ],
+   "size": [
+    0.36,
+    0.38,
+    0.34
+   ],
+   "z": 0.86,
+   "rot": 0,
+   "color": [
+    0.86,
+    0.82,
+    0.7
+   ]
+  },
+  {
+   "id": "screen",
+   "kind": "prop",
+   "label": "glowing monitor screen",
+   "at": [
+    1.41,
+    1.9
+   ],
+   "size": [
+    0.02,
+    0.29,
+    0.23
+   ],
+   "z": 0.91,
+   "rot": 0,
+   "color": [
+    0.72,
+    0.84,
+    0.96
+   ],
+   "beats": [
+    "k1",
+    "k2"
+   ]
+  },
+  {
+   "id": "keyboard",
+   "kind": "prop",
+   "label": "beige keyboard",
+   "at": [
+    1.6,
+    1.9
+   ],
+   "size": [
+    0.17,
+    0.45,
+    0.03
+   ],
+   "z": 0.74,
+   "rot": 0,
+   "color": [
+    0.86,
+    0.82,
+    0.7
+   ]
+  },
+  {
+   "id": "chair",
+   "kind": "furniture",
+   "label": "wooden kitchen chair",
+   "at": [
+    2.05,
+    1.9
+   ],
+   "size": [
+    0.45,
+    0.45,
+    0.95
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.5,
+    0.32,
+    0.18
+   ],
+   "shape": "chair",
+   "always_shape": true,
+   "facing": -90,
+   "beats": [
+    "k1",
+    "k2"
+   ]
+  },
+  {
+   "id": "chair-k3",
+   "kind": "furniture",
+   "label": "wooden kitchen chair (pushed back)",
+   "at": [
+    3.25,
+    1.35
+   ],
+   "size": [
+    0.45,
+    0.45,
+    0.95
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.5,
+    0.32,
+    0.18
+   ],
+   "shape": "chair",
+   "always_shape": true,
+   "facing": -120,
+   "beat": "k3"
+  },
+  {
+   "id": "window",
+   "kind": "board",
+   "label": "window, black night outside with lit apartment windows",
+   "at": [
+    0.95,
+    3.78
+   ],
+   "size": [
+    1.0,
+    0.03,
+    1.15
+   ],
+   "z": 0.95,
+   "rot": 0,
+   "color": [
+    0.05,
+    0.07,
+    0.13
+   ]
+  },
+  {
+   "id": "fridge",
+   "kind": "furniture",
+   "label": "white refrigerator covered in magnets",
+   "at": [
+    2.05,
+    3.42
+   ],
+   "size": [
+    0.75,
+    0.7,
+    1.75
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.93,
+    0.92,
+    0.88
+   ]
+  },
+  {
+   "id": "counter-back",
+   "kind": "counter",
+   "label": "cream base cabinets with worktop and sink",
+   "at": [
+    3.45,
+    3.48
+   ],
+   "size": [
+    1.5,
+    0.62,
+    0.9
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.9,
+    0.86,
+    0.76
+   ]
+  },
+  {
+   "id": "uppers",
+   "kind": "furniture",
+   "label": "cream wall cabinets",
+   "at": [
+    3.45,
+    3.62
+   ],
+   "size": [
+    1.5,
+    0.35,
+    0.72
+   ],
+   "z": 1.5,
+   "rot": 0,
+   "color": [
+    0.9,
+    0.86,
+    0.76
+   ]
+  },
+  {
+   "id": "counter-right",
+   "kind": "counter",
+   "label": "cream base cabinets and worktop along the right wall",
+   "at": [
+    3.88,
+    2.15
+   ],
+   "size": [
+    0.62,
+    1.7,
+    0.9
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.9,
+    0.86,
+    0.76
+   ]
+  },
+  {
+   "id": "printer",
+   "kind": "prop",
+   "label": "beige dot-matrix printer with continuous-feed paper",
+   "at": [
+    3.88,
+    2.45
+   ],
+   "size": [
+    0.45,
+    0.38,
+    0.17
+   ],
+   "z": 0.9,
+   "rot": 0,
+   "color": [
+    0.86,
+    0.82,
+    0.7
+   ]
+  },
+  {
+   "id": "paper-feed",
+   "kind": "prop",
+   "label": "continuous-feed paper stack feeding the printer",
+   "at": [
+    3.88,
+    2.0
+   ],
+   "size": [
+    0.38,
+    0.3,
+    0.08
+   ],
+   "z": 0.9,
+   "rot": 0,
+   "color": [
+    0.97,
+    0.97,
+    0.95
+   ]
+  },
+  {
+   "id": "pendant",
+   "kind": "light",
+   "label": "pendant lamp over the table",
+   "at": [
+    1.35,
+    1.9
+   ],
+   "size": [
+    0.35,
+    0.35,
+    0.18
+   ],
+   "z": 1.95,
+   "rot": 0,
+   "color": [
+    1.0,
+    0.88,
+    0.62
+   ]
+  },
+  {
+   "id": "spew",
+   "kind": "prop",
+   "label": "continuous-feed printout spilling off the counter",
+   "at": [
+    3.55,
+    2.3
+   ],
+   "size": [
+    0.03,
+    0.35,
+    0.9
+   ],
+   "z": 0.0,
+   "rot": 0,
+   "color": [
+    0.97,
+    0.97,
+    0.95
+   ],
+   "beat": "k3"
+  },
+  {
+   "id": "pile",
+   "kind": "prop",
+   "label": "pile of fan-folded continuous-feed printouts",
+   "at": [
+    2.55,
+    1.9
+   ],
+   "size": [
+    1.0,
+    1.1,
+    0.55
+   ],
+   "z": 0.0,
+   "rot": 0,
+   "color": [
+    0.97,
+    0.97,
+    0.95
+   ],
+   "beat": "k3"
+  }
+ ],
+ "marks": [
+  {
+   "id": "kyle-k1",
+   "who": "kyle",
+   "at": [
+    2.05,
+    1.9
+   ],
+   "facing": -90,
+   "pose": "sit",
+   "beat": "k1",
+   "arms": "up"
+  },
+  {
+   "id": "kyle-k2",
+   "who": "kyle",
+   "at": [
+    2.05,
+    1.9
+   ],
+   "facing": -90,
+   "pose": "sit",
+   "beat": "k2",
+   "arms": "forward"
+  },
+  {
+   "id": "kyle-k3",
+   "who": "kyle",
+   "at": [
+    2.5,
+    1.9
+   ],
+   "facing": -90,
+   "pose": "stand",
+   "beat": "k3",
+   "arms": "forward"
+  }
+ ],
+ "axes": [],
+ "setups": [
+  {
+   "id": "K1",
+   "name": "The fall",
+   "size": "MWS",
+   "lens": 28,
+   "height": 1.1,
+   "at": [
+    0.9,
+    0.05
+   ],
+   "facing": 25,
+   "tilt": -3,
+   "beat": "k1",
+   "shot": "A low 28 mm medium-wide from Kyle's left front at seated eye height, three-quarter on: Kyle at the small kitchen table on screen right, facing screen left toward the beige computer; its CRT monitor on the table at screen left, the screen turned toward him and glowing. He has just read the screen and flings both arms up as his wooden chair starts to tip backwards on its two back legs. The refrigerator and cream cabinets along the back wall behind him, the beige dot-matrix printer on the right-hand counter behind his right shoulder. Night: the kitchen lit by the pendant lamp over the table and the glow of the screen."
+  },
+  {
+   "id": "K2",
+   "name": "The email",
+   "size": "INS",
+   "lens": 50,
+   "height": 1.32,
+   "at": [
+    2.5,
+    1.6
+   ],
+   "facing": -74,
+   "tilt": -14,
+   "beat": "k2",
+   "shot": "A 50 mm insert over Kyle's left shoulder onto the beige CRT monitor on the kitchen table, the screen filling most of the frame: the back of Kyle's head and his light-blue shirt shoulder soft in the right foreground, his face turned to screen left toward the screen. On the screen a Windows 3.1 style email program window (grey title bar, no taskbar, no Start button) with a white message area that reads exactly: 'Love the product! Before we sign, can you send your SOC 2?' Night: lit by the screen glow and the pendant lamp."
+  },
+  {
+   "id": "K3",
+   "name": "The screenshots",
+   "size": "MWS",
+   "lens": 24,
+   "height": 1.3,
+   "at": [
+    0.15,
+    1.3
+   ],
+   "facing": 80,
+   "tilt": -3,
+   "beat": "k3",
+   "shot": "A 24 mm medium-wide from behind the computer on the kitchen table, looking straight at Kyle: only the back of the beige monitor in the bottom-left corner of frame. Kyle stands facing the lens, holding a small silver 1990s point-and-shoot film camera up to his eye with both hands, photographing the computer screen, the camera's flash firing from a small window at the top corner of the camera body. Behind him, on the right-hand counter over his right shoulder, the beige dot-matrix printer spews one long unbroken ribbon of fan-folded continuous-feed paper with perforated tractor-feed edges off the counter, down to the floor and into a deep pile around his knees. His wooden chair pushed back. The refrigerator on the back wall. Night: lit by the pendant lamp and the screen glow."
+  }
+ ],
+ "board": {
+  "room": "generated/order-now/set-kitchen-1.png",
+  "cast": {
+   "kyle": [
+    "generated/order-now/sheets/kyle--face-front.jpg",
+    "generated/order-now/sheets/kyle--body-front.jpg"
+   ]
+  },
+  "describe": {
+   "kyle": "Kyle: keep his face exactly as in the KYLE panel (mousse-sculpted brown hair, oversized thin wire-rim glasses), light-blue oxford shirt, loosened burgundy, navy and gold patterned tie, pleated khakis, braided belt with a black pager, digital watch, brown loafers"
+  },
+  "props": [
+   "generated/order-now/space/ref/props-kitchen.jpg"
+  ]
+ },
+ "palette": {
+  "floor": [
+   0.44,
+   0.36,
+   0.28
+  ],
+  "wall": [
+   0.84,
+   0.78,
+   0.64
+  ],
+  "ceiling": [
+   0.88,
+   0.86,
+   0.8
+  ],
+  "people": {
+   "kyle": [
+    0.55,
+    0.7,
+    0.9
+   ]
+  },
+  "legs": {
+   "kyle": [
+    0.76,
+    0.68,
+    0.52
+   ]
+  }
+ },
+ "set": "1994 apartment kitchen at night",
+ "style": "Night in a real, lived-in 1994 apartment kitchen: warm light from the pendant lamp over the table and the cool glow of the monitor, black night through the window (no daylight anywhere). Clean, sharp, natural photograph of a real place and a real person at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text except what is on the computer screen.",
+ "legend": {
+  "colour": "Image 1 marks Kyle as a flat figure: light blue shirt, tan khaki legs. The kitchen is in its real colours: the pale slab in the middle is the small laminate kitchen table; on it the beige blocks are one desktop computer with its CRT monitor (the pale blue rectangle is its glowing screen, facing Kyle) and the beige keyboard; the brown chair is a wooden kitchen chair; the tall white block is the refrigerator; cream blocks are base and wall cabinets; the beige block on the right-hand counter is the dot-matrix printer with its white paper; the near-black rectangle on the back wall is the window at night; the warm block over the table is the pendant lamp; large white shapes on the floor are piles of continuous-feed printouts.",
+  "clay": "In Image 1 the light blue figure is Kyle; the slab in the middle is the kitchen table with the computer on it.",
+  "detail": "Image 1 is a simple 3D mock-up of the kitchen in its real colours: the light blue mannequin is Kyle and his arms show his pose."
+ }
+}

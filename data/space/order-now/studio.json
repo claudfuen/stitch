@@ -17,7 +17,34 @@
     1.0
    ],
    "z": 2.0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    1.0,
+    0.3,
+    0.85
+   ],
+   "shape": "neon",
+   "text": "COMP",
+   "always_shape": true,
+   "text2": "AI",
+   "color2": [
+    0.25,
+    0.9,
+    0.92
+   ],
+   "stripe_count": 3,
+   "stripe_gradient": [
+    [
+     1.0,
+     0.3,
+     0.85
+    ],
+    [
+     0.25,
+     0.9,
+     0.92
+    ]
+   ]
   },
   {
    "id": "col-pink",
@@ -33,7 +60,13 @@
     6.0
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.97,
+    0.72,
+    0.82
+   ],
+   "shape": "column"
   },
   {
    "id": "col-teal",
@@ -49,7 +82,13 @@
     6.0
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.72,
+    0.92,
+    0.92
+   ],
+   "shape": "column"
   },
   {
    "id": "shelves",
@@ -65,7 +104,13 @@
     2.4
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.92,
+    0.92,
+    0.92
+   ],
+   "shape": "shelves"
   },
   {
    "id": "palm-l",
@@ -81,7 +126,13 @@
     1.8
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.18,
+    0.45,
+    0.22
+   ],
+   "shape": "palm"
   },
   {
    "id": "palm-r",
@@ -97,7 +148,13 @@
     1.8
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.18,
+    0.45,
+    0.22
+   ],
+   "shape": "palm"
   },
   {
    "id": "desk",
@@ -113,7 +170,13 @@
     1.05
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.95,
+    0.95,
+    0.96
+   ],
+   "shape": "capsule"
   },
   {
    "id": "button",
@@ -129,7 +192,14 @@
     0.18
    ],
    "z": 1.05,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.85,
+    0.08,
+    0.08
+   ],
+   "shape": "button",
+   "always_shape": true
   },
   {
    "id": "folder",
@@ -145,7 +215,12 @@
     0.03
    ],
    "z": 1.05,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.12,
+    0.3,
+    0.85
+   ]
   },
   {
    "id": "stool-l",
@@ -161,7 +236,13 @@
     0.78
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.97,
+    0.97,
+    0.97
+   ],
+   "shape": "stool"
   },
   {
    "id": "stool-r",
@@ -177,7 +258,13 @@
     0.78
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.97,
+    0.97,
+    0.97
+   ],
+   "shape": "stool"
   },
   {
    "id": "tier1",
@@ -193,7 +280,12 @@
     0.45
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.4,
+    0.4,
+    0.44
+   ]
   },
   {
    "id": "tier2",
@@ -209,7 +301,12 @@
     0.9
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.4,
+    0.4,
+    0.44
+   ]
   },
   {
    "id": "tier3",
@@ -225,7 +322,12 @@
     1.35
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.4,
+    0.4,
+    0.44
+   ]
   },
   {
    "id": "tier4",
@@ -241,7 +343,12 @@
     1.8
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.4,
+    0.4,
+    0.44
+   ]
   },
   {
    "id": "tier5",
@@ -257,7 +364,12 @@
     2.25
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.4,
+    0.4,
+    0.44
+   ]
   },
   {
    "id": "stair0",
@@ -273,7 +385,12 @@
     0.01
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.42,
+    0.46
+   ]
   },
   {
    "id": "stair1",
@@ -289,7 +406,12 @@
     0.46
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.42,
+    0.46
+   ]
   },
   {
    "id": "stair2",
@@ -305,7 +427,12 @@
     0.91
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.42,
+    0.46
+   ]
   },
   {
    "id": "stair3",
@@ -321,7 +448,12 @@
     1.36
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.42,
+    0.46
+   ]
   },
   {
    "id": "stair4",
@@ -337,7 +469,12 @@
     1.81
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.42,
+    0.46
+   ]
   },
   {
    "id": "stair5",
@@ -353,7 +490,12 @@
     2.26
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.42,
+    0.46
+   ]
   },
   {
    "id": "rail",
@@ -369,7 +511,12 @@
     0.06
    ],
    "z": 3.2,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.8,
+    0.8,
+    0.84
+   ]
   },
   {
    "id": "binders",
@@ -386,7 +533,14 @@
    ],
    "z": 1.05,
    "rot": 0,
-   "beat": "8"
+   "beat": "8",
+   "color": [
+    0.98,
+    0.98,
+    0.98
+   ],
+   "shape": "stack",
+   "count": 12
   }
  ],
  "marks": [
@@ -1118,7 +1272,8 @@
     11.6
    ],
    "facing": 200,
-   "pose": "sit"
+   "pose": "sit",
+   "arms": "folded"
   },
   {
    "id": "brock5",
@@ -1129,7 +1284,8 @@
    ],
    "facing": 110,
    "pose": "stand",
-   "beat": "5"
+   "beat": "5",
+   "arms": "wide"
   },
   {
    "id": "brock7",
@@ -1140,7 +1296,8 @@
    ],
    "facing": 150,
    "pose": "stand",
-   "beat": "7"
+   "beat": "7",
+   "arms": "wide"
   },
   {
    "id": "brock8",
@@ -1151,7 +1308,8 @@
    ],
    "facing": 180,
    "pose": "stand",
-   "beat": "8"
+   "beat": "8",
+   "arms": "up"
   },
   {
    "id": "brock11",
@@ -1162,7 +1320,8 @@
    ],
    "facing": 175,
    "pose": "stand",
-   "beat": "11"
+   "beat": "11",
+   "arms": "forward"
   },
   {
    "id": "brock14",
@@ -1173,7 +1332,8 @@
    ],
    "facing": 180,
    "pose": "stand",
-   "beat": "14"
+   "beat": "14",
+   "arms": "thumbs"
   }
  ],
  "axes": [],
@@ -1189,7 +1349,8 @@
     3.5
    ],
    "facing": 20,
-   "beat": "5"
+   "beat": "5",
+   "shot": "Beat 5, the smash to colour. The studio audience in the bleachers at screen left is ON ITS FEET, applauding and cheering. Brock bounds in left of centre, mid-stride, arms flung wide, huge grin, turned toward Henrick. Henrick sits perfectly still on the right-hand stool, hands folded, angled three-quarters toward camera. On the desk: the red COMP AI button in the centre and the thin blue SOC 2 folder at the right end, nothing else."
   },
   {
    "id": "C2",
@@ -1202,7 +1363,8 @@
     6.8
    ],
    "facing": -12,
-   "beat": "7"
+   "beat": "7",
+   "shot": "A medium shot of Brock standing left of the desk, arms flung wide, mouth open mid-shout, body toward camera, head and eyes turned to screen right toward his unseen guest. At the far left edge, the end of the bleachers with one or two seated audience members applauding, soft. Behind him the pink column and a palm at screen left, the COMP AI neon sign running off the top right, the left end of the white desk at the right edge with the red button at the frame edge."
   },
   {
    "id": "C3",
@@ -1215,7 +1377,8 @@
     7.6
    ],
    "facing": 4,
-   "beat": "6"
+   "beat": "6",
+   "shot": "A locked medium shot of Henrick on the right-hand stool: hands folded in his lap, back straight, perfectly still, flat polite expression, eyes slightly to screen left toward the unseen host. The thin blue SOC 2 folder lies on the end of the desk beside him. Behind him the teal column and the pink-to-teal wall, the bottom of the neon sign soft at the top edge."
   },
   {
    "id": "C4",
@@ -1228,7 +1391,8 @@
     7.0
    ],
    "facing": 0,
-   "beat": "8"
+   "beat": "8",
+   "shot": "A wide on the demo desk from the front: Brock stands behind the desk facing the camera, both hands raised high above the red COMP AI button about to slam it, grinning wildly. On the desk top: a tall tower of ten thick white binders at the left, the button in the centre, the thin blue SOC 2 folder at the right. The COMP AI neon sign above on the gradient wall; the two white stools at the desk ends, empty."
   },
   {
    "id": "C5",
@@ -1241,7 +1405,8 @@
     7.3
    ],
    "facing": -5,
-   "beat": "11"
+   "beat": "11",
+   "shot": "A 24 mm close-up: Brock leans hard toward the lens from a planted stance (his feet on the floor, out of frame below), face large and a little distorted by the wide lens, eyes wide, mouth open shouting 'But wait!', one hand reaching toward camera. Behind him, soft: one seated audience member frozen in silence at the far left edge, a palm and the pink column at left, the COMP AI neon sign at the right, the white desk with the red button at right."
   },
   {
    "id": "C6",
@@ -1254,7 +1419,8 @@
     7.4
    ],
    "facing": 0,
-   "beat": "14"
+   "beat": "14",
+   "shot": "A medium-wide two-shot from the front: Henrick seated on the right-hand stool looking straight into the lens, flat and calm; Brock standing beside him at screen left, leaning in, beaming into the lens with two thumbs up. The COMP AI neon sign above them; the red button and the blue folder on the desk."
   },
   {
    "id": "C7",
@@ -1268,7 +1434,14 @@
    ],
    "facing": -90,
    "beat": "7",
-   "tilt": -14
+   "tilt": -14,
+   "shot": "The one reverse, from a jib on the stage, high, looking down onto the bleacher bank: six tiers of eight dusty mauve seats on grey carpeted steps, all 48 people seated, leaning forward, mouths rounded in an amazed 'Ooooh'. The chrome handrail and stairs at screen right. Behind the top row only a dark studio wall.",
+   "refs": [
+    {
+     "file": "public/generated/order-now/space/ref/audience-front-rows.jpg",
+     "text": "is a close view of the front rows of this same audience: the faces, hair and clothes of these exact people, front row first; use it only for who they are, not for framing."
+    }
+   ]
   }
  ],
  "board": {
@@ -1285,6 +1458,86 @@
    "audience": [
     "generated/order-now/space/ref/audience-clean.jpg"
    ]
+  },
+  "describe": {
+   "brock": "Brock: frosted spiked blond-tipped hair, a deep orange-bronze tan with leathery, deeply lined skin as in his cast panel, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone",
+   "henrick": "Henrick, a real man: keep his face exactly as in his cast panel (silver hair, short white beard, round glasses with slim dark-blue frames), a medium slate-blue suit with a subtle textured weave, light-blue shirt, grey paisley tie, pink pocket square",
+   "audience": "The studio audience: a 1994 crowd of adults in their 20s to 40s, mostly women with some men, in pastels, denim and windbreakers, the same people as the AUDIENCE panel"
+  },
+  "props": [
+   "generated/order-now/space/ref/props-desk.jpg",
+   "generated/order-now/space/ref/props-button.jpg",
+   "generated/order-now/space/ref/props-set.jpg"
+  ]
+ },
+ "palette": {
+  "floor": [
+   0.86,
+   0.86,
+   0.9
+  ],
+  "wall": [
+   0.78,
+   0.78,
+   0.82
+  ],
+  "ceiling": [
+   0.12,
+   0.12,
+   0.14
+  ],
+  "far_gradient": [
+   [
+    0.97,
+    0.55,
+    0.78
+   ],
+   [
+    0.45,
+    0.86,
+    0.86
+   ]
+  ],
+  "people": {
+   "brock": [
+    0.0,
+    0.52,
+    0.5
+   ],
+   "henrick": [
+    0.1,
+    0.14,
+    0.32
+   ],
+   "audience": [
+    0.55,
+    0.52,
+    0.55
+   ]
+  },
+  "legs": {
+   "brock": [
+    0.55,
+    0.55,
+    0.57
+   ],
+   "henrick": [
+    0.1,
+    0.14,
+    0.32
+   ],
+   "audience": [
+    0.35,
+    0.42,
+    0.58
+   ]
   }
+ },
+ "set": "1994 infomercial set",
+ "style": "Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign and the COMP AI lettering on the red button.",
+ "legend": {
+  "colour": "Image 1 marks people as flat figures: teal is Brock, navy is Henrick, grey are the studio audience. It marks the set in its real colours: the glowing lettering with stripes is the COMP AI neon sign (italic outlined neon tubes: COMP in pink-magenta, AI in cyan-teal, three neon stripes under it that shift from pink-magenta at the left through lavender to cyan-teal at the right, straight on the wall), the red dome is the red COMP AI button (a red dome with COMP AI lettered on the dome itself, on a medium-grey square base), the blue slab the thin SOC 2 folder, green blocks potted palms, pink and pale teal pillars the two columns, the white block the curved white demo desk with chrome trim, grey steps the bleacher tiers with dusty mauve seats.",
+  "clay": "In Image 1 the teal figure is Brock, the blue-grey figure is Henrick and the grey figures are the studio audience.",
+  "detail": "Image 1 is a simple 3D mock-up of the set in its real colours. People are posed mannequins and their arms show each pose: teal torso with grey legs is Brock (teal blazer, grey trousers), slate blue is Henrick (slate-blue suit), grey bodies with blue legs are the studio audience. The pink COMP and teal AI lettering with stripes under it is the glowing COMP AI neon sign; the red dome on a grey base is the red COMP AI button; the blue slab is the thin SOC 2 folder; green fronds in white pots are potted palms; the pink and pale teal cylinders are the two columns; the white desk with curved ends and a chrome band is the demo desk; chrome stools with white seats; grey steps with dusty mauve seats are the bleachers."
  }
 }

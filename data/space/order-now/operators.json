@@ -17,7 +17,12 @@
     0.75
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.8,
+    0.8,
+    0.78
+   ]
   },
   {
    "id": "part0",
@@ -33,7 +38,12 @@
     0.65
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.56,
+    0.57,
+    0.6
+   ]
   },
   {
    "id": "part1",
@@ -49,7 +59,12 @@
     0.65
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.56,
+    0.57,
+    0.6
+   ]
   },
   {
    "id": "part2",
@@ -65,7 +80,12 @@
     0.65
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.56,
+    0.57,
+    0.6
+   ]
   },
   {
    "id": "part3",
@@ -81,7 +101,12 @@
     0.65
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.56,
+    0.57,
+    0.6
+   ]
   },
   {
    "id": "part4",
@@ -97,7 +122,12 @@
     0.65
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.56,
+    0.57,
+    0.6
+   ]
   },
   {
    "id": "part5",
@@ -113,7 +143,12 @@
     0.65
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.56,
+    0.57,
+    0.6
+   ]
   },
   {
    "id": "part6",
@@ -129,7 +164,12 @@
     0.65
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.56,
+    0.57,
+    0.6
+   ]
   },
   {
    "id": "part7",
@@ -145,7 +185,12 @@
     0.65
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.56,
+    0.57,
+    0.6
+   ]
   },
   {
    "id": "part8",
@@ -161,7 +206,12 @@
     0.65
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.56,
+    0.57,
+    0.6
+   ]
   },
   {
    "id": "part9",
@@ -177,7 +227,12 @@
     0.65
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.56,
+    0.57,
+    0.6
+   ]
   },
   {
    "id": "part10",
@@ -193,7 +248,12 @@
     0.65
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.56,
+    0.57,
+    0.6
+   ]
   },
   {
    "id": "part11",
@@ -209,7 +269,12 @@
     0.65
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.56,
+    0.57,
+    0.6
+   ]
   },
   {
    "id": "part12",
@@ -225,7 +290,12 @@
     0.65
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.56,
+    0.57,
+    0.6
+   ]
   },
   {
    "id": "phone0",
@@ -241,7 +311,14 @@
     0.1
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.9,
+    0.86,
+    0.74
+   ],
+   "shape": "phone",
+   "always_shape": true
   },
   {
    "id": "chair0",
@@ -249,15 +326,22 @@
    "label": "empty grey task chair (backrest)",
    "at": [
     2.225,
-    4.0
+    4.25
    ],
    "size": [
-    0.48,
-    0.1,
+    0.5,
+    0.5,
     0.95
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.43,
+    0.46
+   ],
+   "shape": "task-chair",
+   "always_shape": true
   },
   {
    "id": "phone1",
@@ -273,7 +357,14 @@
     0.1
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.9,
+    0.86,
+    0.74
+   ],
+   "shape": "phone",
+   "always_shape": true
   },
   {
    "id": "chair1",
@@ -281,15 +372,22 @@
    "label": "empty grey task chair (backrest)",
    "at": [
     3.075,
-    4.0
+    4.25
    ],
    "size": [
-    0.48,
-    0.1,
+    0.5,
+    0.5,
     0.95
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.43,
+    0.46
+   ],
+   "shape": "task-chair",
+   "always_shape": true
   },
   {
    "id": "phone2",
@@ -305,7 +403,14 @@
     0.1
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.9,
+    0.86,
+    0.74
+   ],
+   "shape": "phone",
+   "always_shape": true
   },
   {
    "id": "chair2",
@@ -313,15 +418,22 @@
    "label": "empty grey task chair (backrest)",
    "at": [
     3.925,
-    4.0
+    4.25
    ],
    "size": [
-    0.48,
-    0.1,
+    0.5,
+    0.5,
     0.95
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.43,
+    0.46
+   ],
+   "shape": "task-chair",
+   "always_shape": true
   },
   {
    "id": "phone3",
@@ -337,7 +449,14 @@
     0.1
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.9,
+    0.86,
+    0.74
+   ],
+   "shape": "phone",
+   "always_shape": true
   },
   {
    "id": "phone4",
@@ -353,7 +472,14 @@
     0.1
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.9,
+    0.86,
+    0.74
+   ],
+   "shape": "phone",
+   "always_shape": true
   },
   {
    "id": "chair4",
@@ -361,15 +487,22 @@
    "label": "empty grey task chair (backrest)",
    "at": [
     5.625,
-    4.0
+    4.25
    ],
    "size": [
-    0.48,
-    0.1,
+    0.5,
+    0.5,
     0.95
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.43,
+    0.46
+   ],
+   "shape": "task-chair",
+   "always_shape": true
   },
   {
    "id": "phone5",
@@ -385,7 +518,14 @@
     0.1
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.9,
+    0.86,
+    0.74
+   ],
+   "shape": "phone",
+   "always_shape": true
   },
   {
    "id": "chair5",
@@ -393,15 +533,22 @@
    "label": "empty grey task chair (backrest)",
    "at": [
     6.475,
-    4.0
+    4.25
    ],
    "size": [
-    0.48,
-    0.1,
+    0.5,
+    0.5,
     0.95
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.43,
+    0.46
+   ],
+   "shape": "task-chair",
+   "always_shape": true
   },
   {
    "id": "phone6",
@@ -417,7 +564,14 @@
     0.1
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.9,
+    0.86,
+    0.74
+   ],
+   "shape": "phone",
+   "always_shape": true
   },
   {
    "id": "chair6",
@@ -425,15 +579,22 @@
    "label": "empty grey task chair (backrest)",
    "at": [
     7.324999999999999,
-    4.0
+    4.25
    ],
    "size": [
-    0.48,
-    0.1,
+    0.5,
+    0.5,
     0.95
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.43,
+    0.46
+   ],
+   "shape": "task-chair",
+   "always_shape": true
   },
   {
    "id": "phone7",
@@ -449,7 +610,14 @@
     0.1
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.9,
+    0.86,
+    0.74
+   ],
+   "shape": "phone",
+   "always_shape": true
   },
   {
    "id": "phone8",
@@ -465,7 +633,14 @@
     0.1
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.9,
+    0.86,
+    0.74
+   ],
+   "shape": "phone",
+   "always_shape": true
   },
   {
    "id": "chair8",
@@ -473,15 +648,22 @@
    "label": "empty grey task chair (backrest)",
    "at": [
     9.025,
-    4.0
+    4.25
    ],
    "size": [
-    0.48,
-    0.1,
+    0.5,
+    0.5,
     0.95
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.43,
+    0.46
+   ],
+   "shape": "task-chair",
+   "always_shape": true
   },
   {
    "id": "phone9",
@@ -497,7 +679,14 @@
     0.1
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.9,
+    0.86,
+    0.74
+   ],
+   "shape": "phone",
+   "always_shape": true
   },
   {
    "id": "chair9",
@@ -505,15 +694,22 @@
    "label": "empty grey task chair (backrest)",
    "at": [
     9.875,
-    4.0
+    4.25
    ],
    "size": [
-    0.48,
-    0.1,
+    0.5,
+    0.5,
     0.95
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.43,
+    0.46
+   ],
+   "shape": "task-chair",
+   "always_shape": true
   },
   {
    "id": "phone10",
@@ -529,7 +725,14 @@
     0.1
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.9,
+    0.86,
+    0.74
+   ],
+   "shape": "phone",
+   "always_shape": true
   },
   {
    "id": "chair10",
@@ -537,15 +740,22 @@
    "label": "empty grey task chair (backrest)",
    "at": [
     10.725,
-    4.0
+    4.25
    ],
    "size": [
-    0.48,
-    0.1,
+    0.5,
+    0.5,
     0.95
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.43,
+    0.46
+   ],
+   "shape": "task-chair",
+   "always_shape": true
   },
   {
    "id": "phone11",
@@ -561,7 +771,14 @@
     0.1
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.9,
+    0.86,
+    0.74
+   ],
+   "shape": "phone",
+   "always_shape": true
   },
   {
    "id": "chair11",
@@ -569,15 +786,22 @@
    "label": "empty grey task chair (backrest)",
    "at": [
     11.575,
-    4.0
+    4.25
    ],
    "size": [
-    0.48,
-    0.1,
+    0.5,
+    0.5,
     0.95
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.43,
+    0.46
+   ],
+   "shape": "task-chair",
+   "always_shape": true
   },
   {
    "id": "sign",
@@ -593,7 +817,15 @@
     0.6
    ],
    "z": 2.2,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.97,
+    0.97,
+    0.95
+   ],
+   "shape": "sign",
+   "text": "OPERATORS\\nSTANDING BY",
+   "always_shape": true
   },
   {
    "id": "clock",
@@ -609,7 +841,12 @@
     0.35
    ],
    "z": 2.0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.95,
+    0.95,
+    0.95
+   ]
   },
   {
    "id": "calendar",
@@ -625,7 +862,12 @@
     0.8
    ],
    "z": 1.2,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.95,
+    0.95,
+    0.93
+   ]
   },
   {
    "id": "file",
@@ -641,7 +883,12 @@
     1.3
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.8,
+    0.76,
+    0.66
+   ]
   },
   {
    "id": "chair3",
@@ -649,15 +896,22 @@
    "label": "empty grey task chair (backrest)",
    "at": [
     4.775,
-    4.0
+    4.25
    ],
    "size": [
-    0.48,
-    0.1,
+    0.5,
+    0.5,
     0.95
    ],
    "z": 0,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.42,
+    0.43,
+    0.46
+   ],
+   "shape": "task-chair",
+   "always_shape": true
   },
   {
    "id": "backpanel",
@@ -673,19 +927,38 @@
     0.65
    ],
    "z": 0.75,
-   "rot": 0
+   "rot": 0,
+   "color": [
+    0.56,
+    0.57,
+    0.6
+   ]
   }
  ],
  "marks": [
   {
-   "id": "henrick",
+   "id": "henrick-o1",
    "who": "henrick",
    "at": [
     8.175,
     4.35
    ],
    "facing": 0,
-   "pose": "sit"
+   "pose": "sit",
+   "beat": "o1",
+   "arms": "phone"
+  },
+  {
+   "id": "henrick-o2",
+   "who": "henrick",
+   "at": [
+    8.175,
+    4.35
+   ],
+   "facing": 0,
+   "pose": "sit",
+   "beat": "o2",
+   "arms": "write"
   }
  ],
  "axes": [],
@@ -701,7 +974,9 @@
     2.2
    ],
    "facing": -68,
-   "tilt": 0
+   "tilt": 0,
+   "shot": "A 35 mm wide from the aisle near the end of the row, looking down it at an angle: a long row of identical operator stations with grey cubicle partitions, beige push-button multi-line phones with blinking line lights and empty grey task chairs. One man, Henrick, a third of the way down the row, seated at his station facing his partition, lifting the phone receiver to answer. The OPERATORS STANDING BY sign hangs from the ceiling over the row. Clean beige walls, fluorescent drop ceiling.",
+   "beat": "o1"
   },
   {
    "id": "O2",
@@ -714,7 +989,9 @@
     3.2
    ],
    "facing": -64,
-   "tilt": 0
+   "tilt": 0,
+   "shot": "A 40 mm medium shot from the aisle a few stations along the row: Henrick seated at his station facing his partition, seen three-quarter from behind, his face in profile as he writes an order on a pad, deadpan. Grey cubicle partitions around his station; the row of empty stations, empty grey task chairs and beige multi-line phones with blinking line lights recedes soft beyond him to screen left. Clean beige walls, fluorescent drop ceiling.",
+   "beat": "o2"
   }
  ],
  "board": {
@@ -724,6 +1001,50 @@
     "generated/order-now/sheets/henrick-set--real-front.jpg",
     "generated/order-now/sheets/henrick-set--pose-headset.jpg"
    ]
+  },
+  "describe": {
+   "henrick": "Henrick, a real man: keep his face exactly as in his cast panel (silver hair, short white beard, round glasses with slim dark-blue frames), a medium slate-blue suit with a subtle textured weave, light-blue shirt, grey paisley tie, pink pocket square, wearing a beige telephone headset"
+  },
+  "props": [
+   "generated/order-now/space/ref/props-operators.jpg"
+  ]
+ },
+ "palette": {
+  "floor": [
+   0.46,
+   0.43,
+   0.4
+  ],
+  "wall": [
+   0.86,
+   0.81,
+   0.7
+  ],
+  "ceiling": [
+   0.92,
+   0.92,
+   0.9
+  ],
+  "people": {
+   "henrick": [
+    0.1,
+    0.14,
+    0.32
+   ]
+  },
+  "legs": {
+   "henrick": [
+    0.1,
+    0.14,
+    0.32
+   ]
   }
+ },
+ "set": "1994 telephone order room",
+ "style": "Flat fluorescent office light in a real, used telephone order office in good order (tidy grey laminate, pinned notes, not distressed or abandoned), shot like documentary footage. Clean, sharp, natural photograph of a real place and a real person at true scale: no grain, no noise, no painterly texture. No text except the OPERATORS STANDING BY sign, the 1994 wall calendar and the typed notes pinned to the partitions.",
+ "legend": {
+  "colour": "Image 1 marks Henrick as a flat navy figure. The set is in its real colours: grey panels are fabric cubicle partitions, the long counter is the light grey laminate desk, small beige blocks are push-button multi-line phones, dark grey slabs are the backs of empty grey task chairs, the white card with two lines of lettering hanging from the ceiling is the OPERATORS STANDING BY sign (serif capitals on two lines, inside a dark border).",
+  "clay": "In Image 1 the blue-grey figure is Henrick; the dark panels are grey cubicle partitions and the pale slabs are empty task chairs.",
+  "detail": "Image 1 is a simple 3D mock-up of the room in its real colours. The navy mannequin is Henrick and his arms show his pose. Grey panels are fabric cubicle partitions; the long counter is the light grey laminate desk; small beige blocks with handsets are push-button multi-line phones; grey task chairs stand on five-star bases; the white card with lettering hanging from the ceiling is the OPERATORS STANDING BY sign."
  }
 }

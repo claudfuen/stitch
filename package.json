@@ -19,7 +19,11 @@
     "plate-brief": "bun scripts/plate-brief.ts",
     "fal": "bun scripts/fal.ts",
     "space-judge": "bun scripts/space-judge.ts",
-    "space-board": "bun scripts/space-board.ts"
+    "space-board": "bun scripts/space-board.ts",
+    "space-frames": "bun scripts/space-frames.ts",
+    "space-cohesion": "bun scripts/space-cohesion.ts",
+    "space-lint": "bun scripts/space-lint.ts",
+    "space-draft": "bun scripts/space-draft.ts"
   },
   "dependencies": {
     "@ai-sdk/gateway": "^4.0.104",

@@ -1,0 +1,11 @@
+{
+ "provider": "leap",
+ "model": "Seedream 5.0 Pro (bytedance/seedream-5.0-pro)",
+ "generation": "gen_5HWZwvbfmUIjEDEANemj9gVk",
+ "take": 0,
+ "cost_usd": "0.077 for 2 takes",
+ "prompt": "A clean prop reference photograph for a film's art department: the props for a 1994 apartment kitchen, laid out on a plain light grey seamless backdrop, evenly lit, side by side with space between them, seen in three-quarter view. Left: one beige 1994 desktop personal computer, the flat beige system unit with a 3.5-inch floppy slot lying under a beige 14-inch CRT monitor with a thick rounded back, its screen glowing with a Windows 3.1 style grey email program window, and a beige keyboard in front. Right: one beige 1994 dot-matrix printer with a tractor feed, a long ribbon of fan-folded continuous-feed paper with perforated tractor-hole strips on both edges feeding out of it and folding into a neat stack on the floor. No people, no other objects, no text other than the tiny email window on the screen.",
+ "why": "The approved kitchen plate carries a modern laptop; the script needs a 1994 beige computer with a CRT and a dot-matrix printer. This is the approved design for those props.",
+ "by": "claude",
+ "at": "2026-10-07"
+}

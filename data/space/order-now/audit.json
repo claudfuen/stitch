@@ -1,0 +1,812 @@
+{
+ "width": 5.0,
+ "depth": 7.0,
+ "height": 2.7,
+ "items": [
+  {
+   "id": "table",
+   "kind": "counter",
+   "label": "long dark wood conference table",
+   "at": [
+    2.5,
+    4.0
+   ],
+   "size": [
+    1.2,
+    3.6,
+    0.75
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.3,
+    0.22,
+    0.16
+   ]
+  },
+  {
+   "id": "binders0",
+   "kind": "prop",
+   "label": "tower of white binders (the tallest)",
+   "at": [
+    2.05,
+    4.25
+   ],
+   "size": [
+    0.32,
+    0.28,
+    0.95
+   ],
+   "z": 0.75,
+   "rot": 0,
+   "color": [
+    0.95,
+    0.95,
+    0.93
+   ],
+   "shape": "stack",
+   "count": 14,
+   "always_shape": true,
+   "beats": [
+    "a1",
+    "a2"
+   ]
+  },
+  {
+   "id": "binders1",
+   "kind": "prop",
+   "label": "tower of white binders",
+   "at": [
+    2.3,
+    3.35
+   ],
+   "size": [
+    0.32,
+    0.28,
+    0.45
+   ],
+   "z": 0.75,
+   "rot": 0,
+   "color": [
+    0.95,
+    0.95,
+    0.93
+   ],
+   "shape": "stack",
+   "count": 7,
+   "always_shape": true,
+   "beats": [
+    "a1",
+    "a2"
+   ]
+  },
+  {
+   "id": "binders2",
+   "kind": "prop",
+   "label": "tower of white binders",
+   "at": [
+    2.8,
+    3.7
+   ],
+   "size": [
+    0.32,
+    0.28,
+    0.4
+   ],
+   "z": 0.75,
+   "rot": 0,
+   "color": [
+    0.95,
+    0.95,
+    0.93
+   ],
+   "shape": "stack",
+   "count": 6,
+   "always_shape": true,
+   "beats": [
+    "a1",
+    "a2"
+   ]
+  },
+  {
+   "id": "binders3",
+   "kind": "prop",
+   "label": "tower of white binders",
+   "at": [
+    2.55,
+    4.7
+   ],
+   "size": [
+    0.32,
+    0.28,
+    0.35
+   ],
+   "z": 0.75,
+   "rot": 0,
+   "color": [
+    0.95,
+    0.95,
+    0.93
+   ],
+   "shape": "stack",
+   "count": 5,
+   "always_shape": true,
+   "beats": [
+    "a1",
+    "a2"
+   ]
+  },
+  {
+   "id": "binders4",
+   "kind": "prop",
+   "label": "tower of white binders",
+   "at": [
+    2.95,
+    4.45
+   ],
+   "size": [
+    0.32,
+    0.28,
+    0.5
+   ],
+   "z": 0.75,
+   "rot": 0,
+   "color": [
+    0.95,
+    0.95,
+    0.93
+   ],
+   "shape": "stack",
+   "count": 7,
+   "always_shape": true,
+   "beats": [
+    "a1",
+    "a2"
+   ]
+  },
+  {
+   "id": "binders5",
+   "kind": "prop",
+   "label": "tower of white binders",
+   "at": [
+    2.2,
+    5.05
+   ],
+   "size": [
+    0.32,
+    0.28,
+    0.3
+   ],
+   "z": 0.75,
+   "rot": 0,
+   "color": [
+    0.95,
+    0.95,
+    0.93
+   ],
+   "shape": "stack",
+   "count": 4,
+   "always_shape": true,
+   "beats": [
+    "a1",
+    "a2"
+   ]
+  },
+  {
+   "id": "binders6",
+   "kind": "prop",
+   "label": "tower of white binders",
+   "at": [
+    2.85,
+    3.05
+   ],
+   "size": [
+    0.32,
+    0.28,
+    0.25
+   ],
+   "z": 0.75,
+   "rot": 0,
+   "color": [
+    0.95,
+    0.95,
+    0.93
+   ],
+   "shape": "stack",
+   "count": 4,
+   "always_shape": true,
+   "beats": [
+    "a1",
+    "a2"
+   ]
+  },
+  {
+   "id": "binders7",
+   "kind": "prop",
+   "label": "tower of white binders",
+   "at": [
+    2.45,
+    3.95
+   ],
+   "size": [
+    0.32,
+    0.28,
+    0.4
+   ],
+   "z": 0.75,
+   "rot": 0,
+   "color": [
+    0.95,
+    0.95,
+    0.93
+   ],
+   "shape": "stack",
+   "count": 6,
+   "always_shape": true,
+   "beats": [
+    "a1",
+    "a2"
+   ]
+  },
+  {
+   "id": "note",
+   "kind": "prop",
+   "label": "one tiny yellow sticky note",
+   "at": [
+    2.3,
+    3.75
+   ],
+   "size": [
+    0.08,
+    0.08,
+    0.01
+   ],
+   "z": 0.75,
+   "rot": 0,
+   "color": [
+    0.98,
+    0.9,
+    0.35
+   ],
+   "beat": "a1"
+  },
+  {
+   "id": "folder",
+   "kind": "prop",
+   "label": "one thin blue folder, held to Gerald's chest",
+   "at": [
+    3.12,
+    3.81
+   ],
+   "size": [
+    0.3,
+    0.04,
+    0.38
+   ],
+   "z": 0.75,
+   "rot": -112,
+   "color": [
+    0.16,
+    0.3,
+    0.66
+   ],
+   "beat": "a3"
+  },
+  {
+   "id": "chair-kyle",
+   "kind": "furniture",
+   "label": "black office chair (Kyle's)",
+   "at": [
+    1.55,
+    3.9
+   ],
+   "size": [
+    0.6,
+    0.6,
+    1.0
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.13,
+    0.13,
+    0.14
+   ],
+   "shape": "task-chair",
+   "always_shape": true,
+   "facing": 90,
+   "beats": [
+    "a1"
+   ]
+  },
+  {
+   "id": "chair-kyle-a2",
+   "kind": "furniture",
+   "label": "black office chair (Kyle's, pushed back)",
+   "at": [
+    1.05,
+    3.75
+   ],
+   "size": [
+    0.6,
+    0.6,
+    1.0
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.13,
+    0.13,
+    0.14
+   ],
+   "shape": "task-chair",
+   "always_shape": true,
+   "facing": 70,
+   "beat": "a2"
+  },
+  {
+   "id": "chair-gerald",
+   "kind": "furniture",
+   "label": "black office chair (Gerald's)",
+   "at": [
+    3.45,
+    3.9
+   ],
+   "size": [
+    0.6,
+    0.6,
+    1.0
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.13,
+    0.13,
+    0.14
+   ],
+   "shape": "task-chair",
+   "always_shape": true,
+   "facing": -90
+  },
+  {
+   "id": "chair0",
+   "kind": "furniture",
+   "label": "empty black office chair",
+   "at": [
+    1.55,
+    2.8
+   ],
+   "size": [
+    0.6,
+    0.6,
+    1.0
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.13,
+    0.13,
+    0.14
+   ],
+   "shape": "task-chair",
+   "always_shape": true,
+   "facing": 90,
+   "beats": [
+    "a1",
+    "a2"
+   ]
+  },
+  {
+   "id": "chair1",
+   "kind": "furniture",
+   "label": "empty black office chair",
+   "at": [
+    1.55,
+    5.1
+   ],
+   "size": [
+    0.6,
+    0.6,
+    1.0
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.13,
+    0.13,
+    0.14
+   ],
+   "shape": "task-chair",
+   "always_shape": true,
+   "facing": 90
+  },
+  {
+   "id": "chair2",
+   "kind": "furniture",
+   "label": "empty black office chair",
+   "at": [
+    3.45,
+    2.8
+   ],
+   "size": [
+    0.6,
+    0.6,
+    1.0
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.13,
+    0.13,
+    0.14
+   ],
+   "shape": "task-chair",
+   "always_shape": true,
+   "facing": -90,
+   "beats": [
+    "a1",
+    "a2"
+   ]
+  },
+  {
+   "id": "chair3",
+   "kind": "furniture",
+   "label": "empty black office chair",
+   "at": [
+    3.45,
+    5.1
+   ],
+   "size": [
+    0.6,
+    0.6,
+    1.0
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.13,
+    0.13,
+    0.14
+   ],
+   "shape": "task-chair",
+   "always_shape": true,
+   "facing": -90
+  },
+  {
+   "id": "credenza",
+   "kind": "furniture",
+   "label": "low dark wood credenza along the left wall",
+   "at": [
+    0.27,
+    5.6
+   ],
+   "size": [
+    0.5,
+    1.8,
+    0.75
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.3,
+    0.22,
+    0.16
+   ]
+  },
+  {
+   "id": "plant",
+   "kind": "prop",
+   "label": "small potted plant on the credenza",
+   "at": [
+    0.27,
+    6.2
+   ],
+   "size": [
+    0.45,
+    0.45,
+    0.55
+   ],
+   "z": 0.75,
+   "rot": 0,
+   "color": [
+    0.22,
+    0.45,
+    0.22
+   ],
+   "shape": "palm",
+   "always_shape": true
+  },
+  {
+   "id": "cabinet",
+   "kind": "furniture",
+   "label": "beige four-drawer filing cabinet",
+   "at": [
+    4.45,
+    6.6
+   ],
+   "size": [
+    0.5,
+    0.6,
+    1.35
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.78,
+    0.75,
+    0.66
+   ]
+  },
+  {
+   "id": "door",
+   "kind": "board",
+   "label": "door to the corridor",
+   "at": [
+    4.0,
+    0.06
+   ],
+   "size": [
+    0.9,
+    0.05,
+    2.1
+   ],
+   "z": 0,
+   "rot": 0,
+   "color": [
+    0.45,
+    0.36,
+    0.26
+   ]
+  },
+  {
+   "id": "tube0",
+   "kind": "light",
+   "label": "fluorescent ceiling panel",
+   "at": [
+    1.7,
+    2.6
+   ],
+   "size": [
+    0.6,
+    1.2,
+    0.03
+   ],
+   "z": 2.66,
+   "rot": 0,
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "tube1",
+   "kind": "light",
+   "label": "fluorescent ceiling panel",
+   "at": [
+    3.3,
+    2.6
+   ],
+   "size": [
+    0.6,
+    1.2,
+    0.03
+   ],
+   "z": 2.66,
+   "rot": 0,
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "tube2",
+   "kind": "light",
+   "label": "fluorescent ceiling panel",
+   "at": [
+    1.7,
+    5.0
+   ],
+   "size": [
+    0.6,
+    1.2,
+    0.03
+   ],
+   "z": 2.66,
+   "rot": 0,
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "tube3",
+   "kind": "light",
+   "label": "fluorescent ceiling panel",
+   "at": [
+    3.3,
+    5.0
+   ],
+   "size": [
+    0.6,
+    1.2,
+    0.03
+   ],
+   "z": 2.66,
+   "rot": 0,
+   "color": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "marks": [
+  {
+   "id": "kyle-a1",
+   "who": "kyle",
+   "at": [
+    1.65,
+    3.9
+   ],
+   "facing": 90,
+   "pose": "sit",
+   "beat": "a1",
+   "arms": "folded"
+  },
+  {
+   "id": "kyle-a2",
+   "who": "kyle",
+   "at": [
+    1.45,
+    3.9
+   ],
+   "facing": 90,
+   "pose": "stand",
+   "beat": "a2",
+   "arms": "up"
+  },
+  {
+   "id": "gerald",
+   "who": "gerald",
+   "at": [
+    3.35,
+    3.9
+   ],
+   "facing": -90,
+   "pose": "sit",
+   "beats": [
+    "a1",
+    "a2"
+   ],
+   "arms": "forward"
+  },
+  {
+   "id": "gerald-a3",
+   "who": "gerald",
+   "at": [
+    3.35,
+    3.9
+   ],
+   "facing": -112,
+   "pose": "sit",
+   "beat": "a3",
+   "arms": "folded"
+  }
+ ],
+ "axes": [],
+ "setups": [
+  {
+   "id": "A1",
+   "name": "Across the table",
+   "size": "MWS",
+   "lens": 28,
+   "height": 1.2,
+   "at": [
+    2.5,
+    0.4
+   ],
+   "facing": 0,
+   "tilt": -4,
+   "beat": "a1",
+   "shot": "A 28 mm medium-wide from the door end of the long conference table, looking straight down its length: Kyle seated at screen left and Gerald seated at screen right, in profile, facing each other across the table and its towers of white binders; the tallest tower stands at Kyle's left elbow. Gerald, deadpan, slides one tiny yellow sticky note across the table toward Kyle with one finger; Kyle stares at it. Behind them: a low credenza with a potted plant along the left wall, a beige filing cabinet at the back right. Harsh overhead fluorescent panels, flat and hard."
+  },
+  {
+   "id": "A2",
+   "name": "Kyle to camera",
+   "size": "MS",
+   "lens": 28,
+   "height": 1.55,
+   "at": [
+    4.3,
+    3.35
+   ],
+   "facing": -79,
+   "tilt": -8,
+   "beat": "a2",
+   "shot": "A 28 mm medium shot from Gerald's side of the table, just off his left shoulder (his shoulder and the back of his head soft at the right edge of frame): Kyle has stood up from his chair, both arms thrown up, the tall binder tower at his left elbow tipping over, and he looks straight into the lens, desperate. The long table between them, binder towers on it. Harsh overhead fluorescent panels."
+  },
+  {
+   "id": "A3",
+   "name": "Gerald's testimonial",
+   "size": "MS",
+   "lens": 40,
+   "height": 1.05,
+   "at": [
+    0.7,
+    2.55
+   ],
+   "facing": 60,
+   "tilt": -2,
+   "beat": "a3",
+   "shot": "A 40 mm medium shot, testimonial framing slightly off centre, Gerald on screen right: the same conference room afterwards, the long table cleared completely, no binders anywhere. Gerald sits on his side of the long table, the empty tabletop in the foreground, holding one thin blue folder to his chest, misty-eyed, lips pressed together, looking just off the lens toward an interviewer on camera left. Room on the left of frame for a lower third."
+  }
+ ],
+ "board": {
+  "room": "generated/order-now/set-audit-1.png",
+  "cast": {
+   "kyle": [
+    "generated/order-now/sheets/kyle--face-front.jpg",
+    "generated/order-now/sheets/kyle--body-front.jpg"
+   ],
+   "gerald": [
+    "generated/order-now/sheets/gerald--face-front.jpg",
+    "generated/order-now/sheets/gerald--body-front.jpg"
+   ]
+  },
+  "describe": {
+   "kyle": "Kyle: keep his face exactly as in the KYLE panel (mousse-sculpted brown hair, oversized thin wire-rim glasses), light-blue oxford shirt, loosened burgundy, navy and gold patterned tie, pleated khakis, braided belt with a black pager, digital watch, brown loafers",
+   "gerald": "Gerald: keep his face exactly as in the GERALD panel (salt-and-pepper hair slicked back, darker on top and silver at the sides, thin wire reading glasses on a dark-brown beaded cord that hangs onto his chest), beige three-piece suit, brown tie, small lapel pin"
+  }
+ },
+ "palette": {
+  "floor": [
+   0.42,
+   0.42,
+   0.43
+  ],
+  "wall": [
+   0.82,
+   0.8,
+   0.72
+  ],
+  "ceiling": [
+   0.9,
+   0.9,
+   0.88
+  ],
+  "people": {
+   "kyle": [
+    0.55,
+    0.7,
+    0.9
+   ],
+   "gerald": [
+    0.8,
+    0.7,
+    0.5
+   ]
+  },
+  "legs": {
+   "kyle": [
+    0.76,
+    0.68,
+    0.52
+   ],
+   "gerald": [
+    0.8,
+    0.7,
+    0.5
+   ]
+  }
+ },
+ "set": "1994 windowless conference room (the audit room)",
+ "style": "Harsh, flat overhead fluorescent office light in a real 1994 conference room with grey carpet and pale walls. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text.",
+ "legend": {
+  "colour": "Image 1 marks people as flat figures: light blue is Kyle (his khaki legs in tan), beige is Gerald. The room is in its real colours: the long dark brown slab is the wood conference table, white stacks are towers of white ring binders, the tiny yellow square is one small yellow sticky note, the thin blue slab is one blue folder, black chairs on five-star bases are office chairs, the low brown block along the left wall is a credenza with a potted plant, the beige block is a filing cabinet, white rectangles on the ceiling are fluorescent panels.",
+  "clay": "In Image 1 the light blue figure is Kyle and the beige figure is Gerald; the long slab is the conference table and the white stacks are binder towers.",
+  "detail": "Image 1 is a simple 3D mock-up of the room in its real colours: the light blue mannequin is Kyle, the beige one is Gerald, and their arms show their poses."
+ }
+}

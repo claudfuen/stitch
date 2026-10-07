@@ -79,41 +79,78 @@ They rotate one approved set into a few angles and write the space down.
    reverse angle), a seating chart with the front row described person by person, and every other frame copies it.
 6. **The camera script:** which camera is on screen at each second. It is retimed to the recorded voices at stage 04.
 7. **Give the generator the room, not a pile of pictures.** Each frame gets two images and computed text:
-   - Image 1 is the grey-box layout from this camera.
-   - Image 2 is one labelled reference board (`bun run space-board <film> <room> <cam>`). It holds the top-down
-     plan with this camera's cone, the approved set (materials and light only), and identity panels for the people
-     this camera sees. The labels are the tags the prompt refers to.
-   - The text adds the blocking computed from the 3D plan (`bun run space-judge <film> <room> --truth`): where each
-     person and object lands across the frame, which way people face, and what this angle must not show.
-   - Settings: a system prompt saying the layout wins over any reference, and thinking set to high.
+   - Image 1 is the box from this camera, painted in the set's real colours. The box carries a palette (floor, walls,
+     a gradient on the far wall) and a colour per item, so the layout carries the look as well as the geometry. A grey
+     wall in the layout came back as a grey wall in the frame.
+   - Image 2 is one labelled reference board (`bun run space-board <film> <room> <cam>`), holding:
+     - MAP: the top-down plan, with this camera's cone.
+     - THE ROOM: the approved set (materials and light only).
+     - PROPS AND SIGNS: the approved designs of every prop and sign, from the stage 02 sheets.
+     - Identity panels for the people this camera sees.
+     The labels are the tags the prompt refers to. No model has a per-image tag field; roles go in the prompt (research
+     note 2026-10-07-tagged-multi-reference-models).
+   - The text carries the blocking computed from the 3D plan (`bun run space-judge <film> <room> --truth`): where
+     each person and object lands across and up the frame, which way people face, and what this angle must not show.
+     It also says to keep every person exactly as large as in Image 1, because models zoom in.
+   - Each principal in frame also gets their approved face and costume as separate full-size images after the board
+     (`space-frames prep --cast-refs`). A face that reaches the model only as a small board panel drifts.
+   - Nano Banana 2.1 (edit) makes the takes and the one-change fixes. Seedream 5.0 Pro paints the set better but does
+     not hold faces: Henrick's ArcFace similarity to his real photos was 0.19 to 0.34 on Seedream and 0.45 to 0.54 on
+     Nano Banana for the same frontal cameras (two real photos of him score 0.82). Use Seedream only for a frame with
+     no principal in it. Use 2 to 4 takes per camera.
+   - Before the first take, lint the words against the pictures (`bun run space-lint <film> <room> ...`). Opus 5.5
+     and GPT-6 Astra each see every reference and list each sentence of the legend, cast descriptions, style and shots
+     that a reference contradicts. Fix the text (or the reference) until the lint is clean.
+8. **Two gates, both required.** Neither gate alone was enough.
+   - **The space judge** (`bun run space-judge <film> --frames ...`, Opus 5.5). It sees:
+     - one sheet with the labelled plan, every camera's layout, and this layout beside the frame;
+     - the board;
+     - the computed blocking.
 
-   On the Order Now A/B (four cameras, two takes each, judged as in step 8) this recipe scored 6.4/10, against
-   about 4.6 for the old frames and 5.75 for separate references. Four of its eight takes had no high-severity
-   finding, against none of the old frames. The board alone, without the blocking text, was no better than separate
-   references: the computed text did the work. Pass the set plate only on the board or as tight material crops. A
-   full plate, or a full crowd frame, is a ready-made composition: the model copies it instead of the layout (on
-   Order Now it blew up the bleachers in every angle).
-8. **Judge every frame against the whole room:** `bun run space-judge <film> [room]` builds one sheet per camera:
-   - the labelled top-down plan with every person, prop and camera;
-   - every camera's layout;
-   - this camera's layout beside its frame.
+     It scores space, identity, look and realism, and the gate is all four at 8 or more with no high-severity finding.
+     Its findings are classed as model, layout or plan errors; layout and plan errors are fixed in the box, not by
+     regenerating.
+   - **The cohesion judge** (`bun run space-cohesion <film> --frames ... --picks ...`). Opus 5.5 and GPT-6 Astra each
+     see the board, the other chosen angles of the room and the candidate. Each scores two things: is it a believable
+     photograph, and does it read as the same shoot (props, signs, costumes, light) as the approved references and
+     the other angles? Both models must give 8 or more.
 
-   Opus 5.5 gets that sheet, the space map and the computed blocking. It returns findings classed as model (the
-   frame is wrong), layout (the box is wrong) or plan (the camera does not serve the shot). A pair of images hides
-   room-level errors. On Order Now the room view found faults a pairwise check had passed:
-   - a crowd seated in the beat where it stands;
-   - a neon sign the camera physically cannot see;
-   - an operator facing the opposite way from every other chair.
+     The space judge passed a Brock who was floating mid-air. The cohesion judge failed that frame at plausibility 3
+     and caught props redesigned from cut to cut.
+   - `bun run space-frames prep|batches|fetch|candidates|pick` runs the loop. A person still looks at every frame
+     that passes.
+9. **Fix, don't regenerate, when a take is close.** One "change only X" edit from the judge's own fix list
+   (`space-frames fix`). It starts from the clean take, so no frame gets more than two generative passes.
+10. **Review every frame for logic:** the same person twice in a crowd, a stranger in a known character's place, a
+   prop that should not be there yet, a room bigger in one angle than another.
 
-   `--frames candidates.json` scores takes before one is picked. `python3 scripts/adherence.py <film>` (layout,
-   frame, 50/50 blend) stays as the quick visual check. Read the judge's findings before acting on them. Some are
-   layout or plan errors, and those are fixed in the box, not by regenerating.
-9. **Review every frame for logic:** the same person twice in a crowd, a stranger in a known character's place, a
-   prop that should not be there yet, a room bigger in one angle than another. Fix with one "change only X" edit
-   from the clean take, so no frame gets more than two generative passes.
+What the Order Now runs measured on the studio and operator cameras: 9 cameras, about 90 takes, all judged by the
+same four-score judge.
 
-Nano Banana 2.1 (edit) makes the frames. On the studio A/B it followed framing and action more literally than
-Seedream 5.0 Pro (edit), which kept skin a little more natural; Seedream is the fallback when a frame fails.
+| Input | Model | Pass rate | Look | Space |
+|---|---|---|---|---|
+| Clay box + separate references | Nano Banana 2.1 | 0 of 8 | 5.8 | 5.6 |
+| Clay box + board | Seedream 5 Pro | 0 of 8 | 8.8 | 5.8 |
+| Colour box + board | Nano Banana 2.1 | 1 of 18 | 6.6 | 6.8 |
+| Colour box + board | Seedream 5 Pro | 5 of 18 | 8.1 | 6.7 |
+| Detailed box (shapes, posed mannequins) + board | Nano Banana 2.1 | 1 of 18 | 6.0 | 6.8 |
+| Detailed box + board | Seedream 5 Pro | 0 of 6 | 5.8 | 5.5 |
+| Colour box + board, text contradicting the references | Seedream 5 Pro | 0 of 16 | 6.9 | 6.0 |
+| Colour box + board + full-size cast references, linted text | Nano Banana 2.1 | 6 of 30 | 6.8 | 6.7 |
+| The same, then one fix pass from the judge's findings | Nano Banana 2.1 | 17 of 17 chosen for review | | |
+
+The last three rows cover all four boxed rooms (studio, operators, audit, kitchen). The 6 first-take passes covered
+A1, A2, K1, K2 and O2, each at identity 8 or 9. The judge's identity score did not see Seedream's drift (7.9 against
+7.6 for Nano Banana) because it compares faces with small board panels; ArcFace against the real photos did. In the
+studio, Nano Banana's first takes pushed Brock's tan to orange and greyed the gradient wall; the fix pass repaired the
+wall, not the tan.
+
+- The model decides the look: Seedream holds the set's colours and the cast; Nano Banana greys the gradient wall.
+- The colour box helps space.
+- The detailed box (real shapes, lettered signs, posed mannequins) helped space on some cameras (C1 reached 8) and
+  anchored the operator room. It cost look everywhere, because the mock-up's plastic surfaces leak into the photo, and
+  its single-line lettering redesigned a sign the approved plate has on two lines. Keep it as an optional pose guide,
+  not as Image 1.
 
 ## Rules that hold across stages
 
@@ -143,6 +180,22 @@ Seedream 5.0 Pro (edit), which kept skin a little more natural; Seedream is the 
   our test; extra keyframes made motion stiffer (research note 2026-10-07-storyboard-density-test).
 
 ## Changes
+
+- 2026-10-07 (later): Claudio, on the Seedream rounds: "we lost character consistency... it was coming out way better
+  with Nano Banana... we have to go back to that approach". ArcFace confirmed it (step 7), so takes went back to Nano
+  Banana with full-size cast references. Four more changes came out of the same stretch:
+  - Round 4 failed 16 of 16 takes because the prompt text contradicted the approved pictures (a black button base,
+    a golden tan, navy glasses). `space-lint` now checks the words against the references before any money is spent.
+  - The kitchen and audit room got boxes. Their maps contradicted their own briefs (a table "running left to right"
+    shot "down its length"), and the approved kitchen plate carries a modern laptop; a PROPS panel now holds the 1994
+    computer and printer.
+  - Items and marks can live in several beats (`beats`), so a set can change between shots (the binders are gone in A3).
+  - Leap's Seedream takes at most 4,000 characters of prompt and no output size, so these frames ran on fal; Leap
+    text-to-image worked and made the kitchen props reference.
+
+  Stage 03 took far longer than stages 01 and 02. Most of the time went to rounds that measured a model or an input
+  rather than shipping a frame. The order next time: lint, then box every room, then Nano Banana with cast references,
+  then one fix pass, then put the draft in front of the person.
 
 - 2026-10-07: Claudio asked for a judge that sees the whole room, not two images: "Here's a whole room, a bunch of
   different stills, and then here's the particular camera angle versus the actual visual". He also asked to feed

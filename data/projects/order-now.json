@@ -17,111 +17,6 @@
   "open": [],
   "activity": [
     {
-      "t": "2026-10-07T15:50:55.406Z",
-      "text": "claude · Picked for set-kitchen: generated/order-now/set-kitchen-5.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:50:55.543Z",
-      "text": "claude · Candidate for set-stairwell: generated/order-now/set-stairwell-5.jpg (GPT Image 2.5 Sunburst + before grade via Leap, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:50:55.568Z",
-      "text": "claude · Picked for set-stairwell: generated/order-now/set-stairwell-5.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:50:55.707Z",
-      "text": "claude · Candidate for set-audit: generated/order-now/set-audit-5.jpg (GPT Image 2.5 Sunburst + before grade via Leap, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:50:55.732Z",
-      "text": "claude · Picked for set-audit: generated/order-now/set-audit-5.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:50:55.865Z",
-      "text": "claude · Candidate for set-hammock: generated/order-now/set-hammock-5.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:50:55.892Z",
-      "text": "claude · Picked for set-hammock: generated/order-now/set-hammock-5.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:53:55.444Z",
-      "text": "claude · Candidate for set-studio: generated/order-now/set-studio-5.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:53:55.469Z",
-      "text": "claude · Picked for set-studio: generated/order-now/set-studio-5.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:53:55.593Z",
-      "text": "claude · Candidate for set-operators: generated/order-now/set-operators-5.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:53:55.618Z",
-      "text": "claude · Picked for set-operators: generated/order-now/set-operators-5.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:53:55.744Z",
-      "text": "claude · Candidate for props-demo: generated/order-now/props-demo-5.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:53:55.768Z",
-      "text": "claude · Picked for props-demo: generated/order-now/props-demo-5.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:53:55.895Z",
-      "text": "claude · Candidate for audience: generated/order-now/audience-5.jpg (GPT Image 2.5 Sunburst + betacam grade via Leap, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:53:55.920Z",
-      "text": "claude · Picked for audience: generated/order-now/audience-5.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T15:55:27.057Z",
-      "text": "claude · Note on sheets:cast: Done: Kyle redesigned as a 1994 founder (mousse hair, oversized glasses, oxford, loosened tie, pleated khakis, pager); his kitchen now has a beige computer and CRT. Sheet and scene rebuilt.",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T16:17:19.964Z",
-      "text": "claude · Candidate for props-demo: generated/order-now/props-demo-6.jpg (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T16:17:19.984Z",
-      "text": "claude · Picked for props-demo: generated/order-now/props-demo-6.jpg",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T16:22:01.044Z",
-      "text": "Claudio · Look and sheets: approved",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T16:28:22.674Z",
-      "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T16:32:55.934Z",
-      "text": "claude · Frame for studio C1 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
-      "kind": "info"
-    },
-    {
       "t": "2026-10-07T16:32:56.156Z",
       "text": "claude · Frame for studio C2 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
       "kind": "info"
@@ -413,6 +308,111 @@
     },
     {
       "t": "2026-10-07T17:47:53.538Z",
+      "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T17:55:56.017Z",
+      "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T18:24:47.863Z",
+      "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T18:25:04.070Z",
+      "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:30.749Z",
+      "text": "claude · Frame for kitchen K1 (Nano Banana 2.1 (edit) + before grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:31.006Z",
+      "text": "claude · Frame for kitchen K2 (Nano Banana 2.1 (edit) + before grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:31.250Z",
+      "text": "claude · Frame for kitchen K3 (Nano Banana 2.1 (edit, fix pass) + before grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:31.498Z",
+      "text": "claude · Frame for stairwell S1 (Nano Banana 2.1 (edit, fix pass) + before grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:31.729Z",
+      "text": "claude · Frame for audit A1 (Nano Banana 2.1 (edit) + before grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:31.966Z",
+      "text": "claude · Frame for audit A2 (Nano Banana 2.1 (edit) + before grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:32.178Z",
+      "text": "claude · Frame for audit A3 (Nano Banana 2.1 (edit, fix pass) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:32.410Z",
+      "text": "claude · Frame for studio C1 (Nano Banana 2.1 (edit, fix pass) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:32.637Z",
+      "text": "claude · Frame for studio C2 (Nano Banana 2.1 (edit, fix pass) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:32.854Z",
+      "text": "claude · Frame for studio C3 (Nano Banana 2.1 (edit, fix pass) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:33.087Z",
+      "text": "claude · Frame for studio C4 (Nano Banana 2.1 (edit, fix pass) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:33.304Z",
+      "text": "claude · Frame for studio C5 (Nano Banana 2.1 (edit, fix pass) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:33.525Z",
+      "text": "claude · Frame for studio C6 (Nano Banana 2.1 (edit, fix pass) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:33.754Z",
+      "text": "claude · Frame for studio C7 (Nano Banana 2.1 (edit, fix pass) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:33.985Z",
+      "text": "claude · Frame for operators O1 (Nano Banana 2.1 (edit, fix pass) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:34.201Z",
+      "text": "claude · Frame for operators O2 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:36:34.452Z",
+      "text": "claude · Frame for hammock H1 (Nano Banana 2.1 (edit, fix pass) + betacam grade via fal, graded in Stitch)",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T19:38:26.202Z",
       "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
       "kind": "info"
     }
@@ -2503,7 +2503,7 @@
           "name": "Kyle's kitchen",
           "sheet": "set-kitchen",
           "look": "before",
-          "map": "Night. A small laminate table in the middle of the kitchen. Kyle sits at it on a wooden kitchen chair, facing a beige 1994 computer with a CRT monitor on the table; the monitor's screen faces him. Fridge, sink and cabinets along the back wall. A dot-matrix printer on the counter behind Kyle's right shoulder, fed with continuous-feed paper. In every angle Kyle faces screen left toward the computer, so his fall and his photographing read in the same direction.",
+          "map": "Night. A small laminate table stands in the kitchen clear of the walls, with open floor behind its chair. Kyle sits at it on a wooden kitchen chair, facing a beige 1994 computer with a CRT monitor on the table; the monitor's screen faces him. The refrigerator and cream cabinets with the sink run along the back wall, the window beside them black with night; more cabinets run along the right-hand wall, where a beige dot-matrix printer fed with continuous-feed paper sits on the counter behind Kyle's right shoulder. In every angle Kyle faces screen left toward the computer, so his fall and his photographing read in the same direction.",
           "cameras": [
             {
               "id": "K1",
@@ -2513,21 +2513,22 @@
               "from": "Low, from Kyle's left front at seated eye height, three-quarter on: Kyle and his chair on screen right, the computer on screen left, the back wall behind.",
               "why": "Wide lens and enough floor in frame to let him tip all the way back out of the chair in slow motion. The fall is the joke, so it plays whole, not cut up.",
               "behind": "The kitchen doorway and a dark hall.",
+              "layout": "generated/order-now/space/box/kitchen--K1.jpg",
               "frame": {
                 "file": "generated/order-now/space/kitchen--K1.jpg",
                 "view": "K1",
                 "model": "Nano Banana 2.1 (edit) + before grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1173b-413a-7f73-9957-3010fe2e9ab7",
-                "prompt": "Image 1 is Kyle's small 1994 apartment kitchen at night. Show the same kitchen from a new camera: low, from Kyle's left front at seated eye height, three-quarter on, a 28 mm medium-wide shot with plenty of floor in frame. Kyle sits at the laminate kitchen table on a wooden kitchen chair, on screen right, facing screen left toward a beige 1994 computer with a CRT monitor on the table; the monitor's screen faces him. The opening moment: he has just read the screen and flings both arms up as his chair starts to tip backwards on its two back legs. Kyle is the man in Images 2 and 3 (keep his face, mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch and brown loafers exactly). Image 4 shows only the pose to copy; ignore its grey background. Keep the kitchen exactly as in Image 1: same cabinets, fridge, table and light. Behind the camera is the kitchen doorway; do not show it. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text.",
+                "job": "01a117ca-957b-7271-bffa-981eaa4c4f84",
+                "prompt": "Image 1 is a layout render of our 1994 apartment kitchen at night from this exact camera. It fixes the camera, lens, framing and the position, size and facing of every person and object: keep its composition exactly and add nothing that is not in it. Keep every person and object exactly as large in the frame as in Image 1: do not crop in, move closer or enlarge anyone. Turn it into a real photograph. Image 1 marks Kyle as a flat figure: light blue shirt, tan khaki legs. The kitchen is in its real colours: the pale slab in the middle is the small laminate kitchen table; on it the beige blocks are one desktop computer with its CRT monitor (the pale blue rectangle is its glowing screen, facing Kyle) and the beige keyboard; the brown chair is a wooden kitchen chair; the tall white block is the refrigerator; cream blocks are base and wall cabinets; the beige block on the right-hand counter is the dot-matrix printer with its white paper; the near-black rectangle on the back wall is the window at night; the warm block over the table is the pendant lamp; large white shapes on the floor are piles of continuous-feed printouts. Image 2 is a reference board, not a scene: never copy its layout, its labels or its text. Use each labelled panel only for what its label says: MAP is a top-down plan of the whole room with this camera's view as the purple cone (where everything is and which way it faces); THE ROOM is the approved set (materials, colours and light); the named cast panels give faces and costumes; AUDIENCE gives the same crowd. Blocking from the 3D plan, measured from this camera (across the frame: 0% is the left edge; up: 0% is the bottom edge): kyle: in frame, 63% to 64% across, 0% to 81% up from the bottom, running out of frame at the bottom, 2.2 m from the lens, seated, three-quarter toward the camera, looking toward screen left. small laminate kitchen table: 0% to 61% across, 0% to 30% up from the bottom, running out of frame at the left and bottom. beige 1994 desktop computer case: 7% to 38% across, 14% to 38% up from the bottom. beige CRT monitor (screen faces Kyle): 6% to 34% across, 30% to 73% up from the bottom. glowing monitor screen: 28% to 34% across, 39% to 65% up from the bottom. beige keyboard: 33% to 52% across, 19% to 31% up from the bottom. wooden kitchen chair: 48% to 81% across, 0% to 48% up from the bottom, running out of frame at the bottom. window, black night outside with lit apartment windows: 0% to 17% across, 51% to 100% up from the bottom, running out of frame at the left and top. white refrigerator covered in magnets: 23% to 54% across, 0% to 100% up from the bottom, running out of frame at the top and bottom. cream base cabinets with worktop and sink: 51% to 94% across, 0% to 52% up from the bottom, running out of frame at the bottom. cream wall cabinets: 51% to 90% across, 77% to 100% up from the bottom, running out of frame at the top. cream base cabinets and worktop along the right wall: 84% to 100% across, 0% to 51% up from the bottom, running out of frame at the right and bottom. beige dot-matrix printer with continuous-feed paper: 95% to 100% across, 48% to 59% up from the bottom, running out of frame at the right. Outside this frame entirely (must not appear): continuous-feed paper stack feeding the printer; pendant lamp over the table. A low 28 mm medium-wide from Kyle's left front at seated eye height, three-quarter on: Kyle at the small kitchen table on screen right, facing screen left toward the beige computer; its CRT monitor on the table at screen left, the screen turned toward him and glowing. He has just read the screen and flings both arms up as his wooden chair starts to tip backwards on its two back legs. The refrigerator and cream cabinets along the back wall behind him, the beige dot-matrix printer on the right-hand counter behind his right shoulder. Night: the kitchen lit by the pendant lamp over the table and the glow of the screen. Kyle: keep his face exactly as in the KYLE panel (mousse-sculpted brown hair, oversized thin wire-rim glasses), light-blue oxford shirt, loosened burgundy, navy and gold patterned tie, pleated khakis, braided belt with a black pager, digital watch, brown loafers. Night in a real, lived-in 1994 apartment kitchen: warm light from the pendant lamp over the table and the cool glow of the monitor, black night through the window (no daylight anywhere). Clean, sharp, natural photograph of a real place and a real person at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text except what is on the computer screen. Image 3 is Kyle's approved face: keep exactly this face and hair. Image 4 is Kyle's approved costume and build.",
                 "inputs": [
-                  "https://v3b.fal.media/files/b/0aad7214/_Ol5AiAh2_x5baiq67Ijg_plate-kitchen.jpg",
-                  "https://v3b.fal.media/files/b/0aad7214/7a_Wfxc471pWdt4Jr4V3A_kyle--body-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad7214/r_VKfNuGkHDBj9l1cX3_p_kyle--face-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad7214/r5og5EOdUroLnXt1LZQWI_kyle--pose-tip-chair.jpg"
+                  "public/generated/order-now/space/box-colour/kitchen--K1.jpg",
+                  "work/order-now/space/boards/kitchen-K1.jpg",
+                  "public/generated/order-now/sheets/kyle--face-front.jpg",
+                  "public/generated/order-now/sheets/kyle--body-front.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:44:14.100Z"
+                "at": "2026-10-07T19:36:30.746Z"
               }
             },
             {
@@ -2535,22 +2536,25 @@
               "name": "The email",
               "size": "INS",
               "lens": 50,
-              "from": "Over Kyle's right shoulder onto the CRT screen, the email readable.",
+              "from": "Over Kyle's left shoulder onto the CRT screen, the email readable; his head soft at the right edge, facing screen left.",
               "why": "The audience has to read the inciting email in under two seconds: one insert, no acting needed.",
               "behind": "The rest of the kitchen; never shown.",
+              "layout": "generated/order-now/space/box/kitchen--K2.jpg",
               "frame": {
                 "file": "generated/order-now/space/kitchen--K2.jpg",
                 "view": "K2",
                 "model": "Nano Banana 2.1 (edit) + before grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1173b-41f5-7611-a2f9-67e41bd63edf",
-                "prompt": "Image 1 is Kyle's small 1994 apartment kitchen at night. Show an insert from a new camera: over Kyle's right shoulder onto the beige CRT monitor on the kitchen table, the screen filling most of the frame. On the screen, a 1994 email program window with grey title bars and a white message area that reads exactly: 'Love the product! Before we sign, can you send your SOC 2?' The back of Kyle's head and his light-blue shirt shoulder soft in the left foreground. Kyle is the man in Image 2 (keep his face, mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch and brown loafers exactly). Keep the kitchen's light as in Image 1. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No other text.",
+                "job": "01a117ca-95b4-7993-afdb-1318c1d2e329",
+                "prompt": "Image 1 is a layout render of our 1994 apartment kitchen at night from this exact camera. It fixes the camera, lens, framing and the position, size and facing of every person and object: keep its composition exactly and add nothing that is not in it. Keep every person and object exactly as large in the frame as in Image 1: do not crop in, move closer or enlarge anyone. Turn it into a real photograph. Image 1 marks Kyle as a flat figure: light blue shirt, tan khaki legs. The kitchen is in its real colours: the pale slab in the middle is the small laminate kitchen table; on it the beige blocks are one desktop computer with its CRT monitor (the pale blue rectangle is its glowing screen, facing Kyle) and the beige keyboard; the brown chair is a wooden kitchen chair; the tall white block is the refrigerator; cream blocks are base and wall cabinets; the beige block on the right-hand counter is the dot-matrix printer with its white paper; the near-black rectangle on the back wall is the window at night; the warm block over the table is the pendant lamp; large white shapes on the floor are piles of continuous-feed printouts. Image 2 is a reference board, not a scene: never copy its layout, its labels or its text. Use each labelled panel only for what its label says: MAP is a top-down plan of the whole room with this camera's view as the purple cone (where everything is and which way it faces); THE ROOM is the approved set (materials, colours and light); the named cast panels give faces and costumes; AUDIENCE gives the same crowd. Blocking from the 3D plan, measured from this camera (across the frame: 0% is the left edge; up: 0% is the bottom edge): kyle: in frame, 90% to 100% across, 0% to 100% up from the bottom, running out of frame at the right and top and bottom, 0.5 m from the lens, seated, back to the camera. small laminate kitchen table: 0% to 100% across, 0% to 20% up from the bottom, running out of frame at the left and right and bottom. beige 1994 desktop computer case: 8% to 84% across, 0% to 34% up from the bottom, running out of frame at the bottom. beige CRT monitor (screen faces Kyle): 8% to 78% across, 0% to 100% up from the bottom, running out of frame at the top and bottom. glowing monitor screen: 22% to 72% across, 8% to 83% up from the bottom. Outside this frame entirely (must not appear): beige keyboard; wooden kitchen chair; window, black night outside with lit apartment windows; white refrigerator covered in magnets; cream base cabinets with worktop and sink; cream wall cabinets; cream base cabinets and worktop along the right wall; beige dot-matrix printer with continuous-feed paper; continuous-feed paper stack feeding the printer; pendant lamp over the table. A 50 mm insert over Kyle's left shoulder onto the beige CRT monitor on the kitchen table, the screen filling most of the frame: the back of Kyle's head and his light-blue shirt shoulder soft in the right foreground, his face turned to screen left toward the screen. On the screen a Windows 3.1 style email program window (grey title bar, no taskbar, no Start button) with a white message area that reads exactly: 'Love the product! Before we sign, can you send your SOC 2?' Night: lit by the screen glow and the pendant lamp. Kyle: keep his face exactly as in the KYLE panel (mousse-sculpted brown hair, oversized thin wire-rim glasses), light-blue oxford shirt, loosened burgundy, navy and gold patterned tie, pleated khakis, braided belt with a black pager, digital watch, brown loafers. Night in a real, lived-in 1994 apartment kitchen: warm light from the pendant lamp over the table and the cool glow of the monitor, black night through the window (no daylight anywhere). Clean, sharp, natural photograph of a real place and a real person at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text except what is on the computer screen. Image 3 is Kyle's approved face: keep exactly this face and hair. Image 4 is Kyle's approved costume and build.",
                 "inputs": [
-                  "https://v3b.fal.media/files/b/0aad7214/_Ol5AiAh2_x5baiq67Ijg_plate-kitchen.jpg",
-                  "https://v3b.fal.media/files/b/0aad7214/7a_Wfxc471pWdt4Jr4V3A_kyle--body-front.jpg"
+                  "public/generated/order-now/space/box-colour/kitchen--K2.jpg",
+                  "work/order-now/space/boards/kitchen-K2.jpg",
+                  "public/generated/order-now/sheets/kyle--face-front.jpg",
+                  "public/generated/order-now/sheets/kyle--body-front.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:44:14.347Z"
+                "at": "2026-10-07T19:36:31.004Z"
               }
             },
             {
@@ -2560,22 +2564,21 @@
               "lens": 24,
               "from": "From behind the computer, looking at Kyle head on as he stands and photographs the screen with a point-and-shoot camera; the printer behind him spews paper into a pile at his knees.",
               "why": "The printer behind him is the punchline, so it shares the frame with him; the flash goes off straight into our lens.",
-              "behind": "The back wall with the fridge; only the edge of the monitor is in frame, bottom left.",
+              "behind": "The right-hand counter with the printer; the fridge at screen left.",
+              "layout": "generated/order-now/space/box/kitchen--K3.jpg",
               "frame": {
                 "file": "generated/order-now/space/kitchen--K3.jpg",
                 "view": "K3",
-                "model": "Nano Banana 2.1 (edit) + before grade",
+                "model": "Nano Banana 2.1 (edit, fix pass) + before grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1173b-41f7-7c60-a49e-111f66475644",
-                "prompt": "Image 1 is Kyle's small 1994 apartment kitchen at night. Show the same kitchen from a new camera: from behind the computer on the table, looking straight at Kyle, a 24 mm medium-wide shot. Kyle stands facing the lens, holding a small silver 1990s compact film camera up to his eye with both hands and photographing the computer screen, the flash firing. Only the back edge of the beige monitor shows, in the bottom-left corner of frame. Behind him on the counter a beige dot-matrix printer spews a long stream of continuous-feed paper printouts that pile up around his knees on the floor. Kyle is the man in Images 2 and 3 (keep his face, mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch and brown loafers exactly). Image 4 shows only the pose to copy; ignore its grey background. Keep the kitchen exactly as in Image 1. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text.",
+                "job": "01a117d3-7f6a-7c21-9a6c-75a631e6c7d2",
+                "prompt": "Edit Image 1, a still from our 1994 apartment kitchen at night. Change only these things: (1) Move the printer and its paper stream to screen left of Kyle, just behind his right shoulder at about 31-44% across, on the counter at about 40-49% up, with the paper spilling down toward the pile at his knees. (2) Bring the pushed-back chair in closer to Kyle, at about 57-73% across, with its top at about 41% up. Keep everything else exactly as it is: the camera, the framing, every other person, object, colour and the light. Image 2 is a reference board (not a scene, never copy its layout or labels): use its MAP for where things belong and its cast panels for faces and costumes. Blocking from the 3D plan for this camera: kyle: in frame, 43% to 43% across, 0% to 89% up from the bottom, running out of frame at the bottom, 2.4 m from the lens, standing, faces the camera. small laminate kitchen table: 0% to 54% across, 0% to 5% up from the bottom, running out of frame at the left and bottom. beige 1994 desktop computer case: 0% to 39% across, 0% to 7% up from the bottom, running out of frame at the left and bottom. beige CRT monitor (screen faces Kyle): 0% to 36% across, 0% to 46% up from the bottom, running out of frame at the left and bottom. beige keyboard: 13% to 44% across, 0% to 5% up from the bottom, running out of frame at the bottom. wooden kitchen chair (pushed back): 57% to 73% across, 0% to 41% up from the bottom, running out of frame at the bottom. white refrigerator covered in magnets: 0% to 0% across, 0% to 100% up from the bottom, running out of frame at the left and top and bottom. cream base cabinets with worktop and sink: 0% to 25% across, 0% to 44% up from the bottom, running out of frame at the left and bottom. cream wall cabinets: 0% to 19% across, 67% to 100% up from the bottom, running out of frame at the left and top. cream base cabinets and worktop along the right wall: 22% to 67% across, 0% to 43% up from the bottom, running out of frame at the bottom. beige dot-matrix printer with continuous-feed paper: 31% to 44% across, 40% to 49% up from the bottom. continuous-feed paper stack feeding the printer: 44% to 53% across, 40% to 45% up from the bottom. continuous-feed printout spilling off the counter: 35% to 44% across, 0% to 40% up from the bottom, running out of frame at the bottom. pile of fan-folded continuous-feed printouts: 13% to 65% across, 0% to 17% up from the bottom, running out of frame at the bottom. Outside this frame entirely (must not appear): window, black night outside with lit apartment windows; pendant lamp over the table. Night in a real, lived-in 1994 apartment kitchen: warm light from the pendant lamp over the table and the cool glow of the monitor, black night through the window (no daylight anywhere). Clean, sharp, natural photograph of a real place and a real person at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text except what is on the computer screen.",
                 "inputs": [
-                  "https://v3b.fal.media/files/b/0aad7214/_Ol5AiAh2_x5baiq67Ijg_plate-kitchen.jpg",
-                  "https://v3b.fal.media/files/b/0aad7214/7a_Wfxc471pWdt4Jr4V3A_kyle--body-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad7214/r_VKfNuGkHDBj9l1cX3_p_kyle--face-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad7215/EkLc-XsPc7_oVwrc_9ePk_kyle--pose-photo.jpg"
+                  "work/order-now/space/runs/r6/out/K3-nb-b.png",
+                  "work/order-now/space/boards/kitchen-K3.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:44:14.596Z"
+                "at": "2026-10-07T19:36:31.248Z"
               }
             }
           ]
@@ -2598,17 +2601,16 @@
               "frame": {
                 "file": "generated/order-now/space/stairwell--S1.jpg",
                 "view": "S1",
-                "model": "Nano Banana 2.1 (edit) + before grade",
+                "model": "Nano Banana 2.1 (edit, fix pass) + before grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1173b-41f5-7d61-a45b-b940d1da7179",
-                "prompt": "Image 1 is an office stairwell seen from the top landing, straight down four flights around an open well. Keep its camera and framing: high above the top landing, an 18 mm ultra-wide looking straight down the well. Add Kyle's hands and forearms in the light-blue oxford shirt sleeves at the top-landing railing in the bottom of frame, seen from above and behind; he has just let go of a security questionnaire printed on continuous-feed paper, which unrolls straight down the open well past every landing, all four flights, and keeps going out of sight at the bottom. Kyle's sleeves and watch as in Image 2. Image 3 shows the continuous-feed paper; copy only the paper. Keep the stairwell exactly as in Image 1. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text.",
+                "job": "01a117c1-6bd4-7b13-bf16-62040073153b",
                 "inputs": [
-                  "https://v3b.fal.media/files/b/0aad7214/SJgbsZdk8DAggEBBHP5dy_plate-stairwell.jpg",
-                  "https://v3b.fal.media/files/b/0aad7214/7a_Wfxc471pWdt4Jr4V3A_kyle--body-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad7215/2vFxTsSvV6yiqrvIm0f3v_kyle--pose-scroll.jpg"
+                  "work/order-now/space/rooms/S1-a.png",
+                  "public/generated/order-now/space/ref/props-kitchen.jpg",
+                  "generated/order-now/sheets/kyle--body-front.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:44:14.842Z"
+                "at": "2026-10-07T19:36:31.496Z"
               }
             }
           ]
@@ -2618,33 +2620,34 @@
           "name": "Audit room",
           "sheet": "set-audit",
           "look": "before",
-          "map": "A windowless conference room under harsh fluorescent tubes. A long table runs left to right across the room. Kyle sits on the near side at screen left, Gerald on the far side at screen right, facing each other across towers of white binders. The tallest tower stands at Kyle's left elbow. The line runs Kyle to Gerald: every camera stays on the door side of the room, so Kyle is always screen left looking right and Gerald is always screen right looking left. After: the same room in colour with the table cleared to one thin blue folder.",
+          "map": "A windowless conference room under harsh fluorescent panels. A long dark wood table runs from the door end to the far wall, where a low credenza with a potted plant and a beige filing cabinet stand. Kyle sits on its left side and Gerald on its right side, facing each other across towers of white binders; the tallest tower stands at Kyle's left elbow. The line runs Kyle to Gerald: every camera stays on the door side of that line, so Kyle is always screen left looking right and Gerald is always screen right looking left. After: the same room in colour with the table cleared to one thin blue folder.",
           "cameras": [
             {
               "id": "A1",
               "name": "Across the table",
               "size": "MWS",
               "lens": 28,
-              "from": "From the door end of the table, a profile two-shot: Kyle screen left, Gerald screen right, the binder towers between them.",
+              "from": "From the door end of the table, looking down its length: a profile two-shot, Kyle screen left, Gerald screen right, the binder towers between them.",
               "why": "Comedy plays in the two-shot: Gerald's tiny sticky note against the wall of binders, both faces in one frame.",
-              "behind": "The door wall with a light switch.",
+              "behind": "The door wall.",
+              "layout": "generated/order-now/space/box/audit--A1.jpg",
               "frame": {
                 "file": "generated/order-now/space/audit--A1.jpg",
                 "view": "A1",
                 "model": "Nano Banana 2.1 (edit) + before grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1173b-41eb-73d2-8698-00f53257e5cb",
-                "prompt": "Image 1 is a windowless conference room under harsh fluorescent tubes with a long table piled with white binders. Show the same room from a new camera: at one end of the long table, looking down its length, a 28 mm medium-wide two-shot. Kyle sits on the left side of the table (screen left) and Gerald sits on the right side (screen right), facing each other across towers of white binders; the tallest tower stands at Kyle's left elbow. Gerald, deadpan, slides a single small yellow sticky note across the table toward Kyle with one finger; Kyle stares at it. Kyle is the man in Images 2 and 3 (keep his face, mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch and brown loafers exactly). Gerald is the man in Images 4 and 5 (keep his face, slicked comb-over, wire reading glasses with a thin beaded chain fixed to both arms, beige three-piece suit, brown tie and lapel pin exactly). Image 6 shows only the pose to copy; ignore its grey background. Keep the room, table, binders and light as in Image 1. Behind the camera is the door wall; do not show it. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text.",
+                "job": "01a117c9-b780-7f93-9836-133484a7168a",
+                "prompt": "Image 1 is a layout render of our 1994 windowless conference room (the audit room) from this exact camera. It fixes the camera, lens, framing and the position, size and facing of every person and object: keep its composition exactly and add nothing that is not in it. Keep every person and object exactly as large in the frame as in Image 1: do not crop in, move closer or enlarge anyone. Turn it into a real photograph. Figure 1 marks people as flat figures: light blue is Kyle (his khaki legs in tan), beige is Gerald. The room is in its real colours: the long dark brown slab is the wood conference table, white stacks are towers of white ring binders, the tiny yellow square is one small yellow sticky note, the thin blue slab is one blue folder, black chairs on five-star bases are office chairs, the low brown block along the left wall is a credenza with a potted plant, the beige block is a filing cabinet, white rectangles on the ceiling are fluorescent panels. Image 2 is a reference board, not a scene: never copy its layout, its labels or its text. Use each labelled panel only for what its label says: MAP is a top-down plan of the whole room with this camera's view as the purple cone (where everything is and which way it faces); THE ROOM is the approved set (materials, colours and light); the named cast panels give faces and costumes; AUDIENCE gives the same crowd. Blocking from the 3D plan, measured from this camera (across the frame: 0% is the left edge; up: 0% is the bottom edge): kyle: in frame, 23% to 23% across, 0% to 71% up from the bottom, running out of frame at the bottom, 3.6 m from the lens, seated, in profile, looking toward screen right. gerald: in frame, 77% to 77% across, 0% to 71% up from the bottom, running out of frame at the bottom, 3.6 m from the lens, seated, in profile, looking toward screen left. long dark wood conference table: 13% to 87% across, 0% to 47% up from the bottom, running out of frame at the bottom. tower of white binders (the tallest): 31% to 42% across, 40% to 91% up from the bottom. tower of white binders: 36% to 49% across, 32% to 64% up from the bottom. tower of white binders: 55% to 66% across, 36% to 61% up from the bottom. tower of white binders: 47% to 56% across, 42% to 59% up from the bottom. tower of white binders: 58% to 68% across, 41% to 67% up from the bottom. tower of white binders: 39% to 47% across, 44% to 58% up from the bottom. tower of white binders: 58% to 73% across, 28% to 50% up from the bottom. tower of white binders: 43% to 54% across, 38% to 61% up from the bottom. one tiny yellow sticky note: 42% to 45% across, 37% to 38% up from the bottom. black office chair (Kyle's): 6% to 31% across, 0% to 53% up from the bottom, running out of frame at the bottom. black office chair (Gerald's): 69% to 94% across, 0% to 53% up from the bottom, running out of frame at the bottom. low dark wood credenza along the left wall: 0% to 14% across, 9% to 49% up from the bottom, running out of frame at the left. small potted plant on the credenza: 0% to 13% across, 48% to 68% up from the bottom. beige four-drawer filing cabinet: 79% to 92% across, 24% to 69% up from the bottom. Outside this frame entirely (must not appear): door to the corridor; fluorescent ceiling panel. A 28 mm medium-wide from the door end of the long conference table, looking straight down its length: Kyle seated at screen left and Gerald seated at screen right, in profile, facing each other across the table and its towers of white binders; the tallest tower stands at Kyle's left elbow. Gerald, deadpan, slides one tiny yellow sticky note across the table toward Kyle with one finger; Kyle stares at it. Behind them: a low credenza with a potted plant along the left wall, a beige filing cabinet at the back right. Harsh overhead fluorescent panels, flat and hard. Kyle: keep his face exactly as in the KYLE panel (mousse-sculpted brown hair, oversized thin wire-rim glasses), light-blue oxford shirt, loosened burgundy, navy and gold patterned tie, pleated khakis, braided belt with a black pager, digital watch, brown loafers. Gerald: keep his face exactly as in the GERALD panel (salt-and-pepper hair slicked back, darker on top and silver at the sides, thin wire reading glasses on a dark-brown beaded cord that hangs onto his chest), beige three-piece suit, brown tie, small lapel pin. Harsh, flat overhead fluorescent office light in a real 1994 conference room with grey carpet and pale walls. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text. Image 3 is Kyle's approved face: keep exactly this face and hair. Image 4 is Kyle's approved costume and build. Image 5 is Gerald's approved face: keep exactly this face and hair. Image 6 is Gerald's approved costume and build.",
                 "inputs": [
-                  "https://v3b.fal.media/files/b/0aad7214/c8WyBs3y5Dii0qEUJri_i_plate-audit.jpg",
-                  "https://v3b.fal.media/files/b/0aad7214/7a_Wfxc471pWdt4Jr4V3A_kyle--body-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad7214/r_VKfNuGkHDBj9l1cX3_p_kyle--face-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad7215/JMnobz0VSV7idwZuiBSmd_gerald--body-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad7215/10oxGovJJlzseDK1W9nfw_gerald--face-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad7215/Ex-gl1BbJkkipjFGSDqj7_gerald--pose-sticky-note.jpg"
+                  "public/generated/order-now/space/box-colour/audit--A1.jpg",
+                  "work/order-now/space/boards/audit-A1.jpg",
+                  "public/generated/order-now/sheets/kyle--face-front.jpg",
+                  "public/generated/order-now/sheets/kyle--body-front.jpg",
+                  "public/generated/order-now/sheets/gerald--face-front.jpg",
+                  "public/generated/order-now/sheets/gerald--body-front.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:44:15.079Z"
+                "at": "2026-10-07T19:36:31.727Z"
               }
             },
             {
@@ -2652,22 +2655,27 @@
               "name": "Kyle to camera",
               "size": "MS",
               "lens": 35,
-              "from": "From Gerald's side of the table, just off his shoulder: Kyle stands, throws his arms up and knocks the tower over, then looks straight into the lens.",
+              "from": "From Gerald's side of the table, just off his left shoulder: Kyle stands, throws his arms up and knocks the tower over, then looks straight into the lens.",
               "why": "The infomercial's breaking-the-fourth-wall plea: he turns to us, mid-disaster.",
-              "behind": "Gerald's chair and the far wall; Gerald is just out of frame on the right.",
+              "behind": "The right-hand wall; Gerald's shoulder soft at the right edge of frame.",
+              "layout": "generated/order-now/space/box/audit--A2.jpg",
               "frame": {
                 "file": "generated/order-now/space/audit--A2.jpg",
                 "view": "A2",
-                "model": "Nano Banana 2.1 (edit, 2 passes) + before grade",
+                "model": "Nano Banana 2.1 (edit) + before grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11741-0eab-7182-9ac9-d1a5ffae7d76",
-                "prompt": "Continuity edit: the foreground man seen from behind made Gerald (grey comb-over, glasses chain, beige suit).",
+                "job": "01a117c9-b7f7-7260-b4b4-423771bbc313",
+                "prompt": "Image 1 is a layout render of our 1994 windowless conference room (the audit room) from this exact camera. It fixes the camera, lens, framing and the position, size and facing of every person and object: keep its composition exactly and add nothing that is not in it. Keep every person and object exactly as large in the frame as in Image 1: do not crop in, move closer or enlarge anyone. Turn it into a real photograph. Figure 1 marks people as flat figures: light blue is Kyle (his khaki legs in tan), beige is Gerald. The room is in its real colours: the long dark brown slab is the wood conference table, white stacks are towers of white ring binders, the tiny yellow square is one small yellow sticky note, the thin blue slab is one blue folder, black chairs on five-star bases are office chairs, the low brown block along the left wall is a credenza with a potted plant, the beige block is a filing cabinet, white rectangles on the ceiling are fluorescent panels. Image 2 is a reference board, not a scene: never copy its layout, its labels or its text. Use each labelled panel only for what its label says: MAP is a top-down plan of the whole room with this camera's view as the purple cone (where everything is and which way it faces); THE ROOM is the approved set (materials, colours and light); the named cast panels give faces and costumes; AUDIENCE gives the same crowd. Blocking from the 3D plan, measured from this camera (across the frame: 0% is the left edge; up: 0% is the bottom edge): kyle: in frame, 50% to 50% across, 0% to 90% up from the bottom, running out of frame at the bottom, 2.9 m from the lens, standing, faces the camera. gerald: in frame, 82% to 88% across, 0% to 34% up from the bottom, running out of frame at the bottom, 1.1 m from the lens, seated, back to the camera. long dark wood conference table: 0% to 100% across, 0% to 23% up from the bottom, running out of frame at the left and right and bottom. tower of white binders (the tallest): 62% to 82% across, 7% to 92% up from the bottom. tower of white binders: 20% to 38% across, 0% to 46% up from the bottom, running out of frame at the bottom. tower of white binders: 43% to 67% across, 0% to 32% up from the bottom, running out of frame at the bottom. tower of white binders: 92% to 100% across, 0% to 37% up from the bottom, running out of frame at the right and bottom. tower of white binders: 92% to 100% across, 0% to 43% up from the bottom, running out of frame at the right and bottom. tower of white binders: 98% to 100% across, 8% to 39% up from the bottom, running out of frame at the right. tower of white binders: 0% to 18% across, 0% to 9% up from the bottom, running out of frame at the left and bottom. tower of white binders: 54% to 75% across, 0% to 41% up from the bottom, running out of frame at the bottom. black office chair (Kyle's, pushed back): 32% to 55% across, 0% to 48% up from the bottom, running out of frame at the bottom. low dark wood credenza along the left wall: 62% to 100% across, 3% to 45% up from the bottom, running out of frame at the right. small potted plant on the credenza: 92% to 100% across, 41% to 67% up from the bottom, running out of frame at the right. Outside this frame entirely (must not appear): black office chair (Gerald's); beige four-drawer filing cabinet; door to the corridor; fluorescent ceiling panel. A 28 mm medium shot from Gerald's side of the table, just off his left shoulder (his shoulder and the back of his head soft at the right edge of frame): Kyle has stood up from his chair, both arms thrown up, the tall binder tower at his left elbow tipping over, and he looks straight into the lens, desperate. The long table between them, binder towers on it. Harsh overhead fluorescent panels. Kyle: keep his face exactly as in the KYLE panel (mousse-sculpted brown hair, oversized thin wire-rim glasses), light-blue oxford shirt, loosened burgundy, navy and gold patterned tie, pleated khakis, braided belt with a black pager, digital watch, brown loafers. Gerald: keep his face exactly as in the GERALD panel (salt-and-pepper hair slicked back, darker on top and silver at the sides, thin wire reading glasses on a dark-brown beaded cord that hangs onto his chest), beige three-piece suit, brown tie, small lapel pin. Harsh, flat overhead fluorescent office light in a real 1994 conference room with grey carpet and pale walls. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text. Image 3 is Kyle's approved face: keep exactly this face and hair. Image 4 is Kyle's approved costume and build. Image 5 is Gerald's approved face: keep exactly this face and hair. Image 6 is Gerald's approved costume and build.",
                 "inputs": [
-                  "audit A2 take a (job 01a1173b-4253-79d2-a138-c0759bae1e15)",
-                  "gerald--body-front"
+                  "public/generated/order-now/space/box-colour/audit--A2.jpg",
+                  "work/order-now/space/boards/audit-A2.jpg",
+                  "public/generated/order-now/sheets/kyle--face-front.jpg",
+                  "public/generated/order-now/sheets/kyle--body-front.jpg",
+                  "public/generated/order-now/sheets/gerald--face-front.jpg",
+                  "public/generated/order-now/sheets/gerald--body-front.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:45:44.461Z"
+                "at": "2026-10-07T19:36:31.964Z"
               }
             },
             {
@@ -2676,24 +2684,23 @@
               "size": "MCU",
               "lens": 50,
               "look": "colour",
-              "from": "Same room after, in colour: Gerald seated on the far side, the table empty but for one thin blue folder he holds; he looks just off the lens to an interviewer on camera left.",
+              "from": "Same room after, in colour, from Kyle's side of the table: Gerald seated on his side, the table empty but for one thin blue folder he holds; he looks just off the lens to an interviewer on camera left.",
               "why": "Colour on purpose: the testimonials come after the smash to colour, so Gerald's is in colour like Kyle's. Shot in the same room that held the binders, now cleared to one thin folder, it is the before-and-after in one frame. Testimonial framing, off centre, room for the lower third.",
-              "behind": "The cleared table and the door.",
+              "behind": "The right-hand wall.",
+              "layout": "generated/order-now/space/box/audit--A3.jpg",
               "frame": {
                 "file": "generated/order-now/space/audit--A3.jpg",
                 "view": "A3",
-                "model": "Nano Banana 2.1 (edit) + betacam grade",
+                "model": "Nano Banana 2.1 (edit, fix pass) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1173b-41ef-7d10-8a90-985cbbb31966",
-                "prompt": "Image 1 is a windowless conference room under fluorescent tubes. Show the same room afterwards: the long table now completely cleared, no binders anywhere. A 50 mm medium close-up of Gerald seated on the far side of the table, slightly off centre to screen right, holding one thin blue folder to his chest, misty-eyed, lips pressed together, looking just off the lens toward an interviewer on camera left. Room on the left of frame for a lower third. Soft, flattering interview light. Gerald is the man in Images 2 and 3 (keep his face, slicked comb-over, wire reading glasses with a thin beaded chain fixed to both arms, beige three-piece suit, brown tie and lapel pin exactly). Image 4 shows only the pose to copy; ignore its grey background. Keep the room's walls, table and chairs as in Image 1. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text.",
+                "job": "01a117d3-7d50-74a0-a9d8-5740a79fe08e",
+                "prompt": "Edit Image 1, a still from our 1994 windowless conference room (the audit room). Change only these things: (1) Repaint the walls to the warm beige-tan of THE ROOM reference, keeping the beige filing cabinet and dark wood table as they are. Keep everything else exactly as it is: the camera, the framing, every other person, object, colour and the light. Image 2 is a reference board (not a scene, never copy its layout or labels): use its MAP for where things belong and its cast panels for faces and costumes. Blocking from the 3D plan for this camera: gerald: in frame, 58% to 58% across, 0% to 86% up from the bottom, running out of frame at the bottom, 3.0 m from the lens, seated, faces the camera. long dark wood conference table: 0% to 100% across, 0% to 37% up from the bottom, running out of frame at the left and right and bottom. one thin blue folder, held to Gerald's chest: 48% to 66% across, 28% to 69% up from the bottom. black office chair (Gerald's): 39% to 81% across, 0% to 56% up from the bottom, running out of frame at the bottom. beige four-drawer filing cabinet: 0% to 13% across, 0% to 77% up from the bottom, running out of frame at the left and bottom. Outside this frame entirely (must not appear): low dark wood credenza along the left wall; small potted plant on the credenza; door to the corridor; fluorescent ceiling panel. Harsh, flat overhead fluorescent office light in a real 1994 conference room with grey carpet and pale walls. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text.",
                 "inputs": [
-                  "https://v3b.fal.media/files/b/0aad7214/c8WyBs3y5Dii0qEUJri_i_plate-audit.jpg",
-                  "https://v3b.fal.media/files/b/0aad7215/JMnobz0VSV7idwZuiBSmd_gerald--body-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad7215/10oxGovJJlzseDK1W9nfw_gerald--face-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad7215/rp9ALAVOirEKNkPT5ERXx_gerald--pose-folder.jpg"
+                  "work/order-now/space/runs/r6/out/A3-nb-b.png",
+                  "work/order-now/space/boards/audit-A3.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:44:15.276Z"
+                "at": "2026-10-07T19:36:32.176Z"
               }
             }
           ]
@@ -2703,7 +2710,7 @@
           "name": "Infomercial set",
           "sheet": "set-studio",
           "look": "colour",
-          "map": "The 1994 infomercial stage, seen from the audience side. Screen left: tiered bleachers with the studio audience. Centre: the curved white demo desk with chrome trim. Two white stools at the desk's ends. Back wall: pink-to-teal gradient with the COMP AI neon sign hanging low on it, just above the desk. Henrick sits on the right-hand stool (screen right), hands folded, angled three-quarters toward camera and slightly toward Brock. Brock's mark is standing left of the desk (screen left of centre); he keeps leaving it. The line runs Brock to Henrick: every camera stays on the audience side, so Brock is always screen left looking right and Henrick always screen right looking left. The audience is the only reverse angle. The audience: one bleacher bank at stage left (screen left from the front cameras), six tiers of eight burgundy seats on grey carpeted steps, stairs with a chrome handrail at its stage end beside a pink column. The same 48 people sit in it for the whole show, always in the same seats; C7 is their reference. Front row, as C7 sees it from left to right: a blonde woman in her 40s in a pink sweater; a moustached man in a teal-and-purple windbreaker; a grey-haired woman in lavender with pearls; a young man with a mullet in a denim jacket; a curly auburn-haired woman in a pastel sweatshirt; a bald man with glasses in plaid; a black-haired woman in teal; a grey-bearded man in burgundy. No face appears twice. Continuity: any angle that shows the bleachers shows them full and reacting to the beat (on their feet in 5, applauding in 6, 'Ooooh' in 7, 'WOW' in 8, frozen in the silence of 11, applauding in 14). The demo desk always holds the red COMP AI button in the centre and the thin blue SOC 2 folder at its right end, by Henrick's stool; the tower of white binders is on the desk only in beat 8. Nothing else on the desk.",
+          "map": "The 1994 infomercial stage, seen from the audience side. Screen left: tiered bleachers with the studio audience. Centre: the curved white demo desk with chrome trim. Two white stools at the desk's ends. Back wall: pink-to-teal gradient with the COMP AI neon sign hanging low on it, just above the desk. Henrick sits on the right-hand stool (screen right), hands folded, angled three-quarters toward camera and slightly toward Brock. Brock's mark is standing left of the desk (screen left of centre); he keeps leaving it. The line runs Brock to Henrick: every camera stays on the audience side, so Brock is always screen left looking right and Henrick always screen right looking left. The audience is the only reverse angle. The audience: one bleacher bank at stage left (screen left from the front cameras), six tiers of eight burgundy seats on grey carpeted steps, stairs with a chrome handrail at its stage end beside a pink column. The same crowd sits in it for the whole show: 48 people. Its people are the ones in the approved audience reference (the AUDIENCE panel); the front row is recognisable whenever it is close. No face appears twice. Continuity: any angle that shows the bleachers shows them full and reacting to the beat (on their feet in 5, applauding in 6, 'Ooooh' in 7, 'WOW' in 8, frozen in the silence of 11, applauding in 14). The demo desk always holds the red COMP AI button in the centre and the thin blue SOC 2 folder at its right end, by Henrick's stool; the tower of white binders is on the desk only in beat 8. Nothing else on the desk.",
           "cameras": [
             {
               "id": "C1",
@@ -2717,16 +2724,16 @@
               "frame": {
                 "file": "generated/order-now/space/studio--C1.jpg",
                 "view": "C1",
-                "model": "Seedream 5.0 Pro (edit) + betacam grade",
+                "model": "Nano Banana 2.1 (edit, fix pass) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11771-9b5a-7141-8991-df88abcdb87c",
-                "prompt": "You re-create planned film frames as real photographs. The layout image is binding: camera position, lens, framing and the place, size and facing of every person and object. The reference board is context about the room and the cast, so that this frame agrees with every other angle of the same room; never use it as a composition, and never draw its panels, labels or text. If a reference and the layout disagree about where something is, the layout wins. Figure 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position, size and facing of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph. In Figure 1 the teal figure is Brock, the blue-grey figure is Henrick and the grey figures are the studio audience. Figure 2 is a reference board, not a scene: never copy its layout, its labels or its text. Use each labelled panel only for what its label says: MAP is a top-down plan of the whole room with this camera's view as the purple cone (where everything is and which way it faces); THE ROOM is the approved set (materials, colours and light); the named cast panels give faces and costumes; AUDIENCE gives the same people in the same seats. Blocking from the 3D plan, measured from this camera (across the frame: 0% is the left edge; up: 0% is the bottom edge): Audience: 15 of 48 people at least partly in frame, spanning 2% to 18% across; nearest 4.7 m from the lens, the tallest of them 57% of frame height; they are standing and in profile. henrick: in frame, 75% to 75% across, 22% to 44% up from the bottom, 10.0 m from the lens, seated, faces the camera. brock: in frame, 37% to 37% across, 5% to 51% up from the bottom, 6.0 m from the lens, standing, in profile, looking toward screen right. COMP AI neon sign: 33% to 59% across, 53% to 67% up from the bottom. pink column: 19% to 27% across, 24% to 100% up from the bottom, running out of frame at the top. teal column: 67% to 75% across, 29% to 100% up from the bottom, running out of frame at the top. shelving unit with TVs: 84% to 100% across, 27% to 59% up from the bottom, running out of frame at the right. palm, left: 10% to 18% across, 23% to 52% up from the bottom. palm, right: 74% to 82% across, 29% to 51% up from the bottom. curved white demo desk: 44% to 76% across, 16% to 40% up from the bottom. red COMP AI button: 57% to 63% across, 38% to 42% up from the bottom. blue SOC 2 folder: 68% to 73% across, 39% to 40% up from the bottom. white stool, left: 38% to 45% across, 17% to 33% up from the bottom. white stool, right (Henrick): 72% to 79% across, 21% to 35% up from the bottom. chrome handrail: 0% to 21% across, 77% to 84% up from the bottom, running out of frame at the left. Beat 5, the smash to colour. The studio audience in the bleachers at screen left is ON ITS FEET, applauding and cheering. Brock bounds in left of centre, mid-stride, arms flung wide, huge grin, turned toward Henrick. Henrick sits perfectly still on the right-hand stool, hands folded, angled three-quarters toward camera. On the desk: the giant red COMP AI button in the centre and the thin blue SOC 2 folder at the right end, nothing else. The COMP AI neon sign glows on the back wall just above the desk. Brock: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Henrick, a real man: keep his face exactly (silver hair, short white beard, round dark-blue glasses), navy suit, light-blue shirt, grey paisley tie, pink pocket square. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
+                "job": "01a117d2-dd41-7222-85c2-7d2c1b058dc4",
+                "prompt": "Edit Image 1, a still from our 1994 infomercial set. Change only these things: (1) Reframe to the layout. Keep the audience to the left 18% of the frame with the pink column at about 20–27%. Centre the neon sign at 33–59%, put the desk at 44–76% with Henrick on the right stool at about 75%, and set the teal column at 67–75% and the TV shelving at 84–100%. (2) Turn Brock into profile so his face and gesture point toward screen right, at the desk and Henrick, while he bounds in. (3) Show the audience standing at their own seats across the stepped tiers of burgundy seats, in profile facing screen right toward the stage. Put the chrome handrail high at the left edge beside the pink column. (4) Match THE ROOM. Use a saturated pink-to-teal gradient back wall, the glossy pale stage floor with its circular stage, and pink and teal studio light washing the set. Keep everything else exactly as it is: the camera, the framing, every other person, object, colour and the light. Image 2 is a reference board (not a scene, never copy its layout or labels): use its MAP for where things belong and its cast panels for faces and costumes. Blocking from the 3D plan for this camera: Audience: 15 of 48 people at least partly in frame, spanning 2% to 18% across; nearest 4.7 m from the lens, the tallest of them 57% of frame height; they are standing and in profile. henrick: in frame, 75% to 75% across, 22% to 44% up from the bottom, 10.0 m from the lens, seated, faces the camera. brock: in frame, 37% to 37% across, 5% to 51% up from the bottom, 6.0 m from the lens, standing, in profile, looking toward screen right. COMP AI neon sign: 33% to 59% across, 53% to 67% up from the bottom. pink column: 19% to 27% across, 24% to 100% up from the bottom, running out of frame at the top. teal column: 67% to 75% across, 29% to 100% up from the bottom, running out of frame at the top. shelving unit with TVs: 84% to 100% across, 27% to 59% up from the bottom, running out of frame at the right. palm, left: 10% to 18% across, 23% to 52% up from the bottom. palm, right: 74% to 82% across, 29% to 51% up from the bottom. curved white demo desk: 44% to 76% across, 16% to 40% up from the bottom. red COMP AI button: 57% to 63% across, 38% to 42% up from the bottom. blue SOC 2 folder: 68% to 73% across, 39% to 40% up from the bottom. white stool, left: 38% to 45% across, 17% to 33% up from the bottom. white stool, right (Henrick): 72% to 79% across, 21% to 35% up from the bottom. chrome handrail: 0% to 21% across, 77% to 84% up from the bottom, running out of frame at the left. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign and the COMP AI lettering on the red button.",
                 "inputs": [
-                  "grey-box layout C1",
-                  "reference board C1"
+                  "work/order-now/space/runs/r6/out/C1-nb-a.png",
+                  "work/order-now/space/boards/studio-C1.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T17:47:41.386Z"
+                "at": "2026-10-07T19:36:32.408Z"
               }
             },
             {
@@ -2741,16 +2748,16 @@
               "frame": {
                 "file": "generated/order-now/space/studio--C2.jpg",
                 "view": "C2",
-                "model": "Nano Banana 2.1 (edit) + betacam grade",
+                "model": "Nano Banana 2.1 (edit, fix pass) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11771-9ad2-7f10-aeb5-39a0ea746652",
-                "prompt": "Image 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position, size and facing of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph. In Image 1 the teal figure is Brock and the grey figures are the studio audience. Image 2 is a reference board, not a scene: never copy its layout, its labels or its text. Use each labelled panel only for what its label says: MAP is a top-down plan of the whole room with this camera's view as the purple cone (where everything is and which way it faces); THE ROOM is the approved set (materials, colours and light); the named cast panels give faces and costumes; AUDIENCE gives the same people in the same seats. Blocking from the 3D plan, measured from this camera (across the frame: 0% is the left edge; up: 0% is the bottom edge): Audience: 2 of 48 people at least partly in frame, spanning 2% to 9% across; nearest 5.9 m from the lens, the tallest of them 40% of frame height; they are seated and three-quarter toward the camera. henrick: NOT in frame. brock: in frame, 51% to 51% across, 0% to 58% up from the bottom, running out of frame at the bottom, 3.5 m from the lens, standing, faces the camera, looking toward screen right. COMP AI neon sign: 60% to 100% across, 60% to 89% up from the bottom, running out of frame at the right. pink column: 29% to 46% across, 4% to 100% up from the bottom, running out of frame at the top. palm, left: 12% to 29% across, 4% to 56% up from the bottom. curved white demo desk: 56% to 100% across, 0% to 26% up from the bottom, running out of frame at the right and bottom. red COMP AI button: 93% to 100% across, 20% to 32% up from the bottom, running out of frame at the right. white stool, left: 40% to 55% across, 0% to 14% up from the bottom, running out of frame at the bottom. chrome handrail: 0% to 19% across, 99% to 100% up from the bottom, running out of frame at the left and top. Outside this frame entirely (must not appear): teal column; shelving unit with TVs; palm, right; blue SOC 2 folder; white stool, right (Henrick). A medium shot of Brock standing left of the desk, arms flung wide, mouth open mid-shout, body toward camera, head and eyes turned to screen right toward his unseen guest. At the far left edge, the end of the bleachers with one or two seated audience members applauding, soft. Behind him: the pink column and a palm at screen left, the COMP AI neon sign running off the top right, the left end of the white desk at the right edge with the red button at the frame edge. Brock: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
+                "job": "01a117d2-dd1e-74b3-94b9-ede6627929ec",
+                "prompt": "Edit Image 1, a still from our 1994 infomercial set. Change only these things: (1) Repaint the back wall as the approved smooth pink-to-teal gradient (pink at screen left, teal toward the sign), with the soft magenta/cyan wash from THE ROOM behind the COMP AI neon. (2) Seat the two visible audience members in burgundy theatre seats on grey carpeted tiers, matching the AUDIENCE reference. (3) Pull Brock's skin tone back to the natural deep tan of the cast portrait and reduce the orange saturation. Keep everything else exactly as it is: the camera, the framing, every other person, object, colour and the light. Image 2 is a reference board (not a scene, never copy its layout or labels): use its MAP for where things belong and its cast panels for faces and costumes. Blocking from the 3D plan for this camera: Audience: 2 of 48 people at least partly in frame, spanning 2% to 9% across; nearest 5.9 m from the lens, the tallest of them 40% of frame height; they are seated and three-quarter toward the camera. henrick: NOT in frame. brock: in frame, 51% to 51% across, 0% to 58% up from the bottom, running out of frame at the bottom, 3.5 m from the lens, standing, faces the camera, looking toward screen right. COMP AI neon sign: 60% to 100% across, 60% to 89% up from the bottom, running out of frame at the right. pink column: 29% to 46% across, 4% to 100% up from the bottom, running out of frame at the top. palm, left: 12% to 29% across, 4% to 56% up from the bottom. curved white demo desk: 56% to 100% across, 0% to 26% up from the bottom, running out of frame at the right and bottom. red COMP AI button: 93% to 100% across, 20% to 32% up from the bottom, running out of frame at the right. white stool, left: 40% to 55% across, 0% to 14% up from the bottom, running out of frame at the bottom. chrome handrail: 0% to 19% across, 99% to 100% up from the bottom, running out of frame at the left and top. Outside this frame entirely (must not appear): teal column; shelving unit with TVs; palm, right; blue SOC 2 folder; white stool, right (Henrick). Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign and the COMP AI lettering on the red button.",
                 "inputs": [
-                  "grey-box layout C2",
-                  "reference board C2"
+                  "work/order-now/space/runs/r6/out/C2-nb-b.png",
+                  "work/order-now/space/boards/studio-C2.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T17:47:41.610Z"
+                "at": "2026-10-07T19:36:32.636Z"
               }
             },
             {
@@ -2765,19 +2772,16 @@
               "frame": {
                 "file": "generated/order-now/space/studio--C3.jpg",
                 "view": "C3",
-                "model": "Nano Banana 2.1 (edit) + betacam grade",
+                "model": "Nano Banana 2.1 (edit, fix pass) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1174c-8760-78a3-b59a-3e6779518aa8",
-                "prompt": "Image 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position and size of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph of the set in Image 2: the pink-to-teal gradient back wall, the glowing COMP AI neon sign where the dark panel is, the curved white demo desk with chrome trim, the white stools, the burgundy bleacher seats on grey carpeted tiers with the chrome handrail, the pink and teal columns, the palms and the shelving with old TVs. The blue-grey figure is Henrick, the real man in Images 3 and 4 (keep his face exactly: silver hair, short white beard, round dark-blue glasses, navy suit, light-blue shirt, grey paisley tie, pink pocket square). A locked medium shot of him on the stool: hands folded in his lap, back straight, perfectly still, flat polite expression, eyes slightly to screen left toward an unseen host. The thin blue SOC 2 folder lies on the end of the desk beside him, like Image 5. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
+                "job": "01a117d2-dd6b-7141-8572-4b9c0592effd",
+                "prompt": "Edit Image 1, a still from our 1994 infomercial set. Change only these things: (1) Pull the framing out to match the layout: Henrick smaller in frame, with the top of his head at about 60% up and clear wall above him below the neon sign. Keep everything else exactly as it is: the camera, the framing, every other person, object, colour and the light. Image 2 is a reference board (not a scene, never copy its layout or labels): use its MAP for where things belong and its cast panels for faces and costumes. Blocking from the 3D plan for this camera: Audience: no one in frame (the bleachers are outside this angle). henrick: in frame, 51% to 51% across, 0% to 61% up from the bottom, running out of frame at the bottom, 4.0 m from the lens, seated, faces the camera. COMP AI neon sign: 0% to 46% across, 84% to 100% up from the bottom, running out of frame at the left and top. teal column: 75% to 100% across, 0% to 100% up from the bottom, running out of frame at the right and top and bottom. curved white demo desk: 0% to 31% across, 0% to 38% up from the bottom, running out of frame at the left and bottom. blue SOC 2 folder: 0% to 22% across, 35% to 39% up from the bottom. white stool, right (Henrick): 38% to 65% across, 0% to 15% up from the bottom, running out of frame at the bottom. Outside this frame entirely (must not appear): pink column; shelving unit with TVs; palm, left; palm, right; red COMP AI button; white stool, left; chrome handrail. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign and the COMP AI lettering on the red button.",
                 "inputs": [
-                  "https://v3b.fal.media/files/b/0aad728f/kqMcv7xh9Ks1iMfdFQ7H6_clay-C3.jpg",
-                  "https://v3b.fal.media/files/b/0aad71a0/Aw-f21fsTMnXEKJJRPlfD_set-studio-1.png",
-                  "https://v3b.fal.media/files/b/0aad71ed/V8l2gVMKyno113s35Ju6L_henrick-set--real-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad71ed/FndmfAnvDRofP9XuFyOiL_henrick-set--body-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad71ed/yH7iotvT7EFsBOQw4SCHf_props-a.jpg"
+                  "work/order-now/space/runs/r6/out/C3-nb-b.png",
+                  "work/order-now/space/boards/studio-C3.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:59:18.291Z"
+                "at": "2026-10-07T19:36:32.853Z"
               }
             },
             {
@@ -2792,18 +2796,16 @@
               "frame": {
                 "file": "generated/order-now/space/studio--C4.jpg",
                 "view": "C4",
-                "model": "Nano Banana 2.1 (edit) + betacam grade",
+                "model": "Nano Banana 2.1 (edit, fix pass) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1174c-874c-7140-bc67-459c5e4b2780",
-                "prompt": "Image 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position and size of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph of the set and props in Image 2: the curved white demo desk with chrome trim, the gradient wall and COMP AI neon sign behind. On the desk top: a tall tower of about twelve thick white binders at the left, the giant red COMP AI button in the centre, the thin blue SOC 2 folder at the right, exactly as in Image 2. The teal figure is Brock, the man in Images 3 and 4 (frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone). He stands behind the desk facing the camera, both hands raised high above the button about to slam it, grinning wildly. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
+                "job": "01a117d2-dcdf-7c40-b76d-71fb7717a241",
+                "prompt": "Edit Image 1, a still from our 1994 infomercial set. Change only these things: (1) Repaint Brock's face and neck to match the cast panel's natural deep tan with realistic skin variation, and remove the uniform orange cast. (2) Regenerate Brock's face from the cast panel headshot, keeping the same expression of enthusiasm but his actual facial structure and skin texture. (3) Remove the chair behind Brock and show him standing behind the desk at the plan's scale, with his head ending at about 59% up and his raised hands kept below the neon sign. (4) Replace the sign with the reference design: bold italic pink 'COMP' and teal 'AI' with three underline bars centred beneath, spanning about 21–79% of the frame width. (5) Restore natural skin texture, pores and lighting falloff on Brock's face and hands to match the studio lighting. Keep everything else exactly as it is: the camera, the framing, every other person, object, colour and the light. Image 2 is a reference board (not a scene, never copy its layout or labels): use its MAP for where things belong and its cast panels for faces and costumes. Blocking from the 3D plan for this camera: Audience: no one in frame (the bleachers are outside this angle). henrick: NOT in frame. brock: in frame, 50% to 50% across, 0% to 59% up from the bottom, running out of frame at the bottom, 5.3 m from the lens, standing, faces the camera. COMP AI neon sign: 21% to 79% across, 63% to 89% up from the bottom. pink column: 0% to 5% across, 5% to 100% up from the bottom, running out of frame at the left and top. teal column: 98% to 100% across, 5% to 100% up from the bottom, running out of frame at the right and top. curved white demo desk: 2% to 98% across, 0% to 29% up from the bottom, running out of frame at the bottom. red COMP AI button: 43% to 57% across, 26% to 37% up from the bottom. blue SOC 2 folder: 77% to 91% across, 26% to 30% up from the bottom. white stool, left: 0% to 6% across, 0% to 16% up from the bottom, running out of frame at the left and bottom. white stool, right (Henrick): 94% to 100% across, 0% to 16% up from the bottom, running out of frame at the right and bottom. tower of white binders: 17% to 36% across, 26% to 77% up from the bottom. Outside this frame entirely (must not appear): shelving unit with TVs; palm, left; palm, right; chrome handrail. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign and the COMP AI lettering on the red button.",
                 "inputs": [
-                  "https://v3b.fal.media/files/b/0aad728f/srwF1IvRHDioIQDPHTdSH_clay-C4.jpg",
-                  "https://v3b.fal.media/files/b/0aad71ed/yH7iotvT7EFsBOQw4SCHf_props-a.jpg",
-                  "https://v3b.fal.media/files/b/0aad71ed/qh31DKwk-rY8uZajAe2wZ_brock--body-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad71ed/S5tyXiVHjG796KZX3I0V8_brock--face-front.jpg"
+                  "work/order-now/space/runs/r6/out/C4-nb-b.png",
+                  "work/order-now/space/boards/studio-C4.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:59:18.507Z"
+                "at": "2026-10-07T19:36:33.085Z"
               }
             },
             {
@@ -2818,16 +2820,16 @@
               "frame": {
                 "file": "generated/order-now/space/studio--C5.jpg",
                 "view": "C5",
-                "model": "Nano Banana 2.1 (edit) + betacam grade",
+                "model": "Nano Banana 2.1 (edit, fix pass) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11772-a689-7cd1-a660-2154b33cf3fe",
-                "prompt": "Image 1 is a grey-box layout render of our 1994 infomercial set from this exact camera. It fixes the camera, lens, framing and the position, size and facing of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph. In Image 1 the teal figure is Brock and the grey figure is an audience member. Image 2 is a reference board, not a scene: never copy its layout, its labels or its text. Use each labelled panel only for what its label says: MAP is a top-down plan of the whole room with this camera's view as the purple cone (where everything is and which way it faces); THE ROOM is the approved set (materials, colours and light); the named cast panels give faces and costumes; AUDIENCE gives the same people in the same seats. Blocking from the 3D plan, measured from this camera (across the frame: 0% is the left edge; up: 0% is the bottom edge): Audience: 1 of 48 people at least partly in frame, spanning 6% to 6% across; nearest 5.9 m from the lens, the tallest of them 42% of frame height; they are seated and three-quarter toward the camera. henrick: NOT in frame. brock: in frame, 33% to 33% across, 0% to 100% up from the bottom, running out of frame at the top and bottom, 1.1 m from the lens, standing, faces the camera. COMP AI neon sign: 48% to 95% across, 64% to 86% up from the bottom. pink column: 23% to 37% across, 20% to 100% up from the bottom, running out of frame at the top. palm, left: 9% to 23% across, 19% to 62% up from the bottom. curved white demo desk: 48% to 100% across, 0% to 41% up from the bottom, running out of frame at the right and bottom. red COMP AI button: 78% to 92% across, 39% to 47% up from the bottom. white stool, left: 34% to 47% across, 0% to 31% up from the bottom, running out of frame at the bottom. Outside this frame entirely (must not appear): teal column; shelving unit with TVs; palm, right; blue SOC 2 folder; white stool, right (Henrick); chrome handrail. A 24 mm close-up: Brock lunges toward the lens, face large and a little distorted by the wide lens, eyes wide, mouth open shouting 'But wait!', one hand reaching toward camera. Behind him, soft: one seated audience member frozen in silence at the far left edge, a palm and the pink column at left, the COMP AI neon sign running off the top right, the white desk with the red button at right. Brock: frosted spiked blond-tipped hair, deep tan, white veneers, teal double-breasted blazer, white open-collar shirt, grey trousers, white loafers, thin headset microphone. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
+                "job": "01a117d2-dcc8-7371-a4fa-01795d020368",
+                "prompt": "Edit Image 1, a still from our 1994 infomercial set. Change only these things: (1) Fill every visible bleacher seat at upper left with seated audience members from the AUDIENCE panel, so that no empty seats show. (2) Move the palm to about 9–23% across, screen left of the pink column, and clear the gap between the column and the neon sign. (3) Shift the pink column left to about 23–37% across so it rises behind the left side of Brock's head. (4) Grade Brock's skin back to the deep brown tan of his cast panel and reduce the orange saturation. (5) Replace the back wall with the approved saturated pink-to-teal gradient and its magenta and cyan wash, matching THE ROOM. Keep everything else exactly as it is: the camera, the framing, every other person, object, colour and the light. Image 2 is a reference board (not a scene, never copy its layout or labels): use its MAP for where things belong and its cast panels for faces and costumes. Blocking from the 3D plan for this camera: Audience: 1 of 48 people at least partly in frame, spanning 6% to 6% across; nearest 5.9 m from the lens, the tallest of them 42% of frame height; they are seated and three-quarter toward the camera. henrick: NOT in frame. brock: in frame, 33% to 33% across, 0% to 100% up from the bottom, running out of frame at the top and bottom, 1.1 m from the lens, standing, faces the camera. COMP AI neon sign: 48% to 95% across, 64% to 86% up from the bottom. pink column: 23% to 37% across, 20% to 100% up from the bottom, running out of frame at the top. palm, left: 9% to 23% across, 19% to 62% up from the bottom. curved white demo desk: 48% to 100% across, 0% to 41% up from the bottom, running out of frame at the right and bottom. red COMP AI button: 78% to 92% across, 39% to 47% up from the bottom. white stool, left: 34% to 47% across, 0% to 31% up from the bottom, running out of frame at the bottom. Outside this frame entirely (must not appear): teal column; shelving unit with TVs; palm, right; blue SOC 2 folder; white stool, right (Henrick); chrome handrail. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign and the COMP AI lettering on the red button.",
                 "inputs": [
-                  "grey-box layout C5",
-                  "reference board C5"
+                  "work/order-now/space/runs/r6/out/C5-nb-a.png",
+                  "work/order-now/space/boards/studio-C5.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T17:47:41.810Z"
+                "at": "2026-10-07T19:36:33.303Z"
               }
             },
             {
@@ -2842,21 +2844,16 @@
               "frame": {
                 "file": "generated/order-now/space/studio--C6.jpg",
                 "view": "C6",
-                "model": "Nano Banana 2.1 (edit) + betacam grade",
+                "model": "Nano Banana 2.1 (edit, fix pass) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11758-4461-7763-b53f-98d1636f3ceb",
-                "prompt": "Grey-box render from this camera as Image 1, the only full-frame image; set plate passed only as material crops (wall and sign, desk and stool, bleacher seats); cast and audience references for faces and clothes only.",
+                "job": "01a117d3-7d3a-7462-89ce-c18c6f8dfdfb",
+                "prompt": "Edit Image 1, a still from our 1994 infomercial set. Change only these things: (1) Move Brock in front of the desk's right end, on the camera side, standing upright with his legs visible against the desk front and not leaning over the counter. (2) Bring Brock's skin tone back to the natural deep tan in his cast panel, removing the orange cast from his face and hands. (3) Repaint the back wall as the pink-to-teal gradient from THE ROOM, with its warm pink and teal coloured light falling on the set and the cast. (4) Replace the sign with the exact approved COMP AI neon design: bold italic pink 'COMP' and teal 'AI', with short underline stripes beneath the letters only. Keep everything else exactly as it is: the camera, the framing, every other person, object, colour and the light. Image 2 is a reference board (not a scene, never copy its layout or labels): use its MAP for where things belong and its cast panels for faces and costumes. Blocking from the 3D plan for this camera: Audience: no one in frame (the bleachers are outside this angle). henrick: in frame, 67% to 67% across, 0% to 45% up from the bottom, running out of frame at the bottom, 4.2 m from the lens, seated, faces the camera, looking toward screen left. brock: in frame, 34% to 34% across, 0% to 72% up from the bottom, running out of frame at the bottom, 3.6 m from the lens, standing, faces the camera. COMP AI neon sign: 0% to 60% across, 68% to 98% up from the bottom, running out of frame at the left. teal column: 81% to 100% across, 1% to 100% up from the bottom, running out of frame at the right and top. curved white demo desk: 0% to 54% across, 0% to 31% up from the bottom, running out of frame at the left and bottom. red COMP AI button: 0% to 12% across, 27% to 40% up from the bottom, running out of frame at the left. blue SOC 2 folder: 34% to 48% across, 27% to 31% up from the bottom. white stool, right (Henrick): 58% to 77% across, 0% to 15% up from the bottom, running out of frame at the bottom. Outside this frame entirely (must not appear): pink column; shelving unit with TVs; palm, left; palm, right; white stool, left; chrome handrail. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign and the COMP AI lettering on the red button.",
                 "inputs": [
-                  "box studio C6",
-                  "mat-wall",
-                  "mat-desk",
-                  "mat-seats",
-                  "cast refs",
-                  "audience ref",
-                  "props"
+                  "work/order-now/space/runs/r6/out/C6-nb-b.png",
+                  "work/order-now/space/boards/studio-C6.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T17:11:57.454Z"
+                "at": "2026-10-07T19:36:33.524Z"
               }
             },
             {
@@ -2871,17 +2868,16 @@
               "frame": {
                 "file": "generated/order-now/space/studio--C7.jpg",
                 "view": "C7",
-                "model": "Nano Banana 2.1 (edit) + betacam grade",
+                "model": "Nano Banana 2.1 (edit, fix pass) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1174c-880e-7451-9d5b-67e300032dd6",
-                "prompt": "Image 1 is a grey-box layout render, from the stage, of the bleacher bank on our 1994 infomercial set. It fixes the camera, lens, framing, the tiers and the position and size of every seated person: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph: burgundy bleacher seats on grey carpeted tiers, the chrome handrail, the pink column, lit by the pink and teal light of the set in Image 2; behind the top row only a dark studio wall. The grey seated figures are the studio audience: exactly the people in Image 3, the same faces and clothes in the same seats; front row the blonde woman in a pink sweater, the moustached man in a teal-and-purple windbreaker, the grey-haired woman in lavender with pearls, the young man with a mullet in denim, the curly auburn-haired woman in a pastel sweatshirt, the bald man with glasses in plaid, the black-haired woman in teal and the grey-bearded man in burgundy. No face appears twice. Seated, leaning forward, mouths rounded in an amazed 'Ooooh'. Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign.",
+                "job": "01a117d3-7d6d-7ff2-97b0-8270abd08a25",
+                "prompt": "Edit Image 1, a still from our 1994 infomercial set. Change only these things: (1) Repaint the wall behind the bleachers as the set's pink-to-teal gradient, and add the warm pink and teal studio spill across the audience and seats to match THE ROOM. (2) Vary the duplicated outfits and faces so each of the 48 seats holds a distinct person drawn from the AUDIENCE panel, with no repeated costume or pose side by side. (3) Vary the expressions and body language: some people lean forward, some cover their mouths, some turn to a neighbour, with different degrees of 'Ooooh'. Keep everything else exactly as it is: the camera, the framing, every other person, object, colour and the light. Image 2 is a reference board (not a scene, never copy its layout or labels): use its MAP for where things belong and its cast panels for faces and costumes. Blocking from the 3D plan for this camera: Audience: 48 of 48 people at least partly in frame, spanning 8% to 92% across; nearest 4.5 m from the lens, the tallest of them 37% of frame height; they are seated and faces the camera. henrick: NOT in frame. brock: NOT in frame. chrome handrail: 77% to 100% across, 84% to 90% up from the bottom, running out of frame at the right. Outside this frame entirely (must not appear): COMP AI neon sign; pink column; teal column; shelving unit with TVs; palm, left; palm, right; curved white demo desk; red COMP AI button; blue SOC 2 folder; white stool, left; white stool, right (Henrick). Bright, flat, even 1994 television studio light. Clean, sharp, natural photograph of a real set and real people at true scale: no grain, no noise, no painterly texture. No text except the COMP AI neon sign and the COMP AI lettering on the red button.",
                 "inputs": [
-                  "https://v3b.fal.media/files/b/0aad728f/htNEJahBIHB0-IAtsFxJS_clay-C7.jpg",
-                  "https://v3b.fal.media/files/b/0aad71a0/Aw-f21fsTMnXEKJJRPlfD_set-studio-1.png",
-                  "https://v3b.fal.media/files/b/0aad7255/-cwioatWVKEtt-WZ4NhYB_audience-ref.jpg"
+                  "work/order-now/space/runs/r6/out/C7-nb-a.png",
+                  "work/order-now/space/boards/studio-C7.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:59:18.936Z"
+                "at": "2026-10-07T19:36:33.752Z"
               }
             }
           ]
@@ -2905,18 +2901,16 @@
               "frame": {
                 "file": "generated/order-now/space/operators--O1.jpg",
                 "view": "O1",
-                "model": "Nano Banana 2.1 (edit) + betacam grade",
+                "model": "Nano Banana 2.1 (edit, fix pass) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1174e-bad0-7fc3-8c80-4327b8b316b6",
-                "prompt": "Grey-box render from this camera as Image 1 (data/space/order-now/operators.json); operators plate for materials; Henrick from his real photo; headset reference.",
+                "job": "01a117d3-7d34-73e1-9235-f2b956de4785",
+                "prompt": "Edit Image 1, a still from our 1994 telephone order room. Change only these things: (1) Push Henrick back to his station a third of the way down the row so he sits about 4.9 m from the lens. His head should top out around 36% up from the bottom, with more counter, chairs and phones visible around him. (2) Have Henrick answer through the headset by pressing a line button on the phone, with the handset left in its cradle. Keep everything else exactly as it is: the camera, the framing, every other person, object, colour and the light. Image 2 is a reference board (not a scene, never copy its layout or labels): use its MAP for where things belong and its cast panels for faces and costumes. Blocking from the 3D plan for this camera: henrick: in frame, 60% to 60% across, 0% to 36% up from the bottom, running out of frame at the bottom, 4.9 m from the lens, seated, three-quarter away from the camera, looking toward screen right. long worn laminate counter: 27% to 100% across, 0% to 31% up from the bottom, running out of frame at the right and bottom. OPERATORS STANDING BY sign, hanging: 62% to 88% across, 70% to 100% up from the bottom, running out of frame at the top. grey partition along the back of the counter: 36% to 100% across, 0% to 46% up from the bottom, running out of frame at the right and bottom. Outside this frame entirely (must not appear): round wall clock; 1994 wall calendar; filing cabinets. Flat fluorescent office light in a real, used telephone order office in good order (tidy grey laminate, pinned notes, not distressed or abandoned), shot like documentary footage. Clean, sharp, natural photograph of a real place and a real person at true scale: no grain, no noise, no painterly texture. No text except the OPERATORS STANDING BY sign, the 1994 wall calendar and the typed notes pinned to the partitions.",
                 "inputs": [
-                  "box operators O1",
-                  "operators plate",
-                  "henrick real-front",
-                  "henrick pose-headset"
+                  "work/order-now/space/runs/r6/out/O1-nb-b.png",
+                  "work/order-now/space/boards/operators-O1.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T17:01:01.668Z"
+                "at": "2026-10-07T19:36:33.983Z"
               }
             },
             {
@@ -2933,14 +2927,16 @@
                 "view": "O2",
                 "model": "Nano Banana 2.1 (edit) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a11772-a658-7512-8894-1653eb9c8789",
-                "prompt": "Image 1 is a grey-box layout render of our 1994 telephone order room from this exact camera. It fixes the camera, lens, framing and the position, size and facing of every person and object: keep its composition exactly and add nothing that is not in it. Turn it into a real photograph. In Image 1 the blue-grey figure is Henrick; the dark panels are grey cubicle partitions and the pale slabs are empty task chairs. Image 2 is a reference board, not a scene: never copy its layout, its labels or its text. Use each labelled panel only for what its label says: MAP is a top-down plan of the whole room with this camera's view as the purple cone (where everything is and which way it faces); THE ROOM is the approved set (materials, colours and light); the named cast panels give faces and costumes; AUDIENCE gives the same people in the same seats. Blocking from the 3D plan, measured from this camera (across the frame: 0% is the left edge; up: 0% is the bottom edge): henrick: in frame, 51% to 51% across, 0% to 52% up from the bottom, running out of frame at the bottom, 2.6 m from the lens, seated, three-quarter away from the camera, looking toward screen right. long worn laminate counter: 2% to 100% across, 0% to 32% up from the bottom, running out of frame at the right and bottom. OPERATORS STANDING BY sign, hanging: 54% to 100% across, 99% to 100% up from the bottom, running out of frame at the right and top. grey partition along the back of the counter: 15% to 100% across, 0% to 100% up from the bottom, running out of frame at the right and top and bottom. Outside this frame entirely (must not appear): round wall clock; 1994 wall calendar; filing cabinets. A 40 mm medium shot from the aisle a few stations along the row: Henrick seated at his station facing his partition, seen three-quarter from behind, his face in profile as he writes an order on a pad, a beige headset on, deadpan. Grey cubicle partitions around his station; the row of empty stations, empty grey task chairs and beige push-button multi-line phones with blinking line lights recedes soft beyond him to screen left. Worn beige walls, fluorescent drop ceiling. Henrick, a real man: keep his face exactly (silver hair, short white beard, round dark-blue glasses), navy suit, light-blue shirt, grey paisley tie, pink pocket square, wearing a beige headset. Flat fluorescent office light in a real, worn room, shot like documentary footage. Clean, sharp, natural photograph of a real place and a real person at true scale: no grain, no noise, no painterly texture. No text except the OPERATORS STANDING BY sign.",
+                "job": "01a117c9-b780-7e33-8955-de67b3bc8f66",
+                "prompt": "Image 1 is a layout render of our 1994 telephone order room from this exact camera. It fixes the camera, lens, framing and the position, size and facing of every person and object: keep its composition exactly and add nothing that is not in it. Keep every person and object exactly as large in the frame as in Image 1: do not crop in, move closer or enlarge anyone. Turn it into a real photograph. Image 1 marks Henrick as a flat navy figure. The set is in its real colours: grey panels are fabric cubicle partitions, the long counter is the light grey laminate desk, small beige blocks are push-button multi-line phones, dark grey slabs are the backs of empty grey task chairs, the white card with two lines of lettering hanging from the ceiling is the OPERATORS STANDING BY sign (serif capitals on two lines, inside a dark border). Image 2 is a reference board, not a scene: never copy its layout, its labels or its text. Use each labelled panel only for what its label says: MAP is a top-down plan of the whole room with this camera's view as the purple cone (where everything is and which way it faces); THE ROOM is the approved set (materials, colours and light); the named cast panels give faces and costumes; AUDIENCE gives the same crowd. Blocking from the 3D plan, measured from this camera (across the frame: 0% is the left edge; up: 0% is the bottom edge): henrick: in frame, 51% to 51% across, 0% to 52% up from the bottom, running out of frame at the bottom, 2.6 m from the lens, seated, three-quarter away from the camera, looking toward screen right. long worn laminate counter: 2% to 100% across, 0% to 32% up from the bottom, running out of frame at the right and bottom. OPERATORS STANDING BY sign, hanging: 54% to 100% across, 99% to 100% up from the bottom, running out of frame at the right and top. grey partition along the back of the counter: 15% to 100% across, 0% to 100% up from the bottom, running out of frame at the right and top and bottom. Outside this frame entirely (must not appear): round wall clock; 1994 wall calendar; filing cabinets. A 40 mm medium shot from the aisle a few stations along the row: Henrick seated at his station facing his partition, seen three-quarter from behind, his face in profile as he writes an order on a pad, deadpan. Grey cubicle partitions around his station; the row of empty stations, empty grey task chairs and beige multi-line phones with blinking line lights recedes soft beyond him to screen left. Clean beige walls, fluorescent drop ceiling. Henrick, a real man: keep his face exactly as in his cast panel (silver hair, short white beard, round glasses with slim dark-blue frames), a medium slate-blue suit with a subtle textured weave, light-blue shirt, grey paisley tie, pink pocket square, wearing a beige telephone headset. Flat fluorescent office light in a real, used telephone order office in good order (tidy grey laminate, pinned notes, not distressed or abandoned), shot like documentary footage. Clean, sharp, natural photograph of a real place and a real person at true scale: no grain, no noise, no painterly texture. No text except the OPERATORS STANDING BY sign, the 1994 wall calendar and the typed notes pinned to the partitions. Image 3 is Henrick's approved face: keep exactly this face and hair. Image 4 is Henrick's approved costume and build.",
                 "inputs": [
-                  "grey-box layout O2",
-                  "reference board O2"
+                  "public/generated/order-now/space/box-colour/operators--O2.jpg",
+                  "work/order-now/space/boards/operators-O2.jpg",
+                  "public/generated/order-now/sheets/henrick-set--real-front.jpg",
+                  "public/generated/order-now/sheets/henrick-set--pose-headset.jpg"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T17:47:42.012Z"
+                "at": "2026-10-07T19:36:34.200Z"
               }
             }
           ]
@@ -2963,17 +2959,15 @@
               "frame": {
                 "file": "generated/order-now/space/hammock--H1.jpg",
                 "view": "H1",
-                "model": "Nano Banana 2.1 (edit) + betacam grade",
+                "model": "Nano Banana 2.1 (edit, fix pass) + betacam grade",
                 "provider": "fal, graded in Stitch",
-                "job": "01a1173d-26f5-7ec2-a45c-bc72c087b410",
-                "prompt": "Image 1 is a sunny 1994 suburban backyard with a rope hammock strung between two trees. Show a 40 mm medium close-up, slightly off centre: Kyle lies relaxed in the rope hammock on screen right, a chunky 1994 grey laptop open on his stomach, a coconut drink with a straw in one hand, utterly at peace, looking just off the lens toward an interviewer on camera left. Room on the left of frame for a lower third. Kyle is the man in Images 2 and 3 (keep his face, mousse-sculpted brown hair, oversized wire-rim glasses, light-blue oxford shirt, loosened paisley tie, pleated khakis, braided belt with a black pager, digital watch and brown loafers exactly). Keep the backyard, trees and warm afternoon light as in Image 1. Clean, sharp, natural photograph of a real place and real people at true scale: real skin and fabric, no grain, no noise, no painterly texture. No text.",
+                "job": "01a117c1-6b63-7702-9f4a-c774d5fc05a6",
                 "inputs": [
-                  "https://v3b.fal.media/files/b/0aad7214/4W0MwFBXoijJEs_X50Xj__plate-hammock.jpg",
-                  "https://v3b.fal.media/files/b/0aad7214/7a_Wfxc471pWdt4Jr4V3A_kyle--body-front.jpg",
-                  "https://v3b.fal.media/files/b/0aad7214/r_VKfNuGkHDBj9l1cX3_p_kyle--face-front.jpg"
+                  "work/order-now/space/rooms/H1-b.png",
+                  "generated/order-now/set-hammock-1 (plate-hammock)"
                 ],
                 "by": "claude",
-                "at": "2026-10-07T16:45:11.158Z"
+                "at": "2026-10-07T19:36:34.451Z"
               }
             }
           ]

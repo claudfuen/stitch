@@ -22,8 +22,8 @@ import path from "node:path"
 const IS_MAIN = (import.meta as ImportMeta & { main?: boolean }).main === true
 
 type Pt = [number, number]
-export type Item = { id: string; kind: string; label: string; at: Pt; size: [number, number, number]; z?: number; rot?: number; beat?: string }
-export type Mark = { id: string; who: string; at: Pt; facing: number; pose: string; beat?: string; z?: number; stand_in?: string[] }
+export type Item = { id: string; kind: string; label: string; at: Pt; size: [number, number, number]; z?: number; rot?: number; beat?: string; beats?: string[] }
+export type Mark = { id: string; who: string; at: Pt; facing: number; pose: string; beat?: string; beats?: string[]; z?: number; stand_in?: string[] }
 export type Setup = { id: string; name: string; size: string; lens: number; height: number; at: Pt; facing: number; tilt?: number; beat?: string }
 export type Box = { width: number; depth: number; height: number; items: Item[]; marks: Mark[]; setups: Setup[] }
 
@@ -113,10 +113,12 @@ const looks = (m: Mark, s: Setup) => {
   return Math.abs(dot) < 0.3 ? "" : dot > 0 ? ", looking toward screen right" : ", looking toward screen left"
 }
 
+/** An item or mark with "beat" (or a "beats" list) exists only in those beats; a camera with no beat sees every one. */
+export const inBeat = (x: { beat?: string; beats?: string[] }, s: { beat?: string }) => (!x.beat && !x.beats) || !s.beat || x.beat === s.beat || !!x.beats?.includes(s.beat)
 export function groundTruth(box: Box, s: Setup) {
   const lines: string[] = []
-  const marks = box.marks.filter((m) => !m.beat || !s.beat || m.beat === s.beat).map((m) => (s.beat && m.stand_in?.includes(s.beat) ? { ...m, pose: "stand" } : m))
-  const items = box.items.filter((it) => !it.beat || it.beat === s.beat)
+  const marks = box.marks.filter((m) => inBeat(m, s)).map((m) => (s.beat && m.stand_in?.includes(s.beat) ? { ...m, pose: "stand" } : m))
+  const items = box.items.filter((it) => inBeat(it, s))
   const crowd = marks.filter((m) => m.who === "audience")
   if (crowd.length) {
     const vis = crowd.map((m) => ({ m, e: extent(s, personPoints(m)), d: Math.hypot(m.at[0] - s.at[0], m.at[1] - s.at[1]) })).filter((v) => v.e)
@@ -149,7 +151,7 @@ export function planSvg(box: Box, sel: Setup, W = 900) {
   const Y = (y: number) => (box.depth - y + pad) * s
   const out: string[] = [`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Inter,Arial" >`, `<rect width="100%" height="100%" fill="#0b1020"/>`, `<rect x="${X(0)}" y="${Y(box.depth)}" width="${box.width * s}" height="${box.depth * s}" fill="#111827" stroke="#94a3b8" stroke-width="2"/>`]
   const labelled = new Set<string>()
-  for (const it of box.items.filter((i) => !i.beat || i.beat === sel.beat)) {
+  for (const it of box.items.filter((i) => inBeat(i, sel))) {
     const pts = corners(it).map(([x, y]) => `${X(x)},${Y(y)}`).join(" ")
     const fill = it.kind === "board" ? "#e879f9" : it.kind === "counter" ? "#a3a3a3" : it.kind === "prop" ? "#f87171" : "#64748b"
     out.push(`<polygon points="${pts}" fill="${fill}" fill-opacity="0.75" stroke="#0b1020" stroke-width="0.6"/>`)
@@ -171,7 +173,7 @@ export function planSvg(box: Box, sel: Setup, W = 900) {
   }
   const seenWho = new Set<string>()
   for (const m of box.marks) {
-    const active = !m.beat || !sel.beat || m.beat === sel.beat
+    const active = inBeat(m, sel)
     const c = PEOPLE[m.who] ?? "#cbd5e1"
     const f = rad(m.facing)
     out.push(`<g opacity="${active ? 1 : 0.25}"><circle cx="${X(m.at[0])}" cy="${Y(m.at[1])}" r="${m.who === "audience" ? 3.5 : 7}" fill="${c}" stroke="#0b1020"/><line x1="${X(m.at[0])}" y1="${Y(m.at[1])}" x2="${X(m.at[0] + Math.sin(f) * 0.6)}" y2="${Y(m.at[1] + Math.cos(f) * 0.6)}" stroke="${c}" stroke-width="2"/></g>`)
@@ -209,26 +211,32 @@ export function shoot(html: string, out: string, size = "1900,1500") {
   if (r.status !== 0 || !existsSync(out)) throw new Error(`screenshot failed: ${r.stderr?.slice(0, 300)}`)
 }
 
-const ASK = (room: { name: string; map: string }, cam: { id: string; name: string; size: string; lens: number; from: string; why: string; behind?: string }, beats: string[], truth: string[]) => `You are the script supervisor and continuity checker on a film. Check one camera's still frame for spatial consistency with the whole room.
+const ASK = (room: { name: string; map: string }, cam: { id: string; name: string; size: string; lens: number; from: string; why: string; behind?: string }, beats: string[], truth: string[], board: boolean) => `You are the script supervisor, continuity checker and stills editor on a film. Decide whether one camera's still frame is good enough to animate. It has to be right in space, identity, look and realism, against the whole room.
 
-You get three images:
-1. A review sheet: a labelled top-down plan of the whole room (every person, prop and camera; the camera under review is highlighted; marks for other beats are faded), every camera's grey-box layout render, and this camera's layout beside its frame.
-2. This camera's grey-box layout render at full size: it is the intended camera, framing and position of everything.
-3. This camera's frame at full size: what the image model actually made.
+You get ${board ? "four" : "three"} images:
+1. A review sheet: a labelled top-down plan of the whole room (every person, prop and camera; the camera under review is highlighted; marks for other beats are faded), every camera's layout render, and this camera's layout beside its frame.
+2. This camera's layout render at full size: it is the intended camera, framing and position of everything.
+3. This camera's frame at full size: what the image model actually made.${board ? "\n4. The reference board the frame was made from: THE ROOM (the approved set: its colours, materials and light) and the cast panels (each person's face and costume). It is a reference, not a scene." : ""}
 
 Room: ${room.name}
 Space map (the rules): ${room.map}
 Camera ${cam.id} "${cam.name}": ${cam.size}, ${cam.lens} mm. ${cam.from} Purpose: ${cam.why}${cam.behind ? ` Behind the camera: ${cam.behind}` : ""}
 Used in: ${beats.join("; ") || "-"}
 
-Ground truth computed from the 3D geometry for this camera (positions across the frame, 0% = left edge):
+Ground truth computed from the 3D geometry for this camera (positions across the frame, 0% = left edge; up from the bottom edge):
 ${truth.map((t) => `- ${t}`).join("\n")}
 
-Compare the frame against the layout, the plan and the ground truth. Look for: a person or object on the wrong side or at the wrong size; something in frame that the plan says this angle cannot see (or missing when it should be visible); furniture turned or flipped (which way the desk faces, which end is where); people facing the wrong way; the wrong number of people; props that break the continuity rules; anything that would make a cut to or from the other cameras jump. Also say if the layout itself contradicts the space map or the script (that is a layout error, not the image model's fault).
+Score four things, 0 to 10 each:
+- space: the frame matches the layout, the plan and the ground truth. Look for: a person or object on the wrong side or at the wrong size; something in frame that the plan says this angle cannot see, or missing when it should be visible; furniture turned or flipped; people facing or looking the wrong way; the wrong number of people; props that break the continuity rules; anything that would make a cut to or from the other cameras jump.
+- identity: every named person matches their cast panel (face, hair, skin tone, build, costume). A different face, a changed costume or an exaggerated skin tone is an identity fault.
+- look: the frame matches THE ROOM and the set's period and palette (wall colours, materials, the signage, the light). A grey wall where the set has a coloured gradient, or swapped column colours, is a look fault.
+- realism: it reads as a real photograph: plausible anatomy and hands, no melted or duplicated objects, no garbled text, no painterly or plastic texture.
+Crowds: hold a studio audience to the same crowd (the mix of ages, 1994 wardrobe, the people in the AUDIENCE panel), and to the front-row people when the front row is close and clearly visible. Do not fail a frame over which extra sits in which seat in a cutaway.
+Say when the layout or the plan itself is wrong (kind "layout" or "plan"); that is not the image model's fault.
 
 Answer with JSON only:
-{"verdict": "pass" | "fail", "adherence": <0-10, how closely the frame matches the layout and plan>, "findings": [{"what": "<specific problem>", "where": "<where in the frame>", "kind": "model" | "layout" | "plan", "severity": "high" | "medium" | "low", "fix": "<what to change>"}]}
-Fail when any high-severity finding exists. Do not report differences in lighting, texture, faces or styling unless they break continuity.`
+{"verdict": "pass" | "fail", "scores": {"space": n, "identity": n, "look": n, "realism": n}, "adherence": <the space score>, "findings": [{"what": "<specific problem>", "where": "<where in the frame>", "kind": "model" | "layout" | "plan", "area": "space" | "identity" | "look" | "realism", "severity": "high" | "medium" | "low", "fix": "<the one change that fixes it, phrased as an edit instruction>"}]}
+Pass only when every score is 8 or more and there is no high-severity finding.`
 
 function key() {
   if (process.env.AI_GATEWAY_API_KEY?.trim()) return
@@ -272,7 +280,9 @@ async function main() {
       const truth = groundTruth(box, s)
       const beats = space.cuts.filter((c) => c.room === room.id && c.cam === cam.id).map((c) => `${c.t0}-${c.t1}s ${c.what}`)
       try {
-        const r = await generateText({ model: gateway(JUDGE), messages: [{ role: "user", content: [media(png), media(path.join("public", cam.layout!)), media(file), { type: "text", text: ASK(room, cam, beats, truth) }] }] })
+        const boardFile = `work/${film}/space/boards/${room.id}-${cam.id}.jpg`
+        const hasBoard = existsSync(boardFile)
+        const r = await generateText({ model: gateway(JUDGE), messages: [{ role: "user", content: [media(png), media(path.join("public", cam.layout!)), media(file), ...(hasBoard ? [media(boardFile)] : []), { type: "text", text: ASK(room, cam, beats, truth, hasBoard) }] }] })
         const json = JSON.parse(r.text.slice(r.text.indexOf("{"), r.text.lastIndexOf("}") + 1))
         results.push({ room: room.id, cam: cam.id, tag, file, sheet: png, truth, ...json })
       } catch (e) {
@@ -285,7 +295,8 @@ async function main() {
   writeFileSync(flag("out") ?? `work/${film}/space/judge.json`, JSON.stringify({ judge: JUDGE, at: new Date().toISOString(), results }, null, 1))
   for (const r of results) {
     const f = (r.findings ?? []) as { what: string; kind: string; severity: string; fix: string }[]
-    console.log(`\n${r.room}/${r.tag ?? r.cam}  ${r.error ? `ERROR ${r.error}` : `${String(r.verdict).toUpperCase()}  adherence ${r.adherence}/10`}`)
+    const sc = r.scores as Record<string, number> | undefined
+    console.log(`\n${r.room}/${r.tag ?? r.cam}  ${r.error ? `ERROR ${r.error}` : `${String(r.verdict).toUpperCase()}  ${sc ? Object.entries(sc).map(([k, v]) => `${k} ${v}`).join("  ") : `adherence ${r.adherence}/10`}`}`)
     for (const x of f) console.log(`  [${x.severity} · ${x.kind}] ${x.what}  ->  ${x.fix}`)
   }
 }
