@@ -57,6 +57,10 @@ export type Op =
   | { op: "sheet.upsert"; item: Omit<SheetItem, "candidates"> & { candidates?: Candidate[] } }
   | { op: "sheet.add"; id: Id; candidate: Candidate }
   | { op: "sheet.pick"; id: Id; file: string | null; by?: string }
+  /** Add one view to the item's full sheet (model and provider required). */
+  | { op: "sheet.view"; id: Id; candidate: Candidate }
+  | { op: "sheet.lock"; id: Id; pass: number; of: number; note?: string }
+  | { op: "sheet.scene"; id: Id; candidate: Candidate }
   /** Replace the beat sheet (an agent's rewrite). Bumps the version and reopens the script gate. */
   | { op: "script.set"; beats: Beat[]; concept?: Id; by?: string; note?: string }
   | { op: "beat.mark"; id: Id; mark: BeatMark | null; by?: string }
@@ -244,6 +248,9 @@ export function applyOp(p: Project, o: Op): Project {
     case "sheet.upsert":
     case "sheet.add":
     case "sheet.pick":
+    case "sheet.view":
+    case "sheet.lock":
+    case "sheet.scene":
     case "script.set":
     case "beat.mark":
     case "note.add":
@@ -257,7 +264,7 @@ export function applyOp(p: Project, o: Op): Project {
   }
 }
 
-type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "cast.set" | "sheet.upsert" | "sheet.add" | "sheet.pick" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
+type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "cast.set" | "sheet.upsert" | "sheet.add" | "sheet.pick" | "sheet.view" | "sheet.lock" | "sheet.scene" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
 
 let seq = 0
 const noteId = () => `n${Date.now().toString(36)}${(seq++).toString(36)}`
@@ -309,7 +316,24 @@ function applyProcessOp(pr: Process, o: ProcessOp): Process {
       const list = pr.sheets ?? []
       const item = need(list.find((x) => x.id === o.id), `sheet ${o.id}`)
       if (o.file !== null) need(item.candidates.find((c) => c.file === o.file), `candidate ${o.file}`)
-      return { ...pr, sheets: list.map((x) => (x.id === o.id ? { ...x, pick: o.file ?? undefined } : x)) }
+      return { ...pr, sheets: list.map((x) => (x.id === o.id ? { ...x, pick: o.file ?? undefined, pickedBy: o.file ? (o.by ?? "claude") : undefined } : x)) }
+    }
+    case "sheet.view": {
+      if (!o.candidate.model || !o.candidate.provider) throw new Error("a view needs its model and provider")
+      const list = pr.sheets ?? []
+      need(list.find((x) => x.id === o.id), `sheet ${o.id}`)
+      return { ...pr, sheets: list.map((x) => (x.id === o.id ? { ...x, views: [...(x.views ?? []).filter((v) => v.view !== o.candidate.view), o.candidate] } : x)) }
+    }
+    case "sheet.scene": {
+      if (!o.candidate.model || !o.candidate.provider) throw new Error("a scene needs its model and provider")
+      const list = pr.sheets ?? []
+      need(list.find((x) => x.id === o.id), `sheet ${o.id}`)
+      return { ...pr, sheets: list.map((x) => (x.id === o.id ? { ...x, scene: o.candidate } : x)) }
+    }
+    case "sheet.lock": {
+      const list = pr.sheets ?? []
+      need(list.find((x) => x.id === o.id), `sheet ${o.id}`)
+      return { ...pr, sheets: list.map((x) => (x.id === o.id ? { ...x, lock: { pass: o.pass, of: o.of, note: o.note } } : x)) }
     }
     case "script.set": {
       const next = setStage({ ...pr, script: { version: pr.script.version + 1, concept: o.concept ?? pr.script.concept ?? pr.pick, beats: o.beats } }, "script", { status: "pending", by, at: now() })

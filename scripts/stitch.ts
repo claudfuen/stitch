@@ -34,6 +34,9 @@
 //   bun run stitch sheets                                    stage 02: every item, its candidates (model, provider) and pick
 //   bun run stitch sheet add <item> <file|sidecar.json> --model <m> --provider <p> [--job id] [--cost usd] [--prompt-file f]
 //        (a Leap sidecar next to the file fills model, job, cost and prompt; the image is copied into public/generated/<film>/)
+//   bun run stitch sheet view <item> <view> <file> --model <m> --provider <p> [--job id] [--cost usd] [--prompt-file f]
+//   bun run stitch sheet scene <item> <file> --model <m> --provider <p>   (the character in the world, in the look)
+//   bun run stitch sheet pick <item> <n|file|none>          bun run stitch sheet lock <item> <pass> <of> ["note"]
 import { execFileSync } from "node:child_process"
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import path from "node:path"
@@ -174,7 +177,7 @@ async function beatSheet() {
 async function sheets() {
   const pr = await processOf()
   for (const x of pr.sheets ?? []) {
-    console.log(`${x.kind.padEnd(8)} ${x.id.padEnd(18)} ${x.pick ? "picked" : `${x.candidates.length} candidates`}${x.from ? `  (from ${x.from})` : ""}  ${x.name}`)
+    console.log(`${x.kind.padEnd(8)} ${x.id.padEnd(18)} ${x.pick ? `picked by ${x.pickedBy ?? "?"}` : `${x.candidates.length} candidates`}${x.views?.length ? ` · sheet ${x.views.length} views` : ""}${x.lock ? ` · lock ${x.lock.pass}/${x.lock.of}` : ""}${x.from ? `  (from ${x.from})` : ""}  ${x.name}`)
     for (const c of x.candidates) console.log(`    ${c.file === x.pick ? "*" : " "} ${c.file}  ${c.model} via ${c.provider}${c.job ? ` job ${c.job}` : ""}${c.cost !== undefined ? ` $${c.cost}` : ""}`)
   }
 }
@@ -197,14 +200,40 @@ async function sheetAdd(id: string, src: string) {
   console.log(`${id}: ${path.relative("public", dest)} (${model} via ${provider})`)
 }
 
+async function sheetView(id: string, view: string, src: string, scene = false) {
+  const film = process.env.STITCH_PROJECT || "ministry"
+  const model = flag("model"), provider = flag("provider")
+  if (!model || !provider) throw new Error("every view needs --model and --provider")
+  const dir = path.join("public", "generated", film, "sheets")
+  mkdirSync(dir, { recursive: true })
+  const dest = path.join(dir, `${id}--${view}${path.extname(src)}`)
+  copyFileSync(src, dest)
+  const prompt = flag("prompt-file") ? readFileSync(flag("prompt-file")!, "utf8") : flag("prompt")
+  await run([{ op: scene ? "sheet.scene" : "sheet.view", id, candidate: { file: path.relative("public", dest), view, model, provider, job: flag("job"), prompt, cost: flag("cost") ? Number(flag("cost")) : undefined, inputs: many.input, by: flag("by") ?? "claude", at: new Date().toISOString() } }])
+  console.log(`${id} ${view}: ${path.relative("public", dest)} (${model} via ${provider})`)
+}
+
 async function main() {
   const [cmd, sub, ...rest] = pos
   switch (cmd) {
     case "sheets":
       return sheets()
     case "sheet": {
-      if (sub !== "add" || rest.length < 2) throw new Error("usage: stitch sheet add <item> <file> --model m --provider p")
-      return sheetAdd(rest[0], rest[1])
+      if (sub === "add" && rest.length >= 2) return sheetAdd(rest[0], rest[1])
+      if (sub === "view" && rest.length >= 3) return sheetView(rest[0], rest[1], rest[2])
+      if (sub === "scene" && rest.length >= 2) return sheetView(rest[0], "scene", rest[1], true)
+      if (sub === "pick" && rest.length >= 2) {
+        const pr = await processOf()
+        const item = pr.sheets?.find((x) => x.id === rest[0])
+        const file = rest[1] === "none" ? null : /^\d+$/.test(rest[1]) ? item?.candidates[Number(rest[1]) - 1]?.file ?? rest[1] : rest[1]
+        await run([{ op: "sheet.pick", id: rest[0], file, by: flag("by") ?? "claude" }])
+        return sheets()
+      }
+      if (sub === "lock" && rest.length >= 3) {
+        await run([{ op: "sheet.lock", id: rest[0], pass: Number(rest[1]), of: Number(rest[2]), note: rest[3] }])
+        return sheets()
+      }
+      throw new Error("usage: stitch sheet add|view|pick|lock ...")
     }
     case "gates":
       return gates()

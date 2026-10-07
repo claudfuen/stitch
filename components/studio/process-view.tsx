@@ -270,7 +270,7 @@ function DecisionBar({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["
   const st = stateOf(pr, stage)
   const open = openNotes(pr).length
   const reviewable =
-    stage.id === "script" ? !!pr.pick && pr.script.concept === pr.pick && pr.script.beats.length > 0 : stage.id === "sheets" ? !!pr.sheets?.length && pr.sheets.every((x) => x.pick) : true
+    stage.id === "script" ? !!pr.pick && pr.script.concept === pr.pick && pr.script.beats.length > 0 : stage.id === "sheets" ? !!pr.sheets?.length && pr.sheets.filter((x) => !x.from).every((x) => x.pick) : true
   const decide = async (status: GateStatus) => {
     await op({ op: "gate.set", stage: stage.id, status, note: text, by: ME })
     setText("")
@@ -352,86 +352,133 @@ function StageSettings({ stage, op }: { stage: Stage; op: Props["op"] }) {
   )
 }
 
-const KINDS: { kind: SheetKind; title: string; about: string }[] = [
-  { kind: "look", title: "Look", about: "The picture's texture and colour, shot for shot." },
-  { kind: "cast", title: "Cast", about: "One image per look of each character. Second looks are made from your pick of the first." },
-  { kind: "location", title: "Sets", about: "Each place, empty, from the angle the film mostly sees it." },
-  { kind: "prop", title: "Props", about: "Objects that have to match from shot to shot." },
-]
-
 const thumb = (file: string, w = 640) => `/api/thumb?src=${encodeURIComponent("/" + file)}&w=${w}`
+const chosen = (x: SheetItem) => x.candidates.find((c) => c.file === x.pick)
 
+/** Stage 02 is one proposal for how the whole film looks: the art direction, the world in that look, and the cast
+ *  inside the world (with the reference sheet the video models will use). React to the whole; alternatives fold away. */
 function SheetsStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["op"] }) {
   const items = pr.sheets ?? []
-  const picked = items.filter((x) => x.pick).length
+  const of = (k: SheetKind) => items.filter((x) => x.kind === k && !x.from)
+  const world = [...of("location"), ...of("prop"), ...items.filter((x) => x.id === "audience")]
+  const cast = of("cast").filter((x) => x.id !== "audience")
+  const later = items.filter((x) => x.from)
   return (
-    <article className="space-y-10">
+    <article className="space-y-12">
       <header className="space-y-2">
         <Eyebrow pr={pr} stage={stage} />
         <h1 className="text-3xl font-semibold tracking-tight">Look and sheets</h1>
-        <p className="text-[15px] leading-relaxed text-muted-foreground">Lock how every character, place and prop looks before any video. Pick one image per row; open an image to see it full size. Each one says which model and provider made it.</p>
-        <p className="text-sm text-muted-foreground">{picked} of {items.length} picked</p>
+        <p className="text-[15px] leading-relaxed text-muted-foreground">One proposal for how the whole film looks. React to the whole: approve it, or say what feels off. Comment on anything specific, and name a model if you want one tried.</p>
       </header>
-      {KINDS.map(({ kind, title, about }) => {
-        const list = items.filter((x) => x.kind === kind)
-        if (!list.length) return null
-        return (
-          <section key={kind} className="space-y-6">
-            <div className="space-y-1 border-b pb-2">
-              <h2 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">{title}</h2>
-              <p className="text-sm text-muted-foreground">{about}</p>
-            </div>
-            {list.map((x) => (
-              <SheetRow key={x.id} item={x} items={items} notes={pr.notes.filter((n) => n.target === `sheet:${x.id}`)} op={op} />
-            ))}
-          </section>
-        )
-      })}
+
+      <ProposalSection title="1. Art direction" about="Two looks: the 1994 infomercial in colour, and its black-and-white &lsquo;before&rsquo; footage. Everything below matches these." target="direction" pr={pr} op={op}>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {of("look").map((x) => <Still key={x.id} item={x} c={chosen(x)} />)}
+        </div>
+      </ProposalSection>
+
+      <ProposalSection title="2. The world" about="Every set and prop, made by one model and run through the same film grade, so they read as one show." target="world" pr={pr} op={op}>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {world.map((x) => <Still key={x.id} item={x} c={chosen(x)} small />)}
+        </div>
+      </ProposalSection>
+
+      <ProposalSection title="3. The cast" about="Each character inside the film, in its look. Under each, the reference sheet the video models will use: same face from every angle, in costume, with the expressions the script needs." target="cast" pr={pr} op={op}>
+        <div className="space-y-10">
+          {cast.map((x) => <CastBlock key={x.id} item={x} />)}
+        </div>
+        {later.length > 0 && <p className="text-sm text-muted-foreground">Made after you approve these faces: {later.map((x) => x.name).join(", ")}.</p>}
+      </ProposalSection>
+
+      <Alternatives items={items} op={op} />
       <StageSettings stage={stage} op={op} />
     </article>
   )
 }
 
-function SheetRow({ item, items, notes, op }: { item: SheetItem; items: SheetItem[]; notes: Note[]; op: Props["op"] }) {
+function ProposalSection({ title, about, target, pr, op, children }: { title: string; about: string; target: string; pr: Process; op: Props["op"]; children: React.ReactNode }) {
   const [writing, setWriting] = useState(false)
   const [text, setText] = useState("")
-  const parent = item.from ? items.find((x) => x.id === item.from) : undefined
+  const notes = pr.notes.filter((n) => n.target === `sheets:${target}`)
   const send = async () => {
     if (!text.trim()) return
-    await op({ op: "note.add", target: `sheet:${item.id}`, text, by: ME })
+    await op({ op: "note.add", target: `sheets:${target}`, text, by: ME })
     setText("")
     setWriting(false)
   }
   return (
-    <div className="space-y-3">
-      <div className="flex items-baseline gap-3">
-        <h3 className="font-semibold">{item.name}</h3>
-        {item.pick && <span className="text-xs text-emerald-700 dark:text-emerald-300">Picked</span>}
-        <button type="button" onClick={() => setWriting((w) => !w)} className="ml-auto text-xs text-muted-foreground hover:text-foreground">
-          Comment
-        </button>
+    <section className="space-y-4">
+      <div className="flex items-baseline gap-3 border-b pb-2">
+        <h2 className="text-lg font-semibold">{title}</h2>
+        <button type="button" onClick={() => setWriting((w) => !w)} className="ml-auto text-sm text-muted-foreground hover:text-foreground">Comment</button>
       </div>
-      <p className="text-sm leading-relaxed text-muted-foreground">{item.brief}</p>
-      {item.candidates.length ? (
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-          {item.candidates.map((c) => (
-            <CandidateTile key={c.file} c={c} picked={item.pick === c.file} onPick={() => op({ op: "sheet.pick", id: item.id, file: item.pick === c.file ? null : c.file, by: ME })} />
-          ))}
-        </div>
-      ) : (
-        <p className="rounded-md border border-dashed px-3 py-6 text-center text-sm text-muted-foreground">
-          {parent && !parent.pick ? `Made from your pick for ${parent.name}. Pick that first.` : "Candidates are being made."}
-        </p>
-      )}
-      {notes.map((n) => (
-        <NoteLine key={n.id} n={n} op={op} />
-      ))}
+      <p className="text-sm leading-relaxed text-muted-foreground" dangerouslySetInnerHTML={{ __html: about }} />
+      {children}
+      {notes.map((n) => <NoteLine key={n.id} n={n} op={op} />)}
       {writing && (
         <div className="space-y-2">
-          <Textarea autoFocus value={text} onChange={(e) => setText(e.target.value)} placeholder="What should change? You can name a model to try." onKeyDown={(e) => (e.metaKey || e.ctrlKey) && e.key === "Enter" && send()} />
+          <Textarea autoFocus value={text} onChange={(e) => setText(e.target.value)} placeholder="What feels off? You can name a model to try." onKeyDown={(e) => (e.metaKey || e.ctrlKey) && e.key === "Enter" && send()} />
           <div className="flex gap-2">
             <Button size="sm" onClick={send} disabled={!text.trim()}>Add comment</Button>
             <Button size="sm" variant="ghost" onClick={() => setWriting(false)}>Cancel</Button>
+          </div>
+        </div>
+      )}
+    </section>
+  )
+}
+
+const caption = (c?: Candidate) => (c ? `${c.model} · ${c.provider}` : "")
+
+function Still({ item, c, small }: { item: SheetItem; c?: Candidate; small?: boolean }) {
+  return (
+    <figure className="space-y-1.5">
+      {c ? (
+        <a href={"/" + c.file} target="_blank" rel="noreferrer" className="block overflow-hidden rounded-md border bg-muted">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={thumb(c.file, small ? 640 : 1280)} alt={item.name} loading="lazy" className="aspect-video w-full object-cover" />
+        </a>
+      ) : (
+        <div className="grid aspect-video place-items-center rounded-md border border-dashed text-sm text-muted-foreground">Being made</div>
+      )}
+      <figcaption className="text-sm">
+        {item.name}
+        <span className="block truncate text-xs text-muted-foreground" title={[c?.model, c?.provider, c?.job].filter(Boolean).join(" · ")}>{caption(c)}</span>
+      </figcaption>
+    </figure>
+  )
+}
+
+function CastBlock({ item }: { item: SheetItem }) {
+  const face = chosen(item)
+  const hero = item.scene ?? face
+  const refs = item.views?.length ? item.views : face ? [face] : []
+  return (
+    <div className="space-y-3">
+      <div className="flex items-baseline gap-3">
+        <h3 className="text-base font-semibold">{item.name}</h3>
+        {item.pickedBy && item.pickedBy !== ME && <span className="text-xs text-muted-foreground">face picked by {item.pickedBy}</span>}
+      </div>
+      <p className="text-sm leading-relaxed text-muted-foreground">{item.brief}</p>
+      {hero ? (
+        <a href={"/" + hero.file} target="_blank" rel="noreferrer" className="block overflow-hidden rounded-md border bg-muted">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={thumb(hero.file, 1280)} alt={item.name} loading="lazy" className="aspect-video w-full object-cover" />
+        </a>
+      ) : (
+        <div className="grid aspect-video place-items-center rounded-md border border-dashed text-sm text-muted-foreground">Being made</div>
+      )}
+      <p className="text-xs text-muted-foreground">{item.scene ? `In the film: ${caption(item.scene)}` : face ? `Face: ${caption(face)}` : ""}</p>
+      {refs.length > 1 && (
+        <div className="space-y-1.5">
+          <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">Reference sheet · {refs.length} views · {caption(refs[0])}</p>
+          <div className="grid grid-cols-4 gap-1.5 sm:grid-cols-7">
+            {refs.map((v) => (
+              <a key={v.file} href={"/" + v.file} target="_blank" rel="noreferrer" title={v.view} className="block overflow-hidden rounded border bg-muted">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={thumb(v.file, 320)} alt={v.view ?? ""} loading="lazy" className="aspect-square w-full object-cover object-top" />
+              </a>
+            ))}
           </div>
         </div>
       )}
@@ -439,19 +486,41 @@ function SheetRow({ item, items, notes, op }: { item: SheetItem; items: SheetIte
   )
 }
 
-function CandidateTile({ c, picked, onPick }: { c: Candidate; picked: boolean; onPick: () => void }) {
+/** What else was tried, for anyone who wants to look: folded away by default. Picking one swaps it into the proposal. */
+function Alternatives({ items, op }: { items: SheetItem[]; op: Props["op"] }) {
+  const [open, setOpen] = useState(false)
+  const rest = items.flatMap((x) => x.candidates.filter((c) => c.file !== x.pick).map((c) => ({ x, c })))
+  if (!rest.length) return null
+  return (
+    <section className="space-y-3 border-t pt-6">
+      <button type="button" onClick={() => setOpen((o) => !o)} className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
+        Other options we tried ({rest.length}) <ChevronDown className={cn("size-3.5 transition-transform", open && "rotate-180")} />
+      </button>
+      {open && (
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {rest.map(({ x, c }) => (
+            <CandidateTile key={c.file} c={c} label={x.name} picked={false} onPick={() => op({ op: "sheet.pick", id: x.id, file: c.file, by: ME })} />
+          ))}
+        </div>
+      )}
+    </section>
+  )
+}
+
+function CandidateTile({ c, picked, onPick, label }: { c: Candidate; picked: boolean; onPick: () => void; label?: string }) {
   return (
     <figure className="space-y-1.5">
       <a href={"/" + c.file} target="_blank" rel="noreferrer" className={cn("block overflow-hidden rounded-md border bg-muted", picked && "ring-2 ring-emerald-500 ring-offset-2 ring-offset-background")}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={thumb(c.file)} alt="" loading="lazy" className="aspect-[4/3] w-full object-cover" />
       </a>
+      {label && <p className="text-xs">{label}</p>}
       <figcaption className="flex items-center gap-2">
         <span className="min-w-0 flex-1 truncate text-xs text-muted-foreground" title={[c.model, c.provider, c.job, c.cost !== undefined ? `$${c.cost.toFixed(3)}` : null].filter(Boolean).join(" · ")}>
           {c.model} · {c.provider}
         </span>
         <Button size="xs" variant={picked ? "secondary" : "outline"} onClick={onPick}>
-          {picked ? "Picked" : "Pick"}
+          {picked ? "Picked" : label ? "Use this" : "Pick"}
         </Button>
       </figcaption>
     </figure>

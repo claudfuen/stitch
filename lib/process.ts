@@ -44,7 +44,7 @@ export type Beat = {
 /** Stage 02: everything that must look the same in every shot, locked before any video. Each item collects candidate
  *  images and a person picks one. Every candidate records the model and provider that made it (or that it is real). */
 export type SheetKind = "look" | "cast" | "location" | "prop"
-export type Candidate = { file: string; model: string; provider: string; job?: string; prompt?: string; cost?: number; inputs?: string[]; by: string; at: string }
+export type Candidate = { file: string; model: string; provider: string; job?: string; prompt?: string; cost?: number; inputs?: string[]; by: string; at: string; view?: string }
 export type SheetItem = {
   id: Id
   kind: SheetKind
@@ -55,6 +55,13 @@ export type SheetItem = {
   candidates: Candidate[]
   /** The picked candidate's file. */
   pick?: string
+  pickedBy?: string
+  /** The character inside the world, in the film's look: what a person reviews (the sheet is what the models use). */
+  scene?: Candidate
+  /** The full sheet made from the pick: separate images per view (front, profile, full body, expressions). */
+  views?: Candidate[]
+  /** Lock test: in how many of `of` new scenes the sheet still gave a recognisably identical person. Locked at 10/10. */
+  lock?: { pass: number; of: number; note?: string }
 }
 
 /** Who is in the film, as the script introduces them. Their look is locked later, at the sheets stage. */
