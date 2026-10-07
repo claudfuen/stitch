@@ -352,7 +352,7 @@ function StageSettings({ stage, op }: { stage: Stage; op: Props["op"] }) {
   )
 }
 
-const thumb = (file: string, w = 640) => `/api/thumb?src=${encodeURIComponent("/" + file)}&w=${w}`
+const thumb = (file: string, w = 640, v?: string) => `/api/thumb?src=${encodeURIComponent("/" + file)}&w=${w}${v ? `&v=${encodeURIComponent(v)}` : ""}`
 const chosen = (x: SheetItem) => x.candidates.find((c) => c.file === x.pick)
 
 /** Stage 02 is one proposal for how the whole film looks: the art direction, the world in that look, and the cast
@@ -369,6 +369,9 @@ function SheetsStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["
         <Eyebrow pr={pr} stage={stage} />
         <h1 className="text-3xl font-semibold tracking-tight">Look and sheets</h1>
         <p className="text-[15px] leading-relaxed text-muted-foreground">One proposal for how the whole film looks. React to the whole: approve it, or say what feels off. Comment on anything specific, and name a model if you want one tried.</p>
+        <p className="text-sm text-muted-foreground">
+          <a href={`/api/script-pdf?doc=look${projectSlug() ? `&p=${encodeURIComponent(projectSlug())}` : ""}`} className="underline underline-offset-2 hover:text-foreground">download look book (PDF)</a>
+        </p>
       </header>
 
       <ProposalSection title="1. Art direction" about="Two looks: the 1994 infomercial in colour, and its black-and-white &lsquo;before&rsquo; footage. Everything below matches these." target="direction" pr={pr} op={op}>
@@ -390,7 +393,6 @@ function SheetsStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["
         {later.length > 0 && <p className="text-sm text-muted-foreground">Made after you approve these faces: {later.map((x) => x.name).join(", ")}.</p>}
       </ProposalSection>
 
-      <Alternatives items={items} op={op} />
       <StageSettings stage={stage} op={op} />
     </article>
   )
@@ -434,9 +436,9 @@ function Still({ item, c, small }: { item: SheetItem; c?: Candidate; small?: boo
   return (
     <figure className="space-y-1.5">
       {c ? (
-        <a href={"/" + c.file} target="_blank" rel="noreferrer" className="block overflow-hidden rounded-md border bg-muted">
+        <a href={`/${c.file}?v=${encodeURIComponent(c.at)}`} target="_blank" rel="noreferrer" className="block overflow-hidden rounded-md border bg-muted">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={thumb(c.file, small ? 640 : 1280)} alt={item.name} loading="lazy" className="aspect-video w-full object-cover" />
+          <img src={thumb(c.file, small ? 640 : 1280, c.at)} alt={item.name} loading="lazy" className="aspect-video w-full object-cover" />
         </a>
       ) : (
         <div className="grid aspect-video place-items-center rounded-md border border-dashed text-sm text-muted-foreground">Being made</div>
@@ -461,9 +463,9 @@ function CastBlock({ item }: { item: SheetItem }) {
       </div>
       <p className="text-sm leading-relaxed text-muted-foreground">{item.brief}</p>
       {hero ? (
-        <a href={"/" + hero.file} target="_blank" rel="noreferrer" className="block overflow-hidden rounded-md border bg-muted">
+        <a href={`/${hero.file}?v=${encodeURIComponent(hero.at)}`} target="_blank" rel="noreferrer" className="block overflow-hidden rounded-md border bg-muted">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={thumb(hero.file, 1280)} alt={item.name} loading="lazy" className="aspect-video w-full object-cover" />
+          <img src={thumb(hero.file, 1280, hero.at)} alt={item.name} loading="lazy" className="aspect-video w-full object-cover" />
         </a>
       ) : (
         <div className="grid aspect-video place-items-center rounded-md border border-dashed text-sm text-muted-foreground">Being made</div>
@@ -474,9 +476,9 @@ function CastBlock({ item }: { item: SheetItem }) {
           <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">Reference sheet · {refs.length} views · {caption(refs[0])}</p>
           <div className="grid grid-cols-4 gap-1.5 sm:grid-cols-7">
             {refs.map((v) => (
-              <a key={v.file} href={"/" + v.file} target="_blank" rel="noreferrer" title={v.view} className="block overflow-hidden rounded border bg-muted">
+              <a key={v.file} href={`/${v.file}?v=${encodeURIComponent(v.at)}`} target="_blank" rel="noreferrer" title={v.view} className="block overflow-hidden rounded border bg-muted">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={thumb(v.file, 320)} alt={v.view ?? ""} loading="lazy" className="aspect-square w-full object-cover object-top" />
+                <img src={thumb(v.file, 320, v.at)} alt={v.view ?? ""} loading="lazy" className="aspect-square w-full object-cover object-top" />
               </a>
             ))}
           </div>
@@ -486,43 +488,3 @@ function CastBlock({ item }: { item: SheetItem }) {
   )
 }
 
-/** What else was tried, for anyone who wants to look: folded away by default. Picking one swaps it into the proposal. */
-function Alternatives({ items, op }: { items: SheetItem[]; op: Props["op"] }) {
-  const [open, setOpen] = useState(false)
-  const rest = items.flatMap((x) => x.candidates.filter((c) => c.file !== x.pick).map((c) => ({ x, c })))
-  if (!rest.length) return null
-  return (
-    <section className="space-y-3 border-t pt-6">
-      <button type="button" onClick={() => setOpen((o) => !o)} className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
-        Other options we tried ({rest.length}) <ChevronDown className={cn("size-3.5 transition-transform", open && "rotate-180")} />
-      </button>
-      {open && (
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {rest.map(({ x, c }) => (
-            <CandidateTile key={c.file} c={c} label={x.name} picked={false} onPick={() => op({ op: "sheet.pick", id: x.id, file: c.file, by: ME })} />
-          ))}
-        </div>
-      )}
-    </section>
-  )
-}
-
-function CandidateTile({ c, picked, onPick, label }: { c: Candidate; picked: boolean; onPick: () => void; label?: string }) {
-  return (
-    <figure className="space-y-1.5">
-      <a href={"/" + c.file} target="_blank" rel="noreferrer" className={cn("block overflow-hidden rounded-md border bg-muted", picked && "ring-2 ring-emerald-500 ring-offset-2 ring-offset-background")}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={thumb(c.file)} alt="" loading="lazy" className="aspect-[4/3] w-full object-cover" />
-      </a>
-      {label && <p className="text-xs">{label}</p>}
-      <figcaption className="flex items-center gap-2">
-        <span className="min-w-0 flex-1 truncate text-xs text-muted-foreground" title={[c.model, c.provider, c.job, c.cost !== undefined ? `$${c.cost.toFixed(3)}` : null].filter(Boolean).join(" · ")}>
-          {c.model} · {c.provider}
-        </span>
-        <Button size="xs" variant={picked ? "secondary" : "outline"} onClick={onPick}>
-          {picked ? "Picked" : label ? "Use this" : "Pick"}
-        </Button>
-      </figcaption>
-    </figure>
-  )
-}

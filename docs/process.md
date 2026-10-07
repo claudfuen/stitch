@@ -52,6 +52,15 @@ piece skips the AI stages and runs the same rail.
   with job ID, prompt and cost. `stitch sheet add|view|scene` refuses an asset without model and provider.
 - **One model per job within a film**, chosen by the agents; the person sees it labelled and can ask for another.
 - **Everything in frame is in the look**, except reference sheets.
+- **Generate clean, grade once.** Models get ungraded, evenly lit inputs; the film grade is applied once, at the end,
+  by `scripts/look.sh`. Feeding a graded image into an edit makes the model darken it again, then the grade doubles it.
+- **The grade matches tone, not just colour.** `look.sh` maps each image's luma range onto the approved look frame's
+  (measured on the centre, away from the vignette), so a night set and a bright room land at the same brightness.
+  Lighting still has to be right in the source: grading cannot turn chiaroscuro into flat 1994 fluorescent light.
+- **Period is part of the look.** Wardrobe, props and sets are checked against the era (a 1994 film gets a CRT and a
+  pager, not a laptop and earbuds).
+- **Exports for review.** The script and the look book (`/api/script-pdf?doc=look`) download as PDFs, with every image
+  captioned by model and provider, so the look can be reviewed and refined outside the app.
 - **Leap first** for any model Leap carries; fal (Leap's fal account) when Leap cannot take the input; Higgsfield
   only for a model or input neither offers (for example Seedance with a real person's face).
 - **Physical plausibility is checked by a person.** Edit models do not notice a hand through glass.
@@ -60,5 +69,8 @@ piece skips the AI stages and runs the same rail.
 
 ## Changes
 
+- 2026-10-07: Kyle redesigned as a 1994 founder after Claudio's note; the black-and-white sets rebuilt with flat 1994
+  light because grading alone could not match them; tonal matching added to the grade; "generate clean, grade once";
+  look book PDF export; the "other options" section removed from the review page.
 - 2026-10-07: First version, from Order Now. Stage 02 moved from "pick one of three model outputs per item" to one
   proposal reviewed as a whole, after Claudio asked what we were actually asking him to decide.
