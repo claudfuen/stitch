@@ -8,6 +8,13 @@ import { share } from "./share"
 /** The project, live: polls /api/project every second while the tab is visible and applies writes through the same
  *  named ops the CLI uses. Each answer is structurally shared with the last, so an agent appending to the activity log
  *  leaves every other slice (shots, assets, cuts, locations) the same object and the views that read them do no work. */
+/** The film this tab is on: ?p=<slug> in the URL, or the original ("ministry"). */
+export const projectSlug = () => (typeof window === "undefined" ? "" : new URLSearchParams(window.location.search).get("p") ?? "")
+const withSlug = (url: string) => {
+  const slug = projectSlug()
+  return slug ? `${url}${url.includes("?") ? "&" : "?"}p=${encodeURIComponent(slug)}` : url
+}
+
 export function useProject() {
   const [project, setProject] = useState<ProjectWithRev | null>(null)
   /** Each asset's file time (ms), from the server: places new media on the activity timeline and versions poster URLs. */
@@ -17,7 +24,7 @@ export function useProject() {
 
   const pull = useCallback(async () => {
     try {
-      const r = await fetch(`/api/project?rev=${rev.current}`, { cache: "no-store" })
+      const r = await fetch(withSlug(`/api/project?rev=${rev.current}`), { cache: "no-store" })
       const j = await r.json()
       if (j.unchanged) return
       rev.current = j.rev
@@ -40,7 +47,7 @@ export function useProject() {
 
   const op = useCallback(
     async (...ops: Op[]) => {
-      const r = await fetch("/api/project", { method: "POST", body: JSON.stringify({ ops }) })
+      const r = await fetch(withSlug("/api/project"), { method: "POST", body: JSON.stringify({ ops }) })
       const j = await r.json()
       if (!r.ok) setError(j.error ?? "write failed")
       else setError(null)

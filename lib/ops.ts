@@ -6,6 +6,7 @@ import type {
   Section, Setup, Shot, Take, TakeVerdict,
 } from "./model"
 import { checkSteps, modelInfo } from "./models"
+import { blockedBy, newProcess, type Beat, type BeatMark, type Concept, type Doer, type GateMode, type GateStatus, type Process, type StageId } from "./process"
 
 /** The editable lists on a floor plan, and the element type each holds. */
 export type PlanList = { items: PlanItem; marks: Mark; axes: Axis; setups: Setup }
@@ -43,6 +44,19 @@ export type Op =
   | { op: "section.upsert"; section: Section }
   | { op: "open.set"; open: string[] }
   | { op: "project.update"; patch: Partial<Pick<Project, "title" | "logline" | "runtimeTarget" | "baselines">> }
+  // The stage-gated process (lib/process.ts). `by` is who acted: a person's name, or an agent's.
+  /** Set a stage's gate. Refused while an earlier required gate is open. A note is kept with the decision. */
+  | { op: "gate.set"; stage: StageId; status: GateStatus; note?: string; by?: string }
+  | { op: "stage.update"; stage: StageId; patch: { doer?: Doer; gate?: GateMode; skipped?: boolean } }
+  /** Pick a concept (or clear the pick with null). The script gate reopens. */
+  | { op: "concept.pick"; id: Id | null; note?: string; by?: string }
+  | { op: "concept.upsert"; concept: Concept }
+  /** Replace the beat sheet (an agent's rewrite). Bumps the version and reopens the script gate. */
+  | { op: "script.set"; beats: Beat[]; concept?: Id; by?: string; note?: string }
+  | { op: "beat.mark"; id: Id; mark: BeatMark | null; by?: string }
+  /** A note on a stage ("stage:script"), a concept ("concept:A") or a beat ("beat:7"). */
+  | { op: "note.add"; target: string; text: string; by?: string }
+  | { op: "note.resolve"; id: Id; resolved?: boolean }
 
 const now = () => new Date().toISOString()
 
@@ -216,6 +230,69 @@ export function applyOp(p: Project, o: Op): Project {
       return { ...p, open: o.open }
     case "project.update":
       return { ...p, ...o.patch }
+    case "gate.set":
+    case "stage.update":
+    case "concept.pick":
+    case "concept.upsert":
+    case "script.set":
+    case "beat.mark":
+    case "note.add":
+    case "note.resolve":
+    {
+      const process = applyProcessOp(p.process ?? newProcess(), o)
+      const said = o.op === "gate.set" ? `${process.stages.find((x) => x.id === o.stage)?.name}: ${o.status}${o.note ? ` - ${o.note}` : ""}` : o.op === "concept.pick" ? `Concept picked: ${o.id ?? "none"}` : o.op === "script.set" ? `Beat sheet v${process.script.version} written` : o.op === "note.add" ? `Note on ${o.target}: ${o.text}` : null
+      const activity = said ? [...p.activity, { t: now(), text: `${("by" in o && o.by) || "claude"} · ${said}`, kind: "info" as const }].slice(-80) : p.activity
+      return { ...p, process, activity }
+    }
+  }
+}
+
+type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
+
+let seq = 0
+const noteId = () => `n${Date.now().toString(36)}${(seq++).toString(36)}`
+
+function addNote(pr: Process, target: string, text: string | undefined, by: string, kind: GateStatus | "comment" = "comment"): Process {
+  if (!text?.trim()) return pr
+  return { ...pr, notes: [...pr.notes, { id: noteId(), target, text: text.trim(), by, at: now(), kind }] }
+}
+
+function setStage(pr: Process, id: StageId, patch: Partial<Process["stages"][number]>): Process {
+  need(pr.stages.find((s) => s.id === id), `stage ${id}`)
+  return { ...pr, stages: pr.stages.map((s) => (s.id === id ? { ...s, ...patch } : s)) }
+}
+
+function applyProcessOp(pr: Process, o: ProcessOp): Process {
+  const by = ("by" in o && o.by) || "claude"
+  switch (o.op) {
+    case "gate.set": {
+      const block = blockedBy(pr, o.stage)
+      if (block && o.status !== "pending") throw new Error(`"${block.name}" must be approved first`)
+      if (o.stage === "script" && o.status === "approved" && !pr.script.beats.length) throw new Error("there is no beat sheet to approve yet")
+      const next = setStage(pr, o.stage, { status: o.status, by, at: now() })
+      return addNote(next, `stage:${o.stage}`, o.note, by, o.status)
+    }
+    case "stage.update":
+      return setStage(pr, o.stage, o.patch)
+    case "concept.pick": {
+      if (o.id !== null) need(pr.concepts.find((c) => c.id === o.id), `concept ${o.id}`)
+      const next = setStage({ ...pr, pick: o.id ?? undefined }, "script", { status: "pending", by, at: now() })
+      return addNote(next, `concept:${o.id ?? "none"}`, o.note, by)
+    }
+    case "concept.upsert":
+      return { ...pr, concepts: pr.concepts.some((c) => c.id === o.concept.id) ? pr.concepts.map((c) => (c.id === o.concept.id ? o.concept : c)) : [...pr.concepts, o.concept] }
+    case "script.set": {
+      const next = setStage({ ...pr, script: { version: pr.script.version + 1, concept: o.concept ?? pr.script.concept ?? pr.pick, beats: o.beats } }, "script", { status: "pending", by, at: now() })
+      return addNote(next, "stage:script", o.note, by)
+    }
+    case "beat.mark":
+      need(pr.script.beats.find((b) => b.id === o.id), `beat ${o.id}`)
+      return { ...pr, script: { ...pr.script, beats: pr.script.beats.map((b) => (b.id === o.id ? { ...b, mark: o.mark ?? undefined } : b)) } }
+    case "note.add":
+      return addNote(pr, o.target, o.text, by)
+    case "note.resolve":
+      need(pr.notes.find((n) => n.id === o.id), `note ${o.id}`)
+      return { ...pr, notes: pr.notes.map((n) => (n.id === o.id ? { ...n, resolved: o.resolved ?? true } : n)) }
   }
 }
 

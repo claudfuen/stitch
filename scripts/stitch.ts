@@ -25,6 +25,12 @@
 //   bun run stitch greybox <loc> [setup ...]                 render the grey box (Blender) and attach each render
 //   bun run stitch room <loc> [--builder greybox|lightbox]   export the room in 3D (GLB) for the Rooms view
 //   bun run stitch fit <shot> [asset] [--file f.jpg]         do the faces land where the room's camera puts the marks?
+// The process (any command takes --project <slug>; the original film is "ministry"):
+//   bun run stitch gates                                     every stage: who does it, its gate, and what blocks it
+//   bun run stitch gate <stage> approve|changes|reject|pending ["note"] [--by name]
+//   bun run stitch feedback [--all]                          open notes on stages, concepts and beats: act on these
+//   bun run stitch note <stage:id|beat:id|concept:id> "text" [--by name]     bun run stitch resolve <note-id>
+//   bun run stitch concept pick <id|none> ["note"]           bun run stitch beats    (the beat sheet as text)
 import { execFileSync } from "node:child_process"
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import path from "node:path"
@@ -34,6 +40,7 @@ import type { Op } from "../lib/ops"
 import { load, mutate } from "../lib/store"
 import { latestCut, modelBoard, pick, planView, projectHead, shotRows } from "../lib/derive"
 import type { PlanList } from "../lib/ops"
+import { blockedBy, currentStage, openNotes, runtime, words, type GateStatus, type StageId } from "../lib/process"
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..")
 process.chdir(root)
@@ -52,6 +59,7 @@ for (let i = 0; i < argv.length; i++) {
   } else pos.push(a)
 }
 const flag = (k: string) => (typeof flags[k] === "string" ? (flags[k] as string) : undefined)
+if (flag("project")) process.env.STITCH_PROJECT = flag("project")
 const run = (ops: Op[]) => mutate(ops).then((p) => p)
 const sh = (cmd: string, args: string[]) => execFileSync(cmd, args, { encoding: "utf8" })
 const probe = (file: string) => {
@@ -123,9 +131,69 @@ async function show(shotId?: string) {
   if (!shotId && cut) console.log(`\nlatest cut ${cut.version}: ${cut.duration.toFixed(1)} s (target ${p.runtimeTarget} s)`)
 }
 
+const GATE_WORD: Record<string, GateStatus> = { approve: "approved", approved: "approved", changes: "changes", reject: "rejected", rejected: "rejected", pending: "pending", reopen: "pending" }
+
+async function processOf() {
+  const p = await load()
+  if (!p.process) throw new Error(`this film has no process (try --project <slug>)`)
+  return p.process
+}
+
+async function gates() {
+  const pr = await processOf()
+  pr.stages.forEach((s, i) => {
+    const block = blockedBy(pr, s.id)
+    const st = s.skipped ? "skipped" : block && s.status === "pending" ? `locked by ${block.id}` : s.status
+    console.log(`${String(i + 1).padStart(2, "0")} ${s.id.padEnd(12)} ${st.padEnd(20)} gate ${s.gate.padEnd(9)} doer ${s.doer}${s.by ? `  (${s.by}, ${s.at?.slice(0, 16)})` : ""}`)
+  })
+  const now = currentStage(pr)
+  console.log(`\ncurrent stage: ${now ? now.id : "done"} · concept: ${pr.pick ?? "not picked"} · script v${pr.script.version} for ${pr.script.concept ?? "-"} · ${openNotes(pr).length} open notes`)
+}
+
+async function feedback(all: boolean) {
+  const pr = await processOf()
+  const list = all ? pr.notes : openNotes(pr)
+  if (!list.length) return console.log("no open feedback")
+  for (const n of list) console.log(`${n.id}  ${n.target.padEnd(14)} ${n.by} ${n.at.slice(0, 16)}${n.kind && n.kind !== "comment" ? ` [${n.kind}]` : ""}${n.resolved ? " (resolved)" : ""}\n    ${n.text}`)
+}
+
+async function beatSheet() {
+  const pr = await processOf()
+  console.log(`script v${pr.script.version} for concept ${pr.script.concept ?? "-"} · ${pr.script.beats.length} beats · ${runtime(pr.script.beats)} s · ${words(pr.script.beats)} words`)
+  for (const b of pr.script.beats) {
+    console.log(`\n${b.id.padStart(2)}  ${b.t0}-${b.t1}s  ${b.title}${b.mark ? `  [${b.mark}]` : ""}\n    ${b.picture}`)
+    for (const l of b.lines) console.log(`    ${l.who.toUpperCase()}${l.how || l.vo ? ` (${[l.vo && "VO", l.how].filter(Boolean).join(", ")})` : ""}: ${l.text}`)
+    if (b.sound) console.log(`    sound: ${b.sound}`)
+    if (b.camera) console.log(`    camera: ${b.camera}`)
+  }
+}
+
 async function main() {
   const [cmd, sub, ...rest] = pos
   switch (cmd) {
+    case "gates":
+      return gates()
+    case "gate": {
+      const status = GATE_WORD[rest[0] ?? ""]
+      if (!sub || !status) throw new Error("usage: stitch gate <stage> approve|changes|reject|pending [\"note\"]")
+      await run([{ op: "gate.set", stage: sub as StageId, status, note: rest[1], by: flag("by") ?? "claude" }])
+      return gates()
+    }
+    case "feedback":
+      return feedback(!!flags.all)
+    case "beats":
+      return beatSheet()
+    case "note":
+      await run([{ op: "note.add", target: sub, text: rest[0], by: flag("by") ?? "claude" }])
+      return feedback(false)
+    case "resolve":
+      await run([{ op: "note.resolve", id: sub }])
+      return feedback(false)
+    case "concept": {
+      if (sub !== "pick" || !rest[0]) throw new Error("usage: stitch concept pick <id|none> [\"note\"]")
+      await run([{ op: "concept.pick", id: rest[0] === "none" ? null : rest[0], note: rest[1], by: flag("by") ?? "claude" }])
+      return gates()
+    }
     case "show":
       return show(sub)
     case "log":

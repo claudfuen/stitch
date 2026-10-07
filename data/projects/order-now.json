@@ -1,0 +1,404 @@
+{
+  "title": "Order Now (Or Do Not)",
+  "logline": "A 60-second Comp AI spot: a 1994 American infomercial whose guest expert, Henrick, will not do infomercial energy.",
+  "runtimeTarget": 60,
+  "baselines": {
+    "face": 0,
+    "faceTarget": 0,
+    "voice": 0
+  },
+  "sections": [],
+  "characters": [],
+  "locations": [],
+  "assets": [],
+  "graphics": [],
+  "shots": [],
+  "cuts": [],
+  "open": [],
+  "activity": [
+    {
+      "t": "2026-10-07T16:00:00.000Z",
+      "text": "claude · Project created: three concepts and a beat sheet for A, every gate open for review",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-07T15:23:21.960Z",
+      "text": "Claudio · Concept picked: A",
+      "kind": "info"
+    }
+  ],
+  "ui": {
+    "positions": {}
+  },
+  "process": {
+    "stages": [
+      {
+        "id": "script",
+        "name": "Script and beats",
+        "about": "A beat sheet first, with a joke in every beat. LLMs draft the prompts, a few at a time.",
+        "doer": "both",
+        "gate": "required",
+        "status": "pending",
+        "by": "Claudio",
+        "at": "2026-10-07T15:23:21.960Z"
+      },
+      {
+        "id": "sheets",
+        "name": "Look and sheets",
+        "about": "Image models make stills; faces, wardrobe and rooms are locked before any video. Real photos beat generated ones.",
+        "doer": "both",
+        "gate": "required",
+        "status": "pending"
+      },
+      {
+        "id": "space",
+        "name": "Space and camera",
+        "about": "Real plates or one master image per room. 3D only for hard blocking.",
+        "doer": "both",
+        "gate": "advisory",
+        "status": "pending"
+      },
+      {
+        "id": "voice",
+        "name": "Voice",
+        "about": "Recorded first, as a performance. Speech-to-speech if the character needs another voice.",
+        "doer": "both",
+        "gate": "required",
+        "status": "pending"
+      },
+      {
+        "id": "performance",
+        "name": "Body and face",
+        "about": "An actor on camera, an actor's take transferred, or generated from the sheets.",
+        "doer": "both",
+        "gate": "advisory",
+        "status": "pending"
+      },
+      {
+        "id": "pixels",
+        "name": "Pixels",
+        "about": "Seedance, Kling, Veo. 5 to 64 generations per kept shot.",
+        "doer": "agent",
+        "gate": "advisory",
+        "status": "pending"
+      },
+      {
+        "id": "cut",
+        "name": "Pick and cut",
+        "about": "Rough assemblies early. Throw out pretty takes that break the character.",
+        "doer": "both",
+        "gate": "required",
+        "status": "pending"
+      },
+      {
+        "id": "finish",
+        "name": "Finish and score",
+        "about": "Cleanup, grade, grain. Music, foley, room tone.",
+        "doer": "both",
+        "gate": "required",
+        "status": "pending"
+      }
+    ],
+    "concepts": [
+      {
+        "id": "A",
+        "title": "Order Now (Or Do Not)",
+        "logline": "A 1994 American late-night infomercial. Brock Cassidy, the loudest host on cable, introduces his guest expert from Europe, Henrick, who refuses to do infomercial energy.",
+        "pitch": "A black-and-white \"has this ever happened to you?\" opening turns SOC 2 pain into slapstick: the email that kills the deal, the questionnaire unrolling down four flights of stairs, ten thousand screenshots, the auditor who wants evidence of the evidence. Then colour, a studio audience, and a host who cannot get Henrick to perform.",
+        "best": "\"In Europe, this takes three ministries and a strike.\"",
+        "button": "\"Order now.\" Beat. \"Or do not. It is a free market.\"",
+        "why": "The strongest comic engine (maximum hype against minimum affect), and it plays Henrick's persona straight. Nearly every shot has one person in it, everyone knows the format, and the VHS look hides AI flaws.",
+        "risk": "Brock is a generated lead who has to be funny on his own.",
+        "hasScript": true
+      },
+      {
+        "id": "B",
+        "title": "The Founder: A Natural History",
+        "logline": "A wildlife documentary narrated by Henrick in the hushed register of a man who has watched many founders die.",
+        "pitch": "Long lenses, golden light, one creature per shot. \"Here, at the end of the quarter, the young founder approaches the watering hole of enterprise procurement.\" The predator is the security questionnaire. The CISO is glimpsed through the reeds. A herd of auditors moves slowly across the plain. One founder with Comp AI walks straight through, unharmed.",
+        "best": "\"He has taken a screenshot. It will not save him.\"",
+        "button": "Henrick, on camera at last, in safari khaki: \"Nature is cruel. Software is not.\"",
+        "why": "Narration carries every cut and suits Henrick's voice; single-subject long-lens shots are where video models are strongest.",
+        "risk": "Henrick is mostly a voice, so less of the face people know."
+      },
+      {
+        "id": "C",
+        "title": "The SOC 2 Job",
+        "logline": "A heist-movie trailer. A crew assembles to steal a SOC 2 report from the most secure vault in the world: the auditor's office.",
+        "pitch": "Each specialist gets a freeze-frame title card: THE SCREENSHOT GUY, THE POLICY WRITER, THE FORGER (QUESTIONNAIRES). They recruit the legendary retired mastermind, Henrick, who hears the whole plan and says: \"You do not need a crew. You need software.\" Smash cut: the founder opens Comp AI and the report is done before the crew finishes its slow-motion walk.",
+        "best": "\"Thirty years I have planned audits. Never once did we need a man who rappels.\"",
+        "button": "The crew, deflated, walking in slow motion away from an explosion that never happened.",
+        "why": "A big, shareable trailer with an ensemble.",
+        "risk": "Five-person scenes are where Seedance is least stable, so it costs the most takes."
+      }
+    ],
+    "script": {
+      "version": 1,
+      "concept": "A",
+      "beats": [
+        {
+          "id": "1",
+          "title": "The email",
+          "t0": 0,
+          "t1": 4,
+          "picture": "Black and white. Kyle at a kitchen table opens an email: \"Love the product! Before we sign, can you send your SOC 2?\" He flails and tips backwards out of his chair in slow motion.",
+          "lines": [
+            {
+              "who": "Brock",
+              "text": "Has this ever happened to you?",
+              "vo": true
+            }
+          ],
+          "camera": "Medium, locked. Slow motion on the fall."
+        },
+        {
+          "id": "2",
+          "title": "The questionnaire",
+          "t0": 4,
+          "t1": 8,
+          "picture": "Black and white. Kyle at the top of a stairwell drops a security questionnaire. It unrolls down four flights and keeps going.",
+          "lines": [
+            {
+              "who": "Brock",
+              "text": "Three hundred security questions! Forty of them just say 'please elaborate'!",
+              "vo": true
+            }
+          ],
+          "camera": "High angle down the stairwell."
+        },
+        {
+          "id": "3",
+          "title": "The screenshots",
+          "t0": 8,
+          "t1": 12,
+          "picture": "Black and white. Kyle photographs his monitor with a phone flash. Behind him a printer spews screenshots in an endless stream that piles up to his knees.",
+          "lines": [
+            {
+              "who": "Brock",
+              "text": "Ten thousand screenshots of a setting you already turned on!",
+              "vo": true
+            }
+          ],
+          "camera": "Medium wide, the printer behind him."
+        },
+        {
+          "id": "4",
+          "title": "Evidence of the evidence",
+          "t0": 12,
+          "t1": 17,
+          "picture": "Black and white. Across a table piled with binders, Gerald slides a sticky note forward. Kyle stands, arms up, and knocks over a tower of binders.",
+          "lines": [
+            {
+              "who": "Gerald",
+              "text": "Wonderful. Now I'll need evidence... of the evidence.",
+              "how": "flat"
+            },
+            {
+              "who": "Kyle",
+              "text": "There's GOT to be a better way!",
+              "how": "to camera"
+            }
+          ],
+          "camera": "Two-shot across the table, then Kyle's medium to camera."
+        },
+        {
+          "id": "5",
+          "title": "There is",
+          "t0": 17,
+          "t1": 21,
+          "picture": "Smash to colour. A pastel 1994 infomercial set, the studio audience on its feet. Brock bounds into frame.",
+          "lines": [
+            {
+              "who": "Brock",
+              "text": "THERE IS! All the way from Europe... HENRICK JOHANSSON!"
+            }
+          ],
+          "sound": "Wild applause.",
+          "camera": "Brock in a medium he keeps leaving."
+        },
+        {
+          "id": "6",
+          "title": "Please stop",
+          "t0": 21,
+          "t1": 25,
+          "picture": "Henrick on a white stool, hands folded, not moving. The applause dies at once.",
+          "lines": [
+            {
+              "who": "Henrick",
+              "text": "Thank you. Please stop clapping."
+            },
+            {
+              "who": "Henrick",
+              "text": "Nothing has happened yet.",
+              "how": "after a beat"
+            }
+          ],
+          "camera": "Locked medium on the stool, centre frame."
+        },
+        {
+          "id": "7",
+          "title": "What it does",
+          "t0": 25,
+          "t1": 31,
+          "picture": "Brock leans in; cut to Henrick, unmoved.",
+          "lines": [
+            {
+              "who": "Brock",
+              "text": "Henrick! What does Comp AI DO?!"
+            },
+            {
+              "who": "Henrick",
+              "text": "It collects the evidence. It writes the policies. It answers the questionnaire."
+            },
+            {
+              "who": "Henrick",
+              "text": "In Europe, this takes three ministries and a strike.",
+              "how": "after a beat"
+            }
+          ],
+          "sound": "Audience: \"Ooooh.\"",
+          "camera": "Brock medium, then Henrick's locked medium."
+        },
+        {
+          "id": "8",
+          "title": "The button",
+          "t0": 31,
+          "t1": 36,
+          "picture": "Brock heaves a tower of binders onto the demo table and slams a giant red button marked COMP AI. The tower drops into one thin folder marked SOC 2. He keeps slamming the button.",
+          "lines": [
+            {
+              "who": "Henrick",
+              "text": "The button is decoration. It is software.",
+              "how": "off screen, not looking"
+            }
+          ],
+          "sound": "Audience: \"WOW!\"",
+          "camera": "Wide on the demo table."
+        },
+        {
+          "id": "9",
+          "title": "Testimonial: Kyle",
+          "t0": 36,
+          "t1": 40,
+          "picture": "VHS testimonial. Kyle, in colour now, in a backyard hammock with a laptop and a coconut drink. Lower third: KYLE, FOUNDER.",
+          "lines": [
+            {
+              "who": "Kyle",
+              "text": "I closed our biggest deal... from this hammock."
+            }
+          ],
+          "sound": "Super: RESULTS TYPICAL",
+          "camera": "Medium close-up, slightly off-centre, lower third burned in."
+        },
+        {
+          "id": "10",
+          "title": "Testimonial: Gerald",
+          "t0": 40,
+          "t1": 44,
+          "picture": "Gerald, misty-eyed, holding one thin folder. Lower third: GERALD, AUDITOR (31 YEARS).",
+          "lines": [
+            {
+              "who": "Gerald",
+              "text": "The evidence... it was all there."
+            },
+            {
+              "who": "Gerald",
+              "text": "I don't know what to do with my hands.",
+              "how": "after a beat"
+            }
+          ],
+          "camera": "Medium close-up, testimonial framing."
+        },
+        {
+          "id": "11",
+          "title": "But wait",
+          "t0": 44,
+          "t1": 49,
+          "picture": "Brock, frantic, to camera; cut to Henrick.",
+          "lines": [
+            {
+              "who": "Brock",
+              "text": "But WAIT! Call in the next ten minutes and we'll DOUBLE your-"
+            },
+            {
+              "who": "Henrick",
+              "text": "No."
+            },
+            {
+              "who": "Henrick",
+              "text": "It is software. Everyone gets the same one.",
+              "how": "after a beat"
+            }
+          ],
+          "sound": "Silence. One cough.",
+          "camera": "Brock close to camera, then Henrick's locked medium."
+        },
+        {
+          "id": "12",
+          "title": "Operators standing by",
+          "t0": 49,
+          "t1": 53,
+          "picture": "A row of empty operator desks, every phone ringing. Henrick, in a headset, is the only operator. He answers without hurrying.",
+          "lines": [
+            {
+              "who": "Henrick",
+              "text": "Comp AI."
+            },
+            {
+              "who": "Henrick",
+              "text": "Which framework.",
+              "how": "after a beat"
+            },
+            {
+              "who": "Henrick",
+              "text": "Very good.",
+              "how": "after a beat"
+            }
+          ],
+          "camera": "Wide of the empty operator bank, Henrick small in the middle."
+        },
+        {
+          "id": "13",
+          "title": "Fine print",
+          "t0": 53,
+          "t1": 57,
+          "picture": "Blue VHS card with scrolling legal text (an edit graphic).",
+          "lines": [
+            {
+              "who": "Narrator",
+              "text": "Comp AI is not a government agency. Side effects may include closed deals, sleeping through the night, and a smiling auditor. Not available in the EU pending a committee to decide on a committee.",
+              "how": "speed-read",
+              "vo": true
+            }
+          ]
+        },
+        {
+          "id": "14",
+          "title": "Order now",
+          "t0": 57,
+          "t1": 61,
+          "picture": "Back on set. Henrick to camera; Brock beside him, beaming. End card: COMP AI · SOC 2, handled · trycomp.ai",
+          "lines": [
+            {
+              "who": "Henrick",
+              "text": "Order now."
+            },
+            {
+              "who": "Henrick",
+              "text": "Or do not. It is a free market.",
+              "how": "after a beat"
+            },
+            {
+              "who": "Brock",
+              "text": "WOW!"
+            }
+          ],
+          "sound": "Music sting.",
+          "camera": "Two-shot to camera, then the end card."
+        }
+      ]
+    },
+    "notes": [],
+    "pick": "A"
+  }
+}

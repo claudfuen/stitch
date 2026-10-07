@@ -2,6 +2,8 @@
 // Every view (Shots, Canvas, Timeline, Final cut) and the renderer derive from this.
 // All writes go through named operations in lib/ops.ts, shared by the UI and the CLI.
 
+import type { Process } from "./process"
+
 export type Id = string
 
 export type Verdict = "pass" | "borderline" | "fail"
@@ -278,6 +280,8 @@ export type Project = {
   open: string[]
   activity: Activity[]
   ui: { positions: Record<Id, { x: number; y: number }> }
+  /** The stage-gated production process (script to finish). Projects made before it have none. */
+  process?: Process
 }
 
 export type ProjectWithRev = Project & { rev: number }

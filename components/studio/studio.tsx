@@ -1,9 +1,9 @@
 "use client"
 
 import { ReactFlowProvider } from "@xyflow/react"
-import { Box, Clapperboard, Cpu, History, LayoutList, Network, Play } from "lucide-react"
+import { Box, Clapperboard, Cpu, History, LayoutList, ListChecks, Network, Play } from "lucide-react"
 import dynamic from "next/dynamic"
-import { useCallback, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { assetUses, cutHistory, indexProject, modelBoard, shotRows, summary, type CutEntry, type CutHistory, type Index, type ModelStat, type ShotRow, type Summary } from "@/lib/derive"
 import type { Activity, Id, ProjectWithRev } from "@/lib/model"
 import type { Op } from "@/lib/ops"
@@ -14,13 +14,15 @@ import { CanvasView } from "./canvas-view"
 import { CutsView } from "./cuts-view"
 import { MediaProvider, ago, fmt, stamp, useMedia, useNow } from "./media"
 import { ModelsView } from "./models-view"
+import { ProcessView } from "./process-view"
 import { ShotsView } from "./shots-view"
-import { useProject } from "./use-project"
+import { projectSlug, useProject } from "./use-project"
 
 // The 3D view loads three.js only in the browser, and only when Rooms is opened.
 const RoomsView = dynamic(() => import("./rooms-view").then((m) => m.RoomsView), { ssr: false })
 
 const VIEWS = [
+  { id: "process", label: "Process", icon: ListChecks },
   { id: "shots", label: "Shots", icon: LayoutList },
   { id: "cuts", label: "Cuts", icon: Clapperboard },
   { id: "activity", label: "Activity", icon: History },
@@ -81,9 +83,14 @@ type ShellProps = {
 }
 
 function Shell({ p, ix, rows, sum, history, board, picked, mtimes, op, error }: ShellProps) {
+  // The view is remembered per film. A film with a process opens on it.
+  const viewKey = `stitch-view:${projectSlug() || "ministry"}`
+  // A film run on the process shows only its stages, what the agents are doing and (once there are any) its cuts.
+  // The older tools (shots, models, canvas, rooms) stay on films made before it.
+  const views = p.process ? VIEWS.filter((v) => v.id === "process" || v.id === "activity" || (v.id === "cuts" && p.cuts.length > 0)) : VIEWS.filter((v) => v.id !== "process")
   const [view, setView] = useState<View>(() => {
-    const v = read("stitch-view")
-    return isView(v) ? v : "shots"
+    const v = read(viewKey)
+    return isView(v) && views.some((x) => x.id === v) ? v : p.process ? "process" : "shots"
   })
   const [focus, setFocus] = useState<string | null>(null)
   const [cutId, setCutId] = useState<string | null>(null)
@@ -99,9 +106,9 @@ function Shell({ p, ix, rows, sum, history, board, picked, mtimes, op, error }: 
         write("stitch-seen", String(t))
       }
       setView(v)
-      write("stitch-view", v)
+      write(viewKey, v)
     },
-    [view],
+    [view, viewKey],
   )
   const openCut = useCallback((id: string) => (setCutId(id), choose("cuts")), [choose])
   const openCanvas = useCallback((node: string) => (setFocus(node), choose("canvas")), [choose])
@@ -111,9 +118,9 @@ function Shell({ p, ix, rows, sum, history, board, picked, mtimes, op, error }: 
   return (
     <div className="flex h-svh w-svw flex-col">
       <header className="flex h-12 shrink-0 items-center gap-3 border-b bg-card/40 px-3">
-        <span className="hidden max-w-48 truncate text-sm font-semibold lg:block" title={p.logline}>{p.title}</span>
+        <ProjectSwitch title={p.title} logline={p.logline} />
         <nav className="flex min-w-0 items-center gap-0.5 overflow-x-auto">
-          {VIEWS.map(({ id, label, icon: Icon }) => (
+          {views.map(({ id, label, icon: Icon }) => (
             <Button key={id} size="sm" variant={view === id ? "secondary" : "ghost"} onClick={() => choose(id)} aria-current={view === id ? "page" : undefined} aria-label={label} title={label}>
               <Icon /> <span className="hidden lg:inline">{label}</span>
               {id === "activity" && unseen > 0 && <span className="rounded-full bg-sky-400 px-1.5 text-[10px] leading-4 font-semibold text-sky-950">{unseen}</span>}
@@ -127,7 +134,9 @@ function Shell({ p, ix, rows, sum, history, board, picked, mtimes, op, error }: 
         </div>
       </header>
       <main className="relative min-h-0 flex-1">
-        {view === "shots" ? (
+        {view === "process" && p.process ? (
+          <ProcessView project={p} op={op} />
+        ) : view === "shots" ? (
           <ShotsView project={p} rows={rows} sum={sum} current={history.current} op={op} onCanvas={openCanvas} onCut={openCut} />
         ) : view === "cuts" ? (
           <CutsView project={p} ix={ix} history={history} selected={cutId} onSelect={setCutId} />
@@ -144,6 +153,29 @@ function Shell({ p, ix, rows, sum, history, board, picked, mtimes, op, error }: 
         )}
       </main>
     </div>
+  )
+}
+
+/** Which film: switches by URL (?p=slug), so each tab can sit on its own film. */
+function ProjectSwitch({ title, logline }: { title: string; logline: string }) {
+  const [list, setList] = useState<{ slug: string; title: string }[]>([])
+  useEffect(() => {
+    fetch("/api/projects").then((r) => r.json()).then(setList).catch(() => {})
+  }, [])
+  const slug = projectSlug() || "ministry"
+  if (list.length < 2) return <span className="hidden max-w-48 truncate text-sm font-semibold lg:block" title={logline}>{title}</span>
+  return (
+    <select
+      aria-label="Film"
+      title={logline}
+      value={slug}
+      onChange={(e) => (window.location.search = e.target.value === "ministry" ? "" : `?p=${e.target.value}`)}
+      className="max-w-56 truncate rounded-md border bg-transparent px-2 py-1 text-sm font-semibold"
+    >
+      {list.map((x) => (
+        <option key={x.slug} value={x.slug}>{x.title}</option>
+      ))}
+    </select>
   )
 }
 
