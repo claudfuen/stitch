@@ -5,7 +5,7 @@
 
 import type { GenStep, Provider } from "./model"
 
-export type ModelKind = "image" | "video" | "voice" | "lipsync" | "sfx" | "local"
+export type ModelKind = "image" | "video" | "voice" | "lipsync" | "sfx" | "finish" | "local"
 export type ModelInfo = { id: string; name: string; vendor: string; kind: ModelKind; aliases: RegExp[] }
 
 export const PROVIDERS: Provider[] = ["leap", "fal", "higgsfield", "ai-gateway", "local", "unknown"]
@@ -31,8 +31,12 @@ export const MODELS: ModelInfo[] = [
   { id: "elevenlabs/eleven-v4", name: "ElevenLabs v4", vendor: "ElevenLabs", kind: "voice", aliases: [/eleven[-_ ]?v4(?!-turbo)/i] },
   { id: "elevenlabs/voice-changer", name: "ElevenLabs Voice Changer", vendor: "ElevenLabs", kind: "voice", aliases: [/voice[-_ ]?changer/i] },
   { id: "elevenlabs/tts", name: "ElevenLabs TTS (version not recorded)", vendor: "ElevenLabs", kind: "voice", aliases: [/elevenlabs tts/i] },
+  { id: "microsoft/vibevoice-7b", name: "VibeVoice 7B (multi-speaker, cloned voices)", vendor: "Microsoft", kind: "voice", aliases: [/vibevoice\/7b|vibevoice[- ]7b/i] },
+  { id: "microsoft/vibevoice-1.5b", name: "VibeVoice 1.5B (multi-speaker, cloned voices)", vendor: "Microsoft", kind: "voice", aliases: [/fal-ai\/vibevoice$|vibevoice[- ]1\.5b/i] },
   { id: "sync/lipsync-3", name: "sync lipsync-3", vendor: "sync.", kind: "lipsync", aliases: [/lipsync-3/i] },
   { id: "elevenlabs/sfx-v2", name: "ElevenLabs SFX v2", vendor: "ElevenLabs", kind: "sfx", aliases: [/elevenlabs sfx v2/i] },
+  // Finishing
+  { id: "topaz/starlight-precise-2.6", name: "Topaz Starlight Precise 2.6", vendor: "Topaz Labs", kind: "finish", aliases: [/starlight[- ]precise[- ]2\.6|topaz\/upscale\/video\/generative/i] },
   // Local steps (our own code)
   { id: "local/blender-greybox", name: "Blender grey box", vendor: "local", kind: "local", aliases: [/blender\/greybox/i] },
   { id: "local/blender-lightbox", name: "Blender lightbox (Cycles, plan lights)", vendor: "local", kind: "local", aliases: [/lightbox/i] },
@@ -40,6 +44,7 @@ export const MODELS: ModelInfo[] = [
   { id: "local/maskpaste", name: "Mask paste of original pixels", vendor: "local", kind: "local", aliases: [/maskpaste\.py/i] },
   { id: "local/pasteback", name: "Paste-back of original pixels", vendor: "local", kind: "local", aliases: [/pasteback\.py|feathered paste/i] },
   { id: "local/ecc-warp", name: "ECC warp onto a plate", vendor: "local", kind: "local", aliases: [/ECC warp/i] },
+  { id: "local/locked-plate", name: "Locked plate: the keyframe's room behind per-frame person mattes", vendor: "local", kind: "local", aliases: [/locked[- ]plate/i] },
   { id: "local/screenpin", name: "Screen corner pin", vendor: "local", kind: "local", aliases: [/screenpin\.py/i] },
   { id: "local/ffmpeg", name: "ffmpeg (crop, extract, mux)", vendor: "local", kind: "local", aliases: [/ffmpeg|muxed/i] },
   { id: "local/remotion", name: "Remotion motion graphics", vendor: "local", kind: "local", aliases: [/remotion/i] },

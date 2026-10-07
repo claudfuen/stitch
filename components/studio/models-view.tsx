@@ -17,6 +17,7 @@ const KINDS: { kind: ModelKind; label: string }[] = [
   { kind: "voice", label: "Voice" },
   { kind: "lipsync", label: "Lip-sync" },
   { kind: "sfx", label: "Sound" },
+  { kind: "finish", label: "Finishing" },
   { kind: "local", label: "Our own steps" },
 ]
 const pct = (n: number, d: number) => (d ? `${Math.round((100 * n) / d)}%` : "-")

@@ -10378,6 +10378,345 @@
           }
         ]
       }
+    },
+    {
+      "id": "dlg-onetake-el-1",
+      "media": "audio",
+      "path": "/generated/dlg-onetake-el-1.mp3",
+      "label": "One-take dialogue, ElevenLabs v3, stock voices, natural (seed 101)",
+      "origin": "generated",
+      "duration": 23.719125,
+      "gen": {
+        "model": "ElevenLabs v3 (fal)",
+        "job": "01a1140d-ba3c-7c50-9d2d-54db5d1a71e7",
+        "steps": [
+          {
+            "model": "elevenlabs/eleven-v3",
+            "provider": "fal",
+            "job": "01a1140d-ba3c-7c50-9d2d-54db5d1a71e7"
+          }
+        ]
+      },
+      "text": "Henrick, I need SOC 2 by Friday. / Friday. In Europe, we would begin by weeping. / What number are they on? / Seventeen. / Is there a portal? / There is a fax. / You are doing very well. / It's done? / In Europe, we would call this impossible. It is good."
+    },
+    {
+      "id": "dlg-onetake-el-2",
+      "media": "audio",
+      "path": "/generated/dlg-onetake-el-2.mp3",
+      "label": "One-take dialogue, ElevenLabs v3, stock voices, natural (seed 202)",
+      "origin": "generated",
+      "duration": 22.98775,
+      "gen": {
+        "model": "ElevenLabs v3 (fal)",
+        "job": "01a1140e-0b44-7ed3-8907-2c81ff82e8c5",
+        "steps": [
+          {
+            "model": "elevenlabs/eleven-v3",
+            "provider": "fal",
+            "job": "01a1140e-0b44-7ed3-8907-2c81ff82e8c5"
+          }
+        ]
+      },
+      "text": "Henrick, I need SOC 2 by Friday. / Friday. In Europe, we would begin by weeping. / What number are they on? / Seventeen. / Is there a portal? / There is a fax. / You are doing very well. / It's done? / In Europe, we would call this impossible. It is good."
+    },
+    {
+      "id": "dlg-onetake-el-3",
+      "media": "audio",
+      "path": "/generated/dlg-onetake-el-3.mp3",
+      "label": "One-take dialogue, ElevenLabs v3, stock voices, expressive (seed 303)",
+      "origin": "generated",
+      "duration": 25.391,
+      "gen": {
+        "model": "ElevenLabs v3 (fal)",
+        "job": "01a1140e-5410-77b0-9e32-f757a2bc91f6",
+        "steps": [
+          {
+            "model": "elevenlabs/eleven-v3",
+            "provider": "fal",
+            "job": "01a1140e-5410-77b0-9e32-f757a2bc91f6"
+          }
+        ]
+      },
+      "text": "Henrick, I need SOC 2 by Friday. / Friday. In Europe, we would begin by weeping. / What number are they on? / Seventeen. / Is there a portal? / There is a fax. / You are doing very well. / It's done? / In Europe, we would call this impossible. It is good."
+    },
+    {
+      "id": "dlg-onetake-el-4",
+      "media": "audio",
+      "path": "/generated/dlg-onetake-el-4.mp3",
+      "label": "One-take dialogue, ElevenLabs v3, stock voices, expressive (seed 404)",
+      "origin": "generated",
+      "duration": 23.875875,
+      "gen": {
+        "model": "ElevenLabs v3 (fal)",
+        "job": "01a1140e-c10c-7343-8408-0f0ed1d7d832",
+        "steps": [
+          {
+            "model": "elevenlabs/eleven-v3",
+            "provider": "fal",
+            "job": "01a1140e-c10c-7343-8408-0f0ed1d7d832"
+          }
+        ]
+      },
+      "text": "Henrick, I need SOC 2 by Friday. / Friday. In Europe, we would begin by weeping. / What number are they on? / Seventeen. / Is there a portal? / There is a fax. / You are doing very well. / It's done? / In Europe, we would call this impossible. It is good."
+    },
+    {
+      "id": "dlg-onetake-vv7b-1",
+      "media": "audio",
+      "path": "/generated/dlg-onetake-vv7b-1.mp3",
+      "label": "One-take dialogue, VibeVoice 7B, real voices (seed 11)",
+      "origin": "generated",
+      "duration": 66.533333,
+      "gen": {
+        "model": "VibeVoice 7B (multi-speaker, cloned voices) (fal)",
+        "inputs": [
+          "voice-henrick",
+          "voice-founder-clone",
+          "v-3.4-k1"
+        ],
+        "job": "01a11405-b504-7b51-acf7-7b51b3bcf6dd",
+        "steps": [
+          {
+            "model": "microsoft/vibevoice-7b",
+            "provider": "fal",
+            "job": "01a11405-b504-7b51-acf7-7b51b3bcf6dd"
+          }
+        ]
+      },
+      "text": "Henrick, I need SOC 2 by Friday. / Friday. In Europe, we would begin by weeping. / What number are they on? / Seventeen. / Is there a portal? / There is a fax. / You are doing very well. / It's done? / In Europe, we would call this impossible. It is good.",
+      "qa": {
+        "verdict": "fail",
+        "note": "Went off script into invented words for 66 s; only the last two lines are right."
+      },
+      "scores": {}
+    },
+    {
+      "id": "dlg-onetake-vv7b-2",
+      "media": "audio",
+      "path": "/generated/dlg-onetake-vv7b-2.mp3",
+      "label": "One-take dialogue, VibeVoice 7B, real voices (seed 22)",
+      "origin": "generated",
+      "duration": 24.666667,
+      "gen": {
+        "model": "VibeVoice 7B (multi-speaker, cloned voices) (fal)",
+        "inputs": [
+          "voice-henrick",
+          "voice-founder-clone",
+          "v-3.4-k1"
+        ],
+        "job": "01a11405-b5c4-78f0-8787-383fe1d56747",
+        "steps": [
+          {
+            "model": "microsoft/vibevoice-7b",
+            "provider": "fal",
+            "job": "01a11405-b5c4-78f0-8787-383fe1d56747"
+          }
+        ]
+      },
+      "text": "Henrick, I need SOC 2 by Friday. / Friday. In Europe, we would begin by weeping. / What number are they on? / Seventeen. / Is there a portal? / There is a fax. / You are doing very well. / It's done? / In Europe, we would call this impossible. It is good.",
+      "qa": {
+        "verdict": "borderline",
+        "note": "A stray 'Sometime-' after the first line and Henrick's 'Friday.' is missing."
+      },
+      "scores": {}
+    },
+    {
+      "id": "dlg-onetake-vv7b-3",
+      "media": "audio",
+      "path": "/generated/dlg-onetake-vv7b-3.mp3",
+      "label": "One-take dialogue, VibeVoice 7B, real voices (seed 33)",
+      "origin": "generated",
+      "duration": 28.533333,
+      "gen": {
+        "model": "VibeVoice 7B (multi-speaker, cloned voices) (fal)",
+        "inputs": [
+          "voice-henrick",
+          "voice-founder-clone",
+          "v-3.4-k1"
+        ],
+        "job": "01a11405-b792-7b12-a456-ccd57e74f958",
+        "steps": [
+          {
+            "model": "microsoft/vibevoice-7b",
+            "provider": "fal",
+            "job": "01a11405-b792-7b12-a456-ccd57e74f958"
+          }
+        ]
+      },
+      "text": "Henrick, I need SOC 2 by Friday. / Friday. In Europe, we would begin by weeping. / What number are they on? / Seventeen. / Is there a portal? / There is a fax. / You are doing very well. / It's done? / In Europe, we would call this impossible. It is good."
+    },
+    {
+      "id": "dlg-onetake-vv7b-4",
+      "media": "audio",
+      "path": "/generated/dlg-onetake-vv7b-4.mp3",
+      "label": "One-take dialogue, VibeVoice 7B, real voices (seed 44)",
+      "origin": "generated",
+      "duration": 31.466667,
+      "gen": {
+        "model": "VibeVoice 7B (multi-speaker, cloned voices) (fal)",
+        "inputs": [
+          "voice-henrick",
+          "voice-founder-clone",
+          "v-3.4-k1"
+        ],
+        "job": "01a11405-b899-78b3-ba68-80bf5a065c4c",
+        "steps": [
+          {
+            "model": "microsoft/vibevoice-7b",
+            "provider": "fal",
+            "job": "01a11405-b899-78b3-ba68-80bf5a065c4c"
+          }
+        ]
+      },
+      "text": "Henrick, I need SOC 2 by Friday. / Friday. In Europe, we would begin by weeping. / What number are they on? / Seventeen. / Is there a portal? / There is a fax. / You are doing very well. / It's done? / In Europe, we would call this impossible. It is good.",
+      "qa": {
+        "verdict": "fail",
+        "note": "Went off script into invented words, ending in German."
+      },
+      "scores": {}
+    },
+    {
+      "id": "dlg-onetake-vv15-1",
+      "media": "audio",
+      "path": "/generated/dlg-onetake-vv15-1.mp3",
+      "label": "One-take dialogue, VibeVoice 1.5B, real voices (seed 11)",
+      "origin": "generated",
+      "duration": 27.2,
+      "gen": {
+        "model": "VibeVoice 1.5B (multi-speaker, cloned voices) (fal)",
+        "inputs": [
+          "voice-henrick",
+          "voice-founder-clone",
+          "v-3.4-k1"
+        ],
+        "job": "01a11408-8ed2-7c10-aaf8-5fc4eb8bd01e",
+        "steps": [
+          {
+            "model": "microsoft/vibevoice-1.5b",
+            "provider": "fal",
+            "job": "01a11408-8ed2-7c10-aaf8-5fc4eb8bd01e"
+          }
+        ]
+      },
+      "text": "Henrick, I need SOC 2 by Friday. / Friday. In Europe, we would begin by weeping. / What number are they on? / Seventeen. / Is there a portal? / There is a fax. / You are doing very well. / It's done? / In Europe, we would call this impossible. It is good."
+    },
+    {
+      "id": "dlg-onetake-vv15-2",
+      "media": "audio",
+      "path": "/generated/dlg-onetake-vv15-2.mp3",
+      "label": "One-take dialogue, VibeVoice 1.5B, real voices (seed 22)",
+      "origin": "generated",
+      "duration": 28.266667,
+      "gen": {
+        "model": "VibeVoice 1.5B (multi-speaker, cloned voices) (fal)",
+        "inputs": [
+          "voice-henrick",
+          "voice-founder-clone",
+          "v-3.4-k1"
+        ],
+        "job": "01a11408-8f81-7733-81c2-3e7868565854",
+        "steps": [
+          {
+            "model": "microsoft/vibevoice-1.5b",
+            "provider": "fal",
+            "job": "01a11408-8f81-7733-81c2-3e7868565854"
+          }
+        ]
+      },
+      "text": "Henrick, I need SOC 2 by Friday. / Friday. In Europe, we would begin by weeping. / What number are they on? / Seventeen. / Is there a portal? / There is a fax. / You are doing very well. / It's done? / In Europe, we would call this impossible. It is good.",
+      "qa": {
+        "verdict": "pass",
+        "note": "Best VibeVoice take: all 11 lines, both questions rise (+10.3, +8.6 st), Henrick voice 0.67-0.88."
+      },
+      "scores": {}
+    },
+    {
+      "id": "v-2.4-v4-k1-lock",
+      "media": "video",
+      "path": "/generated/v-2.4-v4-k1-lock.mp4",
+      "label": "2.4 v4 k1 with the keyframe's room locked behind the people",
+      "origin": "generated",
+      "duration": 5.039002,
+      "gen": {
+        "model": "Kling 3.0 Pro (fal) + Locked plate: the keyframe's room behind per-frame person mattes (local)",
+        "inputs": [
+          "v-2.4-v4-k1",
+          "kf-2.4-v4"
+        ],
+        "job": "01a113cf-bb7d-7d53-8b51-c3985b38a62b",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "fal",
+            "job": "01a113cf-bb7d-7d53-8b51-c3985b38a62b"
+          },
+          {
+            "model": "local/locked-plate",
+            "provider": "local"
+          }
+        ]
+      }
+    },
+    {
+      "id": "v-2.4-v4-k1-lock-sl",
+      "media": "video",
+      "path": "/generated/v-2.4-v4-k1-lock-sl.mp4",
+      "label": "2.4 v4 k1, locked room plus Starlight Precise 2.6 (softness 4), 4K to 1080p",
+      "origin": "generated",
+      "duration": 4.916667,
+      "gen": {
+        "model": "Kling 3.0 Pro (fal) + Locked plate: the keyframe's room behind per-frame person mattes (local) + Topaz Starlight Precise 2.6 (fal)",
+        "inputs": [
+          "v-2.4-v4-k1-lock"
+        ],
+        "job": "01a113cf-bb7d-7d53-8b51-c3985b38a62b",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "fal",
+            "job": "01a113cf-bb7d-7d53-8b51-c3985b38a62b"
+          },
+          {
+            "model": "local/locked-plate",
+            "provider": "local"
+          },
+          {
+            "model": "topaz/starlight-precise-2.6",
+            "provider": "fal",
+            "job": "01a11409-1d79-7cc0-bb7b-d372a366fa13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "v-2.4-v4-k1-lock-sld",
+      "media": "video",
+      "path": "/generated/v-2.4-v4-k1-lock-sld.mp4",
+      "label": "2.4 v4 k1, locked room plus Starlight Precise 2.6 (default), 4K to 1080p",
+      "origin": "generated",
+      "duration": 4.916667,
+      "gen": {
+        "model": "Kling 3.0 Pro (fal) + Locked plate: the keyframe's room behind per-frame person mattes (local) + Topaz Starlight Precise 2.6 (fal)",
+        "inputs": [
+          "v-2.4-v4-k1-lock"
+        ],
+        "job": "01a113cf-bb7d-7d53-8b51-c3985b38a62b",
+        "steps": [
+          {
+            "model": "kling/kling-3.0-pro",
+            "provider": "fal",
+            "job": "01a113cf-bb7d-7d53-8b51-c3985b38a62b"
+          },
+          {
+            "model": "local/locked-plate",
+            "provider": "local"
+          },
+          {
+            "model": "topaz/starlight-precise-2.6",
+            "provider": "fal",
+            "job": "01a11409-302c-7e33-9800-3e6e1557418f"
+          }
+        ]
+      }
     }
   ],
   "graphics": [
@@ -14909,11 +15248,6 @@
   "activity": [
     {
       "t": "2026-10-06T18:03:49.025Z",
-      "text": "Look test 1: the Ministry hall brief on 4 image models (Nano Banana Pro, Grok Imagine 2.0, Gemini 3.1 Flash, Muse). The specific brief made it read real; Grok and Nano Banana Pro are the plate candidates. Art direction filled in for all three locations.",
-      "kind": "done"
-    },
-    {
-      "t": "2026-10-06T18:03:49.025Z",
       "text": "Research lanes done: dialogue, sets and coverage, cinema-grade pipelines (raw reports in work/research/). Photoreal stills still running.",
       "kind": "info"
     },
@@ -15305,6 +15639,11 @@
     {
       "t": "2026-10-07T01:26:58.463Z",
       "text": "Attribution: job ids for 80 assets recovered from session transcripts (Higgsfield file names carry the job id; fal request ids joined to downloads).",
+      "kind": "done"
+    },
+    {
+      "t": "2026-10-07T02:04:22.248Z",
+      "text": "Voice: whole-film dialogue in one take. ElevenLabs v3 (stock voices) acts best; VibeVoice clones Henrick's real voice (0.82-0.92) but 2 of 4 7B takes went off script. Texture: locked room plus Starlight Precise on 2.4 v4 restores skin and fabric; Henrick's face match unchanged (0.68). All in ~/Downloads/ministry-renders.",
       "kind": "done"
     }
   ],
