@@ -1,0 +1,21 @@
+components/studio/url-state.ts
+  s_9a6dad0ffea19b::t_59419ab3d1a736 1-6,8-34,37,39-56
+scripts/voice-take.ts
+  s_9a6dad0ffea19b::t_21888f60005949 1-106,108-145
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "e37dd489786f1d6f3600bd0ec65de564931eb3a4",
+  "prompts": {},
+  "sessions": {
+    "s_9a6dad0ffea19b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bc7696aa-abd7-4776-8ffd-9cb8ebc22cd6",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Claudio Fuentes <imclaudfuen@gmail.com>"
+    }
+  }
+}
