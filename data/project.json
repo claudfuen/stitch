@@ -11509,6 +11509,11 @@
           "asset": "v-2.4-v4-k2",
           "verdict": "reject",
           "note": "From kf-2.4-v4: faces steady, but the native track says the word twice."
+        },
+        {
+          "asset": "v-2.4-v4-k1-lock-sl",
+          "verdict": "alt",
+          "note": "Best picture of 2.4 so far: k1 with the keyframe locked in as the room and a Starlight Precise finish at softness 4. Room and chairs are exact, the painted look is gone, face 0.68. The native track is Kling's weak 'Seventeen' (confidence 0.11), so it needs his locked line before it can be circled. New Henrick dialogue is parked by Claudio."
         }
       ],
       "lines": [
