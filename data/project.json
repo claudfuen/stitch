@@ -3239,8 +3239,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "b23dcd8d-13a8-444f-a363-d1912ff0c913"
           }
         ]
       }
@@ -3257,8 +3257,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "e6c025bd-5524-446c-98da-6b0d9e5917f6"
           }
         ]
       }
@@ -3275,8 +3275,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "7f519b51-100d-4521-91b9-60d3be4295bb"
           }
         ]
       }
@@ -3296,8 +3296,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "c7e01b1e-18b0-4db8-9c66-90f0ed8f1960"
           }
         ]
       },
@@ -3323,8 +3323,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "9729b5b3-afa4-4d30-acf8-f55af66fd65f"
           }
         ]
       },
@@ -3344,8 +3344,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "5dc6a68d-b8cf-4f34-96d5-8a1c884a8bb0"
           }
         ]
       },
@@ -3370,8 +3370,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "c08f9e88-d439-447b-bab2-9d654c1ce5de"
           }
         ]
       },
@@ -3394,8 +3394,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "b1c03f3e-069e-4777-9ec0-7022c22f6679"
           }
         ]
       },
@@ -3418,8 +3418,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "f2b22d80-e99e-47e9-aea4-2bfb6770508e"
           }
         ]
       },
@@ -3441,8 +3441,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "0ffd5b50-b798-4c57-b7f3-a410740c8849"
           }
         ]
       },
@@ -3464,8 +3464,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "ad4425b0-31a5-4972-8223-38a8c7118e17"
           }
         ]
       },
@@ -3487,8 +3487,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "ff088973-4c0d-4973-b725-56bd5c951fc4"
           }
         ]
       },
@@ -3510,8 +3510,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "88032e83-6f23-4ff6-a5be-f9e7b8b783e4"
           }
         ]
       },
@@ -3532,8 +3532,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "392e0bd7-4279-435f-b17b-25ca01073f3c"
           }
         ]
       },
@@ -3556,8 +3556,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "17c017ff-c5fe-4de6-9f7b-7b7bece87663"
           }
         ]
       },
@@ -3579,8 +3579,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "b7536a5a-26c8-4418-98c1-02de85cc5dea"
           }
         ]
       },
@@ -3600,8 +3600,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "9d532d4b-66ca-442e-9713-d4254518f439"
           }
         ]
       },
@@ -3644,8 +3644,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "5bef70ba-1b82-465a-818d-94602884bece"
           }
         ]
       },
@@ -3667,8 +3667,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "1a233986-a54f-4360-acec-050d9c4db093"
           }
         ]
       },
@@ -3693,8 +3693,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "061d2fb3-f95b-4841-9930-845d3d926720"
           }
         ]
       },
@@ -3737,8 +3737,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "27b9e4b9-3da3-482f-a38d-20357884d358"
           }
         ]
       },
@@ -3760,8 +3760,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "5cda9e54-9478-4a1f-8299-fd8a670be3c5"
           }
         ]
       },
@@ -3786,8 +3786,8 @@
         "steps": [
           {
             "model": "openai/gpt-image-2.5",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "36c2bb73-d45d-4806-b933-3720c785c75c"
           }
         ]
       },
@@ -3814,8 +3814,8 @@
         "steps": [
           {
             "model": "kling/kling-3.0-pro",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "4d8d8686-1f72-4e20-8e46-e601375010ae"
           }
         ]
       },
@@ -3846,7 +3846,7 @@
           {
             "model": "bytedance/seedance-2.5",
             "provider": "higgsfield",
-            "inferred": true
+            "job": "89b25414-1434-4186-ab7e-f4d3d1dfd34b"
           }
         ]
       },
@@ -3878,7 +3878,7 @@
           {
             "model": "bytedance/seedance-2.5",
             "provider": "higgsfield",
-            "inferred": true
+            "job": "a2f1f5be-c2fe-4f93-87c2-2232ab1467ce"
           }
         ]
       },
@@ -3909,7 +3909,7 @@
           {
             "model": "bytedance/seedance-2.5",
             "provider": "higgsfield",
-            "inferred": true
+            "job": "40220254-9b79-455c-bc10-3c1d03deb33b"
           }
         ]
       },
@@ -3936,8 +3936,8 @@
         "steps": [
           {
             "model": "kling/kling-3.0-pro",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "2c57297f-14b8-44f1-b9c2-1cd50eac2933"
           }
         ]
       },
@@ -3963,8 +3963,8 @@
         "steps": [
           {
             "model": "kling/kling-3.0-pro",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "e0a898e8-7e4b-4239-88c5-bde751070bf6"
           }
         ]
       },
@@ -3988,8 +3988,8 @@
         "steps": [
           {
             "model": "kling/kling-3.0-pro",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "093885d5-7f97-4a26-aff4-9061b7077e17"
           }
         ]
       },
@@ -4015,8 +4015,8 @@
         "steps": [
           {
             "model": "kling/kling-3.0-pro",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "dd11a9a7-44a2-482f-8a00-a583616ba56d"
           }
         ]
       },
@@ -4044,7 +4044,7 @@
           {
             "model": "bytedance/seedance-2.5",
             "provider": "higgsfield",
-            "inferred": true
+            "job": "39daeb0a-4848-42cc-a5b3-3029c9aa31d7"
           }
         ]
       },
@@ -4071,8 +4071,8 @@
         "steps": [
           {
             "model": "kling/kling-3.0-pro",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "3a28e51f-a1c9-4451-b08e-5e8125de2413"
           }
         ]
       },
@@ -4102,7 +4102,7 @@
           {
             "model": "bytedance/seedance-2.5",
             "provider": "higgsfield",
-            "inferred": true
+            "job": "9afb8985-897b-4326-a359-b2fe94bb3d95"
           }
         ]
       },
@@ -4133,7 +4133,7 @@
           {
             "model": "bytedance/seedance-2.5",
             "provider": "higgsfield",
-            "inferred": true
+            "job": "16870d94-d800-4fd4-a2d7-ac1fc3ff0167"
           }
         ]
       },
@@ -4158,8 +4158,8 @@
         "steps": [
           {
             "model": "kling/kling-3.0-pro",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "higgsfield",
+            "job": "ec0bce3c-680d-4e95-92f2-cb139527f999"
           }
         ]
       },
@@ -4184,11 +4184,11 @@
         "steps": [
           {
             "model": "elevenlabs/tts",
-            "provider": "unknown",
-            "inferred": true,
+            "provider": "fal",
             "settings": {
               "voice": "Chris"
-            }
+            },
+            "job": "01a111d9-f4fb-7a12-9bb1-de3dfd62fb91"
           }
         ]
       }
@@ -4206,11 +4206,11 @@
         "steps": [
           {
             "model": "elevenlabs/tts",
-            "provider": "unknown",
-            "inferred": true,
+            "provider": "fal",
             "settings": {
               "voice": "Chris"
-            }
+            },
+            "job": "01a111d9-f605-7a00-bf70-64c86c3da363"
           }
         ]
       }
@@ -4228,11 +4228,11 @@
         "steps": [
           {
             "model": "elevenlabs/tts",
-            "provider": "unknown",
-            "inferred": true,
+            "provider": "fal",
             "settings": {
               "voice": "Chris"
-            }
+            },
+            "job": "01a111d9-f6bb-77f1-8193-b5b4757420a2"
           }
         ]
       }
@@ -4250,11 +4250,11 @@
         "steps": [
           {
             "model": "elevenlabs/tts",
-            "provider": "unknown",
-            "inferred": true,
+            "provider": "fal",
             "settings": {
               "voice": "Chris"
-            }
+            },
+            "job": "01a111d9-f76e-7bf0-b727-7006b8a32631"
           }
         ]
       }
@@ -4272,11 +4272,11 @@
         "steps": [
           {
             "model": "elevenlabs/tts",
-            "provider": "unknown",
-            "inferred": true,
+            "provider": "fal",
             "settings": {
               "voice": "Alice"
-            }
+            },
+            "job": "01a111d9-f82f-7481-97f2-389664f2c2c2"
           }
         ]
       }
@@ -4294,11 +4294,11 @@
         "steps": [
           {
             "model": "elevenlabs/tts",
-            "provider": "unknown",
-            "inferred": true,
+            "provider": "fal",
             "settings": {
               "voice": "Alice"
-            }
+            },
+            "job": "01a111d9-f8d5-7253-b61c-00092289766a"
           }
         ]
       }
@@ -4316,11 +4316,11 @@
         "steps": [
           {
             "model": "elevenlabs/tts",
-            "provider": "unknown",
-            "inferred": true,
+            "provider": "fal",
             "settings": {
               "voice": "Sarah"
-            }
+            },
+            "job": "01a111d9-f987-7df1-8949-63d47e069317"
           }
         ]
       }
@@ -4341,7 +4341,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a111d9-bf34-7003-a56a-7ffb2dccc18c"
           }
         ]
       }
@@ -4362,7 +4362,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a111d9-bfca-7b80-a0bc-a62042f0cbec"
           }
         ]
       }
@@ -4383,7 +4383,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a111d9-c079-7110-a2d9-598746e16a5a"
           }
         ]
       }
@@ -4404,7 +4404,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a111d9-c12a-7d30-9666-69c1f0764a96"
           }
         ]
       }
@@ -4425,7 +4425,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a111d9-bdda-7ca1-aa81-d15a64353cb1"
           }
         ]
       }
@@ -4446,7 +4446,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a111d9-be84-7a52-9993-1355be9d6a35"
           }
         ]
       }
@@ -4467,7 +4467,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a111d9-bd30-76c1-9999-cf9ce8cbcc79"
           }
         ]
       }
@@ -4483,8 +4483,8 @@
         "steps": [
           {
             "model": "elevenlabs/sfx-v2",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "fal",
+            "job": "01a111f5-7cfb-7d33-b760-847eb11ac581"
           }
         ]
       }
@@ -4500,8 +4500,8 @@
         "steps": [
           {
             "model": "elevenlabs/sfx-v2",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "fal",
+            "job": "01a111f5-7e01-7cd2-be83-a3f8c55960d2"
           }
         ]
       }
@@ -4517,8 +4517,8 @@
         "steps": [
           {
             "model": "elevenlabs/sfx-v2",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "fal",
+            "job": "01a111f5-7e8f-7840-923c-f5b3c3c24cf4"
           }
         ]
       }
@@ -4534,8 +4534,8 @@
         "steps": [
           {
             "model": "elevenlabs/sfx-v2",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "fal",
+            "job": "01a111f5-7f3c-7ee0-9da8-fefdf2ca3eb4"
           }
         ]
       }
@@ -4551,8 +4551,8 @@
         "steps": [
           {
             "model": "elevenlabs/sfx-v2",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "fal",
+            "job": "01a111f5-7fe2-7a90-912c-52bec4102f4c"
           }
         ]
       }
@@ -4568,8 +4568,8 @@
         "steps": [
           {
             "model": "elevenlabs/sfx-v2",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "fal",
+            "job": "01a111f5-808b-7861-9209-45b3b3c8885f"
           }
         ]
       }
@@ -4585,8 +4585,8 @@
         "steps": [
           {
             "model": "elevenlabs/sfx-v2",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "fal",
+            "job": "01a111f5-8137-7090-9f3a-b368d224c601"
           }
         ]
       }
@@ -4602,8 +4602,8 @@
         "steps": [
           {
             "model": "elevenlabs/sfx-v2",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "fal",
+            "job": "01a111f5-81e0-7da3-9c63-60bbe611d858"
           }
         ]
       }
@@ -4619,8 +4619,8 @@
         "steps": [
           {
             "model": "elevenlabs/sfx-v2",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "fal",
+            "job": "01a111f5-8288-75c0-aa3e-b31f42fd219a"
           }
         ]
       }
@@ -4636,8 +4636,8 @@
         "steps": [
           {
             "model": "elevenlabs/sfx-v2",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "fal",
+            "job": "01a111f5-8328-7ce1-949a-1cd3aa7c9830"
           }
         ]
       }
@@ -4653,8 +4653,8 @@
         "steps": [
           {
             "model": "elevenlabs/sfx-v2",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "fal",
+            "job": "01a111f5-7baf-73a0-b22e-f100dc351e37"
           }
         ]
       }
@@ -4670,8 +4670,8 @@
         "steps": [
           {
             "model": "elevenlabs/sfx-v2",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "fal",
+            "job": "01a111f5-7aee-7e33-935c-ecf80f056124"
           }
         ]
       }
@@ -4687,8 +4687,8 @@
         "steps": [
           {
             "model": "elevenlabs/sfx-v2",
-            "provider": "unknown",
-            "inferred": true
+            "provider": "fal",
+            "job": "01a111f5-7c4e-7c02-a7c9-3f95d2f1ff37"
           }
         ]
       }
@@ -5398,7 +5398,7 @@
           {
             "model": "openai/gpt-image-2.5-sunburst",
             "provider": "fal",
-            "inferred": true
+            "job": "01a1126a-0565-7443-b559-c5e75605163e"
           }
         ]
       },
@@ -5421,7 +5421,7 @@
           {
             "model": "openai/gpt-image-2.5-flare",
             "provider": "fal",
-            "inferred": true
+            "job": "01a1126a-060d-7bb3-8ba5-3d1da742329a"
           }
         ]
       },
@@ -7289,7 +7289,7 @@
           {
             "model": "openai/gpt-image-2.5-flare",
             "provider": "fal",
-            "inferred": true
+            "job": "01a11288-920e-7601-89f8-f41f3f9e2f70"
           }
         ]
       },
@@ -7315,7 +7315,7 @@
           {
             "model": "openai/gpt-image-2.5-flare",
             "provider": "fal",
-            "inferred": true
+            "job": "01a11288-920e-7601-89f8-f41f3f9e2f70"
           }
         ]
       }
@@ -8465,7 +8465,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a111d9-c079-7110-a2d9-598746e16a5a"
           },
           {
             "model": "sync/lipsync-3",
@@ -8589,7 +8589,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a1130c-5ee0-71a1-ab6b-41348add4289"
           },
           {
             "model": "sync/lipsync-3",
@@ -8835,7 +8835,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a111d9-bfca-7b80-a0bc-a62042f0cbec"
           },
           {
             "model": "sync/lipsync-3",
@@ -8883,7 +8883,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a111d9-bdda-7ca1-aa81-d15a64353cb1"
           },
           {
             "model": "sync/lipsync-3",
@@ -9015,7 +9015,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a111d9-c12a-7d30-9666-69c1f0764a96"
           },
           {
             "model": "sync/lipsync-3",
@@ -9065,7 +9065,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a111d9-bfca-7b80-a0bc-a62042f0cbec"
           },
           {
             "model": "sync/lipsync-3",
@@ -9179,7 +9179,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a1132f-4ab4-7311-ba30-d31fd7706317"
           },
           {
             "model": "sync/lipsync-3",
@@ -9208,7 +9208,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a1132f-5c2e-7b11-ba9a-2fce0c9e60e1"
           },
           {
             "model": "local/ffmpeg",
@@ -9237,7 +9237,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a11330-1d5a-7643-9adf-911b9a0b8bb9"
           },
           {
             "model": "sync/lipsync-3",
@@ -9402,7 +9402,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a111d9-bf34-7003-a56a-7ffb2dccc18c"
           },
           {
             "model": "sync/lipsync-3",
@@ -9510,7 +9510,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a111d9-bfca-7b80-a0bc-a62042f0cbec"
           },
           {
             "model": "sync/lipsync-3",
@@ -10056,7 +10056,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a111d9-bd30-76c1-9999-cf9ce8cbcc79"
           },
           {
             "model": "sync/lipsync-3",
@@ -10252,7 +10252,7 @@
           {
             "model": "indextts/index-tts-2",
             "provider": "fal",
-            "inferred": true
+            "job": "01a11387-a9e3-7f10-9967-095772133919"
           },
           {
             "model": "sync/lipsync-3",
@@ -14901,11 +14901,6 @@
   ],
   "activity": [
     {
-      "t": "2026-10-06T17:54:42.988Z",
-      "text": "Handoff: set pieces on the canvas, art direction fields, multi-model still generator (scripts/imagine.ts); Ministry hall look test across 4 models",
-      "kind": "info"
-    },
-    {
       "t": "2026-10-06T18:03:49.025Z",
       "text": "Look test 1: the Ministry hall brief on 4 image models (Nano Banana Pro, Grok Imagine 2.0, Gemini 3.1 Flash, Muse). The specific brief made it read real; Grok and Nano Banana Pro are the plate candidates. Art direction filled in for all three locations.",
       "kind": "done"
@@ -15299,6 +15294,11 @@
       "t": "2026-10-07T00:55:47.889Z",
       "text": "2.4: two Kling takes from kf-2.4-v4 registered (k1 alt, k2 reject). Seedance pilot inputs staged on Higgsfield; generation paused for a permission decision.",
       "kind": "info"
+    },
+    {
+      "t": "2026-10-07T01:26:58.463Z",
+      "text": "Attribution: job ids for 80 assets recovered from session transcripts (Higgsfield file names carry the job id; fal request ids joined to downloads).",
+      "kind": "done"
     }
   ],
   "ui": {
