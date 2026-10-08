@@ -17,31 +17,6 @@
   "open": [],
   "activity": [
     {
-      "t": "2026-10-07T16:32:56.820Z",
-      "text": "claude · Frame for studio C5 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T16:32:57.049Z",
-      "text": "claude · Frame for studio C6 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T16:32:57.285Z",
-      "text": "claude · Frame for studio C7 (Nano Banana 2.1 (edit) + betacam grade via fal, graded in Stitch)",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T16:39:25.544Z",
-      "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
-      "kind": "info"
-    },
-    {
-      "t": "2026-10-07T16:41:27.530Z",
-      "text": "claude · Space and camera: 6 rooms, 17 cameras, 20 cuts",
-      "kind": "info"
-    },
-    {
       "t": "2026-10-07T16:41:27.552Z",
       "text": "claude · Note on space:script: Timing check: beats 7, 10 and 11 carry 4 to 4.5 words a second, but Henrick and Gerald play slow (about 2). At their pace those beats need about 6.5 s more, so the film would run about 67 s. Proposal: record the voices at natural pace (stage 04), then either trim lines or let it run, and retime the camera script to the recordings.",
       "kind": "info"
@@ -414,6 +389,31 @@
     {
       "t": "2026-10-07T20:18:03.391Z",
       "text": "claude · Voice: 5 roles, 1 take",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-08T17:49:13.432Z",
+      "text": "Claudio · Voice for brock: Ed - Late Night Announcer",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-08T17:49:28.505Z",
+      "text": "Claudio · Voice for henrick: v4 clone",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-08T17:49:56.312Z",
+      "text": "Claudio · Voice for kyle: Nelson - High-Pitched, Anxious Nerd",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-08T17:50:20.271Z",
+      "text": "Claudio · Voice for gerald: David - Slow & Charming",
+      "kind": "info"
+    },
+    {
+      "t": "2026-10-08T17:50:31.326Z",
+      "text": "Claudio · Voice for narrator: Danny DJ - Radio Announcer Voice",
       "kind": "info"
     }
   ],
@@ -3178,7 +3178,8 @@
               "about": "A booming American TV infomercial host in his mid-forties, 1994 cable. A huge, bright, slightly nasal showman voice that grins through every word, relentless energy, every sentence lands like an exclamation. Clean studio microphone.",
               "voiceId": "EGyOtnba5yJO3noC9rye"
             }
-          ]
+          ],
+          "voice": "Ed - Late Night Announcer"
         },
         {
           "who": "henrick",
@@ -3207,7 +3208,8 @@
             }
           ],
           "real": true,
-          "note": "Two ways to make his voice. The v4 clone can act inside the one-take read directly, with no conversion step, and it matches his recording better (0.91 vs 0.84; two real lines of his score about 0.71 against each other). A stronger clone from 20+ minutes of his real footage is being built next."
+          "note": "Two ways to make his voice. The v4 clone can act inside the one-take read directly, with no conversion step, and it matches his recording better (0.91 vs 0.84; two real lines of his score about 0.71 against each other). A stronger clone from 20+ minutes of his real footage is being built next.",
+          "voice": "v4 clone"
         },
         {
           "who": "kyle",
@@ -3267,7 +3269,8 @@
               "about": "An eager American software-startup founder in his late twenties in 1994. A slightly high, reedy voice, quick and frantic, cracking with stress, sincere and a bit nerdy. Clean studio microphone.",
               "voiceId": "XOpUrBWqpvEBieaNdyy3"
             }
-          ]
+          ],
+          "voice": "Nelson - High-Pitched, Anxious Nerd"
         },
         {
           "who": "gerald",
@@ -3327,7 +3330,8 @@
               "about": "An American corporate auditor of about sixty. Dry, precise and fussy: clipped consonants, a faintly nasal, pedantic tone, slow and deliberate, the kind of man who asks for evidence of the evidence. Clean studio microphone.",
               "voiceId": "tpUhErMnhbcHmoo1cKOi"
             }
-          ]
+          ],
+          "voice": "David - Slow & Charming"
         },
         {
           "who": "narrator",
@@ -3387,7 +3391,8 @@
               "about": "A middle-aged American TV announcer from a 1990s commercial reading the legal disclaimer at the end at extreme speed. Crisp, flat, monotone, perfectly articulated, no emotion at all. Clean studio microphone.",
               "voiceId": "LSfzxzzlhGU3lDOPz4qV"
             }
-          ]
+          ],
+          "voice": "Danny DJ - Radio Announcer Voice"
         }
       ],
       "takes": [
