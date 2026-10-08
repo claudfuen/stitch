@@ -286,7 +286,16 @@ async function main() {
         const p = await convert(process.env.STITCH_PROJECT, rest[0])
         return console.log(p.converted ? `${p.id}: ${p.converted.file}${p.converted.match !== undefined ? ` match ${p.converted.match.toFixed(2)}` : ""}` : `${p.id} not converted: ${p.error}`)
       }
-      throw new Error("usage: stitch voice set <voice.json> | voice cast <who> <voice> | voice pick <take> | voice perform <line> <audio> | voice convert <performance>")
+      if (sub === "keep" && rest.length >= 2) return run([{ op: "voice.keep", n: Number(rest[0]), id: rest[1] === "none" ? null : rest[1], by: flag("by") ?? "claude" }])
+      if ((sub === "remove" || sub === "restore") && rest[0]) return run([{ op: "voice.remove", id: rest[0], removed: sub === "remove", by: flag("by") ?? "claude" }])
+      if (sub === "takes") {
+        // Every performed take by line; * marks the one picked for the line.
+        const v = (await load()).process?.voice
+        for (const p of (v?.performances ?? []).filter((x) => !x.removed).sort((a, b) => a.n - b.n || a.at.localeCompare(b.at)))
+          console.log(`${v?.picks?.[p.n] === p.id ? "*" : " "} line ${String(p.n).padStart(2)} ${p.who} ${p.id} ${p.converted ? `${p.converted.file}${p.converted.match !== undefined ? ` match ${p.converted.match.toFixed(2)}` : ""}` : `(${p.error ?? "converting"})`}`)
+        return
+      }
+      throw new Error("usage: stitch voice set <voice.json> | voice cast <who> <voice> | voice pick <take> | voice perform <line> <audio> | voice convert <performance> | voice takes | voice keep <line> <performance|none> | voice remove|restore <performance>")
     }
     case "sheet": {
       if (sub === "add" && rest.length >= 2) return sheetAdd(rest[0], rest[1])

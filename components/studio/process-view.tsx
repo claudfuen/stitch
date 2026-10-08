@@ -4,7 +4,7 @@
 // then one decision bar: approve, request changes or reject, with a note. Comments sit on the beat they are about.
 // Every action is a named op (lib/ops.ts), the same ones agents use from the CLI (`stitch gates`, `stitch feedback`).
 
-import { Check, ChevronDown, ChevronLeft, ChevronRight, LoaderCircle, Lock, Mic, Play, RotateCcw, Square } from "lucide-react"
+import { Check, ChevronDown, ChevronLeft, ChevronRight, LoaderCircle, Lock, Mic, Play, RotateCcw, Square, Trash2 } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import type { ProjectWithRev } from "@/lib/model"
 import type { Op } from "@/lib/ops"
@@ -667,7 +667,7 @@ function VoiceStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["o
         <>
           {take && (
             <ProposalSection title="Perform" about="Read a role's lines yourself, one at a time. Each take is saved on this computer, then the ElevenLabs voice changer turns it into the role's voice: your timing, pauses and delivery stay, the timbre becomes theirs. Nothing is trained." target="voice:perform" pr={pr} op={op}>
-              <PerformPanel pr={pr} take={take} name={name} />
+              <PerformPanel pr={pr} take={take} name={name} op={op} />
             </ProposalSection>
           )}
 
@@ -764,7 +764,7 @@ function VoiceStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["o
 /** Stage 04's recorder: a person performs a role's lines one at a time, with the line before as the cue. Each take is
  *  saved on this machine and converted to the role's voice by the server (POST /api/perform, lib/perform.ts); both
  *  land as voice.perform ops, so agents (`stitch voice perform`) and the board see the same takes. */
-function PerformPanel({ pr, take, name }: { pr: Process; take: VoiceTake; name: (who: string) => string }) {
+function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; name: (who: string) => string; op: Props["op"] }) {
   const v = pr.voice!
   const roles = v.roles.filter((r) => take.lines.some((l) => l.who === r.who))
   const [whoParam] = useParam("who")
@@ -778,8 +778,14 @@ function PerformPanel({ pr, take, name }: { pr: Process; take: VoiceTake; name: 
   const beat = pr.script.beats.find((b) => b.id === line?.beat)
   const how = beat?.lines.find((x) => x.who.toLowerCase() === line?.who && (x.text.includes(line.text) || line.text.includes(x.text)))?.how
   const all = v.performances ?? []
-  const takes = all.filter((p) => p.n === line?.n).sort((a, b) => b.at.localeCompare(a.at))
-  const done = new Set(all.filter((p) => p.who === who).map((p) => p.n))
+  const picks = v.picks ?? {}
+  // Newest first, numbered in recording order, so a take keeps its number when others are removed.
+  const onLine = all.filter((p) => p.n === line?.n).sort((a, b) => b.at.localeCompare(a.at))
+  const num = new Map(onLine.map((p, k) => [p.id, onLine.length - k]))
+  const takes = onLine.filter((p) => !p.removed)
+  const gone = onLine.filter((p) => p.removed)
+  const done = new Set(all.filter((p) => p.who === who && !p.removed).map((p) => p.n))
+  const [showGone, setShowGone] = useState(false)
   const { state, setState, error, setError, devices, mic, setMic, start, stop, meter, clock } = useRecorder()
   const box = useRef<HTMLDivElement>(null)
   const slugQ = projectSlug() ? `&p=${encodeURIComponent(projectSlug())}` : ""
@@ -843,7 +849,7 @@ function PerformPanel({ pr, take, name }: { pr: Process; take: VoiceTake; name: 
         <Choice value={who} items={roles.map((r) => ({ value: r.who, label: name(r.who) }))} onChange={(w) => setParams({ who: w, line: null }, { push: false, keepHash: true })} />
         {devices.length > 1 && <Choice value={mic || devices[0].value} items={devices} onChange={setMic} />}
         <span className="ml-auto text-sm text-muted-foreground">
-          {lines.filter((l) => done.has(l.n)).length} of {lines.length} lines recorded
+          {lines.filter((l) => picks[l.n]).length} of {lines.length} lines picked · {lines.filter((l) => done.has(l.n)).length} recorded
         </span>
       </div>
       <p className="text-sm text-muted-foreground">{name(who)}&apos;s takes convert to {into}.</p>
@@ -901,12 +907,26 @@ function PerformPanel({ pr, take, name }: { pr: Process; take: VoiceTake; name: 
         )}
         {takes.length > 0 && (
           <ol className="space-y-3">
-            {takes.map((p, k) => (
+            {takes.map((p) => (
               <li key={p.id} className="space-y-1.5 border-t pt-3">
-                <p className="text-xs text-muted-foreground">
-                  Take {takes.length - k}
-                  {p.duration ? ` · ${p.duration.toFixed(1)} s` : ""} · {when(p.at)}
-                </p>
+                <div className="flex items-center gap-2">
+                  <p className="text-xs text-muted-foreground">
+                    Take {num.get(p.id)}
+                    {p.duration ? ` · ${p.duration.toFixed(1)} s` : ""} · {when(p.at)}
+                  </p>
+                  {picks[p.n] === p.id ? (
+                    <Button size="sm" variant="secondary" className="ml-auto" title="This take is used for the line. Click to unpick it." onClick={() => op({ op: "voice.keep", n: p.n, id: null, by: ME })}>
+                      <Check className="text-emerald-600" /> Using this take
+                    </Button>
+                  ) : (
+                    <Button size="sm" variant="outline" className="ml-auto" disabled={!p.converted} onClick={() => op({ op: "voice.keep", n: p.n, id: p.id, by: ME })}>
+                      Use this take
+                    </Button>
+                  )}
+                  <Button size="icon-sm" variant="ghost" aria-label="Remove this take" title="Remove it from the list (the files stay on disk)" onClick={() => op({ op: "voice.remove", id: p.id, by: ME })}>
+                    <Trash2 />
+                  </Button>
+                </div>
                 <div className="grid grid-cols-[7rem_minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1.5">
                   <span className="text-sm text-muted-foreground">You</span>
                   <audio controls preload="metadata" src={`/${p.file}`} className="h-8 w-full" />
@@ -929,6 +949,26 @@ function PerformPanel({ pr, take, name }: { pr: Process; take: VoiceTake; name: 
             ))}
           </ol>
         )}
+        {gone.length > 0 && (
+          <div className="border-t pt-3 text-xs text-muted-foreground">
+            <button type="button" className="hover:text-foreground" onClick={() => setShowGone((s) => !s)}>
+              {showGone ? "Hide" : "Show"} {gone.length} removed {gone.length === 1 ? "take" : "takes"}
+            </button>
+            {showGone && (
+              <ul className="mt-2 space-y-1.5">
+                {gone.map((p) => (
+                  <li key={p.id} className="flex items-center gap-3 opacity-70">
+                    <span className="w-14 shrink-0">Take {num.get(p.id)}</span>
+                    <audio controls preload="none" src={`/${(p.converted ?? p).file}`} className="h-8 min-w-0 flex-1" />
+                    <Button size="sm" variant="ghost" onClick={() => op({ op: "voice.remove", id: p.id, removed: false, by: ME })}>
+                      Restore
+                    </Button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
       </div>
 
       <ol className="grid gap-0.5">
@@ -937,7 +977,7 @@ function PerformPanel({ pr, take, name }: { pr: Process; take: VoiceTake; name: 
             <button type="button" onClick={() => setLine(String(l.n), { push: false })} className={cn("flex w-full items-baseline gap-3 rounded-md px-2 py-1.5 text-left text-sm hover:bg-muted", l.n === line.n && "bg-muted")}>
               <span className="w-5 shrink-0 font-mono text-xs text-muted-foreground">{k + 1}</span>
               <span className="min-w-0 flex-1 truncate">{l.text}</span>
-              {done.has(l.n) && <Check className="size-4 shrink-0 text-emerald-600" aria-label="Recorded" />}
+              {picks[l.n] ? <Check className="size-4 shrink-0 text-emerald-600" aria-label="Take picked" /> : done.has(l.n) ? <span className="size-1.5 shrink-0 self-center rounded-full bg-muted-foreground/60" title="Recorded, no take picked yet" /> : null}
             </button>
           </li>
         ))}

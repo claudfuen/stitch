@@ -71,6 +71,10 @@ export type Op =
   | { op: "voice.pick"; take: Id; by?: string }
   /** A line performed into the recorder, or its conversion to the role's voice: adds or replaces it by id. */
   | { op: "voice.perform"; performance: Performance; by?: string }
+  /** The take to use for a line (a performance id), or none (null). One per line. */
+  | { op: "voice.keep"; n: number; id: Id | null; by?: string }
+  /** Hide a take from the list (its files stay on disk), or bring it back with removed: false. */
+  | { op: "voice.remove"; id: Id; removed?: boolean; by?: string }
   | { op: "sheet.lock"; id: Id; pass: number; of: number; note?: string }
   | { op: "sheet.scene"; id: Id; candidate: Candidate }
   /** Replace the beat sheet (an agent's rewrite). Bumps the version and reopens the script gate. */
@@ -268,6 +272,8 @@ export function applyOp(p: Project, o: Op): Project {
     case "voice.cast":
     case "voice.pick":
     case "voice.perform":
+    case "voice.keep":
+    case "voice.remove":
     case "sheet.lock":
     case "sheet.scene":
     case "script.set":
@@ -276,14 +282,14 @@ export function applyOp(p: Project, o: Op): Project {
     case "note.resolve":
     {
       const process = applyProcessOp(p.process ?? newProcess(), o)
-      const said = o.op === "gate.set" ? `${process.stages.find((x) => x.id === o.stage)?.name}: ${o.status}${o.note ? ` - ${o.note}` : ""}` : o.op === "concept.pick" ? `Concept picked: ${o.id ?? "none"}` : o.op === "script.set" ? `Beat sheet v${process.script.version} written` : o.op === "note.add" ? `Note on ${o.target}: ${o.text}` : o.op === "sheet.pick" ? `Picked for ${o.id}: ${o.file ?? "none"}` : o.op === "sheet.add" ? `Candidate for ${o.id}: ${o.candidate.file} (${o.candidate.model} via ${o.candidate.provider})` : o.op === "space.set" ? `Space and camera: ${o.space.rooms.length} rooms, ${o.space.rooms.reduce((n, r) => n + r.cameras.length, 0)} cameras, ${o.space.cuts.length} cuts` : o.op === "space.frame" ? `Frame for ${o.room} ${o.cam} (${o.candidate.model} via ${o.candidate.provider})` : o.op === "voice.set" ? `Voice: ${o.voice.roles.length} roles, ${o.voice.takes.length} ${o.voice.takes.length === 1 ? "take" : "takes"}` : o.op === "voice.cast" ? `Voice for ${o.who}: ${o.voice}` : o.op === "voice.pick" ? `Voice take picked: ${o.take}` : o.op === "voice.perform" ? performed(o.performance) : null
+      const said = o.op === "gate.set" ? `${process.stages.find((x) => x.id === o.stage)?.name}: ${o.status}${o.note ? ` - ${o.note}` : ""}` : o.op === "concept.pick" ? `Concept picked: ${o.id ?? "none"}` : o.op === "script.set" ? `Beat sheet v${process.script.version} written` : o.op === "note.add" ? `Note on ${o.target}: ${o.text}` : o.op === "sheet.pick" ? `Picked for ${o.id}: ${o.file ?? "none"}` : o.op === "sheet.add" ? `Candidate for ${o.id}: ${o.candidate.file} (${o.candidate.model} via ${o.candidate.provider})` : o.op === "space.set" ? `Space and camera: ${o.space.rooms.length} rooms, ${o.space.rooms.reduce((n, r) => n + r.cameras.length, 0)} cameras, ${o.space.cuts.length} cuts` : o.op === "space.frame" ? `Frame for ${o.room} ${o.cam} (${o.candidate.model} via ${o.candidate.provider})` : o.op === "voice.set" ? `Voice: ${o.voice.roles.length} roles, ${o.voice.takes.length} ${o.voice.takes.length === 1 ? "take" : "takes"}` : o.op === "voice.cast" ? `Voice for ${o.who}: ${o.voice}` : o.op === "voice.pick" ? `Voice take picked: ${o.take}` : o.op === "voice.perform" ? performed(o.performance) : o.op === "voice.keep" ? (o.id ? `Line ${o.n}: take ${o.id} picked` : `Line ${o.n}: no take picked`) : o.op === "voice.remove" ? `Take ${o.id} ${o.removed === false ? "restored" : "removed"}` : null
       const activity = said ? [...p.activity, { t: now(), text: `${("by" in o && o.by) || "claude"} · ${said}`, kind: "info" as const }].slice(-80) : p.activity
       return { ...p, process, activity }
     }
   }
 }
 
-type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "cast.set" | "sheet.upsert" | "sheet.add" | "sheet.pick" | "sheet.view" | "sheet.unview" | "space.set" | "space.frame" | "voice.set" | "voice.cast" | "voice.pick" | "voice.perform" | "sheet.lock" | "sheet.scene" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
+type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "cast.set" | "sheet.upsert" | "sheet.add" | "sheet.pick" | "sheet.view" | "sheet.unview" | "space.set" | "space.frame" | "voice.set" | "voice.cast" | "voice.pick" | "voice.perform" | "voice.keep" | "voice.remove" | "sheet.lock" | "sheet.scene" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
 
 let seq = 0
 const noteId = () => `n${Date.now().toString(36)}${(seq++).toString(36)}`
@@ -367,13 +373,30 @@ function applyProcessOp(pr: Process, o: ProcessOp): Process {
       const old = pr.voice
       const kept = (r: Voice["roles"][number]) => { const v = old?.roles.find((x) => x.who === r.who)?.voice; return v && r.auditions.some((a) => a.voice === v) ? v : undefined }
       const roles = o.voice.roles.map((r) => ({ ...r, voice: r.voice ?? kept(r) }))
-      return { ...pr, voice: { roles, takes: o.voice.takes, pick: o.voice.pick ?? old?.pick, performances: o.voice.performances ?? old?.performances } }
+      return { ...pr, voice: { roles, takes: o.voice.takes, pick: o.voice.pick ?? old?.pick, performances: o.voice.performances ?? old?.performances, picks: o.voice.picks ?? old?.picks } }
     }
     case "voice.perform": {
       const v = need(pr.voice, "voice")
       const list = v.performances ?? []
       const has = list.some((x) => x.id === o.performance.id)
-      return { ...pr, voice: { ...v, performances: has ? list.map((x) => (x.id === o.performance.id ? o.performance : x)) : [...list, o.performance] } }
+      // A conversion finishing after the take was removed must not bring it back.
+      return { ...pr, voice: { ...v, performances: has ? list.map((x) => (x.id === o.performance.id ? { ...o.performance, removed: x.removed } : x)) : [...list, o.performance] } }
+    }
+    case "voice.keep": {
+      const v = need(pr.voice, "voice")
+      if (o.id) need(v.performances?.find((x) => x.id === o.id && x.n === o.n && !x.removed), `take ${o.id} on line ${o.n}`)
+      const picks = { ...v.picks }
+      if (o.id) picks[o.n] = o.id
+      else delete picks[o.n]
+      return { ...pr, voice: { ...v, picks } }
+    }
+    case "voice.remove": {
+      const v = need(pr.voice, "voice")
+      const p = need(v.performances?.find((x) => x.id === o.id), `take ${o.id}`)
+      const removed = o.removed ?? true
+      const picks = { ...v.picks }
+      if (removed && picks[p.n] === p.id) delete picks[p.n]
+      return { ...pr, voice: { ...v, picks, performances: (v.performances ?? []).map((x) => (x.id === o.id ? { ...x, removed: removed || undefined } : x)) } }
     }
     case "voice.cast": {
       const v = need(pr.voice, "voice")
