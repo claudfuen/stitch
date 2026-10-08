@@ -126,13 +126,19 @@ export type Voice = { roles: VoiceRole[]; takes: VoiceTake[]; pick?: Id; perform
  *  cast sheets and the set's frames as references, so every shot of a set comes out of one generation: the same
  *  room, light and faces. The take is then cut at its whips. Times are seconds inside the take; `from`/`to` place it
  *  in the read. `stage` on a shot names the beat whose marks are on set (the cast already moved). */
-export type TakeShot = { cam: Id; t0: number; t1: number; beat: Id; stage?: Id; lines?: number[]; what?: string }
+/** One shot of a take. `move` keys the camera off its setup ([t, {dolly, truck, ped, pan, tilt, roll, lens, e}]),
+ *  `hand` is operator drift in degrees, `shake` jolts ([t, degrees]), `focus` is a mark id or a point, `fstop` the
+ *  aperture (scripts/greybox.py documents each). */
+export type TakeShot = { cam: Id; t0: number; t1: number; beat: Id; stage?: Id; lines?: number[]; what?: string; move?: [number, Record<string, number | string>][]; hand?: number; shake?: [number, number][]; focus?: Id | number[]; fstop?: number }
 /** `compare`: the generation next to its blockout, in sync, to judge adherence. */
 export type Generation = { id: Id; file?: string; compare?: string; model: string; provider: string; job?: string; status: "running" | "done" | "failed"; draft?: boolean; prompt?: string; refs?: string[]; at: string; note?: string; error?: string }
 /** `moves`: the cast and props in motion in the blockout (scripts/greybox.py --anim documents each kind). `slices`:
  *  the picked generation cut into its shots, whips dropped, each cut snapped to the scene change found in the video. */
 export type TakeSlice = { cam: Id; t0: number; t1: number; file: string; lines?: number[] }
-export type SetTake = { id: Id; room: Id; name: string; read: Id; from: number; to: number; whip: number; shots: TakeShot[]; moves?: Record<string, unknown>[]; blockout?: string; gens: Generation[]; pick?: Id; slices?: TakeSlice[] }
+/** How a take's blockout renders: "film" lights it in EEVEE (the take's lights, haze, depth of field, motion blur),
+ *  `clay: false` keeps the set's colours, `arms: false` builds the cast without arms. */
+export type TakeRender = { look?: "clay" | "film"; clay?: boolean; arms?: boolean; size?: [number, number]; samples?: number; haze?: number; neon?: number; hand?: number; exposure?: number; panels?: number; lights?: Record<string, unknown>[]; restage?: Record<"marks" | "items" | "setups", Record<string, unknown>[]> }
+export type SetTake = { id: Id; room: Id; name: string; read: Id; from: number; to: number; whip: number; shots: TakeShot[]; moves?: Record<string, unknown>[]; render?: TakeRender; blockout?: string; gens: Generation[]; pick?: Id; slices?: TakeSlice[] }
 
 /** Which beats each camera is used in, from the camera script (the one source of truth for it). */
 export const beatsOf = (pr: Process, room: Id, cam: Id) =>

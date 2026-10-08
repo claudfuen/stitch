@@ -20,7 +20,7 @@ const filmOf = (slug?: string) => slug || process.env.STITCH_PROJECT || "ministr
 /** Where a take's files live, served by the app. */
 export const takeDir = (slug: string | undefined, id: Id) => `generated/${filmOf(slug)}/takes/${id}`
 
-/** Render a take's blockout (about real time for 30 s at 720p) and record it on the take. */
+/** Render a take's blockout (a few minutes for 30 s at 720p) and record it on the take. */
 export async function blockTake(slug: string | undefined, id: Id, by = "claude") {
   const pr = (await load(slug)).process
   const take = pr?.takes?.find((t) => t.id === id)
@@ -32,12 +32,15 @@ export async function blockTake(slug: string | undefined, id: Id, by = "claude")
   const dir = takeDir(slug, id)
   await fs.mkdir(pub(dir), { recursive: true })
   const spec = pub(`${dir}/take.json`)
-  // Rendered at 72 fps and blended three frames to one, so a whip smears like a real whip pan and a hold stays sharp.
-  await fs.writeFile(spec, JSON.stringify({ fps: 24, oversample: 3, whip: take.whip, size: [1280, 720], shots: take.shots, moves: take.moves ?? [] }, null, 1))
+  // Workbench clay is rendered at 72 fps and blended three frames to one, so a whip smears like a real whip pan and a
+  // hold stays sharp; the film look has EEVEE's own motion blur at 24 fps.
+  const r = take.render ?? {}
+  const oversample = r.look === "film" ? 1 : 3
+  await fs.writeFile(spec, JSON.stringify({ fps: 24, oversample, whip: take.whip, size: [1280, 720], ...r, shots: take.shots, moves: take.moves ?? [] }, null, 1))
   const silent = pub(`${dir}/blockout-silent.mp4`)
-  await exec(BLENDER, ["-b", "-P", path.join(projectRoot(), "scripts/greybox.py"), "--", plan, pub(dir), "--clay", "--detail", "--anim", spec, silent], { env, maxBuffer: 1 << 26 })
+  await exec(BLENDER, ["-b", "-P", path.join(projectRoot(), "scripts/greybox.py"), "--", plan, pub(dir), ...(r.clay === false ? [] : ["--clay"]), "--detail", "--anim", spec, silent], { env, maxBuffer: 1 << 26 })
   const out = `${dir}/blockout.mp4`
-  await exec("ffmpeg", ["-v", "error", "-y", "-i", silent, "-ss", take.from.toFixed(3), "-t", (take.to - take.from).toFixed(3), "-i", pub(read.file), "-map", "0:v", "-map", "1:a", "-vf", "tmix=frames=3,fps=24", "-c:v", "libx264", "-crf", "18", "-preset", "veryfast", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-shortest", pub(out)], { env })
+  await exec("ffmpeg", ["-v", "error", "-y", "-i", silent, "-ss", take.from.toFixed(3), "-t", (take.to - take.from).toFixed(3), "-i", pub(read.file), "-map", "0:v", "-map", "1:a", ...(oversample > 1 ? ["-vf", `tmix=frames=${oversample},fps=24`] : []), "-c:v", "libx264", "-crf", "18", "-preset", "veryfast", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-shortest", pub(out)], { env })
   const { gens: _gens, ...rest } = take
   await mutate([{ op: "pixels.take", take: { ...rest, blockout: out }, by }], slug)
   return out

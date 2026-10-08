@@ -34,6 +34,20 @@ argv = [a for i, a in enumerate(argv) if not a.startswith("--") and (i == 0 or a
 plan = json.load(open(argv[0]))
 out_dir = argv[1]
 only = set(argv[2:])
+take = json.load(open(anim[0])) if anim else {}
+# A take's "look": "film" renders the blockout in EEVEE, lit like a film set (key, rims, wall washes, haze, depth of
+# field, motion blur) instead of flat Workbench clay: the video model copies the blockout's light as well as its layout.
+film = take.get("look") == "film"
+# "arms": false builds the cast as torsos, legs and heads only: rigid stick arms pinned the model to wrong arm poses,
+# while without them it takes the arms from the reference stills and the prompt.
+armless = take.get("arms") is False
+NEON = {}  # neon material name -> the sign's real colour, lit in the film look whatever the clay says
+# A take can restage the set for itself without touching the approved plan: "restage": {"marks" | "items" | "setups":
+# [{id, ...fields}]} patches those entries by id (a new id adds one), e.g. Henrick moved behind the desk.
+for _k, _patches in take.get("restage", {}).items():
+    for _p in _patches:
+        _hit = next((x for x in plan[_k] if x["id"] == _p["id"]), None)
+        _hit.update(_p) if _hit else plan[_k].append(_p)
 
 SENSOR = 24.9
 GREY = {
@@ -153,7 +167,9 @@ def shaped(it, rgb):
         # "text2" in "color2" is a second word in its own colour (the approved sign: COMP in pink, AI in teal).
         words = [(it.get("text", it["label"]), rgb)] + ([(it["text2"], tuple(it.get("color2", SHAPE_RGB["cyan"])))] if it.get("text2") else [])
         parts = []
+        real = [tuple(it.get("color", rgb))] + ([tuple(it.get("color2", SHAPE_RGB["cyan"]))] if it.get("text2") else [])
         for k, (t_, c) in enumerate(words):
+            NEON[f"{m}-text{k}"] = real[k]
             t = lettering(f"{n}:text{k}", t_, x, y - 0.06, z + h * 0.62, 99, h * 0.55, c, f"{m}-text{k}")
             t.data.shear = 0.25  # the approved sign is italic
             parts.append(t)
@@ -174,6 +190,7 @@ def shaped(it, rgb):
             for j in range(segs):
                 f_ = j / max(segs - 1, 1)
                 c = tuple(grad[0][i] + (grad[1][i] - grad[0][i]) * f_ for i in range(3)) if grad else (rgb if k == 0 else SHAPE_RGB["cyan"])
+                NEON[f"{m}-stripe{k}-{j}"] = c
                 sw = w * 0.95 / segs
                 box(f"{n}:stripe{k}:{j}", x - w * 0.95 / 2 + sw * (j + 0.5), y - 0.06, z + h * (0.2 - 0.09 * k), sw + 0.002, 0.03, 0.035, c, 0, material=f"{m}-stripe{k}-{j}")
         return True
@@ -195,7 +212,7 @@ def shaped(it, rgb):
     if sh == "shelves":
         box(f"{n}:frame", x, y, z, w, d, h, rgb, it.get("rot", 0), material=m)
         for i in range(3):
-            box(f"{n}:tv{i}", x - (w / 2) - 0.02 if w < d else x, y if w < d else y - d / 2 - 0.02, z + 0.4 + i * 0.7, 0.04 if w < d else 0.5, 0.5 if w < d else 0.04, 0.38, SHAPE_RGB["dark"], 0, material="dark")
+            box(f"{n}:tv{i}", x - (w / 2) - 0.02 if w < d else x, y if w < d else y - d / 2 - 0.02, z + 0.4 + i * 0.7, 0.04 if w < d else 0.5, 0.5 if w < d else 0.04, 0.38, SHAPE_RGB["dark"], 0, material="screen")
         return True
     if sh in ("task-chair", "chair"):
         # A chair facing "facing" (degrees, 0 = +y): the back sits behind the seat. Without a facing, the operator
@@ -242,6 +259,11 @@ if PAL.get("far_gradient"):
         box(f"wall:far:{k}", -T + (W + 2 * T) * (k + 0.5) / n, D + T / 2, 0, (W + 2 * T) / n + 0.01, T, H, rgb, material=f"wall-far-{k}")
 else:
     box("wall:far", W / 2, D + T / 2, 0, W + 2 * T, T, H, shell("wall"))
+if film and (plan.get("panels") or take.get("panels")):
+    # Panel seams on the far wall, every "panels" metres: the approved frames show a panelled set wall, not plaster.
+    pitch = plan.get("panels") or take["panels"]
+    for k in range(1, int(W / pitch) + 1):
+        box(f"wall:seam:{k}", k * pitch, D - 0.015, 0, 0.035, 0.03, H, (0.62, 0.62, 0.64), material="seam")
 box("wall:left", -T / 2, D / 2, 0, T, D, H, shell("wall"))
 box("wall:right", W + T / 2, D / 2, 0, T, D, H, shell("wall"))
 
@@ -341,10 +363,12 @@ def mannequin(m, rgb, sit, f):
     hd = bpy.context.object
     hd.name = f"head:{m['id']}"
     hd.data.materials.append(mat("skin", SHAPE_RGB["skin"]))
+    neck = base + up * (shoulder_z + 0.02)
+    limb(f"neck:{m['id']}", neck, neck + up * (head_z - shoulder_z - 0.08), 0.055, SHAPE_RGB["skin"], "skin")
     nose = base + up * (head_z - 0.01) + fw * 0.11
     box(f"nose:{m['id']}", nose.x, nose.y, nose.z - 0.025, 0.04, 0.04, 0.05, SHAPE_RGB["skin"], m["facing"], material="skin")
     arms = m.get("arms", "folded" if sit else "down")
-    for s_ in (-1, 1):
+    for s_ in () if armless else (-1, 1):
         sh = base + up * shoulder_z + rt * (0.25 * s_)
         if arms == "wide":
             hand = sh + rt * (0.62 * s_) + up * 0.18
@@ -365,6 +389,65 @@ def mannequin(m, rgb, sit, f):
         limb(f"arm:{m['id']}:{s_}", sh, hand, 0.055, rgb, mm)
 
 
+FIGS = {}  # mark id -> the joints of each of its figures (a stand-in mark has a seated and a standing one)
+
+
+def figure(m, rgb, sit, f):
+    """An articulated stand-in for the animated blockout (docs/blockout-motion.md): a chain of joints (hips, two spine
+    joints, neck, head; thighs, knees, feet) that the take's moves rotate, with the body built on it. No arms: the
+    model takes those from the reference stills and the prompt."""
+    x, y = m["at"]
+    legs_rgb = tuple(PAL.get("legs", {}).get(m["who"], rgb))
+    mm, ml = f"person-{m['who']}", f"legs-{m['who']}"
+    J = {}
+
+    def joint(name, parent, loc, rot=(0.0, 0.0, 0.0)):
+        e = bpy.data.objects.new(f"{name}:{m['id']}:{m['pose']}", None)
+        scene.collection.objects.link(e)
+        e.parent = parent
+        e.location = loc
+        e.rotation_euler = rot
+        J[name] = e
+        return e
+
+    def on(j, o):
+        o.parent = j  # built in the joint's own space
+        return o
+
+    hip = m.get("seat", 0.5 if m["who"] == "audience" else 0.82) + 0.02 if sit else 0.93
+    root = joint("root", None, (x, y, m.get("z", 0)), (0, 0, -f))
+    hips = joint("hips", root, (0, 0, hip))
+    on(hips, box(f"pelvis:{m['id']}", 0, 0, -0.12, 0.36, 0.22, 0.2, legs_rgb, material=ml))
+    s1 = joint("spine1", hips, (0, 0, 0.06))
+    on(s1, box(f"belly:{m['id']}", 0, 0, 0, 0.37, 0.23, 0.26, rgb, material=mm))
+    s2 = joint("spine2", s1, (0, 0, 0.24))
+    on(s2, box(f"chest:{m['id']}", 0, 0, 0, 0.44, 0.25, 0.25, rgb, material=mm))
+    nk = joint("neck", s2, (0, 0, 0.25))
+    on(nk, cyl(f"neck:{m['id']}", 0, 0, 0, 0.055, 0.11, SHAPE_RGB["skin"], "skin"))
+    hd = joint("head", nk, (0, 0, 0.1))
+    bpy.ops.mesh.primitive_uv_sphere_add(radius=0.115, location=(0, 0, 0.12))
+    head = bpy.context.object
+    head.name = f"head:{m['id']}"
+    head.scale = (0.92, 1.0, 1.1)
+    head.data.materials.append(mat("skin", SHAPE_RGB["skin"]))
+    on(hd, head)
+    on(hd, box(f"nose:{m['id']}", 0, 0.11, 0.08, 0.04, 0.04, 0.05, SHAPE_RGB["skin"], material="skin"))
+    for s_, side in ((-1, "l"), (1, "r")):
+        th = joint(f"thigh_{side}", hips, (0.1 * s_, 0, -0.04), (math.radians(90) if sit else 0.0, 0, 0))
+        on(th, limb(f"thigh:{m['id']}:{s_}", (0, 0, 0), (0, 0, -0.42), 0.075, legs_rgb, ml))
+        kn = joint(f"knee_{side}", th, (0, 0, -0.42), (math.radians(-90) if sit else 0.0, 0, 0))
+        on(kn, limb(f"shin:{m['id']}:{s_}", (0, 0, 0), (0, 0, -0.4), 0.06, legs_rgb, ml))
+        ft = joint(f"foot_{side}", kn, (0, 0, -0.4))
+        on(ft, box(f"foot:{m['id']}:{s_}", 0, 0.06, -0.07, 0.1, 0.25, 0.07, SHAPE_RGB["dark"], material="dark"))
+    if sit and m["who"] == "audience" and detail:
+        fw = mathutils.Vector((math.sin(f), math.cos(f), 0))
+        lift = m.get("z", 0)
+        box(f"seat:{m['id']}", x - fw.x * 0.05, y - fw.y * 0.05, lift + 0.38, 0.46, 0.46, 0.06, SHAPE_RGB["seat"], m["facing"], material="seat")
+        back = mathutils.Vector((x, y, lift)) - fw * 0.26
+        box(f"seatback:{m['id']}", back.x, back.y, lift + 0.42, 0.46, 0.06, 0.5, SHAPE_RGB["seat"], m["facing"], material="seat")
+    FIGS.setdefault(m["id"], []).append(J)
+
+
 expanded = []
 for m in plan["marks"]:
     if m.get("stand_in"):
@@ -379,7 +462,7 @@ for m, variant in expanded:
     sit = m["pose"] == "sit"
     f = math.radians(m["facing"])
     if detail:
-        mannequin(m, rgb, sit, f)
+        (figure if anim else mannequin)(m, rgb, sit, f)
         tag(before, mark=m["id"], who=m["who"], beat=m.get("beat"), pose=m["pose"])
         for b in m.get("beats", [m["beat"]] if m.get("beat") else []):
             beat_objects.setdefault(b, []).extend(set(bpy.data.objects.keys()) - before)
@@ -472,8 +555,77 @@ for s in plan["setups"] if render else []:
     bpy.ops.render.render(write_still=True)
     print(f"rendered {s['id']} -> {scene.render.filepath}")
 
+def film_look():
+    """EEVEE, lit like a set: the take's lights (area or spot, aimed at a point), a dark studio with a little haze for
+    the light to cut through, AgX contrast, real motion blur; chrome shines, the floor is glossy, the sign and the
+    monitors glow."""
+    scene.render.engine = "BLENDER_EEVEE"
+    ee = scene.eevee
+    ee.taa_render_samples = take.get("samples", 32)
+    ee.use_raytracing = True
+    ee.use_shadows = True
+    ee.volumetric_samples = 64
+    ee.use_volumetric_shadows = True
+    scene.render.use_motion_blur = True
+    scene.render.motion_blur_shutter = 0.5  # 180 degrees, a film camera's shutter
+    scene.view_settings.view_transform = "AgX"
+    scene.view_settings.exposure = take.get("exposure", 0.0)
+    try:
+        scene.view_settings.look = "AgX - Medium High Contrast"
+    except TypeError:
+        pass
+    world = bpy.data.worlds.new("studio")
+    scene.world = world
+    world.use_nodes = True
+    nt = world.node_tree
+    nt.nodes["Background"].inputs[0].default_value = (0.008, 0.008, 0.01, 1)
+    if take.get("haze", 0.006):
+        vol = nt.nodes.new("ShaderNodeVolumeScatter")
+        vol.inputs["Density"].default_value = take.get("haze", 0.006)
+        vol.inputs["Anisotropy"].default_value = 0.45
+        nt.links.new(vol.outputs[0], nt.nodes["World Output"].inputs["Volume"])
+    for name, m in mats.items():
+        b = m.node_tree.nodes.get("Principled BSDF")
+        if not b:
+            continue
+        b.inputs["Roughness"].default_value = 0.7
+        if name == "chrome":
+            b.inputs["Metallic"].default_value = 1.0
+            b.inputs["Roughness"].default_value = 0.12
+        elif name == "floor":
+            b.inputs["Roughness"].default_value = 0.2
+        elif name == "ceiling":
+            b.inputs["Base Color"].default_value = (0.03, 0.03, 0.035, 1)
+        elif name == "skin":
+            b.inputs["Roughness"].default_value = 0.5
+        elif name == "screen":
+            b.inputs["Emission Color"].default_value = (0.55, 0.7, 1.0, 1)
+            b.inputs["Emission Strength"].default_value = 2.5
+        elif name in NEON:
+            c = NEON[name]
+            b.inputs["Base Color"].default_value = (*c, 1)
+            b.inputs["Emission Color"].default_value = (*c, 1)
+            b.inputs["Emission Strength"].default_value = take.get("neon", 9.0)
+    for k, sp in enumerate(take.get("lights", [])):
+        kind = sp.get("kind", "area")
+        ld = bpy.data.lights.new(f"light-{k}", type="SPOT" if kind == "spot" else "AREA")
+        ld.energy = sp["power"]
+        ld.color = sp.get("color", (1.0, 1.0, 1.0))
+        if kind == "spot":
+            ld.spot_size = math.radians(sp.get("spot", 45))
+            ld.spot_blend = sp.get("blend", 0.5)
+            ld.shadow_soft_size = sp.get("size", 0.3)
+        else:
+            ld.shape = "RECTANGLE"
+            ld.size, ld.size_y = (sp.get("size", 2.0), sp.get("size_y", sp.get("size", 2.0)))
+        ld.volume_factor = sp.get("haze", 1.0)
+        o = bpy.data.objects.new(f"light-{k}", ld)
+        scene.collection.objects.link(o)
+        o.location = sp["at"]
+        o.rotation_euler = (mathutils.Vector(sp["aim"]) - mathutils.Vector(sp["at"])).to_track_quat("-Z", "Y").to_euler()
+
+
 if anim:
-    take = json.load(open(anim[0]))
     fps = take.get("fps", 24) * take.get("oversample", 1)  # oversampled frames are blended back down for motion blur
     whip = take.get("whip", 0.3)
     shots = take["shots"]
@@ -481,6 +633,8 @@ if anim:
     scene.render.resolution_x, scene.render.resolution_y = take.get("size", [1280, 720])
     scene.frame_start = 1
     scene.frame_end = max(1, round(shots[-1]["t1"] * fps))
+    if film:
+        film_look()
     cd = bpy.data.cameras.new("cam-take")
     cd.sensor_fit = "HORIZONTAL"
     cd.sensor_width = SENSOR
@@ -490,27 +644,8 @@ if anim:
     scene.camera = cam
     setups = {s["id"]: s for s in plan["setups"]}
     edit = bpy.context.preferences.edit
-    # The camera: hold each shot's setup, ease through the whip between holds (auto-clamped Bezier never overshoots).
-    edit.keyframe_new_interpolation_type = "BEZIER"
-    yaw_prev = None
-    for k, sh in enumerate(shots):
-        su = setups[sh["cam"]]
-        yaw = math.radians(-su["facing"])
-        if yaw_prev is not None:  # turn the short way round
-            while yaw - yaw_prev > math.pi:
-                yaw -= 2 * math.pi
-            while yaw - yaw_prev < -math.pi:
-                yaw += 2 * math.pi
-        yaw_prev = yaw
-        hold = (sh["t0"] + (whip / 2 if k else 0), sh["t1"] - (whip / 2 if k < len(shots) - 1 else 0))
-        for t in hold:
-            cam.location = (su["at"][0], su["at"][1], su["height"])
-            cam.rotation_euler = (math.radians(90 + (su.get("tilt") or 0)), 0, yaw)
-            cd.lens = su["lens"]
-            f = 1 + t * fps
-            cam.keyframe_insert("location", frame=f)
-            cam.keyframe_insert("rotation_euler", frame=f)
-            cd.keyframe_insert("lens", frame=f)
+    V = mathutils.Vector
+
     # Who and what is on the set: a mark or item tied to beats exists only in shots of those beats; it switches at the
     # cut, in the middle of the whip, so a move between marks happens off camera.
     edit.keyframe_new_interpolation_type = "CONSTANT"
@@ -531,81 +666,290 @@ if anim:
                 o = bpy.data.objects[name]
                 o.hide_render = on if mode == "hide" else not on
                 o.keyframe_insert("hide_render", frame=f)
-    # Moves: the cast and props are not frozen, because the video model copies the blockout's motion almost one to
-    # one. Each move animates a mark's figure (or an item) through an empty at its base:
-    #   {"mark": id, "path": [[t, dx, dy], ...], "hop": metres}     enter or cross along a path, hopping
-    #   {"mark": id, "bob": metres, "sway": degrees, "hz": n, "during": [[t0, t1], ...]}  talking energy
-    #   {"mark": id, "lean": [[t, degrees], ...]}                    lean forward along the figure's facing
-    #   {"mark": id, "slam": [t, ...]}                               dip down hard, with a lift before
-    #   {"item": id, "drop": t}                                      the prop collapses into the floor in 0.25 s
+
+    def ease(u, e="io"):
+        u = min(max(u, 0.0), 1.0)
+        if e == "l":
+            return u
+        if e == "o":  # fast start, soft landing: a push that punches in, a crash zoom
+            return 1 - (1 - u) ** 3
+        if e == "i":
+            return u ** 3
+        return u * u * (3 - 2 * u)
+
+    def track(pts, t, default=0.0):
+        """[[t, value, ease?], ...] eased between points, held before the first and after the last."""
+        if not pts:
+            return default
+        if t <= pts[0][0]:
+            return pts[0][1]
+        for a, b in zip(pts, pts[1:]):
+            if t <= b[0]:
+                return a[1] + (b[1] - a[1]) * ease((t - a[0]) / max(b[0] - a[0], 1e-6), b[2] if len(b) > 2 else "io")
+        return pts[-1][1]
+
+    # Moves (docs/blockout-motion.md). The blockout is a reference for where people are, which way they face, when
+    # they walk, turn or lean, and for the camera; the model adds arms, hands, faces and acting. So the figures move
+    # like people filmed in a studio: an articulated body with slow idle life (weight shift, breathing, head drift on
+    # noise, never a sine), accents on the script's beats, and no rhythmic bouncing. On a mark:
+    #   "path": [[t, dx, dy], ...]  walk along it, strides and knees from the speed
+    #   "turn": [[t, deg], ...]     face further clockwise; the head leads, the chest follows, then the hips
+    #   "lean": [[t, deg], ...]     bend forward through the spine (negative: back)
+    #   "head": [[t, yaw, pitch]]   look right (+yaw) and down (+pitch) from the chest
+    #   "nods": [t, ...], "nod": d  a quick dip of the head on a stressed word, d degrees (4 by default)
+    #   "slam": [t, ...]            pitch down onto the desk through the spine, the head dropping on impact
+    #   "idle": factor              idle life, 1 by default
+    # {"crowd": who, ...} gives every mark of that role the move, each late by up to "spread" seconds.
+    # {"item": id, "drop": t} crushes the item flat onto its surface in 0.45 s.
+    from bpy_extras import anim_utils
     edit.keyframe_new_interpolation_type = "BEZIER"
     marks = {m["id"]: m for m in plan["marks"]}
-    rigs = {}
-
-    def rig(key, value, at, facing=0.0):
-        if (key, value) in rigs:
-            return rigs[(key, value)]
-        e = bpy.data.objects.new(f"rig:{value}", None)
-        scene.collection.objects.link(e)
-        e.location = (at[0], at[1], 0)
-        e.rotation_mode = "QUATERNION"
-        bpy.context.view_layer.update()
-        for o in list(bpy.data.objects):
-            if o.get(key) == value and o.parent is None and o is not e:
-                o.parent = e
-                o.matrix_parent_inverse = e.matrix_world.inverted()
-        rigs[(key, value)] = (e, math.radians(facing))
-        return rigs[(key, value)]
-
-    step = 1 / 12  # sample curves at 12 per second; Bezier fills between
+    per_mark = {}
     for mv in take.get("moves", []):
         if "item" in mv:
             it = next(i for i in plan["items"] if i["id"] == mv["item"])
-            e, _ = rig("item", mv["item"], it["at"])
+            e = bpy.data.objects.new(f"rig:{it['id']}", None)
+            scene.collection.objects.link(e)
+            e.location = (it["at"][0], it["at"][1], it.get("z", 0))  # scale about the surface it stands on
+            bpy.context.view_layer.update()
+            for o in list(bpy.data.objects):
+                if o.get("item") == it["id"] and o.parent is None and o is not e:
+                    o.parent = e
+                    o.matrix_parent_inverse = e.matrix_world.inverted()
             t = mv["drop"]
-            for tt, sz in ((t - 0.02, 1.0), (t + 0.25, 0.02)):
+            for tt, sz in ((t - 0.02, 1.0), (t + 0.12, 0.6), (t + 0.3, 0.08), (t + 0.45, 0.03)):
                 e.scale = (1, 1, sz)
                 e.keyframe_insert("scale", frame=1 + tt * fps)
-            continue
-        m = marks[mv["mark"]]
-        e, f = rig("mark", m["id"], m["at"], m.get("facing", 0))
-        base = mathutils.Vector((m["at"][0], m["at"][1], 0))
-        fwd = mathutils.Vector((math.sin(f), math.cos(f), 0))
-        side = mathutils.Vector((math.cos(f), -math.sin(f), 0))
-        if "path" in mv:
-            pts = mv["path"]
-            for (t0, x0, y0), (t1, x1, y1) in zip(pts, pts[1:]):
-                n = max(1, round((t1 - t0) / step))
-                for k in range(n + 1):
-                    u = k / n
-                    hop = mv.get("hop", 0) * abs(math.sin(math.pi * u * max(1, round((t1 - t0) * 2.5))))
-                    e.location = base + mathutils.Vector((x0 + (x1 - x0) * u, y0 + (y1 - y0) * u, hop))
-                    e.keyframe_insert("location", frame=1 + (t0 + (t1 - t0) * u) * fps)
-        if "bob" in mv:
-            hz = mv.get("hz", 2.0)
-            for t0, t1 in mv["during"]:
-                n = max(1, round((t1 - t0) / step))
-                for k in range(n + 1):
-                    t = t0 + (t1 - t0) * k / n
-                    env = min(1.0, (t - t0) / 0.3, (t1 - t) / 0.3)  # ease in and out of the energy
-                    e.location = base + mathutils.Vector((0, 0, mv["bob"] * env * abs(math.sin(math.pi * hz * t))))
-                    e.rotation_quaternion = mathutils.Quaternion((0, 0, 1), math.radians(mv.get("sway", 0)) * env * math.sin(math.pi * hz * t / 2))
-                    e.keyframe_insert("location", frame=1 + t * fps)
-                    e.keyframe_insert("rotation_quaternion", frame=1 + t * fps)
-        if "lean" in mv:
-            for t, deg in mv["lean"]:
-                e.rotation_quaternion = mathutils.Quaternion(side, math.radians(deg))
-                e.keyframe_insert("rotation_quaternion", frame=1 + t * fps)
-        if "slam" in mv:
-            for t in mv["slam"]:
-                for tt, dz in ((t - 0.3, 0.0), (t - 0.12, 0.06), (t, -0.14), (t + 0.25, 0.0)):
-                    e.location = base + mathutils.Vector((0, 0, dz))
-                    e.keyframe_insert("location", frame=1 + tt * fps)
+        elif "crowd" in mv:
+            for m in plan["marks"]:
+                if m["who"] == mv["crowd"]:
+                    h = sum(ord(c) * (k + 7) for k, c in enumerate(m["id"]))
+                    per_mark.setdefault(m["id"], []).append({**mv, "delay": (h % 97) / 97 * mv.get("spread", 0.15), "seed": h})
+        else:
+            per_mark.setdefault(mv["mark"], []).append(mv)
+
+    def pulse(t, times, attack=0.08, release=0.4):
+        """0 to 1 and back: up fast just before each time, down slowly after it."""
+        v = 0.0
+        for a in times:
+            d = t - a
+            if -attack <= d < 0:
+                v = max(v, ease((d + attack) / attack))
+            elif 0 <= d <= release:
+                v = max(v, 1 - ease(d / release, "o"))
+        return v
+
+    def slam_lean(times):
+        pts = []
+        for t in times:
+            pts += [[t - 0.4, 0.0], [t - 0.14, -4.0], [t, 20.0, "i"], [t + 0.3, 7.0, "o"], [t + 0.6, 2.0]]
+        return pts
+
+    R = math.radians
+    CHANNELS = {"root": ("location", "rotation_euler"), "hips": ("location", "rotation_euler"), "spine1": ("rotation_euler",),
+                "spine2": ("rotation_euler",), "head": ("rotation_euler",), "thigh_l": ("rotation_euler",), "thigh_r": ("rotation_euler",),
+                "knee_l": ("rotation_euler",), "knee_r": ("rotation_euler",)}
+
+    def fcurve(o, path, i):
+        cb = anim_utils.action_get_channelbag_for_slot(o.animation_data.action, o.animation_data.action_slot)
+        return cb.fcurves.find(path, index=i)
+
+    for mid, figs in FIGS.items():
+        mvs = per_mark.get(mid, [])
+        m = marks[mid]
+        idle = 1.0
+        for mv in mvs:
+            idle = mv.get("idle", idle)
+        seed = sum(ord(c) * (k + 3) for k, c in enumerate(mid))
+        for J in figs:
+            rest = {name: (tuple(J[name].location), tuple(J[name].rotation_euler)) for name in CHANNELS}
+            for name, paths in CHANNELS.items():  # a rest key on every channel, so idle noise has a curve to ride on
+                for path_ in paths:
+                    J[name].keyframe_insert(path_, frame=1)
+            # Idle life: slow noise on the weight (hips roll), the breath (chest pitch), the chest and the head.
+            for k, (name, idx, deg, period) in enumerate((("hips", 1, 1.2, 70), ("spine2", 0, 0.8, 95), ("spine2", 2, 1.5, 60), ("head", 2, 2.5, 48), ("head", 0, 1.5, 40))):
+                if idle <= 0:
+                    break
+                mod = fcurve(J[name], "rotation_euler", idx).modifiers.new("NOISE")
+                mod.scale = period * fps / 24
+                mod.strength = 2 * R(deg) * idle
+                mod.phase = (seed * (k + 1)) % 1000 / 10.0
+            if not mvs:
+                continue
+            times = []
+            for mv in mvs:
+                d = mv.get("delay", 0.0)
+                times += [p[0] + d for key in ("path", "turn", "lean", "head") for p in mv.get(key, [])]
+                times += [t + d for t in mv.get("nods", []) + mv.get("slam", [])]
+            if not times:
+                continue
+            t0, t1 = max(0.0, min(times) - 0.6), max(times) + 0.8
+            n = max(1, round((t1 - t0) * 24))
+            dist, prev = 0.0, None
+            for k in range(n + 1):
+                t = t0 + (t1 - t0) * k / n
+                off, turn, turn_lag, lean, yaw, pitch, speed = V((0, 0, 0)), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+                for mv in mvs:
+                    tt = t - mv.get("delay", 0.0)
+                    pts = mv.get("path")
+                    if pts:
+                        def at(u):
+                            if u <= pts[0][0]:
+                                return V((pts[0][1], pts[0][2], 0))
+                            if u >= pts[-1][0]:
+                                return V((pts[-1][1], pts[-1][2], 0))
+                            for (a0, x0, y0), (a1, x1, y1) in zip(pts, pts[1:]):
+                                if a0 <= u <= a1:
+                                    w = ease((u - a0) / max(a1 - a0, 1e-6), "l")
+                                    return V((x0 + (x1 - x0) * w, y0 + (y1 - y0) * w, 0))
+                            return V((pts[-1][1], pts[-1][2], 0))
+                        here = at(tt)
+                        off += here
+                        speed = max(speed, (at(tt + 0.02) - at(tt - 0.02)).length / 0.04)
+                    turn += track(mv.get("turn", []), tt)
+                    turn_lag += track(mv.get("turn", []), tt - 0.12)
+                    lean += track(mv.get("lean", []), tt) + (track(slam_lean(mv["slam"]), tt) if mv.get("slam") else 0.0)
+                    hp = mv.get("head", [])
+                    yaw += track([[p[0], p[1]] for p in hp], tt)
+                    pitch += track([[p[0], p[2]] for p in hp], tt)
+                    pitch += mv.get("nod", 4.0) * pulse(tt, mv.get("nods", []))
+                    if mv.get("slam"):
+                        pitch += 12.0 * pulse(tt, mv["slam"], 0.06, 0.35)
+                if prev is not None:
+                    dist += (off - prev).length
+                prev = off.copy()
+                walk = min(1.0, speed / 0.8)
+                ph = math.pi * dist / 0.75  # a 0.75 m stride
+                fr = 1 + t * fps
+                (rl, rr) = rest["root"]
+                J["root"].location = V(rl) + off
+                J["root"].rotation_euler = (rr[0], rr[1], rr[2] - R(turn_lag))
+                hl, hr = rest["hips"]
+                J["hips"].location = V(hl) + V((0, 0, 0.018 * walk * (abs(math.cos(ph)) - 0.5)))
+                J["spine1"].rotation_euler = (rest["spine1"][1][0] - R(0.45 * lean), 0, 0)
+                J["spine2"].rotation_euler = (rest["spine2"][1][0] - R(0.55 * lean), 0, -R(turn - turn_lag) * 0.6 + R(5 * walk * math.sin(ph)))
+                J["head"].rotation_euler = (-R(pitch) + R(0.3 * lean), 0, -R(yaw) - R(turn - turn_lag) * 0.4)
+                for side, p_ in (("l", ph), ("r", ph + math.pi)):
+                    tr = rest[f"thigh_{side}"][1]
+                    kr = rest[f"knee_{side}"][1]
+                    J[f"thigh_{side}"].rotation_euler = (tr[0] + R(26 * walk * math.sin(p_)), 0, 0)
+                    J[f"knee_{side}"].rotation_euler = (kr[0] - R(walk * (6 + 40 * max(0.0, math.cos(p_)))), 0, 0)
+                for name, paths in CHANNELS.items():
+                    for path_ in paths:
+                        J[name].keyframe_insert(path_, frame=fr)
+
+    # The camera, set frame by frame: each shot holds its setup and plays its move, and the camera whips to the next
+    # setup in `whip` seconds. A shot's move eases the setup's offsets between keys, each field on its own:
+    #   "move": [[t, {"dolly": m, "truck": m, "ped": m, "pan": deg, "tilt": deg, "roll": deg, "lens": mm, "e": ease}]]
+    #   (dolly along the view, truck to the right, ped up; ease "io" default, "o" punch in, "i" ease in, "l" linear)
+    #   "hand": degrees of slow operator drift; "shake": [[t, degrees]], a jolt that dies in about half a second;
+    #   "focus": a mark id or [x, y, z] the lens is focused on, "fstop": aperture (film look only).
+    FIELDS = ("dolly", "truck", "ped", "pan", "tilt", "roll", "lens")
+
+    def cam_pose(k, t):
+        sh = shots[k]
+        su = setups[sh["cam"]]
+        keys = sh.get("move") or []
+        o = {}
+        for fld in FIELDS:
+            pts = [[kt, kv[fld], kv.get("e", "io")] for kt, kv in keys if fld in kv]
+            o[fld] = track(pts, t, su["lens"] if fld == "lens" else 0.0)
+        a, ph = sh.get("hand", take.get("hand", 0.1)), k * 1.7
+        pan = a * (0.6 * math.sin(2 * math.pi * 0.31 * t + ph) + 0.4 * math.sin(2 * math.pi * 0.77 * t + 2 * ph))
+        tilt = a * 0.7 * (0.6 * math.sin(2 * math.pi * 0.43 * t + 3 * ph) + 0.4 * math.sin(2 * math.pi * 0.97 * t + ph))
+        for ts, amp in sh.get("shake", []):
+            if t >= ts:
+                d = t - ts
+                env = amp * math.exp(-d / 0.16)
+                tilt += env * math.sin(2 * math.pi * 13 * d)
+                pan += 0.5 * env * math.sin(2 * math.pi * 11 * d + 1)
+        yaw = math.radians(su["facing"] + o["pan"] + pan)
+        fw, rt = V((math.sin(yaw), math.cos(yaw), 0)), V((math.cos(yaw), -math.sin(yaw), 0))
+        loc = V((su["at"][0], su["at"][1], su["height"] + o["ped"])) + fw * o["dolly"] + rt * o["truck"]
+        return loc, -yaw, math.radians(90 + (su.get("tilt") or 0) + o["tilt"] + tilt), math.radians(o["roll"]), o["lens"]
+
+    holds = [(sh["t0"] + (whip / 2 if k else 0), sh["t1"] - (whip / 2 if k < len(shots) - 1 else 0)) for k, sh in enumerate(shots)]
+
+    def shot_at(t):
+        for k, (h0, h1) in enumerate(holds):
+            if t <= h1 or k == len(holds) - 1:
+                return k
+        return len(holds) - 1
+
+    heads = {}
+    for o in bpy.data.objects:
+        if o.name.startswith("head:") and o.get("mark") and o.get("mark") not in heads:
+            heads[o["mark"]] = o
+    if film:
+        cd.dof.use_dof = True
+    yaw_prev = None
+    for fr in range(scene.frame_start, scene.frame_end + 1):
+        t = (fr - 1) / fps
+        k = shot_at(t)
+        if t >= holds[k][0] or k == 0:
+            loc, yaw, tilt, roll, lens = cam_pose(k, max(t, holds[k][0]) if k else t)
+            near = k
+        else:  # in the whip from shot k-1 into shot k
+            a, b = holds[k - 1][1], holds[k][0]
+            u = ease((t - a) / max(b - a, 1e-6))
+            p0, p1 = cam_pose(k - 1, a), cam_pose(k, b)
+            y0, y1 = p0[1], p1[1]
+            while y1 - y0 > math.pi:
+                y1 -= 2 * math.pi
+            while y1 - y0 < -math.pi:
+                y1 += 2 * math.pi
+            loc = p0[0].lerp(p1[0], u)
+            yaw, tilt, roll, lens = y0 + (y1 - y0) * u, p0[2] + (p1[2] - p0[2]) * u, p0[3] + (p1[3] - p0[3]) * u, p0[4] + (p1[4] - p0[4]) * u
+            near = k - 1 if u < 0.5 else k
+        if yaw_prev is not None:  # one continuous yaw, so the curve never spins the long way round
+            while yaw - yaw_prev > math.pi:
+                yaw -= 2 * math.pi
+            while yaw - yaw_prev < -math.pi:
+                yaw += 2 * math.pi
+        yaw_prev = yaw
+        cam.location = loc
+        cam.rotation_euler = (tilt, roll, yaw)
+        cd.lens = lens
+        cam.keyframe_insert("location", frame=fr)
+        cam.keyframe_insert("rotation_euler", frame=fr)
+        cd.keyframe_insert("lens", frame=fr)
+        if film:
+            sh = shots[near]
+            cd.dof.aperture_fstop = sh.get("fstop", 2.8)
+            cd.keyframe_insert("dof.aperture_fstop", frame=fr)
+    if film:
+        # Focus: the distance from the lens to the shot's focus target, read from the animated scene every third frame.
+        for fr in range(scene.frame_start, scene.frame_end + 1, 3):
+            scene.frame_set(fr)
+            t = (fr - 1) / fps
+            k = shot_at(t)
+            if k and t < holds[k][0] and t < (holds[k - 1][1] + holds[k][0]) / 2:
+                k -= 1
+            tgt = shots[k].get("focus")
+            if isinstance(tgt, str) and tgt in heads:
+                p = heads[tgt].matrix_world.translation
+            elif isinstance(tgt, list):
+                p = V(tgt)
+            else:
+                continue
+            view = cam.matrix_world.to_quaternion() @ V((0, 0, -1))
+            cd.dof.focus_distance = max(0.3, (p - cam.matrix_world.translation).dot(view))
+            cd.keyframe_insert("dof.focus_distance", frame=fr)
+        scene.frame_set(1)
     scene.render.image_settings.media_type = "VIDEO" if hasattr(scene.render.image_settings, "media_type") else scene.render.image_settings.file_format
     scene.render.image_settings.file_format = "FFMPEG"
     scene.render.ffmpeg.format = "MPEG4"
     scene.render.ffmpeg.codec = "H264"
     scene.render.ffmpeg.constant_rate_factor = "HIGH"
-    scene.render.filepath = anim[1]
-    bpy.ops.render.render(animation=True)
-    print(f"rendered {scene.frame_end} frames -> {anim[1]}")
+    if take.get("stills"):  # test frames instead of the film: [t, ...] seconds, written as PNGs next to the film
+        scene.render.image_settings.media_type = "IMAGE" if hasattr(scene.render.image_settings, "media_type") else "PNG"
+        scene.render.image_settings.file_format = "PNG"
+        for t in take["stills"]:
+            scene.frame_set(1 + round(t * fps))
+            scene.render.filepath = f"{anim[1]}-{t:05.2f}.png"
+            bpy.ops.render.render(write_still=True)
+            print(f"rendered still {t} -> {scene.render.filepath}")
+    else:
+        scene.render.filepath = anim[1]
+        bpy.ops.render.render(animation=True)
+        print(f"rendered {scene.frame_end} frames -> {anim[1]}")
