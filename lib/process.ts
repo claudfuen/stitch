@@ -129,8 +129,10 @@ export type Voice = { roles: VoiceRole[]; takes: VoiceTake[]; pick?: Id; perform
 export type TakeShot = { cam: Id; t0: number; t1: number; beat: Id; stage?: Id; lines?: number[]; what?: string }
 /** `compare`: the generation next to its blockout, in sync, to judge adherence. */
 export type Generation = { id: Id; file?: string; compare?: string; model: string; provider: string; job?: string; status: "running" | "done" | "failed"; draft?: boolean; prompt?: string; refs?: string[]; at: string; note?: string; error?: string }
-/** `moves`: the cast and props in motion in the blockout (scripts/greybox.py --anim documents each kind). */
-export type SetTake = { id: Id; room: Id; name: string; read: Id; from: number; to: number; whip: number; shots: TakeShot[]; moves?: Record<string, unknown>[]; blockout?: string; gens: Generation[]; pick?: Id }
+/** `moves`: the cast and props in motion in the blockout (scripts/greybox.py --anim documents each kind). `slices`:
+ *  the picked generation cut into its shots, whips dropped, each cut snapped to the scene change found in the video. */
+export type TakeSlice = { cam: Id; t0: number; t1: number; file: string; lines?: number[] }
+export type SetTake = { id: Id; room: Id; name: string; read: Id; from: number; to: number; whip: number; shots: TakeShot[]; moves?: Record<string, unknown>[]; blockout?: string; gens: Generation[]; pick?: Id; slices?: TakeSlice[] }
 
 /** Which beats each camera is used in, from the camera script (the one source of truth for it). */
 export const beatsOf = (pr: Process, room: Id, cam: Id) =>

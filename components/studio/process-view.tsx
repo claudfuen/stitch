@@ -823,6 +823,22 @@ function TakeSection({ t, pr, op }: { t: SetTake; pr: Process; op: Props["op"] }
           <video controls preload="metadata" src={`/${t.blockout}`} className="w-full rounded border" />
         </div>
       )}
+      {t.slices?.length ? (
+        <div className="space-y-2">
+          <p className="text-sm font-medium">Slices</p>
+          <ol className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {t.slices.map((c, k) => (
+              <li key={k} className="space-y-1">
+                <video controls preload="metadata" src={`/${c.file}`} className="aspect-video w-full rounded bg-black" />
+                <p className="flex text-xs">
+                  <span className="font-mono font-medium">{c.cam}</span>
+                  <span className="ml-auto font-mono text-muted-foreground tabular-nums">{(c.t1 - c.t0).toFixed(1)} s</span>
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      ) : null}
       <div className="space-y-4">
         <p className="text-sm font-medium">Generations</p>
         {gens.length === 0 && <p className="text-sm text-muted-foreground">None yet.</p>}

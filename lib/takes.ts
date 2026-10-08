@@ -8,6 +8,7 @@ import { existsSync, promises as fs } from "node:fs"
 import path from "node:path"
 import { promisify } from "node:util"
 import type { Id } from "./model"
+import type { TakeSlice } from "./process"
 import { load, mutate, projectRoot } from "./store"
 
 const exec = promisify(execFile)
@@ -61,4 +62,31 @@ export async function finishGen(slug: string | undefined, takeId: Id, genId: Id,
   }
   await mutate([{ op: "pixels.gen", take: takeId, gen: { ...gen, status: "done", file, compare, error: undefined }, by }], slug)
   return { file, compare }
+}
+
+/** Cut the picked generation into its shots: each shot without the half-whips at its ends, every cut snapped to the
+ *  nearest scene change ffmpeg finds in the generated video (within 0.4 s), in case the model drifted from the
+ *  blockout's timing. Silent clips: the read is the sound in the cut. */
+export async function sliceTake(slug: string | undefined, takeId: Id, by = "claude") {
+  const pr = (await load(slug)).process
+  const take = pr?.takes?.find((t) => t.id === takeId)
+  const gen = take?.gens.find((g) => g.id === take.pick)
+  if (!take || !gen?.file) throw new Error(`pick a finished generation of ${takeId} first`)
+  const scan = await exec("ffmpeg", ["-hide_banner", "-nostats", "-i", pub(gen.file), "-vf", "scdet=threshold=8", "-f", "null", "-"], { env, maxBuffer: 1 << 24 })
+  const cuts = [...scan.stderr.matchAll(/lavfi\.scd\.time:\s*([\d.]+)/g)].map((m) => Number(m[1]))
+  const snap = (t: number) => cuts.reduce((best, c) => (Math.abs(c - t) < Math.abs(best - t) && Math.abs(c - t) <= 0.4 ? c : best), t)
+  const dir = `${takeDir(slug, takeId)}/slices`
+  await fs.mkdir(pub(dir), { recursive: true })
+  const slices: TakeSlice[] = []
+  const last = take.shots.length - 1
+  for (const [k, s] of take.shots.entries()) {
+    const a = k ? snap(s.t0) + take.whip / 2 : 0
+    const b = k < last ? snap(s.t1) - take.whip / 2 : s.t1
+    const file = `${dir}/${String(k + 1).padStart(2, "0")}-${s.cam}.mp4`
+    await exec("ffmpeg", ["-v", "error", "-y", "-ss", a.toFixed(3), "-t", Math.max(0.2, b - a).toFixed(3), "-i", pub(gen.file), "-an", "-c:v", "libx264", "-crf", "18", "-preset", "veryfast", "-pix_fmt", "yuv420p", pub(file)], { env })
+    slices.push({ cam: s.cam, t0: Math.round(a * 100) / 100, t1: Math.round(b * 100) / 100, file, ...(s.lines ? { lines: s.lines } : {}) })
+  }
+  const { gens: _g, ...rest } = take
+  await mutate([{ op: "pixels.take", take: { ...rest, slices }, by }], slug)
+  return { slices, cuts }
 }

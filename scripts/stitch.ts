@@ -51,7 +51,7 @@ import { parseStep, stepFromSidecar } from "../lib/models"
 import type { Op } from "../lib/ops"
 import { load, mutate } from "../lib/store"
 import { buildRead, checkConversions, convert, generateLine, masterRead, perform, performScene, reconvert, recutScene } from "../lib/perform"
-import { blockTake, finishGen } from "../lib/takes"
+import { blockTake, finishGen, sliceTake } from "../lib/takes"
 import { latestCut, modelBoard, pick, planView, projectHead, shotRows } from "../lib/derive"
 import type { PlanList } from "../lib/ops"
 import { beatsOf, blockedBy, currentStage, openNotes, runtime, words, type Candidate, type GateStatus, type StageId } from "../lib/process"
@@ -283,6 +283,11 @@ async function main() {
       if (sub === "block" && rest[0]) return console.log(`blockout: ${await blockTake(process.env.STITCH_PROJECT, rest[0], flag("by") ?? "claude")}`)
       if (sub === "gen" && rest.length >= 2) return run([{ op: "pixels.gen", take: rest[0], gen: JSON.parse(readFileSync(rest[1], "utf8")), by: flag("by") ?? "claude" }])
       if (sub === "pick" && rest.length >= 2) return run([{ op: "pixels.pick", take: rest[0], gen: rest[1] === "none" ? null : rest[1], by: flag("by") ?? "claude" }])
+      if (sub === "slice" && rest[0]) {
+        const r = await sliceTake(process.env.STITCH_PROJECT, rest[0], flag("by") ?? "claude")
+        for (const s of r.slices) console.log(`${s.cam} ${s.t0}-${s.t1} s  ${s.file}`)
+        return console.log(`${r.slices.length} slices (${r.cuts.length} scene changes found)`)
+      }
       if (sub === "done" && rest.length >= 3) {
         const r = await finishGen(process.env.STITCH_PROJECT, rest[0], rest[1], rest[2], flag("by") ?? "claude")
         return console.log(`saved ${r.file}${r.compare ? `, side by side: ${r.compare}` : ""}`)
