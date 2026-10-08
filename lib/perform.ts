@@ -343,6 +343,13 @@ function cutByWords(lines: VoiceLine[], said: Word[], pause: (l: VoiceLine) => n
     // each press out of the line wherever no word of it is said.
     const clear = (a: number, b: number) => !kept.some((j) => said[j].end > a && said[j].start < b)
     let cut: [number, number][] = spans
+    // A press right after the last word (Space hit as the line ends) is too close to cut around: end the line on it.
+    const last = kept.length ? said[kept[kept.length - 1]] : undefined
+    for (const p of presses)
+      if (last && cut.length && p - 0.012 >= last.end - 0.005 && p < last.end + 0.3) {
+        const [x, y] = cut[cut.length - 1]
+        cut = [...cut.slice(0, -1), [x, Math.min(y, p - 0.012)]]
+      }
     for (const p of presses) {
       const [a, b] = [p - 0.05, p + 0.12]
       if (!clear(a, b)) continue
