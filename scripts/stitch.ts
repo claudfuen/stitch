@@ -287,8 +287,8 @@ async function main() {
         return console.log(p.converted ? `${p.id}: ${p.converted.file}${p.converted.match !== undefined ? ` match ${p.converted.match.toFixed(2)}` : ""}` : `${p.id} not converted: ${p.error}`)
       }
       if (sub === "master") {
-        // stitch voice master [--out <file.mp3>] [--take <read>]: the read mastered with the 1994 broadcast sound
-        const r = await masterRead(process.env.STITCH_PROJECT, flag("out") ?? `${process.env.HOME}/Downloads/${process.env.STITCH_PROJECT ?? "ministry"}-read-1994-master.mp3`, flag("take"))
+        // stitch voice master [--out <file.mp3>] [--take <read>]: the read mastered as a 1994 antenna broadcast on a tube TV
+        const r = await masterRead(process.env.STITCH_PROJECT, flag("out") ?? `${process.env.HOME}/Downloads/${process.env.STITCH_PROJECT ?? "ministry"}-read-tube-tv.mp3`, flag("take"))
         return console.log(`read ${r.take} mastered (+${r.gain} dB): ${r.out}`)
       }
       if (sub === "reconvert" && rest[0]) {

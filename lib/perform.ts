@@ -9,7 +9,7 @@
 // into a read paced by the script's beats.
 // The recorder (POST /api/perform, /api/perform/scene) and the CLI (`stitch voice ...`) call these; every write is an op.
 
-import { execFile } from "node:child_process"
+import { execFile, spawn } from "node:child_process"
 import { existsSync, promises as fs } from "node:fs"
 import path from "node:path"
 import { promisify } from "node:util"
@@ -90,6 +90,61 @@ async function words(file: string): Promise<{ text: string; start: number; end: 
     return (j.words ?? []).filter((w) => (w.type ?? "word") === "word")
   }
   throw new Error(`Scribe could not transcribe the recording: ${last}`)
+}
+
+/** Run ffmpeg with raw samples in or out (stdin, stdout). */
+function pcm(args: string[], input?: Buffer): Promise<Buffer> {
+  return new Promise((resolve, reject) => {
+    const p = spawn("ffmpeg", args, { env })
+    const out: Buffer[] = []
+    p.stdout.on("data", (d: Buffer) => out.push(d))
+    p.on("error", reject)
+    p.on("close", (code) => (code === 0 ? resolve(Buffer.concat(out)) : reject(new Error(`ffmpeg exited ${code}`))))
+    p.stdin.end(input)
+  })
+}
+
+/** Pops: the voice changer turns a small lip or key click (about -26 dBFS in the recording) into a pop of a few
+ *  milliseconds near full scale. Find only those, a 2 ms window whose high-frequency energy is 150 times its
+ *  neighbourhood's (or 40 times and as loud as the loudest speech), and dip each over 12 ms; every other sample is left
+ *  as it is. Rewrites the WAV in place and returns how many windows it dipped. */
+async function depop(file: string): Promise<number> {
+  const buf = await pcm(["-v", "error", "-i", file, "-ac", "1", "-ar", "48000", "-f", "f32le", "-"])
+  const x = new Float32Array(buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength))
+  const w = 96
+  const n = Math.max(0, Math.floor((x.length - 2) / w))
+  const e = new Float64Array(n)
+  const peak = new Float64Array(n)
+  let top = 0
+  for (let k = 0; k < n; k++) {
+    let s = 0
+    let p = 0
+    for (let i = k * w; i < (k + 1) * w; i++) {
+      const d = x[i + 2] - 2 * x[i + 1] + x[i]
+      s += d * d
+      p = Math.max(p, Math.abs(x[i]))
+    }
+    e[k] = Math.sqrt(s / w)
+    peak[k] = p
+    top = Math.max(top, p)
+  }
+  const pops: number[] = []
+  for (let k = 0; k < n; k++) {
+    const near = Array.from(e.subarray(Math.max(0, k - 25), Math.min(n, k + 25))).sort((a, b) => a - b)
+    const r = e[k] / (near[near.length >> 1] + 1e-7)
+    if (r >= 150 || (r >= 40 && peak[k] >= 0.6 * top)) pops.push(k)
+  }
+  if (!pops.length) return 0
+  const half = 288 // 6 ms either side of the window's centre
+  for (const k of pops) {
+    const c = k * w + w / 2
+    for (let i = -half; i <= half; i++) {
+      const j = c + i
+      if (j >= 0 && j < x.length) x[j] *= 1 - 0.97 * 0.5 * (1 + Math.cos((Math.PI * i) / half))
+    }
+  }
+  await pcm(["-v", "error", "-y", "-f", "f32le", "-ar", "48000", "-ac", "1", "-i", "-", "-c:a", "pcm_s16le", file], Buffer.from(x.buffer))
+  return pops.length
 }
 
 /** Speaker similarity of each clip to his real recording (scripts/voice-score.py, one model load for all clips). */
@@ -230,7 +285,7 @@ type LineCut = { line: VoiceLine; spans: [number, number][]; trimmed: string[]; 
  *  to the script line it belongs to, so a word finished after Space lands in its own line. Ad-libs stay with the line
  *  they are said in (they tie the read together); only the first try of a repeated word and stray words far from any
  *  line are cut. A pause inside a line longer than `pause(line)` is shortened to it. */
-function cutByWords(lines: VoiceLine[], said: Word[], pause: (l: VoiceLine) => number): LineCut[] {
+function cutByWords(lines: VoiceLine[], said: Word[], pause: (l: VoiceLine) => number, presses: number[] = []): LineCut[] {
   const script = lines.flatMap((l, li) => toks(l.text).map((w) => ({ li, w })))
   const heard = said.map((w) => norm(w.text))
   const at = align(script.map((x) => x.w), heard)
@@ -284,8 +339,17 @@ function cutByWords(lines: VoiceLine[], said: Word[], pause: (l: VoiceLine) => n
         s = undefined
       }
     }
+    // A Space press clicks the keyboard, and the voice changer turns that tick into a pop: cut a short window around
+    // each press out of the line wherever no word of it is said.
+    const clear = (a: number, b: number) => !kept.some((j) => said[j].end > a && said[j].start < b)
+    let cut: [number, number][] = spans
+    for (const p of presses) {
+      const [a, b] = [p - 0.05, p + 0.12]
+      if (!clear(a, b)) continue
+      cut = cut.flatMap(([x, y]): [number, number][] => (b <= x || a >= y ? [[x, y]] : ([[x, Math.min(y, a)], [Math.max(x, b), y]] as [number, number][]).filter(([u, w]) => w - u > 0.03)))
+    }
     const missing = script.map((x, k) => ({ ...x, k })).filter((x) => x.li === li && !got.has(x.k)).map((x) => x.w)
-    return { line, spans, trimmed: trimmed[li], missing }
+    return { line, spans: cut, trimmed: trimmed[li], missing }
   })
 }
 
@@ -304,6 +368,8 @@ async function render(src: string, spans: [number, number][], out: string, tempo
 /** The script's direction for a line ("after a beat", "speed-read"), found by beat, speaker and words. */
 const scriptHow = (script?: Process["script"]) => (l: VoiceLine) => script?.beats.find((b) => b.id === l.beat)?.lines.find((x) => x.who.toLowerCase() === l.who && (x.text.includes(l.text) || l.text.includes(x.text)))?.how
 const speedRead = (how?: string) => /speed/i.test(how ?? "")
+/** When Space was pressed to end each performed line, in recording time (the key click lands about 20 ms later). */
+const pressesOf = (events: SceneEvent[]) => events.filter((e) => e.kind === "mine").map((e) => e.end + 0.02)
 
 /** Word timings for a recording, kept next to it so a recut does not transcribe again. */
 async function wordsOf(file: string): Promise<Word[]> {
@@ -317,11 +383,11 @@ async function wordsOf(file: string): Promise<Word[]> {
 /** Cut a scene's performed lines by their words and render each from its role's conversion pass (and from the raw
  *  recording, for the "You" player). Pauses inside a line: 0.6 s for the real person's deadpan, 0.12 s in a
  *  speed-read (also played 1.25x), 0.45 s otherwise. */
-async function cutScene(o: { slug?: string; sceneId: Id; file: string; lines: VoiceLine[]; passes: Map<string, Conversion>; said: Word[]; script?: Process["script"]; real: (who: string) => boolean; by: string }): Promise<Performance[]> {
+async function cutScene(o: { slug?: string; sceneId: Id; file: string; lines: VoiceLine[]; passes: Map<string, Conversion>; said: Word[]; presses: number[]; script?: Process["script"]; real: (who: string) => boolean; by: string }): Promise<Performance[]> {
   const film = filmOf(o.slug)
   await fs.mkdir(pub(`generated/${film}/voice/perf`), { recursive: true })
   const how = scriptHow(o.script)
-  const cuts = cutByWords(o.lines, o.said, (l) => (speedRead(how(l)) ? 0.12 : o.real(l.who) ? 0.6 : 0.45))
+  const cuts = cutByWords(o.lines, o.said, (l) => (speedRead(how(l)) ? 0.12 : o.real(l.who) ? 0.6 : 0.45), o.presses)
   const at = stamp()
   const out: Performance[] = []
   for (const [k, c] of cuts.entries()) {
@@ -372,7 +438,7 @@ export async function performScene(o: { slug?: string; who: string; take: Id; au
     wordsOf(pub(file)),
   ])
   const real = (w: string) => !!v.roles.find((r) => r.who === w)?.real
-  const mine = await cutScene({ slug: o.slug, sceneId: id, file, lines, passes, said, script: pr?.script, real, by: o.by })
+  const mine = await cutScene({ slug: o.slug, sceneId: id, file, lines, passes, said, presses: pressesOf(o.events), script: pr?.script, real, by: o.by })
   if (!mine.length) throw new Error("none of your lines had words in them")
   await mutate(
     [
@@ -398,13 +464,17 @@ export async function recutScene(slug: string | undefined, sceneId: Id, by: stri
   const reached = new Set(sc.events.filter((e) => e.kind === "mine").map((e) => e.n))
   const lines = [...base.lines].sort((a, b) => a.n - b.n).filter((l) => reached.has(l.n) && passes.has(l.who) && (sc.who === "all" || l.who === sc.who))
   const real = (w: string) => !!v.roles.find((r) => r.who === w)?.real
-  const mine = await cutScene({ slug, sceneId, file: sc.file, lines, passes, said: await wordsOf(pub(sc.file)), script: pr?.script, real, by })
+  const mine = await cutScene({ slug, sceneId, file: sc.file, lines, passes, said: await wordsOf(pub(sc.file)), presses: pressesOf(sc.events), script: pr?.script, real, by })
   if (!mine.length) throw new Error("no lines found in the scene")
-  const old = (v.performances ?? []).filter((p) => p.scene === sceneId && !p.removed)
+  // The scene's own cuts are replaced; a line fixed by hand since (generated, or converted again) keeps its pick.
+  const old = (v.performances ?? []).filter((p) => p.scene === sceneId && !p.removed && !p.note?.startsWith("Converted again"))
+  const replace = new Set(old.map((p) => p.id))
+  const picks = v.picks ?? {}
+  const take = mine.filter((p) => !picks[p.n] || replace.has(picks[p.n]))
   await mutate(
     [
       ...mine.map((p) => ({ op: "voice.perform" as const, performance: p, by })),
-      ...mine.map((p) => ({ op: "voice.keep" as const, n: p.n, id: p.id, by })),
+      ...take.map((p) => ({ op: "voice.keep" as const, n: p.n, id: p.id, by })),
       ...old.map((p) => ({ op: "voice.remove" as const, id: p.id, by })),
     ],
     slug,
@@ -526,20 +596,24 @@ export async function checkConversions(slug: string | undefined, by: string, opt
   return { checked: checked.length, fixed, said: Object.fromEntries(bad.map((c) => [c.p.n, c.said.join(" ")])) }
 }
 
-/** The 1994 broadcast sound, the same on every voice: the band of Betacam and VHS television audio (90 Hz to
- *  11 kHz), a little mud out and presence in, broadcast compression, then a fixed gain into a true-peak limiter so the
- *  whole read lands near -14 LUFS (web) with peaks under -1 dBTP. */
-export const MASTER_1994 = "highpass=f=90,lowpass=f=11000,equalizer=f=280:t=q:w=1.0:g=-2,equalizer=f=3200:t=q:w=1.0:g=2.5,acompressor=threshold=-22dB:ratio=3:attack=6:release=90:makeup=2"
+/** The 1994 sound: an antenna broadcast heard on a tube TV, the same on every voice. The set's small speaker passes
+ *  about 160 Hz to 6.5 kHz with a nasal resonance near 1.8 kHz; its amplifier compresses and saturates a little; the
+ *  antenna adds a faint hiss that slowly fades in and out under everything, so there is no digital silence between
+ *  lines. Then a fixed gain into a true-peak limiter lands the read near -14 LUFS (web), peaks under -1 dBTP. */
+export const TUBE_TV = "highpass=f=160,highpass=f=160,lowpass=f=6500,lowpass=f=6500,equalizer=f=350:t=q:w=1:g=-2,equalizer=f=1800:t=q:w=1.2:g=3.5,acompressor=threshold=-24dB:ratio=4:attack=4:release=120:makeup=3,volume=4dB,asoftclip=type=tanh,volume=-4dB"
+const antenna = (secs: number) => `anoisesrc=d=${secs.toFixed(2)}:c=white:a=0.02:r=48000,highpass=f=300,lowpass=f=6000,tremolo=f=0.25:d=0.25,volume=-12dB`
 
-/** Master the picked read (or `take`) to an MP3 to share: the 1994 chain, then gain to -14 LUFS into a limiter. */
+/** Master the picked read (or `take`) to an MP3 to share, with the tube-TV sound, at -14 LUFS into a limiter. */
 export async function masterRead(slug: string | undefined, out: string, take?: Id) {
   const v = (await load(slug)).process?.voice
   const t = v && (v.takes.find((x) => x.id === (take ?? v.pick)) ?? v.takes.at(-1))
   if (!t) throw new Error("no read to master")
-  const probe = await exec("ffmpeg", ["-hide_banner", "-nostats", "-i", pub(t.file), "-af", `${MASTER_1994},ebur128`, "-f", "null", "-"], { env, maxBuffer: 1 << 24 })
-  const before = Number(probe.stderr.match(/I:\s+(-?[\d.]+) LUFS\s*\n\s*Threshold/)?.[1] ?? -19)
-  await exec("ffmpeg", ["-v", "error", "-y", "-i", pub(t.file), "-af", `${MASTER_1994},volume=${(-14 - before).toFixed(2)}dB,alimiter=limit=0.84:attack=3:release=60:level=false`, "-ar", "44100", "-ac", "1", "-c:a", "libmp3lame", "-b:a", "192k", out], { env })
-  return { take: t.id, out, gain: round(-14 - before) }
+  const graph = (after: string) => `[0:a]aresample=48000,${TUBE_TV}[v];${antenna(t.duration + 1)}[n];[v][n]amix=inputs=2:normalize=0:duration=first${after}`
+  const probe = await exec("ffmpeg", ["-hide_banner", "-nostats", "-i", pub(t.file), "-filter_complex", graph(",ebur128"), "-f", "null", "-"], { env, maxBuffer: 1 << 24 })
+  const before = Number(probe.stderr.match(/I:\s+(-?[\d.]+) LUFS\s*\n\s*Threshold/)?.[1] ?? -20)
+  const gain = -14 - before
+  await exec("ffmpeg", ["-v", "error", "-y", "-i", pub(t.file), "-filter_complex", graph(`,volume=${gain.toFixed(2)}dB,alimiter=limit=0.84:attack=3:release=60:level=false`), "-ar", "44100", "-ac", "1", "-c:a", "libmp3lame", "-b:a", "192k", out], { env })
+  return { take: t.id, out, gain: round(gain) }
 }
 
 /** The silence before a line in a built read, from the script: an interruption cuts straight in, "after a beat" holds
@@ -580,6 +654,7 @@ export async function buildRead(slug: string | undefined, by: string, baseId?: I
   const parts: string[] = []
   const lines: VoiceLine[] = []
   let t = 0
+  let pops = 0
   for (const [i, l] of ordered.entries()) {
     const p = picked.get(l.n)
     const gap = gapBefore(ordered[i - 1], l, how, sound, real)
@@ -595,6 +670,7 @@ export async function buildRead(slug: string | undefined, by: string, baseId?: I
     // at different levels and moments read as one session.
     const edges = "silenceremove=start_periods=1:start_threshold=-50dB:start_silence=0.06,areverse,silenceremove=start_periods=1:start_threshold=-50dB:start_silence=0.12,areverse"
     await exec("ffmpeg", ["-v", "error", "-y", "-i", pub(src), "-vn", "-af", `${edges},loudnorm=I=-18:TP=-1.5:LRA=11`, "-ac", "1", "-ar", "48000", "-c:a", "pcm_s16le", seg], { env })
+    pops += await depop(seg)
     const d = await seconds(seg)
     parts.push(seg)
     lines.push({ n: l.n, beat: l.beat, who: l.who, text: l.text, start: round(t), end: round(t + d), file: src, match: p ? p.converted!.match : l.match })
@@ -613,7 +689,7 @@ export async function buildRead(slug: string | undefined, by: string, baseId?: I
     cast: { ...base.cast, ...Object.fromEntries(who.map((w) => [w, `performed by ${by}`])) },
     duration: round(t),
     lines,
-    note: `${picked.size} performed ${picked.size === 1 ? "line" : "lines"} (${who.join(", ") || "none"}), every other line as in read ${base.id}; gaps paced by the script's beats.`,
+    note: `${picked.size} performed ${picked.size === 1 ? "line" : "lines"} (${who.join(", ") || "none"}), every other line as in read ${base.id}; gaps paced by the script's beats${pops ? `; ${pops} ${pops === 1 ? "pop" : "pops"} dipped` : ""}.`,
     at: stamp(),
     built: true,
   }
