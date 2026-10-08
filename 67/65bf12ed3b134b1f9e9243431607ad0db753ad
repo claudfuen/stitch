@@ -1,0 +1,29 @@
+scripts/greybox.py
+  s_57926d8e065a50::t_196b12fc42c35e 572
+  s_57926d8e065a50::t_c98041bacd1684 170,172
+  s_57926d8e065a50::t_9487348a9b303f 37-44
+  s_57926d8e065a50::t_bffd795fe386f4 263
+  s_57926d8e065a50::t_4abd918f510950 366-367
+  s_57926d8e065a50::t_9daa0bc9871fff 371
+  s_57926d8e065a50::t_bc3a92c111487c 215
+  s_57926d8e065a50::t_407790b30cbd6d 193
+docs/blockout-motion.md
+  s_57926d8e065a50::t_15c5a35e8e0d02 53-70
+  s_57926d8e065a50::t_17108c5b8774a8 1-52,71-78
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "6765bf12ed3b134b1f9e9243431607ad0db753ad",
+  "prompts": {},
+  "sessions": {
+    "s_57926d8e065a50": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a3f94515-bcc4-4167-8e39-a7436a363df6",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Claudio Fuentes <imclaudfuen@gmail.com>"
+    }
+  }
+}
