@@ -109,9 +109,15 @@ export type Conversion = { file: string; model: string; provider: string; voice:
 /** A line a person performed into the app's recorder, saved as recorded (`file`), then converted to the role's voice.
  *  `n` and `text` are the line's in the read; `error` says why there is no conversion yet. `removed` hides it from
  *  the list (its files stay on disk). */
-export type Performance = { id: Id; n: number; who: Id; text: string; file: string; duration?: number; by: string; at: string; converted?: Conversion; error?: string; removed?: boolean }
+export type Performance = { id: Id; n: number; who: Id; text: string; file: string; duration?: number; by: string; at: string; converted?: Conversion; error?: string; removed?: boolean; scene?: Id; lead?: number }
+/** Scene mode: one continuous recording of a role through the whole read, with the other roles' lines played as cues
+ *  that wait for the performer. `events` place each line in recording time (seconds): a cue from play to end, the
+ *  performer's line from shown to done. The performer's lines are cut from it as performances (`scene`, with `lead`:
+ *  the silence before the line as performed), so one session keeps the voice consistent and the timing real. */
+export type SceneEvent = { n: number; kind: "cue" | "mine"; start: number; end: number }
+export type Scene = { id: Id; who: Id; take: Id; file: string; converted?: Conversion; events: SceneEvent[]; by: string; at: string }
 /** `picks`: the performance to use for each line, by line number. A person sets it; agents build from it. */
-export type Voice = { roles: VoiceRole[]; takes: VoiceTake[]; pick?: Id; performances?: Performance[]; picks?: Record<string, Id> }
+export type Voice = { roles: VoiceRole[]; takes: VoiceTake[]; pick?: Id; performances?: Performance[]; picks?: Record<string, Id>; scenes?: Scene[] }
 
 /** Which beats each camera is used in, from the camera script (the one source of truth for it). */
 export const beatsOf = (pr: Process, room: Id, cam: Id) =>

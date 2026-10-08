@@ -45,8 +45,9 @@ export function useRecorder() {
     } catch {}
   }, [])
 
-  const start = useCallback(async () => {
-    if (rec.current) return
+  /** Start recording; false when the microphone could not be opened (the reason is in `error`). */
+  const start = useCallback(async (): Promise<boolean> => {
+    if (rec.current) return true
     setError(null)
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
@@ -77,9 +78,11 @@ export function useRecorder() {
       r.start()
       rec.current = { r, chunks, stream, ctx, raf: requestAnimationFrame(tick), t0 }
       setState("recording")
+      return true
     } catch (e) {
       const name = (e as DOMException).name
       setError(name === "NotAllowedError" ? "The microphone is blocked for this page. Allow it in the browser's site settings, then try again." : name === "OverconstrainedError" ? "That microphone is gone. Pick another one." : (e as Error).message)
+      return false
     }
   }, [mic, listDevices])
 

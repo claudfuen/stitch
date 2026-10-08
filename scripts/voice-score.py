@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Speaker similarity of a clip's voice to Henrick's real recordings (resemblyzer cosine).
 usage: voice-score.py <audio-or-video>   -> prints "voice 0.83". Two real lines of his score about 0.71.
+       voice-score.py <clip> <clip> ...  -> "voice 0.83<TAB>clip" per clip, loading the model once.
 """
 import os, subprocess, sys, tempfile
 import numpy as np
@@ -13,5 +14,8 @@ def wav(p):
     return out
 enc = VoiceEncoder(verbose=False)
 r = enc.embed_utterance(preprocess_wav(wav(ref)))
-e = enc.embed_utterance(preprocess_wav(wav(sys.argv[1])))
-print("voice %.2f" % float(np.dot(e, r) / (np.linalg.norm(e) * np.linalg.norm(r))))
+clips = sys.argv[1:]
+for clip in clips:
+    e = enc.embed_utterance(preprocess_wav(wav(clip)))
+    s = float(np.dot(e, r) / (np.linalg.norm(e) * np.linalg.norm(r)))
+    print("voice %.2f" % s if len(clips) == 1 else "voice %.2f\t%s" % (s, clip), flush=True)

@@ -15,6 +15,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
 import { useRecorder } from "./recorder"
+import { SceneRecorder } from "./scene-recorder"
 import { projectSlug } from "./use-project"
 import { setParams, useParam, useScrollToHash } from "./url-state"
 
@@ -792,6 +793,19 @@ function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; na
   const into = role?.real ? `the clone of his real voice` : role?.voice ? `the voice you cast (${role.voice})` : "no voice yet: cast one below"
   const first = name(who ?? "").split(" ")[0]
   const go = (d: number) => lines[i + d] && setLine(String(lines[i + d].n), { push: false })
+  // Whole scene (one continuous take against the cues) is the default; line by line is for redoing single lines.
+  const [mode, setMode] = useParam("mode")
+  const scene = mode !== "lines"
+  const [building, setBuilding] = useState(false)
+  const [buildErr, setBuildErr] = useState<string | null>(null)
+  const rebuild = async () => {
+    setBuilding(true)
+    setBuildErr(null)
+    const r = await fetch(`/api/perform?read=1&by=${ME}${slugQ}`, { method: "POST" }).catch(() => null)
+    const j = r ? await r.json().catch(() => ({})) : {}
+    if (!r?.ok) setBuildErr(j.error ?? "Building the read failed")
+    setBuilding(false)
+  }
 
   /** A take the server did not save stays here, so it can be sent again instead of performed again. */
   const [unsaved, setUnsaved] = useState<{ blob: Blob; n: number } | null>(null)
@@ -820,13 +834,13 @@ function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; na
   const again = (id: string) => fetch(`/api/perform?convert=${id}${slugQ}`, { method: "POST" })
 
   // Space records and stops, arrows move between lines, while the panel is on screen and nobody is typing.
-  const keys = useRef({ toggle, go, idle: true })
+  const keys = useRef({ toggle, go, idle: true, scene: true })
   useEffect(() => {
-    keys.current = { toggle, go, idle: state === "idle" }
+    keys.current = { toggle, go, idle: state === "idle", scene }
   })
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.metaKey || e.ctrlKey || e.altKey || (e.target as HTMLElement).closest("input, textarea, select, [contenteditable=true], [role=listbox], [role=option]")) return
+      if (keys.current.scene || e.metaKey || e.ctrlKey || e.altKey || (e.target as HTMLElement).closest("input, textarea, select, [contenteditable=true], [role=listbox], [role=option]")) return
       const r = box.current?.getBoundingClientRect()
       if (!r || r.bottom < 0 || r.top > window.innerHeight) return
       if (e.code === "Space") {
@@ -853,7 +867,26 @@ function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; na
         </span>
       </div>
       <p className="text-sm text-muted-foreground">{name(who)}&apos;s takes convert to {into}.</p>
+      <div className="flex flex-wrap items-center gap-2">
+        <div className="flex rounded-md border p-0.5">
+          <Button size="sm" variant={scene ? "secondary" : "ghost"} onClick={() => setMode(null, { push: false })}>
+            Whole scene
+          </Button>
+          <Button size="sm" variant={scene ? "ghost" : "secondary"} onClick={() => setMode("lines", { push: false })}>
+            Line by line
+          </Button>
+        </div>
+        {lines.some((l) => picks[l.n]) && (
+          <Button size="sm" variant="outline" className="ml-auto" disabled={building} onClick={rebuild} title="A new read with your picked takes in place of the stand-in lines">
+            {building && <LoaderCircle className="animate-spin" />} Build the read from my picks
+          </Button>
+        )}
+      </div>
+      {buildErr && <p className="text-sm text-amber-600 dark:text-amber-400">{buildErr}</p>}
 
+      {scene ? (
+        <SceneRecorder take={take} who={who} name={name} by={ME} />
+      ) : (
       <div className="space-y-4 rounded-lg border p-5">
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <span>
@@ -970,11 +1003,12 @@ function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; na
           </div>
         )}
       </div>
+      )}
 
       <ol className="grid gap-0.5">
         {lines.map((l, k) => (
           <li key={l.n}>
-            <button type="button" onClick={() => setLine(String(l.n), { push: false })} className={cn("flex w-full items-baseline gap-3 rounded-md px-2 py-1.5 text-left text-sm hover:bg-muted", l.n === line.n && "bg-muted")}>
+            <button type="button" onClick={() => setParams({ line: String(l.n), mode: "lines" }, { push: false, keepHash: true })} className={cn("flex w-full items-baseline gap-3 rounded-md px-2 py-1.5 text-left text-sm hover:bg-muted", l.n === line.n && "bg-muted")}>
               <span className="w-5 shrink-0 font-mono text-xs text-muted-foreground">{k + 1}</span>
               <span className="min-w-0 flex-1 truncate">{l.text}</span>
               {picks[l.n] ? <Check className="size-4 shrink-0 text-emerald-600" aria-label="Take picked" /> : done.has(l.n) ? <span className="size-1.5 shrink-0 self-center rounded-full bg-muted-foreground/60" title="Recorded, no take picked yet" /> : null}

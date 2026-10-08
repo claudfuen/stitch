@@ -50,7 +50,7 @@ import { CHECKS, type Asset, type CheckKey, type GenStep, type Media, type TakeV
 import { parseStep, stepFromSidecar } from "../lib/models"
 import type { Op } from "../lib/ops"
 import { load, mutate } from "../lib/store"
-import { convert, perform } from "../lib/perform"
+import { buildRead, convert, perform, performScene } from "../lib/perform"
 import { latestCut, modelBoard, pick, planView, projectHead, shotRows } from "../lib/derive"
 import type { PlanList } from "../lib/ops"
 import { beatsOf, blockedBy, currentStage, openNotes, runtime, words, type Candidate, type GateStatus, type StageId } from "../lib/process"
@@ -285,6 +285,17 @@ async function main() {
       if (sub === "convert" && rest[0]) {
         const p = await convert(process.env.STITCH_PROJECT, rest[0])
         return console.log(p.converted ? `${p.id}: ${p.converted.file}${p.converted.match !== undefined ? ` match ${p.converted.match.toFixed(2)}` : ""}` : `${p.id} not converted: ${p.error}`)
+      }
+      if (sub === "read") {
+        const t = await buildRead(process.env.STITCH_PROJECT, flag("by") ?? "claude", flag("base"))
+        return console.log(`read ${t.id}: ${t.file} (${t.duration} s, ${t.lines.length} lines)`)
+      }
+      if (sub === "scene" && rest.length >= 3) {
+        // stitch voice scene <who> <audio> <events.json> [--take <read the cues came from>]
+        const v = (await load()).process?.voice
+        const r = await performScene({ slug: process.env.STITCH_PROJECT, who: rest[0], take: flag("take") ?? v?.pick ?? v?.takes.at(-1)?.id ?? "", audio: readFileSync(rest[1]), ext: path.extname(rest[1]).slice(1), events: JSON.parse(readFileSync(rest[2], "utf8")), by: flag("by") ?? "Claudio" })
+        for (const p of r.performances) console.log(`line ${String(p.n).padStart(2)}: lead ${p.lead} s, ${p.duration} s${p.converted?.match !== undefined ? `, match ${p.converted.match.toFixed(2)}` : ""}  ${p.converted?.file}`)
+        return console.log(`read ${r.take.id}: ${r.take.file} (${r.take.duration} s)`)
       }
       if (sub === "keep" && rest.length >= 2) return run([{ op: "voice.keep", n: Number(rest[0]), id: rest[1] === "none" ? null : rest[1], by: flag("by") ?? "claude" }])
       if ((sub === "remove" || sub === "restore") && rest[0]) return run([{ op: "voice.remove", id: rest[0], removed: sub === "remove", by: flag("by") ?? "claude" }])
