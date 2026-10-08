@@ -58,12 +58,14 @@ async function saveWav(audio: Uint8Array, ext: string, rel: string): Promise<str
 
 const seconds = async (file: string) => Number((await exec("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", file], { env })).stdout.trim()) || 0
 
-/** One voice changer call: a WAV in, the same performance in the target voice out (MP3). Returns the request id. */
-async function sts(src: string, target: { voiceId: string }, out: string): Promise<string | undefined> {
+/** One voice changer call: a WAV in, the same performance in the target voice out (MP3). Returns the request id.
+ *  A `seed` (and other settings) gives a different try at the same performance. */
+async function sts(src: string, target: { voiceId: string }, out: string, o: { seed?: number; settings?: typeof SETTINGS } = {}): Promise<string | undefined> {
   const form = new FormData()
   form.append("audio", new Blob([new Uint8Array(await fs.readFile(src))], { type: "audio/wav" }), path.basename(src))
   form.append("model_id", STS_MODEL)
-  form.append("voice_settings", JSON.stringify(SETTINGS))
+  form.append("voice_settings", JSON.stringify(o.settings ?? SETTINGS))
+  if (o.seed !== undefined) form.append("seed", String(o.seed))
   const res = await fetch(`${API}/v1/speech-to-speech/${target.voiceId}?output_format=mp3_44100_192`, { method: "POST", headers: { "xi-api-key": key() }, body: form, signal: AbortSignal.timeout(300_000) })
   if (!res.ok) throw new Error(`ElevenLabs ${res.status}: ${(await res.text()).slice(0, 300)}`)
   await fs.writeFile(out, new Uint8Array(await res.arrayBuffer()))
@@ -457,6 +459,87 @@ export async function generateLine(slug: string | undefined, n: number, by: stri
   await mutate([{ op: "voice.perform", performance: perf, by }, { op: "voice.keep", n, id, by }], slug)
   await buildRead(slug, by)
   return perf
+}
+
+/** What a clip says, as normalized words (ElevenLabs Scribe, the clip heard on its own, with no context to help). */
+const heardIn = async (file: string) => (await words(file)).map((w) => norm(w.text))
+/** How many words two transcripts disagree on (each missing or extra word counts one). */
+function differ(a: string[], b: string[]) {
+  const at = align(a, b)
+  return a.length - new Set(at.filter((x) => x >= 0)).size + at.filter((x) => x < 0).length
+}
+
+/** Convert a performed take again from its own recording, best of `tries`, for a conversion that mangled a word
+ *  ("ministries" came out as "monasteries"). Each try uses another seed and alternates the stability setting; each is
+ *  heard on its own, and the one that says what the performer said wins (then the closest to the real voice). The
+ *  winner is a new take of the line, picked; the read is rebuilt unless `rebuild` is false. */
+export async function reconvert(slug: string | undefined, id: Id, by: string, opts: { tries?: number; rebuild?: boolean } = {}): Promise<Performance> {
+  const v = (await load(slug)).process?.voice
+  const perf = v?.performances?.find((x) => x.id === id)
+  if (!v || !perf) throw new Error(`no performance ${id}`)
+  if (perf.converted?.file === perf.file) throw new Error("a generated take has no recording to convert again: generate the line instead")
+  const target = targetVoice(v, perf.who)
+  if (!target) throw new Error(`cast a voice for ${perf.who} first`)
+  const want = await heardIn(pub(perf.file))
+  const nid = `p${Date.now().toString(36)}`
+  const rel = `generated/${filmOf(slug)}/voice/perf/${pad(perf.n)}-${perf.who}-${nid}`
+  const tries = await Promise.all(
+    Array.from({ length: opts.tries ?? 4 }, async (_, k) => {
+      const out = pub(`${rel}-try${k + 1}.mp3`)
+      const job = await sts(pub(perf.file), target, out, { seed: 11 + k, settings: k % 2 ? { stability: 0.65, similarity_boost: 0.8 } : SETTINGS })
+      return { out, job, off: differ(want, await heardIn(out)) }
+    }),
+  )
+  const real = !!v.roles.find((r) => r.who === perf.who)?.real
+  const ms = real ? await scores(tries.map((t) => t.out)) : tries.map(() => undefined)
+  const best = tries.map((t, i) => ({ ...t, match: ms[i] })).sort((a, b) => a.off - b.off || (b.match ?? 0) - (a.match ?? 0))[0]
+  const conv = `${rel}-${safe(target.voice)}.mp3`
+  await fs.copyFile(best.out, pub(conv))
+  const at = stamp()
+  const next: Performance = {
+    ...perf,
+    id: nid,
+    by,
+    at,
+    error: undefined,
+    converted: { file: conv, model: "ElevenLabs Voice Changer", provider: "ElevenLabs", voice: target.voice, voiceId: target.voiceId, job: best.job, match: best.match, at },
+    note: `Converted again from the same recording: the best of ${tries.length} tries (${best.off === 0 ? "says exactly what was performed" : `${best.off} ${best.off === 1 ? "word" : "words"} off what was performed`}).`,
+  }
+  await mutate([{ op: "voice.perform", performance: next, by }, { op: "voice.keep", n: perf.n, id: nid, by }], slug)
+  if (opts.rebuild !== false) await buildRead(slug, by)
+  return next
+}
+
+/** Check every picked, performed line: hear the recording and its conversion each on its own, and convert again any
+ *  line whose conversion says other words than the performer did. Rebuilds the read once at the end. */
+export async function checkConversions(slug: string | undefined, by: string, opts: { tries?: number } = {}) {
+  const v = (await load(slug)).process?.voice
+  if (!v) throw new Error("no voice stage")
+  const picked = Object.values(v.picks ?? {})
+    .map((id) => v.performances?.find((p) => p.id === id && !p.removed && p.converted && p.converted.file !== p.file))
+    .filter((p): p is Performance => !!p)
+  const checked = await Promise.all(picked.map(async (p) => ({ p, said: await heardIn(pub(p.file)), got: await heardIn(pub(p.converted!.file)) })))
+  const bad = checked.filter((c) => differ(c.said, c.got) > 0)
+  const fixed: { n: number; was: string; now: Performance }[] = []
+  for (const c of bad) fixed.push({ n: c.p.n, was: c.got.join(" "), now: await reconvert(slug, c.p.id, by, { tries: opts.tries, rebuild: false }) })
+  if (fixed.length) await buildRead(slug, by)
+  return { checked: checked.length, fixed, said: Object.fromEntries(bad.map((c) => [c.p.n, c.said.join(" ")])) }
+}
+
+/** The 1994 broadcast sound, the same on every voice: the band of Betacam and VHS television audio (90 Hz to
+ *  11 kHz), a little mud out and presence in, broadcast compression, then a fixed gain into a true-peak limiter so the
+ *  whole read lands near -14 LUFS (web) with peaks under -1 dBTP. */
+export const MASTER_1994 = "highpass=f=90,lowpass=f=11000,equalizer=f=280:t=q:w=1.0:g=-2,equalizer=f=3200:t=q:w=1.0:g=2.5,acompressor=threshold=-22dB:ratio=3:attack=6:release=90:makeup=2"
+
+/** Master the picked read (or `take`) to an MP3 to share: the 1994 chain, then gain to -14 LUFS into a limiter. */
+export async function masterRead(slug: string | undefined, out: string, take?: Id) {
+  const v = (await load(slug)).process?.voice
+  const t = v && (v.takes.find((x) => x.id === (take ?? v.pick)) ?? v.takes.at(-1))
+  if (!t) throw new Error("no read to master")
+  const probe = await exec("ffmpeg", ["-hide_banner", "-nostats", "-i", pub(t.file), "-af", `${MASTER_1994},ebur128`, "-f", "null", "-"], { env, maxBuffer: 1 << 24 })
+  const before = Number(probe.stderr.match(/I:\s+(-?[\d.]+) LUFS\s*\n\s*Threshold/)?.[1] ?? -19)
+  await exec("ffmpeg", ["-v", "error", "-y", "-i", pub(t.file), "-af", `${MASTER_1994},volume=${(-14 - before).toFixed(2)}dB,alimiter=limit=0.84:attack=3:release=60:level=false`, "-ar", "44100", "-ac", "1", "-c:a", "libmp3lame", "-b:a", "192k", out], { env })
+  return { take: t.id, out, gain: round(-14 - before) }
 }
 
 /** The silence before a line in a built read, from the script: an interruption cuts straight in, "after a beat" holds

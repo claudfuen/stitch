@@ -50,7 +50,7 @@ import { CHECKS, type Asset, type CheckKey, type GenStep, type Media, type TakeV
 import { parseStep, stepFromSidecar } from "../lib/models"
 import type { Op } from "../lib/ops"
 import { load, mutate } from "../lib/store"
-import { buildRead, convert, generateLine, perform, performScene, recutScene } from "../lib/perform"
+import { buildRead, checkConversions, convert, generateLine, masterRead, perform, performScene, reconvert, recutScene } from "../lib/perform"
 import { latestCut, modelBoard, pick, planView, projectHead, shotRows } from "../lib/derive"
 import type { PlanList } from "../lib/ops"
 import { beatsOf, blockedBy, currentStage, openNotes, runtime, words, type Candidate, type GateStatus, type StageId } from "../lib/process"
@@ -285,6 +285,20 @@ async function main() {
       if (sub === "convert" && rest[0]) {
         const p = await convert(process.env.STITCH_PROJECT, rest[0])
         return console.log(p.converted ? `${p.id}: ${p.converted.file}${p.converted.match !== undefined ? ` match ${p.converted.match.toFixed(2)}` : ""}` : `${p.id} not converted: ${p.error}`)
+      }
+      if (sub === "master") {
+        // stitch voice master [--out <file.mp3>] [--take <read>]: the read mastered with the 1994 broadcast sound
+        const r = await masterRead(process.env.STITCH_PROJECT, flag("out") ?? `${process.env.HOME}/Downloads/${process.env.STITCH_PROJECT ?? "ministry"}-read-1994-master.mp3`, flag("take"))
+        return console.log(`read ${r.take} mastered (+${r.gain} dB): ${r.out}`)
+      }
+      if (sub === "reconvert" && rest[0]) {
+        const p = await reconvert(process.env.STITCH_PROJECT, rest[0], flag("by") ?? "claude", { tries: flag("tries") ? Number(flag("tries")) : undefined })
+        return console.log(`line ${p.n} ${p.who}: ${p.converted?.file}${p.converted?.match !== undefined ? ` match ${p.converted.match.toFixed(2)}` : ""}  ${p.note}`)
+      }
+      if (sub === "check") {
+        const r = await checkConversions(process.env.STITCH_PROJECT, flag("by") ?? "claude", { tries: flag("tries") ? Number(flag("tries")) : undefined })
+        for (const f of r.fixed) console.log(`line ${f.n}: performed "${r.said[f.n]}", the conversion said "${f.was}". ${f.now.note}`)
+        return console.log(`${r.checked} lines checked, ${r.fixed.length} converted again`)
       }
       if (sub === "recut" && rest[0]) {
         const r = await recutScene(process.env.STITCH_PROJECT, rest[0], flag("by") ?? "claude")
