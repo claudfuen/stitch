@@ -4,18 +4,19 @@
 // then one decision bar: approve, request changes or reject, with a note. Comments sit on the beat they are about.
 // Every action is a named op (lib/ops.ts), the same ones agents use from the CLI (`stitch gates`, `stitch feedback`).
 
-import { ChevronDown, Lock } from "lucide-react"
-import { useState } from "react"
+import { Check, ChevronDown, ChevronLeft, ChevronRight, LoaderCircle, Lock, Mic, Play, RotateCcw, Square } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
 import type { ProjectWithRev } from "@/lib/model"
 import type { Op } from "@/lib/ops"
-import { GATE_LABEL, beatsOf, blockedBy, currentStage, openNotes, runtime, words, type Audition, type Beat, type Camera, type Candidate, type Concept, type GateStatus, type Note, type Process, type Room, type SheetItem, type SheetKind, type Stage, type StageId, type VoiceLine } from "@/lib/process"
+import { GATE_LABEL, beatsOf, blockedBy, currentStage, openNotes, runtime, words, type Audition, type Beat, type Camera, type Candidate, type Concept, type GateStatus, type Note, type Process, type Room, type SheetItem, type SheetKind, type Stage, type StageId, type VoiceLine, type VoiceTake } from "@/lib/process"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
+import { useRecorder } from "./recorder"
 import { projectSlug } from "./use-project"
-import { useParam, useScrollToHash } from "./url-state"
+import { setParams, useParam, useScrollToHash } from "./url-state"
 
 const ME = "Claudio"
 type Props = { project: ProjectWithRev; op: (...o: Op[]) => Promise<void> }
@@ -637,6 +638,8 @@ function VoiceStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["o
   const planned = pr.script.beats.at(-1)?.t1 ?? 0
   const name = (who: string) => pr.cast?.find((c) => c.id === who)?.name ?? who
   const speech = (beat: string) => (take?.lines ?? []).filter((l) => l.beat === beat).reduce((n, l) => n + (l.end - l.start), 0)
+  /** Roles whose other auditions are showing; a cast role shows only its pick until opened. */
+  const [openRoles, setOpenRoles] = useState<Record<string, boolean>>({})
   return (
     <article className="space-y-12">
       <header className="space-y-4">
@@ -646,9 +649,10 @@ function VoiceStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["o
           <p className="text-[15px] leading-relaxed text-muted-foreground">Every line is performed before any picture is made, so the pictures follow the acting. The whole film is read in one take, so each line answers the one before it.</p>
         </div>
         <ol className="space-y-1.5 rounded-md bg-muted/50 px-4 py-3 text-sm leading-relaxed">
-          <li><span className="font-medium">1. Cast.</span> Play the auditions for each role and pick a voice. Each one reads that role&apos;s own lines: voices from the ElevenLabs library and voices designed from the character brief. Henrick is his own voice either way: pick how it is made.</li>
-          <li><span className="font-medium">2. Listen to the read.</span> The whole film in one take, then line by line. Comment on any line that is wrong, or on the casting.</li>
-          <li><span className="font-medium">3. Approve.</span> The lines lock, and the camera script is retimed to them.</li>
+          <li><span className="font-medium">1. Perform.</span> Pick a role, read each line into the recorder (Space starts and stops), and hear it back in the role&apos;s voice. Your timing and delivery stay; only the voice changes.</li>
+          <li><span className="font-medium">2. Cast.</span> Play the auditions for each role and pick a voice. Each one reads that role&apos;s own lines: voices from the ElevenLabs library and voices designed from the character brief. Henrick is his own voice either way: pick how it is made.</li>
+          <li><span className="font-medium">3. Listen to the read.</span> The whole film in one take, then line by line. Comment on any line that is wrong, or on the casting.</li>
+          <li><span className="font-medium">4. Approve.</span> The lines lock, and the camera script is retimed to them.</li>
         </ol>
         {take && (
           <p className="text-sm text-muted-foreground">
@@ -661,6 +665,12 @@ function VoiceStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["o
         <p className="text-[15px] text-muted-foreground">Auditions and the first read are being made.</p>
       ) : (
         <>
+          {take && (
+            <ProposalSection title="Perform" about="Read a role's lines yourself, one at a time. Each take is saved on this computer, then the ElevenLabs voice changer turns it into the role's voice: your timing, pauses and delivery stay, the timbre becomes theirs. Nothing is trained." target="voice:perform" pr={pr} op={op}>
+              <PerformPanel pr={pr} take={take} name={name} />
+            </ProposalSection>
+          )}
+
           <ProposalSection title="Casting" about="A voice for each role. Each audition reads that character's own lines with the same direction, so you compare voices, not performances." target="voice:cast" pr={pr} op={op}>
             <div className="space-y-6">
               {v.roles.map((r) => (
@@ -669,11 +679,16 @@ function VoiceStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["o
                     <span className="font-medium">{name(r.who)}</span>
                     <span className="text-muted-foreground">{pr.cast?.find((c) => c.id === r.who)?.voice}</span>
                     {(r.voice || r.real) && <span className="ml-auto shrink-0 text-xs font-medium">{r.real ? `His own voice${r.voice ? `: ${r.voice}` : ""}` : `Cast: ${r.voice}`}</span>}
+                    {r.voice && r.auditions.length > 1 && (
+                      <button type="button" className="shrink-0 text-xs text-muted-foreground hover:text-foreground" onClick={() => setOpenRoles((s) => ({ ...s, [r.who]: !s[r.who] }))}>
+                        {openRoles[r.who] ? "Hide the others" : `${r.auditions.length - 1} other audition${r.auditions.length === 2 ? "" : "s"}`}
+                      </button>
+                    )}
                   </p>
                   {r.real && <p className="text-sm text-muted-foreground">{r.note ?? "Read in the take by a stand-in voice, then converted to his real recording. The match to his recording is shown on each of his lines below."}</p>}
                   {r.auditions.length > 0 && (
                     <ul className="divide-y rounded-md border">
-                      {r.auditions.map((a) => (
+                      {r.auditions.filter((a) => !r.voice || openRoles[r.who] || a.voice === r.voice).map((a) => (
                         <li key={a.voice} className="space-y-1.5 px-3 py-2.5">
                           <div className="flex items-baseline gap-2">
                             <span className="min-w-0 truncate text-sm font-medium">{a.voice}</span>
@@ -743,6 +758,174 @@ function VoiceStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["o
 
       <StageSettings stage={stage} op={op} />
     </article>
+  )
+}
+
+/** Stage 04's recorder: a person performs a role's lines one at a time, with the line before as the cue. Each take is
+ *  saved on this machine and converted to the role's voice by the server (POST /api/perform, lib/perform.ts); both
+ *  land as voice.perform ops, so agents (`stitch voice perform`) and the board see the same takes. */
+function PerformPanel({ pr, take, name }: { pr: Process; take: VoiceTake; name: (who: string) => string }) {
+  const v = pr.voice!
+  const roles = v.roles.filter((r) => take.lines.some((l) => l.who === r.who))
+  const [whoParam] = useParam("who")
+  const who = roles.find((r) => r.who === whoParam)?.who ?? roles.find((r) => r.real)?.who ?? roles[0]?.who
+  const role = v.roles.find((r) => r.who === who)
+  const lines = take.lines.filter((l) => l.who === who)
+  const [lineParam, setLine] = useParam("line")
+  const line = lines.find((l) => String(l.n) === lineParam) ?? lines[0]
+  const i = line ? lines.indexOf(line) : -1
+  const cue = line ? take.lines[take.lines.indexOf(line) - 1] : undefined
+  const beat = pr.script.beats.find((b) => b.id === line?.beat)
+  const how = beat?.lines.find((x) => x.who.toLowerCase() === line?.who && (x.text.includes(line.text) || line.text.includes(x.text)))?.how
+  const all = v.performances ?? []
+  const takes = all.filter((p) => p.n === line?.n).sort((a, b) => b.at.localeCompare(a.at))
+  const done = new Set(all.filter((p) => p.who === who).map((p) => p.n))
+  const { state, setState, error, setError, devices, mic, setMic, start, stop, meter, clock } = useRecorder()
+  const box = useRef<HTMLDivElement>(null)
+  const slugQ = projectSlug() ? `&p=${encodeURIComponent(projectSlug())}` : ""
+  const into = role?.real ? `the clone of his real voice` : role?.voice ? `the voice you cast (${role.voice})` : "no voice yet: cast one below"
+  const first = name(who ?? "").split(" ")[0]
+  const go = (d: number) => lines[i + d] && setLine(String(lines[i + d].n), { push: false })
+
+  const toggle = async () => {
+    if (!line) return
+    if (state === "idle") return start()
+    if (state !== "recording") return
+    const blob = await stop()
+    if (!blob) return
+    setState("saving")
+    try {
+      const r = await fetch(`/api/perform?n=${line.n}&by=${ME}${slugQ}`, { method: "POST", headers: { "content-type": blob.type }, body: blob })
+      const j = await r.json()
+      if (!r.ok) setError(j.error ?? "Saving the take failed.")
+      else if (j.error) setError(`Saved, but not converted: ${j.error}`)
+    } catch (e) {
+      setError((e as Error).message)
+    }
+    setState("idle")
+  }
+  const again = (id: string) => fetch(`/api/perform?convert=${id}${slugQ}`, { method: "POST" })
+
+  // Space records and stops, arrows move between lines, while the panel is on screen and nobody is typing.
+  const keys = useRef({ toggle, go, idle: true })
+  useEffect(() => {
+    keys.current = { toggle, go, idle: state === "idle" }
+  })
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.metaKey || e.ctrlKey || e.altKey || (e.target as HTMLElement).closest("input, textarea, select, [contenteditable=true], [role=listbox], [role=option]")) return
+      const r = box.current?.getBoundingClientRect()
+      if (!r || r.bottom < 0 || r.top > window.innerHeight) return
+      if (e.code === "Space") {
+        e.preventDefault()
+        ;(document.activeElement as HTMLElement | null)?.blur?.()
+        keys.current.toggle()
+      } else if (keys.current.idle && (e.key === "ArrowRight" || e.key === "ArrowLeft")) {
+        e.preventDefault()
+        keys.current.go(e.key === "ArrowRight" ? 1 : -1)
+      }
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [])
+
+  if (!line || !who) return <p className="text-sm text-muted-foreground">No lines to perform in this read.</p>
+  return (
+    <div ref={box} className="space-y-5">
+      <div className="flex flex-wrap items-center gap-2">
+        <Choice value={who} items={roles.map((r) => ({ value: r.who, label: name(r.who) }))} onChange={(w) => setParams({ who: w, line: null }, { push: false, keepHash: true })} />
+        {devices.length > 1 && <Choice value={mic || devices[0].value} items={devices} onChange={setMic} />}
+        <span className="ml-auto text-sm text-muted-foreground">
+          {lines.filter((l) => done.has(l.n)).length} of {lines.length} lines recorded
+        </span>
+      </div>
+      <p className="text-sm text-muted-foreground">{name(who)}&apos;s takes convert to {into}.</p>
+
+      <div className="space-y-4 rounded-lg border p-5">
+        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <span>
+            Line {i + 1} of {lines.length}
+            {beat ? ` · ${beat.title}` : ""}
+          </span>
+          <Button size="icon-sm" variant="ghost" className="ml-auto" disabled={i === 0 || state !== "idle"} onClick={() => go(-1)} aria-label="Previous line">
+            <ChevronLeft />
+          </Button>
+          <Button size="icon-sm" variant="ghost" disabled={i === lines.length - 1 || state !== "idle"} onClick={() => go(1)} aria-label="Next line">
+            <ChevronRight />
+          </Button>
+        </div>
+        {cue && (
+          <div className="flex items-baseline gap-2 text-sm text-muted-foreground">
+            <span className="min-w-0">
+              <span className="font-medium">{name(cue.who)}:</span> {cue.text}
+            </span>
+            <button type="button" className="ml-auto inline-flex shrink-0 items-center gap-1 text-xs hover:text-foreground" onClick={() => new Audio(`/${cue.file}`).play()}>
+              <Play className="size-3" /> Hear the cue
+            </button>
+          </div>
+        )}
+        <p className="text-2xl leading-snug font-medium tracking-tight">{line.text}</p>
+        {how && <p className="text-sm text-muted-foreground italic">({how})</p>}
+        <div className="flex items-center gap-3">
+          <Button size="lg" variant={state === "recording" ? "destructive" : "default"} disabled={state === "saving"} onClick={(e) => (e.currentTarget.blur(), toggle())}>
+            {state === "recording" ? <Square /> : state === "saving" ? <LoaderCircle className="animate-spin" /> : <Mic />}
+            {state === "recording" ? "Stop" : state === "saving" ? `Converting to ${first}` : "Record"}
+          </Button>
+          <kbd className="rounded border px-1.5 py-0.5 font-mono text-[11px] text-muted-foreground">Space</kbd>
+          {state === "recording" && (
+            <>
+              <div className="h-1.5 w-40 overflow-hidden rounded-full bg-muted">
+                <div ref={meter} className="h-full w-0 bg-emerald-500 data-[hot=true]:bg-red-500" />
+              </div>
+              <span ref={clock} className="font-mono text-xs text-muted-foreground tabular-nums" />
+            </>
+          )}
+        </div>
+        {error && <p className="text-sm text-amber-600 dark:text-amber-400">{error}</p>}
+        {takes.length > 0 && (
+          <ol className="space-y-3">
+            {takes.map((p, k) => (
+              <li key={p.id} className="space-y-1.5 border-t pt-3">
+                <p className="text-xs text-muted-foreground">
+                  Take {takes.length - k}
+                  {p.duration ? ` · ${p.duration.toFixed(1)} s` : ""} · {when(p.at)}
+                </p>
+                <div className="grid grid-cols-[7rem_minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1.5">
+                  <span className="text-sm text-muted-foreground">You</span>
+                  <audio controls preload="metadata" src={`/${p.file}`} className="h-8 w-full" />
+                  <span />
+                  <span className="truncate text-sm font-medium">{first}</span>
+                  {p.converted ? <audio controls preload="metadata" src={`/${p.converted.file}`} className="h-8 w-full" /> : <span className={cn("text-sm", p.error ? "text-amber-600 dark:text-amber-400" : "text-muted-foreground")}>{p.error ?? "Converting..."}</span>}
+                  {p.converted?.match !== undefined ? (
+                    <span className="font-mono text-xs text-muted-foreground" title="Speaker similarity to his real recording (resemblyzer). Two real lines of his score about 0.71.">
+                      match {p.converted.match.toFixed(2)}
+                    </span>
+                  ) : p.error ? (
+                    <Button size="sm" variant="ghost" onClick={() => again(p.id)}>
+                      <RotateCcw /> Again
+                    </Button>
+                  ) : (
+                    <span />
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
+        )}
+      </div>
+
+      <ol className="grid gap-0.5">
+        {lines.map((l, k) => (
+          <li key={l.n}>
+            <button type="button" onClick={() => setLine(String(l.n), { push: false })} className={cn("flex w-full items-baseline gap-3 rounded-md px-2 py-1.5 text-left text-sm hover:bg-muted", l.n === line.n && "bg-muted")}>
+              <span className="w-5 shrink-0 font-mono text-xs text-muted-foreground">{k + 1}</span>
+              <span className="min-w-0 flex-1 truncate">{l.text}</span>
+              {done.has(l.n) && <Check className="size-4 shrink-0 text-emerald-600" aria-label="Recorded" />}
+            </button>
+          </li>
+        ))}
+      </ol>
+    </div>
   )
 }
 

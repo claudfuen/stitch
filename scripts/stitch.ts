@@ -50,6 +50,7 @@ import { CHECKS, type Asset, type CheckKey, type GenStep, type Media, type TakeV
 import { parseStep, stepFromSidecar } from "../lib/models"
 import type { Op } from "../lib/ops"
 import { load, mutate } from "../lib/store"
+import { convert, perform } from "../lib/perform"
 import { latestCut, modelBoard, pick, planView, projectHead, shotRows } from "../lib/derive"
 import type { PlanList } from "../lib/ops"
 import { beatsOf, blockedBy, currentStage, openNotes, runtime, words, type Candidate, type GateStatus, type StageId } from "../lib/process"
@@ -277,7 +278,15 @@ async function main() {
       }
       if (sub === "cast" && rest.length >= 2) return run([{ op: "voice.cast", who: rest[0], voice: rest[1], by: flag("by") ?? "claude" }])
       if (sub === "pick" && rest[0]) return run([{ op: "voice.pick", take: rest[0], by: flag("by") ?? "claude" }])
-      throw new Error("usage: stitch voice set <voice.json> | voice cast <who> <voice> | voice pick <take>")
+      if (sub === "perform" && rest.length >= 2) {
+        const p = await perform({ slug: process.env.STITCH_PROJECT, n: Number(rest[0]), audio: readFileSync(rest[1]), ext: path.extname(rest[1]).slice(1), by: flag("by") ?? "Claudio" })
+        return console.log(`${p.id} line ${p.n} (${p.who}): ${p.file}${p.converted ? ` -> ${p.converted.file}${p.converted.match !== undefined ? ` match ${p.converted.match.toFixed(2)}` : ""}` : ` not converted: ${p.error}`}`)
+      }
+      if (sub === "convert" && rest[0]) {
+        const p = await convert(process.env.STITCH_PROJECT, rest[0])
+        return console.log(p.converted ? `${p.id}: ${p.converted.file}${p.converted.match !== undefined ? ` match ${p.converted.match.toFixed(2)}` : ""}` : `${p.id} not converted: ${p.error}`)
+      }
+      throw new Error("usage: stitch voice set <voice.json> | voice cast <who> <voice> | voice pick <take> | voice perform <line> <audio> | voice convert <performance>")
     }
     case "sheet": {
       if (sub === "add" && rest.length >= 2) return sheetAdd(rest[0], rest[1])

@@ -103,7 +103,13 @@ export type Audition = { voice: string; file: string; model: string; provider: s
 export type VoiceRole = { who: Id; voice?: string; real?: boolean; auditions: Audition[]; note?: string }
 export type VoiceLine = { n: number; beat: Id; who: Id; text: string; start: number; end: number; file: string; match?: number }
 export type VoiceTake = { id: Id; file: string; model: string; provider: string; job?: string; cast: Record<string, string>; duration: number; lines: VoiceLine[]; note?: string; at: string }
-export type Voice = { roles: VoiceRole[]; takes: VoiceTake[]; pick?: Id }
+/** A performance converted to the role's voice by speech-to-speech: the timing, melody and accent stay the performer's,
+ *  the timbre becomes the role's. `match` as on Audition. */
+export type Conversion = { file: string; model: string; provider: string; voice: string; voiceId: string; job?: string; match?: number; at: string }
+/** A line a person performed into the app's recorder, saved as recorded (`file`), then converted to the role's voice.
+ *  `n` and `text` are the line's in the read; `error` says why there is no conversion yet. */
+export type Performance = { id: Id; n: number; who: Id; text: string; file: string; duration?: number; by: string; at: string; converted?: Conversion; error?: string }
+export type Voice = { roles: VoiceRole[]; takes: VoiceTake[]; pick?: Id; performances?: Performance[] }
 
 /** Which beats each camera is used in, from the camera script (the one source of truth for it). */
 export const beatsOf = (pr: Process, room: Id, cam: Id) =>

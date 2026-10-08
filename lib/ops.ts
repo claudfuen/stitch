@@ -6,7 +6,7 @@ import type {
   Section, Setup, Shot, Take, TakeVerdict,
 } from "./model"
 import { checkSteps, modelInfo } from "./models"
-import { blockedBy, newProcess, type Beat, type BeatMark, type Candidate, type CastMember, type Concept, type SheetItem, type Doer, type GateMode, type GateStatus, type Process, type Space, type StageId, type Voice } from "./process"
+import { blockedBy, newProcess, type Beat, type BeatMark, type Candidate, type CastMember, type Concept, type SheetItem, type Doer, type GateMode, type GateStatus, type Performance, type Process, type Space, type StageId, type Voice } from "./process"
 
 /** The editable lists on a floor plan, and the element type each holds. */
 export type PlanList = { items: PlanItem; marks: Mark; axes: Axis; setups: Setup }
@@ -69,6 +69,8 @@ export type Op =
   | { op: "voice.set"; voice: Voice; by?: string }
   | { op: "voice.cast"; who: Id; voice: string; by?: string }
   | { op: "voice.pick"; take: Id; by?: string }
+  /** A line performed into the recorder, or its conversion to the role's voice: adds or replaces it by id. */
+  | { op: "voice.perform"; performance: Performance; by?: string }
   | { op: "sheet.lock"; id: Id; pass: number; of: number; note?: string }
   | { op: "sheet.scene"; id: Id; candidate: Candidate }
   /** Replace the beat sheet (an agent's rewrite). Bumps the version and reopens the script gate. */
@@ -265,6 +267,7 @@ export function applyOp(p: Project, o: Op): Project {
     case "voice.set":
     case "voice.cast":
     case "voice.pick":
+    case "voice.perform":
     case "sheet.lock":
     case "sheet.scene":
     case "script.set":
@@ -273,17 +276,20 @@ export function applyOp(p: Project, o: Op): Project {
     case "note.resolve":
     {
       const process = applyProcessOp(p.process ?? newProcess(), o)
-      const said = o.op === "gate.set" ? `${process.stages.find((x) => x.id === o.stage)?.name}: ${o.status}${o.note ? ` - ${o.note}` : ""}` : o.op === "concept.pick" ? `Concept picked: ${o.id ?? "none"}` : o.op === "script.set" ? `Beat sheet v${process.script.version} written` : o.op === "note.add" ? `Note on ${o.target}: ${o.text}` : o.op === "sheet.pick" ? `Picked for ${o.id}: ${o.file ?? "none"}` : o.op === "sheet.add" ? `Candidate for ${o.id}: ${o.candidate.file} (${o.candidate.model} via ${o.candidate.provider})` : o.op === "space.set" ? `Space and camera: ${o.space.rooms.length} rooms, ${o.space.rooms.reduce((n, r) => n + r.cameras.length, 0)} cameras, ${o.space.cuts.length} cuts` : o.op === "space.frame" ? `Frame for ${o.room} ${o.cam} (${o.candidate.model} via ${o.candidate.provider})` : o.op === "voice.set" ? `Voice: ${o.voice.roles.length} roles, ${o.voice.takes.length} ${o.voice.takes.length === 1 ? "take" : "takes"}` : o.op === "voice.cast" ? `Voice for ${o.who}: ${o.voice}` : o.op === "voice.pick" ? `Voice take picked: ${o.take}` : null
+      const said = o.op === "gate.set" ? `${process.stages.find((x) => x.id === o.stage)?.name}: ${o.status}${o.note ? ` - ${o.note}` : ""}` : o.op === "concept.pick" ? `Concept picked: ${o.id ?? "none"}` : o.op === "script.set" ? `Beat sheet v${process.script.version} written` : o.op === "note.add" ? `Note on ${o.target}: ${o.text}` : o.op === "sheet.pick" ? `Picked for ${o.id}: ${o.file ?? "none"}` : o.op === "sheet.add" ? `Candidate for ${o.id}: ${o.candidate.file} (${o.candidate.model} via ${o.candidate.provider})` : o.op === "space.set" ? `Space and camera: ${o.space.rooms.length} rooms, ${o.space.rooms.reduce((n, r) => n + r.cameras.length, 0)} cameras, ${o.space.cuts.length} cuts` : o.op === "space.frame" ? `Frame for ${o.room} ${o.cam} (${o.candidate.model} via ${o.candidate.provider})` : o.op === "voice.set" ? `Voice: ${o.voice.roles.length} roles, ${o.voice.takes.length} ${o.voice.takes.length === 1 ? "take" : "takes"}` : o.op === "voice.cast" ? `Voice for ${o.who}: ${o.voice}` : o.op === "voice.pick" ? `Voice take picked: ${o.take}` : o.op === "voice.perform" ? performed(o.performance) : null
       const activity = said ? [...p.activity, { t: now(), text: `${("by" in o && o.by) || "claude"} · ${said}`, kind: "info" as const }].slice(-80) : p.activity
       return { ...p, process, activity }
     }
   }
 }
 
-type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "cast.set" | "sheet.upsert" | "sheet.add" | "sheet.pick" | "sheet.view" | "sheet.unview" | "space.set" | "space.frame" | "voice.set" | "voice.cast" | "voice.pick" | "sheet.lock" | "sheet.scene" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
+type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "cast.set" | "sheet.upsert" | "sheet.add" | "sheet.pick" | "sheet.view" | "sheet.unview" | "space.set" | "space.frame" | "voice.set" | "voice.cast" | "voice.pick" | "voice.perform" | "sheet.lock" | "sheet.scene" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
 
 let seq = 0
 const noteId = () => `n${Date.now().toString(36)}${(seq++).toString(36)}`
+
+const performed = (p: Performance) =>
+  p.converted ? `Line ${p.n} (${p.who}) converted to ${p.converted.voice}${p.converted.match !== undefined ? `, match ${p.converted.match.toFixed(2)}` : ""}` : p.error ? `Line ${p.n} (${p.who}) not converted: ${p.error}` : `Line ${p.n} (${p.who}) performed by ${p.by}`
 
 function addNote(pr: Process, target: string, text: string | undefined, by: string, kind: GateStatus | "comment" = "comment"): Process {
   if (!text?.trim()) return pr
@@ -361,7 +367,13 @@ function applyProcessOp(pr: Process, o: ProcessOp): Process {
       const old = pr.voice
       const kept = (r: Voice["roles"][number]) => { const v = old?.roles.find((x) => x.who === r.who)?.voice; return v && r.auditions.some((a) => a.voice === v) ? v : undefined }
       const roles = o.voice.roles.map((r) => ({ ...r, voice: r.voice ?? kept(r) }))
-      return { ...pr, voice: { roles, takes: o.voice.takes, pick: o.voice.pick ?? old?.pick } }
+      return { ...pr, voice: { roles, takes: o.voice.takes, pick: o.voice.pick ?? old?.pick, performances: o.voice.performances ?? old?.performances } }
+    }
+    case "voice.perform": {
+      const v = need(pr.voice, "voice")
+      const list = v.performances ?? []
+      const has = list.some((x) => x.id === o.performance.id)
+      return { ...pr, voice: { ...v, performances: has ? list.map((x) => (x.id === o.performance.id ? o.performance : x)) : [...list, o.performance] } }
     }
     case "voice.cast": {
       const v = need(pr.voice, "voice")
