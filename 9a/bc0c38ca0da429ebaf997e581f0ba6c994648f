@@ -1,0 +1,22 @@
+lib/perform.ts
+  s_57926d8e065a50::t_8da6e7c592659b 108-110
+  s_57926d8e065a50::t_ce3e295f784d06 119,123,134,140-150
+app/api/perform/route.ts
+  s_57926d8e065a50::t_bf4d0101de1098 20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "9abc0c38ca0da429ebaf997e581f0ba6c994648f",
+  "prompts": {},
+  "sessions": {
+    "s_57926d8e065a50": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a3f94515-bcc4-4167-8e39-a7436a363df6",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Claudio Fuentes <imclaudfuen@gmail.com>"
+    }
+  }
+}
