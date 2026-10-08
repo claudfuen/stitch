@@ -414,7 +414,7 @@ def figure(m, rgb, sit, f):
         o.parent = j  # built in the joint's own space
         return o
 
-    hip = m.get("seat", 0.5 if m["who"] == "audience" else 0.82) + 0.02 if sit else 0.93
+    hip = m.get("seat", 0.5 if m["who"] == "audience" else 0.47) + 0.02 if sit else 0.93  # a chair; a bar stool says "seat"
     root = joint("root", None, (x, y, m.get("z", 0)), (0, 0, -f))
     hips = joint("hips", root, (0, 0, hip))
     on(hips, box(f"pelvis:{m['id']}", 0, 0, -0.12, 0.36, 0.22, 0.2, legs_rgb, material=ml))
@@ -598,7 +598,7 @@ def film_look():
             b.inputs["Base Color"].default_value = (0.03, 0.03, 0.035, 1)
         elif name == "skin":
             b.inputs["Roughness"].default_value = 0.5
-        elif name == "screen":
+        elif "screen" in name:
             b.inputs["Emission Color"].default_value = (0.55, 0.7, 1.0, 1)
             b.inputs["Emission Strength"].default_value = 2.5
         elif name in NEON:
@@ -698,9 +698,12 @@ if anim:
     #   "head": [[t, yaw, pitch]]   look right (+yaw) and down (+pitch) from the chest
     #   "nods": [t, ...], "nod": d  a quick dip of the head on a stressed word, d degrees (4 by default)
     #   "slam": [t, ...]            pitch down onto the desk through the spine, the head dropping on impact
+    #   "tip": [[t, deg], ...]      the whole figure rocks backwards about its feet (a chair going over)
     #   "idle": factor              idle life, 1 by default
     # {"crowd": who, ...} gives every mark of that role the move, each late by up to "spread" seconds.
-    # {"item": id, "drop": t} crushes the item flat onto its surface in 0.45 s.
+    # {"item": id, "drop": t} crushes the item flat onto its surface in 0.45 s; {"item": id, "tilt": [[t, deg], ...],
+    # "toward": facing} tips it over toward a heading; {"item": id, "rise": [[t, height factor], ...]} grows or shrinks
+    # it from its base (a pile of paper building up).
     from bpy_extras import anim_utils
     edit.keyframe_new_interpolation_type = "BEZIER"
     marks = {m["id"]: m for m in plan["marks"]}
@@ -716,10 +719,34 @@ if anim:
                 if o.get("item") == it["id"] and o.parent is None and o is not e:
                     o.parent = e
                     o.matrix_parent_inverse = e.matrix_world.inverted()
-            t = mv["drop"]
-            for tt, sz in ((t - 0.02, 1.0), (t + 0.12, 0.6), (t + 0.3, 0.08), (t + 0.45, 0.03)):
-                e.scale = (1, 1, sz)
+            if "drop" in mv:
+                t = mv["drop"]
+                for tt, sz in ((t - 0.02, 1.0), (t + 0.12, 0.6), (t + 0.3, 0.08), (t + 0.45, 0.03)):
+                    e.scale = (1, 1, sz)
+                    e.keyframe_insert("scale", frame=1 + tt * fps)
+            for tt, sz in mv.get("rise", []):
+                e.scale = (1, 1, max(0.01, sz))
                 e.keyframe_insert("scale", frame=1 + tt * fps)
+            if mv.get("tilt"):
+                # Tip toward a heading: the rig turns to face it before anything is parented, then rolls forward.
+                for o in list(bpy.data.objects):
+                    if o.parent is e:
+                        o.parent = None
+                        o.matrix_parent_inverse.identity()
+                e.rotation_euler = (0, 0, -math.radians(mv.get("toward", 0)))
+                bpy.context.view_layer.update()
+                for o in list(bpy.data.objects):
+                    if o.get("item") == it["id"] and o is not e:
+                        mw = o.matrix_world.copy()
+                        o.parent = e
+                        o.matrix_parent_inverse = e.matrix_world.inverted()
+                        o.matrix_world = mw
+                n = max(1, round((mv["tilt"][-1][0] - mv["tilt"][0][0]) * 24))
+                t0_, t1_ = mv["tilt"][0][0], mv["tilt"][-1][0]
+                for k in range(n + 1):
+                    tt = t0_ + (t1_ - t0_) * k / n
+                    e.rotation_euler = (-math.radians(track(mv["tilt"], tt)), 0, -math.radians(mv.get("toward", 0)))
+                    e.keyframe_insert("rotation_euler", frame=1 + tt * fps)
         elif "crowd" in mv:
             for m in plan["marks"]:
                 if m["who"] == mv["crowd"]:
@@ -779,7 +806,7 @@ if anim:
             times = []
             for mv in mvs:
                 d = mv.get("delay", 0.0)
-                times += [p[0] + d for key in ("path", "turn", "lean", "head") for p in mv.get(key, [])]
+                times += [p[0] + d for key in ("path", "turn", "lean", "head", "tip") for p in mv.get(key, [])]
                 times += [t + d for t in mv.get("nods", []) + mv.get("slam", [])]
             if not times:
                 continue
@@ -788,7 +815,7 @@ if anim:
             dist, prev = 0.0, None
             for k in range(n + 1):
                 t = t0 + (t1 - t0) * k / n
-                off, turn, turn_lag, lean, yaw, pitch, speed = V((0, 0, 0)), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+                off, turn, turn_lag, lean, yaw, pitch, speed, tip = V((0, 0, 0)), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
                 for mv in mvs:
                     tt = t - mv.get("delay", 0.0)
                     pts = mv.get("path")
@@ -807,6 +834,7 @@ if anim:
                         off += here
                         speed = max(speed, (at(tt + 0.02) - at(tt - 0.02)).length / 0.04)
                     turn += track(mv.get("turn", []), tt)
+                    tip += track(mv.get("tip", []), tt)
                     turn_lag += track(mv.get("turn", []), tt - 0.12)
                     lean += track(mv.get("lean", []), tt) + (track(slam_lean(mv["slam"]), tt) if mv.get("slam") else 0.0)
                     hp = mv.get("head", [])
@@ -823,7 +851,7 @@ if anim:
                 fr = 1 + t * fps
                 (rl, rr) = rest["root"]
                 J["root"].location = V(rl) + off
-                J["root"].rotation_euler = (rr[0], rr[1], rr[2] - R(turn_lag))
+                J["root"].rotation_euler = (rr[0] + R(tip), rr[1], rr[2] - R(turn_lag))
                 hl, hr = rest["hips"]
                 J["hips"].location = V(hl) + V((0, 0, 0.018 * walk * (abs(math.cos(ph)) - 0.5)))
                 J["spine1"].rotation_euler = (rest["spine1"][1][0] - R(0.45 * lean), 0, 0)
