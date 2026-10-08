@@ -106,8 +106,9 @@ async function scores(files: string[]): Promise<(number | undefined)[]> {
 }
 
 /** Save a recorded line as its performance, then convert it to the role's voice. `scoreLater` answers as soon as the
- *  conversion exists and fills in the match afterwards (the recorder plays the take back without waiting for it). */
-export async function perform(o: { slug?: string; n: number; audio: Uint8Array; ext: string; by: string; scoreLater?: boolean }): Promise<Performance> {
+ *  conversion exists and fills in the match afterwards (the recorder plays the take back without waiting for it).
+ *  `keep` picks the new take for its line and rebuilds the working read, so a redo lands in the read by itself. */
+export async function perform(o: { slug?: string; n: number; audio: Uint8Array; ext: string; by: string; scoreLater?: boolean; keep?: boolean }): Promise<Performance> {
   const v = (await load(o.slug)).process?.voice
   const take = v ? (v.takes.find((t) => t.id === v.pick) ?? v.takes.at(-1)) : undefined
   const line = take?.lines.find((l) => l.n === o.n)
@@ -116,7 +117,14 @@ export async function perform(o: { slug?: string; n: number; audio: Uint8Array; 
   const file = await saveWav(o.audio, o.ext, `generated/${filmOf(o.slug)}/voice/perf/${pad(o.n)}-${line.who}-${id}`)
   const perf: Performance = { id, n: o.n, who: line.who, text: line.text, file, duration: (await seconds(pub(file))) || undefined, by: o.by, at: stamp() }
   await mutate([{ op: "voice.perform", performance: perf, by: o.by }], o.slug)
-  return convert(o.slug, id, { scoreLater: o.scoreLater })
+  const done = await convert(o.slug, id, { scoreLater: o.scoreLater })
+  if (o.keep && done.converted) {
+    const after = mutate([{ op: "voice.keep", n: o.n, id, by: o.by }], o.slug)
+      .then(() => buildRead(o.slug, o.by))
+      .catch(() => {})
+    if (!o.scoreLater) await after
+  }
+  return done
 }
 
 /** Convert a saved performance to its role's voice (again, after a recast or a failed call). */
@@ -212,12 +220,13 @@ export async function performScene(o: { slug?: string; who: string; take: Id; au
     ],
     o.slug,
   )
-  return { scene: id, performances: mine, take: await buildRead(o.slug, o.by, o.take) }
+  return { scene: id, performances: mine, take: await buildRead(o.slug, o.by, o.take, { fresh: true }) }
 }
 
 /** A read built from the picks: every line of the base read in order, the picked take in place of a line when there
- *  is one, a picked line after the silence it was performed with (`lead`), every other gap as in the base read. */
-export async function buildRead(slug: string | undefined, by: string, baseId?: Id): Promise<VoiceTake> {
+ *  is one, a picked line after the silence it was performed with (`lead`), every other gap as in the base read.
+ *  A built base is rebuilt in place (one working read that follows the picks); `fresh` always makes a new read. */
+export async function buildRead(slug: string | undefined, by: string, baseId?: Id, opts: { fresh?: boolean } = {}): Promise<VoiceTake> {
   const v = (await load(slug)).process?.voice
   const base = v && (v.takes.find((t) => t.id === (baseId ?? v.pick)) ?? v.takes.at(-1))
   if (!v || !base) throw new Error("no read to build on")
@@ -226,7 +235,8 @@ export async function buildRead(slug: string | undefined, by: string, baseId?: I
     const p = v.performances?.find((x) => x.id === pid && !x.removed && x.converted)
     if (p) picked.set(Number(n), p)
   }
-  const id = String(Math.max(0, ...v.takes.map((t) => Number(t.id) || 0)) + 1)
+  const built = base.built || base.model.startsWith("Performed lines")
+  const id = built && !opts.fresh ? base.id : String(Math.max(0, ...v.takes.map((t) => Number(t.id) || 0)) + 1)
   const dir = `generated/${filmOf(slug)}/voice/read-${id}`
   await fs.mkdir(pub(dir), { recursive: true })
   const ordered = [...base.lines].sort((a, b) => a.n - b.n)
@@ -266,6 +276,7 @@ export async function buildRead(slug: string | undefined, by: string, baseId?: I
     lines,
     note: `${picked.size} performed ${picked.size === 1 ? "line" : "lines"} (${who.join(", ") || "none"}), each after the silence it was performed with; every other line and gap as in read ${base.id}.`,
     at: stamp(),
+    built: true,
   }
   await mutate([{ op: "voice.read", take, pick: true, by }], slug)
   return take

@@ -718,7 +718,7 @@ function VoiceStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["o
               pr={pr}
               op={op}
             >
-              <audio controls preload="metadata" src={`/${take.file}`} className="w-full" />
+              <audio controls preload="metadata" src={`/${take.file}?v=${encodeURIComponent(take.at)}`} className="w-full" />
               {v.takes.length > 1 && (
                 <div className="flex flex-wrap gap-2">
                   {v.takes.map((t) => (
@@ -968,15 +968,15 @@ function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; na
                     {p.duration ? ` · ${p.duration.toFixed(1)} s` : ""} · {when(p.at)}
                   </p>
                   {picks[p.n] === p.id ? (
-                    <Button size="sm" variant="secondary" className="ml-auto" title="This take is used for the line. Click to unpick it." onClick={() => op({ op: "voice.keep", n: p.n, id: null, by: ME })}>
+                    <Button size="sm" variant="secondary" className="ml-auto" title="This take is used for the line. Click to unpick it." onClick={() => op({ op: "voice.keep", n: p.n, id: null, by: ME }).then(rebuild)}>
                       <Check className="text-emerald-600" /> Using this take
                     </Button>
                   ) : (
-                    <Button size="sm" variant="outline" className="ml-auto" disabled={!p.converted} onClick={() => op({ op: "voice.keep", n: p.n, id: p.id, by: ME })}>
+                    <Button size="sm" variant="outline" className="ml-auto" disabled={!p.converted} onClick={() => op({ op: "voice.keep", n: p.n, id: p.id, by: ME }).then(rebuild)}>
                       Use this take
                     </Button>
                   )}
-                  <Button size="icon-sm" variant="ghost" aria-label="Remove this take" title="Remove it from the list (the files stay on disk)" onClick={() => op({ op: "voice.remove", id: p.id, by: ME })}>
+                  <Button size="icon-sm" variant="ghost" aria-label="Remove this take" title="Remove it from the list (the files stay on disk)" onClick={() => op({ op: "voice.remove", id: p.id, by: ME }).then(() => (picks[p.n] === p.id ? rebuild() : undefined))}>
                     <Trash2 />
                   </Button>
                 </div>

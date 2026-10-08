@@ -48,7 +48,7 @@ export function SceneRecorder({ take, who, name, by }: { take: VoiceTake; who: s
       const j = await res.json()
       if (!res.ok) throw new Error(j.error ?? "Saving the scene failed")
       setUnsaved(null)
-      setDone({ text: `${j.performances.length} of your lines were cut, converted and picked, and read ${j.take.id} is built from them. It is playing; redo any line on its own under Line by line.`, file: j.take.file })
+      setDone({ text: `${j.performances.length} of your lines were cut, converted and picked, and read ${j.take.id} is built from them. It is playing. To redo a line, click it in the list below, press Space, say it, press Space: the new take replaces it in the read.`, file: j.take.file })
       setPhase("done")
     } catch (e) {
       setUnsaved({ blob, events })

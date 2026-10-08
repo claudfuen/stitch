@@ -102,7 +102,8 @@ export type Space = { rooms: Room[]; cuts: CameraCut[] }
 export type Audition = { voice: string; file: string; model: string; provider: string; job?: string; at: string; source?: "stock" | "library" | "designed" | "clone" | "converted"; about?: string; voiceId?: string; match?: number }
 export type VoiceRole = { who: Id; voice?: string; real?: boolean; auditions: Audition[]; note?: string }
 export type VoiceLine = { n: number; beat: Id; who: Id; text: string; start: number; end: number; file: string; match?: number }
-export type VoiceTake = { id: Id; file: string; model: string; provider: string; job?: string; cast: Record<string, string>; duration: number; lines: VoiceLine[]; note?: string; at: string }
+/** `built`: made from performed takes (lib/perform.ts buildRead); a working read that rebuilds in place as picks change. */
+export type VoiceTake = { id: Id; file: string; model: string; provider: string; job?: string; cast: Record<string, string>; duration: number; lines: VoiceLine[]; note?: string; at: string; built?: boolean }
 /** A performance converted to the role's voice by speech-to-speech: the timing, melody and accent stay the performer's,
  *  the timbre becomes the role's. `match` as on Audition. */
 export type Conversion = { file: string; model: string; provider: string; voice: string; voiceId: string; job?: string; match?: number; at: string }

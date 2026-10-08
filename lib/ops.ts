@@ -411,7 +411,12 @@ function applyProcessOp(pr: Process, o: ProcessOp): Process {
       const p = need(v.performances?.find((x) => x.id === o.id), `take ${o.id}`)
       const removed = o.removed ?? true
       const picks = { ...v.picks }
-      if (removed && picks[p.n] === p.id) delete picks[p.n]
+      // Removing the picked take falls back to the newest take left on the line, so the read keeps a performance.
+      if (removed && picks[p.n] === p.id) {
+        const next = (v.performances ?? []).filter((x) => x.n === p.n && x.id !== p.id && !x.removed && x.converted).sort((a, b) => b.at.localeCompare(a.at))[0]
+        if (next) picks[p.n] = next.id
+        else delete picks[p.n]
+      }
       return { ...pr, voice: { ...v, picks, performances: (v.performances ?? []).map((x) => (x.id === o.id ? { ...x, removed: removed || undefined } : x)) } }
     }
     case "voice.cast": {
