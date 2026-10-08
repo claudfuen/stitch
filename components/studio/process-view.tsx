@@ -769,9 +769,10 @@ function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; na
   const v = pr.voice!
   const roles = v.roles.filter((r) => take.lines.some((l) => l.who === r.who))
   const [whoParam] = useParam("who")
-  const who = roles.find((r) => r.who === whoParam)?.who ?? roles.find((r) => r.real)?.who ?? roles[0]?.who
+  // A role, or "all": you read every part, and each line converts to its own character's voice.
+  const who = whoParam === "all" ? "all" : (roles.find((r) => r.who === whoParam)?.who ?? roles.find((r) => r.real)?.who ?? roles[0]?.who)
   const role = v.roles.find((r) => r.who === who)
-  const lines = take.lines.filter((l) => l.who === who)
+  const lines = who === "all" ? take.lines : take.lines.filter((l) => l.who === who)
   const [lineParam, setLine] = useParam("line")
   const line = lines.find((l) => String(l.n) === lineParam) ?? lines[0]
   const i = line ? lines.indexOf(line) : -1
@@ -785,13 +786,13 @@ function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; na
   const num = new Map(onLine.map((p, k) => [p.id, onLine.length - k]))
   const takes = onLine.filter((p) => !p.removed)
   const gone = onLine.filter((p) => p.removed)
-  const done = new Set(all.filter((p) => p.who === who && !p.removed).map((p) => p.n))
+  const done = new Set(all.filter((p) => (who === "all" || p.who === who) && !p.removed).map((p) => p.n))
   const [showGone, setShowGone] = useState(false)
   const { state, setState, error, setError, devices, mic, setMic, start, stop, meter, clock } = useRecorder()
   const box = useRef<HTMLDivElement>(null)
   const slugQ = projectSlug() ? `&p=${encodeURIComponent(projectSlug())}` : ""
-  const into = role?.real ? `the clone of his real voice` : role?.voice ? `the voice you cast (${role.voice})` : "no voice yet: cast one below"
-  const first = name(who ?? "").split(" ")[0]
+  const into = who === "all" ? "You read every part. Each line converts to its own character's voice: Henrick to the clone of his real voice, everyone else to the voice you cast." : `${name(who ?? "")}'s takes convert to ${role?.real ? "the clone of his real voice" : role?.voice ? `the voice you cast (${role.voice})` : "no voice yet: cast one below"}.`
+  const short = (w: string) => name(w).split(" ")[0]
   const go = (d: number) => lines[i + d] && setLine(String(lines[i + d].n), { push: false })
   // Whole scene (one continuous take against the cues) is the default; line by line is for redoing single lines.
   const [mode, setMode] = useParam("mode")
@@ -807,6 +808,14 @@ function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; na
     setBuilding(false)
   }
 
+  /** The converted take plays the moment it is ready, so you hear how it worked without reaching for a player. */
+  const playing = useRef<HTMLAudioElement | null>(null)
+  const play = (file: string) => {
+    playing.current?.pause()
+    playing.current = new Audio(`/${file}`)
+    playing.current.play().catch(() => {})
+  }
+
   /** A take the server did not save stays here, so it can be sent again instead of performed again. */
   const [unsaved, setUnsaved] = useState<{ blob: Blob; n: number } | null>(null)
   const upload = async (blob: Blob, n: number) => {
@@ -818,6 +827,7 @@ function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; na
       if (!r.ok) throw new Error(j.error ?? "Saving the take failed.")
       setUnsaved(null)
       if (j.error) setError(`Saved, but not converted: ${j.error}`)
+      else if (j.converted?.file) play(j.converted.file)
     } catch (e) {
       setUnsaved({ blob, n })
       setError(`${(e as Error).message}. The take is kept here: save it again.`)
@@ -826,7 +836,10 @@ function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; na
   }
   const toggle = async () => {
     if (!line) return
-    if (state === "idle") return start()
+    if (state === "idle") {
+      playing.current?.pause()
+      return start()
+    }
     if (state !== "recording") return
     const blob = await stop()
     if (blob) await upload(blob, line.n)
@@ -860,13 +873,19 @@ function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; na
   return (
     <div ref={box} className="space-y-5">
       <div className="flex flex-wrap items-center gap-2">
-        <Choice value={who} items={roles.map((r) => ({ value: r.who, label: name(r.who) }))} onChange={(w) => setParams({ who: w, line: null }, { push: false, keepHash: true })} />
+        <div className="flex flex-wrap rounded-md border p-0.5">
+          {[...roles.map((r) => r.who), "all"].map((w) => (
+            <Button key={w} size="sm" variant={w === who ? "secondary" : "ghost"} onClick={() => setParams({ who: w, line: null }, { push: false, keepHash: true })}>
+              {w === "all" ? "Everyone" : short(w)}
+            </Button>
+          ))}
+        </div>
         {devices.length > 1 && <Choice value={mic || devices[0].value} items={devices} onChange={setMic} />}
         <span className="ml-auto text-sm text-muted-foreground">
           {lines.filter((l) => picks[l.n]).length} of {lines.length} lines picked · {lines.filter((l) => done.has(l.n)).length} recorded
         </span>
       </div>
-      <p className="text-sm text-muted-foreground">{name(who)}&apos;s takes convert to {into}.</p>
+      <p className="text-sm text-muted-foreground">{into}</p>
       <div className="flex flex-wrap items-center gap-2">
         <div className="flex rounded-md border p-0.5">
           <Button size="sm" variant={scene ? "secondary" : "ghost"} onClick={() => setMode(null, { push: false })}>
@@ -891,6 +910,7 @@ function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; na
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <span>
             Line {i + 1} of {lines.length}
+            {who === "all" ? ` · ${name(line.who)}` : ""}
             {beat ? ` · ${beat.title}` : ""}
           </span>
           <Button size="icon-sm" variant="ghost" className="ml-auto" disabled={i === 0 || state !== "idle"} onClick={() => go(-1)} aria-label="Previous line">
@@ -915,7 +935,7 @@ function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; na
         <div className="flex items-center gap-3">
           <Button size="lg" variant={state === "recording" ? "destructive" : "default"} disabled={state === "saving"} onClick={(e) => (e.currentTarget.blur(), toggle())}>
             {state === "recording" ? <Square /> : state === "saving" ? <LoaderCircle className="animate-spin" /> : <Mic />}
-            {state === "recording" ? "Stop" : state === "saving" ? `Converting to ${first}` : "Record"}
+            {state === "recording" ? "Stop" : state === "saving" ? `Converting to ${short(line.who)}` : "Record"}
           </Button>
           <kbd className="rounded border px-1.5 py-0.5 font-mono text-[11px] text-muted-foreground">Space</kbd>
           {state === "recording" && (
@@ -964,7 +984,7 @@ function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; na
                   <span className="text-sm text-muted-foreground">You</span>
                   <audio controls preload="metadata" src={`/${p.file}`} className="h-8 w-full" />
                   <span />
-                  <span className="truncate text-sm font-medium">{first}</span>
+                  <span className="truncate text-sm font-medium">{short(p.who)}</span>
                   {p.converted ? <audio controls preload="metadata" src={`/${p.converted.file}`} className="h-8 w-full" /> : <span className={cn("text-sm", p.error ? "text-amber-600 dark:text-amber-400" : "text-muted-foreground")}>{p.error ?? "Converting..."}</span>}
                   {p.converted?.match !== undefined ? (
                     <span className="font-mono text-xs text-muted-foreground" title="Speaker similarity to his real recording (resemblyzer). Two real lines of his score about 0.71.">
@@ -1010,6 +1030,7 @@ function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; na
           <li key={l.n}>
             <button type="button" onClick={() => setParams({ line: String(l.n), mode: "lines" }, { push: false, keepHash: true })} className={cn("flex w-full items-baseline gap-3 rounded-md px-2 py-1.5 text-left text-sm hover:bg-muted", l.n === line.n && "bg-muted")}>
               <span className="w-5 shrink-0 font-mono text-xs text-muted-foreground">{k + 1}</span>
+              {who === "all" && <span className="w-14 shrink-0 truncate text-xs text-muted-foreground">{short(l.who)}</span>}
               <span className="min-w-0 flex-1 truncate">{l.text}</span>
               {picks[l.n] ? <Check className="size-4 shrink-0 text-emerald-600" aria-label="Take picked" /> : done.has(l.n) ? <span className="size-1.5 shrink-0 self-center rounded-full bg-muted-foreground/60" title="Recorded, no take picked yet" /> : null}
             </button>

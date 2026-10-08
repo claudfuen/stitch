@@ -14,7 +14,7 @@ import path from "node:path"
 import { promisify } from "node:util"
 import { API, key } from "../scripts/eleven"
 import type { Id } from "./model"
-import type { Performance, SceneEvent, Voice, VoiceLine, VoiceTake } from "./process"
+import type { Conversion, Performance, SceneEvent, Voice, VoiceLine, VoiceTake } from "./process"
 import { load, mutate, projectRoot } from "./store"
 
 const exec = promisify(execFile)
@@ -105,8 +105,9 @@ async function scores(files: string[]): Promise<(number | undefined)[]> {
   })
 }
 
-/** Save a recorded line as its performance, then convert it to the role's voice. */
-export async function perform(o: { slug?: string; n: number; audio: Uint8Array; ext: string; by: string }): Promise<Performance> {
+/** Save a recorded line as its performance, then convert it to the role's voice. `scoreLater` answers as soon as the
+ *  conversion exists and fills in the match afterwards (the recorder plays the take back without waiting for it). */
+export async function perform(o: { slug?: string; n: number; audio: Uint8Array; ext: string; by: string; scoreLater?: boolean }): Promise<Performance> {
   const v = (await load(o.slug)).process?.voice
   const take = v ? (v.takes.find((t) => t.id === v.pick) ?? v.takes.at(-1)) : undefined
   const line = take?.lines.find((l) => l.n === o.n)
@@ -115,11 +116,11 @@ export async function perform(o: { slug?: string; n: number; audio: Uint8Array; 
   const file = await saveWav(o.audio, o.ext, `generated/${filmOf(o.slug)}/voice/perf/${pad(o.n)}-${line.who}-${id}`)
   const perf: Performance = { id, n: o.n, who: line.who, text: line.text, file, duration: (await seconds(pub(file))) || undefined, by: o.by, at: stamp() }
   await mutate([{ op: "voice.perform", performance: perf, by: o.by }], o.slug)
-  return convert(o.slug, id)
+  return convert(o.slug, id, { scoreLater: o.scoreLater })
 }
 
 /** Convert a saved performance to its role's voice (again, after a recast or a failed call). */
-export async function convert(slug: string | undefined, id: string): Promise<Performance> {
+export async function convert(slug: string | undefined, id: string, opts: { scoreLater?: boolean } = {}): Promise<Performance> {
   const v = (await load(slug)).process?.voice
   const perf = v?.performances?.find((x) => x.id === id)
   if (!v || !perf) throw new Error(`no performance ${id}`)
@@ -130,54 +131,82 @@ export async function convert(slug: string | undefined, id: string): Promise<Per
     try {
       const rel = perf.file.replace(/\.wav$/, `-${safe(target.voice)}.mp3`)
       const job = await sts(pub(perf.file), target, pub(rel))
-      const real = v.roles.find((r) => r.who === perf.who)?.real
-      next = { ...perf, error: undefined, converted: { file: rel, model: "ElevenLabs Voice Changer", provider: "ElevenLabs", voice: target.voice, voiceId: target.voiceId, job, match: real ? (await scores([pub(rel)]))[0] : undefined, at: stamp() } }
+      next = { ...perf, error: undefined, converted: { file: rel, model: "ElevenLabs Voice Changer", provider: "ElevenLabs", voice: target.voice, voiceId: target.voiceId, job, at: stamp() } }
     } catch (e) {
       next = { ...perf, error: (e as Error).message }
     }
   }
   await mutate([{ op: "voice.perform", performance: next, by: "claude" }], slug)
+  // The match to his real recording (real roles only) takes a few seconds; it lands on the take when it is done.
+  const file = next.converted?.file
+  if (file && v.roles.find((r) => r.who === perf.who)?.real) {
+    const scoring = scores([pub(file)])
+      .then(async ([match]) => {
+        const cur = match === undefined ? undefined : (await load(slug)).process?.voice?.performances?.find((x) => x.id === id)
+        if (cur?.converted?.file === file) await mutate([{ op: "voice.perform", performance: { ...cur, converted: { ...cur.converted, match } }, by: "claude" }], slug)
+      })
+      .catch(() => {})
+    if (!opts.scoreLater) await scoring
+  }
   return next
 }
 
-/** Scene mode: save the whole recording, convert it in one pass (the same voice in every line), cut each of the
- *  performer's lines at its first and last word, pick those takes, and build a new read from the picks. */
+/** Scene mode: save the whole recording, convert it in one pass per role performed (the same voice in every line of a
+ *  role), cut each performed line at its first and last word, pick those takes, and build a new read from the picks.
+ *  `who` is the role performed against the others as cues, or "all": the performer read every part. */
 export async function performScene(o: { slug?: string; who: string; take: Id; audio: Uint8Array; ext: string; events: SceneEvent[]; by: string }) {
   const v = (await load(o.slug)).process?.voice
   const base = v?.takes.find((t) => t.id === o.take)
   if (!v || !base) throw new Error(`no read ${o.take}`)
-  const target = targetVoice(v, o.who)
-  if (!target) throw new Error(`cast a voice for ${o.who} first`)
+  const performed = (n: number) => base.lines.find((l) => l.n === n && (o.who === "all" || l.who === o.who))
+  const roles = [...new Set(o.events.filter((e) => e.kind === "mine").map((e) => performed(e.n)?.who).filter((w): w is string => !!w))]
+  if (!roles.length) throw new Error("none of your lines were recorded")
+  const targets = new Map(roles.map((w) => [w, targetVoice(v, w)]))
+  const uncast = roles.filter((w) => !targets.get(w))
+  if (uncast.length) throw new Error(`cast a voice for ${uncast.join(", ")} first`)
   const film = filmOf(o.slug)
   const id = `s${Date.now().toString(36)}`
   const file = await saveWav(o.audio, o.ext, `generated/${film}/voice/scene/${id}-${o.who}`)
-  const whole = file.replace(/\.wav$/, `-${safe(target.voice)}.mp3`)
-  const [job, said] = await Promise.all([sts(pub(file), target, pub(whole)), words(pub(file)), fs.mkdir(pub(`generated/${film}/voice/perf`), { recursive: true })])
   const at = stamp()
+  // One pass of the whole recording per role, so every line of a role comes out of the same conversion.
+  const passes = new Map<string, Conversion>()
+  const [, said] = await Promise.all([
+    Promise.all(
+      roles.map(async (w) => {
+        const t = targets.get(w)!
+        const whole = file.replace(/\.wav$/, `-${safe(t.voice)}.mp3`)
+        passes.set(w, { file: whole, model: "ElevenLabs Voice Changer", provider: "ElevenLabs", voice: t.voice, voiceId: t.voiceId, job: await sts(pub(file), t, pub(whole)), at })
+      }),
+    ),
+    words(pub(file)),
+    fs.mkdir(pub(`generated/${film}/voice/perf`), { recursive: true }),
+  ])
   const mine: Performance[] = []
   let prev = 0
   for (const ev of [...o.events].sort((a, b) => a.start - b.start)) {
-    const line = base.lines.find((l) => l.n === ev.n)
+    const line = ev.kind === "mine" ? performed(ev.n) : undefined
     // Words that start inside the line's window: from when it was shown (a cue's tail cannot leak in) to just after done.
-    const w = ev.kind === "mine" && line?.who === o.who ? said.filter((x) => x.start > ev.start - 0.15 && x.start < ev.end + 0.2) : []
+    const w = line ? said.filter((x) => x.start > ev.start - 0.15 && x.start < ev.end + 0.2) : []
     if (!line || !w.length) {
       prev = ev.end
       continue
     }
     const s = Math.max(0, w[0].start - 0.08)
     const e = w[w.length - 1].end + 0.2
+    const pass = passes.get(line.who)!
     const pid = `p${Date.now().toString(36)}${mine.length}`
-    const rel = `generated/${film}/voice/perf/${pad(line.n)}-${o.who}-${pid}`
-    const conv = `${rel}-${safe(target.voice)}.mp3`
-    await Promise.all([cut(pub(file), s, e, pub(`${rel}.wav`)), cut(pub(whole), s, e, pub(conv))])
-    mine.push({ id: pid, n: line.n, who: o.who, text: line.text, file: `${rel}.wav`, duration: round(e - s), by: o.by, at, scene: id, lead: round(Math.min(1.5, Math.max(0.12, s - prev))), converted: { file: conv, model: "ElevenLabs Voice Changer", provider: "ElevenLabs", voice: target.voice, voiceId: target.voiceId, job, at } })
+    const rel = `generated/${film}/voice/perf/${pad(line.n)}-${line.who}-${pid}`
+    const conv = `${rel}-${safe(pass.voice)}.mp3`
+    await Promise.all([cut(pub(file), s, e, pub(`${rel}.wav`)), cut(pub(pass.file), s, e, pub(conv))])
+    mine.push({ id: pid, n: line.n, who: line.who, text: line.text, file: `${rel}.wav`, duration: round(e - s), by: o.by, at, scene: id, lead: round(Math.min(1.5, Math.max(0.12, s - prev))), converted: { ...pass, file: conv } })
     prev = e
   }
   if (!mine.length) throw new Error("none of your lines had words in them")
-  if (v.roles.find((r) => r.who === o.who)?.real) (await scores(mine.map((p) => pub(p.converted!.file)))).forEach((m, i) => (mine[i].converted!.match = m))
+  const real = mine.filter((p) => v.roles.find((r) => r.who === p.who)?.real)
+  ;(await scores(real.map((p) => pub(p.converted!.file)))).forEach((m, i) => (real[i].converted!.match = m))
   await mutate(
     [
-      { op: "voice.scene", scene: { id, who: o.who, take: o.take, file, converted: { file: whole, model: "ElevenLabs Voice Changer", provider: "ElevenLabs", voice: target.voice, voiceId: target.voiceId, job, at }, events: o.events, by: o.by, at }, by: o.by },
+      { op: "voice.scene", scene: { id, who: o.who, take: o.take, file, conversions: Object.fromEntries(passes), events: o.events, by: o.by, at }, by: o.by },
       ...mine.map((p) => ({ op: "voice.perform" as const, performance: p, by: o.by })),
       ...mine.map((p) => ({ op: "voice.keep" as const, n: p.n, id: p.id, by: o.by })),
     ],

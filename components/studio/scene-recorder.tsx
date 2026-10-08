@@ -19,16 +19,19 @@ type Run = { t0: number; events: SceneEvent[]; shown: number; audio: HTMLAudioEl
 
 const Kbd = ({ children }: { children: React.ReactNode }) => <kbd className="rounded border px-1.5 py-0.5 font-mono text-[11px] opacity-70">{children}</kbd>
 
+/** `who`: the role performed against the others as cues, or "all": every line waits for the performer, who reads every part. */
 export function SceneRecorder({ take, who, name, by }: { take: VoiceTake; who: string; name: (who: string) => string; by: string }) {
   const { start, stop, setState, error, setError, meter, clock } = useRecorder()
   const lines = [...take.lines].sort((a, b) => a.n - b.n)
   const [phase, setPhase] = useState<Phase>("ready")
   const [i, setI] = useState(0)
-  const [done, setDone] = useState<string | null>(null)
+  const [done, setDone] = useState<{ text: string; file: string } | null>(null)
   const [unsaved, setUnsaved] = useState<{ blob: Blob; events: SceneEvent[] } | null>(null)
   const run = useRef<Run | null>(null)
   const box = useRef<HTMLDivElement>(null)
-  const mine = lines.filter((l) => l.who === who).length
+  const isMine = (w: string) => who === "all" || w === who
+  const mine = lines.filter((l) => isMine(l.who)).length
+  const role = who === "all" ? "every part" : name(who)
   const slugQ = projectSlug() ? `&p=${encodeURIComponent(projectSlug())}` : ""
   const at = (r: Run) => (performance.now() - r.t0) / 1000
 
@@ -45,7 +48,7 @@ export function SceneRecorder({ take, who, name, by }: { take: VoiceTake; who: s
       const j = await res.json()
       if (!res.ok) throw new Error(j.error ?? "Saving the scene failed")
       setUnsaved(null)
-      setDone(`${j.performances.length} of your lines were cut, converted and picked, and read ${j.take.id} is built from them. Play it under The read, or redo any line on its own (Line by line).`)
+      setDone({ text: `${j.performances.length} of your lines were cut, converted and picked, and read ${j.take.id} is built from them. It is playing; redo any line on its own under Line by line.`, file: j.take.file })
       setPhase("done")
     } catch (e) {
       setUnsaved({ blob, events })
@@ -78,7 +81,7 @@ export function SceneRecorder({ take, who, name, by }: { take: VoiceTake; who: s
     setI(k)
     r.shown = at(r)
     const l = lines[k]
-    if (l.who === who) return
+    if (isMine(l.who)) return
     const a = new Audio(`/${l.file}`)
     r.audio = a
     const next = () => {
@@ -95,7 +98,7 @@ export function SceneRecorder({ take, who, name, by }: { take: VoiceTake; who: s
   const said = () => {
     const r = run.current
     const l = lines[i]
-    if (!r || r.over || l?.who !== who) return
+    if (!r || r.over || !l || !isMine(l.who)) return
     r.events.push({ n: l.n, kind: "mine", start: r.shown, end: at(r) })
     show(i + 1)
   }
@@ -163,7 +166,15 @@ export function SceneRecorder({ take, who, name, by }: { take: VoiceTake; who: s
       {phase === "ready" && (
         <div className="space-y-3">
           <p className="text-sm leading-relaxed">
-            <span className="font-medium">Headphones on.</span> The whole read plays with the other parts in your ears, and it waits for you at each of {name(who)}&apos;s {mine} lines. Say the line, then press <Kbd>Space</Kbd> for the next cue. One take, start to finish: Escape cancels, Stop saves what you have.
+            {who === "all" ? (
+              <>
+                <span className="font-medium">You read every part.</span> All {mine} lines wait for you in order: say each one as its character, then press <Kbd>Space</Kbd>. Each line becomes its own character&apos;s voice. One take, start to finish: Escape cancels, Stop saves what you have.
+              </>
+            ) : (
+              <>
+                <span className="font-medium">Headphones on.</span> The whole read plays with the other parts in your ears, and it waits for you at each of {name(who)}&apos;s {mine} lines. Say the line, then press <Kbd>Space</Kbd> for the next cue. One take, start to finish: Escape cancels, Stop saves what you have.
+              </>
+            )}
           </p>
           <Button size="lg" onClick={(e) => (e.currentTarget.blur(), void begin())}>
             <Mic /> Start the scene <Kbd>Space</Kbd>
@@ -190,9 +201,9 @@ export function SceneRecorder({ take, who, name, by }: { take: VoiceTake; who: s
               <span className="font-medium">{name(prev.who)}:</span> {prev.text}
             </p>
           )}
-          <div className={cn("space-y-1 rounded-md p-4", cur.who === who ? "bg-emerald-500/10 ring-1 ring-emerald-500/40" : "bg-muted/60")}>
-            <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">{cur.who === who ? "You" : `${name(cur.who)}, playing`}</p>
-            <p className={cn("leading-snug", cur.who === who ? "text-2xl font-medium tracking-tight" : "text-lg text-muted-foreground")}>{cur.text}</p>
+          <div className={cn("space-y-1 rounded-md p-4", isMine(cur.who) ? "bg-emerald-500/10 ring-1 ring-emerald-500/40" : "bg-muted/60")}>
+            <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">{isMine(cur.who) ? (who === "all" ? `You, as ${name(cur.who)}` : "You") : `${name(cur.who)}, playing`}</p>
+            <p className={cn("leading-snug", isMine(cur.who) ? "text-2xl font-medium tracking-tight" : "text-lg text-muted-foreground")}>{cur.text}</p>
           </div>
           {after && (
             <p className="text-sm text-muted-foreground">
@@ -200,7 +211,7 @@ export function SceneRecorder({ take, who, name, by }: { take: VoiceTake; who: s
             </p>
           )}
           <div className="flex flex-wrap items-center gap-2">
-            {cur.who === who && (
+            {isMine(cur.who) && (
               <Button size="lg" onClick={(e) => (e.currentTarget.blur(), said())}>
                 Next <Kbd>Space</Kbd>
               </Button>
@@ -216,12 +227,13 @@ export function SceneRecorder({ take, who, name, by }: { take: VoiceTake; who: s
       )}
       {phase === "saving" && (
         <p className="flex items-center gap-2 text-sm">
-          <LoaderCircle className="size-4 animate-spin" /> Converting the scene to {name(who)}, cutting your lines and building the read: about 20 seconds.
+          <LoaderCircle className="size-4 animate-spin" /> Converting {role}, cutting your lines and building the read: about 20 seconds.
         </p>
       )}
       {phase === "done" && (
         <div className="space-y-3">
-          <p className="text-sm leading-relaxed">{done}</p>
+          <p className="text-sm leading-relaxed">{done?.text}</p>
+          {done && <audio controls autoPlay src={`/${done.file}`} className="w-full" />}
           <Button variant="outline" onClick={() => setPhase("ready")}>
             Record the scene again
           </Button>

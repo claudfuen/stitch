@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     if (!Number.isInteger(n) || n < 1) throw new Error("which line? ?n=<line number>")
     const audio = new Uint8Array(await req.arrayBuffer())
     if (audio.byteLength < 1000) throw new Error("the recording is empty")
-    return Response.json(await perform({ slug, n, audio, ext: extOf(req.headers.get("content-type") ?? ""), by }))
+    return Response.json(await perform({ slug, n, audio, ext: extOf(req.headers.get("content-type") ?? ""), by, scoreLater: true }))
   } catch (e) {
     return Response.json({ error: (e as Error).message }, { status: 400 })
   }
