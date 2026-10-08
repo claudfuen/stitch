@@ -1,0 +1,46 @@
+scripts/voice-score.py
+  s_57926d8e065a50::t_264e5b952da812 17-21
+  s_57926d8e065a50::t_f968bea94f7d9e 4
+components/studio/recorder.ts
+  s_57926d8e065a50::t_3b53238eb43446 81,85
+  s_57926d8e065a50::t_6ca3be2394ea1f 48-50
+components/studio/scene-recorder.tsx
+  s_57926d8e065a50::t_21716a4168a8d4 1-243
+lib/ops.ts
+  s_57926d8e065a50::t_9ef749fef556ab 9
+  s_57926d8e065a50::t_c284bd6ffe156c 291
+  s_57926d8e065a50::t_b16bae156c848a 78-81
+  s_57926d8e065a50::t_d4efece9c9071b 382-392
+  s_57926d8e065a50::t_360e44171f702b 298
+  s_57926d8e065a50::t_b6308d0c2a21da 281-282
+scripts/stitch.ts
+  s_57926d8e065a50::t_ff939c6b415195 289-299
+  s_57926d8e065a50::t_6a331ee8041814 53
+app/api/perform/route.ts
+  s_57926d8e065a50::t_0e9b8ac75d2071 1,7,11,15,20
+app/api/perform/scene/route.ts
+  s_57926d8e065a50::t_f0c7ad126a36e0 1-27
+lib/process.ts
+  s_57926d8e065a50::t_27924580f2ce7b 112-118,120
+lib/perform.ts
+  s_57926d8e065a50::t_fd0500245a4ba5 161-162
+  s_57926d8e065a50::t_8dcc359c2403c0 218-219
+  s_57926d8e065a50::t_749e839128ad0f 1-9,16-17,28-37,46-94,96-108,115-116,132,134,143-154,156-160,163-217,220-242
+  s_57926d8e065a50::t_545f1272bf3c6c 155
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "9ff87ceff710f177ad4a5fabb20e9b8598b6b78d",
+  "prompts": {},
+  "sessions": {
+    "s_57926d8e065a50": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a3f94515-bcc4-4167-8e39-a7436a363df6",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Claudio Fuentes <imclaudfuen@gmail.com>"
+    }
+  }
+}
