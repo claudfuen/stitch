@@ -5,16 +5,17 @@
 //
 // Two ways in: one line at a time (perform), or scene mode (performScene): the whole read in one continuous
 // recording against the other roles' lines as cues, converted in one pass so the voice stays the same from line to
-// line, then cut into lines at their first and last words. buildRead turns the picked takes into a new read.
+// line, then cut into lines by matching the words said to the script (cutByWords). buildRead turns the picked takes
+// into a read paced by the script's beats.
 // The recorder (POST /api/perform, /api/perform/scene) and the CLI (`stitch voice ...`) call these; every write is an op.
 
 import { execFile } from "node:child_process"
 import { existsSync, promises as fs } from "node:fs"
 import path from "node:path"
 import { promisify } from "node:util"
-import { API, key } from "../scripts/eleven"
+import { acted, API, elAudio, key, TTS_MODEL } from "../scripts/eleven"
 import type { Id } from "./model"
-import type { Conversion, Performance, SceneEvent, Voice, VoiceLine, VoiceTake } from "./process"
+import type { Conversion, Performance, Process, SceneEvent, Voice, VoiceLine, VoiceTake } from "./process"
 import { load, mutate, projectRoot } from "./store"
 
 const exec = promisify(execFile)
@@ -89,10 +90,6 @@ async function words(file: string): Promise<{ text: string; start: number; end: 
   throw new Error(`Scribe could not transcribe the recording: ${last}`)
 }
 
-/** Cut [s, e] seconds of a file into a WAV or an MP3 (by the output's extension). */
-const cut = (src: string, s: number, e: number, out: string) =>
-  exec("ffmpeg", ["-v", "error", "-y", "-ss", s.toFixed(3), "-t", (e - s).toFixed(3), "-i", src, "-ac", "1", ...(out.endsWith(".mp3") ? ["-c:a", "libmp3lame", "-b:a", "192k"] : ["-ar", "48000", "-c:a", "pcm_s16le"]), out], { env })
-
 /** Speaker similarity of each clip to his real recording (scripts/voice-score.py, one model load for all clips). */
 async function scores(files: string[]): Promise<(number | undefined)[]> {
   const py = path.join(projectRoot(), "work/venv/bin/python")
@@ -159,15 +156,199 @@ export async function convert(slug: string | undefined, id: string, opts: { scor
   return next
 }
 
+// ---------- cutting a scene recording into lines by its words ----------
+
+type Word = { text: string; start: number; end: number }
+const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9']/g, "")
+const toks = (s: string) => s.split(/\s+/).map(norm).filter(Boolean)
+function lev(a: string, b: string) {
+  const d = Array.from({ length: b.length + 1 }, (_, j) => j)
+  for (let i = 1; i <= a.length; i++) {
+    let prev = d[0]
+    d[0] = i
+    for (let j = 1; j <= b.length; j++) {
+      const t = d[j]
+      d[j] = Math.min(d[j] + 1, d[j - 1] + 1, prev + (a[i - 1] === b[j - 1] ? 0 : 1))
+      prev = t
+    }
+  }
+  return d[b.length]
+}
+/** How alike two words are (0 to 1): the same word, a name spelled another way ("Henrik"), or a word cut short. */
+const alike = (a: string, b: string) => (a === b ? 1 : a.length >= 4 && b.length >= 4 && (a.startsWith(b) || b.startsWith(a)) ? 0.85 : 1 - lev(a, b) / Math.max(a.length, b.length, 1))
+
+/** Align the script's words with the words said (global alignment): for each word said, the index of the script word
+ *  it stands for, or -1 for a word the script does not have. */
+function align(script: string[], said: string[]): number[] {
+  const m = script.length
+  const n = said.length
+  const S = Array.from({ length: m + 1 }, () => new Float64Array(n + 1))
+  const B = Array.from({ length: m + 1 }, () => new Uint8Array(n + 1)) // 1 both, 2 a script word not said, 3 a word not in the script
+  for (let i = 1; i <= m; i++) {
+    S[i][0] = -i
+    B[i][0] = 2
+  }
+  for (let j = 1; j <= n; j++) {
+    S[0][j] = -j
+    B[0][j] = 3
+  }
+  for (let i = 1; i <= m; i++)
+    for (let j = 1; j <= n; j++) {
+      const a = alike(script[i - 1], said[j - 1])
+      const both = S[i - 1][j - 1] + (a >= 0.7 ? 2 * a : -1.5)
+      const skip = S[i - 1][j] - 1
+      const extra = S[i][j - 1] - 1
+      if (both >= skip && both >= extra) {
+        S[i][j] = both
+        B[i][j] = 1
+      } else if (skip >= extra) {
+        S[i][j] = skip
+        B[i][j] = 2
+      } else {
+        S[i][j] = extra
+        B[i][j] = 3
+      }
+    }
+  const out = new Array<number>(n).fill(-1)
+  for (let i = m, j = n; i > 0 || j > 0; ) {
+    if (B[i][j] === 1) {
+      if (alike(script[i - 1], said[j - 1]) >= 0.7) out[j - 1] = i - 1
+      i--
+      j--
+    } else if (B[i][j] === 2) i--
+    else j--
+  }
+  return out
+}
+
+/** A line's cut: the spans of the recording (seconds) that make it, what was cut, and script words never said. */
+type LineCut = { line: VoiceLine; spans: [number, number][]; trimmed: string[]; missing: string[] }
+
+/** Cut each performed line out of a scene recording by its words, not by when Space was pressed: every word said goes
+ *  to the script line it belongs to, so a word finished after Space lands in its own line. Ad-libs stay with the line
+ *  they are said in (they tie the read together); only the first try of a repeated word and stray words far from any
+ *  line are cut. A pause inside a line longer than `pause(line)` is shortened to it. */
+function cutByWords(lines: VoiceLine[], said: Word[], pause: (l: VoiceLine) => number): LineCut[] {
+  const script = lines.flatMap((l, li) => toks(l.text).map((w) => ({ li, w })))
+  const heard = said.map((w) => norm(w.text))
+  const at = align(script.map((x) => x.w), heard)
+  const lineOf = at.map((k) => (k >= 0 ? script[k].li : -1))
+  const keep = at.map((k) => k >= 0)
+  const trimmed: string[][] = lines.map(() => [])
+  for (let j = 0; j < said.length; j++) {
+    if (at[j] >= 0) continue
+    let p = j - 1
+    while (p >= 0 && at[p] < 0) p--
+    let q = j + 1
+    while (q < said.length && at[q] < 0) q++
+    const lp = p >= 0 ? lineOf[p] : -1
+    const lq = q < said.length ? lineOf[q] : -1
+    const li = lp < 0 ? lq : lq < 0 ? lp : lp === lq ? lp : said[j].start - said[p].end <= said[q].start - said[j].end ? lp : lq
+    lineOf[j] = li
+    if (li < 0) continue
+    if (j - p === 1 && lineOf[p] === li && alike(heard[p], heard[j]) >= 0.8) {
+      // A repeat: keep the second, cleaner try and cut the first.
+      keep[p] = false
+      keep[j] = true
+      trimmed[li].push(`the first "${said[p].text}" of a repeat`)
+    } else if (q - j === 1 && lineOf[q] === li && alike(heard[q], heard[j]) >= 0.8) trimmed[li].push(`the first "${said[j].text}" of a repeat`)
+    else {
+      // An ad-lib stays with its line, unless it stands alone, far from the line's words (a stray word or noise).
+      const near = Math.min(lp === li ? said[j].start - said[p].end : Infinity, lq === li ? said[q].start - said[j].end : Infinity)
+      if (near <= 1.2) keep[j] = true
+      else trimmed[li].push(`the stray "${said[j].text}"`)
+    }
+  }
+  const got = new Set(at.filter((k) => k >= 0))
+  return lines.map((line, li) => {
+    const kept = said.map((_, j) => j).filter((j) => lineOf[j] === li && keep[j])
+    const cap = pause(line)
+    const cutOff = /[-–—]\s*$/.test(line.text) // an interrupted line stops on its last word
+    const spans: [number, number][] = []
+    let s: number | undefined
+    for (const [k, j] of kept.entries()) {
+      const before = j > 0 ? said[j - 1].end : 0
+      if (s === undefined) s = Math.max(before, said[j].start - Math.min(0.12, (said[j].start - before) / 2))
+      const next = kept[k + 1]
+      const joined = next === j + 1 // the next word said is this line's next kept word: no cut between them
+      if (joined && said[next].start - said[j].end <= cap) continue
+      if (joined) {
+        // A long pause inside the line: keep `cap` of it, around its middle.
+        spans.push([s, said[j].end + cap / 2])
+        s = said[next].start - cap / 2
+      } else {
+        const after = j + 1 < said.length ? said[j + 1].start : said[j].end + 1
+        spans.push([s, said[j].end + (next === undefined && cutOff ? 0.04 : Math.min(0.22, (after - said[j].end) / 2))])
+        s = undefined
+      }
+    }
+    const missing = script.map((x, k) => ({ ...x, k })).filter((x) => x.li === li && !got.has(x.k)).map((x) => x.w)
+    return { line, spans, trimmed: trimmed[li], missing }
+  })
+}
+
+/** Render spans of a recording into one file: each span faded in and out over a few milliseconds and joined end to
+ *  end, then played `tempo` times faster (a speed-read). */
+async function render(src: string, spans: [number, number][], out: string, tempo = 1) {
+  const n = spans.length
+  const graph = [
+    `[0:a]asplit=${n}${spans.map((_, i) => `[s${i}]`).join("")}`,
+    ...spans.map(([s, e], i) => `[s${i}]atrim=start=${s.toFixed(3)}:end=${e.toFixed(3)},asetpts=PTS-STARTPTS,afade=t=in:d=0.008,afade=t=out:st=${Math.max(0, e - s - 0.012).toFixed(3)}:d=0.012[p${i}]`),
+    `${spans.map((_, i) => `[p${i}]`).join("")}concat=n=${n}:v=0:a=1${tempo !== 1 ? `,atempo=${tempo}` : ""}[out]`,
+  ].join(";")
+  await exec("ffmpeg", ["-v", "error", "-y", "-i", src, "-filter_complex", graph, "-map", "[out]", "-ac", "1", ...(out.endsWith(".mp3") ? ["-c:a", "libmp3lame", "-b:a", "192k"] : ["-ar", "48000", "-c:a", "pcm_s16le"]), out], { env })
+}
+
+/** The script's direction for a line ("after a beat", "speed-read"), found by beat, speaker and words. */
+const scriptHow = (script?: Process["script"]) => (l: VoiceLine) => script?.beats.find((b) => b.id === l.beat)?.lines.find((x) => x.who.toLowerCase() === l.who && (x.text.includes(l.text) || l.text.includes(x.text)))?.how
+const speedRead = (how?: string) => /speed/i.test(how ?? "")
+
+/** Word timings for a recording, kept next to it so a recut does not transcribe again. */
+async function wordsOf(file: string): Promise<Word[]> {
+  const cache = `${file}.words.json`
+  if (existsSync(cache)) return JSON.parse(await fs.readFile(cache, "utf8")) as Word[]
+  const w = await words(file)
+  await fs.writeFile(cache, JSON.stringify(w))
+  return w
+}
+
+/** Cut a scene's performed lines by their words and render each from its role's conversion pass (and from the raw
+ *  recording, for the "You" player). Pauses inside a line: 0.6 s for the real person's deadpan, 0.12 s in a
+ *  speed-read (also played 1.25x), 0.45 s otherwise. */
+async function cutScene(o: { slug?: string; sceneId: Id; file: string; lines: VoiceLine[]; passes: Map<string, Conversion>; said: Word[]; script?: Process["script"]; real: (who: string) => boolean; by: string }): Promise<Performance[]> {
+  const film = filmOf(o.slug)
+  await fs.mkdir(pub(`generated/${film}/voice/perf`), { recursive: true })
+  const how = scriptHow(o.script)
+  const cuts = cutByWords(o.lines, o.said, (l) => (speedRead(how(l)) ? 0.12 : o.real(l.who) ? 0.6 : 0.45))
+  const at = stamp()
+  const out: Performance[] = []
+  for (const [k, c] of cuts.entries()) {
+    const pass = o.passes.get(c.line.who)
+    if (!c.spans.length || !pass) continue
+    const tempo = speedRead(how(c.line)) ? 1.25 : 1
+    const pid = `p${Date.now().toString(36)}${k}`
+    const rel = `generated/${film}/voice/perf/${pad(c.line.n)}-${c.line.who}-${pid}`
+    const conv = `${rel}-${safe(pass.voice)}.mp3`
+    await Promise.all([render(pub(o.file), c.spans, pub(`${rel}.wav`), tempo), render(pub(pass.file), c.spans, pub(conv), tempo)])
+    const note = [c.trimmed.length ? `Cut ${c.trimmed.join(", ")}.` : "", c.missing.length ? `Not said: ${c.missing.join(" ")}.` : "", tempo !== 1 ? `Played ${tempo}x as a speed-read.` : ""].filter(Boolean).join(" ")
+    out.push({ id: pid, n: c.line.n, who: c.line.who, text: c.line.text, file: `${rel}.wav`, duration: round(c.spans.reduce((t, [s, e]) => t + e - s, 0) / tempo), by: o.by, at, scene: o.sceneId, converted: { ...pass, file: conv }, ...(note ? { note } : {}) })
+  }
+  const real = out.filter((p) => o.real(p.who))
+  ;(await scores(real.map((p) => pub(p.converted!.file)))).forEach((m, i) => (real[i].converted!.match = m))
+  return out
+}
+
 /** Scene mode: save the whole recording, convert it in one pass per role performed (the same voice in every line of a
- *  role), cut each performed line at its first and last word, pick those takes, and build a new read from the picks.
+ *  role), cut the performed lines by their words, pick those takes, and build a new read from the picks.
  *  `who` is the role performed against the others as cues, or "all": the performer read every part. */
 export async function performScene(o: { slug?: string; who: string; take: Id; audio: Uint8Array; ext: string; events: SceneEvent[]; by: string }) {
-  const v = (await load(o.slug)).process?.voice
+  const pr = (await load(o.slug)).process
+  const v = pr?.voice
   const base = v?.takes.find((t) => t.id === o.take)
   if (!v || !base) throw new Error(`no read ${o.take}`)
-  const performed = (n: number) => base.lines.find((l) => l.n === n && (o.who === "all" || l.who === o.who))
-  const roles = [...new Set(o.events.filter((e) => e.kind === "mine").map((e) => performed(e.n)?.who).filter((w): w is string => !!w))]
+  const reached = new Set(o.events.filter((e) => e.kind === "mine").map((e) => e.n))
+  const lines = [...base.lines].sort((a, b) => a.n - b.n).filter((l) => (o.who === "all" || l.who === o.who) && reached.has(l.n))
+  const roles = [...new Set(lines.map((l) => l.who))]
   if (!roles.length) throw new Error("none of your lines were recorded")
   const targets = new Map(roles.map((w) => [w, targetVoice(v, w)]))
   const uncast = roles.filter((w) => !targets.get(w))
@@ -186,32 +367,11 @@ export async function performScene(o: { slug?: string; who: string; take: Id; au
         passes.set(w, { file: whole, model: "ElevenLabs Voice Changer", provider: "ElevenLabs", voice: t.voice, voiceId: t.voiceId, job: await sts(pub(file), t, pub(whole)), at })
       }),
     ),
-    words(pub(file)),
-    fs.mkdir(pub(`generated/${film}/voice/perf`), { recursive: true }),
+    wordsOf(pub(file)),
   ])
-  const mine: Performance[] = []
-  let prev = 0
-  for (const ev of [...o.events].sort((a, b) => a.start - b.start)) {
-    const line = ev.kind === "mine" ? performed(ev.n) : undefined
-    // Words that start inside the line's window: from when it was shown (a cue's tail cannot leak in) to just after done.
-    const w = line ? said.filter((x) => x.start > ev.start - 0.15 && x.start < ev.end + 0.2) : []
-    if (!line || !w.length) {
-      prev = ev.end
-      continue
-    }
-    const s = Math.max(0, w[0].start - 0.08)
-    const e = w[w.length - 1].end + 0.2
-    const pass = passes.get(line.who)!
-    const pid = `p${Date.now().toString(36)}${mine.length}`
-    const rel = `generated/${film}/voice/perf/${pad(line.n)}-${line.who}-${pid}`
-    const conv = `${rel}-${safe(pass.voice)}.mp3`
-    await Promise.all([cut(pub(file), s, e, pub(`${rel}.wav`)), cut(pub(pass.file), s, e, pub(conv))])
-    mine.push({ id: pid, n: line.n, who: line.who, text: line.text, file: `${rel}.wav`, duration: round(e - s), by: o.by, at, scene: id, lead: round(Math.min(1.5, Math.max(0.12, s - prev))), converted: { ...pass, file: conv } })
-    prev = e
-  }
+  const real = (w: string) => !!v.roles.find((r) => r.who === w)?.real
+  const mine = await cutScene({ slug: o.slug, sceneId: id, file, lines, passes, said, script: pr?.script, real, by: o.by })
   if (!mine.length) throw new Error("none of your lines had words in them")
-  const real = mine.filter((p) => v.roles.find((r) => r.who === p.who)?.real)
-  ;(await scores(real.map((p) => pub(p.converted!.file)))).forEach((m, i) => (real[i].converted!.match = m))
   await mutate(
     [
       { op: "voice.scene", scene: { id, who: o.who, take: o.take, file, conversions: Object.fromEntries(passes), events: o.events, by: o.by, at }, by: o.by },
@@ -223,13 +383,107 @@ export async function performScene(o: { slug?: string; who: string; take: Id; au
   return { scene: id, performances: mine, take: await buildRead(o.slug, o.by, o.take, { fresh: true }) }
 }
 
+/** Cut an existing scene again with the current cutter: no new recording or conversion. The new cuts are picked, the
+ *  scene's old cuts hidden, and a fresh read built. */
+export async function recutScene(slug: string | undefined, sceneId: Id, by: string) {
+  const pr = (await load(slug)).process
+  const v = pr?.voice
+  const sc = v?.scenes?.find((x) => x.id === sceneId)
+  if (!v || !sc) throw new Error(`no scene ${sceneId}`)
+  const base = v.takes.find((t) => t.id === sc.take) ?? v.takes.find((t) => t.id === v.pick)
+  if (!base) throw new Error(`no read ${sc.take}`)
+  const passes = new Map(Object.entries(sc.conversions ?? (sc.converted ? { [sc.who]: sc.converted } : {})))
+  const reached = new Set(sc.events.filter((e) => e.kind === "mine").map((e) => e.n))
+  const lines = [...base.lines].sort((a, b) => a.n - b.n).filter((l) => reached.has(l.n) && passes.has(l.who) && (sc.who === "all" || l.who === sc.who))
+  const real = (w: string) => !!v.roles.find((r) => r.who === w)?.real
+  const mine = await cutScene({ slug, sceneId, file: sc.file, lines, passes, said: await wordsOf(pub(sc.file)), script: pr?.script, real, by })
+  if (!mine.length) throw new Error("no lines found in the scene")
+  const old = (v.performances ?? []).filter((p) => p.scene === sceneId && !p.removed)
+  await mutate(
+    [
+      ...mine.map((p) => ({ op: "voice.perform" as const, performance: p, by })),
+      ...mine.map((p) => ({ op: "voice.keep" as const, n: p.n, id: p.id, by })),
+      ...old.map((p) => ({ op: "voice.remove" as const, id: p.id, by })),
+    ],
+    slug,
+  )
+  return { performances: mine, take: await buildRead(slug, by, undefined, { fresh: true }) }
+}
+
+/** A line read by its cast voice (Eleven v4 with the script's direction) instead of performed, for a line that needs no
+ *  acting, like the disclaimer. Makes `tries` reads, keeps the one whose words match the script best (then the
+ *  shortest), and plays it `tempo` times faster; a speed-read goes to broadcast-disclaimer pace by default, about 5.5
+ *  words a second (1.05x to 1.35x). The read is added as a take of the line, picked, and the read rebuilt. */
+export async function generateLine(slug: string | undefined, n: number, by: string, opts: { tries?: number; tempo?: number } = {}): Promise<Performance> {
+  const pr = (await load(slug)).process
+  const v = pr?.voice
+  const take = v && (v.takes.find((t) => t.id === v.pick) ?? v.takes.at(-1))
+  const line = take?.lines.find((l) => l.n === n)
+  if (!v || !line) throw new Error(`no line ${n} in the read`)
+  const target = targetVoice(v, line.who)
+  if (!target) throw new Error(`cast a voice for ${line.who} first`)
+  const how = scriptHow(pr?.script)(line)
+  const text = acted({ beat: line.beat, who: line.who, text: line.text, how })
+  const id = `p${Date.now().toString(36)}`
+  const rel = `generated/${filmOf(slug)}/voice/perf/${pad(n)}-${line.who}-${id}`
+  await fs.mkdir(path.dirname(pub(rel)), { recursive: true })
+  const want = toks(line.text)
+  const reads = await Promise.all(
+    Array.from({ length: opts.tries ?? 3 }, async (_, k) => {
+      const file = pub(`${rel}-read${k + 1}.mp3`)
+      const job = await elAudio("/v1/text-to-dialogue?output_format=mp3_44100_192", { model_id: TTS_MODEL, inputs: [{ text, voice_id: target.voiceId }], seed: 1000 + k }, file)
+      const at = align(want, (await words(file)).map((w) => norm(w.text)))
+      const off = want.length - new Set(at.filter((x) => x >= 0)).size + at.filter((x) => x < 0).length
+      return { file, job, off, secs: await seconds(file) }
+    }),
+  )
+  const best = reads.sort((a, b) => a.off - b.off || a.secs - b.secs)[0]
+  const tempo = opts.tempo ?? (speedRead(how) ? Math.min(1.35, Math.max(1.05, best.secs / (want.length / 5.5))) : 1)
+  const out = `${rel}-${safe(target.voice)}.mp3`
+  await exec("ffmpeg", ["-v", "error", "-y", "-i", best.file, "-af", `atempo=${tempo.toFixed(3)}`, "-c:a", "libmp3lame", "-b:a", "192k", pub(out)], { env })
+  const at = stamp()
+  const perf: Performance = {
+    id,
+    n,
+    who: line.who,
+    text: line.text,
+    file: out,
+    duration: round(await seconds(pub(out))),
+    by,
+    at,
+    converted: { file: out, model: `${TTS_MODEL} (text to dialogue)`, provider: "ElevenLabs", voice: target.voice, voiceId: target.voiceId, job: best.job, at },
+    note: `Generated, not performed: the best of ${reads.length} reads (${best.off} ${best.off === 1 ? "word" : "words"} off the script)${tempo > 1.001 ? `, played ${tempo.toFixed(2)}x` : ""}.`,
+  }
+  await mutate([{ op: "voice.perform", performance: perf, by }, { op: "voice.keep", n, id, by }], slug)
+  await buildRead(slug, by)
+  return perf
+}
+
+/** The silence before a line in a built read, from the script: an interruption cuts straight in, "after a beat" holds
+ *  0.9 s, a new beat (a new shot) 0.55 s, the real person answering someone 0.5 s, either side of a speed-read card
+ *  0.6 s, and an audience reaction written into the beat before gets 0.3 s more room. */
+function gapBefore(prev: VoiceLine | undefined, cur: VoiceLine, how: (l: VoiceLine) => string | undefined, sound: (beat: Id) => string | undefined, real: (who: string) => boolean) {
+  if (!prev) return 0
+  if (/[-–—]\s*$/.test(prev.text)) return 0.02
+  if (/after a beat/i.test(how(cur) ?? "")) return 0.9
+  let g = prev.beat !== cur.beat ? 0.55 : prev.who === cur.who ? 0.35 : 0.3
+  if (real(cur.who) && prev.who !== cur.who) g = Math.max(g, 0.5)
+  if (speedRead(how(cur)) || speedRead(how(prev))) g = Math.max(g, 0.6)
+  if (prev.beat !== cur.beat && /applause|o{3,}h|wow/i.test(sound(prev.beat) ?? "")) g += 0.3
+  return round(g)
+}
+
 /** A read built from the picks: every line of the base read in order, the picked take in place of a line when there
  *  is one, a picked line after the silence it was performed with (`lead`), every other gap as in the base read.
  *  A built base is rebuilt in place (one working read that follows the picks); `fresh` always makes a new read. */
 export async function buildRead(slug: string | undefined, by: string, baseId?: Id, opts: { fresh?: boolean } = {}): Promise<VoiceTake> {
-  const v = (await load(slug)).process?.voice
+  const pr = (await load(slug)).process
+  const v = pr?.voice
   const base = v && (v.takes.find((t) => t.id === (baseId ?? v.pick)) ?? v.takes.at(-1))
   if (!v || !base) throw new Error("no read to build on")
+  const how = scriptHow(pr?.script)
+  const sound = (b: Id) => pr?.script.beats.find((x) => x.id === b)?.sound
+  const real = (w: string) => !!v.roles.find((r) => r.who === w)?.real
   const picked = new Map<number, Performance>()
   for (const [n, pid] of Object.entries(v.picks ?? {})) {
     const p = v.performances?.find((x) => x.id === pid && !x.removed && x.converted)
@@ -245,7 +499,7 @@ export async function buildRead(slug: string | undefined, by: string, baseId?: I
   let t = 0
   for (const [i, l] of ordered.entries()) {
     const p = picked.get(l.n)
-    const gap = i === 0 ? 0 : Math.min(1.5, Math.max(0.1, p?.lead ?? l.start - ordered[i - 1].end))
+    const gap = gapBefore(ordered[i - 1], l, how, sound, real)
     if (gap > 0) {
       const sil = pub(`${dir}/${pad(l.n)}-gap.wav`)
       await exec("ffmpeg", ["-v", "error", "-y", "-f", "lavfi", "-i", "anullsrc=r=48000:cl=mono", "-t", gap.toFixed(3), "-c:a", "pcm_s16le", sil], { env })
@@ -254,8 +508,10 @@ export async function buildRead(slug: string | undefined, by: string, baseId?: I
     }
     const src = p ? p.converted!.file : l.file
     const seg = pub(`${dir}/${pad(l.n)}.wav`)
-    // Every line to the same loudness, so takes recorded at different levels read as one session.
-    await exec("ffmpeg", ["-v", "error", "-y", "-i", pub(src), "-vn", "-af", "loudnorm=I=-18:TP=-1.5:LRA=11", "-ac", "1", "-ar", "48000", "-c:a", "pcm_s16le", seg], { env })
+    // Silence trimmed off both ends (the script sets the gaps), and every line to the same loudness, so takes recorded
+    // at different levels and moments read as one session.
+    const edges = "silenceremove=start_periods=1:start_threshold=-50dB:start_silence=0.06,areverse,silenceremove=start_periods=1:start_threshold=-50dB:start_silence=0.12,areverse"
+    await exec("ffmpeg", ["-v", "error", "-y", "-i", pub(src), "-vn", "-af", `${edges},loudnorm=I=-18:TP=-1.5:LRA=11`, "-ac", "1", "-ar", "48000", "-c:a", "pcm_s16le", seg], { env })
     const d = await seconds(seg)
     parts.push(seg)
     lines.push({ n: l.n, beat: l.beat, who: l.who, text: l.text, start: round(t), end: round(t + d), file: src, match: p ? p.converted!.match : l.match })
@@ -274,7 +530,7 @@ export async function buildRead(slug: string | undefined, by: string, baseId?: I
     cast: { ...base.cast, ...Object.fromEntries(who.map((w) => [w, `performed by ${by}`])) },
     duration: round(t),
     lines,
-    note: `${picked.size} performed ${picked.size === 1 ? "line" : "lines"} (${who.join(", ") || "none"}), each after the silence it was performed with; every other line and gap as in read ${base.id}.`,
+    note: `${picked.size} performed ${picked.size === 1 ? "line" : "lines"} (${who.join(", ") || "none"}), every other line as in read ${base.id}; gaps paced by the script's beats.`,
     at: stamp(),
     built: true,
   }

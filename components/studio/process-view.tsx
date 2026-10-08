@@ -980,10 +980,15 @@ function PerformPanel({ pr, take, name, op }: { pr: Process; take: VoiceTake; na
                     <Trash2 />
                   </Button>
                 </div>
+                {p.note && <p className="text-xs leading-relaxed text-muted-foreground">{p.note}</p>}
                 <div className="grid grid-cols-[7rem_minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1.5">
-                  <span className="text-sm text-muted-foreground">You</span>
-                  <audio controls preload="metadata" src={`/${p.file}`} className="h-8 w-full" />
-                  <span />
+                  {p.converted?.file !== p.file && (
+                    <>
+                      <span className="text-sm text-muted-foreground">You</span>
+                      <audio controls preload="metadata" src={`/${p.file}`} className="h-8 w-full" />
+                      <span />
+                    </>
+                  )}
                   <span className="truncate text-sm font-medium">{short(p.who)}</span>
                   {p.converted ? <audio controls preload="metadata" src={`/${p.converted.file}`} className="h-8 w-full" /> : <span className={cn("text-sm", p.error ? "text-amber-600 dark:text-amber-400" : "text-muted-foreground")}>{p.error ?? "Converting..."}</span>}
                   {p.converted?.match !== undefined ? (

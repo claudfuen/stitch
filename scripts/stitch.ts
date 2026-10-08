@@ -50,7 +50,7 @@ import { CHECKS, type Asset, type CheckKey, type GenStep, type Media, type TakeV
 import { parseStep, stepFromSidecar } from "../lib/models"
 import type { Op } from "../lib/ops"
 import { load, mutate } from "../lib/store"
-import { buildRead, convert, perform, performScene } from "../lib/perform"
+import { buildRead, convert, generateLine, perform, performScene, recutScene } from "../lib/perform"
 import { latestCut, modelBoard, pick, planView, projectHead, shotRows } from "../lib/derive"
 import type { PlanList } from "../lib/ops"
 import { beatsOf, blockedBy, currentStage, openNotes, runtime, words, type Candidate, type GateStatus, type StageId } from "../lib/process"
@@ -285,6 +285,15 @@ async function main() {
       if (sub === "convert" && rest[0]) {
         const p = await convert(process.env.STITCH_PROJECT, rest[0])
         return console.log(p.converted ? `${p.id}: ${p.converted.file}${p.converted.match !== undefined ? ` match ${p.converted.match.toFixed(2)}` : ""}` : `${p.id} not converted: ${p.error}`)
+      }
+      if (sub === "recut" && rest[0]) {
+        const r = await recutScene(process.env.STITCH_PROJECT, rest[0], flag("by") ?? "claude")
+        for (const p of r.performances) console.log(`line ${String(p.n).padStart(2)} ${p.who.padEnd(8)} ${p.duration} s${p.converted?.match !== undefined ? ` match ${p.converted.match.toFixed(2)}` : ""}${p.note ? `  ${p.note}` : ""}`)
+        return console.log(`read ${r.take.id}: ${r.take.file} (${r.take.duration} s)`)
+      }
+      if (sub === "generate" && rest[0]) {
+        const p = await generateLine(process.env.STITCH_PROJECT, Number(rest[0]), flag("by") ?? "claude", { tries: flag("tries") ? Number(flag("tries")) : undefined, tempo: flag("tempo") ? Number(flag("tempo")) : undefined })
+        return console.log(`line ${p.n} ${p.who}: ${p.converted?.file} (${p.duration} s) ${p.note ?? ""}`)
       }
       if (sub === "read") {
         const t = await buildRead(process.env.STITCH_PROJECT, flag("by") ?? "claude", flag("base"))

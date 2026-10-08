@@ -110,7 +110,7 @@ export type Conversion = { file: string; model: string; provider: string; voice:
 /** A line a person performed into the app's recorder, saved as recorded (`file`), then converted to the role's voice.
  *  `n` and `text` are the line's in the read; `error` says why there is no conversion yet. `removed` hides it from
  *  the list (its files stay on disk). */
-export type Performance = { id: Id; n: number; who: Id; text: string; file: string; duration?: number; by: string; at: string; converted?: Conversion; error?: string; removed?: boolean; scene?: Id; lead?: number }
+export type Performance = { id: Id; n: number; who: Id; text: string; file: string; duration?: number; by: string; at: string; converted?: Conversion; error?: string; removed?: boolean; scene?: Id; lead?: number; note?: string }
 /** Scene mode: one continuous recording of a role through the whole read, with the other roles' lines played as cues
  *  that wait for the performer. `events` place each line in recording time (seconds): a cue from play to end, the
  *  performer's line from shown to done. The performer's lines are cut from it as performances (`scene`, with `lead`:
