@@ -1,0 +1,51 @@
+scripts/stitch.ts
+  s_57926d8e065a50::t_8f6a9dc4b1b4d1 281-289
+  s_57926d8e065a50::t_594993640a8184 53
+components/studio/process-view.tsx
+  s_57926d8e065a50::t_bae3e8f8369f0b 641-642
+  s_57926d8e065a50::t_988020bdb7d92e 17,19
+  s_57926d8e065a50::t_96d272c51d1e72 764-769,771-782,784-786,788-871,873-896,898-931
+  s_57926d8e065a50::t_1a75acc7629116 668-673,682-683,685-686,691
+  s_57926d8e065a50::t_91c18ad6c33ae0 684
+  s_57926d8e065a50::t_fddb64118b9351 7-8
+  s_57926d8e065a50::t_9b3a173590f95e 11
+  s_57926d8e065a50::t_fe6ac03b3aa0d9 783
+  s_57926d8e065a50::t_883371997b3b2c 652-655
+  s_57926d8e065a50::t_d1560ed893b60f 770
+lib/process.ts
+  s_57926d8e065a50::t_0fc19e8def7224 106-112
+lib/ops.ts
+  s_57926d8e065a50::t_f4f11f20bda08b 291-293
+  s_57926d8e065a50::t_6b7bea53c5e5fc 9
+  s_57926d8e065a50::t_f4f0cc22e77c6c 72
+  s_57926d8e065a50::t_1dba93ccf0ed37 270
+  s_57926d8e065a50::t_fba97a2816ebb0 370-376
+  s_57926d8e065a50::t_08aaf0344dba52 279
+  s_57926d8e065a50::t_d327078d3909c7 73
+  s_57926d8e065a50::t_f8661a59175277 286
+components/studio/recorder.ts
+  s_57926d8e065a50::t_87eac214c5af88 30-31,34-39
+  s_57926d8e065a50::t_c2d8266147ae46 11-12
+  s_57926d8e065a50::t_6fbae2ebdb7331 1-10,13-29,32-33,40-120
+app/api/perform/route.ts
+  s_57926d8e065a50::t_f543b5eb23c1e6 1-23
+lib/perform.ts
+  s_57926d8e065a50::t_f9a8075ec04929 68
+  s_57926d8e065a50::t_841ba29ce40c50 1-67,69-92
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "7c621b1d772935fbca9cfa64f784ddc4a9929a49",
+  "prompts": {},
+  "sessions": {
+    "s_57926d8e065a50": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a3f94515-bcc4-4167-8e39-a7436a363df6",
+        "model": "unknown"
+      },
+      "human_author": "Claudio Fuentes <imclaudfuen@gmail.com>"
+    }
+  }
+}
