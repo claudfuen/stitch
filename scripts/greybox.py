@@ -3,7 +3,13 @@
 # one camera per setup (Super 35, the setup's lens, height, facing and tilt).
 #
 #   /Applications/Blender.app/Contents/MacOS/Blender -b -P scripts/greybox.py -- <plan.json> <out_dir> [setup ...]
-#       [--glb room.glb] [--glb-only] [--clay] [--detail]
+#       [--glb room.glb] [--glb-only] [--clay] [--detail] [--anim <take.json> <out.mp4>]
+#
+# `--anim` renders a blockout instead of stills: one camera moving through a take's shots (stage 06). The take lists
+# shots {cam, t0, t1, beat, stage?} in seconds; the camera holds each setup (place, height, facing, tilt, lens) and
+# whips to the next in `whip` seconds, and each mark or item tied to beats exists only in its beat's shots (`stage`
+# names another beat's marks, when the story has the cast already moved: Brock arriving at centre for his line). Rendered as H.264
+# with no sound; the take's audio is added after.
 #
 # `bun run stitch greybox <location>` writes the plan out, runs this and registers the renders on the board.
 # `--glb` also exports the built room (every camera, plan item and mark, tagged with their plan ids as glTF extras) for
@@ -16,8 +22,12 @@ import bpy
 import mathutils
 
 argv = sys.argv[sys.argv.index("--") + 1:]
+anim = None
+if "--anim" in argv:
+    k = argv.index("--anim")
+    anim, argv = argv[k + 1:k + 3], argv[:k] + argv[k + 3:]
 glb = argv[argv.index("--glb") + 1] if "--glb" in argv else None
-render = "--glb-only" not in argv
+render = "--glb-only" not in argv and anim is None
 clay = "--clay" in argv  # ignore the plan's palette and item colours: the plain grey box
 detail = "--detail" in argv  # recognisable shapes (palms, stools, lettering) and posed mannequins instead of blocks
 argv = [a for i, a in enumerate(argv) if not a.startswith("--") and (i == 0 or argv[i - 1] != "--glb")]
@@ -461,3 +471,141 @@ for s in plan["setups"] if render else []:
     scene.render.filepath = f"{out_dir}/{s['id']}.png"
     bpy.ops.render.render(write_still=True)
     print(f"rendered {s['id']} -> {scene.render.filepath}")
+
+if anim:
+    take = json.load(open(anim[0]))
+    fps = take.get("fps", 24) * take.get("oversample", 1)  # oversampled frames are blended back down for motion blur
+    whip = take.get("whip", 0.3)
+    shots = take["shots"]
+    scene.render.fps = fps
+    scene.render.resolution_x, scene.render.resolution_y = take.get("size", [1280, 720])
+    scene.frame_start = 1
+    scene.frame_end = max(1, round(shots[-1]["t1"] * fps))
+    cd = bpy.data.cameras.new("cam-take")
+    cd.sensor_fit = "HORIZONTAL"
+    cd.sensor_width = SENSOR
+    cd.clip_start = 0.05
+    cam = bpy.data.objects.new("cam-take", cd)
+    scene.collection.objects.link(cam)
+    scene.camera = cam
+    setups = {s["id"]: s for s in plan["setups"]}
+    edit = bpy.context.preferences.edit
+    # The camera: hold each shot's setup, ease through the whip between holds (auto-clamped Bezier never overshoots).
+    edit.keyframe_new_interpolation_type = "BEZIER"
+    yaw_prev = None
+    for k, sh in enumerate(shots):
+        su = setups[sh["cam"]]
+        yaw = math.radians(-su["facing"])
+        if yaw_prev is not None:  # turn the short way round
+            while yaw - yaw_prev > math.pi:
+                yaw -= 2 * math.pi
+            while yaw - yaw_prev < -math.pi:
+                yaw += 2 * math.pi
+        yaw_prev = yaw
+        hold = (sh["t0"] + (whip / 2 if k else 0), sh["t1"] - (whip / 2 if k < len(shots) - 1 else 0))
+        for t in hold:
+            cam.location = (su["at"][0], su["at"][1], su["height"])
+            cam.rotation_euler = (math.radians(90 + (su.get("tilt") or 0)), 0, yaw)
+            cd.lens = su["lens"]
+            f = 1 + t * fps
+            cam.keyframe_insert("location", frame=f)
+            cam.keyframe_insert("rotation_euler", frame=f)
+            cd.keyframe_insert("lens", frame=f)
+    # Who and what is on the set: a mark or item tied to beats exists only in shots of those beats; it switches at the
+    # cut, in the middle of the whip, so a move between marks happens off camera.
+    edit.keyframe_new_interpolation_type = "CONSTANT"
+    beats_of = {}
+    for beat, names in beat_objects.items():
+        for name in names:
+            beats_of.setdefault(name, set()).add(beat)
+    for sh in shots:
+        f = 1 + sh["t0"] * fps
+        staged = sh.get("stage", sh.get("beat"))
+        for name, beats in beats_of.items():
+            o = bpy.data.objects[name]
+            o.hide_render = staged not in beats
+            o.keyframe_insert("hide_render", frame=f)
+        for names, (mode, beats) in variants:
+            on = staged in beats
+            for name in names:
+                o = bpy.data.objects[name]
+                o.hide_render = on if mode == "hide" else not on
+                o.keyframe_insert("hide_render", frame=f)
+    # Moves: the cast and props are not frozen, because the video model copies the blockout's motion almost one to
+    # one. Each move animates a mark's figure (or an item) through an empty at its base:
+    #   {"mark": id, "path": [[t, dx, dy], ...], "hop": metres}     enter or cross along a path, hopping
+    #   {"mark": id, "bob": metres, "sway": degrees, "hz": n, "during": [[t0, t1], ...]}  talking energy
+    #   {"mark": id, "lean": [[t, degrees], ...]}                    lean forward along the figure's facing
+    #   {"mark": id, "slam": [t, ...]}                               dip down hard, with a lift before
+    #   {"item": id, "drop": t}                                      the prop collapses into the floor in 0.25 s
+    edit.keyframe_new_interpolation_type = "BEZIER"
+    marks = {m["id"]: m for m in plan["marks"]}
+    rigs = {}
+
+    def rig(key, value, at, facing=0.0):
+        if (key, value) in rigs:
+            return rigs[(key, value)]
+        e = bpy.data.objects.new(f"rig:{value}", None)
+        scene.collection.objects.link(e)
+        e.location = (at[0], at[1], 0)
+        e.rotation_mode = "QUATERNION"
+        bpy.context.view_layer.update()
+        for o in list(bpy.data.objects):
+            if o.get(key) == value and o.parent is None and o is not e:
+                o.parent = e
+                o.matrix_parent_inverse = e.matrix_world.inverted()
+        rigs[(key, value)] = (e, math.radians(facing))
+        return rigs[(key, value)]
+
+    step = 1 / 12  # sample curves at 12 per second; Bezier fills between
+    for mv in take.get("moves", []):
+        if "item" in mv:
+            it = next(i for i in plan["items"] if i["id"] == mv["item"])
+            e, _ = rig("item", mv["item"], it["at"])
+            t = mv["drop"]
+            for tt, sz in ((t - 0.02, 1.0), (t + 0.25, 0.02)):
+                e.scale = (1, 1, sz)
+                e.keyframe_insert("scale", frame=1 + tt * fps)
+            continue
+        m = marks[mv["mark"]]
+        e, f = rig("mark", m["id"], m["at"], m.get("facing", 0))
+        base = mathutils.Vector((m["at"][0], m["at"][1], 0))
+        fwd = mathutils.Vector((math.sin(f), math.cos(f), 0))
+        side = mathutils.Vector((math.cos(f), -math.sin(f), 0))
+        if "path" in mv:
+            pts = mv["path"]
+            for (t0, x0, y0), (t1, x1, y1) in zip(pts, pts[1:]):
+                n = max(1, round((t1 - t0) / step))
+                for k in range(n + 1):
+                    u = k / n
+                    hop = mv.get("hop", 0) * abs(math.sin(math.pi * u * max(1, round((t1 - t0) * 2.5))))
+                    e.location = base + mathutils.Vector((x0 + (x1 - x0) * u, y0 + (y1 - y0) * u, hop))
+                    e.keyframe_insert("location", frame=1 + (t0 + (t1 - t0) * u) * fps)
+        if "bob" in mv:
+            hz = mv.get("hz", 2.0)
+            for t0, t1 in mv["during"]:
+                n = max(1, round((t1 - t0) / step))
+                for k in range(n + 1):
+                    t = t0 + (t1 - t0) * k / n
+                    env = min(1.0, (t - t0) / 0.3, (t1 - t) / 0.3)  # ease in and out of the energy
+                    e.location = base + mathutils.Vector((0, 0, mv["bob"] * env * abs(math.sin(math.pi * hz * t))))
+                    e.rotation_quaternion = mathutils.Quaternion((0, 0, 1), math.radians(mv.get("sway", 0)) * env * math.sin(math.pi * hz * t / 2))
+                    e.keyframe_insert("location", frame=1 + t * fps)
+                    e.keyframe_insert("rotation_quaternion", frame=1 + t * fps)
+        if "lean" in mv:
+            for t, deg in mv["lean"]:
+                e.rotation_quaternion = mathutils.Quaternion(side, math.radians(deg))
+                e.keyframe_insert("rotation_quaternion", frame=1 + t * fps)
+        if "slam" in mv:
+            for t in mv["slam"]:
+                for tt, dz in ((t - 0.3, 0.0), (t - 0.12, 0.06), (t, -0.14), (t + 0.25, 0.0)):
+                    e.location = base + mathutils.Vector((0, 0, dz))
+                    e.keyframe_insert("location", frame=1 + tt * fps)
+    scene.render.image_settings.media_type = "VIDEO" if hasattr(scene.render.image_settings, "media_type") else scene.render.image_settings.file_format
+    scene.render.image_settings.file_format = "FFMPEG"
+    scene.render.ffmpeg.format = "MPEG4"
+    scene.render.ffmpeg.codec = "H264"
+    scene.render.ffmpeg.constant_rate_factor = "HIGH"
+    scene.render.filepath = anim[1]
+    bpy.ops.render.render(animation=True)
+    print(f"rendered {scene.frame_end} frames -> {anim[1]}")

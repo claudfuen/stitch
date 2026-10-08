@@ -121,6 +121,17 @@ export type Scene = { id: Id; who: Id | "all"; take: Id; file: string; converted
 /** `picks`: the performance to use for each line, by line number. A person sets it; agents build from it. */
 export type Voice = { roles: VoiceRole[]; takes: VoiceTake[]; pick?: Id; performances?: Performance[]; picks?: Record<string, Id>; scenes?: Scene[] }
 
+/** Stage 06: one continuous take per set, sliced into shots. A blockout (the set's grey box with one camera moving
+ *  through the take's shots, whipping between them, the locked read as its sound) drives the video model, with the
+ *  cast sheets and the set's frames as references, so every shot of a set comes out of one generation: the same
+ *  room, light and faces. The take is then cut at its whips. Times are seconds inside the take; `from`/`to` place it
+ *  in the read. `stage` on a shot names the beat whose marks are on set (the cast already moved). */
+export type TakeShot = { cam: Id; t0: number; t1: number; beat: Id; stage?: Id; lines?: number[]; what?: string }
+/** `compare`: the generation next to its blockout, in sync, to judge adherence. */
+export type Generation = { id: Id; file?: string; compare?: string; model: string; provider: string; job?: string; status: "running" | "done" | "failed"; draft?: boolean; prompt?: string; refs?: string[]; at: string; note?: string; error?: string }
+/** `moves`: the cast and props in motion in the blockout (scripts/greybox.py --anim documents each kind). */
+export type SetTake = { id: Id; room: Id; name: string; read: Id; from: number; to: number; whip: number; shots: TakeShot[]; moves?: Record<string, unknown>[]; blockout?: string; gens: Generation[]; pick?: Id }
+
 /** Which beats each camera is used in, from the camera script (the one source of truth for it). */
 export const beatsOf = (pr: Process, room: Id, cam: Id) =>
   [...new Set((pr.space?.cuts ?? []).filter((c) => c.room === room && c.cam === cam).map((c) => pr.script.beats.find((b) => c.t0 >= b.t0 && c.t0 < b.t1)?.id).filter((x): x is Id => !!x))]
@@ -135,6 +146,7 @@ export type Process = {
   sheets?: SheetItem[]
   space?: Space
   voice?: Voice
+  takes?: SetTake[]
   pick?: Id
   /** The beat sheet for the picked concept. Bumped each time an agent rewrites it, which reopens the script gate. */
   script: { version: number; concept?: Id; beats: Beat[] }

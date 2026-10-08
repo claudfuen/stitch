@@ -51,6 +51,7 @@ import { parseStep, stepFromSidecar } from "../lib/models"
 import type { Op } from "../lib/ops"
 import { load, mutate } from "../lib/store"
 import { buildRead, checkConversions, convert, generateLine, masterRead, perform, performScene, reconvert, recutScene } from "../lib/perform"
+import { blockTake, finishGen } from "../lib/takes"
 import { latestCut, modelBoard, pick, planView, projectHead, shotRows } from "../lib/derive"
 import type { PlanList } from "../lib/ops"
 import { beatsOf, blockedBy, currentStage, openNotes, runtime, words, type Candidate, type GateStatus, type StageId } from "../lib/process"
@@ -270,6 +271,23 @@ async function main() {
         return console.log(`${rest[0]} ${rest[1]}: ${candidate.file} (${candidate.model} via ${candidate.provider})`)
       }
       throw new Error("usage: stitch space | space set <plan.json> | space frame <room> <cam> <file>")
+    }
+    case "take": {
+      // stage 06 (STITCH_PROJECT=<film>): one continuous take per set
+      //   take set <take.json> | take block <id> | take gen <id> <gen.json> | take pick <id> <gen|none>
+      if (sub === "set" && rest[0]) {
+        const take = JSON.parse(readFileSync(rest[0], "utf8"))
+        await run([{ op: "pixels.take", take, by: flag("by") ?? "claude" }])
+        return console.log(`take ${take.id}: ${take.shots.length} shots, ${(take.to - take.from).toFixed(1)} s`)
+      }
+      if (sub === "block" && rest[0]) return console.log(`blockout: ${await blockTake(process.env.STITCH_PROJECT, rest[0], flag("by") ?? "claude")}`)
+      if (sub === "gen" && rest.length >= 2) return run([{ op: "pixels.gen", take: rest[0], gen: JSON.parse(readFileSync(rest[1], "utf8")), by: flag("by") ?? "claude" }])
+      if (sub === "pick" && rest.length >= 2) return run([{ op: "pixels.pick", take: rest[0], gen: rest[1] === "none" ? null : rest[1], by: flag("by") ?? "claude" }])
+      if (sub === "done" && rest.length >= 3) {
+        const r = await finishGen(process.env.STITCH_PROJECT, rest[0], rest[1], rest[2], flag("by") ?? "claude")
+        return console.log(`saved ${r.file}${r.compare ? `, side by side: ${r.compare}` : ""}`)
+      }
+      throw new Error("usage: stitch take set <take.json> | take block <id> | take gen <id> <gen.json> | take done <id> <gen> <url> | take pick <id> <gen|none>")
     }
     case "voice": {
       if (sub === "set" && rest[0]) {

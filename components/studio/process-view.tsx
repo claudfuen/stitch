@@ -8,7 +8,7 @@ import { Check, ChevronDown, ChevronLeft, ChevronRight, LoaderCircle, Lock, Mic,
 import { useEffect, useRef, useState } from "react"
 import type { ProjectWithRev } from "@/lib/model"
 import type { Op } from "@/lib/ops"
-import { GATE_LABEL, beatsOf, blockedBy, currentStage, openNotes, runtime, words, type Audition, type Beat, type Camera, type Candidate, type Concept, type GateStatus, type Note, type Process, type Room, type SheetItem, type SheetKind, type Stage, type StageId, type VoiceLine, type VoiceTake } from "@/lib/process"
+import { GATE_LABEL, beatsOf, blockedBy, currentStage, openNotes, runtime, words, type Audition, type Beat, type Camera, type Candidate, type Concept, type GateStatus, type Note, type Process, type Room, type SheetItem, type SheetKind, type SetTake, type Stage, type StageId, type VoiceLine, type VoiceTake } from "@/lib/process"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -50,7 +50,7 @@ export function ProcessView({ project: p, op }: Props) {
     <div className="flex h-full flex-col">
       <Stepper pr={pr} sel={sel} onSelect={setSel} />
       <div className="min-h-0 flex-1 overflow-y-auto">
-        <div className="mx-auto max-w-3xl px-6 pt-10 pb-12">{sel === "script" ? <ScriptStage pr={pr} op={op} /> : sel === "sheets" && !blockedBy(pr, "sheets") ? <SheetsStage pr={pr} stage={stage} op={op} /> : sel === "space" && !blockedBy(pr, "space") && pr.space ? <SpaceStage pr={pr} stage={stage} op={op} /> : sel === "voice" && !blockedBy(pr, "voice") ? <VoiceStage pr={pr} stage={stage} op={op} /> : <OtherStage pr={pr} stage={stage} op={op} />}</div>
+        <div className="mx-auto max-w-3xl px-6 pt-10 pb-12">{sel === "script" ? <ScriptStage pr={pr} op={op} /> : sel === "sheets" && !blockedBy(pr, "sheets") ? <SheetsStage pr={pr} stage={stage} op={op} /> : sel === "space" && !blockedBy(pr, "space") && pr.space ? <SpaceStage pr={pr} stage={stage} op={op} /> : sel === "voice" && !blockedBy(pr, "voice") ? <VoiceStage pr={pr} stage={stage} op={op} /> : sel === "pixels" && pr.takes?.length ? <PixelsStage pr={pr} stage={stage} op={op} /> : <OtherStage pr={pr} stage={stage} op={op} />}</div>
       </div>
       <DecisionBar pr={pr} stage={stage} op={op} />
     </div>
@@ -759,6 +759,108 @@ function VoiceStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["o
 
       <StageSettings stage={stage} op={op} />
     </article>
+  )
+}
+
+/** Stage 06: one continuous take per set, sliced into shots. The set's grey box, with one camera moving through the
+ *  take's shots and the locked read as its sound, drives the video model, so a set's shots all come out of one
+ *  generation (same room, light and faces). Picks are ops (pixels.pick), the same ones agents use (`stitch take`). */
+function PixelsStage({ pr, stage, op }: { pr: Process; stage: Stage; op: Props["op"] }) {
+  const lock = blockedBy(pr, "pixels")
+  return (
+    <article className="space-y-12">
+      <header className="space-y-4">
+        <div className="space-y-2">
+          <Eyebrow pr={pr} stage={stage} />
+          <h1 className="text-3xl font-semibold tracking-tight">Pixels</h1>
+          <p className="text-[15px] leading-relaxed text-muted-foreground">Each set is shot as one continuous take, so every shot of it comes out of the same generation: the same room, the same light, the same faces. The take is then cut into its shots.</p>
+        </div>
+        <ol className="space-y-1.5 rounded-md bg-muted/50 px-4 py-3 text-sm leading-relaxed">
+          <li><span className="font-medium">1. Block.</span> The set&apos;s grey box with one camera moving through the take&apos;s shots, whipping between them, with the read as its sound. Check the camera and who stands where.</li>
+          <li><span className="font-medium">2. Generate.</span> Seedance 2.5 on Higgsfield follows the blockout, with the cast sheets and the set&apos;s frames as references. Drafts at 480p first; the one you pick is finished at 1080p.</li>
+          <li><span className="font-medium">3. Compare and pick.</span> Each generation plays next to its blockout. Use the one that holds the camera, the faces and the lines.</li>
+          <li><span className="font-medium">4. Slice.</span> The picked take is cut at its whips into the shots of the film.</li>
+        </ol>
+        {lock && <p className="text-sm text-amber-600 dark:text-amber-400">{lock.name} is not approved yet, so these takes are previews: approve it to lock the read they are timed to.</p>}
+      </header>
+      {(pr.takes ?? []).map((t) => (
+        <TakeSection key={t.id} t={t} pr={pr} op={op} />
+      ))}
+      <StageSettings stage={stage} op={op} />
+    </article>
+  )
+}
+
+function TakeSection({ t, pr, op }: { t: SetTake; pr: Process; op: Props["op"] }) {
+  const room = pr.space?.rooms.find((r) => r.id === t.room)
+  const read = pr.voice?.takes.find((x) => x.id === t.read)
+  const name = (who: string) => pr.cast?.find((c) => c.id === who)?.name.split(" ")[0] ?? who
+  const gens = [...t.gens].sort((a, b) => b.at.localeCompare(a.at))
+  return (
+    <ProposalSection title={t.name} about={`${room?.name ?? t.room}, ${t.shots.length} shots in one take of ${(t.to - t.from).toFixed(1)} s, timed to read ${t.read} (${tc(t.from)} to ${tc(t.to)}).`} target={`pixels:${t.id}`} pr={pr} op={op}>
+      <ol className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {t.shots.map((s, k) => {
+          const cam = room?.cameras.find((c) => c.id === s.cam)
+          const said = (s.lines ?? []).map((n) => read?.lines.find((l) => l.n === n)).filter((l): l is VoiceLine => !!l)
+          return (
+            <li key={k} className="space-y-1.5">
+              {cam?.frame && <img src={`/${cam.frame.file}`} alt={`${s.cam} ${cam.size}`} className="aspect-video w-full rounded object-cover" />}
+              <p className="flex items-baseline gap-1.5 text-xs">
+                <span className="font-mono font-medium">{s.cam}</span>
+                <span className="text-muted-foreground">{cam?.size}</span>
+                <span className="ml-auto font-mono text-muted-foreground tabular-nums">
+                  {s.t0.toFixed(1)}-{s.t1.toFixed(1)} s
+                </span>
+              </p>
+              <p className="line-clamp-3 text-xs leading-relaxed text-muted-foreground">{said.length ? said.map((l) => `${name(l.who)}: ${l.text}`).join(" ") : s.what}</p>
+            </li>
+          )
+        })}
+      </ol>
+      {t.blockout && (
+        <div className="space-y-1.5">
+          <p className="text-sm font-medium">Blockout</p>
+          <video controls preload="metadata" src={`/${t.blockout}`} className="w-full rounded border" />
+        </div>
+      )}
+      <div className="space-y-4">
+        <p className="text-sm font-medium">Generations</p>
+        {gens.length === 0 && <p className="text-sm text-muted-foreground">None yet.</p>}
+        {gens.map((g, k) => (
+          <div key={g.id} className={cn("space-y-2 rounded-lg border p-3", t.pick === g.id && "ring-2 ring-emerald-500/50")}>
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <span className="font-medium text-foreground">Take {gens.length - k}</span>
+              <span>
+                {g.model} · {g.provider} · {when(g.at)}
+              </span>
+              {g.status === "running" && (
+                <span className="ml-auto inline-flex items-center gap-1">
+                  <LoaderCircle className="size-3 animate-spin" /> Rendering
+                </span>
+              )}
+              {g.status === "done" &&
+                (t.pick === g.id ? (
+                  <Button size="sm" variant="secondary" className="ml-auto" onClick={() => op({ op: "pixels.pick", take: t.id, gen: null, by: ME })}>
+                    <Check className="text-emerald-600" /> Using this take
+                  </Button>
+                ) : (
+                  <Button size="sm" variant="outline" className="ml-auto" onClick={() => op({ op: "pixels.pick", take: t.id, gen: g.id, by: ME })}>
+                    Use this take
+                  </Button>
+                ))}
+            </div>
+            {g.note && <p className="text-xs leading-relaxed text-muted-foreground">{g.note}</p>}
+            {g.status === "failed" && <p className="text-sm text-amber-600 dark:text-amber-400">{g.error ?? "Failed"}</p>}
+            {g.status === "done" && (g.compare || g.file) && <video controls preload="metadata" src={`/${g.compare ?? g.file}`} className="w-full rounded" />}
+            {g.compare && g.file && (
+              <a href={`/${g.file}`} target="_blank" rel="noreferrer" className="text-xs text-muted-foreground hover:text-foreground">
+                Open the generation on its own
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </ProposalSection>
   )
 }
 

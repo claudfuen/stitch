@@ -6,7 +6,7 @@ import type {
   Section, Setup, Shot, Take, TakeVerdict,
 } from "./model"
 import { checkSteps, modelInfo } from "./models"
-import { blockedBy, newProcess, type Beat, type BeatMark, type Candidate, type CastMember, type Concept, type SheetItem, type Doer, type GateMode, type GateStatus, type Performance, type Process, type Scene, type Space, type StageId, type Voice, type VoiceTake } from "./process"
+import { blockedBy, newProcess, type Beat, type BeatMark, type Candidate, type CastMember, type Concept, type SheetItem, type Doer, type GateMode, type GateStatus, type Generation, type Performance, type Process, type Scene, type SetTake, type Space, type StageId, type Voice, type VoiceTake } from "./process"
 
 /** The editable lists on a floor plan, and the element type each holds. */
 export type PlanList = { items: PlanItem; marks: Mark; axes: Axis; setups: Setup }
@@ -79,6 +79,13 @@ export type Op =
   | { op: "voice.scene"; scene: Scene; by?: string }
   /** A read built from performed takes: adds or replaces it by id, and makes it the picked read when `pick`. */
   | { op: "voice.read"; take: VoiceTake; pick?: boolean; by?: string }
+  /** Stage 06: a set's take (its shots and blockout). Adds or replaces it by id; generations and the pick are kept
+   *  unless given. */
+  | { op: "pixels.take"; take: Omit<SetTake, "gens"> & { gens?: Generation[] }; by?: string }
+  /** A generation of a take (running, done or failed): adds or replaces it by id. */
+  | { op: "pixels.gen"; take: Id; gen: Generation; by?: string }
+  /** The generation to slice the take from, or none. */
+  | { op: "pixels.pick"; take: Id; gen: Id | null; by?: string }
   | { op: "sheet.lock"; id: Id; pass: number; of: number; note?: string }
   | { op: "sheet.scene"; id: Id; candidate: Candidate }
   /** Replace the beat sheet (an agent's rewrite). Bumps the version and reopens the script gate. */
@@ -280,6 +287,9 @@ export function applyOp(p: Project, o: Op): Project {
     case "voice.remove":
     case "voice.scene":
     case "voice.read":
+    case "pixels.take":
+    case "pixels.gen":
+    case "pixels.pick":
     case "sheet.lock":
     case "sheet.scene":
     case "script.set":
@@ -288,14 +298,14 @@ export function applyOp(p: Project, o: Op): Project {
     case "note.resolve":
     {
       const process = applyProcessOp(p.process ?? newProcess(), o)
-      const said = o.op === "gate.set" ? `${process.stages.find((x) => x.id === o.stage)?.name}: ${o.status}${o.note ? ` - ${o.note}` : ""}` : o.op === "concept.pick" ? `Concept picked: ${o.id ?? "none"}` : o.op === "script.set" ? `Beat sheet v${process.script.version} written` : o.op === "note.add" ? `Note on ${o.target}: ${o.text}` : o.op === "sheet.pick" ? `Picked for ${o.id}: ${o.file ?? "none"}` : o.op === "sheet.add" ? `Candidate for ${o.id}: ${o.candidate.file} (${o.candidate.model} via ${o.candidate.provider})` : o.op === "space.set" ? `Space and camera: ${o.space.rooms.length} rooms, ${o.space.rooms.reduce((n, r) => n + r.cameras.length, 0)} cameras, ${o.space.cuts.length} cuts` : o.op === "space.frame" ? `Frame for ${o.room} ${o.cam} (${o.candidate.model} via ${o.candidate.provider})` : o.op === "voice.set" ? `Voice: ${o.voice.roles.length} roles, ${o.voice.takes.length} ${o.voice.takes.length === 1 ? "take" : "takes"}` : o.op === "voice.cast" ? `Voice for ${o.who}: ${o.voice}` : o.op === "voice.pick" ? `Voice take picked: ${o.take}` : o.op === "voice.perform" ? performed(o.performance) : o.op === "voice.keep" ? (o.id ? `Line ${o.n}: take ${o.id} picked` : `Line ${o.n}: no take picked`) : o.op === "voice.remove" ? `Take ${o.id} ${o.removed === false ? "restored" : "removed"}` : o.op === "voice.scene" ? `Scene performed by ${o.scene.by} as ${o.scene.who === "all" ? "every part" : o.scene.who}: ${o.scene.events.filter((e) => e.kind === "mine").length} lines` : o.op === "voice.read" ? `Read ${o.take.id} built: ${o.take.lines.length} lines, ${Math.round(o.take.duration)} s` : null
+      const said = o.op === "gate.set" ? `${process.stages.find((x) => x.id === o.stage)?.name}: ${o.status}${o.note ? ` - ${o.note}` : ""}` : o.op === "concept.pick" ? `Concept picked: ${o.id ?? "none"}` : o.op === "script.set" ? `Beat sheet v${process.script.version} written` : o.op === "note.add" ? `Note on ${o.target}: ${o.text}` : o.op === "sheet.pick" ? `Picked for ${o.id}: ${o.file ?? "none"}` : o.op === "sheet.add" ? `Candidate for ${o.id}: ${o.candidate.file} (${o.candidate.model} via ${o.candidate.provider})` : o.op === "space.set" ? `Space and camera: ${o.space.rooms.length} rooms, ${o.space.rooms.reduce((n, r) => n + r.cameras.length, 0)} cameras, ${o.space.cuts.length} cuts` : o.op === "space.frame" ? `Frame for ${o.room} ${o.cam} (${o.candidate.model} via ${o.candidate.provider})` : o.op === "voice.set" ? `Voice: ${o.voice.roles.length} roles, ${o.voice.takes.length} ${o.voice.takes.length === 1 ? "take" : "takes"}` : o.op === "voice.cast" ? `Voice for ${o.who}: ${o.voice}` : o.op === "voice.pick" ? `Voice take picked: ${o.take}` : o.op === "voice.perform" ? performed(o.performance) : o.op === "voice.keep" ? (o.id ? `Line ${o.n}: take ${o.id} picked` : `Line ${o.n}: no take picked`) : o.op === "voice.remove" ? `Take ${o.id} ${o.removed === false ? "restored" : "removed"}` : o.op === "voice.scene" ? `Scene performed by ${o.scene.by} as ${o.scene.who === "all" ? "every part" : o.scene.who}: ${o.scene.events.filter((e) => e.kind === "mine").length} lines` : o.op === "voice.read" ? `Read ${o.take.id} built: ${o.take.lines.length} lines, ${Math.round(o.take.duration)} s` : o.op === "pixels.take" ? `Take ${o.take.name}: ${o.take.shots.length} shots, ${Math.round(o.take.to - o.take.from)} s${o.take.blockout ? ", blockout rendered" : ""}` : o.op === "pixels.gen" ? `Take ${o.take}: ${o.gen.model} ${o.gen.status}${o.gen.error ? ` (${o.gen.error})` : ""}` : o.op === "pixels.pick" ? `Take ${o.take}: generation ${o.gen ?? "none"} picked` : null
       const activity = said ? [...p.activity, { t: now(), text: `${("by" in o && o.by) || "claude"} · ${said}`, kind: "info" as const }].slice(-80) : p.activity
       return { ...p, process, activity }
     }
   }
 }
 
-type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "cast.set" | "sheet.upsert" | "sheet.add" | "sheet.pick" | "sheet.view" | "sheet.unview" | "space.set" | "space.frame" | "voice.set" | "voice.cast" | "voice.pick" | "voice.perform" | "voice.keep" | "voice.remove" | "voice.scene" | "voice.read" | "sheet.lock" | "sheet.scene" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
+type ProcessOp = Extract<Op, { op: "gate.set" | "stage.update" | "concept.pick" | "concept.upsert" | "cast.set" | "sheet.upsert" | "sheet.add" | "sheet.pick" | "sheet.view" | "sheet.unview" | "space.set" | "space.frame" | "voice.set" | "voice.cast" | "voice.pick" | "voice.perform" | "voice.keep" | "voice.remove" | "voice.scene" | "voice.read" | "pixels.take" | "pixels.gen" | "pixels.pick" | "sheet.lock" | "sheet.scene" | "script.set" | "beat.mark" | "note.add" | "note.resolve" }>
 
 let seq = 0
 const noteId = () => `n${Date.now().toString(36)}${(seq++).toString(36)}`
@@ -385,6 +395,22 @@ function applyProcessOp(pr: Process, o: ProcessOp): Process {
       const v = need(pr.voice, "voice")
       const list = v.scenes ?? []
       return { ...pr, voice: { ...v, scenes: list.some((x) => x.id === o.scene.id) ? list.map((x) => (x.id === o.scene.id ? o.scene : x)) : [...list, o.scene] } }
+    }
+    case "pixels.take": {
+      const list = pr.takes ?? []
+      const old = list.find((t) => t.id === o.take.id)
+      const next: SetTake = { ...o.take, gens: o.take.gens ?? old?.gens ?? [], pick: o.take.pick ?? old?.pick }
+      return { ...pr, takes: old ? list.map((t) => (t.id === o.take.id ? next : t)) : [...list, next] }
+    }
+    case "pixels.gen": {
+      const t = need(pr.takes?.find((x) => x.id === o.take), `take ${o.take}`)
+      const gens = t.gens.some((g) => g.id === o.gen.id) ? t.gens.map((g) => (g.id === o.gen.id ? o.gen : g)) : [...t.gens, o.gen]
+      return { ...pr, takes: pr.takes!.map((x) => (x.id === o.take ? { ...x, gens } : x)) }
+    }
+    case "pixels.pick": {
+      const t = need(pr.takes?.find((x) => x.id === o.take), `take ${o.take}`)
+      if (o.gen) need(t.gens.find((g) => g.id === o.gen && g.status === "done"), `finished generation ${o.gen}`)
+      return { ...pr, takes: pr.takes!.map((x) => (x.id === o.take ? { ...x, pick: o.gen ?? undefined } : x)) }
     }
     case "voice.read": {
       const v = need(pr.voice, "voice")
