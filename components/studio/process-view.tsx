@@ -787,22 +787,29 @@ function PerformPanel({ pr, take, name }: { pr: Process; take: VoiceTake; name: 
   const first = name(who ?? "").split(" ")[0]
   const go = (d: number) => lines[i + d] && setLine(String(lines[i + d].n), { push: false })
 
+  /** A take the server did not save stays here, so it can be sent again instead of performed again. */
+  const [unsaved, setUnsaved] = useState<{ blob: Blob; n: number } | null>(null)
+  const upload = async (blob: Blob, n: number) => {
+    setState("saving")
+    setError(null)
+    try {
+      const r = await fetch(`/api/perform?n=${n}&by=${ME}${slugQ}`, { method: "POST", headers: { "content-type": blob.type }, body: blob })
+      const j = await r.json()
+      if (!r.ok) throw new Error(j.error ?? "Saving the take failed.")
+      setUnsaved(null)
+      if (j.error) setError(`Saved, but not converted: ${j.error}`)
+    } catch (e) {
+      setUnsaved({ blob, n })
+      setError(`${(e as Error).message}. The take is kept here: save it again.`)
+    }
+    setState("idle")
+  }
   const toggle = async () => {
     if (!line) return
     if (state === "idle") return start()
     if (state !== "recording") return
     const blob = await stop()
-    if (!blob) return
-    setState("saving")
-    try {
-      const r = await fetch(`/api/perform?n=${line.n}&by=${ME}${slugQ}`, { method: "POST", headers: { "content-type": blob.type }, body: blob })
-      const j = await r.json()
-      if (!r.ok) setError(j.error ?? "Saving the take failed.")
-      else if (j.error) setError(`Saved, but not converted: ${j.error}`)
-    } catch (e) {
-      setError((e as Error).message)
-    }
-    setState("idle")
+    if (blob) await upload(blob, line.n)
   }
   const again = (id: string) => fetch(`/api/perform?convert=${id}${slugQ}`, { method: "POST" })
 
@@ -882,6 +889,16 @@ function PerformPanel({ pr, take, name }: { pr: Process; take: VoiceTake; name: 
           )}
         </div>
         {error && <p className="text-sm text-amber-600 dark:text-amber-400">{error}</p>}
+        {unsaved && state === "idle" && (
+          <div className="flex gap-2">
+            <Button size="sm" onClick={() => upload(unsaved.blob, unsaved.n)}>
+              <RotateCcw /> Save the take again
+            </Button>
+            <Button size="sm" variant="ghost" onClick={() => (setUnsaved(null), setError(null))}>
+              Discard it
+            </Button>
+          </div>
+        )}
         {takes.length > 0 && (
           <ol className="space-y-3">
             {takes.map((p, k) => (

@@ -49,7 +49,7 @@ const write = (k: string, v: string) => {
 }
 
 export function Studio() {
-  const { project: p, mtimes, op, error } = useProject()
+  const { project: p, mtimes, op, error, missing } = useProject()
 
   // Derived once per change of the slices each reads: an agent appending to the activity log changes none of them.
   /* eslint-disable react-hooks/exhaustive-deps */
@@ -63,6 +63,7 @@ export function Studio() {
   const picked = useMemo(() => new Set(p ? [...p.shots.flatMap((s) => [...s.keyframes, ...s.takes]), ...p.locations.flatMap((l) => (l.plan?.setups ?? []).flatMap((u) => u.plates ?? []))].filter((t) => t.verdict === "circled").map((t) => t.asset) : []), [p?.shots, p?.locations])
   /* eslint-enable react-hooks/exhaustive-deps */
 
+  if (missing) return <MissingFilm text={missing} />
   if (!p || !ix || !rows || !sum || !history) return <div className="grid h-svh place-items-center text-sm text-muted-foreground">Loading project…</div>
   return (
     <MediaProvider mtimes={mtimes} uses={uses} assets={ix.assets} baselines={p.baselines}>
@@ -151,6 +152,35 @@ function Shell({ p, ix, rows, sum, history, board, picked, mtimes, op, error }: 
           </ReactFlowProvider>
         )}
       </main>
+    </div>
+  )
+}
+
+/** The film in the URL is not on this machine: link to the ones that are, keeping the rest of the place (view, stage). */
+function MissingFilm({ text }: { text: string }) {
+  const [list, setList] = useState<{ slug: string; title: string }[]>([])
+  useEffect(() => {
+    fetch("/api/projects").then((r) => r.json()).then(setList).catch(() => {})
+  }, [])
+  const href = (slug: string) => {
+    const u = new URL(window.location.href)
+    if (slug === "ministry") u.searchParams.delete("p")
+    else u.searchParams.set("p", slug)
+    return u.toString()
+  }
+  return (
+    <div className="grid h-svh place-items-center px-6">
+      <div className="max-w-md space-y-4 text-center">
+        <p className="text-lg font-semibold">{text}</p>
+        <p className="text-sm text-muted-foreground">It may have been a test copy that was deleted. Open one of these:</p>
+        <div className="flex flex-wrap justify-center gap-2">
+          {list.map((x) => (
+            <a key={x.slug} href={href(x.slug)} className="rounded-md border px-3 py-1.5 text-sm font-medium hover:bg-muted">
+              {x.title}
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { promises as fs } from "node:fs"
 import path from "node:path"
-import { load, mutate, projectFile, projectRoot } from "@/lib/store"
+import { load, missingFilm, mutate, projectFile, projectRoot } from "@/lib/store"
 import type { Op } from "@/lib/ops"
 import type { Project } from "@/lib/model"
 
@@ -11,7 +11,9 @@ export async function GET(req: Request) {
   const q = new URL(req.url).searchParams
   const slug = q.get("p") ?? undefined
   const known = Number(q.get("rev"))
-  const st = await fs.stat(projectFile(slug))
+  const st = await fs.stat(projectFile(slug)).catch(() => null)
+  // A 404 tells an open tab its film is gone, so it stops showing (and recording into) a stale copy.
+  if (!st) return Response.json({ error: missingFilm(slug).message, missing: true }, { status: 404 })
   if (known && Math.abs(known - st.mtimeMs) < 0.5) return Response.json({ unchanged: true, rev: st.mtimeMs })
   const p = await load(slug)
   return Response.json({ ...p, mtimes: await mtimes(p) })

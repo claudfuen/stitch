@@ -43,11 +43,11 @@ export async function perform(o: { slug?: string; n: number; audio: Uint8Array; 
   const raw = pub(`${rel}.in.${safe(o.ext) || "webm"}`)
   await fs.mkdir(path.dirname(raw), { recursive: true })
   await fs.writeFile(raw, o.audio)
-  try {
-    await exec("ffmpeg", ["-v", "error", "-y", "-i", raw, "-vn", "-ac", "1", "-ar", "48000", "-c:a", "pcm_s16le", pub(`${rel}.wav`)], { env })
-  } finally {
-    await fs.rm(raw, { force: true })
-  }
+  // The upload stays on disk until it is a WAV, so a take that will not decode is never lost.
+  await exec("ffmpeg", ["-v", "error", "-y", "-i", raw, "-vn", "-ac", "1", "-ar", "48000", "-c:a", "pcm_s16le", pub(`${rel}.wav`)], { env }).catch((e: Error) => {
+    throw new Error(`could not read the recording (kept at public/${path.relative(pub(""), raw)}): ${e.message.split("\n")[0]}`)
+  })
+  await fs.rm(raw, { force: true })
   const probe = await exec("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", pub(`${rel}.wav`)], { env })
   const perf: Performance = { id, n: o.n, who: line.who, text: line.text, file: `${rel}.wav`, duration: Number(probe.stdout.trim()) || undefined, by: o.by, at: new Date().toISOString() }
   await mutate([{ op: "voice.perform", performance: perf, by: o.by }], o.slug)

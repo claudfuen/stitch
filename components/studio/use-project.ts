@@ -20,12 +20,17 @@ export function useProject() {
   /** Each asset's file time (ms), from the server: places new media on the activity timeline and versions poster URLs. */
   const [mtimes, setMtimes] = useState<Record<Id, number>>({})
   const [error, setError] = useState<string | null>(null)
+  const [missing, setMissing] = useState<string | null>(null)
   const rev = useRef(0)
 
   const pull = useCallback(async () => {
     try {
       const r = await fetch(withSlug(`/api/project?rev=${rev.current}`), { cache: "no-store" })
       const j = await r.json()
+      // The film in ?p= is not on this machine (a deleted copy): say so instead of showing, or recording into, a stale one.
+      if (r.status === 404 && j.missing) return setMissing(j.error ?? "This film is not on this machine")
+      if (!r.ok) return
+      setMissing(null)
       if (j.unchanged) return
       rev.current = j.rev
       const { mtimes: m, ...p } = j as ProjectWithRev & { mtimes: Record<Id, number> }
@@ -56,5 +61,5 @@ export function useProject() {
     [pull],
   )
 
-  return { project, mtimes, op, error }
+  return { project, mtimes, op, error, missing }
 }

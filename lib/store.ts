@@ -22,9 +22,14 @@ export async function listProjects(): Promise<{ slug: string; title: string }[]>
   return Promise.all(slugs.map(async (slug) => ({ slug, title: ((JSON.parse(await fs.readFile(projectFile(slug), "utf8")) as Project).title) ?? slug })))
 }
 
+/** Thrown for a film that is not on this machine (a deleted copy, a mistyped ?p=). */
+export const missingFilm = (slug?: string) => new Error(`No film "${slug || process.env.STITCH_PROJECT || "ministry"}" on this machine`)
+
 export async function load(slug?: string): Promise<ProjectWithRev> {
   const f = projectFile(slug)
-  const [raw, stat] = await Promise.all([fs.readFile(f, "utf8"), fs.stat(f)])
+  const [raw, stat] = await Promise.all([fs.readFile(f, "utf8"), fs.stat(f)]).catch((e: NodeJS.ErrnoException) => {
+    throw e.code === "ENOENT" ? missingFilm(slug) : e
+  })
   return { ...(JSON.parse(raw) as Project), rev: stat.mtimeMs }
 }
 
