@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """Turn the whip pans left in a cut into hard cuts, keeping the picture in sync with the sound.
 
-    python3 scripts/dewhip.py <in.mp4> <out.mp4> [--keep a-b,c-d] [--window 16] [--threshold 12] [--speech read.wav]
+    python3 scripts/dewhip.py <in.mp4> <out.mp4> [--keep a-b,c-d] [--window 16] [--threshold 12] [--speech read.wav] [--map map.json]
 
 The blockouts whip between camera setups so a take can be sliced there: a 1994 multi-camera studio cuts between
 cameras, it never whips. The video model also renders the whip frames as smears with melted faces. A whip frame
 differs strongly from BOTH of its neighbours (a clean frame at a hard cut differs from only one), so every run of
 such frames is found, dropped and replaced: the half before the cut point extends the outgoing shot and the half after
 it extends the incoming one, each by slowing its last (first) `--window` frames slightly (frames repeated evenly), so
-the total length and every later frame stay exactly where they were. With `--speech`, the stretch goes to the side
-of the cut where nobody is talking, so a speaking face keeps its exact timing (lips stay on the words). Camera flashes (a frame much brighter than both
+the total length and every later frame stay exactly where they were. With `--speech`, the stretch goes only into the
+silent frames beside the cut, so a speaking face keeps its exact timing (lips stay on the words). Camera flashes (a frame much brighter than both
 neighbours) and `--keep` ranges (seconds) are left alone. Writes picture only; mux the sound after.
 """
 import os
@@ -88,17 +88,27 @@ prev_end = 0
 for k, (a, b) in enumerate(runs):
     p, q = a - 1, b + 1  # last clean outgoing, first clean incoming
     gap = b - a + 1
-    before, after = talking((a - W) / fps, a / fps), talking((b + 1) / fps, (b + 1 + W) / fps)
-    if speech and before > after + 0.15:
-        h1 = 0  # someone is talking in the outgoing shot: the incoming one absorbs the gap
-    elif speech and after > before + 0.15:
-        h1 = gap  # talking in the incoming shot: the outgoing one absorbs it
-    else:
-        h1 = gap // 2
-    h2 = gap - h1
     nxt_start = runs[k + 1][0] if k + 1 < len(runs) else N
     w1 = max(1, min(W, p - prev_end + 1))
     w2 = max(1, min(W, nxt_start - q))
+    # A stretched frame shows the picture behind the sound, so lips lag while the stretch lasts. With --speech the
+    # gap goes into the silent frames beside the cut (r1 before it, r2 after it, with a margin for lips that move
+    # just before a word), so no spoken frame is stretched. When speech runs through the cut, it is split evenly,
+    # which halves the worst lag.
+    silent = lambda f: talking(f / fps - 0.04, (f + 1) / fps + 0.08) == 0
+    r1 = r2 = 0
+    if speech:
+        while r1 < w1 and silent(p - r1):
+            r1 += 1
+        while r2 < w2 and silent(q + r2):
+            r2 += 1
+    if speech and r1 + r2:
+        h1 = round(gap * r1 / (r1 + r2))
+        h2 = gap - h1
+        w1, w2 = max(1, r1), max(1, r2)
+    else:
+        h1 = gap // 2
+        h2 = gap - h1
     # outgoing: source frames p-w1+1..p spread over output frames p-w1+1..p+h1
     if h1:
         for o in range(w1 + h1):
@@ -110,6 +120,9 @@ for k, (a, b) in enumerate(runs):
     prev_end = q + w2
     print(f"whip {a / fps:6.2f}-{b / fps:6.2f}s ({gap} frames) -> cut at {(a + h1) / fps:6.2f}s (stretch: out {h1}, in {h2})")
 
+if opt.get("map"):  # output frame -> source frame, for tools that follow the picture (lipdrift)
+    import json
+    json.dump(m, open(opt["map"], "w"))
 tmp = tempfile.mkdtemp(prefix="dewhip-")
 subprocess.run(["ffmpeg", "-v", "error", "-i", src, "-q:v", "1", os.path.join(tmp, "s%06d.jpg")], check=True)
 out = os.path.join(tmp, "o")
