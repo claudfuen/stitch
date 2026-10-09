@@ -28,6 +28,7 @@
   "dependencies": {
     "@ai-sdk/gateway": "^4.0.104",
     "@base-ui/react": "^1.8.0",
+    "@higgsfield/client": "^0.2.6",
     "@react-three/drei": "^10.7.9",
     "@react-three/fiber": "^9.8.1",
     "@shadcn/react": "^0.3.1",
