@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """Turn the whip pans left in a cut into hard cuts, keeping the picture in sync with the sound.
 
-    python3 scripts/dewhip.py <in.mp4> <out.mp4> [--keep a-b,c-d] [--window 16] [--threshold 12]
+    python3 scripts/dewhip.py <in.mp4> <out.mp4> [--keep a-b,c-d] [--window 16] [--threshold 12] [--speech read.wav]
 
 The blockouts whip between camera setups so a take can be sliced there: a 1994 multi-camera studio cuts between
 cameras, it never whips. The video model also renders the whip frames as smears with melted faces. A whip frame
 differs strongly from BOTH of its neighbours (a clean frame at a hard cut differs from only one), so every run of
 such frames is found, dropped and replaced: the half before the cut point extends the outgoing shot and the half after
 it extends the incoming one, each by slowing its last (first) `--window` frames slightly (frames repeated evenly), so
-the total length and every later frame stay exactly where they were. Camera flashes (a frame much brighter than both
+the total length and every later frame stay exactly where they were. With `--speech`, the stretch goes to the side
+of the cut where nobody is talking, so a speaking face keeps its exact timing (lips stay on the words). Camera flashes (a frame much brighter than both
 neighbours) and `--keep` ranges (seconds) are left alone. Writes picture only; mux the sound after.
 """
 import os
@@ -22,6 +23,20 @@ src, dst = [a for i, a in enumerate(args) if not a.startswith("--") and (i == 0 
 W = int(opt.get("window", 16))
 TH = float(opt.get("threshold", 12))
 keep = [tuple(map(float, r.split("-"))) for r in opt.get("keep", "").split(",") if r]
+speech = None
+if opt.get("speech"):
+    pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", opt["speech"], "-ac", "1", "-ar", "8000", "-f", "s16le", "-"], capture_output=True).stdout
+    smp = [int.from_bytes(pcm[i:i + 2], "little", signed=True) for i in range(0, len(pcm) - 1, 2)]
+    rms = [(sum(x * x for x in smp[k:k + 80]) / 80) ** 0.5 for k in range(0, len(smp) - 79, 80)]  # 10 ms
+    speech = [r > 600 for r in rms]
+
+
+def talking(t0, t1):
+    """Share of 10 ms frames with speech between t0 and t1 (seconds)."""
+    if not speech:
+        return 0.5
+    a, b = max(0, int(t0 * 100)), min(len(speech), int(t1 * 100))
+    return sum(speech[a:b]) / max(1, b - a)
 
 fps_s = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=r_frame_rate", "-of", "csv=p=0", src], capture_output=True, text=True).stdout.strip()
 num, den = fps_s.split("/")
@@ -73,19 +88,27 @@ prev_end = 0
 for k, (a, b) in enumerate(runs):
     p, q = a - 1, b + 1  # last clean outgoing, first clean incoming
     gap = b - a + 1
-    h1 = gap // 2
+    before, after = talking((a - W) / fps, a / fps), talking((b + 1) / fps, (b + 1 + W) / fps)
+    if speech and before > after + 0.15:
+        h1 = 0  # someone is talking in the outgoing shot: the incoming one absorbs the gap
+    elif speech and after > before + 0.15:
+        h1 = gap  # talking in the incoming shot: the outgoing one absorbs it
+    else:
+        h1 = gap // 2
     h2 = gap - h1
     nxt_start = runs[k + 1][0] if k + 1 < len(runs) else N
     w1 = max(1, min(W, p - prev_end + 1))
     w2 = max(1, min(W, nxt_start - q))
     # outgoing: source frames p-w1+1..p spread over output frames p-w1+1..p+h1
-    for o in range(w1 + h1):
-        m[p - w1 + 1 + o] = p - w1 + 1 + min(w1 - 1, int(o * w1 / (w1 + h1)))
+    if h1:
+        for o in range(w1 + h1):
+            m[p - w1 + 1 + o] = p - w1 + 1 + min(w1 - 1, int(o * w1 / (w1 + h1)))
     # incoming: source frames q..q+w2-1 spread over output frames q-h2..q+w2-1
-    for o in range(w2 + h2):
-        m[q - h2 + o] = q + min(w2 - 1, int(o * w2 / (w2 + h2)))
+    if h2:
+        for o in range(w2 + h2):
+            m[q - h2 + o] = q + min(w2 - 1, int(o * w2 / (w2 + h2)))
     prev_end = q + w2
-    print(f"whip {a / fps:6.2f}-{b / fps:6.2f}s ({gap} frames) -> cut at {(a + h1) / fps:6.2f}s")
+    print(f"whip {a / fps:6.2f}-{b / fps:6.2f}s ({gap} frames) -> cut at {(a + h1) / fps:6.2f}s (stretch: out {h1}, in {h2})")
 
 tmp = tempfile.mkdtemp(prefix="dewhip-")
 subprocess.run(["ffmpeg", "-v", "error", "-i", src, "-q:v", "1", os.path.join(tmp, "s%06d.jpg")], check=True)
