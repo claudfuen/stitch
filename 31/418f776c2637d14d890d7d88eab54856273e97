@@ -1,0 +1,23 @@
+scripts/cutsheet.py
+  s_57926d8e065a50::t_74462a33202029 1-68
+scripts/mouthsheet.py
+  s_57926d8e065a50::t_57873cda9ca5a0 1-75,79-111
+scripts/dewhip.py
+  s_57926d8e065a50::t_96f13606c1e88d 94-111
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "31418f776c2637d14d890d7d88eab54856273e97",
+  "prompts": {},
+  "sessions": {
+    "s_57926d8e065a50": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a3f94515-bcc4-4167-8e39-a7436a363df6",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Claudio Fuentes <imclaudfuen@gmail.com>"
+    }
+  }
+}
