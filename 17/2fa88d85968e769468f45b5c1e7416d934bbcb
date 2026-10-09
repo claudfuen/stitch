@@ -1,0 +1,21 @@
+scripts/hf-example.ts
+  s_57926d8e065a50::t_8ad29ecddb39cb 1-23
+scripts/higgsfield.ts
+  s_57926d8e065a50::t_830f0e0073f799 1-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "172fa88d85968e769468f45b5c1e7416d934bbcb",
+  "prompts": {},
+  "sessions": {
+    "s_57926d8e065a50": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a3f94515-bcc4-4167-8e39-a7436a363df6",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Claudio Fuentes <imclaudfuen@gmail.com>"
+    }
+  }
+}
