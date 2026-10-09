@@ -1,0 +1,23 @@
+scripts/sfx.py
+  s_57926d8e065a50::t_5f8a246567559b 1-42
+scripts/finish.py
+  s_57926d8e065a50::t_27e1b7990257d7 1-73
+scripts/lipsync.py
+  s_57926d8e065a50::t_42f8e17b4cef4e 1-62
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "4470c684664c0fd14c7734b35742e4071b03615c",
+  "prompts": {},
+  "sessions": {
+    "s_57926d8e065a50": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a3f94515-bcc4-4167-8e39-a7436a363df6",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Claudio Fuentes <imclaudfuen@gmail.com>"
+    }
+  }
+}
