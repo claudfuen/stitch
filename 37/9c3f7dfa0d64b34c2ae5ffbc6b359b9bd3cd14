@@ -1,0 +1,19 @@
+scripts/sfx.py
+  s_57926d8e065a50::t_ca8ccde7b0e86f 10-13,18,20,26-27,29,41-54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "379c3f7dfa0d64b34c2ae5ffbc6b359b9bd3cd14",
+  "prompts": {},
+  "sessions": {
+    "s_57926d8e065a50": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a3f94515-bcc4-4167-8e39-a7436a363df6",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Claudio Fuentes <imclaudfuen@gmail.com>"
+    }
+  }
+}
