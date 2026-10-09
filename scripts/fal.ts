@@ -6,6 +6,7 @@
 //        jobs: [{ endpoint: "google/nano-banana-2.1/edit", input: {...}, refs?: [local paths -> input.image_urls],
 //                 videos?: [-> input.video_urls], audios?: [-> input.audio_urls], out }]
 //        Videos and audio go up to fal storage first; a video model's output (and its draft_id) is saved the same way.
+//        files?: { field: local path } uploads single-file fields (sync-3 lipsync: video_url, audio_url).
 //   bun run fal result <endpoint> <request_id> --out file.png      fetch a job submitted elsewhere (the fal connector)
 //
 // Every output gets a sidecar <out>.json: { provider: "fal", model, request_id, input (refs as paths) }.
@@ -14,7 +15,7 @@ import { spawnSync } from "node:child_process"
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import path from "node:path"
 
-type Job = { endpoint: string; input: Record<string, unknown>; refs?: string[]; videos?: string[]; audios?: string[]; out: string }
+type Job = { endpoint: string; input: Record<string, unknown>; refs?: string[]; videos?: string[]; audios?: string[]; files?: Record<string, string>; out: string }
 
 function key(): string {
   if (process.env.FAL_KEY?.trim()) return process.env.FAL_KEY.trim()
@@ -75,10 +76,11 @@ async function run(job: Job) {
     ...(job.refs?.length ? { image_urls: job.refs.map(dataUri) } : {}),
     ...(job.videos?.length ? { video_urls: await Promise.all(job.videos.map(upload)) } : {}),
     ...(job.audios?.length ? { audio_urls: await Promise.all(job.audios.map(upload)) } : {}),
+    ...Object.fromEntries(await Promise.all(Object.entries(job.files ?? {}).map(async ([k, f]) => [k, await upload(f)]))),
   }
   const sub = await fal(`https://queue.fal.run/${job.endpoint}`, { method: "POST", body: JSON.stringify(input) })
   const res = await result(job.endpoint, sub.request_id)
-  const files = await save(job.out, job.endpoint, sub.request_id, { ...job.input, ...(job.refs ? { image_urls: job.refs } : {}), ...(job.videos ? { video_urls: job.videos } : {}), ...(job.audios ? { audio_urls: job.audios } : {}) }, res)
+  const files = await save(job.out, job.endpoint, sub.request_id, { ...job.input, ...(job.refs ? { image_urls: job.refs } : {}), ...(job.videos ? { video_urls: job.videos } : {}), ...(job.audios ? { audio_urls: job.audios } : {}), ...job.files }, res)
   console.log(`ok ${job.endpoint} -> ${files.join(", ")} (${Math.round((Date.now() - t0) / 1000)} s, ${sub.request_id})`)
 }
 

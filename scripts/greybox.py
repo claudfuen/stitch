@@ -632,7 +632,7 @@ if anim:
     scene.render.fps = fps
     scene.render.resolution_x, scene.render.resolution_y = take.get("size", [1280, 720])
     scene.frame_start = 1
-    scene.frame_end = max(1, round(shots[-1]["t1"] * fps))
+    scene.frame_end = max(1, round(min(shots[-1]["t1"], take.get("render_to", 1e9)) * fps))  # render_to: only the head
     if film:
         film_look()
     cd = bpy.data.cameras.new("cam-take")
@@ -775,7 +775,7 @@ if anim:
     R = math.radians
     CHANNELS = {"root": ("location", "rotation_euler"), "hips": ("location", "rotation_euler"), "spine1": ("rotation_euler",),
                 "spine2": ("rotation_euler",), "head": ("rotation_euler",), "thigh_l": ("rotation_euler",), "thigh_r": ("rotation_euler",),
-                "knee_l": ("rotation_euler",), "knee_r": ("rotation_euler",)}
+                "knee_l": ("rotation_euler",), "knee_r": ("rotation_euler",), "foot_l": ("rotation_euler",), "foot_r": ("rotation_euler",)}
 
     def fcurve(o, path, i):
         cb = anim_utils.action_get_channelbag_for_slot(o.animation_data.action, o.animation_data.action_slot)
@@ -812,6 +812,79 @@ if anim:
                 continue
             t0, t1 = max(0.0, min(times) - 0.6), max(times) + 0.8
             n = max(1, round((t1 - t0) * 24))
+            # Gait pre-pass: where the figure is at every sample, how far it has walked, which way it is heading.
+            # A walking figure faces where it walks (unless the move says "face": false), and its feet are planted:
+            # each foot stays put on the floor through its stance while the body passes over it, then swings to the
+            # next footprint, and the legs reach each footprint by two-joint IK. So nothing slides.
+            ts = [t0 + (t1 - t0) * k / n for k in range(n + 1)]
+            paths = [mv for mv in mvs if mv.get("path")]
+
+            def path_at(mv, u):
+                pts = mv["path"]
+                if u <= pts[0][0]:
+                    return V((pts[0][1], pts[0][2], 0))
+                if u >= pts[-1][0]:
+                    return V((pts[-1][1], pts[-1][2], 0))
+                for (a0, x0, y0), (a1, x1, y1) in zip(pts, pts[1:]):
+                    if a0 <= u <= a1:
+                        w = (u - a0) / max(a1 - a0, 1e-6)
+                        return V((x0 + (x1 - x0) * w, y0 + (y1 - y0) * w, 0))
+                return V((pts[-1][1], pts[-1][2], 0))
+
+            P = [sum((path_at(mv, t - mv.get("delay", 0.0)) for mv in paths), V((0, 0, 0))) for t in ts]
+            D = [0.0]
+            for a_, b_ in zip(P, P[1:]):
+                D.append(D[-1] + (b_ - a_).length)
+            HD, SP = [], []
+            for i in range(len(ts)):
+                a_, b_ = P[max(0, i - 1)], P[min(len(P) - 1, i + 1)]
+                v = b_ - a_
+                dt = ts[min(len(P) - 1, i + 1)] - ts[max(0, i - 1)]
+                SP.append(v.length / max(dt, 1e-6))
+                HD.append(math.degrees(math.atan2(v.x, v.y)) if v.length > 1e-4 else None)
+            last = None  # hold the last real heading through the stop
+            for i in range(len(HD)):
+                if HD[i] is None:
+                    HD[i] = last
+                last = HD[i] if HD[i] is not None else last
+            face_walk = paths and all(mv.get("face", True) for mv in paths) and m.get("pose") != "sit"
+            WW = [min(1.0, sp / 0.5) for sp in SP]  # how much the body is walking, smoothed over 0.2 s
+            WW = [sum(WW[max(0, i - 2):i + 3]) / len(WW[max(0, i - 2):i + 3]) for i in range(len(WW))]
+            walking = [i for i, w in enumerate(WW) if w > 0.05]
+            avg_sp = (D[-1] / max(1e-6, (ts[walking[-1]] - ts[walking[0]]) if walking else 1)) if walking else 0.0
+            step = min(0.95, max(0.5, 0.42 + 0.2 * avg_sp))  # metres per step: longer when faster
+            DUTY = 0.58
+
+            def pos_at_dist(x):
+                """The path offset where the walked distance reaches x."""
+                if x <= 0:
+                    return P[0], 0
+                for i in range(1, len(D)):
+                    if D[i] >= x:
+                        w = (x - D[i - 1]) / max(D[i] - D[i - 1], 1e-9)
+                        return P[i - 1].lerp(P[i], w), i
+                return P[-1], len(P) - 1
+
+            def foot_world(side_s, d):
+                """Where a foot is on the floor (world xy, height) when the body has walked d metres."""
+                o = 0.0 if side_s < 0 else step
+                cyc = 2 * step
+                q = ((d - o) % cyc) / cyc
+                j = math.floor((d - o) / cyc)
+                plant = o + j * cyc + 0.5 * DUTY * cyc  # the body passes over this footprint mid-stance
+                if q < DUTY:
+                    x, lift = plant, 0.0
+                    roll = abs(q - 0.5 * DUTY) / (0.5 * DUTY)  # heel strike, then toe off: the ankle rises a little
+                    ank = 0.07 + 0.05 * roll * roll
+                else:
+                    w = ease((q - DUTY) / (1 - DUTY))
+                    x, lift = plant + w * cyc, 0.09 * math.sin(math.pi * w)
+                    ank = 0.07 + 0.05 + lift
+                pos, i = pos_at_dist(x)
+                h = math.radians(HD[i] if HD[i] is not None else m.get("facing", 0))
+                lat = V((math.cos(h), -math.sin(h), 0)) * (0.1 * side_s)
+                return V(rest["root"][0]) + pos + lat + V((0, 0, ank))
+
             dist, prev = 0.0, None
             for k in range(n + 1):
                 t = t0 + (t1 - t0) * k / n
@@ -843,6 +916,10 @@ if anim:
                     pitch += mv.get("nod", 4.0) * pulse(tt, mv.get("nods", []))
                     if mv.get("slam"):
                         pitch += 12.0 * pulse(tt, mv["slam"], 0.06, 0.35)
+                if face_walk and HD[k] is not None:
+                    want = (HD[k] - m.get("facing", 0) - turn + 540) % 360 - 180
+                    turn += WW[k] * want
+                    turn_lag += WW[k] * want
                 if prev is not None:
                     dist += (off - prev).length
                 prev = off.copy()
@@ -857,11 +934,32 @@ if anim:
                 J["spine1"].rotation_euler = (rest["spine1"][1][0] - R(0.45 * lean), 0, 0)
                 J["spine2"].rotation_euler = (rest["spine2"][1][0] - R(0.55 * lean), 0, -R(turn - turn_lag) * 0.6 + R(5 * walk * math.sin(ph)))
                 J["head"].rotation_euler = (-R(pitch) + R(0.3 * lean), 0, -R(yaw) - R(turn - turn_lag) * 0.4)
-                for side, p_ in (("l", ph), ("r", ph + math.pi)):
-                    tr = rest[f"thigh_{side}"][1]
-                    kr = rest[f"knee_{side}"][1]
-                    J[f"thigh_{side}"].rotation_euler = (tr[0] + R(26 * walk * math.sin(p_)), 0, 0)
-                    J[f"knee_{side}"].rotation_euler = (kr[0] - R(walk * (6 + 40 * max(0.0, math.cos(p_)))), 0, 0)
+                ik = face_walk and walking and ts[walking[0]] - 0.1 <= t <= ts[walking[-1]] + 0.35
+                if ik:
+                    # Hips drop a little while walking (knees never lock), and bob twice per stride.
+                    J["hips"].location = V(hl) + V((0, 0, -0.05 * WW[k] + 0.02 * WW[k] * math.cos(4 * math.pi * D[k] / (2 * step))))
+                    bpy.context.view_layer.update()
+                    for side, s_ in (("l", -1), ("r", 1)):
+                        tgt = foot_world(s_, D[k])
+                        th = J[f"thigh_{side}"]
+                        thigh_w = J["hips"].matrix_world @ V(rest[f"thigh_{side}"][0])
+                        rot = J["hips"].matrix_world.to_3x3().normalized().inverted()
+                        v = rot @ (tgt - thigh_w)
+                        L1, L2 = 0.42, 0.40
+                        dd = min(L1 + L2 - 0.004, max(0.2, math.hypot(v.y, v.z)))
+                        a_ = math.atan2(v.y, -v.z)
+                        b_ = math.acos(max(-1, min(1, (L1 * L1 + dd * dd - L2 * L2) / (2 * L1 * dd))))
+                        g_ = math.acos(max(-1, min(1, (L1 * L1 + L2 * L2 - dd * dd) / (2 * L1 * L2))))
+                        th.rotation_euler = (a_ + b_, 0, 0)
+                        J[f"knee_{side}"].rotation_euler = (-(math.pi - g_), 0, 0)
+                        J[f"foot_{side}"].rotation_euler = (-(a_ + b_) + (math.pi - g_), 0, 0)
+                else:
+                    for side, p_ in (("l", ph), ("r", ph + math.pi)):
+                        tr = rest[f"thigh_{side}"][1]
+                        kr = rest[f"knee_{side}"][1]
+                        J[f"thigh_{side}"].rotation_euler = (tr[0] + R(26 * walk * math.sin(p_)), 0, 0)
+                        J[f"knee_{side}"].rotation_euler = (kr[0] - R(walk * (6 + 40 * max(0.0, math.cos(p_)))), 0, 0)
+                        J[f"foot_{side}"].rotation_euler = rest[f"foot_{side}"][1]
                 for name, paths in CHANNELS.items():
                     for path_ in paths:
                         J[name].keyframe_insert(path_, frame=fr)
