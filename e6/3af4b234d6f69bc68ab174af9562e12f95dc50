@@ -1,0 +1,21 @@
+scripts/social.py
+  s_57926d8e065a50::t_da02113a8fcb5c 1-27,32-35,38-40,53-55,57-75,77-96,99,101-104
+scripts/captions.py
+  s_57926d8e065a50::t_d3bf3a3560f91f 1-96,98-101,116-129
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "e63af4b234d6f69bc68ab174af9562e12f95dc50",
+  "prompts": {},
+  "sessions": {
+    "s_57926d8e065a50": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a3f94515-bcc4-4167-8e39-a7436a363df6",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Claudio Fuentes <imclaudfuen@gmail.com>"
+    }
+  }
+}
